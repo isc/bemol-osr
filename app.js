@@ -59,7 +59,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { works, effectif } (mémo de production, saisi à la main)
+  productions: {}, // Liste → { chef, solistes, works, effectif } (mémo de production, saisi à la main)
   updatedAt: null,
   season: null,
   view: null,
@@ -246,13 +246,27 @@ function showDetail(e) {
   dlg.showModal()
 }
 
-// Infos du mémo de production (œuvres + effectif) pour la Liste de l'événement.
-// Renvoie [] si aucune info n'est saisie pour cette Liste dans productions.json.
+// Infos du mémo de production (chef, solistes, œuvres, effectif) pour la Liste
+// de l'événement. Renvoie [] si aucune info n'est saisie pour cette Liste dans
+// productions.json.
 function productionDetail(e) {
   const prod = state.productions[e.liste]
   if (!prod) return []
+  const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
   const nodes = []
+  if (prod.chef) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Direction musicale"),
+      el("p", { class: "chef" }, prod.chef),
+    )
+  }
+  if (solistes.length) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, solistes.length > 1 ? "Solistes" : "Soliste"),
+      el("ul", { class: "solistes" }, ...solistes.map((s) => el("li", {}, s))),
+    )
+  }
   if (works.length) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Œuvres au programme"),
