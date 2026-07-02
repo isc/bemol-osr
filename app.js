@@ -455,11 +455,22 @@ function setView(view) {
   render()
 }
 
+const VIEW_LABELS = { grille: "Grille", agenda: "Agenda", modifs: "Modifications" }
+
 function render() {
   renderLegend()
   renderPrefs()
   const main = document.getElementById("main")
   main.replaceChildren()
+  // Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué)
+  main.append(
+    el(
+      "div",
+      { class: "print-title" },
+      el("h1", {}, `♭ Bémol — Planning OSR`),
+      el("p", {}, `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`),
+    ),
+  )
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "agenda") renderAgenda(main)
   else renderModifs(main)
