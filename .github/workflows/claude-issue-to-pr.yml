@@ -30,14 +30,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Visibilité immédiate : on poste nous-mêmes le commentaire de démarrage.
+      # (Pas de track_progress : il force le « tag mode », dans lequel Claude ne
+      # crée plus la PR lui-même — il ne poste qu'un lien pré-rempli, au body
+      # tronqué. Cf. FAQ de claude-code-action.)
+      - name: Commenter le démarrage sur l'issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} -R ${{ github.repository }} --body \
+            "🤖 **Claude a pris cette issue en charge** : il implémente la demande puis ouvrira une pull request (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+
       - uses: anthropics/claude-code-action@v1
         with:
           # Authentification via l'abonnement Claude (Pro/Max), pas de
           # facturation API. Token généré localement par `claude setup-token`.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # Poste dès le démarrage un commentaire de suivi « Claude is
-          # working… » sur l'issue, mis à jour au fil de l'avancement.
-          track_progress: true
           # En mode agent (prompt fourni), seule la lecture/édition de fichiers
           # est permise par défaut : on autorise tout Bash (le runner est jetable
           # et isolé) pour que Claude puisse pousser sa branche, créer la PR,
