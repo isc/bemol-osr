@@ -385,6 +385,26 @@ dialog h2 {
   margin: 0;
 }
 
+#detail-content .detail-section {
+  margin: 14px 0 4px;
+  font-size: 0.95em;
+  color: var(--accent);
+}
+
+#detail-content .works {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+#detail-content .works li {
+  margin: 2px 0;
+}
+
+#detail-content .effectif {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 .close-btn {
   margin-top: 10px;
 }

@@ -1,0 +1,10 @@
+{
+ "_lisezmoi": "Ce fichier est rempli À LA MAIN (contrairement à data/planning.json qui est généré depuis l'ICS). Il complète le planning avec les infos du mémo de production qui n'existent pas dans l'export ICS : les œuvres au programme et l'effectif orchestral. Une entrée par Liste. La clé est le nom exact de la Liste (ex. « Liste 01 »). « works » est la liste des œuvres (une chaîne par œuvre, idéalement « Compositeur — Titre »). « effectif » est un texte libre (ex. « 2.2.2.2 / 4.3.3.1 / timb., 2 perc. / cordes »). Les clés commençant par « _ » sont ignorées par l'application.",
+ "Liste 01": {
+  "works": [
+   "(exemple à remplacer) George Gershwin — Rhapsody in Blue",
+   "(exemple à remplacer) Maurice Ravel — Boléro"
+  ],
+  "effectif": "(exemple à remplacer) 2.2.2.2 / 4.3.3.1 / timb., 2 perc., harpe / cordes"
+ }
+}
