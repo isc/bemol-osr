@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Sérialise les écritures sur gh-pages entre ce déploiement, les previews de
+  # PR et les mises à jour de données, sinon deux jobs peuvent se marcher dessus.
+  group: gh-pages
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Site statique « nobuild » : on publie le dépôt tel quel à la RACINE de
+      # la branche gh-pages. `keep_files: true` préserve le dossier `previews/`
+      # écrit par le workflow de preview. `exclude_assets` retire le superflu.
+      - name: Publish to gh-pages (root)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: true
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
+          commit_message: "deploy: main @ ${{ github.sha }}"

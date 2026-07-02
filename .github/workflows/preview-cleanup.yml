@@ -1,0 +1,71 @@
+name: Cleanup branch preview
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Groupe DISTINCT de celui de deploy.yml / preview.yml (`gh-pages`).
+# La fermeture d'une PR (cleanup) coïncide souvent avec le merge (push sur
+# main → deploy). S'ils partageaient le même groupe, le cleanup en file
+# supplanterait le déploiement en attente. On isole donc le cleanup ; la
+# concurrence avec un push peaceiris est gérée par la boucle rebase ci-dessous.
+concurrency:
+  group: gh-pages-cleanup
+  cancel-in-progress: false
+
+jobs:
+  delete-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compute preview slug
+        id: slug
+        run: |
+          raw='${{ github.head_ref }}'
+          slug=$(echo "$raw" | tr -c 'a-zA-Z0-9-' '-' | tr -s '-' | sed 's/^-\|-$//g')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove preview directory
+        run: |
+          dir="previews/${{ steps.slug.outputs.slug }}"
+          if [ -d "$dir" ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git rm -rf "$dir"
+            git commit -m "cleanup: remove preview ${{ steps.slug.outputs.slug }}"
+            # N'étant pas sérialisé avec les pushes peaceiris (deploy/preview),
+            # on retente avec rebase si gh-pages a bougé entre-temps.
+            for i in 1 2 3 4 5; do
+              if git push origin gh-pages; then
+                exit 0
+              fi
+              echo "Push refusé (tentative $i), rebase sur gh-pages distant…"
+              git fetch origin gh-pages
+              git rebase origin/gh-pages || exit 1
+            done
+            echo "::error::Impossible de pousser le cleanup après 5 tentatives"
+            exit 1
+          else
+            echo "No preview directory at $dir, nothing to clean."
+          fi
+
+      - name: Update PR comment
+        uses: Wandalen/wretry.action@v3.8.0
+        with:
+          action: marocchino/sticky-pull-request-comment@v2
+          attempt_limit: 3
+          attempt_delay: 10000
+          with: |
+            header: preview-${{ steps.slug.outputs.slug }}
+            message: |
+              _Preview supprimée_ (PR fermée). L'URL n'est plus accessible.

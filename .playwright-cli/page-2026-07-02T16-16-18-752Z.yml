@@ -1,0 +1,2644 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "♭ Bémol Planning OSR" [level=1] [ref=e4]
+      - generic [ref=e5]:
+        - combobox "Saison" [ref=e6] [cursor=pointer]:
+          - option "Saison 2025-26" [selected]
+          - option "Saison 2026-27"
+          - option "Saison 2027-28"
+          - option "Saison 2028-29"
+        - navigation [ref=e7]:
+          - button "Grille" [ref=e8] [cursor=pointer]
+          - button "Agenda" [ref=e9] [cursor=pointer]
+          - button "Modifs4" [ref=e10] [cursor=pointer]
+        - button "Aujourd'hui" [ref=e11] [cursor=pointer]
+        - button "⚙" [ref=e12] [cursor=pointer]
+    - generic [ref=e13]:
+      - generic [ref=e14] [cursor=pointer]: Concert / Représentation
+      - generic [ref=e15] [cursor=pointer]: Générale / Raccord
+      - generic [ref=e16] [cursor=pointer]: Italienne / Scène & orch.
+      - generic [ref=e17] [cursor=pointer]: Enregistrement
+      - generic [ref=e18] [cursor=pointer]: Répétition / Lecture
+      - generic [ref=e19] [cursor=pointer]: Concours / Auditions
+      - generic [ref=e20] [cursor=pointer]: Autre
+      - generic [ref=e21] [cursor=pointer]: Résa de salles
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - heading "Période 1 — du 4 août au 31 août 2025" [level=2] [ref=e24]
+      - table [ref=e26]:
+        - rowgroup [ref=e27]:
+          - row "S1 Lu 4 août Ma 5 août Me 6 août Je 7 août Ve 8 août Sa 9 août Di 10 août" [ref=e28]:
+            - columnheader "S1" [ref=e29]
+            - columnheader "Lu 4 août" [ref=e30]
+            - columnheader "Ma 5 août" [ref=e31]
+            - columnheader "Me 6 août" [ref=e32]
+            - columnheader "Je 7 août" [ref=e33]
+            - columnheader "Ve 8 août" [ref=e34]
+            - columnheader "Sa 9 août" [ref=e35]
+            - columnheader "Di 10 août" [ref=e36]
+        - rowgroup [ref=e37]:
+          - row "Matin" [ref=e38]:
+            - cell "Matin" [ref=e39]
+            - cell [ref=e40]
+            - cell [ref=e41]
+            - cell [ref=e42]
+            - cell [ref=e43]
+            - cell [ref=e44]
+            - cell [ref=e45]
+            - cell [ref=e46]
+          - row "Ap-midi" [ref=e47]:
+            - cell "Ap-midi" [ref=e48]
+            - cell [ref=e49]
+            - cell [ref=e50]
+            - cell [ref=e51]
+            - cell [ref=e52]
+            - cell [ref=e53]
+            - cell [ref=e54]
+            - cell [ref=e55]
+          - row "Soir" [ref=e56]:
+            - cell "Soir" [ref=e57]
+            - cell [ref=e58]
+            - cell [ref=e59]
+            - cell [ref=e60]
+            - cell [ref=e61]
+            - cell [ref=e62]
+            - cell [ref=e63]
+            - cell [ref=e64]
+      - table [ref=e66]:
+        - rowgroup [ref=e67]:
+          - row "S2 Lu 11 août Ma 12 août Me 13 août Je 14 août Ve 15 août Sa 16 août Di 17 août" [ref=e68]:
+            - columnheader "S2" [ref=e69]
+            - columnheader "Lu 11 août" [ref=e70]
+            - columnheader "Ma 12 août" [ref=e71]
+            - columnheader "Me 13 août" [ref=e72]
+            - columnheader "Je 14 août" [ref=e73]
+            - columnheader "Ve 15 août" [ref=e74]
+            - columnheader "Sa 16 août" [ref=e75]
+            - columnheader "Di 17 août" [ref=e76]
+        - rowgroup [ref=e77]:
+          - row "Matin" [ref=e78]:
+            - cell "Matin" [ref=e79]
+            - cell [ref=e80]
+            - cell [ref=e81]
+            - cell [ref=e82]
+            - cell [ref=e83]
+            - cell [ref=e84]
+            - cell [ref=e85]
+            - cell [ref=e86]
+          - row "Ap-midi" [ref=e87]:
+            - cell "Ap-midi" [ref=e88]
+            - cell [ref=e89]
+            - cell [ref=e90]
+            - cell [ref=e91]
+            - cell [ref=e92]
+            - cell [ref=e93]
+            - cell [ref=e94]
+            - cell [ref=e95]
+          - row "Soir" [ref=e96]:
+            - cell "Soir" [ref=e97]
+            - cell [ref=e98]
+            - cell [ref=e99]
+            - cell [ref=e100]
+            - cell [ref=e101]
+            - cell [ref=e102]
+            - cell [ref=e103]
+            - cell [ref=e104]
+      - table [ref=e106]:
+        - rowgroup [ref=e107]:
+          - row "S3 Lu 18 août Ma 19 août Me 20 août Je 21 août Ve 22 août Sa 23 août Di 24 août" [ref=e108]:
+            - columnheader "S3" [ref=e109]
+            - columnheader "Lu 18 août" [ref=e110]
+            - columnheader "Ma 19 août" [ref=e111]
+            - columnheader "Me 20 août" [ref=e112]
+            - columnheader "Je 21 août" [ref=e113]
+            - columnheader "Ve 22 août" [ref=e114]
+            - columnheader "Sa 23 août" [ref=e115]
+            - columnheader "Di 24 août" [ref=e116]
+        - rowgroup [ref=e117]:
+          - row "Matin" [ref=e118]:
+            - cell "Matin" [ref=e119]
+            - cell [ref=e120]
+            - cell [ref=e121]
+            - cell [ref=e122]
+            - cell [ref=e123]
+            - cell [ref=e124]
+            - cell [ref=e125]
+            - cell [ref=e126]
+          - row "Ap-midi" [ref=e127]:
+            - cell "Ap-midi" [ref=e128]
+            - cell [ref=e129]
+            - cell [ref=e130]
+            - cell [ref=e131]
+            - cell [ref=e132]
+            - cell [ref=e133]
+            - cell [ref=e134]
+            - cell [ref=e135]
+          - row "Soir" [ref=e136]:
+            - cell "Soir" [ref=e137]
+            - cell [ref=e138]
+            - cell [ref=e139]
+            - cell [ref=e140]
+            - cell [ref=e141]
+            - cell [ref=e142]
+            - cell [ref=e143]
+            - cell [ref=e144]
+      - table [ref=e146]:
+        - rowgroup [ref=e147]:
+          - row "S4 Lu 25 août Ma 26 août Me 27 août Je 28 août Ve 29 août Sa 30 août Di 31 août" [ref=e148]:
+            - columnheader "S4" [ref=e149]
+            - columnheader "Lu 25 août" [ref=e150]
+            - columnheader "Ma 26 août" [ref=e151]
+            - columnheader "Me 27 août" [ref=e152]
+            - columnheader "Je 28 août" [ref=e153]
+            - columnheader "Ve 29 août" [ref=e154]
+            - columnheader "Sa 30 août" [ref=e155]
+            - columnheader "Di 31 août" [ref=e156]
+        - rowgroup [ref=e157]:
+          - row "Matin" [ref=e158]:
+            - cell "Matin" [ref=e159]
+            - cell [ref=e160]
+            - cell [ref=e161]
+            - cell [ref=e162]
+            - cell [ref=e163]
+            - cell [ref=e164]
+            - cell [ref=e165]
+            - cell [ref=e166]
+          - row "Ap-midi" [ref=e167]:
+            - cell "Ap-midi" [ref=e168]
+            - cell [ref=e169]
+            - cell [ref=e170]
+            - cell [ref=e171]
+            - cell [ref=e172]
+            - cell [ref=e173]
+            - cell [ref=e174]
+            - cell [ref=e175]
+          - row "Soir" [ref=e176]:
+            - cell "Soir" [ref=e177]
+            - cell [ref=e178]
+            - cell [ref=e179]
+            - cell [ref=e180]
+            - cell [ref=e181]
+            - cell [ref=e182]
+            - cell [ref=e183]
+            - cell [ref=e184]
+    - generic [ref=e185]:
+      - heading "Période 2 — du 1 sept. au 28 sept. 2025" [level=2] [ref=e186]
+      - table [ref=e188]:
+        - rowgroup [ref=e189]:
+          - row "S1 Lu 1 sept. Ma 2 sept. Me 3 sept. Je 4 sept. Ve 5 sept. Sa 6 sept. Di 7 sept." [ref=e190]:
+            - columnheader "S1" [ref=e191]
+            - columnheader "Lu 1 sept." [ref=e192]
+            - columnheader "Ma 2 sept." [ref=e193]
+            - columnheader "Me 3 sept." [ref=e194]
+            - columnheader "Je 4 sept." [ref=e195]
+            - columnheader "Ve 5 sept." [ref=e196]
+            - columnheader "Sa 6 sept." [ref=e197]
+            - columnheader "Di 7 sept." [ref=e198]
+        - rowgroup [ref=e199]:
+          - row "Matin" [ref=e200]:
+            - cell "Matin" [ref=e201]
+            - cell [ref=e202]
+            - cell [ref=e203]
+            - cell [ref=e204]
+            - cell [ref=e205]
+            - cell [ref=e206]
+            - cell [ref=e207]
+            - cell [ref=e208]
+          - row "Ap-midi" [ref=e209]:
+            - cell "Ap-midi" [ref=e210]
+            - cell [ref=e211]
+            - cell [ref=e212]
+            - cell [ref=e213]
+            - cell [ref=e214]
+            - cell [ref=e215]
+            - cell [ref=e216]
+            - cell [ref=e217]
+          - row "Soir" [ref=e218]:
+            - cell "Soir" [ref=e219]
+            - cell [ref=e220]
+            - cell [ref=e221]
+            - cell [ref=e222]
+            - cell [ref=e223]
+            - cell [ref=e224]
+            - cell [ref=e225]
+            - cell [ref=e226]
+      - table [ref=e228]:
+        - rowgroup [ref=e229]:
+          - row "S2 Lu 8 sept. Ma 9 sept. Me 10 sept. Je 11 sept. Ve 12 sept. Sa 13 sept. Di 14 sept." [ref=e230]:
+            - columnheader "S2" [ref=e231]
+            - columnheader "Lu 8 sept." [ref=e232]
+            - columnheader "Ma 9 sept." [ref=e233]
+            - columnheader "Me 10 sept." [ref=e234]
+            - columnheader "Je 11 sept." [ref=e235]
+            - columnheader "Ve 12 sept." [ref=e236]
+            - columnheader "Sa 13 sept." [ref=e237]
+            - columnheader "Di 14 sept." [ref=e238]
+        - rowgroup [ref=e239]:
+          - row "Matin" [ref=e240]:
+            - cell "Matin" [ref=e241]
+            - cell [ref=e242]
+            - cell [ref=e243]
+            - cell [ref=e244]
+            - cell [ref=e245]
+            - cell [ref=e246]
+            - cell [ref=e247]
+            - cell [ref=e248]
+          - row "Ap-midi" [ref=e249]:
+            - cell "Ap-midi" [ref=e250]
+            - cell [ref=e251]
+            - cell [ref=e252]
+            - cell [ref=e253]
+            - cell [ref=e254]
+            - cell [ref=e255]
+            - cell [ref=e256]
+            - cell [ref=e257]
+          - row "Soir" [ref=e258]:
+            - cell "Soir" [ref=e259]
+            - cell [ref=e260]
+            - cell [ref=e261]
+            - cell [ref=e262]
+            - cell [ref=e263]
+            - cell [ref=e264]
+            - cell [ref=e265]
+            - cell [ref=e266]
+      - table [ref=e268]:
+        - rowgroup [ref=e269]:
+          - row "S3 Lu 15 sept. Ma 16 sept. Me 17 sept. Je 18 sept. Ve 19 sept. Sa 20 sept. Di 21 sept." [ref=e270]:
+            - columnheader "S3" [ref=e271]
+            - columnheader "Lu 15 sept." [ref=e272]
+            - columnheader "Ma 16 sept." [ref=e273]
+            - columnheader "Me 17 sept." [ref=e274]
+            - columnheader "Je 18 sept." [ref=e275]
+            - columnheader "Ve 19 sept." [ref=e276]
+            - columnheader "Sa 20 sept." [ref=e277]
+            - columnheader "Di 21 sept." [ref=e278]
+        - rowgroup [ref=e279]:
+          - row "Matin" [ref=e280]:
+            - cell "Matin" [ref=e281]
+            - cell [ref=e282]
+            - cell [ref=e283]
+            - cell [ref=e284]
+            - cell [ref=e285]
+            - cell [ref=e286]
+            - cell [ref=e287]
+            - cell [ref=e288]
+          - row "Ap-midi" [ref=e289]:
+            - cell "Ap-midi" [ref=e290]
+            - cell [ref=e291]
+            - cell [ref=e292]
+            - cell [ref=e293]
+            - cell [ref=e294]
+            - cell [ref=e295]
+            - cell [ref=e296]
+            - cell [ref=e297]
+          - row "Soir" [ref=e298]:
+            - cell "Soir" [ref=e299]
+            - cell [ref=e300]
+            - cell [ref=e301]
+            - cell [ref=e302]
+            - cell [ref=e303]
+            - cell [ref=e304]
+            - cell [ref=e305]
+            - cell [ref=e306]
+      - table [ref=e308]:
+        - rowgroup [ref=e309]:
+          - row "S4 Lu 22 sept. Ma 23 sept. Me 24 sept. Je 25 sept. Ve 26 sept. Sa 27 sept. Di 28 sept." [ref=e310]:
+            - columnheader "S4" [ref=e311]
+            - columnheader "Lu 22 sept." [ref=e312]
+            - columnheader "Ma 23 sept." [ref=e313]
+            - columnheader "Me 24 sept." [ref=e314]
+            - columnheader "Je 25 sept." [ref=e315]
+            - columnheader "Ve 26 sept." [ref=e316]
+            - columnheader "Sa 27 sept." [ref=e317]
+            - columnheader "Di 28 sept." [ref=e318]
+        - rowgroup [ref=e319]:
+          - row "Matin" [ref=e320]:
+            - cell "Matin" [ref=e321]
+            - cell [ref=e322]
+            - cell [ref=e323]
+            - cell [ref=e324]
+            - cell [ref=e325]
+            - cell [ref=e326]
+            - cell [ref=e327]
+            - cell [ref=e328]
+          - row "Ap-midi" [ref=e329]:
+            - cell "Ap-midi" [ref=e330]
+            - cell [ref=e331]
+            - cell [ref=e332]
+            - cell [ref=e333]
+            - cell [ref=e334]
+            - cell [ref=e335]
+            - cell [ref=e336]
+            - cell [ref=e337]
+          - row "Soir" [ref=e338]:
+            - cell "Soir" [ref=e339]
+            - cell [ref=e340]
+            - cell [ref=e341]
+            - cell [ref=e342]
+            - cell [ref=e343]
+            - cell [ref=e344]
+            - cell [ref=e345]
+            - cell [ref=e346]
+    - generic [ref=e347]:
+      - heading "Période 3 — du 29 sept. au 26 oct. 2025" [level=2] [ref=e348]
+      - table [ref=e350]:
+        - rowgroup [ref=e351]:
+          - row "S1 Lu 29 sept. Ma 30 sept. Me 1 oct. Je 2 oct. Ve 3 oct. Sa 4 oct. Di 5 oct." [ref=e352]:
+            - columnheader "S1" [ref=e353]
+            - columnheader "Lu 29 sept." [ref=e354]
+            - columnheader "Ma 30 sept." [ref=e355]
+            - columnheader "Me 1 oct." [ref=e356]
+            - columnheader "Je 2 oct." [ref=e357]
+            - columnheader "Ve 3 oct." [ref=e358]
+            - columnheader "Sa 4 oct." [ref=e359]
+            - columnheader "Di 5 oct." [ref=e360]
+        - rowgroup [ref=e361]:
+          - row "Matin" [ref=e362]:
+            - cell "Matin" [ref=e363]
+            - cell [ref=e364]
+            - cell [ref=e365]
+            - cell [ref=e366]
+            - cell [ref=e367]
+            - cell [ref=e368]
+            - cell [ref=e369]
+            - cell [ref=e370]
+          - row "Ap-midi" [ref=e371]:
+            - cell "Ap-midi" [ref=e372]
+            - cell [ref=e373]
+            - cell [ref=e374]
+            - cell [ref=e375]
+            - cell [ref=e376]
+            - cell [ref=e377]
+            - cell [ref=e378]
+            - cell [ref=e379]
+          - row "Soir" [ref=e380]:
+            - cell "Soir" [ref=e381]
+            - cell [ref=e382]
+            - cell [ref=e383]
+            - cell [ref=e384]
+            - cell [ref=e385]
+            - cell [ref=e386]
+            - cell [ref=e387]
+            - cell [ref=e388]
+      - table [ref=e390]:
+        - rowgroup [ref=e391]:
+          - row "S2 Lu 6 oct. Ma 7 oct. Me 8 oct. Je 9 oct. Ve 10 oct. Sa 11 oct. Di 12 oct." [ref=e392]:
+            - columnheader "S2" [ref=e393]
+            - columnheader "Lu 6 oct." [ref=e394]
+            - columnheader "Ma 7 oct." [ref=e395]
+            - columnheader "Me 8 oct." [ref=e396]
+            - columnheader "Je 9 oct." [ref=e397]
+            - columnheader "Ve 10 oct." [ref=e398]
+            - columnheader "Sa 11 oct." [ref=e399]
+            - columnheader "Di 12 oct." [ref=e400]
+        - rowgroup [ref=e401]:
+          - row "Matin" [ref=e402]:
+            - cell "Matin" [ref=e403]
+            - cell [ref=e404]
+            - cell [ref=e405]
+            - cell [ref=e406]
+            - cell [ref=e407]
+            - cell [ref=e408]
+            - cell [ref=e409]
+            - cell [ref=e410]
+          - row "Ap-midi" [ref=e411]:
+            - cell "Ap-midi" [ref=e412]
+            - cell [ref=e413]
+            - cell [ref=e414]
+            - cell [ref=e415]
+            - cell [ref=e416]
+            - cell [ref=e417]
+            - cell [ref=e418]
+            - cell [ref=e419]
+          - row "Soir" [ref=e420]:
+            - cell "Soir" [ref=e421]
+            - cell [ref=e422]
+            - cell [ref=e423]
+            - cell [ref=e424]
+            - cell [ref=e425]
+            - cell [ref=e426]
+            - cell [ref=e427]
+            - cell [ref=e428]
+      - table [ref=e430]:
+        - rowgroup [ref=e431]:
+          - row "S3 Lu 13 oct. Ma 14 oct. Me 15 oct. Je 16 oct. Ve 17 oct. Sa 18 oct. Di 19 oct." [ref=e432]:
+            - columnheader "S3" [ref=e433]
+            - columnheader "Lu 13 oct." [ref=e434]
+            - columnheader "Ma 14 oct." [ref=e435]
+            - columnheader "Me 15 oct." [ref=e436]
+            - columnheader "Je 16 oct." [ref=e437]
+            - columnheader "Ve 17 oct." [ref=e438]
+            - columnheader "Sa 18 oct." [ref=e439]
+            - columnheader "Di 19 oct." [ref=e440]
+        - rowgroup [ref=e441]:
+          - row "Matin" [ref=e442]:
+            - cell "Matin" [ref=e443]
+            - cell [ref=e444]
+            - cell [ref=e445]
+            - cell [ref=e446]
+            - cell [ref=e447]
+            - cell [ref=e448]
+            - cell [ref=e449]
+            - cell [ref=e450]
+          - row "Ap-midi" [ref=e451]:
+            - cell "Ap-midi" [ref=e452]
+            - cell [ref=e453]
+            - cell [ref=e454]
+            - cell [ref=e455]
+            - cell [ref=e456]
+            - cell [ref=e457]
+            - cell [ref=e458]
+            - cell [ref=e459]
+          - row "Soir" [ref=e460]:
+            - cell "Soir" [ref=e461]
+            - cell [ref=e462]
+            - cell [ref=e463]
+            - cell [ref=e464]
+            - cell [ref=e465]
+            - cell [ref=e466]
+            - cell [ref=e467]
+            - cell [ref=e468]
+      - table [ref=e470]:
+        - rowgroup [ref=e471]:
+          - row "S4 Lu 20 oct. Ma 21 oct. Me 22 oct. Je 23 oct. Ve 24 oct. Sa 25 oct. Di 26 oct." [ref=e472]:
+            - columnheader "S4" [ref=e473]
+            - columnheader "Lu 20 oct." [ref=e474]
+            - columnheader "Ma 21 oct." [ref=e475]
+            - columnheader "Me 22 oct." [ref=e476]
+            - columnheader "Je 23 oct." [ref=e477]
+            - columnheader "Ve 24 oct." [ref=e478]
+            - columnheader "Sa 25 oct." [ref=e479]
+            - columnheader "Di 26 oct." [ref=e480]
+        - rowgroup [ref=e481]:
+          - row "Matin" [ref=e482]:
+            - cell "Matin" [ref=e483]
+            - cell [ref=e484]
+            - cell [ref=e485]
+            - cell [ref=e486]
+            - cell [ref=e487]
+            - cell [ref=e488]
+            - cell [ref=e489]
+            - cell [ref=e490]
+          - row "Ap-midi" [ref=e491]:
+            - cell "Ap-midi" [ref=e492]
+            - cell [ref=e493]
+            - cell [ref=e494]
+            - cell [ref=e495]
+            - cell [ref=e496]
+            - cell [ref=e497]
+            - cell [ref=e498]
+            - cell [ref=e499]
+          - row "Soir" [ref=e500]:
+            - cell "Soir" [ref=e501]
+            - cell [ref=e502]
+            - cell [ref=e503]
+            - cell [ref=e504]
+            - cell [ref=e505]
+            - cell [ref=e506]
+            - cell [ref=e507]
+            - cell [ref=e508]
+    - generic [ref=e509]:
+      - heading "Période 4 — du 27 oct. au 23 nov. 2025" [level=2] [ref=e510]
+      - table [ref=e512]:
+        - rowgroup [ref=e513]:
+          - row "S1 Lu 27 oct. Ma 28 oct. Me 29 oct. Je 30 oct. Ve 31 oct. Sa 1 nov. Di 2 nov." [ref=e514]:
+            - columnheader "S1" [ref=e515]
+            - columnheader "Lu 27 oct." [ref=e516]
+            - columnheader "Ma 28 oct." [ref=e517]
+            - columnheader "Me 29 oct." [ref=e518]
+            - columnheader "Je 30 oct." [ref=e519]
+            - columnheader "Ve 31 oct." [ref=e520]
+            - columnheader "Sa 1 nov." [ref=e521]
+            - columnheader "Di 2 nov." [ref=e522]
+        - rowgroup [ref=e523]:
+          - row "Matin" [ref=e524]:
+            - cell "Matin" [ref=e525]
+            - cell [ref=e526]
+            - cell [ref=e527]
+            - cell [ref=e528]
+            - cell [ref=e529]
+            - cell [ref=e530]
+            - cell [ref=e531]
+            - cell [ref=e532]
+          - row "Ap-midi" [ref=e533]:
+            - cell "Ap-midi" [ref=e534]
+            - cell [ref=e535]
+            - cell [ref=e536]
+            - cell [ref=e537]
+            - cell [ref=e538]
+            - cell [ref=e539]
+            - cell [ref=e540]
+            - cell [ref=e541]
+          - row "Soir" [ref=e542]:
+            - cell "Soir" [ref=e543]
+            - cell [ref=e544]
+            - cell [ref=e545]
+            - cell [ref=e546]
+            - cell [ref=e547]
+            - cell [ref=e548]
+            - cell [ref=e549]
+            - cell [ref=e550]
+      - table [ref=e552]:
+        - rowgroup [ref=e553]:
+          - row "S2 Lu 3 nov. Ma 4 nov. Me 5 nov. Je 6 nov. Ve 7 nov. Sa 8 nov. Di 9 nov." [ref=e554]:
+            - columnheader "S2" [ref=e555]
+            - columnheader "Lu 3 nov." [ref=e556]
+            - columnheader "Ma 4 nov." [ref=e557]
+            - columnheader "Me 5 nov." [ref=e558]
+            - columnheader "Je 6 nov." [ref=e559]
+            - columnheader "Ve 7 nov." [ref=e560]
+            - columnheader "Sa 8 nov." [ref=e561]
+            - columnheader "Di 9 nov." [ref=e562]
+        - rowgroup [ref=e563]:
+          - row "Matin" [ref=e564]:
+            - cell "Matin" [ref=e565]
+            - cell [ref=e566]
+            - cell [ref=e567]
+            - cell [ref=e568]
+            - cell [ref=e569]
+            - cell [ref=e570]
+            - cell [ref=e571]
+            - cell [ref=e572]
+          - row "Ap-midi" [ref=e573]:
+            - cell "Ap-midi" [ref=e574]
+            - cell [ref=e575]
+            - cell [ref=e576]
+            - cell [ref=e577]
+            - cell [ref=e578]
+            - cell [ref=e579]
+            - cell [ref=e580]
+            - cell [ref=e581]
+          - row "Soir" [ref=e582]:
+            - cell "Soir" [ref=e583]
+            - cell [ref=e584]
+            - cell [ref=e585]
+            - cell [ref=e586]
+            - cell [ref=e587]
+            - cell [ref=e588]
+            - cell [ref=e589]
+            - cell [ref=e590]
+      - table [ref=e592]:
+        - rowgroup [ref=e593]:
+          - row "S3 Lu 10 nov. Ma 11 nov. Me 12 nov. Je 13 nov. Ve 14 nov. Sa 15 nov. Di 16 nov." [ref=e594]:
+            - columnheader "S3" [ref=e595]
+            - columnheader "Lu 10 nov." [ref=e596]
+            - columnheader "Ma 11 nov." [ref=e597]
+            - columnheader "Me 12 nov." [ref=e598]
+            - columnheader "Je 13 nov." [ref=e599]
+            - columnheader "Ve 14 nov." [ref=e600]
+            - columnheader "Sa 15 nov." [ref=e601]
+            - columnheader "Di 16 nov." [ref=e602]
+        - rowgroup [ref=e603]:
+          - row "Matin" [ref=e604]:
+            - cell "Matin" [ref=e605]
+            - cell [ref=e606]
+            - cell [ref=e607]
+            - cell [ref=e608]
+            - cell [ref=e609]
+            - cell [ref=e610]
+            - cell [ref=e611]
+            - cell [ref=e612]
+          - row "Ap-midi" [ref=e613]:
+            - cell "Ap-midi" [ref=e614]
+            - cell [ref=e615]
+            - cell [ref=e616]
+            - cell [ref=e617]
+            - cell [ref=e618]
+            - cell [ref=e619]
+            - cell [ref=e620]
+            - cell [ref=e621]
+          - row "Soir" [ref=e622]:
+            - cell "Soir" [ref=e623]
+            - cell [ref=e624]
+            - cell [ref=e625]
+            - cell [ref=e626]
+            - cell [ref=e627]
+            - cell [ref=e628]
+            - cell [ref=e629]
+            - cell [ref=e630]
+      - table [ref=e632]:
+        - rowgroup [ref=e633]:
+          - row "S4 Lu 17 nov. Ma 18 nov. Me 19 nov. Je 20 nov. Ve 21 nov. Sa 22 nov. Di 23 nov." [ref=e634]:
+            - columnheader "S4" [ref=e635]
+            - columnheader "Lu 17 nov." [ref=e636]
+            - columnheader "Ma 18 nov." [ref=e637]
+            - columnheader "Me 19 nov." [ref=e638]
+            - columnheader "Je 20 nov." [ref=e639]
+            - columnheader "Ve 21 nov." [ref=e640]
+            - columnheader "Sa 22 nov." [ref=e641]
+            - columnheader "Di 23 nov." [ref=e642]
+        - rowgroup [ref=e643]:
+          - row "Matin" [ref=e644]:
+            - cell "Matin" [ref=e645]
+            - cell [ref=e646]
+            - cell [ref=e647]
+            - cell [ref=e648]
+            - cell [ref=e649]
+            - cell [ref=e650]
+            - cell [ref=e651]
+            - cell [ref=e652]
+          - row "Ap-midi" [ref=e653]:
+            - cell "Ap-midi" [ref=e654]
+            - cell [ref=e655]
+            - cell [ref=e656]
+            - cell [ref=e657]
+            - cell [ref=e658]
+            - cell [ref=e659]
+            - cell [ref=e660]
+            - cell [ref=e661]
+          - row "Soir" [ref=e662]:
+            - cell "Soir" [ref=e663]
+            - cell [ref=e664]
+            - cell [ref=e665]
+            - cell [ref=e666]
+            - cell [ref=e667]
+            - cell [ref=e668]
+            - cell [ref=e669]
+            - cell [ref=e670]
+    - generic [ref=e671]:
+      - heading "Période 5 — du 24 nov. au 21 déc. 2025" [level=2] [ref=e672]
+      - table [ref=e674]:
+        - rowgroup [ref=e675]:
+          - row "S1 Lu 24 nov. Ma 25 nov. Me 26 nov. Je 27 nov. Ve 28 nov. Sa 29 nov. Di 30 nov." [ref=e676]:
+            - columnheader "S1" [ref=e677]
+            - columnheader "Lu 24 nov." [ref=e678]
+            - columnheader "Ma 25 nov." [ref=e679]
+            - columnheader "Me 26 nov." [ref=e680]
+            - columnheader "Je 27 nov." [ref=e681]
+            - columnheader "Ve 28 nov." [ref=e682]
+            - columnheader "Sa 29 nov." [ref=e683]
+            - columnheader "Di 30 nov." [ref=e684]
+        - rowgroup [ref=e685]:
+          - row "Matin" [ref=e686]:
+            - cell "Matin" [ref=e687]
+            - cell [ref=e688]
+            - cell [ref=e689]
+            - cell [ref=e690]
+            - cell [ref=e691]
+            - cell [ref=e692]
+            - cell [ref=e693]
+            - cell [ref=e694]
+          - row "Ap-midi" [ref=e695]:
+            - cell "Ap-midi" [ref=e696]
+            - cell [ref=e697]
+            - cell [ref=e698]
+            - cell [ref=e699]
+            - cell [ref=e700]
+            - cell [ref=e701]
+            - cell [ref=e702]
+            - cell [ref=e703]
+          - row "Soir" [ref=e704]:
+            - cell "Soir" [ref=e705]
+            - cell [ref=e706]
+            - cell [ref=e707]
+            - cell [ref=e708]
+            - cell [ref=e709]
+            - cell [ref=e710]
+            - cell [ref=e711]
+            - cell [ref=e712]
+      - table [ref=e714]:
+        - rowgroup [ref=e715]:
+          - row "S2 Lu 1 déc. Ma 2 déc. Me 3 déc. Je 4 déc. Ve 5 déc. Sa 6 déc. Di 7 déc." [ref=e716]:
+            - columnheader "S2" [ref=e717]
+            - columnheader "Lu 1 déc." [ref=e718]
+            - columnheader "Ma 2 déc." [ref=e719]
+            - columnheader "Me 3 déc." [ref=e720]
+            - columnheader "Je 4 déc." [ref=e721]
+            - columnheader "Ve 5 déc." [ref=e722]
+            - columnheader "Sa 6 déc." [ref=e723]
+            - columnheader "Di 7 déc." [ref=e724]
+        - rowgroup [ref=e725]:
+          - row "Matin" [ref=e726]:
+            - cell "Matin" [ref=e727]
+            - cell [ref=e728]
+            - cell [ref=e729]
+            - cell [ref=e730]
+            - cell [ref=e731]
+            - cell [ref=e732]
+            - cell [ref=e733]
+            - cell [ref=e734]
+          - row "Ap-midi" [ref=e735]:
+            - cell "Ap-midi" [ref=e736]
+            - cell [ref=e737]
+            - cell [ref=e738]
+            - cell [ref=e739]
+            - cell [ref=e740]
+            - cell [ref=e741]
+            - cell [ref=e742]
+            - cell [ref=e743]
+          - row "Soir" [ref=e744]:
+            - cell "Soir" [ref=e745]
+            - cell [ref=e746]
+            - cell [ref=e747]
+            - cell [ref=e748]
+            - cell [ref=e749]
+            - cell [ref=e750]
+            - cell [ref=e751]
+            - cell [ref=e752]
+      - table [ref=e754]:
+        - rowgroup [ref=e755]:
+          - row "S3 Lu 8 déc. Ma 9 déc. Me 10 déc. Je 11 déc. Ve 12 déc. Sa 13 déc. Di 14 déc." [ref=e756]:
+            - columnheader "S3" [ref=e757]
+            - columnheader "Lu 8 déc." [ref=e758]
+            - columnheader "Ma 9 déc." [ref=e759]
+            - columnheader "Me 10 déc." [ref=e760]
+            - columnheader "Je 11 déc." [ref=e761]
+            - columnheader "Ve 12 déc." [ref=e762]
+            - columnheader "Sa 13 déc." [ref=e763]
+            - columnheader "Di 14 déc." [ref=e764]
+        - rowgroup [ref=e765]:
+          - row "Matin" [ref=e766]:
+            - cell "Matin" [ref=e767]
+            - cell [ref=e768]
+            - cell [ref=e769]
+            - cell [ref=e770]
+            - cell [ref=e771]
+            - cell [ref=e772]
+            - cell [ref=e773]
+            - cell [ref=e774]
+          - row "Ap-midi" [ref=e775]:
+            - cell "Ap-midi" [ref=e776]
+            - cell [ref=e777]
+            - cell [ref=e778]
+            - cell [ref=e779]
+            - cell [ref=e780]
+            - cell [ref=e781]
+            - cell [ref=e782]
+            - cell [ref=e783]
+          - row "Soir" [ref=e784]:
+            - cell "Soir" [ref=e785]
+            - cell [ref=e786]
+            - cell [ref=e787]
+            - cell [ref=e788]
+            - cell [ref=e789]
+            - cell [ref=e790]
+            - cell [ref=e791]
+            - cell [ref=e792]
+      - table [ref=e794]:
+        - rowgroup [ref=e795]:
+          - row "S4 Lu 15 déc. Ma 16 déc. Me 17 déc. Je 18 déc. Ve 19 déc. Sa 20 déc. Di 21 déc." [ref=e796]:
+            - columnheader "S4" [ref=e797]
+            - columnheader "Lu 15 déc." [ref=e798]
+            - columnheader "Ma 16 déc." [ref=e799]
+            - columnheader "Me 17 déc." [ref=e800]
+            - columnheader "Je 18 déc." [ref=e801]
+            - columnheader "Ve 19 déc." [ref=e802]
+            - columnheader "Sa 20 déc." [ref=e803]
+            - columnheader "Di 21 déc." [ref=e804]
+        - rowgroup [ref=e805]:
+          - row "Matin" [ref=e806]:
+            - cell "Matin" [ref=e807]
+            - cell [ref=e808]
+            - cell [ref=e809]
+            - cell [ref=e810]
+            - cell [ref=e811]
+            - cell [ref=e812]
+            - cell [ref=e813]
+            - cell [ref=e814]
+          - row "Ap-midi" [ref=e815]:
+            - cell "Ap-midi" [ref=e816]
+            - cell [ref=e817]
+            - cell [ref=e818]
+            - cell [ref=e819]
+            - cell [ref=e820]
+            - cell [ref=e821]
+            - cell [ref=e822]
+            - cell [ref=e823]
+          - row "Soir" [ref=e824]:
+            - cell "Soir" [ref=e825]
+            - cell [ref=e826]
+            - cell [ref=e827]
+            - cell [ref=e828]
+            - cell [ref=e829]
+            - cell [ref=e830]
+            - cell [ref=e831]
+            - cell [ref=e832]
+    - generic [ref=e833]:
+      - heading "Période 6 — du 22 déc. au 18 janv. 2026" [level=2] [ref=e834]
+      - table [ref=e836]:
+        - rowgroup [ref=e837]:
+          - row "S1 Lu 22 déc. Ma 23 déc. Me 24 déc. Je 25 déc. Ve 26 déc. Sa 27 déc. Di 28 déc." [ref=e838]:
+            - columnheader "S1" [ref=e839]
+            - columnheader "Lu 22 déc." [ref=e840]
+            - columnheader "Ma 23 déc." [ref=e841]
+            - columnheader "Me 24 déc." [ref=e842]
+            - columnheader "Je 25 déc." [ref=e843]
+            - columnheader "Ve 26 déc." [ref=e844]
+            - columnheader "Sa 27 déc." [ref=e845]
+            - columnheader "Di 28 déc." [ref=e846]
+        - rowgroup [ref=e847]:
+          - row "Matin" [ref=e848]:
+            - cell "Matin" [ref=e849]
+            - cell [ref=e850]
+            - cell [ref=e851]
+            - cell [ref=e852]
+            - cell [ref=e853]
+            - cell [ref=e854]
+            - cell [ref=e855]
+            - cell [ref=e856]
+          - row "Ap-midi" [ref=e857]:
+            - cell "Ap-midi" [ref=e858]
+            - cell [ref=e859]
+            - cell [ref=e860]
+            - cell [ref=e861]
+            - cell [ref=e862]
+            - cell [ref=e863]
+            - cell [ref=e864]
+            - cell [ref=e865]
+          - row "Soir" [ref=e866]:
+            - cell "Soir" [ref=e867]
+            - cell [ref=e868]
+            - cell [ref=e869]
+            - cell [ref=e870]
+            - cell [ref=e871]
+            - cell [ref=e872]
+            - cell [ref=e873]
+            - cell [ref=e874]
+      - table [ref=e876]:
+        - rowgroup [ref=e877]:
+          - row "S2 Lu 29 déc. Ma 30 déc. Me 31 déc. Je 1 janv. Ve 2 janv. Sa 3 janv. Di 4 janv." [ref=e878]:
+            - columnheader "S2" [ref=e879]
+            - columnheader "Lu 29 déc." [ref=e880]
+            - columnheader "Ma 30 déc." [ref=e881]
+            - columnheader "Me 31 déc." [ref=e882]
+            - columnheader "Je 1 janv." [ref=e883]
+            - columnheader "Ve 2 janv." [ref=e884]
+            - columnheader "Sa 3 janv." [ref=e885]
+            - columnheader "Di 4 janv." [ref=e886]
+        - rowgroup [ref=e887]:
+          - row "Matin" [ref=e888]:
+            - cell "Matin" [ref=e889]
+            - cell [ref=e890]
+            - cell [ref=e891]
+            - cell [ref=e892]
+            - cell [ref=e893]
+            - cell [ref=e894]
+            - cell [ref=e895]
+            - cell [ref=e896]
+          - row "Ap-midi" [ref=e897]:
+            - cell "Ap-midi" [ref=e898]
+            - cell [ref=e899]
+            - cell [ref=e900]
+            - cell [ref=e901]
+            - cell [ref=e902]
+            - cell [ref=e903]
+            - cell [ref=e904]
+            - cell [ref=e905]
+          - row "Soir" [ref=e906]:
+            - cell "Soir" [ref=e907]
+            - cell [ref=e908]
+            - cell [ref=e909]
+            - cell [ref=e910]
+            - cell [ref=e911]
+            - cell [ref=e912]
+            - cell [ref=e913]
+            - cell [ref=e914]
+      - table [ref=e916]:
+        - rowgroup [ref=e917]:
+          - row "S3 Lu 5 janv. Ma 6 janv. Me 7 janv. Je 8 janv. Ve 9 janv. Sa 10 janv. Di 11 janv." [ref=e918]:
+            - columnheader "S3" [ref=e919]
+            - columnheader "Lu 5 janv." [ref=e920]
+            - columnheader "Ma 6 janv." [ref=e921]
+            - columnheader "Me 7 janv." [ref=e922]
+            - columnheader "Je 8 janv." [ref=e923]
+            - columnheader "Ve 9 janv." [ref=e924]
+            - columnheader "Sa 10 janv." [ref=e925]
+            - columnheader "Di 11 janv." [ref=e926]
+        - rowgroup [ref=e927]:
+          - row "Matin" [ref=e928]:
+            - cell "Matin" [ref=e929]
+            - cell [ref=e930]
+            - cell [ref=e931]
+            - cell [ref=e932]
+            - cell [ref=e933]
+            - cell [ref=e934]
+            - cell [ref=e935]
+            - cell [ref=e936]
+          - row "Ap-midi" [ref=e937]:
+            - cell "Ap-midi" [ref=e938]
+            - cell [ref=e939]
+            - cell [ref=e940]
+            - cell [ref=e941]
+            - cell [ref=e942]
+            - cell [ref=e943]
+            - cell [ref=e944]
+            - cell [ref=e945]
+          - row "Soir" [ref=e946]:
+            - cell "Soir" [ref=e947]
+            - cell [ref=e948]
+            - cell [ref=e949]
+            - cell [ref=e950]
+            - cell [ref=e951]
+            - cell [ref=e952]
+            - cell [ref=e953]
+            - cell [ref=e954]
+      - table [ref=e956]:
+        - rowgroup [ref=e957]:
+          - row "S4 Lu 12 janv. Ma 13 janv. Me 14 janv. Je 15 janv. Ve 16 janv. Sa 17 janv. Di 18 janv." [ref=e958]:
+            - columnheader "S4" [ref=e959]
+            - columnheader "Lu 12 janv." [ref=e960]
+            - columnheader "Ma 13 janv." [ref=e961]
+            - columnheader "Me 14 janv." [ref=e962]
+            - columnheader "Je 15 janv." [ref=e963]
+            - columnheader "Ve 16 janv." [ref=e964]
+            - columnheader "Sa 17 janv." [ref=e965]
+            - columnheader "Di 18 janv." [ref=e966]
+        - rowgroup [ref=e967]:
+          - row "Matin" [ref=e968]:
+            - cell "Matin" [ref=e969]
+            - cell [ref=e970]
+            - cell [ref=e971]
+            - cell [ref=e972]
+            - cell [ref=e973]
+            - cell [ref=e974]
+            - cell [ref=e975]
+            - cell [ref=e976]
+          - row "Ap-midi" [ref=e977]:
+            - cell "Ap-midi" [ref=e978]
+            - cell [ref=e979]
+            - cell [ref=e980]
+            - cell [ref=e981]
+            - cell [ref=e982]
+            - cell [ref=e983]
+            - cell [ref=e984]
+            - cell [ref=e985]
+          - row "Soir" [ref=e986]:
+            - cell "Soir" [ref=e987]
+            - cell [ref=e988]
+            - cell [ref=e989]
+            - cell [ref=e990]
+            - cell [ref=e991]
+            - cell [ref=e992]
+            - cell [ref=e993]
+            - cell [ref=e994]
+    - generic [ref=e995]:
+      - heading "Période 7 — du 19 janv. au 15 févr. 2026" [level=2] [ref=e996]
+      - table [ref=e998]:
+        - rowgroup [ref=e999]:
+          - row "S1 Lu 19 janv. Ma 20 janv. Me 21 janv. Je 22 janv. Ve 23 janv. Sa 24 janv. Di 25 janv." [ref=e1000]:
+            - columnheader "S1" [ref=e1001]
+            - columnheader "Lu 19 janv." [ref=e1002]
+            - columnheader "Ma 20 janv." [ref=e1003]
+            - columnheader "Me 21 janv." [ref=e1004]
+            - columnheader "Je 22 janv." [ref=e1005]
+            - columnheader "Ve 23 janv." [ref=e1006]
+            - columnheader "Sa 24 janv." [ref=e1007]
+            - columnheader "Di 25 janv." [ref=e1008]
+        - rowgroup [ref=e1009]:
+          - row "Matin" [ref=e1010]:
+            - cell "Matin" [ref=e1011]
+            - cell [ref=e1012]
+            - cell [ref=e1013]
+            - cell [ref=e1014]
+            - cell [ref=e1015]
+            - cell [ref=e1016]
+            - cell [ref=e1017]
+            - cell [ref=e1018]
+          - row "Ap-midi" [ref=e1019]:
+            - cell "Ap-midi" [ref=e1020]
+            - cell [ref=e1021]
+            - cell [ref=e1022]
+            - cell [ref=e1023]
+            - cell [ref=e1024]
+            - cell [ref=e1025]
+            - cell [ref=e1026]
+            - cell [ref=e1027]
+          - row "Soir" [ref=e1028]:
+            - cell "Soir" [ref=e1029]
+            - cell [ref=e1030]
+            - cell [ref=e1031]
+            - cell [ref=e1032]
+            - cell [ref=e1033]
+            - cell [ref=e1034]
+            - cell [ref=e1035]
+            - cell [ref=e1036]
+      - table [ref=e1038]:
+        - rowgroup [ref=e1039]:
+          - row "S2 Lu 26 janv. Ma 27 janv. Me 28 janv. Je 29 janv. Ve 30 janv. Sa 31 janv. Di 1 févr." [ref=e1040]:
+            - columnheader "S2" [ref=e1041]
+            - columnheader "Lu 26 janv." [ref=e1042]
+            - columnheader "Ma 27 janv." [ref=e1043]
+            - columnheader "Me 28 janv." [ref=e1044]
+            - columnheader "Je 29 janv." [ref=e1045]
+            - columnheader "Ve 30 janv." [ref=e1046]
+            - columnheader "Sa 31 janv." [ref=e1047]
+            - columnheader "Di 1 févr." [ref=e1048]
+        - rowgroup [ref=e1049]:
+          - row "Matin" [ref=e1050]:
+            - cell "Matin" [ref=e1051]
+            - cell [ref=e1052]
+            - cell [ref=e1053]
+            - cell [ref=e1054]
+            - cell [ref=e1055]
+            - cell [ref=e1056]
+            - cell [ref=e1057]
+            - cell [ref=e1058]
+          - row "Ap-midi" [ref=e1059]:
+            - cell "Ap-midi" [ref=e1060]
+            - cell [ref=e1061]
+            - cell [ref=e1062]
+            - cell [ref=e1063]
+            - cell [ref=e1064]
+            - cell [ref=e1065]
+            - cell [ref=e1066]
+            - cell [ref=e1067]
+          - row "Soir" [ref=e1068]:
+            - cell "Soir" [ref=e1069]
+            - cell [ref=e1070]
+            - cell [ref=e1071]
+            - cell [ref=e1072]
+            - cell [ref=e1073]
+            - cell [ref=e1074]
+            - cell [ref=e1075]
+            - cell [ref=e1076]
+      - table [ref=e1078]:
+        - rowgroup [ref=e1079]:
+          - row "S3 Lu 2 févr. Ma 3 févr. Me 4 févr. Je 5 févr. Ve 6 févr. Sa 7 févr. Di 8 févr." [ref=e1080]:
+            - columnheader "S3" [ref=e1081]
+            - columnheader "Lu 2 févr." [ref=e1082]
+            - columnheader "Ma 3 févr." [ref=e1083]
+            - columnheader "Me 4 févr." [ref=e1084]
+            - columnheader "Je 5 févr." [ref=e1085]
+            - columnheader "Ve 6 févr." [ref=e1086]
+            - columnheader "Sa 7 févr." [ref=e1087]
+            - columnheader "Di 8 févr." [ref=e1088]
+        - rowgroup [ref=e1089]:
+          - row "Matin" [ref=e1090]:
+            - cell "Matin" [ref=e1091]
+            - cell [ref=e1092]
+            - cell [ref=e1093]
+            - cell [ref=e1094]
+            - cell [ref=e1095]
+            - cell [ref=e1096]
+            - cell [ref=e1097]
+            - cell [ref=e1098]
+          - row "Ap-midi" [ref=e1099]:
+            - cell "Ap-midi" [ref=e1100]
+            - cell [ref=e1101]
+            - cell [ref=e1102]
+            - cell [ref=e1103]
+            - cell [ref=e1104]
+            - cell [ref=e1105]
+            - cell [ref=e1106]
+            - cell [ref=e1107]
+          - row "Soir" [ref=e1108]:
+            - cell "Soir" [ref=e1109]
+            - cell [ref=e1110]
+            - cell [ref=e1111]
+            - cell [ref=e1112]
+            - cell [ref=e1113]
+            - cell [ref=e1114]
+            - cell [ref=e1115]
+            - cell [ref=e1116]
+      - table [ref=e1118]:
+        - rowgroup [ref=e1119]:
+          - row "S4 Lu 9 févr. Ma 10 févr. Me 11 févr. Je 12 févr. Ve 13 févr. Sa 14 févr. Di 15 févr." [ref=e1120]:
+            - columnheader "S4" [ref=e1121]
+            - columnheader "Lu 9 févr." [ref=e1122]
+            - columnheader "Ma 10 févr." [ref=e1123]
+            - columnheader "Me 11 févr." [ref=e1124]
+            - columnheader "Je 12 févr." [ref=e1125]
+            - columnheader "Ve 13 févr." [ref=e1126]
+            - columnheader "Sa 14 févr." [ref=e1127]
+            - columnheader "Di 15 févr." [ref=e1128]
+        - rowgroup [ref=e1129]:
+          - row "Matin" [ref=e1130]:
+            - cell "Matin" [ref=e1131]
+            - cell [ref=e1132]
+            - cell [ref=e1133]
+            - cell [ref=e1134]
+            - cell [ref=e1135]
+            - cell [ref=e1136]
+            - cell [ref=e1137]
+            - cell [ref=e1138]
+          - row "Ap-midi" [ref=e1139]:
+            - cell "Ap-midi" [ref=e1140]
+            - cell [ref=e1141]
+            - cell [ref=e1142]
+            - cell [ref=e1143]
+            - cell [ref=e1144]
+            - cell [ref=e1145]
+            - cell [ref=e1146]
+            - cell [ref=e1147]
+          - row "Soir" [ref=e1148]:
+            - cell "Soir" [ref=e1149]
+            - cell [ref=e1150]
+            - cell [ref=e1151]
+            - cell [ref=e1152]
+            - cell [ref=e1153]
+            - cell [ref=e1154]
+            - cell [ref=e1155]
+            - cell [ref=e1156]
+    - generic [ref=e1157]:
+      - heading "Période 8 — du 16 févr. au 15 mars 2026" [level=2] [ref=e1158]
+      - table [ref=e1160]:
+        - rowgroup [ref=e1161]:
+          - row "S1 Lu 16 févr. Ma 17 févr. Me 18 févr. Je 19 févr. Ve 20 févr. Sa 21 févr. Di 22 févr." [ref=e1162]:
+            - columnheader "S1" [ref=e1163]
+            - columnheader "Lu 16 févr." [ref=e1164]
+            - columnheader "Ma 17 févr." [ref=e1165]
+            - columnheader "Me 18 févr." [ref=e1166]
+            - columnheader "Je 19 févr." [ref=e1167]
+            - columnheader "Ve 20 févr." [ref=e1168]
+            - columnheader "Sa 21 févr." [ref=e1169]
+            - columnheader "Di 22 févr." [ref=e1170]
+        - rowgroup [ref=e1171]:
+          - row "Matin" [ref=e1172]:
+            - cell "Matin" [ref=e1173]
+            - cell [ref=e1174]
+            - cell [ref=e1175]
+            - cell [ref=e1176]
+            - cell [ref=e1177]
+            - cell [ref=e1178]
+            - cell [ref=e1179]
+            - cell [ref=e1180]
+          - row "Ap-midi" [ref=e1181]:
+            - cell "Ap-midi" [ref=e1182]
+            - cell [ref=e1183]
+            - cell [ref=e1184]
+            - cell [ref=e1185]
+            - cell [ref=e1186]
+            - cell [ref=e1187]
+            - cell [ref=e1188]
+            - cell [ref=e1189]
+          - row "Soir" [ref=e1190]:
+            - cell "Soir" [ref=e1191]
+            - cell [ref=e1192]
+            - cell [ref=e1193]
+            - cell [ref=e1194]
+            - cell [ref=e1195]
+            - cell [ref=e1196]
+            - cell [ref=e1197]
+            - cell [ref=e1198]
+      - table [ref=e1200]:
+        - rowgroup [ref=e1201]:
+          - row "S2 Lu 23 févr. Ma 24 févr. Me 25 févr. Je 26 févr. Ve 27 févr. Sa 28 févr. Di 1 mars" [ref=e1202]:
+            - columnheader "S2" [ref=e1203]
+            - columnheader "Lu 23 févr." [ref=e1204]
+            - columnheader "Ma 24 févr." [ref=e1205]
+            - columnheader "Me 25 févr." [ref=e1206]
+            - columnheader "Je 26 févr." [ref=e1207]
+            - columnheader "Ve 27 févr." [ref=e1208]
+            - columnheader "Sa 28 févr." [ref=e1209]
+            - columnheader "Di 1 mars" [ref=e1210]
+        - rowgroup [ref=e1211]:
+          - row "Matin" [ref=e1212]:
+            - cell "Matin" [ref=e1213]
+            - cell [ref=e1214]
+            - cell [ref=e1215]
+            - cell [ref=e1216]
+            - cell [ref=e1217]
+            - cell [ref=e1218]
+            - cell [ref=e1219]
+            - cell [ref=e1220]
+          - row "Ap-midi" [ref=e1221]:
+            - cell "Ap-midi" [ref=e1222]
+            - cell [ref=e1223]
+            - cell [ref=e1224]
+            - cell [ref=e1225]
+            - cell [ref=e1226]
+            - cell [ref=e1227]
+            - cell [ref=e1228]
+            - cell [ref=e1229]
+          - row "Soir" [ref=e1230]:
+            - cell "Soir" [ref=e1231]
+            - cell [ref=e1232]
+            - cell [ref=e1233]
+            - cell [ref=e1234]
+            - cell [ref=e1235]
+            - cell [ref=e1236]
+            - cell [ref=e1237]
+            - cell [ref=e1238]
+      - table [ref=e1240]:
+        - rowgroup [ref=e1241]:
+          - row "S3 Lu 2 mars Ma 3 mars Me 4 mars Je 5 mars Ve 6 mars Sa 7 mars Di 8 mars" [ref=e1242]:
+            - columnheader "S3" [ref=e1243]
+            - columnheader "Lu 2 mars" [ref=e1244]
+            - columnheader "Ma 3 mars" [ref=e1245]
+            - columnheader "Me 4 mars" [ref=e1246]
+            - columnheader "Je 5 mars" [ref=e1247]
+            - columnheader "Ve 6 mars" [ref=e1248]
+            - columnheader "Sa 7 mars" [ref=e1249]
+            - columnheader "Di 8 mars" [ref=e1250]
+        - rowgroup [ref=e1251]:
+          - row "Matin" [ref=e1252]:
+            - cell "Matin" [ref=e1253]
+            - cell [ref=e1254]
+            - cell [ref=e1255]
+            - cell [ref=e1256]
+            - cell [ref=e1257]
+            - cell [ref=e1258]
+            - cell [ref=e1259]
+            - cell [ref=e1260]
+          - row "Ap-midi" [ref=e1261]:
+            - cell "Ap-midi" [ref=e1262]
+            - cell [ref=e1263]
+            - cell [ref=e1264]
+            - cell [ref=e1265]
+            - cell [ref=e1266]
+            - cell [ref=e1267]
+            - cell [ref=e1268]
+            - cell [ref=e1269]
+          - row "Soir" [ref=e1270]:
+            - cell "Soir" [ref=e1271]
+            - cell [ref=e1272]
+            - cell [ref=e1273]
+            - cell [ref=e1274]
+            - cell [ref=e1275]
+            - cell [ref=e1276]
+            - cell [ref=e1277]
+            - cell [ref=e1278]
+      - table [ref=e1280]:
+        - rowgroup [ref=e1281]:
+          - row "S4 Lu 9 mars Ma 10 mars Me 11 mars Je 12 mars Ve 13 mars Sa 14 mars Di 15 mars" [ref=e1282]:
+            - columnheader "S4" [ref=e1283]
+            - columnheader "Lu 9 mars" [ref=e1284]
+            - columnheader "Ma 10 mars" [ref=e1285]
+            - columnheader "Me 11 mars" [ref=e1286]
+            - columnheader "Je 12 mars" [ref=e1287]
+            - columnheader "Ve 13 mars" [ref=e1288]
+            - columnheader "Sa 14 mars" [ref=e1289]
+            - columnheader "Di 15 mars" [ref=e1290]
+        - rowgroup [ref=e1291]:
+          - row "Matin" [ref=e1292]:
+            - cell "Matin" [ref=e1293]
+            - cell [ref=e1294]
+            - cell [ref=e1295]
+            - cell [ref=e1296]
+            - cell [ref=e1297]
+            - cell [ref=e1298]
+            - cell [ref=e1299]
+            - cell [ref=e1300]
+          - row "Ap-midi" [ref=e1301]:
+            - cell "Ap-midi" [ref=e1302]
+            - cell [ref=e1303]
+            - cell [ref=e1304]
+            - cell [ref=e1305]
+            - cell [ref=e1306]
+            - cell [ref=e1307]
+            - cell [ref=e1308]
+            - cell [ref=e1309]
+          - row "Soir" [ref=e1310]:
+            - cell "Soir" [ref=e1311]
+            - cell [ref=e1312]
+            - cell [ref=e1313]
+            - cell [ref=e1314]
+            - cell [ref=e1315]
+            - cell [ref=e1316]
+            - cell [ref=e1317]
+            - cell [ref=e1318]
+    - generic [ref=e1319]:
+      - heading "Période 9 — du 16 mars au 12 avr. 2026" [level=2] [ref=e1320]
+      - table [ref=e1322]:
+        - rowgroup [ref=e1323]:
+          - row "S1 Lu 16 mars Ma 17 mars Me 18 mars Je 19 mars Ve 20 mars Sa 21 mars Di 22 mars" [ref=e1324]:
+            - columnheader "S1" [ref=e1325]
+            - columnheader "Lu 16 mars" [ref=e1326]
+            - columnheader "Ma 17 mars" [ref=e1327]
+            - columnheader "Me 18 mars" [ref=e1328]
+            - columnheader "Je 19 mars" [ref=e1329]
+            - columnheader "Ve 20 mars" [ref=e1330]
+            - columnheader "Sa 21 mars" [ref=e1331]
+            - columnheader "Di 22 mars" [ref=e1332]
+        - rowgroup [ref=e1333]:
+          - row "Matin" [ref=e1334]:
+            - cell "Matin" [ref=e1335]
+            - cell [ref=e1336]
+            - cell [ref=e1337]
+            - cell [ref=e1338]
+            - cell [ref=e1339]
+            - cell [ref=e1340]
+            - cell [ref=e1341]
+            - cell [ref=e1342]
+          - row "Ap-midi" [ref=e1343]:
+            - cell "Ap-midi" [ref=e1344]
+            - cell [ref=e1345]
+            - cell [ref=e1346]
+            - cell [ref=e1347]
+            - cell [ref=e1348]
+            - cell [ref=e1349]
+            - cell [ref=e1350]
+            - cell [ref=e1351]
+          - row "Soir" [ref=e1352]:
+            - cell "Soir" [ref=e1353]
+            - cell [ref=e1354]
+            - cell [ref=e1355]
+            - cell [ref=e1356]
+            - cell [ref=e1357]
+            - cell [ref=e1358]
+            - cell [ref=e1359]
+            - cell [ref=e1360]
+      - table [ref=e1362]:
+        - rowgroup [ref=e1363]:
+          - row "S2 Lu 23 mars Ma 24 mars Me 25 mars Je 26 mars Ve 27 mars Sa 28 mars Di 29 mars" [ref=e1364]:
+            - columnheader "S2" [ref=e1365]
+            - columnheader "Lu 23 mars" [ref=e1366]
+            - columnheader "Ma 24 mars" [ref=e1367]
+            - columnheader "Me 25 mars" [ref=e1368]
+            - columnheader "Je 26 mars" [ref=e1369]
+            - columnheader "Ve 27 mars" [ref=e1370]
+            - columnheader "Sa 28 mars" [ref=e1371]
+            - columnheader "Di 29 mars" [ref=e1372]
+        - rowgroup [ref=e1373]:
+          - row "Matin" [ref=e1374]:
+            - cell "Matin" [ref=e1375]
+            - cell [ref=e1376]
+            - cell [ref=e1377]
+            - cell [ref=e1378]
+            - cell [ref=e1379]
+            - cell [ref=e1380]
+            - cell [ref=e1381]
+            - cell [ref=e1382]
+          - row "Ap-midi" [ref=e1383]:
+            - cell "Ap-midi" [ref=e1384]
+            - cell [ref=e1385]
+            - cell [ref=e1386]
+            - cell [ref=e1387]
+            - cell [ref=e1388]
+            - cell [ref=e1389]
+            - cell [ref=e1390]
+            - cell [ref=e1391]
+          - row "Soir" [ref=e1392]:
+            - cell "Soir" [ref=e1393]
+            - cell [ref=e1394]
+            - cell [ref=e1395]
+            - cell [ref=e1396]
+            - cell [ref=e1397]
+            - cell [ref=e1398]
+            - cell [ref=e1399]
+            - cell [ref=e1400]
+      - table [ref=e1402]:
+        - rowgroup [ref=e1403]:
+          - row "S3 Lu 30 mars Ma 31 mars Me 1 avr. Je 2 avr. Ve 3 avr. Sa 4 avr. Di 5 avr." [ref=e1404]:
+            - columnheader "S3" [ref=e1405]
+            - columnheader "Lu 30 mars" [ref=e1406]
+            - columnheader "Ma 31 mars" [ref=e1407]
+            - columnheader "Me 1 avr." [ref=e1408]
+            - columnheader "Je 2 avr." [ref=e1409]
+            - columnheader "Ve 3 avr." [ref=e1410]
+            - columnheader "Sa 4 avr." [ref=e1411]
+            - columnheader "Di 5 avr." [ref=e1412]
+        - rowgroup [ref=e1413]:
+          - row "Matin" [ref=e1414]:
+            - cell "Matin" [ref=e1415]
+            - cell [ref=e1416]
+            - cell [ref=e1417]
+            - cell [ref=e1418]
+            - cell [ref=e1419]
+            - cell [ref=e1420]
+            - cell [ref=e1421]
+            - cell [ref=e1422]
+          - row "Ap-midi" [ref=e1423]:
+            - cell "Ap-midi" [ref=e1424]
+            - cell [ref=e1425]
+            - cell [ref=e1426]
+            - cell [ref=e1427]
+            - cell [ref=e1428]
+            - cell [ref=e1429]
+            - cell [ref=e1430]
+            - cell [ref=e1431]
+          - row "Soir" [ref=e1432]:
+            - cell "Soir" [ref=e1433]
+            - cell [ref=e1434]
+            - cell [ref=e1435]
+            - cell [ref=e1436]
+            - cell [ref=e1437]
+            - cell [ref=e1438]
+            - cell [ref=e1439]
+            - cell [ref=e1440]
+      - table [ref=e1442]:
+        - rowgroup [ref=e1443]:
+          - row "S4 Lu 6 avr. Ma 7 avr. Me 8 avr. Je 9 avr. Ve 10 avr. Sa 11 avr. Di 12 avr." [ref=e1444]:
+            - columnheader "S4" [ref=e1445]
+            - columnheader "Lu 6 avr." [ref=e1446]
+            - columnheader "Ma 7 avr." [ref=e1447]
+            - columnheader "Me 8 avr." [ref=e1448]
+            - columnheader "Je 9 avr." [ref=e1449]
+            - columnheader "Ve 10 avr." [ref=e1450]
+            - columnheader "Sa 11 avr." [ref=e1451]
+            - columnheader "Di 12 avr." [ref=e1452]
+        - rowgroup [ref=e1453]:
+          - row "Matin" [ref=e1454]:
+            - cell "Matin" [ref=e1455]
+            - cell [ref=e1456]
+            - cell [ref=e1457]
+            - cell [ref=e1458]
+            - cell [ref=e1459]
+            - cell [ref=e1460]
+            - cell [ref=e1461]
+            - cell [ref=e1462]
+          - row "Ap-midi" [ref=e1463]:
+            - cell "Ap-midi" [ref=e1464]
+            - cell [ref=e1465]
+            - cell [ref=e1466]
+            - cell [ref=e1467]
+            - cell [ref=e1468]
+            - cell [ref=e1469]
+            - cell [ref=e1470]
+            - cell [ref=e1471]
+          - row "Soir" [ref=e1472]:
+            - cell "Soir" [ref=e1473]
+            - cell [ref=e1474]
+            - cell [ref=e1475]
+            - cell [ref=e1476]
+            - cell [ref=e1477]
+            - cell [ref=e1478]
+            - cell [ref=e1479]
+            - cell [ref=e1480]
+    - generic [ref=e1481]:
+      - heading "Période 10 — du 13 avr. au 10 mai 2026" [level=2] [ref=e1482]
+      - table [ref=e1484]:
+        - rowgroup [ref=e1485]:
+          - row "S1 Lu 13 avr. Ma 14 avr. Me 15 avr. Je 16 avr. Ve 17 avr. Sa 18 avr. Di 19 avr." [ref=e1486]:
+            - columnheader "S1" [ref=e1487]
+            - columnheader "Lu 13 avr." [ref=e1488]
+            - columnheader "Ma 14 avr." [ref=e1489]
+            - columnheader "Me 15 avr." [ref=e1490]
+            - columnheader "Je 16 avr." [ref=e1491]
+            - columnheader "Ve 17 avr." [ref=e1492]
+            - columnheader "Sa 18 avr." [ref=e1493]
+            - columnheader "Di 19 avr." [ref=e1494]
+        - rowgroup [ref=e1495]:
+          - row "Matin F 10:00 UM-ML lecture · Butterfly F 09:30 UM-ML lecture · Butterfly" [ref=e1496]:
+            - cell "Matin" [ref=e1497]
+            - cell "F 10:00 UM-ML lecture · Butterfly" [ref=e1498]:
+              - button "F 10:00 UM-ML lecture · Butterfly" [ref=e1499] [cursor=pointer]:
+                - text: F 10:00 UM-ML
+                - text: lecture · Butterfly
+            - cell "F 09:30 UM-ML lecture · Butterfly" [ref=e1500]:
+              - button "F 09:30 UM-ML lecture · Butterfly" [ref=e1501] [cursor=pointer]:
+                - text: F 09:30 UM-ML
+                - text: lecture · Butterfly
+            - cell [ref=e1502]
+            - cell [ref=e1503]
+            - cell [ref=e1504]
+            - cell [ref=e1505]
+            - cell [ref=e1506]
+          - row "Ap-midi F 14:30 UM-ML lecture · Butterfly F 14:30 UM-ML lecture · Butterfly F 14:00 BFM italienne · Butterfly F 14:00 BFM scène et orchestre · Butterfly F 14:00 BFM scène et orchestre · Butterfly" [ref=e1507]:
+            - cell "Ap-midi" [ref=e1508]
+            - cell "F 14:30 UM-ML lecture · Butterfly" [ref=e1509]:
+              - button "F 14:30 UM-ML lecture · Butterfly" [ref=e1510] [cursor=pointer]:
+                - text: F 14:30 UM-ML
+                - text: lecture · Butterfly
+            - cell "F 14:30 UM-ML lecture · Butterfly" [ref=e1511]:
+              - button "F 14:30 UM-ML lecture · Butterfly" [ref=e1512] [cursor=pointer]:
+                - text: F 14:30 UM-ML
+                - text: lecture · Butterfly
+            - cell [ref=e1513]
+            - cell "F 14:00 BFM italienne · Butterfly" [ref=e1514]:
+              - button "F 14:00 BFM italienne · Butterfly" [ref=e1515] [cursor=pointer]:
+                - text: F 14:00 BFM
+                - text: italienne · Butterfly
+            - cell "F 14:00 BFM scène et orchestre · Butterfly" [ref=e1516]:
+              - button "F 14:00 BFM scène et orchestre · Butterfly" [ref=e1517] [cursor=pointer]:
+                - text: F 14:00 BFM
+                - text: scène et orchestre · Butterfly
+            - cell "F 14:00 BFM scène et orchestre · Butterfly" [ref=e1518]:
+              - button "F 14:00 BFM scène et orchestre · Butterfly" [ref=e1519] [cursor=pointer]:
+                - text: F 14:00 BFM
+                - text: scène et orchestre · Butterfly
+            - cell [ref=e1520]
+          - row "Soir F 19:00 BFM générale piano · Butterfly F 19:30 BFM italienne · Butterfly F 19:30 BFM scène et orchestre · Butterfly F 19:30 BFM scène et orchestre · Butterfly" [ref=e1521]:
+            - cell "Soir" [ref=e1522]
+            - cell [ref=e1523]
+            - cell [ref=e1524]
+            - cell "F 19:00 BFM générale piano · Butterfly" [ref=e1525]:
+              - button "F 19:00 BFM générale piano · Butterfly" [ref=e1526] [cursor=pointer]:
+                - text: F 19:00 BFM
+                - text: générale piano · Butterfly
+            - cell "F 19:30 BFM italienne · Butterfly" [ref=e1527]:
+              - button "F 19:30 BFM italienne · Butterfly" [ref=e1528] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: italienne · Butterfly
+            - cell "F 19:30 BFM scène et orchestre · Butterfly" [ref=e1529]:
+              - button "F 19:30 BFM scène et orchestre · Butterfly" [ref=e1530] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: scène et orchestre · Butterfly
+            - cell "F 19:30 BFM scène et orchestre · Butterfly" [ref=e1531]:
+              - button "F 19:30 BFM scène et orchestre · Butterfly" [ref=e1532] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: scène et orchestre · Butterfly
+            - cell [ref=e1533]
+      - table [ref=e1535]:
+        - rowgroup [ref=e1536]:
+          - row "S2 Lu 20 avr. Ma 21 avr. Me 22 avr. Je 23 avr. Ve 24 avr. Sa 25 avr. Di 26 avr." [ref=e1537]:
+            - columnheader "S2" [ref=e1538]
+            - columnheader "Lu 20 avr." [ref=e1539]
+            - columnheader "Ma 21 avr." [ref=e1540]
+            - columnheader "Me 22 avr." [ref=e1541]
+            - columnheader "Je 23 avr." [ref=e1542]
+            - columnheader "Ve 24 avr." [ref=e1543]
+            - columnheader "Sa 25 avr." [ref=e1544]
+            - columnheader "Di 26 avr." [ref=e1545]
+        - rowgroup [ref=e1546]:
+          - row "Matin Audition … 09:30 HEM Dufour auditions DAS Concerts … 09:30 UM-ML répétition hors contrat · CPO4 Concours … 09:30 VH concours (soliste des contrebasses) · CC6 Concours … 09:30 UM-ML concours (soliste des harpes ) · CC7 Concours … 10:00 VH tour de concours avec orchestre (soliste des harpes ) · CC7 L30 10:00 Centre Saint Bon… partielle par pupitre (cordes) · OCV L30 10:00 UM-ML partielle par pupitre (tous sauf cordes) · OCV Musique D… 09:00 S. Liszt raccord hors contrat · MDC6 Musique D… 11:00 S. Liszt concert hors contrat · MDC6" [ref=e1547]:
+            - cell "Matin" [ref=e1548]
+            - cell "Audition … 09:30 HEM Dufour auditions DAS" [ref=e1549]:
+              - button "Audition … 09:30 HEM Dufour auditions DAS" [ref=e1550] [cursor=pointer]:
+                - text: Audition … 09:30 HEM Dufour
+                - text: auditions DAS
+            - cell "Concerts … 09:30 UM-ML répétition hors contrat · CPO4" [ref=e1551]:
+              - button "Concerts … 09:30 UM-ML répétition hors contrat · CPO4" [ref=e1552] [cursor=pointer]:
+                - text: Concerts … 09:30 UM-ML
+                - text: répétition hors contrat · CPO4
+            - cell "Concours … 09:30 VH concours (soliste des contrebasses) · CC6" [ref=e1553]:
+              - button "Concours … 09:30 VH concours (soliste des contrebasses) · CC6" [ref=e1554] [cursor=pointer]:
+                - text: Concours … 09:30 VH
+                - text: concours (soliste des contrebasses) · CC6
+            - cell "Concours … 09:30 UM-ML concours (soliste des harpes ) · CC7" [ref=e1555]:
+              - button "Concours … 09:30 UM-ML concours (soliste des harpes ) · CC7" [ref=e1556] [cursor=pointer]:
+                - text: Concours … 09:30 UM-ML
+                - text: concours (soliste des harpes ) · CC7
+            - cell "Concours … 10:00 VH tour de concours avec orchestre (soliste des harpes ) · CC7" [ref=e1557]:
+              - button "Concours … 10:00 VH tour de concours avec orchestre (soliste des harpes ) · CC7" [ref=e1558] [cursor=pointer]:
+                - text: Concours … 10:00 VH
+                - text: tour de concours avec orchestre (soliste des harpes ) · CC7
+            - cell "L30 10:00 Centre Saint Bon… partielle par pupitre (cordes) · OCV L30 10:00 UM-ML partielle par pupitre (tous sauf cordes) · OCV" [ref=e1559]:
+              - button "L30 10:00 Centre Saint Bon… partielle par pupitre (cordes) · OCV" [ref=e1560] [cursor=pointer]:
+                - text: L30 10:00 Centre Saint Bon…
+                - text: partielle par pupitre (cordes) · OCV
+              - button "L30 10:00 UM-ML partielle par pupitre (tous sauf cordes) · OCV" [ref=e1561] [cursor=pointer]:
+                - text: L30 10:00 UM-ML
+                - text: partielle par pupitre (tous sauf cordes) · OCV
+            - cell "Musique D… 09:00 S. Liszt raccord hors contrat · MDC6 Musique D… 11:00 S. Liszt concert hors contrat · MDC6" [ref=e1562]:
+              - button "Musique D… 09:00 S. Liszt raccord hors contrat · MDC6" [ref=e1563] [cursor=pointer]:
+                - text: Musique D… 09:00 S. Liszt
+                - text: raccord hors contrat · MDC6
+              - button "Musique D… 11:00 S. Liszt concert hors contrat · MDC6" [ref=e1564] [cursor=pointer]:
+                - text: Musique D… 11:00 S. Liszt
+                - text: concert hors contrat · MDC6
+          - row "Ap-midi Ateliers … 12:45 UM-ML répétition hors contrat Ateliers … 14:00 UM-ML ateliers (avec mus.OSR) · ADGT.1 Auditions… 14:00 HEM Dufour auditions DAS Ateliers … 13:00 UM-ML ateliers (avec mus.OSR) · ADGT.2 auditions… 14:00 HEM Dufour auditions DAS Concours … 17:00 UM-ML répétitions candidats (soliste des contrebasses) Concours … 14:30 UM-ML répétitions candidats (soliste des harpes ) · CC7 Titularis… 12:30 VH séance titularisation (Roman FILIPOV) L30 14:30 UM-ML répétition (tutti) · OCV F 15:00 BFM troisième · Butterfly" [ref=e1565]:
+            - cell "Ap-midi" [ref=e1566]
+            - cell "Ateliers … 12:45 UM-ML répétition hors contrat Ateliers … 14:00 UM-ML ateliers (avec mus.OSR) · ADGT.1 Auditions… 14:00 HEM Dufour auditions DAS" [ref=e1567]:
+              - button "Ateliers … 12:45 UM-ML répétition hors contrat" [ref=e1568] [cursor=pointer]:
+                - text: Ateliers … 12:45 UM-ML
+                - text: répétition hors contrat
+              - button "Ateliers … 14:00 UM-ML ateliers (avec mus.OSR) · ADGT.1" [ref=e1569] [cursor=pointer]:
+                - text: Ateliers … 14:00 UM-ML
+                - text: ateliers (avec mus.OSR) · ADGT.1
+              - button "Auditions… 14:00 HEM Dufour auditions DAS" [ref=e1570] [cursor=pointer]:
+                - text: Auditions… 14:00 HEM Dufour
+                - text: auditions DAS
+            - cell "Ateliers … 13:00 UM-ML ateliers (avec mus.OSR) · ADGT.2 auditions… 14:00 HEM Dufour auditions DAS Concours … 17:00 UM-ML répétitions candidats (soliste des contrebasses)" [ref=e1571]:
+              - button "Ateliers … 13:00 UM-ML ateliers (avec mus.OSR) · ADGT.2" [ref=e1572] [cursor=pointer]:
+                - text: Ateliers … 13:00 UM-ML
+                - text: ateliers (avec mus.OSR) · ADGT.2
+              - button "auditions… 14:00 HEM Dufour auditions DAS" [ref=e1573] [cursor=pointer]:
+                - text: auditions… 14:00 HEM Dufour
+                - text: auditions DAS
+              - button "Concours … 17:00 UM-ML répétitions candidats (soliste des contrebasses)" [ref=e1574] [cursor=pointer]:
+                - text: Concours … 17:00 UM-ML
+                - text: répétitions candidats (soliste des contrebasses)
+            - cell "Concours … 14:30 UM-ML répétitions candidats (soliste des harpes ) · CC7" [ref=e1575]:
+              - button "Concours … 14:30 UM-ML répétitions candidats (soliste des harpes ) · CC7" [ref=e1576] [cursor=pointer]:
+                - text: Concours … 14:30 UM-ML
+                - text: répétitions candidats (soliste des harpes ) · CC7
+            - cell [ref=e1577]
+            - cell "Titularis… 12:30 VH séance titularisation (Roman FILIPOV)" [ref=e1578]:
+              - button "Titularis… 12:30 VH séance titularisation (Roman FILIPOV)" [ref=e1579] [cursor=pointer]:
+                - text: Titularis… 12:30 VH
+                - text: séance titularisation (Roman FILIPOV)
+            - cell "L30 14:30 UM-ML répétition (tutti) · OCV" [ref=e1580]:
+              - button "L30 14:30 UM-ML répétition (tutti) · OCV" [ref=e1581] [cursor=pointer]:
+                - text: L30 14:30 UM-ML
+                - text: répétition (tutti) · OCV
+            - cell "F 15:00 BFM troisième · Butterfly" [ref=e1582]:
+              - button "F 15:00 BFM troisième · Butterfly" [ref=e1583] [cursor=pointer]:
+                - text: F 15:00 BFM
+                - text: troisième · Butterfly
+          - row "Soir F 19:30 BFM prégénérale GT · Butterfly F 19:30 BFM générale GT · Butterfly F 19:30 BFM première · Butterfly F 19:30 BFM deuxième · Butterfly" [ref=e1584]:
+            - cell "Soir" [ref=e1585]
+            - cell "F 19:30 BFM prégénérale GT · Butterfly" [ref=e1586]:
+              - button "F 19:30 BFM prégénérale GT · Butterfly" [ref=e1587] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: prégénérale GT · Butterfly
+            - cell "F 19:30 BFM générale GT · Butterfly" [ref=e1588]:
+              - button "F 19:30 BFM générale GT · Butterfly" [ref=e1589] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: générale GT · Butterfly
+            - cell [ref=e1590]
+            - cell "F 19:30 BFM première · Butterfly" [ref=e1591]:
+              - button "F 19:30 BFM première · Butterfly" [ref=e1592] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: première · Butterfly
+            - cell [ref=e1593]
+            - cell "F 19:30 BFM deuxième · Butterfly" [ref=e1594]:
+              - button "F 19:30 BFM deuxième · Butterfly" [ref=e1595] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: deuxième · Butterfly
+            - cell [ref=e1596]
+      - table [ref=e1598]:
+        - rowgroup [ref=e1599]:
+          - row "S3 Lu 27 avr. Ma 28 avr. Me 29 avr. Je 30 avr. Ve 1 mai Sa 2 mai Di 3 mai" [ref=e1600]:
+            - columnheader "S3" [ref=e1601]
+            - columnheader "Lu 27 avr." [ref=e1602]
+            - columnheader "Ma 28 avr." [ref=e1603]
+            - columnheader "Me 29 avr." [ref=e1604]
+            - columnheader "Je 30 avr." [ref=e1605]
+            - columnheader "Ve 1 mai" [ref=e1606]
+            - columnheader "Sa 2 mai" [ref=e1607]
+            - columnheader "Di 3 mai" [ref=e1608]
+        - rowgroup [ref=e1609]:
+          - row "Matin AG USDAM … 09:30 UM-ML Assemblée Générale (sous-section) L36 10:00 UM-ML répétition (tutti) · FMUS2 L36 11:35 UM-ML partielle (percu) · FMUS2 L36 11:35 UM-St. partielle (trp.) · FMUS2 L36 11:35 UM-St. partielle (trb. + tub.) · FMUS2 L36 11:35 UM-St. partielle (cr.) · FMUS2" [ref=e1610]:
+            - cell "Matin" [ref=e1611]
+            - cell [ref=e1612]
+            - cell "AG USDAM … 09:30 UM-ML Assemblée Générale (sous-section)" [ref=e1613]:
+              - button "AG USDAM … 09:30 UM-ML Assemblée Générale (sous-section)" [ref=e1614] [cursor=pointer]:
+                - text: AG USDAM … 09:30 UM-ML
+                - text: Assemblée Générale (sous-section)
+            - cell "L36 10:00 UM-ML répétition (tutti) · FMUS2 L36 11:35 UM-ML partielle (percu) · FMUS2 L36 11:35 UM-St. partielle (trp.) · FMUS2 L36 11:35 UM-St. partielle (trb. + tub.) · FMUS2 L36 11:35 UM-St. partielle (cr.) · FMUS2" [ref=e1615]:
+              - button "L36 10:00 UM-ML répétition (tutti) · FMUS2" [ref=e1616] [cursor=pointer]:
+                - text: L36 10:00 UM-ML
+                - text: répétition (tutti) · FMUS2
+              - button "L36 11:35 UM-ML partielle (percu) · FMUS2" [ref=e1617] [cursor=pointer]:
+                - text: L36 11:35 UM-ML
+                - text: partielle (percu) · FMUS2
+              - button "L36 11:35 UM-St. partielle (trp.) · FMUS2" [ref=e1618] [cursor=pointer]:
+                - text: L36 11:35 UM-St.
+                - text: partielle (trp.) · FMUS2
+              - button "L36 11:35 UM-St. partielle (trb. + tub.) · FMUS2" [ref=e1619] [cursor=pointer]:
+                - text: L36 11:35 UM-St.
+                - text: partielle (trb. + tub.) · FMUS2
+              - button "L36 11:35 UM-St. partielle (cr.) · FMUS2" [ref=e1620] [cursor=pointer]:
+                - text: L36 11:35 UM-St.
+                - text: partielle (cr.) · FMUS2
+            - cell [ref=e1621]
+            - cell [ref=e1622]
+            - cell [ref=e1623]
+            - cell [ref=e1624]
+          - row "Ap-midi Titularis… 17:30 UM-ML séance titularisation (Theresa HOŘEJŠÍ) F 15:00 BFM septième · Butterfly" [ref=e1625]:
+            - cell "Ap-midi" [ref=e1626]
+            - cell [ref=e1627]
+            - cell [ref=e1628]
+            - cell "Titularis… 17:30 UM-ML séance titularisation (Theresa HOŘEJŠÍ)" [ref=e1629]:
+              - button "Titularis… 17:30 UM-ML séance titularisation (Theresa HOŘEJŠÍ)" [ref=e1630] [cursor=pointer]:
+                - text: Titularis… 17:30 UM-ML
+                - text: séance titularisation (Theresa HOŘEJŠÍ)
+            - cell [ref=e1631]
+            - cell [ref=e1632]
+            - cell [ref=e1633]
+            - cell "F 15:00 BFM septième · Butterfly" [ref=e1634]:
+              - button "F 15:00 BFM septième · Butterfly" [ref=e1635] [cursor=pointer]:
+                - text: F 15:00 BFM
+                - text: septième · Butterfly
+          - row "Soir L30 18:30 UM-ML partielle par pupitre (VII) · OCV L30 18:30 UM-St. partielle par pupitre (Cb) · OCV L30 18:30 UM-St. partielle par pupitre (Al) · OCV L30 20:15 UM-St. partielle par pupitre (trb+tb) · OCV L30 20:15 UM-ML partielle par pupitre (VI) · OCV L30 20:15 UM-St. partielle par pupitre (Vc) · OCV L30 18:30 UM-St. partielle par pupitre (trp) · OCV L30 18:30 UM-St. partielle par pupitre (fgt) · OCV L30 18:30 UM-ML partielle par pupitre (cr) · OCV F 19:30 BFM quatrième · Butterfly L30 20:15 UM-St. partielle par pupitre (cl) · OCV L30 20:15 UM-ML partielle par pupitre (fl) · OCV L30 19:00 UM-ML répétition (tutti) · OCV F 20:00 BFM cinquième · Butterfly F 19:30 BFM sixième · Butterfly F 19:30 BFM septième · Butterfly" [ref=e1636]:
+            - cell "Soir" [ref=e1637]
+            - cell "L30 18:30 UM-ML partielle par pupitre (VII) · OCV L30 18:30 UM-St. partielle par pupitre (Cb) · OCV L30 18:30 UM-St. partielle par pupitre (Al) · OCV L30 20:15 UM-St. partielle par pupitre (trb+tb) · OCV L30 20:15 UM-ML partielle par pupitre (VI) · OCV L30 20:15 UM-St. partielle par pupitre (Vc) · OCV" [ref=e1638]:
+              - button "L30 18:30 UM-ML partielle par pupitre (VII) · OCV" [ref=e1639] [cursor=pointer]:
+                - text: L30 18:30 UM-ML
+                - text: partielle par pupitre (VII) · OCV
+              - button "L30 18:30 UM-St. partielle par pupitre (Cb) · OCV" [ref=e1640] [cursor=pointer]:
+                - text: L30 18:30 UM-St.
+                - text: partielle par pupitre (Cb) · OCV
+              - button "L30 18:30 UM-St. partielle par pupitre (Al) · OCV" [ref=e1641] [cursor=pointer]:
+                - text: L30 18:30 UM-St.
+                - text: partielle par pupitre (Al) · OCV
+              - button "L30 20:15 UM-St. partielle par pupitre (trb+tb) · OCV" [ref=e1642] [cursor=pointer]:
+                - text: L30 20:15 UM-St.
+                - text: partielle par pupitre (trb+tb) · OCV
+              - button "L30 20:15 UM-ML partielle par pupitre (VI) · OCV" [ref=e1643] [cursor=pointer]:
+                - text: L30 20:15 UM-ML
+                - text: partielle par pupitre (VI) · OCV
+              - button "L30 20:15 UM-St. partielle par pupitre (Vc) · OCV" [ref=e1644] [cursor=pointer]:
+                - text: L30 20:15 UM-St.
+                - text: partielle par pupitre (Vc) · OCV
+            - cell "L30 18:30 UM-St. partielle par pupitre (trp) · OCV L30 18:30 UM-St. partielle par pupitre (fgt) · OCV L30 18:30 UM-ML partielle par pupitre (cr) · OCV F 19:30 BFM quatrième · Butterfly L30 20:15 UM-St. partielle par pupitre (cl) · OCV L30 20:15 UM-ML partielle par pupitre (fl) · OCV" [ref=e1645]:
+              - button "L30 18:30 UM-St. partielle par pupitre (trp) · OCV" [ref=e1646] [cursor=pointer]:
+                - text: L30 18:30 UM-St.
+                - text: partielle par pupitre (trp) · OCV
+              - button "L30 18:30 UM-St. partielle par pupitre (fgt) · OCV" [ref=e1647] [cursor=pointer]:
+                - text: L30 18:30 UM-St.
+                - text: partielle par pupitre (fgt) · OCV
+              - button "L30 18:30 UM-ML partielle par pupitre (cr) · OCV" [ref=e1648] [cursor=pointer]:
+                - text: L30 18:30 UM-ML
+                - text: partielle par pupitre (cr) · OCV
+              - button "F 19:30 BFM quatrième · Butterfly" [ref=e1649] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: quatrième · Butterfly
+              - button "L30 20:15 UM-St. partielle par pupitre (cl) · OCV" [ref=e1650] [cursor=pointer]:
+                - text: L30 20:15 UM-St.
+                - text: partielle par pupitre (cl) · OCV
+              - button "L30 20:15 UM-ML partielle par pupitre (fl) · OCV" [ref=e1651] [cursor=pointer]:
+                - text: L30 20:15 UM-ML
+                - text: partielle par pupitre (fl) · OCV
+            - cell "L30 19:00 UM-ML répétition (tutti) · OCV F 20:00 BFM cinquième · Butterfly" [ref=e1652]:
+              - button "L30 19:00 UM-ML répétition (tutti) · OCV" [ref=e1653] [cursor=pointer]:
+                - text: L30 19:00 UM-ML
+                - text: répétition (tutti) · OCV
+              - button "F 20:00 BFM cinquième · Butterfly" [ref=e1654] [cursor=pointer]:
+                - text: F 20:00 BFM
+                - text: cinquième · Butterfly
+            - cell "F 19:30 BFM sixième · Butterfly" [ref=e1655]:
+              - button "F 19:30 BFM sixième · Butterfly" [ref=e1656] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: sixième · Butterfly
+            - cell [ref=e1657]
+            - cell "F 19:30 BFM septième · Butterfly" [ref=e1658]:
+              - button "F 19:30 BFM septième · Butterfly" [ref=e1659] [cursor=pointer]:
+                - text: F 19:30 BFM
+                - text: septième · Butterfly
+            - cell [ref=e1660]
+      - table [ref=e1662]:
+        - rowgroup [ref=e1663]:
+          - row "S4 Lu 4 mai Ma 5 mai Me 6 mai Je 7 mai Ve 8 mai Sa 9 mai Di 10 mai" [ref=e1664]:
+            - columnheader "S4" [ref=e1665]
+            - columnheader "Lu 4 mai" [ref=e1666]
+            - columnheader "Ma 5 mai" [ref=e1667]
+            - columnheader "Me 6 mai" [ref=e1668]
+            - columnheader "Je 7 mai" [ref=e1669]
+            - columnheader "Ve 8 mai" [ref=e1670]
+            - columnheader "Sa 9 mai" [ref=e1671]
+            - columnheader "Di 10 mai" [ref=e1672]
+        - rowgroup [ref=e1673]:
+          - row "Matin AG USDAM … 09:30 UM-ML Assemblée générale sous-section Concours … 09:30 Auditorium Anser… concours (Soliste remplaçant·e des altos ) · CC9 L21b 11:15 bus (Place Neuve) voyage · TROM L21b 09:15 train voyage · TROM Concerts … 11:00 Centre Communal … concert hors contrat (Oreilles4.1) · CPO4 Concerts … 09:30 Centre Communal … raccord hors contrat · CPO4 Concerts … 11:00 Centre Communal … concert hors contrat (oreilles4.3) · CPO4" [ref=e1674]:
+            - cell "Matin" [ref=e1675]
+            - cell "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1676]:
+              - button "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1677] [cursor=pointer]:
+                - text: AG USDAM … 09:30 UM-ML
+                - text: Assemblée générale sous-section
+            - cell [ref=e1678]
+            - cell "Concours … 09:30 Auditorium Anser… concours (Soliste remplaçant·e des altos ) · CC9" [ref=e1679]:
+              - button "Concours … 09:30 Auditorium Anser… concours (Soliste remplaçant·e des altos ) · CC9" [ref=e1680] [cursor=pointer]:
+                - text: Concours … 09:30 Auditorium Anser…
+                - text: concours (Soliste remplaçant·e des altos ) · CC9
+            - cell "L21b 11:15 bus (Place Neuve) voyage · TROM" [ref=e1681]:
+              - button "L21b 11:15 bus (Place Neuve) voyage · TROM" [ref=e1682] [cursor=pointer]:
+                - text: L21b 11:15 bus (Place Neuve)
+                - text: voyage · TROM
+            - cell "L21b 09:15 train voyage · TROM" [ref=e1683]:
+              - button "L21b 09:15 train voyage · TROM" [ref=e1684] [cursor=pointer]:
+                - text: L21b 09:15 train
+                - text: voyage · TROM
+            - cell "Concerts … 11:00 Centre Communal … concert hors contrat (Oreilles4.1) · CPO4" [ref=e1685]:
+              - button "Concerts … 11:00 Centre Communal … concert hors contrat (Oreilles4.1) · CPO4" [ref=e1686] [cursor=pointer]:
+                - text: Concerts … 11:00 Centre Communal …
+                - text: concert hors contrat (Oreilles4.1) · CPO4
+            - cell "Concerts … 09:30 Centre Communal … raccord hors contrat · CPO4 Concerts … 11:00 Centre Communal … concert hors contrat (oreilles4.3) · CPO4" [ref=e1687]:
+              - button "Concerts … 09:30 Centre Communal … raccord hors contrat · CPO4" [ref=e1688] [cursor=pointer]:
+                - text: Concerts … 09:30 Centre Communal …
+                - text: raccord hors contrat · CPO4
+              - button "Concerts … 11:00 Centre Communal … concert hors contrat (oreilles4.3) · CPO4" [ref=e1689] [cursor=pointer]:
+                - text: Concerts … 11:00 Centre Communal …
+                - text: concert hors contrat (oreilles4.3) · CPO4
+          - row "Ap-midi L21b 14:30 UM-ML répétition · TROM Conseil d… 12:00 Administration Séance CF Concours … 15:00 UM-ML répétitions candidats (Soliste remplaçant·e des altos ) · CC9 F 15:45 bus (Place Neuve) voyage · DPL4, Butterfly F 17:30 Rosey raccord · DPL4, Butterfly L21b 13:30 Salle de la Pril… deux concerts scolaires (13h30 + 14h45) · TROM L21b 13:30 Eglise des Jésui… deux concerts scolaires (13h30 + 14h45) · TROM L21b 15:30 train voyage · TROM Concerts … 16:00 Centre Communal … répétition hors contrat · CPO4 Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.2) · CPO4 Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.4) · CPO4" [ref=e1690]:
+            - cell "Ap-midi" [ref=e1691]
+            - cell "L21b 14:30 UM-ML répétition · TROM" [ref=e1692]:
+              - button "L21b 14:30 UM-ML répétition · TROM" [ref=e1693] [cursor=pointer]:
+                - text: L21b 14:30 UM-ML
+                - text: répétition · TROM
+            - cell "Conseil d… 12:00 Administration Séance CF Concours … 15:00 UM-ML répétitions candidats (Soliste remplaçant·e des altos ) · CC9 F 15:45 bus (Place Neuve) voyage · DPL4, Butterfly F 17:30 Rosey raccord · DPL4, Butterfly" [ref=e1694]:
+              - button "Conseil d… 12:00 Administration Séance CF" [ref=e1695] [cursor=pointer]:
+                - text: Conseil d… 12:00 Administration
+                - text: Séance CF
+              - button "Concours … 15:00 UM-ML répétitions candidats (Soliste remplaçant·e des altos ) · CC9" [ref=e1696] [cursor=pointer]:
+                - text: Concours … 15:00 UM-ML
+                - text: répétitions candidats (Soliste remplaçant·e des altos ) · CC9
+              - button "F 15:45 bus (Place Neuve) voyage · DPL4, Butterfly" [ref=e1697] [cursor=pointer]:
+                - text: F 15:45 bus (Place Neuve)
+                - text: voyage · DPL4, Butterfly
+              - button "F 17:30 Rosey raccord · DPL4, Butterfly" [ref=e1698] [cursor=pointer]:
+                - text: F 17:30 Rosey
+                - text: raccord · DPL4, Butterfly
+            - cell [ref=e1699]
+            - cell "L21b 13:30 Salle de la Pril… deux concerts scolaires (13h30 + 14h45) · TROM" [ref=e1700]:
+              - button "L21b 13:30 Salle de la Pril… deux concerts scolaires (13h30 + 14h45) · TROM" [ref=e1701] [cursor=pointer]:
+                - text: L21b 13:30 Salle de la Pril…
+                - text: deux concerts scolaires (13h30 + 14h45) · TROM
+            - cell "L21b 13:30 Eglise des Jésui… deux concerts scolaires (13h30 + 14h45) · TROM L21b 15:30 train voyage · TROM Concerts … 16:00 Centre Communal … répétition hors contrat · CPO4" [ref=e1702]:
+              - button "L21b 13:30 Eglise des Jésui… deux concerts scolaires (13h30 + 14h45) · TROM" [ref=e1703] [cursor=pointer]:
+                - text: L21b 13:30 Eglise des Jésui…
+                - text: deux concerts scolaires (13h30 + 14h45) · TROM
+              - button "L21b 15:30 train voyage · TROM" [ref=e1704] [cursor=pointer]:
+                - text: L21b 15:30 train
+                - text: voyage · TROM
+              - button "Concerts … 16:00 Centre Communal … répétition hors contrat · CPO4" [ref=e1705] [cursor=pointer]:
+                - text: Concerts … 16:00 Centre Communal …
+                - text: répétition hors contrat · CPO4
+            - cell "Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.2) · CPO4" [ref=e1706]:
+              - button "Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.2) · CPO4" [ref=e1707] [cursor=pointer]:
+                - text: Concerts … 15:30 Centre Communal …
+                - text: concert hors contrat (Oreilles4.2) · CPO4
+            - cell "Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.4) · CPO4" [ref=e1708]:
+              - button "Concerts … 15:30 Centre Communal … concert hors contrat (Oreilles4.4) · CPO4" [ref=e1709] [cursor=pointer]:
+                - text: Concerts … 15:30 Centre Communal …
+                - text: concert hors contrat (Oreilles4.4) · CPO4
+          - row "Soir F 19:30 Rosey huitième · DPL4, Butterfly" [ref=e1710]:
+            - cell "Soir" [ref=e1711]
+            - cell [ref=e1712]
+            - cell "F 19:30 Rosey huitième · DPL4, Butterfly" [ref=e1713]:
+              - button "F 19:30 Rosey huitième · DPL4, Butterfly" [ref=e1714] [cursor=pointer]:
+                - text: F 19:30 Rosey
+                - text: huitième · DPL4, Butterfly
+            - cell [ref=e1715]
+            - cell [ref=e1716]
+            - cell [ref=e1717]
+            - cell [ref=e1718]
+            - cell [ref=e1719]
+    - generic [ref=e1720]:
+      - heading "Période 11 — du 11 mai au 7 juin 2026" [level=2] [ref=e1721]
+      - table [ref=e1723]:
+        - rowgroup [ref=e1724]:
+          - row "S1 Lu 11 mai Ma 12 mai Me 13 mai Je 14 mai Ve 15 mai Sa 16 mai Di 17 mai" [ref=e1725]:
+            - columnheader "S1" [ref=e1726]
+            - columnheader "Lu 11 mai" [ref=e1727]
+            - columnheader "Ma 12 mai" [ref=e1728]
+            - columnheader "Me 13 mai" [ref=e1729]
+            - columnheader "Je 14 mai" [ref=e1730]
+            - columnheader "Ve 15 mai" [ref=e1731]
+            - columnheader "Sa 16 mai" [ref=e1732]
+            - columnheader "Di 17 mai" [ref=e1733]
+        - rowgroup [ref=e1734]:
+          - row "Matin Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.1 Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.3 G 11:30 UM-ML workshop (percussion) · 200 Motels" [ref=e1735]:
+            - cell "Matin" [ref=e1736]
+            - cell [ref=e1737]
+            - cell "Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.1" [ref=e1738]:
+              - button "Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.1" [ref=e1739] [cursor=pointer]:
+                - text: Atelier D… 09:00 UM-ML
+                - text: ateliers (avec mus.OSR) · AD6.1
+            - cell "Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.3 G 11:30 UM-ML workshop (percussion) · 200 Motels" [ref=e1740]:
+              - button "Atelier D… 09:00 UM-ML ateliers (avec mus.OSR) · AD6.3" [ref=e1741] [cursor=pointer]:
+                - text: Atelier D… 09:00 UM-ML
+                - text: ateliers (avec mus.OSR) · AD6.3
+              - button "G 11:30 UM-ML workshop (percussion) · 200 Motels" [ref=e1742] [cursor=pointer]:
+                - text: G 11:30 UM-ML
+                - text: workshop (percussion) · 200 Motels
+            - cell [ref=e1743]
+            - cell [ref=e1744]
+            - cell [ref=e1745]
+            - cell [ref=e1746]
+          - row "Ap-midi Atelier D… 13:00 UM-ML ateliers (avec mus.OSR) · AD6.2 G 16:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1747]:
+            - cell "Ap-midi" [ref=e1748]
+            - cell [ref=e1749]
+            - cell "Atelier D… 13:00 UM-ML ateliers (avec mus.OSR) · AD6.2 G 16:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1750]:
+              - button "Atelier D… 13:00 UM-ML ateliers (avec mus.OSR) · AD6.2" [ref=e1751] [cursor=pointer]:
+                - text: Atelier D… 13:00 UM-ML
+                - text: ateliers (avec mus.OSR) · AD6.2
+              - button "G 16:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1752] [cursor=pointer]:
+                - text: G 16:00 UM-ML
+                - text: workshop (percussion) · 200 Motels
+            - cell [ref=e1753]
+            - cell [ref=e1754]
+            - cell [ref=e1755]
+            - cell [ref=e1756]
+            - cell [ref=e1757]
+          - row "Soir G 20:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1758]:
+            - cell "Soir" [ref=e1759]
+            - cell [ref=e1760]
+            - cell "G 20:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1761]:
+              - button "G 20:00 UM-ML workshop (percussion) · 200 Motels" [ref=e1762] [cursor=pointer]:
+                - text: G 20:00 UM-ML
+                - text: workshop (percussion) · 200 Motels
+            - cell [ref=e1763]
+            - cell [ref=e1764]
+            - cell [ref=e1765]
+            - cell [ref=e1766]
+            - cell [ref=e1767]
+      - table [ref=e1769]:
+        - rowgroup [ref=e1770]:
+          - row "S2 Lu 18 mai Ma 19 mai Me 20 mai Je 21 mai Ve 22 mai Sa 23 mai Di 24 mai" [ref=e1771]:
+            - columnheader "S2" [ref=e1772]
+            - columnheader "Lu 18 mai" [ref=e1773]
+            - columnheader "Ma 19 mai" [ref=e1774]
+            - columnheader "Me 20 mai" [ref=e1775]
+            - columnheader "Je 21 mai" [ref=e1776]
+            - columnheader "Ve 22 mai" [ref=e1777]
+            - columnheader "Sa 23 mai" [ref=e1778]
+            - columnheader "Di 24 mai" [ref=e1779]
+        - rowgroup [ref=e1780]:
+          - row "Matin L32 10:00 VH répétition · aboO8 L32 10:00 VH répétition · aboO8 L32 10:00 VH générale publique · aboO8" [ref=e1781]:
+            - cell "Matin" [ref=e1782]
+            - cell "L32 10:00 VH répétition · aboO8" [ref=e1783]:
+              - button "L32 10:00 VH répétition · aboO8" [ref=e1784] [cursor=pointer]:
+                - text: L32 10:00 VH
+                - text: répétition · aboO8
+            - cell "L32 10:00 VH répétition · aboO8" [ref=e1785]:
+              - button "L32 10:00 VH répétition · aboO8" [ref=e1786] [cursor=pointer]:
+                - text: L32 10:00 VH
+                - text: répétition · aboO8
+            - cell "L32 10:00 VH générale publique · aboO8" [ref=e1787]:
+              - button "L32 10:00 VH générale publique · aboO8" [ref=e1788] [cursor=pointer]:
+                - text: L32 10:00 VH
+                - text: générale publique · aboO8
+            - cell [ref=e1789]
+            - cell [ref=e1790]
+            - cell [ref=e1791]
+            - cell [ref=e1792]
+          - row "Ap-midi L32 14:30 VH répétition · aboO8 Titularis… 16:30 VH séance titularisation (Leonid BARANOV) L32 13:45 VH rencontre chef-soliste(s) · aboO8 L32 14:30 VH répétition avec soliste · aboO8 Présentat… 16:45 VH Présentation Saison GT (/ Alain Perroux) L32 17:30 VH technique RTS · aboO8 Atelier D… 15:00 Bibliothèque de … ateliers (avec mus.OSR) · ADXT2 L32 17:00 bus (Place Neuve) voyage · aboL6 L32 13:30 train voyage · DPL5" [ref=e1793]:
+            - cell "Ap-midi" [ref=e1794]
+            - cell "L32 14:30 VH répétition · aboO8 Titularis… 16:30 VH séance titularisation (Leonid BARANOV)" [ref=e1795]:
+              - button "L32 14:30 VH répétition · aboO8" [ref=e1796] [cursor=pointer]:
+                - text: L32 14:30 VH
+                - text: répétition · aboO8
+              - button "Titularis… 16:30 VH séance titularisation (Leonid BARANOV)" [ref=e1797] [cursor=pointer]:
+                - text: Titularis… 16:30 VH
+                - text: séance titularisation (Leonid BARANOV)
+            - cell "L32 13:45 VH rencontre chef-soliste(s) · aboO8 L32 14:30 VH répétition avec soliste · aboO8 Présentat… 16:45 VH Présentation Saison GT (/ Alain Perroux) L32 17:30 VH technique RTS · aboO8" [ref=e1798]:
+              - button "L32 13:45 VH rencontre chef-soliste(s) · aboO8" [ref=e1799] [cursor=pointer]:
+                - text: L32 13:45 VH
+                - text: rencontre chef-soliste(s) · aboO8
+              - button "L32 14:30 VH répétition avec soliste · aboO8" [ref=e1800] [cursor=pointer]:
+                - text: L32 14:30 VH
+                - text: répétition avec soliste · aboO8
+              - button "Présentat… 16:45 VH Présentation Saison GT (/ Alain Perroux)" [ref=e1801] [cursor=pointer]:
+                - text: Présentat… 16:45 VH
+                - text: Présentation Saison GT (/ Alain Perroux)
+              - button "L32 17:30 VH technique RTS · aboO8" [ref=e1802] [cursor=pointer]:
+                - text: L32 17:30 VH
+                - text: technique RTS · aboO8
+            - cell [ref=e1803]
+            - cell "Atelier D… 15:00 Bibliothèque de … ateliers (avec mus.OSR) · ADXT2 L32 17:00 bus (Place Neuve) voyage · aboL6" [ref=e1804]:
+              - button "Atelier D… 15:00 Bibliothèque de … ateliers (avec mus.OSR) · ADXT2" [ref=e1805] [cursor=pointer]:
+                - text: Atelier D… 15:00 Bibliothèque de …
+                - text: ateliers (avec mus.OSR) · ADXT2
+              - button "L32 17:00 bus (Place Neuve) voyage · aboL6" [ref=e1806] [cursor=pointer]:
+                - text: L32 17:00 bus (Place Neuve)
+                - text: voyage · aboL6
+            - cell "L32 13:30 train voyage · DPL5" [ref=e1807]:
+              - button "L32 13:30 train voyage · DPL5" [ref=e1808] [cursor=pointer]:
+                - text: L32 13:30 train
+                - text: voyage · DPL5
+            - cell [ref=e1809]
+            - cell [ref=e1810]
+          - row "Soir L32 19:30 VH concert · aboO8 L32 19:15 Beaulieu raccord · aboL6 L32 20:15 Beaulieu concert · aboL6 L32 18:30 KKL Luzern raccord · DPL5 L32 19:30 KKL Luzern concert · DPL5" [ref=e1811]:
+            - cell "Soir" [ref=e1812]
+            - cell [ref=e1813]
+            - cell [ref=e1814]
+            - cell "L32 19:30 VH concert · aboO8" [ref=e1815]:
+              - button "L32 19:30 VH concert · aboO8" [ref=e1816] [cursor=pointer]:
+                - text: L32 19:30 VH
+                - text: concert · aboO8
+            - cell "L32 19:15 Beaulieu raccord · aboL6 L32 20:15 Beaulieu concert · aboL6" [ref=e1817]:
+              - button "L32 19:15 Beaulieu raccord · aboL6" [ref=e1818] [cursor=pointer]:
+                - text: L32 19:15 Beaulieu
+                - text: raccord · aboL6
+              - button "L32 20:15 Beaulieu concert · aboL6" [ref=e1819] [cursor=pointer]:
+                - text: L32 20:15 Beaulieu
+                - text: concert · aboL6
+            - cell "L32 18:30 KKL Luzern raccord · DPL5 L32 19:30 KKL Luzern concert · DPL5" [ref=e1820]:
+              - button "L32 18:30 KKL Luzern raccord · DPL5" [ref=e1821] [cursor=pointer]:
+                - text: L32 18:30 KKL Luzern
+                - text: raccord · DPL5
+              - button "L32 19:30 KKL Luzern concert · DPL5" [ref=e1822] [cursor=pointer]:
+                - text: L32 19:30 KKL Luzern
+                - text: concert · DPL5
+            - cell [ref=e1823]
+            - cell [ref=e1824]
+      - table [ref=e1826]:
+        - rowgroup [ref=e1827]:
+          - row "S3 Lu 25 mai Ma 26 mai Me 27 mai Je 28 mai Ve 29 mai Sa 30 mai Di 31 mai" [ref=e1828]:
+            - columnheader "S3" [ref=e1829]
+            - columnheader "Lu 25 mai" [ref=e1830]
+            - columnheader "Ma 26 mai" [ref=e1831]
+            - columnheader "Me 27 mai" [ref=e1832]
+            - columnheader "Je 28 mai" [ref=e1833]
+            - columnheader "Ve 29 mai" [ref=e1834]
+            - columnheader "Sa 30 mai" [ref=e1835]
+            - columnheader "Di 31 mai" [ref=e1836]
+        - rowgroup [ref=e1837]:
+          - row "Matin L33 10:00 VH répétition · aboF4 L33 10:00 VH répétition · aboF4 L33 10:00 VH générale publique · aboF4 L33 11:00 VH cinéconcert · aboF4" [ref=e1838]:
+            - cell "Matin" [ref=e1839]
+            - cell [ref=e1840]
+            - cell [ref=e1841]
+            - cell "L33 10:00 VH répétition · aboF4" [ref=e1842]:
+              - button "L33 10:00 VH répétition · aboF4" [ref=e1843] [cursor=pointer]:
+                - text: L33 10:00 VH
+                - text: répétition · aboF4
+            - cell "L33 10:00 VH répétition · aboF4" [ref=e1844]:
+              - button "L33 10:00 VH répétition · aboF4" [ref=e1845] [cursor=pointer]:
+                - text: L33 10:00 VH
+                - text: répétition · aboF4
+            - cell "L33 10:00 VH générale publique · aboF4" [ref=e1846]:
+              - button "L33 10:00 VH générale publique · aboF4" [ref=e1847] [cursor=pointer]:
+                - text: L33 10:00 VH
+                - text: générale publique · aboF4
+            - cell "L33 11:00 VH cinéconcert · aboF4" [ref=e1848]:
+              - button "L33 11:00 VH cinéconcert · aboF4" [ref=e1849] [cursor=pointer]:
+                - text: L33 11:00 VH
+                - text: cinéconcert · aboF4
+            - cell [ref=e1850]
+          - row "Ap-midi L33 14:30 VH répétition · aboF4" [ref=e1851]:
+            - cell "Ap-midi" [ref=e1852]
+            - cell [ref=e1853]
+            - cell [ref=e1854]
+            - cell [ref=e1855]
+            - cell "L33 14:30 VH répétition · aboF4" [ref=e1856]:
+              - button "L33 14:30 VH répétition · aboF4" [ref=e1857] [cursor=pointer]:
+                - text: L33 14:30 VH
+                - text: répétition · aboF4
+            - cell [ref=e1858]
+            - cell [ref=e1859]
+            - cell [ref=e1860]
+          - row "Soir L33 19:00 VH cinéconcert · H.Abo5" [ref=e1861]:
+            - cell "Soir" [ref=e1862]
+            - cell [ref=e1863]
+            - cell [ref=e1864]
+            - cell [ref=e1865]
+            - cell [ref=e1866]
+            - cell "L33 19:00 VH cinéconcert · H.Abo5" [ref=e1867]:
+              - button "L33 19:00 VH cinéconcert · H.Abo5" [ref=e1868] [cursor=pointer]:
+                - text: L33 19:00 VH
+                - text: cinéconcert · H.Abo5
+            - cell [ref=e1869]
+            - cell [ref=e1870]
+      - table [ref=e1872]:
+        - rowgroup [ref=e1873]:
+          - row "S4 Lu 1 juin Ma 2 juin Me 3 juin Je 4 juin Ve 5 juin Sa 6 juin Di 7 juin" [ref=e1874]:
+            - columnheader "S4" [ref=e1875]
+            - columnheader "Lu 1 juin" [ref=e1876]
+            - columnheader "Ma 2 juin" [ref=e1877]
+            - columnheader "Me 3 juin" [ref=e1878]
+            - columnheader "Je 4 juin" [ref=e1879]
+            - columnheader "Ve 5 juin" [ref=e1880]
+            - columnheader "Sa 6 juin" [ref=e1881]
+            - columnheader "Di 7 juin" [ref=e1882]
+        - rowgroup [ref=e1883]:
+          - row "Matin L34 10:00 VH répétition · aboR4 L34 10:00 VH répétition · aboR4 L34 10:00 VH générale non publique (+ balance + caméras) · aboR4 G 10:30 BFM partielle (perc.+timp+Steamboat+guitare solo+clav.GT+sax.GT+trb.GT) · 200 Motels" [ref=e1884]:
+            - cell "Matin" [ref=e1885]
+            - cell "L34 10:00 VH répétition · aboR4" [ref=e1886]:
+              - button "L34 10:00 VH répétition · aboR4" [ref=e1887] [cursor=pointer]:
+                - text: L34 10:00 VH
+                - text: répétition · aboR4
+            - cell "L34 10:00 VH répétition · aboR4" [ref=e1888]:
+              - button "L34 10:00 VH répétition · aboR4" [ref=e1889] [cursor=pointer]:
+                - text: L34 10:00 VH
+                - text: répétition · aboR4
+            - cell "L34 10:00 VH générale non publique (+ balance + caméras) · aboR4" [ref=e1890]:
+              - button "L34 10:00 VH générale non publique (+ balance + caméras) · aboR4" [ref=e1891] [cursor=pointer]:
+                - text: L34 10:00 VH
+                - text: générale non publique (+ balance + caméras) · aboR4
+            - cell [ref=e1892]
+            - cell "G 10:30 BFM partielle (perc.+timp+Steamboat+guitare solo+clav.GT+sax.GT+trb.GT) · 200 Motels" [ref=e1893]:
+              - button "G 10:30 BFM partielle (perc.+timp+Steamboat+guitare solo+clav.GT+sax.GT+trb.GT) · 200 Motels" [ref=e1894] [cursor=pointer]:
+                - text: G 10:30 BFM
+                - text: partielle (perc.+timp+Steamboat+guitare solo+clav.GT+sax.GT+trb.GT) · 200 Motels
+            - cell [ref=e1895]
+            - cell [ref=e1896]
+          - row "Ap-midi L34 14:30 VH répétition · aboR4 Titularis… 16:30 VH séance titularisation · concours d'orchestre L34 13:30 VH rencontre chef-soliste(s) · aboR4 L34 14:30 VH répétition avec soliste · aboR4 L34 17:30 VH technique RTS · aboS8, aboR4 G 14:30 UM-ML lecture (bois + cuivres + accordéon + guitares acoustiques + harpe + cordes) · 200 Motels" [ref=e1897]:
+            - cell "Ap-midi" [ref=e1898]
+            - cell "L34 14:30 VH répétition · aboR4 Titularis… 16:30 VH séance titularisation · concours d'orchestre" [ref=e1899]:
+              - button "L34 14:30 VH répétition · aboR4" [ref=e1900] [cursor=pointer]:
+                - text: L34 14:30 VH
+                - text: répétition · aboR4
+              - button "Titularis… 16:30 VH séance titularisation · concours d'orchestre" [ref=e1901] [cursor=pointer]:
+                - text: Titularis… 16:30 VH
+                - text: séance titularisation · concours d'orchestre
+            - cell "L34 13:30 VH rencontre chef-soliste(s) · aboR4 L34 14:30 VH répétition avec soliste · aboR4 L34 17:30 VH technique RTS · aboS8, aboR4" [ref=e1902]:
+              - button "L34 13:30 VH rencontre chef-soliste(s) · aboR4" [ref=e1903] [cursor=pointer]:
+                - text: L34 13:30 VH
+                - text: rencontre chef-soliste(s) · aboR4
+              - button "L34 14:30 VH répétition avec soliste · aboR4" [ref=e1904] [cursor=pointer]:
+                - text: L34 14:30 VH
+                - text: répétition avec soliste · aboR4
+              - button "L34 17:30 VH technique RTS · aboS8, aboR4" [ref=e1905] [cursor=pointer]:
+                - text: L34 17:30 VH
+                - text: technique RTS · aboS8, aboR4
+            - cell [ref=e1906]
+            - cell [ref=e1907]
+            - cell "G 14:30 UM-ML lecture (bois + cuivres + accordéon + guitares acoustiques + harpe + cordes) · 200 Motels" [ref=e1908]:
+              - button "G 14:30 UM-ML lecture (bois + cuivres + accordéon + guitares acoustiques + harpe + cordes) · 200 Motels" [ref=e1909] [cursor=pointer]:
+                - text: G 14:30 UM-ML
+                - text: lecture (bois + cuivres + accordéon + guitares acoustiques + harpe + cordes) · 200 Motels
+            - cell [ref=e1910]
+            - cell [ref=e1911]
+          - row "Soir L34 19:30 VH concert · aboR4 L34 19:30 VH concert · aboS8 L33 18:30 Alhambra de Genève raccord · FEST.1 G 19:30 BFM générale piano (+ PERCU !!!) · 200 Motels L33 20:00 Alhambra de Genève cinéconcert · FEST.1" [ref=e1912]:
+            - cell "Soir" [ref=e1913]
+            - cell [ref=e1914]
+            - cell [ref=e1915]
+            - cell "L34 19:30 VH concert · aboR4" [ref=e1916]:
+              - button "L34 19:30 VH concert · aboR4" [ref=e1917] [cursor=pointer]:
+                - text: L34 19:30 VH
+                - text: concert · aboR4
+            - cell "L34 19:30 VH concert · aboS8" [ref=e1918]:
+              - button "L34 19:30 VH concert · aboS8" [ref=e1919] [cursor=pointer]:
+                - text: L34 19:30 VH
+                - text: concert · aboS8
+            - cell [ref=e1920]
+            - cell "L33 18:30 Alhambra de Genève raccord · FEST.1 G 19:30 BFM générale piano (+ PERCU !!!) · 200 Motels L33 20:00 Alhambra de Genève cinéconcert · FEST.1" [ref=e1921]:
+              - button "L33 18:30 Alhambra de Genève raccord · FEST.1" [ref=e1922] [cursor=pointer]:
+                - text: L33 18:30 Alhambra de Genève
+                - text: raccord · FEST.1
+              - button "G 19:30 BFM générale piano (+ PERCU !!!) · 200 Motels" [ref=e1923] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: générale piano (+ PERCU !!!) · 200 Motels
+              - button "L33 20:00 Alhambra de Genève cinéconcert · FEST.1" [ref=e1924] [cursor=pointer]:
+                - text: L33 20:00 Alhambra de Genève
+                - text: cinéconcert · FEST.1
+            - cell [ref=e1925]
+    - generic [ref=e1926]:
+      - heading "Période 12 — du 8 juin au 5 juil. 2026" [level=2] [ref=e1927]
+      - table [ref=e1929]:
+        - rowgroup [ref=e1930]:
+          - row "S1 Lu 8 juin Ma 9 juin Me 10 juin Je 11 juin Ve 12 juin Sa 13 juin Di 14 juin" [ref=e1931]:
+            - columnheader "S1" [ref=e1932]
+            - columnheader "Lu 8 juin" [ref=e1933]
+            - columnheader "Ma 9 juin" [ref=e1934]
+            - columnheader "Me 10 juin" [ref=e1935]
+            - columnheader "Je 11 juin" [ref=e1936]
+            - columnheader "Ve 12 juin" [ref=e1937]
+            - columnheader "Sa 13 juin" [ref=e1938]
+            - columnheader "Di 14 juin" [ref=e1939]
+        - rowgroup [ref=e1940]:
+          - row "Matin AG USDAM … 09:30 UM-ML Assemblée générale sous-section AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1941]:
+            - cell "Matin" [ref=e1942]
+            - cell [ref=e1943]
+            - cell "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1944]:
+              - button "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1945] [cursor=pointer]:
+                - text: AG USDAM … 09:30 UM-ML
+                - text: Assemblée générale sous-section
+            - cell [ref=e1946]
+            - cell "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1947]:
+              - button "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e1948] [cursor=pointer]:
+                - text: AG USDAM … 09:30 UM-ML
+                - text: Assemblée générale sous-section
+            - cell [ref=e1949]
+            - cell [ref=e1950]
+            - cell [ref=e1951]
+          - row "Ap-midi G 14:30 BFM lecture (+balance) · 200 Motels G 14:00 BFM italienne · 200 Motels Conseil d… 12:00 Administration Séance CF L34b 13:00 Curabilis ateliers (avec mus.OSR) · FOSR G 14:00 BFM scène et orchestre · 200 Motels G 14:00 BFM scène et orchestre · 200 Motels L35 14:30 VH répétition tutti · OCV, FMUS1" [ref=e1952]:
+            - cell "Ap-midi" [ref=e1953]
+            - cell "G 14:30 BFM lecture (+balance) · 200 Motels" [ref=e1954]:
+              - button "G 14:30 BFM lecture (+balance) · 200 Motels" [ref=e1955] [cursor=pointer]:
+                - text: G 14:30 BFM
+                - text: lecture (+balance) · 200 Motels
+            - cell "G 14:00 BFM italienne · 200 Motels" [ref=e1956]:
+              - button "G 14:00 BFM italienne · 200 Motels" [ref=e1957] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: italienne · 200 Motels
+            - cell "Conseil d… 12:00 Administration Séance CF L34b 13:00 Curabilis ateliers (avec mus.OSR) · FOSR" [ref=e1958]:
+              - button "Conseil d… 12:00 Administration Séance CF" [ref=e1959] [cursor=pointer]:
+                - text: Conseil d… 12:00 Administration
+                - text: Séance CF
+              - button "L34b 13:00 Curabilis ateliers (avec mus.OSR) · FOSR" [ref=e1960] [cursor=pointer]:
+                - text: L34b 13:00 Curabilis
+                - text: ateliers (avec mus.OSR) · FOSR
+            - cell "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e1961]:
+              - button "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e1962] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e1963]:
+              - button "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e1964] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "L35 14:30 VH répétition tutti · OCV, FMUS1" [ref=e1965]:
+              - button "L35 14:30 VH répétition tutti · OCV, FMUS1" [ref=e1966] [cursor=pointer]:
+                - text: L35 14:30 VH
+                - text: répétition tutti · OCV, FMUS1
+            - cell [ref=e1967]
+          - row "Soir G 19:30 BFM lecture (+balance) · 200 Motels G 19:30 BFM italienne · 200 Motels G 19:30 BFM scène et orchestre · 200 Motels G 19:30 BFM scène et orchestre · 200 Motels L35 18:30 UM-ML répétition tutti · OCV, FMUS1 G 19:30 BFM scène et orchestre · 200 Motels L35 19:30 VH répétition tutti · OCV, FMUS1" [ref=e1968]:
+            - cell "Soir" [ref=e1969]
+            - cell "G 19:30 BFM lecture (+balance) · 200 Motels" [ref=e1970]:
+              - button "G 19:30 BFM lecture (+balance) · 200 Motels" [ref=e1971] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: lecture (+balance) · 200 Motels
+            - cell "G 19:30 BFM italienne · 200 Motels" [ref=e1972]:
+              - button "G 19:30 BFM italienne · 200 Motels" [ref=e1973] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: italienne · 200 Motels
+            - cell "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1974]:
+              - button "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1975] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1976]:
+              - button "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1977] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "L35 18:30 UM-ML répétition tutti · OCV, FMUS1 G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1978]:
+              - button "L35 18:30 UM-ML répétition tutti · OCV, FMUS1" [ref=e1979] [cursor=pointer]:
+                - text: L35 18:30 UM-ML
+                - text: répétition tutti · OCV, FMUS1
+              - button "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e1980] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "L35 19:30 VH répétition tutti · OCV, FMUS1" [ref=e1981]:
+              - button "L35 19:30 VH répétition tutti · OCV, FMUS1" [ref=e1982] [cursor=pointer]:
+                - text: L35 19:30 VH
+                - text: répétition tutti · OCV, FMUS1
+            - cell [ref=e1983]
+      - table [ref=e1985]:
+        - rowgroup [ref=e1986]:
+          - row "S2 Lu 15 juin Ma 16 juin Me 17 juin Je 18 juin Ve 19 juin Sa 20 juin Di 21 juin" [ref=e1987]:
+            - columnheader "S2" [ref=e1988]
+            - columnheader "Lu 15 juin" [ref=e1989]
+            - columnheader "Ma 16 juin" [ref=e1990]
+            - columnheader "Me 17 juin" [ref=e1991]
+            - columnheader "Je 18 juin" [ref=e1992]
+            - columnheader "Ve 19 juin" [ref=e1993]
+            - columnheader "Sa 20 juin" [ref=e1994]
+            - columnheader "Di 21 juin" [ref=e1995]
+        - rowgroup [ref=e1996]:
+          - row "Matin Auditions… 09:00 HEM Dufour GD10 auditions master HEM Auditions… 09:00 HEM Dufour GD30 auditions master HEM Auditions… 09:00 HEM / salle perc… auditions master HEM AG USDAM … 09:30 UM-ML Assemblée générale sous-section L36 09:00 UM-ML répétition · FMUS2 L36 10:00 VH générale non publique · FMUS2" [ref=e1997]:
+            - cell "Matin" [ref=e1998]
+            - cell [ref=e1999]
+            - cell "Auditions… 09:00 HEM Dufour GD10 auditions master HEM Auditions… 09:00 HEM Dufour GD30 auditions master HEM Auditions… 09:00 HEM / salle perc… auditions master HEM" [ref=e2000]:
+              - button "Auditions… 09:00 HEM Dufour GD10 auditions master HEM" [ref=e2001] [cursor=pointer]:
+                - text: Auditions… 09:00 HEM Dufour GD10
+                - text: auditions master HEM
+              - button "Auditions… 09:00 HEM Dufour GD30 auditions master HEM" [ref=e2002] [cursor=pointer]:
+                - text: Auditions… 09:00 HEM Dufour GD30
+                - text: auditions master HEM
+              - button "Auditions… 09:00 HEM / salle perc… auditions master HEM" [ref=e2003] [cursor=pointer]:
+                - text: Auditions… 09:00 HEM / salle perc…
+                - text: auditions master HEM
+            - cell "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e2004]:
+              - button "AG USDAM … 09:30 UM-ML Assemblée générale sous-section" [ref=e2005] [cursor=pointer]:
+                - text: AG USDAM … 09:30 UM-ML
+                - text: Assemblée générale sous-section
+            - cell "L36 09:00 UM-ML répétition · FMUS2" [ref=e2006]:
+              - button "L36 09:00 UM-ML répétition · FMUS2" [ref=e2007] [cursor=pointer]:
+                - text: L36 09:00 UM-ML
+                - text: répétition · FMUS2
+            - cell "L36 10:00 VH générale non publique · FMUS2" [ref=e2008]:
+              - button "L36 10:00 VH générale non publique · FMUS2" [ref=e2009] [cursor=pointer]:
+                - text: L36 10:00 VH
+                - text: générale non publique · FMUS2
+            - cell [ref=e2010]
+            - cell [ref=e2011]
+          - row "Ap-midi G 14:00 BFM scène et orchestre · 200 Motels L36 16:00 VH concert · FMUS2 G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels G 15:00 BFM troisième (200 motels (1h30)) · 200 Motels Concours … 16:00 UM-ML répétitions candidats (clarinette - 1er·ère soliste) · concours d'orchestre" [ref=e2012]:
+            - cell "Ap-midi" [ref=e2013]
+            - cell "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e2014]:
+              - button "G 14:00 BFM scène et orchestre · 200 Motels" [ref=e2015] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell [ref=e2016]
+            - cell [ref=e2017]
+            - cell [ref=e2018]
+            - cell [ref=e2019]
+            - cell "L36 16:00 VH concert · FMUS2" [ref=e2020]:
+              - button "L36 16:00 VH concert · FMUS2" [ref=e2021] [cursor=pointer]:
+                - text: L36 16:00 VH
+                - text: concert · FMUS2
+            - cell "G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels G 15:00 BFM troisième (200 motels (1h30)) · 200 Motels Concours … 16:00 UM-ML répétitions candidats (clarinette - 1er·ère soliste) · concours d'orchestre" [ref=e2022]:
+              - button "G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2023] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 15:00 BFM troisième (200 motels (1h30)) · 200 Motels" [ref=e2024] [cursor=pointer]:
+                - text: G 15:00 BFM
+                - text: troisième (200 motels (1h30)) · 200 Motels
+              - button "Concours … 16:00 UM-ML répétitions candidats (clarinette - 1er·ère soliste) · concours d'orchestre" [ref=e2025] [cursor=pointer]:
+                - text: Concours … 16:00 UM-ML
+                - text: répétitions candidats (clarinette - 1er·ère soliste) · concours d'orchestre
+          - row "Soir G 19:30 BFM scène et orchestre · 200 Motels G 18:30 BFM raccord (perc. + Steamboat) · 200 Motels G 19:30 BFM prégénérale GT · 200 Motels G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels G 20:00 BFM générale GT · 200 Motels G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels L35 19:00 VH générale non publique · FMUS1 G 20:00 BFM première (200 motels (1h30)) · 200 Motels L35 20:30 VH concert · FMUS1 G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels G 20:00 BFM deuxième (200 motels (1h30)) · 200 Motels" [ref=e2026]:
+            - cell "Soir" [ref=e2027]
+            - cell "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e2028]:
+              - button "G 19:30 BFM scène et orchestre · 200 Motels" [ref=e2029] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: scène et orchestre · 200 Motels
+            - cell "G 18:30 BFM raccord (perc. + Steamboat) · 200 Motels G 19:30 BFM prégénérale GT · 200 Motels" [ref=e2030]:
+              - button "G 18:30 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2031] [cursor=pointer]:
+                - text: G 18:30 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 19:30 BFM prégénérale GT · 200 Motels" [ref=e2032] [cursor=pointer]:
+                - text: G 19:30 BFM
+                - text: prégénérale GT · 200 Motels
+            - cell "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels G 20:00 BFM générale GT · 200 Motels" [ref=e2033]:
+              - button "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2034] [cursor=pointer]:
+                - text: G 19:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 20:00 BFM générale GT · 200 Motels" [ref=e2035] [cursor=pointer]:
+                - text: G 20:00 BFM
+                - text: générale GT · 200 Motels
+            - cell "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels L35 19:00 VH générale non publique · FMUS1 G 20:00 BFM première (200 motels (1h30)) · 200 Motels" [ref=e2036]:
+              - button "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2037] [cursor=pointer]:
+                - text: G 19:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "L35 19:00 VH générale non publique · FMUS1" [ref=e2038] [cursor=pointer]:
+                - text: L35 19:00 VH
+                - text: générale non publique · FMUS1
+              - button "G 20:00 BFM première (200 motels (1h30)) · 200 Motels" [ref=e2039] [cursor=pointer]:
+                - text: G 20:00 BFM
+                - text: première (200 motels (1h30)) · 200 Motels
+            - cell "L35 20:30 VH concert · FMUS1" [ref=e2040]:
+              - button "L35 20:30 VH concert · FMUS1" [ref=e2041] [cursor=pointer]:
+                - text: L35 20:30 VH
+                - text: concert · FMUS1
+            - cell "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels G 20:00 BFM deuxième (200 motels (1h30)) · 200 Motels" [ref=e2042]:
+              - button "G 19:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2043] [cursor=pointer]:
+                - text: G 19:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 20:00 BFM deuxième (200 motels (1h30)) · 200 Motels" [ref=e2044] [cursor=pointer]:
+                - text: G 20:00 BFM
+                - text: deuxième (200 motels (1h30)) · 200 Motels
+            - cell [ref=e2045]
+      - table [ref=e2047]:
+        - rowgroup [ref=e2048]:
+          - row "S3 Lu 22 juin Ma 23 juin Me 24 juin Je 25 juin Ve 26 juin Sa 27 juin Di 28 juin" [ref=e2049]:
+            - columnheader "S3" [ref=e2050]
+            - columnheader "Lu 22 juin" [ref=e2051]
+            - columnheader "Ma 23 juin" [ref=e2052]
+            - columnheader "Me 24 juin" [ref=e2053]
+            - columnheader "Je 25 juin" [ref=e2054]
+            - columnheader "Ve 26 juin" [ref=e2055]
+            - columnheader "Sa 27 juin" [ref=e2056]
+            - columnheader "Di 28 juin" [ref=e2057]
+        - rowgroup [ref=e2058]:
+          - row "Matin Concours … 09:30 Auditorium Anser… concours (clarinette - 1er·ère soliste) · CC10 L38 10:00 GTG répétition · ENR2 Concours … 09:30 Auditorium Anser… concours (alto - tuttiste) · concours d'orchestre Concours … 09:30 Auditorium Anser… concours (2ème hautbois - soliste remplaçant·e) · concours d'orchestre Concours … 09:30 Auditorium Anser… concours (1ers violons - tuttiste (4 postes)) · concours d'orchestre" [ref=e2059]:
+            - cell "Matin" [ref=e2060]
+            - cell "Concours … 09:30 Auditorium Anser… concours (clarinette - 1er·ère soliste) · CC10" [ref=e2061]:
+              - button "Concours … 09:30 Auditorium Anser… concours (clarinette - 1er·ère soliste) · CC10" [ref=e2062] [cursor=pointer]:
+                - text: Concours … 09:30 Auditorium Anser…
+                - text: concours (clarinette - 1er·ère soliste) · CC10
+            - cell "L38 10:00 GTG répétition · ENR2" [ref=e2063]:
+              - button "L38 10:00 GTG répétition · ENR2" [ref=e2064] [cursor=pointer]:
+                - text: L38 10:00 GTG
+                - text: répétition · ENR2
+            - cell "Concours … 09:30 Auditorium Anser… concours (alto - tuttiste) · concours d'orchestre" [ref=e2065]:
+              - button "Concours … 09:30 Auditorium Anser… concours (alto - tuttiste) · concours d'orchestre" [ref=e2066] [cursor=pointer]:
+                - text: Concours … 09:30 Auditorium Anser…
+                - text: concours (alto - tuttiste) · concours d'orchestre
+            - cell [ref=e2067]
+            - cell "Concours … 09:30 Auditorium Anser… concours (2ème hautbois - soliste remplaçant·e) · concours d'orchestre" [ref=e2068]:
+              - button "Concours … 09:30 Auditorium Anser… concours (2ème hautbois - soliste remplaçant·e) · concours d'orchestre" [ref=e2069] [cursor=pointer]:
+                - text: Concours … 09:30 Auditorium Anser…
+                - text: concours (2ème hautbois - soliste remplaçant·e) · concours d'orchestre
+            - cell "Concours … 09:30 Auditorium Anser… concours (1ers violons - tuttiste (4 postes)) · concours d'orchestre" [ref=e2070]:
+              - button "Concours … 09:30 Auditorium Anser… concours (1ers violons - tuttiste (4 postes)) · concours d'orchestre" [ref=e2071] [cursor=pointer]:
+                - text: Concours … 09:30 Auditorium Anser…
+                - text: concours (1ers violons - tuttiste (4 postes)) · concours d'orchestre
+            - cell [ref=e2072]
+          - row "Ap-midi L38 14:00 GTG répétition · ENR2 Concours … 16:30 UM-ML répétitions candidats (alto - tuttiste) · concours d'orchestre Concours … 17:30 UM-ML répétitions candidats (2ème hautbois - soliste remplaçant·e) · concours d'orchestre Concours … 17:00 UM-ML répétitions candidats (1ers violons - tuttiste (4 postes)) · concours d'orchestre G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels G 15:00 BFM sixième (200 motels (1h30)) · 200 Motels" [ref=e2073]:
+            - cell "Ap-midi" [ref=e2074]
+            - cell [ref=e2075]
+            - cell "L38 14:00 GTG répétition · ENR2 Concours … 16:30 UM-ML répétitions candidats (alto - tuttiste) · concours d'orchestre" [ref=e2076]:
+              - button "L38 14:00 GTG répétition · ENR2" [ref=e2077] [cursor=pointer]:
+                - text: L38 14:00 GTG
+                - text: répétition · ENR2
+              - button "Concours … 16:30 UM-ML répétitions candidats (alto - tuttiste) · concours d'orchestre" [ref=e2078] [cursor=pointer]:
+                - text: Concours … 16:30 UM-ML
+                - text: répétitions candidats (alto - tuttiste) · concours d'orchestre
+            - cell [ref=e2079]
+            - cell "Concours … 17:30 UM-ML répétitions candidats (2ème hautbois - soliste remplaçant·e) · concours d'orchestre" [ref=e2080]:
+              - button "Concours … 17:30 UM-ML répétitions candidats (2ème hautbois - soliste remplaçant·e) · concours d'orchestre" [ref=e2081] [cursor=pointer]:
+                - text: Concours … 17:30 UM-ML
+                - text: répétitions candidats (2ème hautbois - soliste remplaçant·e) · concours d'orchestre
+            - cell "Concours … 17:00 UM-ML répétitions candidats (1ers violons - tuttiste (4 postes)) · concours d'orchestre" [ref=e2082]:
+              - button "Concours … 17:00 UM-ML répétitions candidats (1ers violons - tuttiste (4 postes)) · concours d'orchestre" [ref=e2083] [cursor=pointer]:
+                - text: Concours … 17:00 UM-ML
+                - text: répétitions candidats (1ers violons - tuttiste (4 postes)) · concours d'orchestre
+            - cell [ref=e2084]
+            - cell "G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels G 15:00 BFM sixième (200 motels (1h30)) · 200 Motels" [ref=e2085]:
+              - button "G 14:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2086] [cursor=pointer]:
+                - text: G 14:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 15:00 BFM sixième (200 motels (1h30)) · 200 Motels" [ref=e2087] [cursor=pointer]:
+                - text: G 15:00 BFM
+                - text: sixième (200 motels (1h30)) · 200 Motels
+          - row "Soir G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels G 19:00 BFM quatrième (200 motels (1h30)) · 200 Motels G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels G 19:00 BFM cinquième (200 motels (1h30)) · 200 Motels" [ref=e2088]:
+            - cell "Soir" [ref=e2089]
+            - cell [ref=e2090]
+            - cell "G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels G 19:00 BFM quatrième (200 motels (1h30)) · 200 Motels" [ref=e2091]:
+              - button "G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2092] [cursor=pointer]:
+                - text: G 18:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 19:00 BFM quatrième (200 motels (1h30)) · 200 Motels" [ref=e2093] [cursor=pointer]:
+                - text: G 19:00 BFM
+                - text: quatrième (200 motels (1h30)) · 200 Motels
+            - cell [ref=e2094]
+            - cell "G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels G 19:00 BFM cinquième (200 motels (1h30)) · 200 Motels" [ref=e2095]:
+              - button "G 18:00 BFM raccord (perc. + Steamboat) · 200 Motels" [ref=e2096] [cursor=pointer]:
+                - text: G 18:00 BFM
+                - text: raccord (perc. + Steamboat) · 200 Motels
+              - button "G 19:00 BFM cinquième (200 motels (1h30)) · 200 Motels" [ref=e2097] [cursor=pointer]:
+                - text: G 19:00 BFM
+                - text: cinquième (200 motels (1h30)) · 200 Motels
+            - cell [ref=e2098]
+            - cell [ref=e2099]
+            - cell [ref=e2100]
+      - table [ref=e2102]:
+        - rowgroup [ref=e2103]:
+          - row "S4 Lu 29 juin Ma 30 juin Me 1 juil. Je 2 juil. Ve 3 juil. Sa 4 juil. Di 5 juil." [ref=e2104]:
+            - columnheader "S4" [ref=e2105]
+            - columnheader "Lu 29 juin" [ref=e2106]
+            - columnheader "Ma 30 juin" [ref=e2107]
+            - columnheader "Me 1 juil." [ref=e2108]
+            - columnheader "Je 2 juil." [ref=e2109]
+            - columnheader "Ve 3 juil." [ref=e2110]
+            - columnheader "Sa 4 juil." [ref=e2111]
+            - columnheader "Di 5 juil." [ref=e2112]
+        - rowgroup [ref=e2113]:
+          - row "Matin L37 10:00 UM-ML répétition · ETE L37 10:00 UM-ML répétition avec soliste · ETE L38 10:00 GTG répétition · ENR2" [ref=e2114]:
+            - cell "Matin" [ref=e2115]
+            - cell "L37 10:00 UM-ML répétition · ETE" [ref=e2116]:
+              - button "L37 10:00 UM-ML répétition · ETE" [ref=e2117] [cursor=pointer]:
+                - text: L37 10:00 UM-ML
+                - text: répétition · ETE
+            - cell "L37 10:00 UM-ML répétition avec soliste · ETE" [ref=e2118]:
+              - button "L37 10:00 UM-ML répétition avec soliste · ETE" [ref=e2119] [cursor=pointer]:
+                - text: L37 10:00 UM-ML
+                - text: répétition avec soliste · ETE
+            - cell "L38 10:00 GTG répétition · ENR2" [ref=e2120]:
+              - button "L38 10:00 GTG répétition · ENR2" [ref=e2121] [cursor=pointer]:
+                - text: L38 10:00 GTG
+                - text: répétition · ENR2
+            - cell [ref=e2122]
+            - cell [ref=e2123]
+            - cell [ref=e2124]
+            - cell [ref=e2125]
+          - row "Ap-midi L37 14:30 UM-ML répétition avec solistes · ETE L37 14:30 UM-ML générale non publique · ETE Conseil d… 12:00 Administration Séance CF L38 14:30 GTG répétition (+ balance) · ENR2" [ref=e2126]:
+            - cell "Ap-midi" [ref=e2127]
+            - cell "L37 14:30 UM-ML répétition avec solistes · ETE" [ref=e2128]:
+              - button "L37 14:30 UM-ML répétition avec solistes · ETE" [ref=e2129] [cursor=pointer]:
+                - text: L37 14:30 UM-ML
+                - text: répétition avec solistes · ETE
+            - cell "L37 14:30 UM-ML générale non publique · ETE" [ref=e2130]:
+              - button "L37 14:30 UM-ML générale non publique · ETE" [ref=e2131] [cursor=pointer]:
+                - text: L37 14:30 UM-ML
+                - text: générale non publique · ETE
+            - cell "Conseil d… 12:00 Administration Séance CF" [ref=e2132]:
+              - button "Conseil d… 12:00 Administration Séance CF" [ref=e2133] [cursor=pointer]:
+                - text: Conseil d… 12:00 Administration
+                - text: Séance CF
+            - cell "L38 14:30 GTG répétition (+ balance) · ENR2" [ref=e2134]:
+              - button "L38 14:30 GTG répétition (+ balance) · ENR2" [ref=e2135] [cursor=pointer]:
+                - text: L38 14:30 GTG
+                - text: répétition (+ balance) · ENR2
+            - cell [ref=e2136]
+            - cell [ref=e2137]
+            - cell [ref=e2138]
+          - row "Soir Dìner Act… 19:00 Genève (Le Cercl… dîner L37 18:00 Scène Ella Fitzg… raccord (+ balance) · ETE L37 21:00 Scène Ella Fitzg… concert · ETE L38 19:30 GTG session enregistrement · ENR2 L38 19:30 GTG session enregistrement · ENR2" [ref=e2139]:
+            - cell "Soir" [ref=e2140]
+            - cell "Dìner Act… 19:00 Genève (Le Cercl… dîner" [ref=e2141]:
+              - button "Dìner Act… 19:00 Genève (Le Cercl… dîner" [ref=e2142] [cursor=pointer]:
+                - text: Dìner Act… 19:00 Genève (Le Cercl…
+                - text: dîner
+            - cell [ref=e2143]
+            - cell "L37 18:00 Scène Ella Fitzg… raccord (+ balance) · ETE L37 21:00 Scène Ella Fitzg… concert · ETE" [ref=e2144]:
+              - button "L37 18:00 Scène Ella Fitzg… raccord (+ balance) · ETE" [ref=e2145] [cursor=pointer]:
+                - text: L37 18:00 Scène Ella Fitzg…
+                - text: raccord (+ balance) · ETE
+              - button "L37 21:00 Scène Ella Fitzg… concert · ETE" [ref=e2146] [cursor=pointer]:
+                - text: L37 21:00 Scène Ella Fitzg…
+                - text: concert · ETE
+            - cell "L38 19:30 GTG session enregistrement · ENR2" [ref=e2147]:
+              - button "L38 19:30 GTG session enregistrement · ENR2" [ref=e2148] [cursor=pointer]:
+                - text: L38 19:30 GTG
+                - text: session enregistrement · ENR2
+            - cell "L38 19:30 GTG session enregistrement · ENR2" [ref=e2149]:
+              - button "L38 19:30 GTG session enregistrement · ENR2" [ref=e2150] [cursor=pointer]:
+                - text: L38 19:30 GTG
+                - text: session enregistrement · ENR2
+            - cell [ref=e2151]
+            - cell [ref=e2152]
+    - generic [ref=e2153]:
+      - heading "Période 13 — du 6 juil. au 2 août 2026" [level=2] [ref=e2154]
+      - table [ref=e2156]:
+        - rowgroup [ref=e2157]:
+          - row "S1 Lu 6 juil. Ma 7 juil. Me 8 juil. Je 9 juil. Ve 10 juil. Sa 11 juil. Di 12 juil." [ref=e2158]:
+            - columnheader "S1" [ref=e2159]
+            - columnheader "Lu 6 juil." [ref=e2160]
+            - columnheader "Ma 7 juil." [ref=e2161]
+            - columnheader "Me 8 juil." [ref=e2162]
+            - columnheader "Je 9 juil." [ref=e2163]
+            - columnheader "Ve 10 juil." [ref=e2164]
+            - columnheader "Sa 11 juil." [ref=e2165]
+            - columnheader "Di 12 juil." [ref=e2166]
+        - rowgroup [ref=e2167]:
+          - row "Matin" [ref=e2168]:
+            - cell "Matin" [ref=e2169]
+            - cell [ref=e2170]
+            - cell [ref=e2171]
+            - cell [ref=e2172]
+            - cell [ref=e2173]
+            - cell [ref=e2174]
+            - cell [ref=e2175]
+            - cell [ref=e2176]
+          - row "Ap-midi" [ref=e2177]:
+            - cell "Ap-midi" [ref=e2178]
+            - cell [ref=e2179]
+            - cell [ref=e2180]
+            - cell [ref=e2181]
+            - cell [ref=e2182]
+            - cell [ref=e2183]
+            - cell [ref=e2184]
+            - cell [ref=e2185]
+          - row "Soir" [ref=e2186]:
+            - cell "Soir" [ref=e2187]
+            - cell [ref=e2188]
+            - cell [ref=e2189]
+            - cell [ref=e2190]
+            - cell [ref=e2191]
+            - cell [ref=e2192]
+            - cell [ref=e2193]
+            - cell [ref=e2194]
+      - table [ref=e2196]:
+        - rowgroup [ref=e2197]:
+          - row "S2 Lu 13 juil. Ma 14 juil. Me 15 juil. Je 16 juil. Ve 17 juil. Sa 18 juil. Di 19 juil." [ref=e2198]:
+            - columnheader "S2" [ref=e2199]
+            - columnheader "Lu 13 juil." [ref=e2200]
+            - columnheader "Ma 14 juil." [ref=e2201]
+            - columnheader "Me 15 juil." [ref=e2202]
+            - columnheader "Je 16 juil." [ref=e2203]
+            - columnheader "Ve 17 juil." [ref=e2204]
+            - columnheader "Sa 18 juil." [ref=e2205]
+            - columnheader "Di 19 juil." [ref=e2206]
+        - rowgroup [ref=e2207]:
+          - row "Matin" [ref=e2208]:
+            - cell "Matin" [ref=e2209]
+            - cell [ref=e2210]
+            - cell [ref=e2211]
+            - cell [ref=e2212]
+            - cell [ref=e2213]
+            - cell [ref=e2214]
+            - cell [ref=e2215]
+            - cell [ref=e2216]
+          - row "Ap-midi" [ref=e2217]:
+            - cell "Ap-midi" [ref=e2218]
+            - cell [ref=e2219]
+            - cell [ref=e2220]
+            - cell [ref=e2221]
+            - cell [ref=e2222]
+            - cell [ref=e2223]
+            - cell [ref=e2224]
+            - cell [ref=e2225]
+          - row "Soir" [ref=e2226]:
+            - cell "Soir" [ref=e2227]
+            - cell [ref=e2228]
+            - cell [ref=e2229]
+            - cell [ref=e2230]
+            - cell [ref=e2231]
+            - cell [ref=e2232]
+            - cell [ref=e2233]
+            - cell [ref=e2234]
+      - table [ref=e2236]:
+        - rowgroup [ref=e2237]:
+          - row "S3 Lu 20 juil. Ma 21 juil. Me 22 juil. Je 23 juil. Ve 24 juil. Sa 25 juil. Di 26 juil." [ref=e2238]:
+            - columnheader "S3" [ref=e2239]
+            - columnheader "Lu 20 juil." [ref=e2240]
+            - columnheader "Ma 21 juil." [ref=e2241]
+            - columnheader "Me 22 juil." [ref=e2242]
+            - columnheader "Je 23 juil." [ref=e2243]
+            - columnheader "Ve 24 juil." [ref=e2244]
+            - columnheader "Sa 25 juil." [ref=e2245]
+            - columnheader "Di 26 juil." [ref=e2246]
+        - rowgroup [ref=e2247]:
+          - row "Matin" [ref=e2248]:
+            - cell "Matin" [ref=e2249]
+            - cell [ref=e2250]
+            - cell [ref=e2251]
+            - cell [ref=e2252]
+            - cell [ref=e2253]
+            - cell [ref=e2254]
+            - cell [ref=e2255]
+            - cell [ref=e2256]
+          - row "Ap-midi" [ref=e2257]:
+            - cell "Ap-midi" [ref=e2258]
+            - cell [ref=e2259]
+            - cell [ref=e2260]
+            - cell [ref=e2261]
+            - cell [ref=e2262]
+            - cell [ref=e2263]
+            - cell [ref=e2264]
+            - cell [ref=e2265]
+          - row "Soir" [ref=e2266]:
+            - cell "Soir" [ref=e2267]
+            - cell [ref=e2268]
+            - cell [ref=e2269]
+            - cell [ref=e2270]
+            - cell [ref=e2271]
+            - cell [ref=e2272]
+            - cell [ref=e2273]
+            - cell [ref=e2274]
+      - table [ref=e2276]:
+        - rowgroup [ref=e2277]:
+          - row "S4 Lu 27 juil. Ma 28 juil. Me 29 juil. Je 30 juil. Ve 31 juil. Sa 1 août Di 2 août" [ref=e2278]:
+            - columnheader "S4" [ref=e2279]
+            - columnheader "Lu 27 juil." [ref=e2280]
+            - columnheader "Ma 28 juil." [ref=e2281]
+            - columnheader "Me 29 juil." [ref=e2282]
+            - columnheader "Je 30 juil." [ref=e2283]
+            - columnheader "Ve 31 juil." [ref=e2284]
+            - columnheader "Sa 1 août" [ref=e2285]
+            - columnheader "Di 2 août" [ref=e2286]
+        - rowgroup [ref=e2287]:
+          - row "Matin" [ref=e2288]:
+            - cell "Matin" [ref=e2289]
+            - cell [ref=e2290]
+            - cell [ref=e2291]
+            - cell [ref=e2292]
+            - cell [ref=e2293]
+            - cell [ref=e2294]
+            - cell [ref=e2295]
+            - cell [ref=e2296]
+          - row "Ap-midi" [ref=e2297]:
+            - cell "Ap-midi" [ref=e2298]
+            - cell [ref=e2299]
+            - cell [ref=e2300]
+            - cell [ref=e2301]
+            - cell [ref=e2302]
+            - cell [ref=e2303]
+            - cell [ref=e2304]
+            - cell [ref=e2305]
+          - row "Soir" [ref=e2306]:
+            - cell "Soir" [ref=e2307]
+            - cell [ref=e2308]
+            - cell [ref=e2309]
+            - cell [ref=e2310]
+            - cell [ref=e2311]
+            - cell [ref=e2312]
+            - cell [ref=e2313]
+            - cell [ref=e2314]
+  - contentinfo [ref=e2315]:
+    - generic [ref=e2316]: "Dernière évolution des données : Je 2 juil. 2026 16:15 · 1538 événements"
+    - generic [ref=e2317]:
+      - text: "Source : export ICS Dièse ·"
+      - link "GitHub" [ref=e2318] [cursor=pointer]:
+        - /url: https://github.com/isc/bemol-osr

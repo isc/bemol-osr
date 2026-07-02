@@ -1,0 +1,66 @@
+name: Mise à jour des données ICS
+
+# Toutes les 2 heures : télécharge l'export ICS (URL secrète, elle contient un
+# jeton d'accès), régénère data/planning.json + data/changes.json, committe si
+# quelque chose a changé, puis republie le site.
+#
+# Le push est fait avec le GITHUB_TOKEN, qui ne déclenche PAS les autres
+# workflows (protection anti-récursion de GitHub) : on publie donc gh-pages
+# directement ici plutôt que de compter sur deploy.yml.
+
+on:
+  schedule:
+    - cron: "23 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Même groupe que deploy.yml / preview.yml : sérialise les écritures gh-pages.
+  group: gh-pages
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Récupérer et convertir l'ICS
+        env:
+          ICS_URL: ${{ secrets.ICS_URL }}
+        run: node scripts/update-data.mjs
+
+      - name: Committer les données si elles ont changé
+        id: commit
+        run: |
+          git add data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Aucun changement de planning."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git commit -m "data: mise à jour du planning ICS"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Republier le site (gh-pages)
+        if: steps.commit.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: true
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
+          commit_message: "deploy: data update @ ${{ github.sha }}"

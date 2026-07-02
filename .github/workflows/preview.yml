@@ -1,0 +1,84 @@
+name: Deploy branch preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  # Sérialise les écritures gh-pages entre toutes les previews ET le déploiement
+  # de main, sinon deux jobs peuvent se concurrencer sur la même branche.
+  group: gh-pages
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Slug = nom de branche, tout caractère non alphanumérique réduit à `-`.
+      - name: Compute preview slug
+        id: slug
+        run: |
+          raw='${{ github.head_ref }}'
+          slug=$(echo "$raw" | tr -c 'a-zA-Z0-9-' '-' | tr -s '-' | sed 's/^-\|-$//g')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+
+      # Marqueur interrogeable depuis GitHub Pages une fois la build réellement
+      # servie, pour ne pas commenter la PR avant la propagation.
+      - name: Write deployment marker
+        run: echo "${{ github.event.pull_request.head.sha }}" > .preview-sha
+
+      # Site statique : on publie le dépôt tel quel dans previews/<slug>/.
+      # Tous les chemins de l'app sont relatifs, donc rien à réécrire pour
+      # servir sous un sous-dossier.
+      - name: Publish to gh-pages (previews/${{ steps.slug.outputs.slug }})
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          destination_dir: previews/${{ steps.slug.outputs.slug }}
+          keep_files: true
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
+          commit_message: "preview: ${{ steps.slug.outputs.slug }} @ ${{ github.event.pull_request.head.sha }}"
+
+      - name: Wait for GitHub Pages to serve fresh preview
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha }}
+          SLUG: ${{ steps.slug.outputs.slug }}
+        run: |
+          url="https://isc.github.io/bemol-osr/previews/$SLUG/.preview-sha"
+          for i in $(seq 1 60); do
+            actual=$(curl -fsSL "$url" 2>/dev/null | tr -d '[:space:]' || true)
+            if [ "$actual" = "$EXPECTED_SHA" ]; then
+              echo "Preview live with $EXPECTED_SHA after ${i}×5s"
+              exit 0
+            fi
+            echo "Attempt $i/60: got '$actual', want '$EXPECTED_SHA'"
+            sleep 5
+          done
+          echo "::warning::Preview did not become live with the expected SHA in 5 minutes — comment posted anyway"
+
+      - name: Comment PR with preview link
+        uses: Wandalen/wretry.action@v3.8.0
+        with:
+          action: marocchino/sticky-pull-request-comment@v2
+          attempt_limit: 3
+          attempt_delay: 10000
+          with: |
+            header: preview-${{ steps.slug.outputs.slug }}
+            message: |
+              **Preview déployée** pour cette PR :
+
+              - 🎼 App : https://isc.github.io/bemol-osr/previews/${{ steps.slug.outputs.slug }}/
+
+              Commit : `${{ github.event.pull_request.head.sha }}`
+              _La preview est mise à jour à chaque push et supprimée à la fermeture de la PR._

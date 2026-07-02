@@ -1,0 +1,42 @@
+name: Claude
+
+# Boucle de feedback : un commentaire contenant « @claude » sur une PR (ou une
+# issue) déclenche Claude, qui applique les ajustements demandés et repush sur la
+# branche de la PR (ce qui rafraîchit la preview via preview.yml).
+#
+# L'action n'agit que pour les utilisateurs ayant un accès en écriture au dépôt
+# — d'où l'importance d'inviter les contributeurs comme collaborateurs.
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  claude:
+    # Commentaire d'un humain, contenant « @claude », et émis par le
+    # propriétaire ou un collaborateur (accès write) — même barrière que le
+    # workflow issue→PR, basée sur le statut collaborateur natif de GitHub.
+    if: |
+      github.event.comment.user.type != 'Bot'
+      && contains(fromJSON('["OWNER","COLLABORATOR","MEMBER"]'), github.event.comment.author_association)
+      && (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          # Authentification via l'abonnement Claude (Pro/Max), pas de
+          # facturation API. Token généré localement par `claude setup-token`.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: "--model claude-opus-4-8 --max-turns 30"
