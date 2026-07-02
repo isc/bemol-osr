@@ -59,6 +59,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
+  productions: {}, // Liste → { works, effectif } (mémo de production, saisi à la main)
   updatedAt: null,
   season: null,
   view: null,
@@ -142,13 +143,16 @@ function shortListe(liste) {
 
 async function loadData() {
   const bust = `?t=${Date.now()}`
-  const [planning, changes] = await Promise.all([
+  const [planning, changes, productions] = await Promise.all([
     fetch(`data/planning.json${bust}`).then((r) => r.json()),
     fetch(`data/changes.json${bust}`).then((r) => r.json()).catch(() => ({ entries: [] })),
+    // Mémo de production (œuvres + effectif), saisi à la main et optionnel.
+    fetch(`productions.json${bust}`).then((r) => r.json()).catch(() => ({})),
   ])
   state.events = planning.events
   state.updatedAt = planning.updatedAt
   state.changes = changes.entries || []
+  state.productions = productions || {}
 
   const cutoff = Date.now() - RECENT_DAYS * 86400e3
   for (const entry of state.changes) {
@@ -237,8 +241,31 @@ function showDetail(e) {
         ? el("dd", {}, `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`)
         : null,
     ),
+    ...productionDetail(e),
   )
   dlg.showModal()
+}
+
+// Infos du mémo de production (œuvres + effectif) pour la Liste de l'événement.
+// Renvoie [] si aucune info n'est saisie pour cette Liste dans productions.json.
+function productionDetail(e) {
+  const prod = state.productions[e.liste]
+  if (!prod) return []
+  const works = (prod.works || []).filter(Boolean)
+  const nodes = []
+  if (works.length) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Œuvres au programme"),
+      el("ul", { class: "works" }, ...works.map((w) => el("li", {}, w))),
+    )
+  }
+  if (prod.effectif) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Effectif orchestral"),
+      el("p", { class: "effectif" }, prod.effectif),
+    )
+  }
+  return nodes
 }
 
 // --- Vue grille (Bible) ------------------------------------------------------
