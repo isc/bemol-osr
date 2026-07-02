@@ -22,8 +22,8 @@ l'export ICS du logiciel de planification (Dièse).
 - **Préférences personnelles** (mémorisées sur l'appareil) : masquer des
   catégories d'un clic sur la légende, filtrer par Liste, afficher ou non les
   événements annulés.
-- Sélecteur de **saison** (les données couvrent plusieurs saisons), bouton
-  « Aujourd'hui ».
+- Bouton « Aujourd'hui ». Une seule saison est publiée (la saison en cours,
+  filtre `ONLY_SEASON` du pipeline — l'export ICS en contient d'autres).
 
 ## Architecture
 
