@@ -118,6 +118,27 @@ function normalize(v) {
   }
 }
 
+// --- Filtre de saison ------------------------------------------------------
+// La saison OSR va du 1er lundi d'août au dimanche précédant le 1er lundi
+// d'août suivant ; on l'identifie par son année de départ N (« Saison N/N+1 »).
+// Certaines saisons ne doivent pas figurer dans l'app : cf. issue #1, seule la
+// saison 2026/2027 est souhaitée. On ne conserve donc que les événements dont
+// l'année de départ de saison vaut ONLY_SEASON.
+const ONLY_SEASON = 2026
+
+function firstMondayOfAugust(year) {
+  const d = new Date(year, 7, 1)
+  d.setDate(1 + ((8 - d.getDay()) % 7))
+  return d
+}
+
+// Année de saison d'un début local "YYYY-MM-DDTHH:MM" (on lit les composantes
+// de la chaîne, sans dépendre du fuseau horaire de la machine).
+function seasonYear(localStart) {
+  const [y, m, d] = localStart.slice(0, 10).split("-").map(Number)
+  return new Date(y, m - 1, d) >= firstMondayOfAugust(y) ? y : y - 1
+}
+
 // --- Diff ------------------------------------------------------------------
 
 const DIFF_FIELDS = ["start", "end", "liste", "activity", "location", "project", "cancelled"]
@@ -143,6 +164,7 @@ const raw = await loadIcs()
 const events = parseIcs(raw)
   .map(normalize)
   .filter((e) => e.start)
+  .filter((e) => seasonYear(e.start) === ONLY_SEASON)
   .sort((a, b) => (a.start < b.start ? -1 : a.start > b.start ? 1 : a.uid < b.uid ? -1 : 1))
 
 if (events.length === 0) throw new Error("Aucun événement trouvé dans l'ICS — export vide ?")
