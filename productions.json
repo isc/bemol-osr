@@ -1,5 +1,5 @@
 {
- "_lisezmoi": "Ce fichier est rempli À LA MAIN (contrairement à data/planning.json qui est généré depuis l'ICS). Il complète le planning avec les infos du mémo de production qui n'existent pas dans l'export ICS : chef, solistes, œuvres au programme et effectif orchestral. Une entrée par Liste ; la clé est le nom exact de la Liste (ex. « Liste 01 »). Champs : « chef » (direction musicale), « solistes » (liste de « Nom, rôle »), « works » (liste des œuvres, « Compositeur — Titre »), « effectif » (notation instrumentale, ex. « 2.2.2.2 / 4.3.3.1 / … »). Tous les champs sont optionnels. Les clés commençant par « _ » sont ignorées par l'application. Données saisies depuis le mémo de production de la saison 2026/27 ; aucune œuvre n'est inventée.",
+ "_lisezmoi": "Ce fichier est rempli À LA MAIN (contrairement à data/planning.json qui est généré depuis l'ICS). Il complète le planning avec les infos du mémo de production qui n'existent pas dans l'export ICS : chef, solistes, œuvres au programme et effectif orchestral. Une entrée par programme ; la clé est le nom exact du programme tel qu'il apparaît dans le planning (le champ « liste »), qu'il s'agisse d'une Liste (ex. « Liste 01 ») ou d'un autre programme (ex. « Musique De Chambre 1 », « Concerts pour Petites Oreilles 1 », « Doudou Concert 1 »). Pour la musique de chambre et les concerts en famille, il n'y a pas de chef : les interprètes sont saisis dans « solistes ». Champs : « chef » (direction musicale), « solistes » (liste de « Nom, rôle »), « works » (liste des œuvres, « Compositeur — Titre »), « effectif » (notation instrumentale, ex. « 2.2.2.2 / 4.3.3.1 / … »). Tous les champs sont optionnels. Les clés commençant par « _ » sont ignorées par l'application. Données saisies depuis le mémo de production de la saison 2026/27 ; aucune œuvre n'est inventée.",
  "Liste 01": {
   "chef": "Margaryta GRYNYVETSKA",
   "solistes": [
@@ -470,5 +470,177 @@
  },
  "Liste 42": {
   "effectif": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 1": {
+  "solistes": [
+   "Michel WESTPHAL, clarinette",
+   "Catherine PÉPIN-WESTPHAL, basson",
+   "Yin SHEN, violon",
+   "Ivy WONG, contrebasse",
+   "Didier PUNTOS, piano",
+   "Louise CALAME, récitant"
+  ],
+  "works": [
+   "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant"
+  ],
+  "effectif": "0.0.1.1 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 2": {
+  "solistes": [
+   "Clément CHARPENTIER-LEROY, cor",
+   "Giuliano SOMMERHALDER, trompette",
+   "Antoine PITTET, trompette",
+   "Alexandre FAURE, trombone",
+   "Ross KNIGHT, tuba",
+   "Thomas DIEBOLD, récitant"
+  ],
+  "works": [
+   "Pascal RENOU — Pilou le plantigrade, conte musical pour quintette de cuivres"
+  ],
+  "effectif": "0.0.0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 3": {
+  "solistes": [
+   "Sarah RUMER, flûte (20 mars)",
+   "Loïc SCHNEIDER, flûte (21 mars)",
+   "Simon SOMMERHALDER, hautbois (20 mars)",
+   "Nora CISMONDI, hautbois (21 mars)",
+   "Benoît WILLMANN, clarinette (20 mars)",
+   "Camillo BATTISTELLO, clarinette (21 mars)",
+   "Luis MARQUEZ TERUEL, basson (20 mars)",
+   "Vincent GODEL, basson (21 mars)",
+   "Clément CHARPENTIER-LEROY, cor (20 et 21 mars)",
+   "Marion FONTANA, récitant (20 et 21 mars)"
+  ],
+  "works": [
+   "Serge PROKOFIEV — Pierre et le loup, arrangement pour quintette à vent de Joachim Linckelmann"
+  ],
+  "effectif": "1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 4": {
+  "solistes": [
+   "Guillaume JACOT, violon",
+   "Luca CASCIATO, alto",
+   "Jean-Noël GOS, guitare",
+   "Michael TSCHAMPER, percussion"
+  ],
+  "works": [
+   "Guillaume JACOT & Jean-Noël GOS — Sans les mains, pour petit ensemble et récitant (création de l'Ensemble Beta-Chronicles)"
+  ]
+ },
+ "Doudou Concert 1": {
+  "solistes": [
+   "Yumiko AWANO, violon (21 novembre)",
+   "David VALLEZ, violon (21 novembre)",
+   "Gergana KUSHEVA, contrebasse (22 novembre)",
+   "Katrin HERDA, basson (22 novembre)"
+  ]
+ },
+ "Doudou Concert 2": {
+  "solistes": [
+   "Elodie BERRY, violon (16 janvier)",
+   "Jarita NG, alto (16 janvier)",
+   "Matteo DE LUCA, trombone (17 janvier)",
+   "Vincent MÉTRAILLER, trombone (17 janvier)"
+  ]
+ },
+ "Doudou Concert 3": {
+  "solistes": [
+   "Hannah FRANKE, alto (20 mars)",
+   "Katrin HERDA, basson (20 mars)",
+   "Leonid BARANOV, violon (21 mars)",
+   "Yumi KUBO, violon (21 mars)"
+  ]
+ },
+ "Musique De Chambre 1": {
+  "solistes": [
+   "Simon SOMMERHALDER, hautbois",
+   "Clément CHARPENTIER-LEROY, cor",
+   "Agnès CHOPIN, cor",
+   "Yin SHEN, violon",
+   "Yuwen ZHU, violon",
+   "Marco NIRTA, alto",
+   "Gabriel ESTEBAN, violoncelle",
+   "Ivy WONG, contrebasse"
+  ],
+  "works": [
+   "Wolfgang Amadeus MOZART — Duo pour violon et alto N° 1 en sol majeur KV 423",
+   "Wolfgang Amadeus MOZART — Ein musikalischer Spass KV 522",
+   "Wolfgang Amadeus MOZART — Divertimento N° 11 en ré majeur KV 251"
+  ],
+  "effectif": "0.1.0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)"
+ },
+ "Musique De Chambre 2": {
+  "solistes": [
+   "Caroline BAERISWYL, violon 1",
+   "Yumi KUBO, violon 2",
+   "Verena SCHWEIZER, alto",
+   "Yao JIN, violoncelle",
+   "Meglena TZANEVA DUPRAZ, piano"
+  ],
+  "works": [
+   "Rita STROHL — Quatuor pour deux violons, alto et violoncelle [1885]",
+   "Rita STROHL — Grande Fantaisie-Quintette pour piano, deux violons, alto et violoncelle [1886]"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens + piano)"
+ },
+ "Musique De Chambre 3": {
+  "solistes": [
+   "Roman FILIPOV, violon 1",
+   "Sidonie BOUGAMONT, violon 2",
+   "Elçim ÖZDEMIR, alto",
+   "Frédéric KIRCH, alto",
+   "Lionel COTTET, violoncelle"
+  ],
+  "works": [
+   "Wolfgang Amadeus MOZART — Quintette à cordes N° 3 en sol mineur KV 516",
+   "Johannes BRAHMS — Quintette à cordes à deux altos N° 2 en sol majeur op. 111"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0 (5 musiciens)"
+ },
+ "Musique De Chambre 4": {
+  "solistes": [
+   "Cristian ZIMMERMAN, violon 1",
+   "Guillaume JACOT, violon 2",
+   "Luca CASCIATO, alto",
+   "Lucas HENRY, violoncelle"
+  ],
+  "works": [
+   "Jacques HÉTU — Quatuor à cordes N° 2 op. 50 [1991]",
+   "Jennifer HIGDON — Voices, pour quatuor à cordes (1993)",
+   "Henri DUTILLEUX — Ainsi la nuit, pour quatuor à cordes (1977)"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)"
+ },
+ "Musique De Chambre 5": {
+  "solistes": [
+   "Sarah RUMER, flûte",
+   "Jona VENTURI, flûte",
+   "Audrey VIGOUREUX, piano",
+   "Yumiko AWANO, violon 1",
+   "Eleonora RYNDINA, violon 2",
+   "Theresa HOŘEJŠÍ, alto",
+   "Léonard FREY-MAIBACH, violoncelle"
+  ],
+  "works": [
+   "Lili BOULANGER — Nocturne, pour quatuor à cordes",
+   "Amy Marcy Cheney BEACH — Thème et variations pour flûte et quatuor à cordes en la mineur op. 80 [1916]",
+   "Mel BONIS — Suite en trio pour deux flûtes et piano op. 59",
+   "Germaine TAILLEFERRE — Quatuor à cordes",
+   "Mel BONIS — Fantaisie en septuor pour deux flûtes, piano et quatuor à cordes op. 72"
+  ],
+  "effectif": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)"
+ },
+ "Musique De Chambre 6": {
+  "solistes": [
+   "Alexandre FAURE, trombone",
+   "Matteo DE LUCA, trombone",
+   "Vincent MÉTRAILLER, trombone",
+   "Andrea BANDINI, trombone",
+   "Ross KNIGHT, tuba"
+  ],
+  "works": [
+   "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams…"
+  ]
  }
 }
