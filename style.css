@@ -432,6 +432,51 @@ footer a {
   h1 .subtitle {
     display: none;
   }
+
+  main {
+    padding: 8px 6px 30px;
+  }
+
+  /* --- Vue grille sur téléphone --- */
+  /* La semaine entière tient dans la largeur de l'écran : plus de
+     défilement horizontal, on fait uniquement défiler verticalement
+     comme la vue Agenda. Les cases sont compactées ; un appui sur un
+     événement ouvre toujours le détail complet. */
+  .week-scroll {
+    overflow-x: visible;
+  }
+
+  table.week {
+    min-width: 0;
+  }
+
+  table.week th,
+  table.week td {
+    padding: 1px;
+  }
+
+  table.week th {
+    font-size: 0.62em;
+    padding: 3px 1px;
+  }
+
+  table.week th.week-label {
+    width: 16px;
+  }
+
+  /* Nom du créneau (Matin / Ap-midi / Soir) écrit à la verticale
+     pour ne prendre qu'une colonne très étroite */
+  table.week td.slot-name {
+    font-size: 0.62em;
+    writing-mode: vertical-rl;
+    padding: 2px 0;
+  }
+
+  .evt {
+    font-size: 0.6em;
+    padding: 2px 3px;
+    line-height: 1.2;
+  }
 }
 
 /* --- Impression : rendu proche de l'ancienne « Bible » PDF --- */
