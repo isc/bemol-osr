@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-07-02T16:18:51.133Z",
- "count": 587,
+ "updatedAt": "2026-07-02T18:05:17.176Z",
+ "count": 583,
  "events": [
   {
    "uid": "osr162098",
@@ -485,50 +485,6 @@
    "location": "Victoria Hall de Genève",
    "project": "ENR1",
    "cancelled": false
-  },
-  {
-   "uid": "osr218572",
-   "start": "2026-08-28T11:30",
-   "end": "2026-08-28T12:30",
-   "liste": "Liste 04b",
-   "activity": "répétition",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR2",
-   "cancelled": true
-  },
-  {
-   "uid": "osr218569",
-   "start": "2026-08-28T14:30",
-   "end": "2026-08-28T17:00",
-   "liste": "Liste 04b",
-   "activity": "répétition (+ balance)",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR2",
-   "cancelled": true
-  },
-  {
-   "uid": "osr218568",
-   "start": "2026-08-29T10:30",
-   "end": "2026-08-29T13:00",
-   "liste": "Liste 04b",
-   "activity": "session enregistrement",
-   "category": "enregistrement",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR2",
-   "cancelled": true
-  },
-  {
-   "uid": "osr218571",
-   "start": "2026-08-29T14:30",
-   "end": "2026-08-29T17:00",
-   "liste": "Liste 04b",
-   "activity": "session enregistrement",
-   "category": "enregistrement",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR2",
-   "cancelled": true
   },
   {
    "uid": "osr133255",
