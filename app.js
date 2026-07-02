@@ -532,33 +532,14 @@ async function init() {
     return
   }
 
-  const seasons = seasonsInData()
-  const currentSeason = seasonYear(new Date())
-  state.season = seasons.includes(currentSeason) ? currentSeason : seasons[0]
-
-  const seasonSelect = document.getElementById("season-select")
-  for (const y of seasons)
-    seasonSelect.append(el("option", { value: y, selected: y === state.season ? "" : null }, seasonLabel(y)))
-  seasonSelect.addEventListener("change", () => {
-    state.season = parseInt(seasonSelect.value, 10)
-    if (state.prefs.liste && !listesInSeason().includes(state.prefs.liste)) {
-      state.prefs.liste = ""
-      savePrefs()
-    }
-    render()
-  })
+  // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
+  // on l'adopte directement, sans sélecteur.
+  state.season = seasonsInData()[0]
 
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
-  document.getElementById("today-btn").addEventListener("click", () => {
-    if (state.season !== currentSeason && seasons.includes(currentSeason)) {
-      state.season = currentSeason
-      seasonSelect.value = currentSeason
-      render()
-    }
-    scrollToToday()
-  })
+  document.getElementById("today-btn").addEventListener("click", scrollToToday)
 
   document.getElementById("prefs-btn").addEventListener("click", () => {
     renderPrefs()
