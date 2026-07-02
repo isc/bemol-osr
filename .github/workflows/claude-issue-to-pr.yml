@@ -44,7 +44,7 @@ jobs:
           # commenter l'issue et tester librement.
           claude_args: |
             --model claude-opus-4-8
-            --max-turns 40
+            --max-turns 100
             --allowedTools "Bash"
           prompt: |
             Tu es déclenché par la création de l'issue #${{ github.event.issue.number }}
