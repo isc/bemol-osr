@@ -35,6 +35,9 @@ jobs:
           # Authentification via l'abonnement Claude (Pro/Max), pas de
           # facturation API. Token généré localement par `claude setup-token`.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Poste dès le démarrage un commentaire de suivi « Claude is
+          # working… » sur l'issue, mis à jour au fil de l'avancement.
+          track_progress: true
           # En mode agent (prompt fourni), seule la lecture/édition de fichiers
           # est permise par défaut : on autorise tout Bash (le runner est jetable
           # et isolé) pour que Claude puisse pousser sa branche, créer la PR,
