@@ -1,3 +1,33 @@
 {
- "entries": []
+ "entries": [
+  {
+   "at": "2026-07-02T16:18:51.133Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr132646",
+     "start": "2026-08-15T08:00",
+     "end": "2026-08-15T23:00",
+     "liste": "Liste 04",
+     "activity": "Technique (sans orch)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132649",
+     "start": "2026-08-16T08:00",
+     "end": "2026-08-16T23:00",
+     "liste": "Liste 04",
+     "activity": "Technique (sans orch)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  }
+ ]
 }
