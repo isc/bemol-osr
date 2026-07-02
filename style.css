@@ -433,3 +433,86 @@ footer a {
     display: none;
   }
 }
+
+/* --- Impression : rendu proche de l'ancienne « Bible » PDF --- */
+
+/* Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué) */
+.print-title {
+  display: none;
+}
+
+@media print {
+  /* Orientation paysage recommandée, comme la « Bible » papier */
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+
+  /* Conserver les couleurs des catégories (fonds des chips, en-têtes…) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+    font-size: 11px;
+  }
+
+  /* On n'imprime que le contenu de la vue courante */
+  header,
+  footer,
+  dialog {
+    display: none !important;
+  }
+
+  main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .print-title {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .print-title h1 {
+    color: var(--accent);
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .print-title p {
+    margin: 2px 0 0;
+    color: #445;
+    font-size: 0.9em;
+  }
+
+  /* Chaque période commence sur une nouvelle page, comme la « Bible » PDF */
+  .periode {
+    break-before: page;
+    margin-bottom: 0;
+  }
+
+  /* …sauf la première, pour ne pas gâcher une page blanche au début */
+  .print-title + .periode,
+  .periode:first-child {
+    break-before: auto;
+  }
+
+  /* Plus de défilement horizontal ni de semaine coupée en deux pages */
+  .week-scroll {
+    overflow: visible;
+  }
+
+  table.week {
+    min-width: 0;
+    break-inside: avoid;
+  }
+
+  /* Les chips ne sont plus cliquables sur papier */
+  .evt {
+    cursor: default;
+  }
+}
