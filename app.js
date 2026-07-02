@@ -59,7 +59,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, works, effectif } (mémo de production, saisi à la main)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, saisi à la main)
   updatedAt: null,
   season: null,
   view: null,
@@ -246,9 +246,50 @@ function showDetail(e) {
   dlg.showModal()
 }
 
-// Infos du mémo de production (chef, solistes, œuvres, effectif) pour la Liste
-// de l'événement. Renvoie [] si aucune info n'est saisie pour cette Liste dans
-// productions.json.
+// Détail d'instrumentation d'une œuvre, repris tel quel du mémo de production
+// (abréviations conservées). Les libellés reprennent ceux du mémo, familiers
+// aux musiciens.
+const WORK_FIELDS = [
+  ["instrumentation", "Instrumentation"],
+  ["remarques", "Remarques"],
+  ["percussions", "Percussions"],
+  ["claviers", "Claviers"],
+  ["extra", "Extra"],
+  ["detail", "Détail"],
+  ["note", "Note"],
+]
+
+// Construit le <li> d'une œuvre : le titre (« Compositeur — Titre ») et, si le
+// mémo le précise, un bloc de détail (instrumentation, remarques, etc.). Une
+// œuvre est soit une chaîne, soit un objet { oeuvre, instrumentation, … }.
+function workNode(w) {
+  const title = typeof w === "string" ? w : w.oeuvre
+  const head = [el("span", { class: "work-title" }, title)]
+  if (typeof w === "object" && w.duree) {
+    head.push(" ", el("span", { class: "work-dur" }, w.duree))
+  }
+  const rows =
+    typeof w === "object"
+      ? WORK_FIELDS.filter(([k]) => w[k]).map(([k, label]) =>
+          el(
+            "div",
+            { class: "wd-row" },
+            el("span", { class: "wd-label" }, label),
+            el("span", { class: "wd-val" }, w[k]),
+          ),
+        )
+      : []
+  return el(
+    "li",
+    {},
+    el("div", { class: "work-head" }, ...head),
+    rows.length ? el("div", { class: "work-detail" }, ...rows) : null,
+  )
+}
+
+// Infos du mémo de production (chef, solistes, œuvres avec leur détail
+// d'instrumentation, effectif, durée) pour la Liste de l'événement. Renvoie []
+// si aucune info n'est saisie pour cette Liste dans productions.json.
 function productionDetail(e) {
   const prod = state.productions[e.liste]
   if (!prod) return []
@@ -270,13 +311,19 @@ function productionDetail(e) {
   if (works.length) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Œuvres au programme"),
-      el("ul", { class: "works" }, ...works.map((w) => el("li", {}, w))),
+      el("ul", { class: "works" }, ...works.map(workNode)),
     )
   }
   if (prod.effectif) {
     nodes.push(
-      el("h3", { class: "detail-section" }, "Effectif orchestral"),
+      el("h3", { class: "detail-section" }, "Effectif orchestral (max)"),
       el("p", { class: "effectif" }, prod.effectif),
+    )
+  }
+  if (prod.duree) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Durée totale approximative"),
+      el("p", { class: "duree" }, prod.duree),
     )
   }
   return nodes
