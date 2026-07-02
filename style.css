@@ -391,15 +391,18 @@ dialog h2 {
   color: var(--accent);
 }
 
-#detail-content .works {
+#detail-content .works,
+#detail-content .solistes {
   margin: 0;
   padding-left: 1.2em;
 }
 
-#detail-content .works li {
+#detail-content .works li,
+#detail-content .solistes li {
   margin: 2px 0;
 }
 
+#detail-content .chef,
 #detail-content .effectif {
   margin: 0;
   white-space: pre-wrap;
