@@ -402,8 +402,44 @@ dialog h2 {
   margin: 2px 0;
 }
 
+#detail-content .works li {
+  margin: 6px 0;
+}
+
+#detail-content .work-dur {
+  color: #778;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* Détail d'instrumentation d'une œuvre (repris tel quel du mémo) */
+#detail-content .work-detail {
+  margin: 3px 0 2px;
+  padding-left: 0.6em;
+  border-left: 2px solid #d8dce1;
+  color: #556;
+  font-size: 0.85em;
+}
+
+#detail-content .wd-row {
+  display: flex;
+  gap: 6px;
+  margin: 1px 0;
+}
+
+#detail-content .wd-label {
+  flex: 0 0 auto;
+  min-width: 6.5em;
+  color: #889;
+}
+
+#detail-content .wd-val {
+  white-space: pre-wrap;
+}
+
 #detail-content .chef,
-#detail-content .effectif {
+#detail-content .effectif,
+#detail-content .duree {
   margin: 0;
   white-space: pre-wrap;
 }
