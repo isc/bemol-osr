@@ -7,12 +7,15 @@ name: Claude — issue vers PR
 
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
+  # Requis par claude-code-action pour l'échange OIDC avec l'app GitHub Claude
+  id-token: write
+  actions: read
 
 concurrency:
   group: claude-issue-${{ github.event.issue.number }}
