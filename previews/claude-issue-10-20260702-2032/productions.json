@@ -1,0 +1,646 @@
+{
+ "_lisezmoi": "Ce fichier est rempli À LA MAIN (contrairement à data/planning.json qui est généré depuis l'ICS). Il complète le planning avec les infos du mémo de production qui n'existent pas dans l'export ICS : chef, solistes, œuvres au programme et effectif orchestral. Une entrée par programme ; la clé est le nom exact du programme tel qu'il apparaît dans le planning (le champ « liste »), qu'il s'agisse d'une Liste (ex. « Liste 01 ») ou d'un autre programme (ex. « Musique De Chambre 1 », « Concerts pour Petites Oreilles 1 », « Doudou Concert 1 »). Pour la musique de chambre et les concerts en famille, il n'y a pas de chef : les interprètes sont saisis dans « solistes ». Champs : « chef » (direction musicale), « solistes » (liste de « Nom, rôle »), « works » (liste des œuvres, « Compositeur — Titre »), « effectif » (notation instrumentale, ex. « 2.2.2.2 / 4.3.3.1 / … »). Tous les champs sont optionnels. Les clés commençant par « _ » sont ignorées par l'application. Données saisies depuis le mémo de production de la saison 2026/27 ; aucune œuvre n'est inventée.",
+ "Liste 01": {
+  "chef": "Margaryta GRYNYVETSKA",
+  "solistes": [
+   "Valentine MICHAUD, saxophone alto"
+  ],
+  "works": [
+   "Florence PRICE — Colonial Dance, pour orchestre",
+   "John ADAMS — Concerto pour saxophone et orchestre",
+   "Antonín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95, dite 'du Nouveau Monde'"
+  ],
+  "effectif": "3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens)"
+ },
+ "Liste 02": {
+  "chef": "Philippe BÉRAN",
+  "works": [
+   "Neil BRAND — The Lodger, A story of the London Fog"
+  ],
+  "effectif": "1.0.1.1 / 1.0.0.0 / 1.2.0.1 / 8.6.4.3.2 (31 musiciens)"
+ },
+ "Liste 03": {
+  "chef": "Martyna SZYMCZAK",
+  "solistes": [
+   "KENNEDY, solo voice",
+   "Matti KLEIN, keyboard",
+   "Christian VON KAPHENGST, bass [guit.]",
+   "Guido JÖRIS, drums"
+  ],
+  "works": [
+   "Alexandre MASTRANGELO — Hommage à Josephine Baker"
+  ],
+  "effectif": "2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)"
+ },
+ "Liste 04": {
+  "chef": "Kent NAGANO",
+  "solistes": [
+   "Bernard RICHTER, ténor (Pelléas)",
+   "Jenny DAVIET, soprano (Mélisande)",
+   "Jérôme BOUTILLIER, baryton (Golaud)",
+   "Nicolas TESTÉ, basse (Arkel)",
+   "Lucile RICHARDOT, mezzo-soprano (Geneviève)",
+   "NN1, soprano (Yniold)",
+   "Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin)",
+   "Chœur du Grand Théâtre de Genève, chœur",
+   "Mark BIGGINS, chef·fe de choeur"
+  ],
+  "works": [
+   "Claude DEBUSSY — Pelléas et Mélisande, drame lyrique en 5 actes"
+  ],
+  "effectif": "3.3.2.3 / 4.3.3.1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)"
+ },
+ "Liste 04b": {
+  "effectif": "1.1.1.1 / 1.1.1.1 / 1.1.1.0 / 1.1.1.1.1 (16 musiciens)"
+ },
+ "Liste A": {
+  "chef": "Thierry FISCHER",
+  "works": [
+   "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue"
+  ],
+  "effectif": "4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)"
+ },
+ "Liste 05": {
+  "chef": "Philippe BÉRAN",
+  "works": [
+   "Giuseppe VERDI — Nabucco, Ouverture",
+   "Ottorino RESPIGHI — La Boutique Fantasque (d'après Rossini), Tarentelle",
+   "Ennio MORRICONE — Cinema Paradiso, pour cordes, piano et percussions",
+   "Domenico MODUGNO — Volare, pour orchestre d'harmonie",
+   "Giacomo PUCCINI — Le Villi, La Tregenda (Danse des sorcières)",
+   "Nicola PIOVANI — La vita è bella, suite pour orchestre",
+   "Nino ROTA — Amarcord, Suite (Mandozzi)",
+   "Nikolaï RIMSKI-KORSAKOV — Chanson napolitaine op. 63 (arrangement pour orchestre de Funiculi, Funicula)",
+   "Eduardo, di CAPUA — \"O, sole mio\" pour baryton et orchestre (arrangement Howard Lorriman)",
+   "Nino ROTA — Otto e mezzo, N° 6 'Passerella d'addio'"
+  ],
+  "effectif": "3.3.3.2 / 4.4.3.1 / 1.4.1.1 / 10.8.6.4.3 (61 musiciens)"
+ },
+ "Liste 06": {
+  "chef": "Jean Deroyer",
+  "works": [
+   "Cyrille AUFORT — Laurel et Hardy"
+  ],
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.1.1.0 / 6.5.4.3.2 (30 musiciens)"
+ },
+ "Liste 07": {
+  "chef": "Martyna SZYMCZAK",
+  "solistes": [
+   "Arturo CORRALES, récitant"
+  ],
+  "works": [
+   "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
+   "Edward ELGAR — The Wand of Youth, suite N° 2 op. 1b",
+   "Benjamin BRITTEN — The Young person's guide to the orchestra op. 34 (variations et fugue sur un thème de Purcell)"
+  ],
+  "effectif": "3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (68 musiciens)"
+ },
+ "Liste 08": {
+  "chef": "Elim CHAN",
+  "solistes": [
+   "Marianne CREBASSA, mezzo-soprano"
+  ],
+  "works": [
+   "Noriko KOIDE — Swaddling Silk and Gossamer Rain, pour orchestre",
+   "Hector BERLIOZ — Les Nuits d’été op. 7",
+   "Béla BARTÓK — Concerto pour orchestre"
+  ],
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.4.2.1 / 15.13.11.9.7 (86 musiciens)"
+ },
+ "Liste 09": {
+  "chef": "Eva OLLIKAINEN",
+  "solistes": [
+   "Anu KOMSI, soprano",
+   "Lionel COTTET, violoncelle"
+  ],
+  "works": [
+   "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+   "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
+   "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
+   "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'"
+  ],
+  "effectif": "3.3.3.3 / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)"
+ },
+ "Liste B": {
+  "chef": "Larry BLANK",
+  "works": [
+   "Stephen SONDHEIM — Company"
+  ],
+  "effectif": "0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.3 (26 musiciens)"
+ },
+ "Liste 10": {
+  "chef": "Ton KOOPMAN",
+  "solistes": [
+   "Etudiant·es du Département Vocal de la HEM, Solistes et Choeur"
+  ],
+  "works": [
+   "Ludwig van BEETHOVEN — Symphonie N° 9 en ré mineur op. 125 'avec un chœur final sur l'Ode à la joie de Schiller'"
+  ],
+  "effectif": "3.2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)"
+ },
+ "Liste 11": {
+  "chef": "Stefan GEIGER",
+  "works": [
+   "Marc SHAIMAN — The Addams Family in Concert"
+  ],
+  "effectif": "3.2.3.2 / 4.3.3.1 / 1.3.1.2 / 14.12.10.8.6 (78 musiciens)"
+ },
+ "Liste 12": {
+  "chef": "Daniele GATTI",
+  "works": [
+   "Ludwig van BEETHOVEN — Symphonie N° 1 en ut majeur op. 21",
+   "Ludwig van BEETHOVEN — Symphonie N° 4 en si bémol majeur op. 60",
+   "Ludwig van BEETHOVEN — Symphonie N° 5 en ut mineur op. 67"
+  ],
+  "effectif": "3.2.2.3 / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)"
+ },
+ "Liste 13": {
+  "solistes": [
+   "Kevin CHEN, piano",
+   "Michiaki UENO, violoncelle"
+  ],
+  "works": [
+   "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
+   "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
+   "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129"
+  ],
+  "effectif": "3.3.2.4 / 4.5.3.1 / 1.3.2.0 / 14.12.10.8.6 (81 musiciens)"
+ },
+ "Liste 14": {
+  "works": [
+   "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84",
+   "FINALISTE 1 DU CONCOURS — Pièce1 finaliste du Concours de Genève de composition 2026",
+   "FINALISTE 2 DU CONCOURS — Pièce2 finaliste du Concours de Genève de composition 2026",
+   "FINALISTE 3 DU CONCOURS — Pièce3 finaliste du Concours de Genève de composition 2026"
+  ],
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)"
+ },
+ "Liste 15": {
+  "works": [
+   "Béla BARTÓK — Le Mandarin merveilleux, suite d'orchestre op. 19",
+   "Claude DEBUSSY — Images pour orchestre, N° 2 Ibéria",
+   "Gustav MAHLER — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+   "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1",
+   "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2",
+   "Richard STRAUSS — Don Juan, poème symphonique op. 20",
+   "Igor STRAVINSKI — L’Oiseau de feu, deuxième suite d'orchestre (1919)"
+  ],
+  "effectif": "4.3.3.4 / 4.3.3.1 / 1.5.2.3 / 14.12.10.8.6 (86 musiciens)"
+ },
+ "Liste 16": {
+  "chef": "Romain MAYOR",
+  "solistes": [
+   "Maria Jose SIRI, soprano (tous les concerts)",
+   "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
+  ],
+  "works": [
+   "Giuseppe VERDI — Nabucco, opéra en quatre parties"
+  ],
+  "effectif": "2.2.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3 (55 musiciens)"
+ },
+ "Liste 17": {
+  "chef": "Daniele GATTI",
+  "works": [
+   "Ludwig van BEETHOVEN — Symphonie N° 2 en ré majeur op. 36",
+   "Ludwig van BEETHOVEN — Symphonie N° 3 en mi bémol majeur op. 55, dite 'Héroïque'"
+  ],
+  "effectif": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)"
+ },
+ "Liste 18": {
+  "chef": "Philippe BÉRAN",
+  "solistes": [
+   "Joan MOMPART, récitant"
+  ],
+  "works": [
+   "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)"
+  ],
+  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 16.14.12.10.8 (90 musiciens)"
+ },
+ "Liste C": {
+  "chef": "Marta GARDOLIŃSKA",
+  "works": [
+   "Wolfgang Amadeus MOZART — Les Noces de Figaro, Opera buffa en 4 actes KV 492"
+  ],
+  "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 musiciens)"
+ },
+ "Liste 19": {
+  "chef": "Pablo HERAS-CASADO",
+  "solistes": [
+   "Patricia KOPATCHINSKAJA, violon"
+  ],
+  "works": [
+   "Igor STRAVINSKI — Pulcinella, suite pour orchestre",
+   "Dimitri CHOSTAKOVITCH — Concerto pour violon et orchestre N° 2 en ut dièse mineur op. 129",
+   "Johannes BRAHMS — Symphonie N° 4 en mi mineur op. 98"
+  ],
+  "effectif": "2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)"
+ },
+ "Liste 20": {
+  "solistes": [
+   "Matt DUSK, jazz vocalist",
+   "NN1, choriste gospel alto",
+   "NN2, choriste gospel soprano",
+   "NN3, choriste gospel ténor"
+  ],
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)"
+ },
+ "Liste 21": {
+  "chef": "Karen KAMENSEK",
+  "solistes": [
+   "Juliana GRIGORYAN, soprano"
+  ],
+  "works": [
+   "Francesco CILEA — Adriana Lecouvreur, air d'Adriana acte 1 \"Ecco : respiro appena ... Io son l'umile ancella\"",
+   "Antonín DVOŘÁK — Rusalka, Ode à la lune pour soprano, Op.114",
+   "Georges BIZET — Carmen, suite N° 2, N° 2 Habanera",
+   "Pablo LUNA — El Niño Judio, air de Concha \"De España vengo\"",
+   "Nikolaï RIMSKI-KORSAKOV — La Fiancée du tsar, scène et air de Martha acte 4 \"Ach, schau mal doch\"\"",
+   "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
+   "Richard STRAUSS — Morgen, Lied pour soprano et orchestre op 27 n° 4",
+   "Franz LEHÁR — Giuditta, Air pour soprano \"Meine Lippen, sie küssen...\"",
+   "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
+   "Armenian Folk Song",
+   "Giacomo PUCCINI — Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\""
+  ],
+  "effectif": "3.3.3.3 / 4.3.4.1 / 1.4.1.0 / 12.10.8.6.4 (70 musiciens)"
+ },
+ "Liste 23": {
+  "chef": "Jonathan NOTT",
+  "solistes": [
+   "Janine JANSEN, violon"
+  ],
+  "works": [
+   "Richard DUBUGNON — Sonnenring, concerto pour violon et orchestre, inspiré par des tableaux d'Adolf Wölfli",
+   "Gustav MAHLER — Symphonie N° 7 en mi mineur, dite 'Chant de la nuit'"
+  ],
+  "effectif": "5.4.5.4 / 4.3.4.1 / 1.5.2.1 / 15.13.11.9.7 (94 musiciens)"
+ },
+ "Liste 24": {
+  "chef": "Martyna SZYMCZAK",
+  "solistes": [
+   "NN1, récitant"
+  ],
+  "works": [
+   "Anne-Claire REY-BELLET — Zélie-Chansons animalières",
+   "Camille SAINT-SAËNS — Le Carnaval des animaux, grande fantaisie zoologique"
+  ],
+  "effectif": "1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musiciens)"
+ },
+ "Liste 24b": {
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)"
+ },
+ "Liste D": {
+  "chef": "Jader BIGNAMINI",
+  "works": [
+   "Gioacchino ROSSINI — Il Viaggio a Reims, opéra en un acte"
+  ],
+  "effectif": "3.2.2.2 / 4.2.3.1 / 1.4.1.1 / 11.9.7.5.4 (62 musiciens)"
+ },
+ "Liste 25": {
+  "chef": "Bertrand de BILLY",
+  "solistes": [
+   "Alexandra CONUNOVA, violon"
+  ],
+  "works": [
+   "Cécile CHAMINADE — Callirhoë, suite d'orchestre op. 37",
+   "Camille SAINT-SAËNS — Concerto pour violon et orchestre N° 3 en si mineur op. 61",
+   "Josef SUK — Pohádka, op. 16"
+  ],
+  "effectif": "3.3.3.4 / 4.4.3.1 / 1.3.1.0 / 14.12.10.8.6 (80 musiciens)"
+ },
+ "Liste 26": {
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)"
+ },
+ "Liste E": {
+  "chef": "Antonino FOGLIANI",
+  "works": [
+   "Giacomo PUCCINI — La Fanciulla del West, opéra en trois actes [réduction Ettore Panizza]"
+  ],
+  "effectif": "2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.5 (67 musiciens)"
+ },
+ "Liste 27": {
+  "chef": "Daniele GATTI",
+  "solistes": [
+   "Mao FUJITA, piano"
+  ],
+  "works": [
+   "Ludwig van BEETHOVEN — Concerto pour piano et orchestre N° 4 en sol majeur op. 58",
+   "Ludwig van BEETHOVEN — Symphonie N° 6 en fa majeur op. 68, dite 'Pastorale'"
+  ],
+  "effectif": "3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)"
+ },
+ "Liste 28": {
+  "chef": "Daniel HARDING",
+  "solistes": [
+   "Fleur BARRON, mezzo-soprano",
+   "Andrew STAPLES, ténor",
+   "NN1, baryton"
+  ],
+  "works": [
+   "Claude DEBUSSY — Prélude à l’après-midi d’un faune (d'après un poème de Mallarmé)",
+   "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
+   "Lili BOULANGER — Faust et Hélène, épisode lyrique d’après le second Faust de Goethe, pour soli et orchestre"
+  ],
+  "effectif": "3.3.3.4 / 4.5.3.1 / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)"
+ },
+ "Liste 28b": {
+  "effectif": "1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.2.2.2 (20 musiciens)"
+ },
+ "Liste 29": {
+  "chef": "Martyna SZYMCZAK",
+  "solistes": [
+   "Lyam CHENAUX, violoncelle"
+  ],
+  "works": [
+   "Wolfgang Amadeus MOZART — Les Noces de Figaro, ouverture KV 492",
+   "Camille SAINT-SAËNS — Concerto pour violoncelle et orchestre N° 1 en la mineur op. 33",
+   "Felix MENDELSSOHN — Songe d'une nuit d'été, n° 1, Scherzo",
+   "Alma DEUTSCHER — Grinzinger Polka, pour orchestre de chambre"
+  ],
+  "effectif": "2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3.2 (38 musiciens)"
+ },
+ "Liste F": {
+  "chef": "Margaryta GRYNYVETSKA",
+  "solistes": [
+   "Dimitris SKYLLAS, piano",
+   "ALKANNA GRAECA, 3 voix féminines grecques"
+  ],
+  "works": [
+   "Dimitris SKYLLAS — Dimmokratîa"
+  ],
+  "effectif": "0.3.2.2 / 4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)"
+ },
+ "Liste 30": {
+  "chef": "Tugan SOKHIEV",
+  "solistes": [
+   "Michiaki UENO, violoncelle"
+  ],
+  "works": [
+   "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
+   "Antonín DVOŘÁK — Concerto pour violoncelle et orchestre en si mineur op. 104",
+   "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)"
+  ],
+  "effectif": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.12.10.8.6 (80 musiciens)"
+ },
+ "Liste 31": {
+  "chef": "Tugan SOKHIEV",
+  "solistes": [
+   "Yefim BRONFMAN, piano"
+  ],
+  "works": [
+   "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30",
+   "Sergeï RACHMANINOFF — Symphonie N° 2 en mi mineur op. 27"
+  ],
+  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 (82 musiciens)"
+ },
+ "Liste 32": {
+  "chef": "Alan Gilbert",
+  "solistes": [
+   "Beatrice RANA, piano"
+  ],
+  "works": [
+   "Lili BOULANGER — D'un soir triste, pour orchestre",
+   "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
+   "Claude DEBUSSY — Jeux, poème dansé",
+   "Maurice RAVEL — Daphnis et Chloé, suite N° 2"
+  ],
+  "effectif": "4.4.4.4 / 4.4.3.1 / 1.7.2.2 / 15.13.11.9.7 (95 musiciens)"
+ },
+ "Liste 34": {
+  "chef": "Ludwig Wicki",
+  "solistes": [
+   "Le Motet de Genève, chœur"
+  ],
+  "works": [
+   "John WILLIAMS — Harry Potter and the Sorcerer's Stone, movie with live orchestra"
+  ],
+  "effectif": "3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)"
+ },
+ "Liste 35": {
+  "chef": "Daniele GATTI",
+  "solistes": [
+   "Vilde FRANG, violon"
+  ],
+  "works": [
+   "Robert SCHUMANN — Concerto pour violon et orchestre en ré mineur",
+   "Ludwig van BEETHOVEN — Symphonie N° 7 en la majeur op. 92"
+  ],
+  "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)"
+ },
+ "Liste 36": {
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.0 / 7.6.5.3.2 (51 musiciens)"
+ },
+ "Liste 37": {
+  "chef": "Martyna SZYMCZAK",
+  "solistes": [
+   "Anne-Claire REY-BELLET, récitant (récit et animation)"
+  ],
+  "works": [
+   "Anne-Claire REY-BELLET — Zélie-Chansons animalières",
+   "Camille SAINT-SAËNS — Le Carnaval des animaux, grande fantaisie zoologique"
+  ],
+  "effectif": "1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 2.2.2.2.2 (16 musiciens)"
+ },
+ "Liste 39": {
+  "chef": "Philippe BÉRAN",
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens)"
+ },
+ "Liste 40": {
+  "chef": "Martyna SZYMCZAK",
+  "works": [
+   "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre"
+  ],
+  "effectif": "1.1.0.1 / 0.1.1.1 / 0.2.0.1 / 2.2.2.2.2 (19 musiciens)"
+ },
+ "Liste 38": {
+  "solistes": [
+   "Lim YUNCHAN, piano"
+  ],
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)"
+ },
+ "Liste G": {
+  "chef": "Guillaume Tourniaire",
+  "works": [
+   "Leonard BERNSTEIN — Candide, opéra comique en 2 actes"
+  ],
+  "effectif": "2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4 (57 musiciens)"
+ },
+ "Liste 41": {
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)"
+ },
+ "Liste 42": {
+  "effectif": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 1": {
+  "solistes": [
+   "Michel WESTPHAL, clarinette",
+   "Catherine PÉPIN-WESTPHAL, basson",
+   "Yin SHEN, violon",
+   "Ivy WONG, contrebasse",
+   "Didier PUNTOS, piano",
+   "Louise CALAME, récitant"
+  ],
+  "works": [
+   "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant"
+  ],
+  "effectif": "0.0.1.1 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 2": {
+  "solistes": [
+   "Clément CHARPENTIER-LEROY, cor",
+   "Giuliano SOMMERHALDER, trompette",
+   "Antoine PITTET, trompette",
+   "Alexandre FAURE, trombone",
+   "Ross KNIGHT, tuba",
+   "Thomas DIEBOLD, récitant"
+  ],
+  "works": [
+   "Pascal RENOU — Pilou le plantigrade, conte musical pour quintette de cuivres"
+  ],
+  "effectif": "0.0.0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 3": {
+  "solistes": [
+   "Sarah RUMER, flûte (20 mars)",
+   "Loïc SCHNEIDER, flûte (21 mars)",
+   "Simon SOMMERHALDER, hautbois (20 mars)",
+   "Nora CISMONDI, hautbois (21 mars)",
+   "Benoît WILLMANN, clarinette (20 mars)",
+   "Camillo BATTISTELLO, clarinette (21 mars)",
+   "Luis MARQUEZ TERUEL, basson (20 mars)",
+   "Vincent GODEL, basson (21 mars)",
+   "Clément CHARPENTIER-LEROY, cor (20 et 21 mars)",
+   "Marion FONTANA, récitant (20 et 21 mars)"
+  ],
+  "works": [
+   "Serge PROKOFIEV — Pierre et le loup, arrangement pour quintette à vent de Joachim Linckelmann"
+  ],
+  "effectif": "1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)"
+ },
+ "Concerts pour Petites Oreilles 4": {
+  "solistes": [
+   "Guillaume JACOT, violon",
+   "Luca CASCIATO, alto",
+   "Jean-Noël GOS, guitare",
+   "Michael TSCHAMPER, percussion"
+  ],
+  "works": [
+   "Guillaume JACOT & Jean-Noël GOS — Sans les mains, pour petit ensemble et récitant (création de l'Ensemble Beta-Chronicles)"
+  ]
+ },
+ "Doudou Concert 1": {
+  "solistes": [
+   "Yumiko AWANO, violon (21 novembre)",
+   "David VALLEZ, violon (21 novembre)",
+   "Gergana KUSHEVA, contrebasse (22 novembre)",
+   "Katrin HERDA, basson (22 novembre)"
+  ]
+ },
+ "Doudou Concert 2": {
+  "solistes": [
+   "Elodie BERRY, violon (16 janvier)",
+   "Jarita NG, alto (16 janvier)",
+   "Matteo DE LUCA, trombone (17 janvier)",
+   "Vincent MÉTRAILLER, trombone (17 janvier)"
+  ]
+ },
+ "Doudou Concert 3": {
+  "solistes": [
+   "Hannah FRANKE, alto (20 mars)",
+   "Katrin HERDA, basson (20 mars)",
+   "Leonid BARANOV, violon (21 mars)",
+   "Yumi KUBO, violon (21 mars)"
+  ]
+ },
+ "Musique De Chambre 1": {
+  "solistes": [
+   "Simon SOMMERHALDER, hautbois",
+   "Clément CHARPENTIER-LEROY, cor",
+   "Agnès CHOPIN, cor",
+   "Yin SHEN, violon",
+   "Yuwen ZHU, violon",
+   "Marco NIRTA, alto",
+   "Gabriel ESTEBAN, violoncelle",
+   "Ivy WONG, contrebasse"
+  ],
+  "works": [
+   "Wolfgang Amadeus MOZART — Duo pour violon et alto N° 1 en sol majeur KV 423",
+   "Wolfgang Amadeus MOZART — Ein musikalischer Spass KV 522",
+   "Wolfgang Amadeus MOZART — Divertimento N° 11 en ré majeur KV 251"
+  ],
+  "effectif": "0.1.0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)"
+ },
+ "Musique De Chambre 2": {
+  "solistes": [
+   "Caroline BAERISWYL, violon 1",
+   "Yumi KUBO, violon 2",
+   "Verena SCHWEIZER, alto",
+   "Yao JIN, violoncelle",
+   "Meglena TZANEVA DUPRAZ, piano"
+  ],
+  "works": [
+   "Rita STROHL — Quatuor pour deux violons, alto et violoncelle [1885]",
+   "Rita STROHL — Grande Fantaisie-Quintette pour piano, deux violons, alto et violoncelle [1886]"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens + piano)"
+ },
+ "Musique De Chambre 3": {
+  "solistes": [
+   "Roman FILIPOV, violon 1",
+   "Sidonie BOUGAMONT, violon 2",
+   "Elçim ÖZDEMIR, alto",
+   "Frédéric KIRCH, alto",
+   "Lionel COTTET, violoncelle"
+  ],
+  "works": [
+   "Wolfgang Amadeus MOZART — Quintette à cordes N° 3 en sol mineur KV 516",
+   "Johannes BRAHMS — Quintette à cordes à deux altos N° 2 en sol majeur op. 111"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0 (5 musiciens)"
+ },
+ "Musique De Chambre 4": {
+  "solistes": [
+   "Cristian ZIMMERMAN, violon 1",
+   "Guillaume JACOT, violon 2",
+   "Luca CASCIATO, alto",
+   "Lucas HENRY, violoncelle"
+  ],
+  "works": [
+   "Jacques HÉTU — Quatuor à cordes N° 2 op. 50 [1991]",
+   "Jennifer HIGDON — Voices, pour quatuor à cordes (1993)",
+   "Henri DUTILLEUX — Ainsi la nuit, pour quatuor à cordes (1977)"
+  ],
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)"
+ },
+ "Musique De Chambre 5": {
+  "solistes": [
+   "Sarah RUMER, flûte",
+   "Jona VENTURI, flûte",
+   "Audrey VIGOUREUX, piano",
+   "Yumiko AWANO, violon 1",
+   "Eleonora RYNDINA, violon 2",
+   "Theresa HOŘEJŠÍ, alto",
+   "Léonard FREY-MAIBACH, violoncelle"
+  ],
+  "works": [
+   "Lili BOULANGER — Nocturne, pour quatuor à cordes",
+   "Amy Marcy Cheney BEACH — Thème et variations pour flûte et quatuor à cordes en la mineur op. 80 [1916]",
+   "Mel BONIS — Suite en trio pour deux flûtes et piano op. 59",
+   "Germaine TAILLEFERRE — Quatuor à cordes",
+   "Mel BONIS — Fantaisie en septuor pour deux flûtes, piano et quatuor à cordes op. 72"
+  ],
+  "effectif": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)"
+ },
+ "Musique De Chambre 6": {
+  "solistes": [
+   "Alexandre FAURE, trombone",
+   "Matteo DE LUCA, trombone",
+   "Vincent MÉTRAILLER, trombone",
+   "Andrea BANDINI, trombone",
+   "Ross KNIGHT, tuba"
+  ],
+  "works": [
+   "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams…"
+  ]
+ }
+}
