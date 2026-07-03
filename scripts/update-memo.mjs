@@ -25,6 +25,11 @@ import { fileURLToPath } from "node:url"
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 const productionsPath = join(root, "productions.json")
 const planningPath = join(root, "data", "planning.json")
+const changesPath = join(root, "data", "changes.json")
+
+// Plafond partagé avec update-data.mjs : le journal data/changes.json mélange
+// les changements de planning et de mémo, tous soumis à la même limite.
+const MAX_CHANGE_ENTRIES = 300
 
 const CHDOC = "https://chdocuments.diesesoftware.com"
 const OSR = "https://osr.diesesoftware.com"
@@ -398,6 +403,74 @@ function parseMemoText(text) {
   return result
 }
 
+// --- Diff du mémo -----------------------------------------------------------
+// Compare l'ancien et le nouveau productions.json programme par programme, pour
+// journaliser les évolutions du mémo (chef, effectif, durée, solistes, œuvres)
+// dans data/changes.json, avec un type distinct des changements de planning.
+
+// Champs simples (texte) comparés tels quels.
+const MEMO_DIFF_FIELDS = ["chef", "effectif", "duree"]
+// Champs d'une œuvre dont un changement compte comme « œuvre modifiée ».
+const WORK_DIFF_FIELDS = ["instrumentation", "remarques", "percussions", "claviers", "extra", "detail", "note", "duree"]
+
+// Œuvres d'un programme indexées par leur libellé « Compositeur — Titre »
+// (identité stable d'une œuvre entre deux versions du mémo).
+function worksByOeuvre(prod) {
+  const m = new Map()
+  for (const w of prod.works || []) if (w && w.oeuvre) m.set(w.oeuvre, w)
+  return m
+}
+
+// Diff d'un programme présent dans les deux versions. Renvoie null si rien n'a
+// changé.
+function diffProgram(before, after) {
+  const fields = []
+  for (const f of MEMO_DIFF_FIELDS)
+    if ((before[f] || "") !== (after[f] || ""))
+      fields.push({ field: f, before: before[f] || "", after: after[f] || "" })
+
+  // solistes : liste de « Nom, rôle » comparée dans l'ordre
+  const solBefore = (before.solistes || []).join(" · ")
+  const solAfter = (after.solistes || []).join(" · ")
+  if (solBefore !== solAfter)
+    fields.push({ field: "solistes", before: solBefore, after: solAfter })
+
+  const oldWorks = worksByOeuvre(before)
+  const newWorks = worksByOeuvre(after)
+  const worksAdded = [...newWorks.keys()].filter((k) => !oldWorks.has(k))
+  const worksRemoved = [...oldWorks.keys()].filter((k) => !newWorks.has(k))
+  const worksModified = []
+  for (const [oeuvre, w] of newWorks) {
+    const prev = oldWorks.get(oeuvre)
+    if (!prev) continue
+    const changed = WORK_DIFF_FIELDS.filter((k) => (prev[k] || "") !== (w[k] || ""))
+    if (changed.length) worksModified.push({ oeuvre, fields: changed })
+  }
+
+  if (!fields.length && !worksAdded.length && !worksRemoved.length && !worksModified.length)
+    return null
+  return { fields, worksAdded, worksRemoved, worksModified }
+}
+
+// Liste des programmes modifiés/ajoutés/supprimés entre deux productions.json
+// (les clés « _… » sont des métadonnées, ignorées).
+function diffMemo(previous, next) {
+  const isProg = (k) => !k.startsWith("_")
+  const oldKeys = Object.keys(previous).filter(isProg)
+  const newKeys = Object.keys(next).filter(isProg)
+  const programs = []
+  for (const liste of newKeys)
+    if (!previous[liste]) programs.push({ liste, status: "added" })
+  for (const liste of oldKeys)
+    if (!next[liste]) programs.push({ liste, status: "removed" })
+  for (const liste of newKeys) {
+    if (!previous[liste]) continue
+    const d = diffProgram(previous[liste], next[liste])
+    if (d) programs.push({ liste, status: "modified", ...d })
+  }
+  return programs.sort((a, b) => a.liste.localeCompare(b.liste, "fr", { numeric: true }))
+}
+
 // --- Main ------------------------------------------------------------------------
 
 const textArg = process.argv[2]
@@ -424,3 +497,20 @@ if (!changed) {
 
 writeFileSync(productionsPath, JSON.stringify(output, null, 1) + "\n")
 console.log(`productions.json mis à jour : ${Object.keys(parsed).length} fiches.`)
+
+// Journalise les évolutions du mémo dans data/changes.json (type « memo »,
+// distinct des changements de planning), sauf à l'initialisation (aucune
+// version précédente réelle : tout apparaîtrait comme « ajouté »).
+const hadPrevious = Object.keys(previous).some((k) => !k.startsWith("_"))
+if (hadPrevious) {
+  const programs = diffMemo(previous, output)
+  if (programs.length) {
+    const changes = existsSync(changesPath)
+      ? JSON.parse(readFileSync(changesPath, "utf8"))
+      : { entries: [] }
+    changes.entries.unshift({ at: new Date().toISOString(), type: "memo", programs })
+    changes.entries = changes.entries.slice(0, MAX_CHANGE_ENTRIES)
+    writeFileSync(changesPath, JSON.stringify(changes, null, 1) + "\n")
+    console.log(`Mémo : ${programs.length} programme(s) journalisé(s) dans changes.json.`)
+  }
+}
