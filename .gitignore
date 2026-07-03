@@ -2,3 +2,6 @@
 node_modules/
 .playwright-cli/
 *.png
+# Exception : les icônes de l'application (PWA) sont des ressources du site,
+# indispensables à l'installation sur écran d'accueil — on les versionne.
+!icons/*.png
