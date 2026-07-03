@@ -2,10 +2,21 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Bémol · Planning OSR</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎼</text></svg>" />
-    <link rel="stylesheet" href="style.css?v=2026-07-03g" />
+
+    <!-- Application installable (« Ajouter à l'écran d'accueil ») : manifeste,
+         couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#2c5f8a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Bémol" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="style.css?v=2026-07-03h" />
   </head>
   <body>
     <header>
@@ -22,6 +33,9 @@
           <button id="today-btn" title="Aller à aujourd'hui">Aujourd'hui</button>
           <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
           <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <button id="install-btn" title="Installer l'application" hidden>
+            📲 Installer
+          </button>
         </div>
       </div>
       <div id="legend"></div>
@@ -53,9 +67,15 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
+    <dialog id="install-dialog">
+      <h2>Installer l'application</h2>
+      <div id="install-content"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
     <!-- Le suffixe ?v=… force les navigateurs à recharger les fichiers après
          une mise à jour (sinon la version en cache masque les nouveautés).
          À incrémenter lors d'un changement visible d'interface. -->
-    <script src="app.js?v=2026-07-03g"></script>
+    <script src="app.js?v=2026-07-03h"></script>
   </body>
 </html>
