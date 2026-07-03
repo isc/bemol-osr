@@ -930,3 +930,63 @@ footer a {
     cursor: default;
   }
 }
+
+/* --- Installation de l'application (PWA) --- */
+
+#install-btn {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#install-content .install-intro {
+  margin: 0 0 14px;
+  font-size: 0.9em;
+}
+
+.install-now {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.install-or {
+  margin: 14px 0 6px;
+  font-size: 0.85em;
+  color: #667;
+}
+
+.install-steps {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+  font-size: 0.9em;
+}
+
+.install-steps li {
+  margin: 6px 0;
+}
+
+.install-note {
+  margin: 14px 0 0;
+  font-size: 0.8em;
+  color: #778;
+}
+
+/* Écrans à encoche (iPhone) en mode application plein écran : on décale
+   l'en-tête et le pied de page pour ne rien cacher sous la barre système. */
+header {
+  padding-top: calc(8px + env(safe-area-inset-top));
+  padding-left: calc(12px + env(safe-area-inset-left));
+  padding-right: calc(12px + env(safe-area-inset-right));
+}
+
+footer {
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+}

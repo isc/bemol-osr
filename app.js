@@ -1208,6 +1208,114 @@ function renderSubscribe() {
   )
 }
 
+// --- Installation de l'application (PWA) -----------------------------------
+
+// Invite d'installation native mémorisée (Chrome / Android) pour la déclencher
+// au bon moment. iOS ne la fournit pas : on affiche alors une aide manuelle.
+let deferredInstallPrompt = null
+
+function isStandalone() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  )
+}
+
+function isIOS() {
+  return (
+    /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    // iPad récent se présente comme un Mac tactile
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  )
+}
+
+// Affiche le bouton « Installer » de l'en-tête, sauf si l'app est déjà lancée
+// depuis l'écran d'accueil (mode « standalone »).
+function updateInstallButton() {
+  const btn = document.getElementById("install-btn")
+  if (btn) btn.hidden = isStandalone()
+}
+
+function renderInstall() {
+  const box = document.getElementById("install-content")
+  const steps = isIOS()
+    ? [
+        el("li", {}, "Ouvre Bémol dans ", el("b", {}, "Safari"), "."),
+        el(
+          "li",
+          {},
+          "Touche le bouton ",
+          el("b", {}, "Partager"),
+          " (le carré avec une flèche vers le haut).",
+        ),
+        el(
+          "li",
+          {},
+          "Choisis ",
+          el("b", {}, "« Sur l'écran d'accueil »"),
+          ", puis ",
+          el("b", {}, "« Ajouter »"),
+          ".",
+        ),
+      ]
+    : [
+        el("li", {}, "Ouvre Bémol dans ", el("b", {}, "Chrome"), "."),
+        el("li", {}, "Touche le menu ", el("b", {}, "⋮"), " en haut à droite."),
+        el(
+          "li",
+          {},
+          "Choisis ",
+          el("b", {}, "« Installer l'application »"),
+          " (ou « Ajouter à l'écran d'accueil »).",
+        ),
+      ]
+
+  const children = [
+    el(
+      "p",
+      { class: "install-intro" },
+      "Ajoute Bémol à ton écran d'accueil pour l'ouvrir comme une vraie " +
+        "application : en plein écran, d'un seul geste, et consultable même " +
+        "sans connexion.",
+    ),
+  ]
+
+  // Bouton d'installation natif quand le navigateur le propose (Android / Chrome).
+  if (deferredInstallPrompt) {
+    children.push(
+      el(
+        "button",
+        {
+          type: "button",
+          class: "install-now",
+          onclick: async () => {
+            const prompt = deferredInstallPrompt
+            deferredInstallPrompt = null
+            document.getElementById("install-dialog").close()
+            prompt.prompt()
+            await prompt.userChoice
+            updateInstallButton()
+          },
+        },
+        "📲 Installer maintenant",
+      ),
+      el("p", { class: "install-or" }, "…ou à la main :"),
+    )
+  }
+
+  children.push(
+    el("ol", { class: "install-steps" }, ...steps),
+    el(
+      "p",
+      { class: "install-note" },
+      "Une fois installée, l'application se met à jour toute seule quand tu " +
+        "l'ouvres avec une connexion.",
+    ),
+  )
+
+  box.replaceChildren(...children)
+}
+
 // --- Navigation / rendu global -------------------------------------------------
 
 function setView(view) {
@@ -1282,6 +1390,12 @@ async function init() {
     document.getElementById("subscribe-dialog").showModal()
   })
 
+  document.getElementById("install-btn").addEventListener("click", () => {
+    renderInstall()
+    document.getElementById("install-dialog").showModal()
+  })
+  updateInstallButton()
+
   // Badge « modifs » : nombre de changements depuis la dernière visite
   const lastVisit = localStorage.getItem("bemol-last-visit")
   const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
@@ -1303,3 +1417,25 @@ async function init() {
 }
 
 init()
+
+// Installation « écran d'accueil » : on intercepte l'invite native (Android /
+// Chrome) pour la déclencher depuis notre propre bouton, plus lisible.
+window.addEventListener("beforeinstallprompt", (ev) => {
+  ev.preventDefault()
+  deferredInstallPrompt = ev
+  updateInstallButton()
+})
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null
+  updateInstallButton()
+})
+
+// Service worker : rend l'app installable et consultable hors-ligne.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch((err) => {
+      console.warn("Service worker non enregistré :", err)
+    })
+  })
+}
