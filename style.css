@@ -282,6 +282,99 @@ table.week td.slot-name {
   }
 }
 
+/* Repères vacances scolaires & jours fériés (vue Grille) */
+:root {
+  --hol-ge: #c0392b; /* Genève */
+  --hol-fr: #2f6fb0; /* France voisine */
+  --hol-ge-soft: #ecc0bb;
+  --hol-fr-soft: #bcd2ec;
+}
+
+table.week th.ferie {
+  background: #fbe6e2;
+}
+
+.ferie-tags {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.ferie-tag {
+  border: none;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ferie-tag.ferie-ge {
+  background: var(--hol-ge);
+}
+
+.ferie-tag.ferie-fr {
+  background: var(--hol-fr);
+}
+
+tr.vac-row td {
+  border: 1px solid #d8dce1;
+  padding: 1px;
+}
+
+td.vac-label {
+  background: #f3f5f8;
+  color: #667;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vac-band {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.vac-ge .vac-band {
+  background: var(--hol-ge-soft);
+  color: #6e211a;
+}
+
+.vac-fr .vac-band {
+  background: var(--hol-fr-soft);
+  color: #1d3f63;
+}
+
+#detail-content .holiday-list {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}
+
+#detail-content .holiday-list li {
+  margin: 3px 0;
+}
+
+@media (hover: hover) {
+  .ferie-tag:hover,
+  .vac-band:hover {
+    filter: brightness(0.94);
+  }
+}
+
 /* --- Vue agenda --- */
 
 .agenda-day {
