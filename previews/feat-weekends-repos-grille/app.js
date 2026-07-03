@@ -190,9 +190,20 @@ const VACANCES_SCOLAIRES = [
 // main, à revérifier/compléter à chaque saison (source : tableau de service).
 // On repère chaque week-end par la date de son SAMEDI, au format "AAAA-MM-JJ".
 const WEEKENDS_REPOS = [
-  // Saison 2026-2027
+  // Saison 2026-2027 (source : tableau de service, mention « repos »)
   "2026-08-22", // Période 1
-  // … à compléter depuis le tableau de service (une mention par période)
+  "2026-09-12", // Période 2
+  "2026-10-03", // Période 3
+  "2026-11-14", // Période 4
+  "2026-11-28", // Période 5
+  "2027-01-02", // Période 6
+  "2027-01-23", // Période 7
+  "2027-02-20", // Période 8
+  "2027-03-27", // Période 9
+  "2027-04-24", // Période 10
+  "2027-05-15", // Période 11
+  "2027-06-26", // Période 12
+  // Période 13 : aucun week-end « repos » dans le tableau de service.
 ]
 
 // Dimanche de Pâques (algorithme de Meeus/Butcher, calendrier grégorien).
