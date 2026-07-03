@@ -182,6 +182,15 @@ const VACANCES_SCOLAIRES = [
   { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
 ]
 
+// Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
+// jour par région, SAISI À LA MAIN comme les vacances (aucune règle simple), à
+// revérifier/compléter chaque saison (sources : DIP Genève / ge.ch et
+// education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
+const RENTREES = [
+  { region: "GE", date: "2026-08-24" }, // Genève — lundi 24 août 2026
+  { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
+]
+
 // Week-ends de repos officiels de l'orchestre, repris du « tableau de service »
 // de la saison (en principe un par période). Ils NE se déduisent PAS du
 // planning : un week-end de repos peut comporter des services SANS les musiciens
@@ -535,15 +544,39 @@ function feriesTags(date, feries) {
 
 // Ligne de bandeaux "vacances" d'une région pour une semaine (7 jours). Les
 // jours contigus d'une même période sont fusionnés (colspan) et portent le nom
-// de la période ; renvoie null si aucun jour de la semaine n'est en vacances.
+// de la période ; la rentrée scolaire y figure comme un bandeau « Rentrée » d'un
+// seul jour. Renvoie null si la semaine ne contient ni vacances ni rentrée.
 function vacancesRow(region, days) {
   const noms = days.map((d) => vacanceNom(region, localKey(d)))
-  if (noms.every((n) => !n)) return null
+  const isRentree = days.map((d) =>
+    RENTREES.some((r) => r.region === region && r.date === localKey(d)),
+  )
+  if (noms.every((n) => !n) && isRentree.every((r) => !r)) return null
   const row = el("tr", { class: "vac-row" }, el("td", { class: "vac-label" }, region))
   let i = 0
   while (i < days.length) {
+    // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
+    if (isRentree[i]) {
+      row.append(
+        el(
+          "td",
+          { class: `vac vac-${region.toLowerCase()}` },
+          el(
+            "button",
+            {
+              class: "vac-band rentree-band",
+              title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
+              onclick: () => showRentree(region, days[i]),
+            },
+            "Rentrée",
+          ),
+        ),
+      )
+      i++
+      continue
+    }
     let j = i + 1
-    while (j < days.length && noms[j] === noms[i]) j++
+    while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
     const span = j - i
     if (noms[i]) {
       row.append(
@@ -627,6 +660,14 @@ function showVacance(region, nom) {
     "Vacances scolaires",
     el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
     v ? el("p", {}, `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`) : null,
+  )
+}
+
+function showRentree(region, date) {
+  showHolidayDialog(
+    "Rentrée scolaire",
+    el("h2", {}, `Rentrée — ${REGION_LABEL[region]}`),
+    el("p", {}, `Premier jour d'école : ${fmtDay(date, true)}.`),
   )
 }
 
