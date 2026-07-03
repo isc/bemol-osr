@@ -365,6 +365,14 @@ td.vac-label {
   color: #1d3f63;
 }
 
+/* Rentrée scolaire : bandeau vert (jour de reprise) qui prime sur la teinte de
+   région, pour se distinguer d'un bandeau de vacances. */
+.vac-band.rentree-band {
+  background: #cfe8d4;
+  color: #2f6b3a;
+  font-weight: 700;
+}
+
 /* Week-ends « repos » (aucun service samedi ni dimanche) dans la Grille.
    Teinte verte très douce sur les colonnes samedi/dimanche ; « today » garde
    la priorité grâce au :not(.today). */
