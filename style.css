@@ -522,6 +522,59 @@ dialog h2 {
   }
 }
 
+#prefs-content .prefs-note-top {
+  margin: 0 0 8px;
+}
+
+/* Pastille de couleur devant chaque type d'activité (mêmes couleurs que la légende) */
+.cat-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex: none;
+}
+.cat-swatch.cat-concert { background: var(--cat-concert); }
+.cat-swatch.cat-generale { background: var(--cat-generale); }
+.cat-swatch.cat-italienne { background: var(--cat-italienne); }
+.cat-swatch.cat-enregistrement { background: var(--cat-enregistrement); }
+.cat-swatch.cat-repetition { background: var(--cat-repetition); }
+.cat-swatch.cat-concours { background: var(--cat-concours); }
+.cat-swatch.cat-autre { background: var(--cat-autre); }
+.cat-swatch.cat-resa { background: var(--cat-resa); }
+
+/* Type d'activité dépliable : la case générale + son chevron, puis les listes */
+.activite-tete {
+  display: flex;
+  align-items: center;
+}
+.activite-tete .activite-option {
+  flex: 1;
+  min-width: 0;
+}
+.activite-toggle {
+  flex: none;
+  border: none;
+  background: none;
+  font-size: 1em;
+  color: #667;
+  padding: 9px 12px;
+  cursor: pointer;
+  line-height: 1;
+}
+.activite-sous-listes {
+  padding: 2px 0 6px;
+  margin-left: 30px;
+  border-left: 2px solid #e2e6eb;
+}
+.sous-liste-option {
+  padding: 7px 12px;
+}
+@media (hover: hover) {
+  .activite-toggle:hover {
+    color: #223;
+  }
+}
+
 footer {
   padding: 14px 12px 24px;
   text-align: center;
