@@ -463,13 +463,63 @@ dialog h2 {
   margin-top: 10px;
 }
 
-#prefs-content label {
-  display: block;
+#prefs-content .prefs-section {
   padding: 5px 0;
 }
 
-#prefs-content select {
-  margin-left: 8px;
+#prefs-content .prefs-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#prefs-content .prefs-cancelled {
+  display: block;
+  padding: 10px 0 5px;
+}
+
+#prefs-content .prefs-note {
+  font-size: 0.8em;
+  color: #778;
+  margin: 6px 0 0;
+}
+
+.liste-filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.liste-filter-actions button {
+  flex: 1;
+  padding: 8px;
+}
+
+.liste-options {
+  max-height: 45vh;
+  overflow-y: auto;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  padding: 4px 0;
+}
+
+.liste-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.liste-option input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+@media (hover: hover) {
+  .liste-option:hover {
+    background: #eef;
+  }
 }
 
 footer {
