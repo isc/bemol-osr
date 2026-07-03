@@ -1,0 +1,932 @@
+/* Bémol · Planning OSR — palette inspirée de la « Bible » de saison */
+
+:root {
+  --accent: #2c5f8a;
+  --bg: #f0f2f5;
+  --cat-concert: #f5a83a;
+  --cat-generale: #fbd45c;
+  --cat-italienne: #d9b3e6;
+  --cat-enregistrement: #b5e0bd;
+  --cat-repetition: #cfe2f7;
+  --cat-concours: #f2c4c4;
+  --cat-autre: #e4e4e4;
+  --cat-resa: #efefef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #222;
+  font-size: 15px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #d8dce1;
+  padding: 8px 12px 6px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.3em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+h1 .subtitle {
+  font-weight: normal;
+  font-size: 0.75em;
+  color: #667;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+select,
+button {
+  font: inherit;
+  padding: 5px 10px;
+  border: 1px solid #c5ccd4;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+#view-nav {
+  display: flex;
+  gap: 0;
+}
+
+#view-nav button {
+  border-radius: 0;
+  border-right-width: 0;
+  position: relative;
+}
+
+#view-nav button:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+#view-nav button:last-child {
+  border-radius: 0 6px 6px 0;
+  border-right-width: 1px;
+}
+
+#view-nav button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.badge {
+  background: #d33;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 0.7em;
+  padding: 1px 5px;
+  margin-left: 4px;
+  vertical-align: top;
+}
+
+#view-nav button.active .badge {
+  background: #fff;
+  color: #d33;
+}
+
+/* Légende cliquable (filtre les catégories) */
+#legend {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.legend-item {
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  user-select: none;
+}
+
+.legend-item.off {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+
+main {
+  padding: 10px 12px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Vue grille (Bible) --- */
+
+.periode {
+  margin-bottom: 26px;
+}
+
+.periode > h2 {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95em;
+  padding: 5px 10px;
+  border-radius: 6px 6px 0 0;
+  margin: 0 0 2px;
+}
+
+.week-scroll {
+  overflow-x: auto;
+}
+
+table.week {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 860px;
+  margin-bottom: 2px;
+  background: #fff;
+  table-layout: fixed;
+}
+
+table.week th,
+table.week td {
+  border: 1px solid #d8dce1;
+  vertical-align: top;
+  padding: 2px;
+}
+
+table.week th {
+  background: #dce8f5;
+  font-size: 0.78em;
+  font-weight: 600;
+  padding: 4px 2px;
+}
+
+table.week th.week-label {
+  width: 52px;
+  background: #cadcf0;
+}
+
+table.week th.today,
+table.week td.today {
+  background-color: #fdf6dd;
+}
+
+table.week th.today {
+  background: #f5e6a8;
+}
+
+td .slot-label,
+th.slot-col {
+  width: 52px;
+}
+
+table.week td.slot-name {
+  background: #f3f5f8;
+  font-size: 0.7em;
+  color: #778;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Chip d'événement */
+.evt {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 5px;
+  margin: 1px 0;
+  font-size: 0.74em;
+  line-height: 1.3;
+  cursor: pointer;
+  background: var(--cat-autre);
+  /* Le texte reste toujours dans la case : on autorise le retour à la ligne
+     (les <button> ne le font pas par défaut sur certains navigateurs) et la
+     coupure des mots trop longs pour la largeur de colonne, très étroite sur
+     téléphone (« Conseil de fondation », « enregistrement »…).
+     `overflow-wrap: anywhere` (contrairement à `break-word`) réduit aussi la
+     largeur minimale de la vignette : indispensable dans un tableau en
+     `table-layout: fixed` où les colonnes sont très étroites, et `min-width: 0`
+     empêche le <button> de refuser de rétrécir sous la largeur de son contenu
+     (bug fréquent sur Safari iOS). */
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.evt b {
+  font-weight: 700;
+}
+
+.evt .evt-loc {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.evt.cat-concert { background: var(--cat-concert); }
+.evt.cat-generale { background: var(--cat-generale); }
+.evt.cat-italienne { background: var(--cat-italienne); }
+.evt.cat-enregistrement { background: var(--cat-enregistrement); }
+.evt.cat-repetition { background: var(--cat-repetition); }
+.evt.cat-concours { background: var(--cat-concours); }
+.evt.cat-resa { background: var(--cat-resa); color: #889; }
+
+.legend-item.cat-concert { background: var(--cat-concert); }
+.legend-item.cat-generale { background: var(--cat-generale); }
+.legend-item.cat-italienne { background: var(--cat-italienne); }
+.legend-item.cat-enregistrement { background: var(--cat-enregistrement); }
+.legend-item.cat-repetition { background: var(--cat-repetition); }
+.legend-item.cat-concours { background: var(--cat-concours); }
+.legend-item.cat-autre { background: var(--cat-autre); }
+.legend-item.cat-resa { background: var(--cat-resa); }
+
+/* Repère vacances/fériés : dégradé des deux couleurs de région (GE + France) */
+.legend-item.legend-holidays {
+  background: linear-gradient(90deg, var(--hol-ge-soft), var(--hol-fr-soft));
+  color: #444;
+}
+
+.evt.cancelled {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.evt.recent::after {
+  content: "●";
+  color: #d33;
+  margin-left: 4px;
+  font-size: 0.9em;
+}
+
+@media (hover: hover) {
+  .evt:hover {
+    filter: brightness(0.93);
+  }
+}
+
+/* Repères vacances scolaires & jours fériés (vue Grille) */
+:root {
+  --hol-ge: #c0392b; /* Genève */
+  --hol-fr: #2f6fb0; /* France voisine */
+  --hol-ge-soft: #ecc0bb;
+  --hol-fr-soft: #bcd2ec;
+}
+
+table.week th.ferie {
+  background: #fbe6e2;
+}
+
+.ferie-tags {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.ferie-tag {
+  border: none;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ferie-tag.ferie-ge {
+  background: var(--hol-ge);
+}
+
+.ferie-tag.ferie-fr {
+  background: var(--hol-fr);
+}
+
+tr.vac-row td {
+  border: 1px solid #d8dce1;
+  padding: 1px;
+}
+
+td.vac-label {
+  background: #f3f5f8;
+  color: #667;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vac-band {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.vac-ge .vac-band {
+  background: var(--hol-ge-soft);
+  color: #6e211a;
+}
+
+.vac-fr .vac-band {
+  background: var(--hol-fr-soft);
+  color: #1d3f63;
+}
+
+#detail-content .holiday-list {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}
+
+#detail-content .holiday-list li {
+  margin: 3px 0;
+}
+
+@media (hover: hover) {
+  .ferie-tag:hover,
+  .vac-band:hover {
+    filter: brightness(0.94);
+  }
+}
+
+/* --- Vue agenda --- */
+
+.agenda-day {
+  background: #fff;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.agenda-day > h3 {
+  margin: 0;
+  font-size: 0.9em;
+  padding: 6px 12px;
+  background: #dce8f5;
+  color: #245;
+}
+
+.agenda-day.today > h3 {
+  background: #f5e6a8;
+}
+
+.agenda-day .evt {
+  border-radius: 0;
+  padding: 7px 12px;
+  font-size: 0.9em;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* --- Vue modifications --- */
+
+.change-entry {
+  background: #fff;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+}
+
+.change-entry > h3 {
+  margin: 0 0 8px;
+  font-size: 0.9em;
+  color: var(--accent);
+}
+
+.change-item {
+  padding: 5px 8px;
+  margin: 4px 0;
+  border-left: 4px solid #ccc;
+  font-size: 0.85em;
+  background: #fafbfc;
+}
+
+.change-item.added { border-color: #3a5; }
+.change-item.removed { border-color: #d33; }
+.change-item.modified { border-color: #f5a83a; }
+.change-item.memo { border-color: #7a5cc0; }
+
+/* Étiquette « Mémo de production » distinguant ces changements du planning */
+.change-tag {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #6a4bb0;
+  background: #efeaf9;
+  border-radius: 8px;
+  padding: 1px 7px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.change-item .field-diff {
+  color: #556;
+  margin-left: 12px;
+}
+
+.change-item .old {
+  text-decoration: line-through;
+  color: #a55;
+}
+
+.change-item .new {
+  color: #283;
+  font-weight: 600;
+}
+
+/* --- Dialogues --- */
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  padding: 18px 22px;
+  max-width: min(480px, 92vw);
+  width: 100%;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+dialog h2 {
+  margin-top: 0;
+  font-size: 1.1em;
+  color: var(--accent);
+}
+
+#detail-content .detail-cat {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  margin-bottom: 8px;
+}
+
+/* Point rouge sur le titre quand le mémo du programme a changé récemment */
+#detail-content h2 .recent-dot {
+  color: #d33;
+  margin-left: 6px;
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+#detail-content dl {
+  margin: 8px 0;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 10px;
+}
+
+#detail-content dt {
+  color: #778;
+  font-size: 0.85em;
+}
+
+#detail-content dd {
+  margin: 0;
+}
+
+#detail-content .detail-section {
+  margin: 14px 0 4px;
+  font-size: 0.95em;
+  color: var(--accent);
+}
+
+#detail-content .works,
+#detail-content .solistes {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+#detail-content .works li,
+#detail-content .solistes li {
+  margin: 2px 0;
+}
+
+#detail-content .works li {
+  margin: 6px 0;
+}
+
+#detail-content .work-dur {
+  color: #778;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* Détail d'instrumentation d'une œuvre (repris tel quel du mémo) */
+#detail-content .work-detail {
+  margin: 3px 0 2px;
+  padding-left: 0.6em;
+  border-left: 2px solid #d8dce1;
+  color: #556;
+  font-size: 0.85em;
+}
+
+#detail-content .wd-row {
+  display: flex;
+  gap: 6px;
+  margin: 1px 0;
+}
+
+#detail-content .wd-label {
+  flex: 0 0 auto;
+  min-width: 6.5em;
+  color: #889;
+}
+
+#detail-content .wd-val {
+  white-space: pre-wrap;
+}
+
+#detail-content .chef,
+#detail-content .effectif,
+#detail-content .duree {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.close-btn {
+  margin-top: 10px;
+}
+
+/* --- Dialogue d'abonnement au calendrier --- */
+#subscribe-content .subscribe-intro {
+  margin: 0 0 14px;
+  font-size: 0.9em;
+}
+
+.subscribe-add {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.subscribe-or {
+  margin: 14px 0 6px;
+  font-size: 0.85em;
+  color: #667;
+}
+
+.subscribe-url-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.subscribe-url {
+  flex: 1 1 12em;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #c5ccd4;
+  border-radius: 6px;
+  background: #f5f7f9;
+  font-size: 0.85em;
+  color: #334;
+}
+
+.subscribe-url-row .copy-btn {
+  flex: 0 0 auto;
+  background: #fff;
+}
+
+.subscribe-help {
+  margin: 16px 0 6px;
+  font-size: 0.85em;
+}
+
+.subscribe-help summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.subscribe-help ul {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}
+
+.subscribe-help li {
+  margin: 5px 0;
+}
+
+.subscribe-note {
+  margin: 12px 0 0;
+  font-size: 0.8em;
+  color: #778;
+}
+
+#prefs-content .prefs-section {
+  padding: 5px 0;
+}
+
+#prefs-content .prefs-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#prefs-content .prefs-cancelled {
+  display: block;
+  padding: 10px 0 5px;
+}
+
+#prefs-content .prefs-note {
+  font-size: 0.8em;
+  color: #778;
+  margin: 6px 0 0;
+}
+
+.liste-filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.liste-filter-actions button {
+  flex: 1;
+  padding: 8px;
+}
+
+.liste-options {
+  max-height: 45vh;
+  overflow-y: auto;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  padding: 4px 0;
+}
+
+.liste-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.liste-option input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+@media (hover: hover) {
+  .liste-option:hover {
+    background: #eef;
+  }
+}
+
+#prefs-content .prefs-note-top {
+  margin: 0 0 8px;
+}
+
+/* Pastille de couleur devant chaque type d'activité (mêmes couleurs que la légende) */
+.cat-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex: none;
+}
+.cat-swatch.cat-concert { background: var(--cat-concert); }
+.cat-swatch.cat-generale { background: var(--cat-generale); }
+.cat-swatch.cat-italienne { background: var(--cat-italienne); }
+.cat-swatch.cat-enregistrement { background: var(--cat-enregistrement); }
+.cat-swatch.cat-repetition { background: var(--cat-repetition); }
+.cat-swatch.cat-concours { background: var(--cat-concours); }
+.cat-swatch.cat-autre { background: var(--cat-autre); }
+.cat-swatch.cat-resa { background: var(--cat-resa); }
+
+/* Type d'activité dépliable : la case générale + son chevron, puis les listes */
+.activite-tete {
+  display: flex;
+  align-items: center;
+}
+.activite-tete .activite-option {
+  flex: 1;
+  min-width: 0;
+}
+.activite-toggle {
+  flex: none;
+  border: none;
+  background: none;
+  font-size: 1em;
+  color: #667;
+  padding: 9px 12px;
+  cursor: pointer;
+  line-height: 1;
+}
+.activite-sous-listes {
+  padding: 2px 0 6px;
+  margin-left: 30px;
+  border-left: 2px solid #e2e6eb;
+}
+.sous-liste-option {
+  padding: 7px 12px;
+}
+@media (hover: hover) {
+  .activite-toggle:hover {
+    color: #223;
+  }
+}
+
+footer {
+  padding: 14px 12px 24px;
+  text-align: center;
+  color: #889;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+footer a {
+  color: #667;
+}
+
+#loading {
+  text-align: center;
+  color: #889;
+  padding: 40px 0;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #889;
+  padding: 30px 0;
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 .subtitle {
+    display: none;
+  }
+
+  main {
+    padding: 8px 6px 30px;
+  }
+
+  /* --- Vue grille sur téléphone --- */
+  /* La semaine entière tient dans la largeur de l'écran : plus de
+     défilement horizontal, on fait uniquement défiler verticalement
+     comme la vue Agenda. Les cases sont compactées ; un appui sur un
+     événement ouvre toujours le détail complet. */
+  .week-scroll {
+    overflow-x: visible;
+  }
+
+  table.week {
+    min-width: 0;
+  }
+
+  table.week th,
+  table.week td {
+    padding: 1px;
+  }
+
+  table.week th {
+    font-size: 0.62em;
+    padding: 3px 1px;
+  }
+
+  table.week th.week-label {
+    width: 16px;
+  }
+
+  /* Nom du créneau (Matin / Ap-midi / Soir) écrit à la verticale
+     pour ne prendre qu'une colonne très étroite */
+  table.week td.slot-name {
+    font-size: 0.62em;
+    writing-mode: vertical-rl;
+    padding: 2px 0;
+  }
+
+  .evt {
+    font-size: 0.6em;
+    padding: 2px 3px;
+    line-height: 1.2;
+  }
+}
+
+/* --- Impression : rendu proche de l'ancienne « Bible » PDF --- */
+
+/* Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué) */
+.print-title {
+  display: none;
+}
+
+@media print {
+  /* Orientation paysage recommandée, comme la « Bible » papier */
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+
+  /* Conserver les couleurs des catégories (fonds des chips, en-têtes…) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+    font-size: 11px;
+  }
+
+  /* On n'imprime que le contenu de la vue courante */
+  header,
+  footer,
+  dialog {
+    display: none !important;
+  }
+
+  main {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .print-title {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .print-title h1 {
+    color: var(--accent);
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .print-title p {
+    margin: 2px 0 0;
+    color: #445;
+    font-size: 0.9em;
+  }
+
+  /* Chaque période commence sur une nouvelle page, comme la « Bible » PDF */
+  .periode {
+    break-before: page;
+    margin-bottom: 0;
+  }
+
+  /* …sauf la première, pour ne pas gâcher une page blanche au début */
+  .print-title + .periode,
+  .periode:first-child {
+    break-before: auto;
+  }
+
+  /* Plus de défilement horizontal ni de semaine coupée en deux pages */
+  .week-scroll {
+    overflow: visible;
+  }
+
+  table.week {
+    min-width: 0;
+    break-inside: avoid;
+  }
+
+  /* Les chips ne sont plus cliquables sur papier */
+  .evt {
+    cursor: default;
+  }
+}
