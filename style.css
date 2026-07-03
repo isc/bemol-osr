@@ -432,6 +432,20 @@ td.vac-label {
 .change-item.added { border-color: #3a5; }
 .change-item.removed { border-color: #d33; }
 .change-item.modified { border-color: #f5a83a; }
+.change-item.memo { border-color: #7a5cc0; }
+
+/* Étiquette « Mémo de production » distinguant ces changements du planning */
+.change-tag {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #6a4bb0;
+  background: #efeaf9;
+  border-radius: 8px;
+  padding: 1px 7px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
 
 .change-item .field-diff {
   color: #556;
@@ -475,6 +489,14 @@ dialog h2 {
   border-radius: 10px;
   font-size: 0.8em;
   margin-bottom: 8px;
+}
+
+/* Point rouge sur le titre quand le mémo du programme a changé récemment */
+#detail-content h2 .recent-dot {
+  color: #d33;
+  margin-left: 6px;
+  font-size: 0.7em;
+  vertical-align: middle;
 }
 
 #detail-content dl {
