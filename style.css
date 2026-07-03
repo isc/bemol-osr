@@ -264,6 +264,12 @@ table.week td.slot-name {
 .legend-item.cat-autre { background: var(--cat-autre); }
 .legend-item.cat-resa { background: var(--cat-resa); }
 
+/* Repère vacances/fériés : dégradé des deux couleurs de région (GE + France) */
+.legend-item.legend-holidays {
+  background: linear-gradient(90deg, var(--hol-ge-soft), var(--hol-fr-soft));
+  color: #444;
+}
+
 .evt.cancelled {
   text-decoration: line-through;
   opacity: 0.55;
