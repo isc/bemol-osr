@@ -172,7 +172,7 @@ const REGION_LABEL = { GE: "Genève", FR: "France voisine (zone A)" }
 const VACANCES_SCOLAIRES = [
   // Genève — saison 2026-2027 (source : DIP / ge.ch)
   { region: "GE", nom: "Automne", start: "2026-10-17", end: "2026-10-25" },
-  { region: "GE", nom: "Fin d'année", start: "2026-12-19", end: "2027-01-03" },
+  { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
   { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
   { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
   // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
@@ -811,24 +811,45 @@ function renderModifs(main) {
 
 function renderLegend() {
   const legend = document.getElementById("legend")
-  legend.replaceChildren(
-    ...Object.entries(CATEGORIES).map(([cat, label]) => {
-      const off = state.prefs.hiddenCategories.includes(cat)
-      return el(
+  const items = Object.entries(CATEGORIES).map(([cat, label]) => {
+    const off = state.prefs.hiddenCategories.includes(cat)
+    return el(
+      "span",
+      {
+        class: `legend-item cat-${cat}${off ? " off" : ""}`,
+        onclick: () => {
+          const hidden = state.prefs.hiddenCategories
+          state.prefs.hiddenCategories = off ? hidden.filter((c) => c !== cat) : [...hidden, cat]
+          savePrefs()
+          render()
+        },
+      },
+      label,
+    )
+  })
+
+  // Repère « Vacances / fériés » : uniquement en vue Grille (ces repères n'y
+  // apparaissent que là), cliquable comme les catégories pour masquer/afficher.
+  if (state.view === "grille") {
+    const off = !state.prefs.showHolidays
+    items.push(
+      el(
         "span",
         {
-          class: `legend-item cat-${cat}${off ? " off" : ""}`,
+          class: `legend-item legend-holidays${off ? " off" : ""}`,
+          title: "Vacances scolaires et jours fériés (Genève + France voisine)",
           onclick: () => {
-            const hidden = state.prefs.hiddenCategories
-            state.prefs.hiddenCategories = off ? hidden.filter((c) => c !== cat) : [...hidden, cat]
+            state.prefs.showHolidays = !state.prefs.showHolidays
             savePrefs()
             render()
           },
         },
-        label,
-      )
-    }),
-  )
+        "Vacances / fériés",
+      ),
+    )
+  }
+
+  legend.replaceChildren(...items)
 }
 
 function renderPrefs() {
