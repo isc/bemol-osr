@@ -71,10 +71,15 @@ function loadPrefs() {
   const defaults = {
     hiddenCategories: ["resa"],
     showCancelled: true,
-    liste: "",
+    listes: [], // listes sélectionnées ; vide = toutes les listes
   }
   try {
-    return { ...defaults, ...JSON.parse(localStorage.getItem("bemol-prefs") || "{}") }
+    const stored = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
+    // Migration : l'ancien filtre « liste » (une seule) devient « listes » (plusieurs)
+    if (typeof stored.liste === "string" && !("listes" in stored))
+      stored.listes = stored.liste ? [stored.liste] : []
+    delete stored.liste
+    return { ...defaults, ...stored }
   } catch {
     return defaults
   }
@@ -170,7 +175,7 @@ function visibleEvents() {
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
       (p.showCancelled || !e.cancelled) &&
-      (!p.liste || e.liste === p.liste) &&
+      (!p.listes.length || p.listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
   )
 }
@@ -498,20 +503,48 @@ function renderLegend() {
 
 function renderPrefs() {
   const box = document.getElementById("prefs-content")
-  const listeSelect = el(
-    "select",
-    {
-      onchange: (ev) => {
-        state.prefs.liste = ev.target.value
-        savePrefs()
-        render()
-      },
-    },
-    el("option", { value: "" }, "Toutes les listes"),
-    ...listesInSeason().map((l) =>
-      el("option", { value: l, selected: state.prefs.liste === l ? "" : null }, l),
-    ),
-  )
+  const listes = listesInSeason()
+  const selected = state.prefs.listes
+
+  // Coche/décoche une liste, sans doublon
+  const toggleListe = (liste, on) => {
+    const set = new Set(state.prefs.listes)
+    if (on) set.add(liste)
+    else set.delete(liste)
+    state.prefs.listes = [...set]
+    savePrefs()
+    render()
+  }
+
+  const setAll = (all) => {
+    state.prefs.listes = all ? [...listes] : []
+    savePrefs()
+    render()
+  }
+
+  const listeOptions = listes.map((l) => {
+    const cb = el("input", {
+      type: "checkbox",
+      onchange: (ev) => toggleListe(l, ev.target.checked),
+    })
+    cb.checked = selected.includes(l)
+    return el("label", { class: "liste-option" }, cb, " ", l)
+  })
+
+  const filterBox = listeOptions.length
+    ? el(
+        "div",
+        { class: "liste-filter" },
+        el(
+          "div",
+          { class: "liste-filter-actions" },
+          el("button", { type: "button", onclick: () => setAll(false) }, "Tout décocher"),
+          el("button", { type: "button", onclick: () => setAll(true) }, "Tout cocher"),
+        ),
+        el("div", { class: "liste-options" }, ...listeOptions),
+      )
+    : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
+
   const cancelledCheckbox = el("input", {
     type: "checkbox",
     onchange: (ev) => {
@@ -523,11 +556,28 @@ function renderPrefs() {
   cancelledCheckbox.checked = state.prefs.showCancelled
 
   box.replaceChildren(
-    el("label", {}, "Filtrer par liste :", listeSelect),
-    el("label", {}, cancelledCheckbox, " Afficher les événements annulés (barrés)"),
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
+      filterBox,
+      el(
+        "p",
+        { class: "prefs-note" },
+        selected.length
+          ? `${selected.length} liste${selected.length > 1 ? "s" : ""} affichée${selected.length > 1 ? "s" : ""}. Coche les productions sur lesquelles tu joues.`
+          : "Aucune coche : toutes les listes sont affichées. Coche les productions sur lesquelles tu joues pour ne garder que celles-là.",
+      ),
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      cancelledCheckbox,
+      " Afficher les événements annulés (barrés)",
+    ),
     el(
       "p",
-      { style: "font-size: 0.8em; color: #778" },
+      { class: "prefs-note" },
       "Astuce : la légende sous le titre permet de masquer/afficher chaque catégorie d'un simple clic. Les préférences sont mémorisées sur cet appareil.",
     ),
   )
