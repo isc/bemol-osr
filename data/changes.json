@@ -1,6 +1,33 @@
 {
  "entries": [
   {
+   "at": "2026-07-03T07:51:33.899Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 40",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "1.1.0.1 / 0.1.1.1 / 0.2.0.1 / 2.2.2.2.2 (19 musiciens)",
+       "after": "1.1.1.1 / 1.1.1.1 / 1.2.0.1 / 2.2.2.2.2 (22 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-07-02T18:05:17.176Z",
    "added": [],
    "removed": [
