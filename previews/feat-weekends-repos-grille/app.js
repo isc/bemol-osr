@@ -182,6 +182,19 @@ const VACANCES_SCOLAIRES = [
   { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
 ]
 
+// Week-ends de repos officiels de l'orchestre, repris du « tableau de service »
+// de la saison (en principe un par période). Ils NE se déduisent PAS du
+// planning : un week-end de repos peut comporter des services SANS les musiciens
+// de l'orchestre (raccords, répétitions techniques…), et à l'inverse un simple
+// trou dans le planning n'est pas un week-end de repos officiel. Saisie à la
+// main, à revérifier/compléter à chaque saison (source : tableau de service).
+// On repère chaque week-end par la date de son SAMEDI, au format "AAAA-MM-JJ".
+const WEEKENDS_REPOS = [
+  // Saison 2026-2027
+  "2026-08-22", // Période 1
+  // … à compléter depuis le tableau de service (une mention par période)
+]
+
 // Dimanche de Pâques (algorithme de Meeus/Butcher, calendrier grégorien).
 function easterSunday(year) {
   const a = year % 19
@@ -568,14 +581,15 @@ function showFeries(date, feries) {
   )
 }
 
-// Pastille « Repos » posée dans l'en-tête du samedi d'un week-end sans service ;
-// cliquable pour rappeler ce que ça signifie (public = musiciens, pas devs).
+// Pastille « Repos » posée dans l'en-tête du samedi d'un week-end de repos
+// (tableau de service) ; cliquable pour rappeler ce que ça signifie (public =
+// musiciens, pas devs).
 function reposTag(sat, sun) {
   return el(
     "button",
     {
       class: "repos-tag",
-      title: "Week-end de repos — aucun service prévu pour l'orchestre",
+      title: "Week-end de repos de l'orchestre (tableau de service)",
       onclick: () => showRepos(sat, sun),
     },
     "Repos",
@@ -587,7 +601,12 @@ function showRepos(sat, sun) {
     "Repos",
     el("h2", {}, "Week-end de repos"),
     el("p", {}, `Du ${fmtDay(sat)} au ${fmtDay(sun)}.`),
-    el("p", {}, "Aucun service n'est prévu pour l'orchestre ce week-end."),
+    el(
+      "p",
+      {},
+      "Week-end de repos de l'orchestre, tel qu'indiqué au tableau de service. " +
+        "Des services techniques peuvent y figurer, mais sans les musicien·nes de l'orchestre.",
+    ),
   )
 }
 
@@ -620,16 +639,11 @@ function renderGrille(main) {
     byDay.get(key).push(e)
   }
 
-  // Jours de la saison où l'orchestre a au moins un service (hors annulés) :
-  // sert à repérer les week-ends « repos ». On se base sur tout le planning de
-  // la saison, indépendamment des filtres (catégories / liste / annulés), car
-  // être en repos est un état de l'orchestre, pas un effet de l'affichage.
-  const busyDays = new Set()
-  for (const e of state.events) {
-    if (e.cancelled) continue
-    if (seasonYear(parseDate(e.start)) !== state.season) continue
-    busyDays.add(e.start.slice(0, 10))
-  }
+  // Week-ends de repos officiels (repris du tableau de service, cf.
+  // WEEKENDS_REPOS), repérés par la date de leur samedi. Ne se déduisent pas du
+  // planning : un week-end de repos peut comporter des services sans les
+  // musiciens de l'orchestre.
+  const reposSaturdays = new Set(WEEKENDS_REPOS)
 
   const start = firstMondayOfAugust(state.season)
   const end = firstMondayOfAugust(state.season + 1)
@@ -653,11 +667,11 @@ function renderGrille(main) {
       const monday = addDays(pStart, w * 7)
       const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
       const hasToday = days.some((d) => localKey(d) === todayKey)
-      // Week-end « repos » : ni le samedi (days[5]) ni le dimanche (days[6])
-      // n'a de service dans le planning de la saison. Les deux jours sont alors
-      // teintés et le samedi porte une pastille « Repos ».
+      // Week-end « repos » : week-end signalé « repos » dans le tableau de
+      // service (repéré par la date de son samedi, days[5]). Les deux jours sont
+      // alors teintés et le samedi porte une pastille « Repos ».
       const [sat, sun] = [days[5], days[6]]
-      const reposWeekend = !busyDays.has(localKey(sat)) && !busyDays.has(localKey(sun))
+      const reposWeekend = reposSaturdays.has(localKey(sat))
 
       const table = el("table", { class: "week" })
       if (hasToday) table.id = "current-week"
