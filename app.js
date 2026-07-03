@@ -71,6 +71,8 @@ function loadPrefs() {
   const defaults = {
     hiddenCategories: ["resa"],
     showCancelled: true,
+    // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
+    showHolidays: true,
     listes: [], // listes sélectionnées ; vide = toutes les listes
     // Filtre fin « type d'activité → liste » : pour un type NON masqué
     // globalement (absent de hiddenCategories), listes masquées à l'intérieur
@@ -146,6 +148,112 @@ function shortListe(liste) {
   const m = liste.match(/^Liste (.+)$/)
   if (!m) return liste.length > 10 ? liste.slice(0, 9) + "…" : liste
   return /^\d/.test(m[1]) ? "L" + m[1] : m[1]
+}
+
+// --- Vacances scolaires & jours fériés (repères de la vue Grille) ------------
+// À la demande des musiciens : montrer dans la Grille quand les écoles sont en
+// vacances (utile pour caler ses propres congés) et les jours fériés (qui
+// décalent souvent les services), pour le canton de Genève ET la France
+// voisine (zone A : académies de Lyon, Grenoble, Clermont-Ferrand).
+//
+// • Les JOURS FÉRIÉS sont CALCULÉS (fêtes fixes + fêtes mobiles dérivées de
+//   Pâques) : fiables pour n'importe quelle saison, rien à maintenir.
+// • Les VACANCES SCOLAIRES n'obéissent à aucune règle simple : leurs dates
+//   sont SAISIES À LA MAIN ci-dessous, à revérifier/compléter chaque saison
+//   (sources : DIP Genève / ge.ch et education.gouv.fr pour la zone A).
+//
+// Une région vaut "GE" (Genève) ou "FR" (France voisine, zone A).
+const REGION_LABEL = { GE: "Genève", FR: "France voisine (zone A)" }
+
+// Vacances scolaires, en jours calendaires INCLUS (week-ends compris) : `start`
+// = premier jour sans école, `end` = dernier jour sans école (veille de la
+// reprise). Format "AAAA-MM-JJ". À vérifier à chaque nouvelle saison.
+const VACANCES_SCOLAIRES = [
+  // Genève — saison 2026-2027 (source : DIP / ge.ch)
+  { region: "GE", nom: "Automne", start: "2026-10-17", end: "2026-10-25" },
+  { region: "GE", nom: "Fin d'année", start: "2026-12-19", end: "2027-01-03" },
+  { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
+  { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
+  // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
+  { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
+  { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
+  { region: "FR", nom: "Hiver", start: "2027-02-06", end: "2027-02-21" },
+  { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
+]
+
+// Dimanche de Pâques (algorithme de Meeus/Butcher, calendrier grégorien).
+function easterSunday(year) {
+  const a = year % 19
+  const b = Math.floor(year / 100)
+  const c = year % 100
+  const d = Math.floor(b / 4)
+  const e = b % 4
+  const f = Math.floor((b + 8) / 25)
+  const g = Math.floor((b - f + 1) / 3)
+  const h = (19 * a + b - d - g + 15) % 30
+  const i = Math.floor(c / 4)
+  const k = c % 4
+  const l = (32 + 2 * e + 2 * i - h - k) % 7
+  const m = Math.floor((a + 11 * h + 22 * l) / 451)
+  const month = Math.floor((h + l - 7 * m + 114) / 31) // 3 = mars, 4 = avril
+  const day = ((h + l - 7 * m + 114) % 31) + 1
+  return new Date(year, month - 1, day)
+}
+
+// Jeûne genevois : jeudi qui suit le 1er dimanche de septembre.
+function jeuneGenevois(year) {
+  const d = new Date(year, 8, 1)
+  d.setDate(1 + ((7 - d.getDay()) % 7)) // 1er dimanche de septembre
+  return addDays(d, 4) // jeudi suivant
+}
+
+// Construit une Map localKey → [{ region, nom }] des jours fériés pour les
+// années demandées (une saison en couvre deux : août→déc puis janv→juil).
+function buildFeries(years) {
+  const map = new Map()
+  const add = (date, region, nom) => {
+    const key = localKey(date)
+    if (!map.has(key)) map.set(key, [])
+    map.get(key).push({ region, nom })
+  }
+  for (const y of years) {
+    const easter = easterSunday(y)
+    const vendrediSaint = addDays(easter, -2)
+    const lundiPaques = addDays(easter, 1)
+    const ascension = addDays(easter, 39)
+    const lundiPentecote = addDays(easter, 50)
+    // Genève (fériés officiels du canton)
+    add(new Date(y, 0, 1), "GE", "Nouvel An")
+    add(vendrediSaint, "GE", "Vendredi Saint")
+    add(lundiPaques, "GE", "Lundi de Pâques")
+    add(ascension, "GE", "Ascension")
+    add(lundiPentecote, "GE", "Lundi de Pentecôte")
+    add(new Date(y, 7, 1), "GE", "Fête nationale suisse")
+    add(jeuneGenevois(y), "GE", "Jeûne genevois")
+    add(new Date(y, 11, 25), "GE", "Noël")
+    add(new Date(y, 11, 31), "GE", "Restauration de la République")
+    // France (jours fériés nationaux)
+    add(new Date(y, 0, 1), "FR", "Jour de l'An")
+    add(lundiPaques, "FR", "Lundi de Pâques")
+    add(new Date(y, 4, 1), "FR", "Fête du Travail")
+    add(new Date(y, 4, 8), "FR", "Victoire 1945")
+    add(ascension, "FR", "Ascension")
+    add(lundiPentecote, "FR", "Lundi de Pentecôte")
+    add(new Date(y, 6, 14), "FR", "Fête nationale")
+    add(new Date(y, 7, 15), "FR", "Assomption")
+    add(new Date(y, 10, 1), "FR", "Toussaint")
+    add(new Date(y, 10, 11), "FR", "Armistice 1918")
+    add(new Date(y, 11, 25), "FR", "Noël")
+  }
+  return map
+}
+
+// Nom de la période de vacances d'une région pour un jour donné, sinon null.
+// (comparaison lexicographique sur "AAAA-MM-JJ", qui suit l'ordre des dates)
+function vacanceNom(region, key) {
+  for (const v of VACANCES_SCOLAIRES)
+    if (v.region === region && key >= v.start && key <= v.end) return v.nom
+  return null
 }
 
 // --- Chargement ------------------------------------------------------------
@@ -355,6 +463,96 @@ function productionDetail(e) {
   return nodes
 }
 
+// --- Repères vacances / fériés dans la Grille --------------------------------
+
+// Petites pastilles "GE"/"FR" (une par région fériée ce jour) posées dans
+// l'en-tête de colonne du jour, cliquables pour afficher le détail.
+function feriesTags(date, feries) {
+  return el(
+    "div",
+    { class: "ferie-tags" },
+    ...feries.map((f) =>
+      el(
+        "button",
+        {
+          class: `ferie-tag ferie-${f.region.toLowerCase()}`,
+          title: `Jour férié · ${REGION_LABEL[f.region]} : ${f.nom}`,
+          onclick: () => showFeries(date, feries),
+        },
+        f.region,
+      ),
+    ),
+  )
+}
+
+// Ligne de bandeaux "vacances" d'une région pour une semaine (7 jours). Les
+// jours contigus d'une même période sont fusionnés (colspan) et portent le nom
+// de la période ; renvoie null si aucun jour de la semaine n'est en vacances.
+function vacancesRow(region, days) {
+  const noms = days.map((d) => vacanceNom(region, localKey(d)))
+  if (noms.every((n) => !n)) return null
+  const row = el("tr", { class: "vac-row" }, el("td", { class: "vac-label" }, region))
+  let i = 0
+  while (i < days.length) {
+    let j = i + 1
+    while (j < days.length && noms[j] === noms[i]) j++
+    const span = j - i
+    if (noms[i]) {
+      row.append(
+        el(
+          "td",
+          { class: `vac vac-${region.toLowerCase()}`, colspan: span },
+          el(
+            "button",
+            {
+              class: "vac-band",
+              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${noms[i]}`,
+              onclick: () => showVacance(region, noms[i]),
+            },
+            noms[i],
+          ),
+        ),
+      )
+    } else {
+      row.append(el("td", { class: "vac-empty", colspan: span }))
+    }
+    i = j
+  }
+  return row
+}
+
+// Réutilise le dialogue de détail pour présenter un férié / des vacances.
+function showHolidayDialog(tag, ...content) {
+  const dlg = document.getElementById("detail-dialog")
+  const box = document.getElementById("detail-content")
+  box.replaceChildren(
+    el("span", { class: "detail-cat evt cat-autre" }, tag),
+    ...content.filter((c) => c !== null && c !== undefined),
+  )
+  dlg.showModal()
+}
+
+function showFeries(date, feries) {
+  showHolidayDialog(
+    feries.length > 1 ? "Jours fériés" : "Jour férié",
+    el("h2", {}, fmtDay(date, true)),
+    el(
+      "ul",
+      { class: "holiday-list" },
+      ...feries.map((f) => el("li", {}, `${REGION_LABEL[f.region]} — ${f.nom}`)),
+    ),
+  )
+}
+
+function showVacance(region, nom) {
+  const v = VACANCES_SCOLAIRES.find((x) => x.region === region && x.nom === nom)
+  showHolidayDialog(
+    "Vacances scolaires",
+    el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
+    v ? el("p", {}, `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`) : null,
+  )
+}
+
 // --- Vue grille (Bible) ------------------------------------------------------
 
 function slotOf(e) {
@@ -366,6 +564,8 @@ const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
 
 function renderGrille(main) {
   const events = visibleEvents()
+  const showHolidays = state.prefs.showHolidays
+  const feriesMap = (state.holidays && state.holidays.feries) || new Map()
   const byDay = new Map()
   for (const e of events) {
     const key = e.start.slice(0, 10)
@@ -399,9 +599,23 @@ function renderGrille(main) {
       const table = el("table", { class: "week" })
       if (hasToday) table.id = "current-week"
       const headRow = el("tr", {}, el("th", { class: "week-label" }, `S${w + 1}`))
-      for (const d of days)
-        headRow.append(el("th", { class: localKey(d) === todayKey ? "today" : "" }, fmtDay(d)))
-      table.append(el("thead", {}, headRow))
+      for (const d of days) {
+        const key = localKey(d)
+        const feries = showHolidays ? feriesMap.get(key) || [] : []
+        const cls = [key === todayKey ? "today" : "", feries.length ? "ferie" : ""]
+          .filter(Boolean)
+          .join(" ")
+        const th = el("th", { class: cls }, fmtDay(d))
+        if (feries.length) th.append(feriesTags(d, feries))
+        headRow.append(th)
+      }
+      const thead = el("thead", {}, headRow)
+      if (showHolidays)
+        for (const region of ["GE", "FR"]) {
+          const vacRow = vacancesRow(region, days)
+          if (vacRow) thead.append(vacRow)
+        }
+      table.append(thead)
 
       const tbody = el("tbody")
       for (let slot = 0; slot < 3; slot++) {
@@ -746,6 +960,16 @@ function renderPrefs() {
   })
   cancelledCheckbox.checked = state.prefs.showCancelled
 
+  const holidaysCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.showHolidays = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  holidaysCheckbox.checked = state.prefs.showHolidays
+
   updateNote()
   for (const cat of cats) refreshCat(cat)
   updateCatNote()
@@ -775,6 +999,12 @@ function renderPrefs() {
       { class: "prefs-cancelled" },
       cancelledCheckbox,
       " Afficher les événements annulés (barrés)",
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      holidaysCheckbox,
+      " Afficher les vacances scolaires et jours fériés (Grille)",
     ),
     el(
       "p",
@@ -840,6 +1070,8 @@ async function init() {
   // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
   // on l'adopte directement, sans sélecteur.
   state.season = seasonsInData()[0]
+  // Jours fériés de la saison (elle chevauche deux années civiles)
+  state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
 
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
