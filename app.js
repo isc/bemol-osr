@@ -72,6 +72,10 @@ function loadPrefs() {
     hiddenCategories: ["resa"],
     showCancelled: true,
     listes: [], // listes sélectionnées ; vide = toutes les listes
+    // Filtre fin « type d'activité → liste » : pour un type NON masqué
+    // globalement (absent de hiddenCategories), listes masquées à l'intérieur
+    // de ce seul type. { [catégorie]: ["Liste 04", …] }
+    hiddenCatListes: {},
   }
   try {
     const stored = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
@@ -174,6 +178,7 @@ function visibleEvents() {
   return state.events.filter(
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
+      !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
       (p.showCancelled || !e.cancelled) &&
       (!p.listes.length || p.listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
@@ -192,6 +197,22 @@ function listesInSeason() {
       .map((e) => e.liste),
   )
   return [...set].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+}
+
+// Pour chaque catégorie, les listes qui ont au moins un service de ce type dans
+// la saison courante (triées). Sert aux sous-cases « par liste » du filtre par
+// type d'activité.
+function listesByCategory() {
+  const map = new Map()
+  for (const e of state.events) {
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!map.has(e.category)) map.set(e.category, new Set())
+    map.get(e.category).add(e.liste)
+  }
+  const out = {}
+  for (const [cat, set] of map)
+    out[cat] = [...set].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+  return out
 }
 
 // --- Rendu : éléments communs ----------------------------------------------
@@ -562,6 +583,159 @@ function renderPrefs() {
       )
     : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
 
+  // --- Filtre par type d'activité (catégorie → liste) ---------------------
+  // Une « case générale » par type d'activité. Cochée = ce type est affiché,
+  // décochée = masqué (piloté par hiddenCategories, partagé avec la légende).
+  // Chaque type dépliable (▸) révèle une sous-case par liste : on peut n'afficher
+  // qu'une partie des listes d'un type (piloté par hiddenCatListes). La case
+  // générale devient « indéterminée » quand seules certaines listes sont cochées.
+  // Comme les cases de liste, cocher/décocher ne reconstruit pas le panneau :
+  // on met à jour les cases en place et on ne re-render que le contenu.
+  const cats = Object.keys(CATEGORIES)
+  const catListesMap = listesByCategory()
+  const catParentCb = new Map() // catégorie → <input> général
+  const catChildCb = new Map() // catégorie → Map(liste → <input>)
+
+  const catNote = el("p", { class: "prefs-note" })
+  const updateCatNote = () => {
+    const shown = cats.filter((c) => !state.prefs.hiddenCategories.includes(c))
+    const partial = shown.filter((c) => (state.prefs.hiddenCatListes[c] || []).length).length
+    catNote.textContent =
+      (shown.length === cats.length
+        ? "Tous les types d'activité sont affichés."
+        : `${shown.length} type${shown.length > 1 ? "s" : ""} d'activité affiché${shown.length > 1 ? "s" : ""} sur ${cats.length}.`) +
+      (partial ? ` (dont ${partial} filtré${partial > 1 ? "s" : ""} par liste)` : "")
+  }
+
+  // Met à jour, en place, la case générale (cochée / indéterminée) et ses
+  // sous-cases d'après les préférences courantes.
+  const refreshCat = (cat) => {
+    const listes = catListesMap[cat] || []
+    const fullyHidden = state.prefs.hiddenCategories.includes(cat)
+    const hid = new Set(fullyHidden ? listes : state.prefs.hiddenCatListes[cat] || [])
+    const shown = listes.filter((l) => !hid.has(l)).length
+    const parent = catParentCb.get(cat)
+    parent.checked = listes.length ? shown === listes.length : !fullyHidden
+    parent.indeterminate = listes.length > 0 && shown > 0 && shown < listes.length
+    const children = catChildCb.get(cat)
+    if (children) for (const [l, cb] of children) cb.checked = !hid.has(l)
+  }
+
+  const applyCat = (cat) => {
+    savePrefs()
+    refreshCat(cat)
+    updateCatNote()
+    renderContent()
+  }
+
+  // Case générale : coche → tout le type affiché ; décoche → tout masqué.
+  const toggleCategory = (cat, on) => {
+    const hidden = new Set(state.prefs.hiddenCategories)
+    const map = { ...state.prefs.hiddenCatListes }
+    delete map[cat]
+    if (on) hidden.delete(cat)
+    else hidden.add(cat)
+    state.prefs.hiddenCategories = [...hidden]
+    state.prefs.hiddenCatListes = map
+    applyCat(cat)
+  }
+
+  // Sous-case « liste dans ce type ». Normalise : tout masqué ⇒ type masqué
+  // globalement ; rien masqué ⇒ entrée supprimée.
+  const toggleCatListe = (cat, liste, on) => {
+    const listes = catListesMap[cat] || []
+    const hidden = new Set(state.prefs.hiddenCategories)
+    const map = { ...state.prefs.hiddenCatListes }
+    // Si le type était masqué en bloc, on le réactive en ne gardant que cette liste.
+    let hid = hidden.has(cat) ? new Set(listes) : new Set(map[cat] || [])
+    hidden.delete(cat)
+    if (on) hid.delete(liste)
+    else hid.add(liste)
+    if (listes.every((l) => hid.has(l))) {
+      hidden.add(cat)
+      delete map[cat]
+    } else if (hid.size === 0) {
+      delete map[cat]
+    } else {
+      map[cat] = [...hid]
+    }
+    state.prefs.hiddenCategories = [...hidden]
+    state.prefs.hiddenCatListes = map
+    applyCat(cat)
+  }
+
+  const setAllCategories = (all) => {
+    state.prefs.hiddenCategories = all ? [] : [...cats]
+    state.prefs.hiddenCatListes = {}
+    savePrefs()
+    for (const cat of cats) refreshCat(cat)
+    updateCatNote()
+    renderContent()
+  }
+
+  const catOptions = cats.map((cat) => {
+    const parent = el("input", {
+      type: "checkbox",
+      onchange: (ev) => toggleCategory(cat, ev.target.checked),
+    })
+    catParentCb.set(cat, parent)
+    const row = el(
+      "label",
+      { class: "liste-option activite-option" },
+      parent,
+      el("span", { class: `cat-swatch cat-${cat}` }),
+      CATEGORIES[cat],
+    )
+
+    const listes = catListesMap[cat] || []
+    if (!listes.length) return row // type sans service cette saison : pas de sous-cases
+
+    const children = new Map()
+    catChildCb.set(cat, children)
+    const subList = el(
+      "div",
+      { class: "activite-sous-listes", hidden: "" },
+      ...listes.map((l) => {
+        const cb = el("input", {
+          type: "checkbox",
+          onchange: (ev) => toggleCatListe(cat, l, ev.target.checked),
+        })
+        children.set(l, cb)
+        return el("label", { class: "liste-option sous-liste-option" }, cb, " ", l)
+      }),
+    )
+    const caret = el(
+      "button",
+      {
+        type: "button",
+        class: "activite-toggle",
+        "aria-label": "Afficher/masquer les listes de ce type",
+        onclick: () => {
+          const open = subList.hasAttribute("hidden")
+          if (open) subList.removeAttribute("hidden")
+          else subList.setAttribute("hidden", "")
+          caret.textContent = open ? "▾" : "▸"
+        },
+      },
+      "▸",
+    )
+    // La case + le libellé restent dans le <label> ; le chevron est à part pour
+    // ne pas cocher la case quand on déplie.
+    return el("div", { class: "activite-groupe" }, el("div", { class: "activite-tete" }, row, caret), subList)
+  })
+
+  const catBox = el(
+    "div",
+    { class: "liste-filter" },
+    el(
+      "div",
+      { class: "liste-filter-actions" },
+      el("button", { type: "button", onclick: () => setAllCategories(false) }, "Tout décocher"),
+      el("button", { type: "button", onclick: () => setAllCategories(true) }, "Tout cocher"),
+    ),
+    el("div", { class: "liste-options" }, ...catOptions),
+  )
+
   const cancelledCheckbox = el("input", {
     type: "checkbox",
     onchange: (ev) => {
@@ -573,6 +747,8 @@ function renderPrefs() {
   cancelledCheckbox.checked = state.prefs.showCancelled
 
   updateNote()
+  for (const cat of cats) refreshCat(cat)
+  updateCatNote()
 
   box.replaceChildren(
     el(
@@ -581,6 +757,18 @@ function renderPrefs() {
       el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
       filterBox,
       note,
+    ),
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Filtrer par type d'activité :"),
+      el(
+        "p",
+        { class: "prefs-note prefs-note-top" },
+        "Déplie un type (▸) pour n'afficher que certaines listes de ce type.",
+      ),
+      catBox,
+      catNote,
     ),
     el(
       "label",
