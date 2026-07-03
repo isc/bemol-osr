@@ -568,6 +568,29 @@ function showFeries(date, feries) {
   )
 }
 
+// Pastille « Repos » posée dans l'en-tête du samedi d'un week-end sans service ;
+// cliquable pour rappeler ce que ça signifie (public = musiciens, pas devs).
+function reposTag(sat, sun) {
+  return el(
+    "button",
+    {
+      class: "repos-tag",
+      title: "Week-end de repos — aucun service prévu pour l'orchestre",
+      onclick: () => showRepos(sat, sun),
+    },
+    "Repos",
+  )
+}
+
+function showRepos(sat, sun) {
+  showHolidayDialog(
+    "Repos",
+    el("h2", {}, "Week-end de repos"),
+    el("p", {}, `Du ${fmtDay(sat)} au ${fmtDay(sun)}.`),
+    el("p", {}, "Aucun service n'est prévu pour l'orchestre ce week-end."),
+  )
+}
+
 function showVacance(region, nom) {
   const v = VACANCES_SCOLAIRES.find((x) => x.region === region && x.nom === nom)
   showHolidayDialog(
@@ -597,6 +620,17 @@ function renderGrille(main) {
     byDay.get(key).push(e)
   }
 
+  // Jours de la saison où l'orchestre a au moins un service (hors annulés) :
+  // sert à repérer les week-ends « repos ». On se base sur tout le planning de
+  // la saison, indépendamment des filtres (catégories / liste / annulés), car
+  // être en repos est un état de l'orchestre, pas un effet de l'affichage.
+  const busyDays = new Set()
+  for (const e of state.events) {
+    if (e.cancelled) continue
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    busyDays.add(e.start.slice(0, 10))
+  }
+
   const start = firstMondayOfAugust(state.season)
   const end = firstMondayOfAugust(state.season + 1)
   const todayKey = localKey(new Date())
@@ -619,6 +653,11 @@ function renderGrille(main) {
       const monday = addDays(pStart, w * 7)
       const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
       const hasToday = days.some((d) => localKey(d) === todayKey)
+      // Week-end « repos » : ni le samedi (days[5]) ni le dimanche (days[6])
+      // n'a de service dans le planning de la saison. Les deux jours sont alors
+      // teintés et le samedi porte une pastille « Repos ».
+      const [sat, sun] = [days[5], days[6]]
+      const reposWeekend = !busyDays.has(localKey(sat)) && !busyDays.has(localKey(sun))
 
       const table = el("table", { class: "week" })
       if (hasToday) table.id = "current-week"
@@ -626,11 +665,17 @@ function renderGrille(main) {
       for (const d of days) {
         const key = localKey(d)
         const feries = showHolidays ? feriesMap.get(key) || [] : []
-        const cls = [key === todayKey ? "today" : "", feries.length ? "ferie" : ""]
+        const isWeekend = d.getDay() === 0 || d.getDay() === 6
+        const cls = [
+          key === todayKey ? "today" : "",
+          feries.length ? "ferie" : "",
+          reposWeekend && isWeekend ? "repos" : "",
+        ]
           .filter(Boolean)
           .join(" ")
         const th = el("th", { class: cls }, fmtDay(d))
         if (feries.length) th.append(feriesTags(d, feries))
+        if (reposWeekend && d.getDay() === 6) th.append(reposTag(sat, sun))
         headRow.append(th)
       }
       const thead = el("thead", {}, headRow)
@@ -645,7 +690,14 @@ function renderGrille(main) {
       for (let slot = 0; slot < 3; slot++) {
         const row = el("tr", {}, el("td", { class: "slot-name" }, SLOT_NAMES[slot]))
         for (const d of days) {
-          const cell = el("td", { class: localKey(d) === todayKey ? "today" : "" })
+          const isWeekend = d.getDay() === 0 || d.getDay() === 6
+          const cls = [
+            localKey(d) === todayKey ? "today" : "",
+            reposWeekend && isWeekend ? "repos" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")
+          const cell = el("td", { class: cls })
           const dayEvents = (byDay.get(localKey(d)) || []).filter((e) => slotOf(e) === slot)
           for (const e of dayEvents) cell.append(eventChip(e))
           row.append(cell)
