@@ -684,7 +684,7 @@ function renderGrille(main) {
       const [sat, sun] = [days[5], days[6]]
       const reposWeekend = reposSaturdays.has(localKey(sat))
 
-      const table = el("table", { class: "week" })
+      const table = el("table", { class: "week", "data-monday": localKey(monday) })
       if (hasToday) table.id = "current-week"
       const headRow = el("tr", {}, el("th", { class: "week-label" }, `S${w + 1}`))
       for (const d of days) {
@@ -755,7 +755,7 @@ function renderAgenda(main) {
     const key = e.start.slice(0, 10)
     if (key !== currentDay) {
       currentDay = key
-      dayBox = el("div", { class: "agenda-day" + (key === todayKey ? " today" : "") })
+      dayBox = el("div", { class: "agenda-day" + (key === todayKey ? " today" : ""), "data-day": key })
       dayBox.append(el("h3", {}, fmtDay(parseDate(e.start), true)))
       main.append(dayBox)
     }
@@ -1432,7 +1432,27 @@ function renderContent() {
 }
 
 function scrollToToday() {
-  const target = document.getElementById("current-week") || document.querySelector(".agenda-day.today")
+  const todayKey = localKey(new Date())
+  // Cas normal : aujourd'hui figure dans la saison affichée.
+  let target =
+    document.getElementById("current-week") ||
+    document.querySelector(".agenda-day.today")
+
+  // Aujourd'hui hors de la saison affichée (p. ex. période inter-saisons, où
+  // seule la saison suivante est chargée) ou simple journée sans service : le
+  // repère "today" n'existe pas. On se rabat alors sur le point le plus proche
+  // — la première semaine/journée à venir, sinon la dernière si la saison est
+  // déjà passée.
+  if (!target) {
+    const nodes =
+      state.view === "grille"
+        ? [...document.querySelectorAll("table.week[data-monday]")]
+        : [...document.querySelectorAll(".agenda-day[data-day]")]
+    const attr = state.view === "grille" ? "monday" : "day"
+    if (nodes.length)
+      target = nodes.find((n) => n.dataset[attr] >= todayKey) || nodes[nodes.length - 1]
+  }
+
   if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
 }
 
