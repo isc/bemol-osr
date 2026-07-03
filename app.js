@@ -187,7 +187,7 @@ const VACANCES_SCOLAIRES = [
 // revérifier/compléter chaque saison (sources : DIP Genève / ge.ch et
 // education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
 const RENTREES = [
-  { region: "GE", date: "2026-08-24" }, // Genève — lundi 24 août 2026
+  { region: "GE", date: "2026-08-17" }, // Genève — lundi 17 août 2026
   { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
 ]
 
@@ -568,7 +568,7 @@ function vacancesRow(region, days) {
               title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
               onclick: () => showRentree(region, days[i]),
             },
-            "Rentrée",
+            `Rentrée ${region}`,
           ),
         ),
       )

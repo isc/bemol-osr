@@ -365,11 +365,10 @@ td.vac-label {
   color: #1d3f63;
 }
 
-/* Rentrée scolaire : bandeau vert (jour de reprise) qui prime sur la teinte de
-   région, pour se distinguer d'un bandeau de vacances. */
+/* Rentrée scolaire : jour de reprise. On garde la teinte de région (comme les
+   vacances et les jours fériés) pour distinguer Genève de la France voisine ;
+   le gras signale qu'il s'agit d'un repère ponctuel, pas d'une période. */
 .vac-band.rentree-band {
-  background: #cfe8d4;
-  color: #2f6b3a;
   font-weight: 700;
 }
 
