@@ -504,22 +504,38 @@ function renderLegend() {
 function renderPrefs() {
   const box = document.getElementById("prefs-content")
   const listes = listesInSeason()
-  const selected = state.prefs.listes
 
-  // Coche/décoche une liste, sans doublon
+  // Note récapitulative mise à jour en place (sans reconstruire le panneau,
+  // pour ne pas faire remonter la liste des cases au début à chaque coche).
+  const note = el("p", { class: "prefs-note" })
+  const updateNote = () => {
+    const n = state.prefs.listes.length
+    note.textContent = n
+      ? `${n} liste${n > 1 ? "s" : ""} affichée${n > 1 ? "s" : ""}. Coche les productions sur lesquelles tu joues.`
+      : "Aucune coche : toutes les listes sont affichées. Coche les productions sur lesquelles tu joues pour ne garder que celles-là."
+  }
+
+  const checkboxes = new Map() // liste → <input>
+
+  // Coche/décoche une liste, sans doublon. On ne re-render que le contenu
+  // (agenda/grille) : le panneau des réglages reste en place, la liste ne
+  // remonte pas, on peut cocher plusieurs cases à la suite.
   const toggleListe = (liste, on) => {
     const set = new Set(state.prefs.listes)
     if (on) set.add(liste)
     else set.delete(liste)
     state.prefs.listes = [...set]
     savePrefs()
-    render()
+    updateNote()
+    renderContent()
   }
 
   const setAll = (all) => {
     state.prefs.listes = all ? [...listes] : []
     savePrefs()
-    render()
+    for (const cb of checkboxes.values()) cb.checked = all
+    updateNote()
+    renderContent()
   }
 
   const listeOptions = listes.map((l) => {
@@ -527,7 +543,8 @@ function renderPrefs() {
       type: "checkbox",
       onchange: (ev) => toggleListe(l, ev.target.checked),
     })
-    cb.checked = selected.includes(l)
+    cb.checked = state.prefs.listes.includes(l)
+    checkboxes.set(l, cb)
     return el("label", { class: "liste-option" }, cb, " ", l)
   })
 
@@ -550,10 +567,12 @@ function renderPrefs() {
     onchange: (ev) => {
       state.prefs.showCancelled = ev.target.checked
       savePrefs()
-      render()
+      renderContent()
     },
   })
   cancelledCheckbox.checked = state.prefs.showCancelled
+
+  updateNote()
 
   box.replaceChildren(
     el(
@@ -561,13 +580,7 @@ function renderPrefs() {
       { class: "prefs-section" },
       el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
       filterBox,
-      el(
-        "p",
-        { class: "prefs-note" },
-        selected.length
-          ? `${selected.length} liste${selected.length > 1 ? "s" : ""} affichée${selected.length > 1 ? "s" : ""}. Coche les productions sur lesquelles tu joues.`
-          : "Aucune coche : toutes les listes sont affichées. Coche les productions sur lesquelles tu joues pour ne garder que celles-là.",
-      ),
+      note,
     ),
     el(
       "label",
@@ -596,8 +609,15 @@ function setView(view) {
 const VIEW_LABELS = { grille: "Grille", agenda: "Agenda", modifs: "Modifications" }
 
 function render() {
-  renderLegend()
   renderPrefs()
+  renderContent()
+}
+
+// Rendu du contenu affiché (légende + vue courante), sans toucher au panneau
+// des réglages : appelé quand on coche/décoche une liste pour ne pas
+// reconstruire les cases (et donc ne pas faire remonter la liste).
+function renderContent() {
+  renderLegend()
   const main = document.getElementById("main")
   main.replaceChildren()
   // Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué)
