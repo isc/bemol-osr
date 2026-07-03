@@ -592,9 +592,9 @@ function showFeries(date, feries) {
   )
 }
 
-// Pastille « Repos » posée dans l'en-tête du samedi d'un week-end de repos
-// (tableau de service) ; cliquable pour rappeler ce que ça signifie (public =
-// musiciens, pas devs).
+// Pastille « Repos » posée dans l'en-tête du samedi et du dimanche d'un
+// week-end de repos (tableau de service) ; cliquable pour rappeler ce que ça
+// signifie (public = musiciens, pas devs).
 function reposTag(sat, sun) {
   return el(
     "button",
@@ -680,7 +680,7 @@ function renderGrille(main) {
       const hasToday = days.some((d) => localKey(d) === todayKey)
       // Week-end « repos » : week-end signalé « repos » dans le tableau de
       // service (repéré par la date de son samedi, days[5]). Les deux jours sont
-      // alors teintés et le samedi porte une pastille « Repos ».
+      // alors teintés et portent chacun une pastille « Repos ».
       const [sat, sun] = [days[5], days[6]]
       const reposWeekend = reposSaturdays.has(localKey(sat))
 
@@ -700,7 +700,7 @@ function renderGrille(main) {
           .join(" ")
         const th = el("th", { class: cls }, fmtDay(d))
         if (feries.length) th.append(feriesTags(d, feries))
-        if (reposWeekend && d.getDay() === 6) th.append(reposTag(sat, sun))
+        if (reposWeekend && isWeekend) th.append(reposTag(sat, sun))
         headRow.append(th)
       }
       const thead = el("thead", {}, headRow)
