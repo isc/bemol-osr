@@ -562,6 +562,70 @@ function renderPrefs() {
       )
     : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
 
+  // --- Filtre par type d'activité (catégorie) -----------------------------
+  // Une « case générale » par type d'activité (concert, répétition…). Cochée =
+  // ce type est affiché ; décochée = masqué. Même principe que les cases de
+  // liste : cocher/décocher ne reconstruit pas le panneau (la liste ne remonte
+  // pas), on ne re-render que le contenu. Piloté par prefs.hiddenCategories,
+  // partagé avec la légende sous le titre.
+  const cats = Object.keys(CATEGORIES)
+  const catNote = el("p", { class: "prefs-note" })
+  const updateCatNote = () => {
+    const shown = cats.filter((c) => !state.prefs.hiddenCategories.includes(c))
+    catNote.textContent =
+      shown.length === cats.length
+        ? "Tous les types d'activité sont affichés."
+        : `${shown.length} type${shown.length > 1 ? "s" : ""} d'activité affiché${shown.length > 1 ? "s" : ""} sur ${cats.length}.`
+  }
+
+  const catCheckboxes = new Map() // catégorie → <input>
+
+  const toggleCategory = (cat, on) => {
+    const hidden = new Set(state.prefs.hiddenCategories)
+    if (on) hidden.delete(cat)
+    else hidden.add(cat)
+    state.prefs.hiddenCategories = [...hidden]
+    savePrefs()
+    updateCatNote()
+    renderContent()
+  }
+
+  const setAllCategories = (all) => {
+    state.prefs.hiddenCategories = all ? [] : [...cats]
+    savePrefs()
+    for (const cb of catCheckboxes.values()) cb.checked = all
+    updateCatNote()
+    renderContent()
+  }
+
+  const catOptions = cats.map((cat) => {
+    const cb = el("input", {
+      type: "checkbox",
+      onchange: (ev) => toggleCategory(cat, ev.target.checked),
+    })
+    cb.checked = !state.prefs.hiddenCategories.includes(cat)
+    catCheckboxes.set(cat, cb)
+    return el(
+      "label",
+      { class: "liste-option activite-option" },
+      cb,
+      el("span", { class: `cat-swatch cat-${cat}` }),
+      CATEGORIES[cat],
+    )
+  })
+
+  const catBox = el(
+    "div",
+    { class: "liste-filter" },
+    el(
+      "div",
+      { class: "liste-filter-actions" },
+      el("button", { type: "button", onclick: () => setAllCategories(false) }, "Tout décocher"),
+      el("button", { type: "button", onclick: () => setAllCategories(true) }, "Tout cocher"),
+    ),
+    el("div", { class: "liste-options" }, ...catOptions),
+  )
+
   const cancelledCheckbox = el("input", {
     type: "checkbox",
     onchange: (ev) => {
@@ -573,6 +637,7 @@ function renderPrefs() {
   cancelledCheckbox.checked = state.prefs.showCancelled
 
   updateNote()
+  updateCatNote()
 
   box.replaceChildren(
     el(
@@ -581,6 +646,13 @@ function renderPrefs() {
       el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
       filterBox,
       note,
+    ),
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Filtrer par type d'activité :"),
+      catBox,
+      catNote,
     ),
     el(
       "label",

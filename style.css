@@ -522,6 +522,22 @@ dialog h2 {
   }
 }
 
+/* Pastille de couleur devant chaque type d'activité (mêmes couleurs que la légende) */
+.cat-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex: none;
+}
+.cat-swatch.cat-concert { background: var(--cat-concert); }
+.cat-swatch.cat-generale { background: var(--cat-generale); }
+.cat-swatch.cat-italienne { background: var(--cat-italienne); }
+.cat-swatch.cat-enregistrement { background: var(--cat-enregistrement); }
+.cat-swatch.cat-repetition { background: var(--cat-repetition); }
+.cat-swatch.cat-concours { background: var(--cat-concours); }
+.cat-swatch.cat-autre { background: var(--cat-autre); }
+.cat-swatch.cat-resa { background: var(--cat-resa); }
+
 footer {
   padding: 14px 12px 24px;
   text-align: center;
