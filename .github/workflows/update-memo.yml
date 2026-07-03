@@ -1,0 +1,62 @@
+name: Mise à jour du mémo de production
+
+# Une fois par nuit : régénère le « Mémo de Production » depuis le mini-site
+# Dièse (génération PDF côté serveur — on reste courtois avec une fréquence
+# quotidienne), le convertit en productions.json et committe si changement.
+
+on:
+  schedule:
+    - cron: "47 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Installer pdftotext
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Régénérer productions.json
+        run: node scripts/update-memo.mjs
+
+      - name: Committer si changement
+        id: commit
+        run: |
+          git add productions.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Mémo inchangé."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git commit -m "data: mise à jour du mémo de production"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Republier le site (gh-pages)
+        if: steps.commit.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: true
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
+          commit_message: "deploy: memo update @ ${{ github.sha }}"

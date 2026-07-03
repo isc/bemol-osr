@@ -31,8 +31,13 @@ production (GitHub Pages) comme dans les previews de PR.
   journalise les différences dans `data/changes.json`.
 - Le workflow `.github/workflows/update-data.yml` l'exécute toutes les 2 h,
   committe si quelque chose a changé et republie le site.
-- **Ne jamais éditer les fichiers de `data/` à la main** : ils sont générés.
-  Pour tester en local : `node scripts/update-data.mjs chemin/vers/export.ics`.
+- `scripts/update-memo.mjs` (Node ≥ 20 + `pdftotext`) régénère de la même façon
+  `productions.json` (chef, solistes, œuvres, instrumentation par programme) à
+  partir du « Mémo de Production » du mini-site Dièse — génération PDF côté
+  serveur puis parsing. Workflow `update-memo.yml`, une fois par nuit.
+- **Ne jamais éditer `data/` ni `productions.json` à la main** : ils sont
+  générés. Pour tester en local : `node scripts/update-data.mjs export.ics` /
+  `node scripts/update-memo.mjs [memo.txt]`.
 - Format d'un événement dans `planning.json` :
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`
   avec `start`/`end` en heure locale « `2026-08-13T21:15` » (fuseau de Genève),

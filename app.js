@@ -59,7 +59,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, saisi à la main)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, généré par scripts/update-memo.mjs)
   updatedAt: null,
   season: null,
   view: null,
@@ -146,7 +146,7 @@ async function loadData() {
   const [planning, changes, productions] = await Promise.all([
     fetch(`data/planning.json${bust}`).then((r) => r.json()),
     fetch(`data/changes.json${bust}`).then((r) => r.json()).catch(() => ({ entries: [] })),
-    // Mémo de production (œuvres + effectif), saisi à la main et optionnel.
+    // Mémo de production (œuvres + effectif), généré depuis le mini-site Dièse.
     fetch(`productions.json${bust}`).then((r) => r.json()).catch(() => ({})),
   ])
   state.events = planning.events
