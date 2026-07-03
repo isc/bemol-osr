@@ -22,6 +22,11 @@ l'export ICS du logiciel de planification (Dièse).
 - **Préférences personnelles** (mémorisées sur l'appareil) : masquer des
   catégories d'un clic sur la légende, filtrer par Liste, afficher ou non les
   événements annulés.
+- **Abonnement calendrier (ICS)** : bouton 📅 dans l'en-tête → abonne ton
+  agenda habituel (iPhone, Google Agenda, Outlook…) au planning. Le calendrier
+  ([`data/planning.ics`](data/planning.ics)) se met à jour tout seul et enrichit chaque
+  service avec les infos du mémo de production (chef, solistes, œuvres,
+  instrumentation, effectif), comme la vue Grille.
 - Bouton « Aujourd'hui ». Une seule saison est publiée (la saison en cours,
   filtre `ONLY_SEASON` du pipeline — l'export ICS en contient d'autres).
 
@@ -37,6 +42,10 @@ Site **statique sans build** (HTML/CSS/JS natif) hébergé sur GitHub Pages :
   deux relevés de l'ICS.
 - [`scripts/update-data.mjs`](scripts/update-data.mjs) — téléchargement de
   l'ICS, conversion, calcul du diff. Zéro dépendance, Node ≥ 20.
+- [`data/planning.ics`](data/planning.ics) — calendrier ICS abonnable, **généré** à
+  partir de `planning.json` + `productions.json` (ne pas éditer à la main).
+- [`scripts/build-ics.mjs`](scripts/build-ics.mjs) — génération du calendrier
+  ICS enrichi (mémo de production). Zéro dépendance, Node ≥ 20.
 
 ### Pipeline de données
 
@@ -45,7 +54,12 @@ Site **statique sans build** (HTML/CSS/JS natif) hébergé sur GitHub Pages :
 1. Télécharge l'export ICS (URL dans le secret `ICS_URL` — elle contient un
    jeton d'accès, elle ne doit jamais apparaître dans le code).
 2. Régénère `data/planning.json` ; s'il y a des changements, les journalise
-   dans `data/changes.json`, committe et republie le site.
+   dans `data/changes.json`, régénère le calendrier `data/planning.ics`, committe
+   et republie le site.
+
+`update-data.mjs` régénère aussi le calendrier même quand le planning est
+inchangé, pour que l'abonnement reflète les évolutions du mémo de production
+(`productions.json`, régénéré chaque nuit par `update-memo.yml`) sous 2 h.
 
 Test en local, sans toucher au vrai export :
 

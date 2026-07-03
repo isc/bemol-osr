@@ -584,6 +584,77 @@ dialog h2 {
   margin-top: 10px;
 }
 
+/* --- Dialogue d'abonnement au calendrier --- */
+#subscribe-content .subscribe-intro {
+  margin: 0 0 14px;
+  font-size: 0.9em;
+}
+
+.subscribe-add {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.subscribe-or {
+  margin: 14px 0 6px;
+  font-size: 0.85em;
+  color: #667;
+}
+
+.subscribe-url-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.subscribe-url {
+  flex: 1 1 12em;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #c5ccd4;
+  border-radius: 6px;
+  background: #f5f7f9;
+  font-size: 0.85em;
+  color: #334;
+}
+
+.subscribe-url-row .copy-btn {
+  flex: 0 0 auto;
+  background: #fff;
+}
+
+.subscribe-help {
+  margin: 16px 0 6px;
+  font-size: 0.85em;
+}
+
+.subscribe-help summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.subscribe-help ul {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}
+
+.subscribe-help li {
+  margin: 5px 0;
+}
+
+.subscribe-note {
+  margin: 12px 0 0;
+  font-size: 0.8em;
+  color: #778;
+}
+
 #prefs-content .prefs-section {
   padding: 5px 0;
 }

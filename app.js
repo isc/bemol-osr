@@ -1130,6 +1130,84 @@ function renderPrefs() {
   )
 }
 
+// --- Abonnement au calendrier (ICS) ------------------------------------------
+
+// URL du calendrier ICS, calculée par rapport à la page courante : fonctionne
+// aussi bien en production que dans les previews de PR (sous-dossier). `webcal:`
+// fait ouvrir directement l'app d'agenda sur la plupart des appareils.
+function subscribeUrls() {
+  const ics = new URL("data/planning.ics", location.href).href
+  return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
+}
+
+function renderSubscribe() {
+  const box = document.getElementById("subscribe-content")
+  const { ics, webcal } = subscribeUrls()
+
+  const urlField = el("input", {
+    class: "subscribe-url",
+    type: "text",
+    readonly: "",
+    value: ics,
+    onfocus: (ev) => ev.target.select(),
+  })
+
+  const copyBtn = el(
+    "button",
+    {
+      type: "button",
+      class: "copy-btn",
+      onclick: async () => {
+        try {
+          await navigator.clipboard.writeText(ics)
+          copyBtn.textContent = "Lien copié ✓"
+        } catch {
+          // Presse-papier indisponible (http, navigateur ancien) : on sélectionne
+          // le champ pour un copier-coller manuel.
+          urlField.focus()
+          urlField.select()
+          copyBtn.textContent = "Sélectionné — copie-le"
+        }
+        setTimeout(() => (copyBtn.textContent = "Copier le lien"), 2500)
+      },
+    },
+    "Copier le lien",
+  )
+
+  box.replaceChildren(
+    el(
+      "p",
+      { class: "subscribe-intro" },
+      "Ajoute le planning de l'OSR à ton agenda habituel (iPhone, Google Agenda, " +
+        "Outlook…). Il se met à jour tout seul et reprend toutes les infos de la " +
+        "Grille : chef, solistes, œuvres, instrumentation, effectif.",
+    ),
+    el("a", { class: "subscribe-add", href: webcal }, "📅 Ajouter à mon agenda"),
+    el("p", { class: "subscribe-or" }, "…ou copie ce lien pour l'ajouter à la main :"),
+    el("div", { class: "subscribe-url-row" }, urlField, copyBtn),
+    el(
+      "details",
+      { class: "subscribe-help" },
+      el("summary", {}, "Comment faire selon l'appareil ?"),
+      el(
+        "ul",
+        {},
+        el("li", {}, el("b", {}, "iPhone / iPad : "), "touche « Ajouter à mon agenda », puis confirme l'abonnement dans l'app Calendrier."),
+        el("li", {}, el("b", {}, "Mac : "), "« Ajouter à mon agenda » ouvre l'app Calendrier ; valide l'abonnement."),
+        el("li", {}, el("b", {}, "Google Agenda : "), "sur ordinateur, « Autres agendas » → « À partir d'une URL », puis colle le lien copié."),
+        el("li", {}, el("b", {}, "Outlook : "), "« Ajouter un calendrier » → « S'abonner à partir du Web », puis colle le lien."),
+      ),
+    ),
+    el(
+      "p",
+      { class: "subscribe-note" },
+      "L'abonnement contient tous les services de la saison (les filtres et catégories " +
+        "masquées de l'app ne s'y appliquent pas). Selon l'agenda, les mises à jour peuvent " +
+        "mettre quelques heures à apparaître.",
+    ),
+  )
+}
+
 // --- Navigation / rendu global -------------------------------------------------
 
 function setView(view) {
@@ -1197,6 +1275,11 @@ async function init() {
   document.getElementById("prefs-btn").addEventListener("click", () => {
     renderPrefs()
     document.getElementById("prefs-dialog").showModal()
+  })
+
+  document.getElementById("subscribe-btn").addEventListener("click", () => {
+    renderSubscribe()
+    document.getElementById("subscribe-dialog").showModal()
   })
 
   // Badge « modifs » : nombre de changements depuis la dernière visite
