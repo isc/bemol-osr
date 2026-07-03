@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
+import { buildIcs } from "./build-ics.mjs"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 const planningPath = join(root, "data", "planning.json")
@@ -179,7 +180,11 @@ const { added, removed, modified } = diff(previous?.events ?? [], events)
 const changed = added.length + removed.length + modified.length > 0
 
 if (previous && !changed) {
-  console.log(`Aucun changement (${events.length} événements). Fichiers inchangés.`)
+  console.log(`Aucun changement de planning (${events.length} événements).`)
+  // Le planning n'a pas bougé, mais le mémo de production (productions.json) a
+  // pu changer depuis : on régénère le calendrier ICS, réécrit seulement s'il
+  // diffère (data/planning.ics est committé par `git add data/` du workflow).
+  buildIcs()
   process.exit(0)
 }
 
@@ -204,3 +209,7 @@ if (previous) {
     writeFileSync(changesPath, JSON.stringify({ entries: [] }, null, 1) + "\n")
   console.log(`Initialisation : ${events.length} événements.`)
 }
+
+// Planning réécrit : régénère le calendrier ICS abonnable (data/planning.ics),
+// enrichi des infos du mémo de production.
+buildIcs()
