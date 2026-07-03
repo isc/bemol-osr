@@ -226,9 +226,15 @@ table.week td.slot-name {
   /* Le texte reste toujours dans la case : on autorise le retour à la ligne
      (les <button> ne le font pas par défaut sur certains navigateurs) et la
      coupure des mots trop longs pour la largeur de colonne, très étroite sur
-     téléphone (« Conseil de fondation », « enregistrement »…). */
+     téléphone (« Conseil de fondation », « enregistrement »…).
+     `overflow-wrap: anywhere` (contrairement à `break-word`) réduit aussi la
+     largeur minimale de la vignette : indispensable dans un tableau en
+     `table-layout: fixed` où les colonnes sont très étroites, et `min-width: 0`
+     empêche le <button> de refuser de rétrécir sous la largeur de son contenu
+     (bug fréquent sur Safari iOS). */
+  min-width: 0;
   white-space: normal;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: break-word;
   hyphens: auto;
 }
