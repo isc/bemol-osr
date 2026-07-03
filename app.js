@@ -64,6 +64,7 @@ const state = {
   season: null,
   view: null,
   recentUids: new Map(), // uid → date du dernier changement récent
+  recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
 }
 
@@ -166,6 +167,12 @@ async function loadData() {
   const cutoff = Date.now() - RECENT_DAYS * 86400e3
   for (const entry of state.changes) {
     if (new Date(entry.at).getTime() < cutoff) continue
+    // Relevé du mémo de production : ce sont des programmes (listes) qui bougent.
+    if (entry.type === "memo") {
+      for (const prog of entry.programs)
+        if (!state.recentListes.has(prog.liste)) state.recentListes.set(prog.liste, entry.at)
+      continue
+    }
     for (const e of [...entry.added, ...entry.modified.map((m) => m.after)])
       if (!state.recentUids.has(e.uid)) state.recentUids.set(e.uid, entry.at)
   }
@@ -250,7 +257,16 @@ function showDetail(e) {
   const box = document.getElementById("detail-content")
   box.replaceChildren(
     el("span", { class: `detail-cat evt cat-${e.category}` }, CATEGORIES[e.category]),
-    el("h2", {}, `${e.liste} — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`),
+    el(
+      "h2",
+      {},
+      `${e.liste} — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
+      // Point rouge si le mémo de ce programme a changé récemment (cf. les
+      // événements de planning récemment modifiés).
+      state.recentListes.has(e.liste)
+        ? el("span", { class: "recent-dot", title: "Mémo de production modifié récemment" }, "●")
+        : null,
+    ),
     el(
       "dl",
       {},
@@ -265,6 +281,10 @@ function showDetail(e) {
       state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
       state.recentUids.has(e.uid)
         ? el("dd", {}, `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`)
+        : null,
+      state.recentListes.has(e.liste) ? el("dt", {}, "Mémo") : null,
+      state.recentListes.has(e.liste)
+        ? el("dd", {}, `modifié récemment (${fmtDateStr(state.recentListes.get(e.liste).slice(0, 16), false)})`)
         : null,
     ),
     ...productionDetail(e),
@@ -284,6 +304,10 @@ const WORK_FIELDS = [
   ["detail", "Détail"],
   ["note", "Note"],
 ]
+
+// Libellés lisibles des champs d'œuvre, réutilisés par la vue Modifs (diff du
+// mémo de production).
+const WORK_FIELD_LABELS = { ...Object.fromEntries(WORK_FIELDS), duree: "durée" }
 
 // Construit le <li> d'une œuvre : le titre (« Compositeur — Titre ») et, si le
 // mémo le précise, un bloc de détail (instrumentation, remarques, etc.). Une
@@ -454,48 +478,119 @@ function changeLine(e) {
   return `${fmtDateStr(e.start)} · ${e.liste} ${e.activity} · ${shortLocation(e.location)}`
 }
 
+// En-tête d'un relevé (date + heure), commun aux changements de planning et de mémo.
+function changeEntryHeading(at) {
+  const d = new Date(at)
+  return `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
+}
+
+// Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le badge.
+function countChanges(entry) {
+  if (entry.type === "memo")
+    return entry.programs.reduce(
+      (n, p) =>
+        p.status === "modified"
+          ? n +
+            (p.fields ? p.fields.length : 0) +
+            (p.worksAdded ? p.worksAdded.length : 0) +
+            (p.worksRemoved ? p.worksRemoved.length : 0) +
+            (p.worksModified ? p.worksModified.length : 0)
+          : n + 1,
+      0,
+    )
+  return entry.added.length + entry.removed.length + entry.modified.length
+}
+
+// Libellés des champs d'un programme dans le diff du mémo de production.
+const MEMO_FIELD_LABELS = { chef: "chef", effectif: "effectif", duree: "durée", solistes: "solistes" }
+
+// Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
+function planningEntryBox(entry) {
+  const box = el("div", { class: "change-entry" })
+  box.append(el("h3", {}, changeEntryHeading(entry.at)))
+
+  for (const e of entry.added)
+    box.append(el("div", { class: "change-item added", onclick: () => showDetail(e) }, `➕ Ajouté : ${changeLine(e)}`))
+
+  for (const m of entry.modified) {
+    const item = el("div", { class: "change-item modified", onclick: () => showDetail(m.after) }, `✏️ Modifié : ${changeLine(m.after)}`)
+    for (const f of m.fields) {
+      const fmt = (v) =>
+        f === "cancelled" ? (v ? "annulé" : "confirmé") : f === "start" || f === "end" ? fmtDateStr(String(v)) : String(v || "—")
+      item.append(
+        el("div", { class: "field-diff" },
+          `${FIELD_LABELS[f] || f} : `,
+          el("span", { class: "old" }, fmt(m.before[f])),
+          " → ",
+          el("span", { class: "new" }, fmt(m.after[f])),
+        ),
+      )
+    }
+    box.append(item)
+  }
+
+  for (const e of entry.removed)
+    box.append(el("div", { class: "change-item removed" }, `➖ Supprimé : ${changeLine(e)}`))
+
+  return box
+}
+
+// Un programme dans un relevé de mémo : champs modifiés (chef, effectif, durée,
+// solistes) et œuvres ajoutées / retirées / modifiées.
+function memoProgramItem(p) {
+  const tag = el("span", { class: "change-tag" }, "Mémo de production")
+  if (p.status === "added")
+    return el("div", { class: "change-item memo added" }, tag, ` ${p.liste} : nouveau programme au mémo`)
+  if (p.status === "removed")
+    return el("div", { class: "change-item memo removed" }, tag, ` ${p.liste} : programme retiré du mémo`)
+
+  const item = el("div", { class: "change-item memo modified" }, tag, ` ${p.liste}`)
+  for (const f of p.fields || [])
+    item.append(
+      el("div", { class: "field-diff" },
+        `${MEMO_FIELD_LABELS[f.field] || f.field} : `,
+        el("span", { class: "old" }, f.before || "—"),
+        " → ",
+        el("span", { class: "new" }, f.after || "—"),
+      ),
+    )
+  for (const oeuvre of p.worksAdded || [])
+    item.append(el("div", { class: "field-diff" }, "œuvre ajoutée : ", el("span", { class: "new" }, oeuvre)))
+  for (const oeuvre of p.worksRemoved || [])
+    item.append(el("div", { class: "field-diff" }, "œuvre retirée : ", el("span", { class: "old" }, oeuvre)))
+  for (const w of p.worksModified || [])
+    item.append(
+      el("div", { class: "field-diff" },
+        "œuvre modifiée : ",
+        el("span", { class: "new" }, w.oeuvre),
+        w.fields && w.fields.length ? ` (${w.fields.map((k) => WORK_FIELD_LABELS[k] || k).join(", ")})` : "",
+      ),
+    )
+  return item
+}
+
+// Boîte d'un relevé de changements du mémo de production.
+function memoEntryBox(entry) {
+  const box = el("div", { class: "change-entry" })
+  box.append(el("h3", {}, changeEntryHeading(entry.at)))
+  for (const p of entry.programs) box.append(memoProgramItem(p))
+  return box
+}
+
 function renderModifs(main) {
   if (!state.changes.length) {
     main.append(
       el(
         "p",
         { class: "empty-msg" },
-        "Aucune modification détectée pour l'instant. Cette page listera les changements de planning au fil des mises à jour de l'export ICS.",
+        "Aucune modification détectée pour l'instant. Cette page liste les changements de planning et du mémo de production au fil des mises à jour.",
       ),
     )
     return
   }
 
-  for (const entry of state.changes) {
-    const box = el("div", { class: "change-entry" })
-    const d = new Date(entry.at)
-    box.append(el("h3", {}, `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`))
-
-    for (const e of entry.added)
-      box.append(el("div", { class: "change-item added", onclick: () => showDetail(e) }, `➕ Ajouté : ${changeLine(e)}`))
-
-    for (const m of entry.modified) {
-      const item = el("div", { class: "change-item modified", onclick: () => showDetail(m.after) }, `✏️ Modifié : ${changeLine(m.after)}`)
-      for (const f of m.fields) {
-        const fmt = (v) =>
-          f === "cancelled" ? (v ? "annulé" : "confirmé") : f === "start" || f === "end" ? fmtDateStr(String(v)) : String(v || "—")
-        item.append(
-          el("div", { class: "field-diff" },
-            `${FIELD_LABELS[f] || f} : `,
-            el("span", { class: "old" }, fmt(m.before[f])),
-            " → ",
-            el("span", { class: "new" }, fmt(m.after[f])),
-          ),
-        )
-      }
-      box.append(item)
-    }
-
-    for (const e of entry.removed)
-      box.append(el("div", { class: "change-item removed" }, `➖ Supprimé : ${changeLine(e)}`))
-
-    main.append(box)
-  }
+  for (const entry of state.changes)
+    main.append(entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry))
 }
 
 // --- Légende / préférences ---------------------------------------------------
@@ -856,10 +951,7 @@ async function init() {
   const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
   const badge = document.getElementById("modifs-badge")
   if (newChanges.length) {
-    const count = newChanges.reduce(
-      (n, c) => n + c.added.length + c.removed.length + c.modified.length,
-      0,
-    )
+    const count = newChanges.reduce((n, c) => n + countChanges(c), 0)
     badge.textContent = count
     badge.hidden = false
   }

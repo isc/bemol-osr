@@ -46,6 +46,12 @@ production (GitHub Pages) comme dans les previews de PR.
   `resa`.
 - `changes.json` : `{ entries: [{ at, added: [evt], removed: [evt], modified:
   [{ uid, fields, before, after }] }] }`, entrée la plus récente en premier.
+  Les évolutions du **mémo de production** (généré par `update-memo.mjs`) y sont
+  journalisées avec un type distinct :
+  `{ at, type: "memo", programs: [{ liste, status: "modified" | "added" |
+  "removed", fields: [{ field, before, after }], worksAdded: [oeuvre],
+  worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
+  scripts partagent le même plafond d'entrées (`MAX_CHANGE_ENTRIES`).
 
 ## Vocabulaire métier (important pour comprendre les demandes)
 
