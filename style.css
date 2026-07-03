@@ -365,6 +365,32 @@ td.vac-label {
   color: #1d3f63;
 }
 
+/* Week-ends « repos » (aucun service samedi ni dimanche) dans la Grille.
+   Teinte verte très douce sur les colonnes samedi/dimanche ; « today » garde
+   la priorité grâce au :not(.today). */
+table.week th.repos:not(.today) {
+  background: #dce9dc;
+}
+
+table.week td.repos:not(.today) {
+  background: #eef4ee;
+}
+
+.repos-tag {
+  display: block;
+  margin: 2px auto 0;
+  width: fit-content;
+  border: none;
+  border-radius: 3px;
+  padding: 0 6px;
+  font-size: 0.62rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #2f6b3a;
+  background: #c3ddc3;
+  cursor: pointer;
+}
+
 #detail-content .holiday-list {
   margin: 8px 0 0;
   padding-left: 1.2em;
@@ -376,7 +402,8 @@ td.vac-label {
 
 @media (hover: hover) {
   .ferie-tag:hover,
-  .vac-band:hover {
+  .vac-band:hover,
+  .repos-tag:hover {
     filter: brightness(0.94);
   }
 }
