@@ -31,7 +31,10 @@ jobs:
 
       # Site statique « nobuild » : on publie le dépôt tel quel à la RACINE de
       # la branche gh-pages. `keep_files: true` préserve le dossier `previews/`
-      # écrit par le workflow de preview. `exclude_assets` retire le superflu.
+      # écrit par le workflow de preview. `exclude_assets` retire le superflu —
+      # dont data/ et productions.json : les données VIVANTES sont publiées sur
+      # gh-pages par les crons (update-data / update-memo), celles de main ne
+      # sont qu'un instantané pour le dev local qu'il ne faut pas servir.
       - name: Publish to gh-pages (root)
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -39,5 +42,5 @@ jobs:
           publish_dir: .
           publish_branch: gh-pages
           keep_files: true
-          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts,data,productions.json"
           commit_message: "deploy: main @ ${{ github.sha }}"

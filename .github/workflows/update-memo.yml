@@ -2,7 +2,12 @@ name: Mise à jour du mémo de production
 
 # Une fois par nuit : régénère le « Mémo de Production » depuis le mini-site
 # Dièse (génération PDF côté serveur — on reste courtois avec une fréquence
-# quotidienne), le convertit en productions.json et committe si changement.
+# quotidienne), le convertit en productions.json et publie le résultat
+# DIRECTEMENT sur gh-pages, sans jamais pousser sur main (même logique que
+# update-data.yml : main ne contient que du code + un instantané des données).
+#
+# Le script journalise aussi les évolutions du mémo dans data/changes.json,
+# d'où la publication des deux fichiers.
 
 on:
   schedule:
@@ -34,41 +39,44 @@ jobs:
       - name: Installer pdftotext
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
 
+      # L'état de référence (comparaison d'idempotence + journal des modifs)
+      # est celui actuellement servi, pas l'instantané de main.
+      - name: Récupérer les données actuelles depuis gh-pages
+        run: |
+          git fetch -q origin gh-pages
+          git checkout -q FETCH_HEAD -- productions.json data/ || echo "gh-pages incomplet (premier run ?)"
+
       - name: Régénérer productions.json
         run: node scripts/update-memo.mjs
 
-      - name: Committer si changement
-        id: commit
+      - name: Détecter un changement
+        id: diff
         run: |
-          git add productions.json
-          if git diff --cached --quiet; then
+          if git diff --quiet -- productions.json data/; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Mémo inchangé."
           else
-            git config user.name 'github-actions[bot]'
-            git config user.email 'github-actions[bot]@users.noreply.github.com'
-            git commit -m "data: mise à jour du mémo de production"
-            git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Cache-busting automatique : même mécanisme que deploy.yml, pour que la
-      # copie d'index.html republiée ici garde un ?v= résolu (pas le
-      # placeholder « dev »).
-      - name: Cache-busting (?v= → SHA du commit)
-        if: steps.commit.outputs.changed == 'true'
-        run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
+      # On publie uniquement les fichiers générés, via un dossier de mise en
+      # scène (keep_files préserve tout le reste de gh-pages).
+      - name: Préparer les fichiers à publier
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          mkdir -p out/data
+          cp productions.json out/
+          cp data/changes.json out/data/
 
-      - name: Republier le site (gh-pages)
-        if: steps.commit.outputs.changed == 'true'
+      - name: Publier le mémo (gh-pages)
+        if: steps.diff.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./out
           publish_branch: gh-pages
           keep_files: true
-          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
-          commit_message: "deploy: memo update @ ${{ github.sha }}"
+          commit_message: "data: mise à jour du mémo de production"
 
       # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
       # échoue (mini-site Dièse modifié, parsing cassé…), on ouvre une issue —
