@@ -79,10 +79,12 @@ function fold(line) {
 }
 
 // "2026-08-11T10:00" → "20260811T100000" ; "2026-08-13" → "20260813"
-const toIcsDate = (local) => local.replace(/[-:]/g, "").replace(/T(\d{4})$/, "T$100")
+const toIcsDate = (local) =>
+  local.replace(/[-:]/g, "").replace(/T(\d{4})$/, "T$100")
 
 // "2026-07-03T14:34:25.134Z" → "20260703T143425Z" (UTC, pour DTSTAMP)
-const toIcsStamp = (iso) => iso.replace(/[-:]/g, "").replace(/\.\d+/, "").slice(0, 15) + "Z"
+const toIcsStamp = (iso) =>
+  iso.replace(/[-:]/g, "").replace(/\.\d+/, "").slice(0, 15) + "Z"
 
 // --- Description enrichie (mémo de production) ------------------------------
 
@@ -112,10 +114,13 @@ function description(e, prod) {
           for (const [k, label] of WORK_FIELDS)
             if (w[k])
               // Détail multi-lignes du mémo : chaque ligne reste lisible.
-              lines.push(`    ${label} : ${String(w[k]).replace(/\s*\n\s*/g, " / ")}`)
+              lines.push(
+                `    ${label} : ${String(w[k]).replace(/\s*\n\s*/g, " / ")}`,
+              )
       }
     }
-    if (prod.effectif) lines.push(`Effectif orchestral (max) : ${prod.effectif}`)
+    if (prod.effectif)
+      lines.push(`Effectif orchestral (max) : ${prod.effectif}`)
     if (prod.duree) lines.push(`Durée totale approximative : ${prod.duree}`)
   }
 
@@ -133,7 +138,8 @@ function vevent(e, prod, stamp) {
   rows.push(`DTSTAMP:${stamp}`)
   if (timed) {
     rows.push(`DTSTART;TZID=Europe/Zurich:${toIcsDate(e.start)}`)
-    if (e.end && e.end.includes("T")) rows.push(`DTEND;TZID=Europe/Zurich:${toIcsDate(e.end)}`)
+    if (e.end && e.end.includes("T"))
+      rows.push(`DTEND;TZID=Europe/Zurich:${toIcsDate(e.end)}`)
   } else {
     rows.push(`DTSTART;VALUE=DATE:${toIcsDate(e.start)}`)
     if (e.end) rows.push(`DTEND;VALUE=DATE:${toIcsDate(e.end)}`)
@@ -142,7 +148,9 @@ function vevent(e, prod, stamp) {
   rows.push(`SUMMARY:${escapeText(`${prefix}${e.liste} — ${e.activity}`)}`)
   if (e.location) rows.push(`LOCATION:${escapeText(e.location)}`)
   rows.push(`DESCRIPTION:${escapeText(description(e, prod))}`)
-  rows.push(`CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`)
+  rows.push(
+    `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
+  )
   rows.push(`STATUS:${e.cancelled ? "CANCELLED" : "CONFIRMED"}`)
   rows.push(`TRANSP:${e.cancelled ? "TRANSPARENT" : "OPAQUE"}`)
   rows.push("END:VEVENT")
@@ -209,12 +217,16 @@ export function buildIcs() {
 
   const previous = existsSync(icsPath) ? readFileSync(icsPath, "utf8") : null
   if (previous === output) {
-    console.log(`Calendrier ICS inchangé (${planning.events.length} événements).`)
+    console.log(
+      `Calendrier ICS inchangé (${planning.events.length} événements).`,
+    )
     return false
   }
 
   writeFileSync(icsPath, output)
-  console.log(`data/planning.ics généré : ${planning.events.length} événements.`)
+  console.log(
+    `data/planning.ics généré : ${planning.events.length} événements.`,
+  )
   return true
 }
 

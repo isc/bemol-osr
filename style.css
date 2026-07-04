@@ -19,7 +19,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: var(--bg);
   color: #222;
   font-size: 15px;
@@ -247,22 +248,53 @@ table.week td.slot-name {
   color: rgba(0, 0, 0, 0.55);
 }
 
-.evt.cat-concert { background: var(--cat-concert); }
-.evt.cat-generale { background: var(--cat-generale); }
-.evt.cat-italienne { background: var(--cat-italienne); }
-.evt.cat-enregistrement { background: var(--cat-enregistrement); }
-.evt.cat-repetition { background: var(--cat-repetition); }
-.evt.cat-concours { background: var(--cat-concours); }
-.evt.cat-resa { background: var(--cat-resa); color: #889; }
+.evt.cat-concert {
+  background: var(--cat-concert);
+}
+.evt.cat-generale {
+  background: var(--cat-generale);
+}
+.evt.cat-italienne {
+  background: var(--cat-italienne);
+}
+.evt.cat-enregistrement {
+  background: var(--cat-enregistrement);
+}
+.evt.cat-repetition {
+  background: var(--cat-repetition);
+}
+.evt.cat-concours {
+  background: var(--cat-concours);
+}
+.evt.cat-resa {
+  background: var(--cat-resa);
+  color: #889;
+}
 
-.legend-item.cat-concert { background: var(--cat-concert); }
-.legend-item.cat-generale { background: var(--cat-generale); }
-.legend-item.cat-italienne { background: var(--cat-italienne); }
-.legend-item.cat-enregistrement { background: var(--cat-enregistrement); }
-.legend-item.cat-repetition { background: var(--cat-repetition); }
-.legend-item.cat-concours { background: var(--cat-concours); }
-.legend-item.cat-autre { background: var(--cat-autre); }
-.legend-item.cat-resa { background: var(--cat-resa); }
+.legend-item.cat-concert {
+  background: var(--cat-concert);
+}
+.legend-item.cat-generale {
+  background: var(--cat-generale);
+}
+.legend-item.cat-italienne {
+  background: var(--cat-italienne);
+}
+.legend-item.cat-enregistrement {
+  background: var(--cat-enregistrement);
+}
+.legend-item.cat-repetition {
+  background: var(--cat-repetition);
+}
+.legend-item.cat-concours {
+  background: var(--cat-concours);
+}
+.legend-item.cat-autre {
+  background: var(--cat-autre);
+}
+.legend-item.cat-resa {
+  background: var(--cat-resa);
+}
 
 /* Repère vacances/fériés : dégradé des deux couleurs de région (GE + France) */
 .legend-item.legend-holidays {
@@ -469,10 +501,18 @@ table.week td.repos:not(.today) {
   background: #fafbfc;
 }
 
-.change-item.added { border-color: #3a5; }
-.change-item.removed { border-color: #d33; }
-.change-item.modified { border-color: #f5a83a; }
-.change-item.memo { border-color: #7a5cc0; }
+.change-item.added {
+  border-color: #3a5;
+}
+.change-item.removed {
+  border-color: #d33;
+}
+.change-item.modified {
+  border-color: #f5a83a;
+}
+.change-item.memo {
+  border-color: #7a5cc0;
+}
 
 /* Étiquette « Mémo de production » distinguant ces changements du planning */
 .change-tag {
@@ -759,14 +799,30 @@ dialog h2 {
   border-radius: 3px;
   flex: none;
 }
-.cat-swatch.cat-concert { background: var(--cat-concert); }
-.cat-swatch.cat-generale { background: var(--cat-generale); }
-.cat-swatch.cat-italienne { background: var(--cat-italienne); }
-.cat-swatch.cat-enregistrement { background: var(--cat-enregistrement); }
-.cat-swatch.cat-repetition { background: var(--cat-repetition); }
-.cat-swatch.cat-concours { background: var(--cat-concours); }
-.cat-swatch.cat-autre { background: var(--cat-autre); }
-.cat-swatch.cat-resa { background: var(--cat-resa); }
+.cat-swatch.cat-concert {
+  background: var(--cat-concert);
+}
+.cat-swatch.cat-generale {
+  background: var(--cat-generale);
+}
+.cat-swatch.cat-italienne {
+  background: var(--cat-italienne);
+}
+.cat-swatch.cat-enregistrement {
+  background: var(--cat-enregistrement);
+}
+.cat-swatch.cat-repetition {
+  background: var(--cat-repetition);
+}
+.cat-swatch.cat-concours {
+  background: var(--cat-concours);
+}
+.cat-swatch.cat-autre {
+  background: var(--cat-autre);
+}
+.cat-swatch.cat-resa {
+  background: var(--cat-resa);
+}
 
 /* Type d'activité dépliable : la case générale + son chevron, puis les listes */
 .activite-tete {

@@ -57,25 +57,33 @@ function targetSeasonLabel() {
 async function generateMemoPdfText() {
   const label = targetSeasonLabel()
   const saisons = JSON.parse(
-    await fetchText(`${OSR}/_app/osr/_datasMysql/store_saisons.php?checkDroitsPlanning=1&idUtilisateur=51`, {
-      headers: STORE_HEADERS,
-    }),
+    await fetchText(
+      `${OSR}/_app/osr/_datasMysql/store_saisons.php?checkDroitsPlanning=1&idUtilisateur=51`,
+      {
+        headers: STORE_HEADERS,
+      },
+    ),
   )
   const saison = saisons.find((s) => s.intitule === label)
-  if (!saison) throw new Error(`Saison ${label} introuvable dans le store Dièse`)
+  if (!saison)
+    throw new Error(`Saison ${label} introuvable dans le store Dièse`)
 
   const productions = JSON.parse(
-    await fetchText(`${OSR}/_app/osr/_datasMysql/store_productions.php?idUtilisateur=51`, {
-      headers: STORE_HEADERS,
-    }),
+    await fetchText(
+      `${OSR}/_app/osr/_datasMysql/store_productions.php?idUtilisateur=51`,
+      {
+        headers: STORE_HEADERS,
+      },
+    ),
   )
   const prodIds = productions.filter((p) => p.saison === label).map((p) => p.id)
-  if (!prodIds.length) throw new Error(`Aucune production pour la saison ${label}`)
+  if (!prodIds.length)
+    throw new Error(`Aucune production pour la saison ${label}`)
 
   // Périodes de 4 semaines entre les bornes officielles de la saison
   const periods = []
   const iso = (x) => x.toISOString().slice(0, 10)
-  for (let d = new Date(saison.dateDebut + "T12:00:00"); ; ) {
+  for (let d = new Date(saison.dateDebut + "T12:00:00"); ;) {
     const end = new Date(d)
     end.setDate(end.getDate() + 27)
     periods.push(`${iso(d)}_${iso(end)}`)
@@ -86,20 +94,36 @@ async function generateMemoPdfText() {
 
   // Page mémo → URL de rendu à jeton frais (les uid sont à usage unique)
   const page = await fetchText(`${MEMO_PAGE}&saison=${saison.id}`)
-  const rel = page.match(/rel="(https:[^"]*template_746\.php\?idVersion=1[^"]*)"/)
-  if (!rel) throw new Error("URL de rendu introuvable dans la page mémo (structure changée ?)")
+  const rel = page.match(
+    /rel="(https:[^"]*template_746\.php\?idVersion=1[^"]*)"/,
+  )
+  if (!rel)
+    throw new Error(
+      "URL de rendu introuvable dans la page mémo (structure changée ?)",
+    )
   const renderUrl = rel[1]
-    .replace("idProduction=&", `idProduction=${encodeURIComponent(prodIds.join(","))}&`)
+    .replace(
+      "idProduction=&",
+      `idProduction=${encodeURIComponent(prodIds.join(","))}&`,
+    )
     .replace("periode=&", `periode=${encodeURIComponent(periods.join(","))}&`)
 
   const pdfUrl = (
     await fetchText(`${CHDOC}/files/_ajax/genererPdf.php`, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ idClient: "osr", url: renderUrl, prince: "1", nomCustom: "bemol-memo" }),
+      body: new URLSearchParams({
+        idClient: "osr",
+        url: renderUrl,
+        prince: "1",
+        nomCustom: "bemol-memo",
+      }),
     })
   ).trim()
-  if (!/^https:\/\/.*\.pdf$/.test(pdfUrl)) throw new Error(`Réponse inattendue de genererPdf : ${pdfUrl.slice(0, 120)}`)
+  if (!/^https:\/\/.*\.pdf$/.test(pdfUrl))
+    throw new Error(
+      `Réponse inattendue de genererPdf : ${pdfUrl.slice(0, 120)}`,
+    )
 
   const pdf = Buffer.from(await (await fetch(pdfUrl)).arrayBuffer())
   const dir = mkdtempSync(join(tmpdir(), "bemol-memo-"))
@@ -135,13 +159,15 @@ const FIELD_LABELS = [
 const ROLE_WORDS =
   /soprano|mezzo|contralto|ténor|tenor|baryton|basse|récitant|violon|alto\b|violoncelle|contrebasse|flûte|hautbois|clarinette|basson|\bcor\b|trompette|trombone|tuba|harpe|piano|percussion|orgue|saxophone|chœur|choeur|clavecin|guitare|accordéon|voice|voix|vocalist|keyboard|bass|drums|chant|comédien|narrat|solo|direction/i
 // Rôles techniques exclus de la liste des solistes (conventions du fichier existant)
-const TECH_ROLES = /chef·?fe de chant|conseiller artistique|ingénieur du son|direction artistique|assistant·?e?$/i
+const TECH_ROLES =
+  /chef·?fe de chant|conseiller artistique|ingénieur du son|direction artistique|assistant·?e?$/i
 // Rôles de production/staff : ni solistes, ni titre d'œuvre (la ligne est jetée)
 const NONSOLIST_ROLES =
   /^(présentation|mise en (scène|espace)|chorégraph|conseiller artistique|direction artistique|ingénieur du son|chef·?fe de chant|texte\b|arrangements?\b|orchestration|vidéo|image et son|intervenant artistique|raccord|décors|costumes|lumières|scénographie|dramaturgie)/i
 // Un nom de personne (suite de ≥2 capitales) ou d'ensemble (Motet, Chœur…)
 const NAME_LIKE = (name) =>
-  /(^|[ '’-])\p{Lu}{2,}/u.test(name) || /\b(Chœur|Choeur|Ensemble|Orchestre|Maîtrise|Motet|Chorus|Choir)\b/.test(name)
+  /(^|[ '’-])\p{Lu}{2,}/u.test(name) ||
+  /\b(Chœur|Choeur|Ensemble|Orchestre|Maîtrise|Motet|Chorus|Choir)\b/.test(name)
 
 function fmtWorkDuration(s) {
   const [h, m] = s.split(".").map(Number)
@@ -217,7 +243,12 @@ function parseSection(body) {
     if (/^Entracte$/i.test(line)) continue
     if (/^Bis$/i.test(line)) continue // annotation « Bis » (rappel) sans valeur de titre
     if (/^[,:]/.test(line)) continue // fragment de distribution à nom vide ("… : NOM", ", rôle")
-    if (/^(Arrangement|Orchestration|Adaptation|Transcription|Réduction|Mention obligatoire)[^:]{0,40} ?:/.test(line)) continue
+    if (
+      /^(Arrangement|Orchestration|Adaptation|Transcription|Réduction|Mention obligatoire)[^:]{0,40} ?:/.test(
+        line,
+      )
+    )
+      continue
     if (/^(Solistes?|Chœur|Choeur|Récitant)[^:]{0,40} : \S/.test(line)) continue // rappels de distribution
     if (/^[a-zàâäéèêëîïôöûüç][^:]{1,40} : \S/.test(line)) continue // "saxophone alto : Valentine MICHAUD"
     if (/(^| - )[a-zàâäéèêëîïôöûüç][^:]{0,30} : \p{Lu}/u.test(line)) continue // fragments de distribution repliés
@@ -226,7 +257,8 @@ function parseSection(body) {
     const eff = line.match(/^Effectif max (\d+) musiciens : (.+)$/)
     if (eff) {
       pushWork()
-      if (eff[1] !== "0") prod.effectif = `${eff[2].trim()} (${eff[1]} musiciens)`
+      if (eff[1] !== "0")
+        prod.effectif = `${eff[2].trim()} (${eff[1]} musiciens)`
       continue
     }
     const tot = line.match(/^Durée totale approximative : (\d{2}:\d{2}) h$/)
@@ -245,7 +277,11 @@ function parseSection(body) {
 
     // blocs d'information générale (avec leurs lignes de continuation, jusqu'à
     // une ligne vide ou une ligne clairement structurée)
-    if (/^(Information générale|Services annuels|Services :|Tenue :|Disposition|Set-list)/.test(line)) {
+    if (
+      /^(Information générale|Services annuels|Services :|Tenue :|Disposition|Set-list)/.test(
+        line,
+      )
+    ) {
       curField = null
       let j = i + 1
       while (
@@ -277,7 +313,8 @@ function parseSection(body) {
     // compositeurs numérotés
     const run = parseComposerRun(line)
     if (run) {
-      for (const [n, name] of run) if (!composerByNum.has(n)) composerByNum.set(n, name)
+      for (const [n, name] of run)
+        if (!composerByNum.has(n)) composerByNum.set(n, name)
       continue
     }
 
@@ -296,7 +333,8 @@ function parseSection(body) {
         continue
       }
       const val = line.slice(field[0].length).trim()
-      if (!(field[1] === "instrumentation" && /^[0.\/ ]+$/.test(val))) cur[field[1]] = val
+      if (!(field[1] === "instrumentation" && /^[0.\/ ]+$/.test(val)))
+        cur[field[1]] = val
       curField = field[1]
       continue
     }
@@ -328,7 +366,9 @@ function parseSection(body) {
     if (
       cur &&
       curField &&
-      ["detail", "note", "remarques", "percussions", "extra"].includes(curField) &&
+      ["detail", "note", "remarques", "percussions", "extra"].includes(
+        curField,
+      ) &&
       /^[-•(/a-zàâäéèêëîïôöûüç0-9«"']/.test(line)
     ) {
       cur[curField] += "\n" + line
@@ -344,16 +384,30 @@ function parseSection(body) {
   pushWork()
 
   // fiches sans blocs d'œuvres labellisés (MDC…) : le texte libre devient l'œuvre
-  if (!works.length && titleBuffer.length) works.push({ titre: titleBuffer.join(" ").trim() })
+  if (!works.length && titleBuffer.length)
+    works.push({ titre: titleBuffer.join(" ").trim() })
 
   // Compositeurs triés par n° de position programme (les entractes portent un
   // n° nu sans nom → absents de la Map, donc pas de décalage) puis appariés aux
   // œuvres dans l'ordre du document.
-  const composersByOrder = [...composerByNum.entries()].sort((a, b) => a[0] - b[0]).map((e) => e[1])
+  const composersByOrder = [...composerByNum.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map((e) => e[1])
   prod.works = works.map((w, idx) => {
     const out = {}
-    out.oeuvre = composersByOrder[idx] ? `${composersByOrder[idx]} — ${w.titre}` : w.titre
-    for (const f of ["instrumentation", "remarques", "percussions", "claviers", "extra", "detail", "note", "duree"])
+    out.oeuvre = composersByOrder[idx]
+      ? `${composersByOrder[idx]} — ${w.titre}`
+      : w.titre
+    for (const f of [
+      "instrumentation",
+      "remarques",
+      "percussions",
+      "claviers",
+      "extra",
+      "detail",
+      "note",
+      "duree",
+    ])
       if (w[f]) out[f] = w[f]
     return out
   })
@@ -362,7 +416,9 @@ function parseSection(body) {
 }
 
 function parseMemoText(text) {
-  const knownListes = new Set(JSON.parse(readFileSync(planningPath, "utf8")).events.map((e) => e.liste))
+  const knownListes = new Set(
+    JSON.parse(readFileSync(planningPath, "utf8")).events.map((e) => e.liste),
+  )
   // Canonicalise un titre de fiche du PDF vers le nom de liste du planning.
   const canonicalKey = (line) => {
     const l = line.trim()
@@ -392,10 +448,14 @@ function parseMemoText(text) {
 
   const result = {}
   for (let s = 0; s < sections.length; s++) {
-    const end = s + 1 < sections.length ? sections[s + 1].start - 3 : lines.length
+    const end =
+      s + 1 < sections.length ? sections[s + 1].start - 3 : lines.length
     const prod = parseSection(lines.slice(sections[s].start, end))
     const hasContent =
-      prod.chef || prod.effectif || (prod.works && prod.works.length) || (prod.solistes && prod.solistes.length)
+      prod.chef ||
+      prod.effectif ||
+      (prod.works && prod.works.length) ||
+      (prod.solistes && prod.solistes.length)
     if (!hasContent) continue
     if (result[sections[s].key]) continue
     result[sections[s].key] = prod
@@ -411,7 +471,16 @@ function parseMemoText(text) {
 // Champs simples (texte) comparés tels quels.
 const MEMO_DIFF_FIELDS = ["chef", "effectif", "duree"]
 // Champs d'une œuvre dont un changement compte comme « œuvre modifiée ».
-const WORK_DIFF_FIELDS = ["instrumentation", "remarques", "percussions", "claviers", "extra", "detail", "note", "duree"]
+const WORK_DIFF_FIELDS = [
+  "instrumentation",
+  "remarques",
+  "percussions",
+  "claviers",
+  "extra",
+  "detail",
+  "note",
+  "duree",
+]
 
 // Œuvres d'un programme indexées par leur libellé « Compositeur — Titre »
 // (identité stable d'une œuvre entre deux versions du mémo).
@@ -443,11 +512,18 @@ function diffProgram(before, after) {
   for (const [oeuvre, w] of newWorks) {
     const prev = oldWorks.get(oeuvre)
     if (!prev) continue
-    const changed = WORK_DIFF_FIELDS.filter((k) => (prev[k] || "") !== (w[k] || ""))
+    const changed = WORK_DIFF_FIELDS.filter(
+      (k) => (prev[k] || "") !== (w[k] || ""),
+    )
     if (changed.length) worksModified.push({ oeuvre, fields: changed })
   }
 
-  if (!fields.length && !worksAdded.length && !worksRemoved.length && !worksModified.length)
+  if (
+    !fields.length &&
+    !worksAdded.length &&
+    !worksRemoved.length &&
+    !worksModified.length
+  )
     return null
   return { fields, worksAdded, worksRemoved, worksModified }
 }
@@ -468,35 +544,50 @@ function diffMemo(previous, next) {
     const d = diffProgram(previous[liste], next[liste])
     if (d) programs.push({ liste, status: "modified", ...d })
   }
-  return programs.sort((a, b) => a.liste.localeCompare(b.liste, "fr", { numeric: true }))
+  return programs.sort((a, b) =>
+    a.liste.localeCompare(b.liste, "fr", { numeric: true }),
+  )
 }
 
 // --- Main ------------------------------------------------------------------------
 
 const textArg = process.argv[2]
-const memoText = textArg ? readFileSync(textArg, "utf8") : await generateMemoPdfText()
+const memoText = textArg
+  ? readFileSync(textArg, "utf8")
+  : await generateMemoPdfText()
 const parsed = parseMemoText(memoText)
 
 if (Object.keys(parsed).length < 20)
-  throw new Error(`Seulement ${Object.keys(parsed).length} fiches parsées — mémo incomplet ou structure changée ?`)
+  throw new Error(
+    `Seulement ${Object.keys(parsed).length} fiches parsées — mémo incomplet ou structure changée ?`,
+  )
 
-const previous = existsSync(productionsPath) ? JSON.parse(readFileSync(productionsPath, "utf8")) : {}
+const previous = existsSync(productionsPath)
+  ? JSON.parse(readFileSync(productionsPath, "utf8"))
+  : {}
 const output = {
   _lisezmoi:
     "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », et « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]). Les clés commençant par « _ » sont ignorées par l'app.",
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
-const withoutMeta = (o) => JSON.stringify(Object.fromEntries(Object.entries(o).filter(([k]) => k !== "_lisezmoi")))
+const withoutMeta = (o) =>
+  JSON.stringify(
+    Object.fromEntries(Object.entries(o).filter(([k]) => k !== "_lisezmoi")),
+  )
 const changed = withoutMeta(previous) !== withoutMeta(output)
 
 if (!changed) {
-  console.log(`Aucun changement du mémo (${Object.keys(parsed).length} fiches). Fichier inchangé.`)
+  console.log(
+    `Aucun changement du mémo (${Object.keys(parsed).length} fiches). Fichier inchangé.`,
+  )
   process.exit(0)
 }
 
 writeFileSync(productionsPath, JSON.stringify(output, null, 1) + "\n")
-console.log(`productions.json mis à jour : ${Object.keys(parsed).length} fiches.`)
+console.log(
+  `productions.json mis à jour : ${Object.keys(parsed).length} fiches.`,
+)
 
 // Journalise les évolutions du mémo dans data/changes.json (type « memo »,
 // distinct des changements de planning), sauf à l'initialisation (aucune
@@ -508,9 +599,15 @@ if (hadPrevious) {
     const changes = existsSync(changesPath)
       ? JSON.parse(readFileSync(changesPath, "utf8"))
       : { entries: [] }
-    changes.entries.unshift({ at: new Date().toISOString(), type: "memo", programs })
+    changes.entries.unshift({
+      at: new Date().toISOString(),
+      type: "memo",
+      programs,
+    })
     changes.entries = changes.entries.slice(0, MAX_CHANGE_ENTRIES)
     writeFileSync(changesPath, JSON.stringify(changes, null, 1) + "\n")
-    console.log(`Mémo : ${programs.length} programme(s) journalisé(s) dans changes.json.`)
+    console.log(
+      `Mémo : ${programs.length} programme(s) journalisé(s) dans changes.json.`,
+    )
   }
 }
