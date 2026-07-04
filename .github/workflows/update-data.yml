@@ -15,6 +15,8 @@ on:
 
 permissions:
   contents: write
+  # Pour signaler un échec du cron dans une issue (voir dernière étape)
+  issues: write
 
 concurrency:
   # Même groupe que deploy.yml / preview.yml : sérialise les écritures gh-pages.
@@ -71,3 +73,31 @@ jobs:
           keep_files: true
           exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
           commit_message: "deploy: data update @ ${{ github.sha }}"
+
+      # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
+      # échoue (jeton ICS invalide, changement côté Dièse, incident GitHub…),
+      # on ouvre une issue — donc une notification. Les échecs suivants
+      # commentent la même issue tant qu'elle est ouverte ; la refermer une
+      # fois le problème réglé.
+      - name: Signaler l'échec dans une issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: "⚠️ La mise à jour automatique du planning ICS échoue"
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          num=$(gh issue list -R "${{ github.repository }}" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" -R "${{ github.repository }}" \
+              --body "Nouvel échec du cron : $RUN_URL"
+          else
+            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
+              "Le robot qui actualise le planning (toutes les 2 h depuis l'export ICS de Dièse) vient d'échouer : $RUN_URL
+
+          Tant que ce problème dure, le site continue de fonctionner mais affiche des données de plus en plus anciennes (un bandeau d'avertissement apparaît dans l'app au-delà de 26 h).
+
+          Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
+
+          cc @isc"
+          fi

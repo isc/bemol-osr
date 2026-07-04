@@ -335,6 +335,48 @@ async function loadData() {
   }
 }
 
+// --- Fraîcheur des données ---------------------------------------------------
+
+// Le planning est actualisé par un robot toutes les 2 h (update-data.yml).
+// Si ce robot est en panne (jeton ICS expiré, changement côté Dièse…), le site
+// continue de servir des données de plus en plus vieilles sans que rien ne le
+// signale. On date donc le dernier passage RÉUSSI du robot via l'API publique
+// de GitHub et on affiche un bandeau au-delà de STALE_HOURS (marge large :
+// un incident GitHub de quelques heures ne doit pas crier au loup). En cas
+// d'échec de l'appel (hors-ligne, quota API…), on ne montre rien : ce bandeau
+// est un filet de sécurité, pas une dépendance.
+const STALE_HOURS = 26
+
+async function checkDataFreshness() {
+  if (["localhost", "127.0.0.1"].includes(location.hostname)) return
+  try {
+    const r = await fetch(
+      "https://api.github.com/repos/isc/bemol-osr/actions/workflows/update-data.yml/runs?status=success&per_page=1",
+    )
+    if (!r.ok) return
+    const runs = (await r.json()).workflow_runs
+    if (!runs?.length) return
+    const hours = (Date.now() - new Date(runs[0].updated_at)) / 36e5
+    if (!(hours > STALE_HOURS)) return
+    const age =
+      hours < 48
+        ? `${Math.round(hours)} heures`
+        : `${Math.round(hours / 24)} jours`
+    document
+      .querySelector("header")
+      .after(
+        el(
+          "div",
+          { class: "stale-banner" },
+          `⚠️ Les données n'ont pas pu être actualisées depuis ${age} : ` +
+            `le planning affiché n'est peut-être plus à jour.`,
+        ),
+      )
+  } catch {
+    // silencieux : simple filet de sécurité
+  }
+}
+
 // --- Filtres ---------------------------------------------------------------
 
 function visibleEvents() {
@@ -1701,6 +1743,8 @@ async function init() {
     console.error(err)
     return
   }
+
+  checkDataFreshness()
 
   // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
   // on l'adopte directement, sans sélecteur.
