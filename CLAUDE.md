@@ -89,3 +89,7 @@ suit le même modèle : locale à l'appareil, jamais côté serveur.
 - Chaque PR → preview isolée déployée automatiquement, avec lien posté en
   commentaire. C'est cette preview qui sert à valider un changement avant merge.
 - Mise à jour des données : workflow cron `update-data.yml` (toutes les 2 h).
+- **Cache-busting automatique** : dans `index.html`, `app.js` et `style.css`
+  sont référencés avec un suffixe `?v=dev`. Ce `dev` est un placeholder que les
+  workflows de publication remplacent par le SHA du commit — **ne jamais le
+  bumper à la main**, ni ajouter de suffixe de version manuel.
