@@ -51,8 +51,18 @@ const FIELD_LABELS = {
 
 const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
 const MONTH_NAMES = [
-  "janv.", "févr.", "mars", "avr.", "mai", "juin",
-  "juil.", "août", "sept.", "oct.", "nov.", "déc.",
+  "janv.",
+  "févr.",
+  "mars",
+  "avr.",
+  "mai",
+  "juin",
+  "juil.",
+  "août",
+  "sept.",
+  "oct.",
+  "nov.",
+  "déc.",
 ]
 const RECENT_DAYS = 14
 
@@ -141,7 +151,8 @@ function fmtDateStr(s, withTime = true) {
 
 function shortLocation(loc) {
   if (!loc) return ""
-  for (const [full, short] of LOCATION_SHORT) if (loc.includes(full)) return short
+  for (const [full, short] of LOCATION_SHORT)
+    if (loc.includes(full)) return short
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
@@ -296,9 +307,13 @@ async function loadData() {
   const bust = `?t=${Date.now()}`
   const [planning, changes, productions] = await Promise.all([
     fetch(`data/planning.json${bust}`).then((r) => r.json()),
-    fetch(`data/changes.json${bust}`).then((r) => r.json()).catch(() => ({ entries: [] })),
+    fetch(`data/changes.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => ({ entries: [] })),
     // Mémo de production (œuvres + effectif), généré depuis le mini-site Dièse.
-    fetch(`productions.json${bust}`).then((r) => r.json()).catch(() => ({})),
+    fetch(`productions.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => ({})),
   ])
   state.events = planning.events
   state.updatedAt = planning.updatedAt
@@ -311,7 +326,8 @@ async function loadData() {
     // Relevé du mémo de production : ce sont des programmes (listes) qui bougent.
     if (entry.type === "memo") {
       for (const prog of entry.programs)
-        if (!state.recentListes.has(prog.liste)) state.recentListes.set(prog.liste, entry.at)
+        if (!state.recentListes.has(prog.liste))
+          state.recentListes.set(prog.liste, entry.at)
       continue
     }
     for (const e of [...entry.added, ...entry.modified.map((m) => m.after)])
@@ -359,7 +375,9 @@ function listesByCategory() {
   }
   const out = {}
   for (const [cat, set] of map)
-    out[cat] = [...set].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+    out[cat] = [...set].sort((a, b) =>
+      a.localeCompare(b, "fr", { numeric: true }),
+    )
   return out
 }
 
@@ -382,7 +400,11 @@ function eventChip(e, { showDate = false } = {}) {
   if (state.recentUids.has(e.uid)) classes.push("recent")
   const chip = el(
     "button",
-    { class: classes.join(" "), title: `${e.liste} — ${e.activity}`, onclick: () => showDetail(e) },
+    {
+      class: classes.join(" "),
+      title: `${e.liste} — ${e.activity}`,
+      onclick: () => showDetail(e),
+    },
     el("b", {}, `${shortListe(e.liste)} ${fmtTime(e.start)}`),
     " ",
     el("span", { class: "evt-loc" }, shortLocation(e.location)),
@@ -397,7 +419,11 @@ function showDetail(e) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   box.replaceChildren(
-    el("span", { class: `detail-cat evt cat-${e.category}` }, CATEGORIES[e.category]),
+    el(
+      "span",
+      { class: `detail-cat evt cat-${e.category}` },
+      CATEGORIES[e.category],
+    ),
     el(
       "h2",
       {},
@@ -405,7 +431,14 @@ function showDetail(e) {
       // Point rouge si le mémo de ce programme a changé récemment (cf. les
       // événements de planning récemment modifiés).
       state.recentListes.has(e.liste)
-        ? el("span", { class: "recent-dot", title: "Mémo de production modifié récemment" }, "●")
+        ? el(
+            "span",
+            {
+              class: "recent-dot",
+              title: "Mémo de production modifié récemment",
+            },
+            "●",
+          )
         : null,
     ),
     el(
@@ -421,11 +454,19 @@ function showDetail(e) {
       el("dd", {}, e.project || "—"),
       state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
       state.recentUids.has(e.uid)
-        ? el("dd", {}, `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`)
+        ? el(
+            "dd",
+            {},
+            `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`,
+          )
         : null,
       state.recentListes.has(e.liste) ? el("dt", {}, "Mémo") : null,
       state.recentListes.has(e.liste)
-        ? el("dd", {}, `modifié récemment (${fmtDateStr(state.recentListes.get(e.liste).slice(0, 16), false)})`)
+        ? el(
+            "dd",
+            {},
+            `modifié récemment (${fmtDateStr(state.recentListes.get(e.liste).slice(0, 16), false)})`,
+          )
         : null,
     ),
     ...productionDetail(e),
@@ -495,7 +536,11 @@ function productionDetail(e) {
   }
   if (solistes.length) {
     nodes.push(
-      el("h3", { class: "detail-section" }, solistes.length > 1 ? "Solistes" : "Soliste"),
+      el(
+        "h3",
+        { class: "detail-section" },
+        solistes.length > 1 ? "Solistes" : "Soliste",
+      ),
       el("ul", { class: "solistes" }, ...solistes.map((s) => el("li", {}, s))),
     )
   }
@@ -552,7 +597,11 @@ function vacancesRow(region, days) {
     RENTREES.some((r) => r.region === region && r.date === localKey(d)),
   )
   if (noms.every((n) => !n) && isRentree.every((r) => !r)) return null
-  const row = el("tr", { class: "vac-row" }, el("td", { class: "vac-label" }, region))
+  const row = el(
+    "tr",
+    { class: "vac-row" },
+    el("td", { class: "vac-label" }, region),
+  )
   let i = 0
   while (i < days.length) {
     // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
@@ -620,7 +669,9 @@ function showFeries(date, feries) {
     el(
       "ul",
       { class: "holiday-list" },
-      ...feries.map((f) => el("li", {}, `${REGION_LABEL[f.region]} — ${f.nom}`)),
+      ...feries.map((f) =>
+        el("li", {}, `${REGION_LABEL[f.region]} — ${f.nom}`),
+      ),
     ),
   )
 }
@@ -659,7 +710,13 @@ function showVacance(region, nom) {
   showHolidayDialog(
     "Vacances scolaires",
     el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
-    v ? el("p", {}, `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`) : null,
+    v
+      ? el(
+          "p",
+          {},
+          `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`,
+        )
+      : null,
   )
 }
 
@@ -712,7 +769,11 @@ function renderGrille(main) {
 
     const section = el("section", { class: "periode", id: `periode-${p + 1}` })
     section.append(
-      el("h2", {}, `Période ${p + 1} — du ${pStart.getDate()} ${MONTH_NAMES[pStart.getMonth()]} au ${pEnd.getDate()} ${MONTH_NAMES[pEnd.getMonth()]} ${pEnd.getFullYear()}`),
+      el(
+        "h2",
+        {},
+        `Période ${p + 1} — du ${pStart.getDate()} ${MONTH_NAMES[pStart.getMonth()]} au ${pEnd.getDate()} ${MONTH_NAMES[pEnd.getMonth()]} ${pEnd.getFullYear()}`,
+      ),
     )
 
     for (let w = 0; w < weeksInPeriode; w++) {
@@ -727,7 +788,11 @@ function renderGrille(main) {
 
       const table = el("table", { class: "week" })
       if (hasToday) table.id = "current-week"
-      const headRow = el("tr", {}, el("th", { class: "week-label" }, `S${w + 1}`))
+      const headRow = el(
+        "tr",
+        {},
+        el("th", { class: "week-label" }, `S${w + 1}`),
+      )
       for (const d of days) {
         const key = localKey(d)
         const feries = showHolidays ? feriesMap.get(key) || [] : []
@@ -754,7 +819,11 @@ function renderGrille(main) {
 
       const tbody = el("tbody")
       for (let slot = 0; slot < 3; slot++) {
-        const row = el("tr", {}, el("td", { class: "slot-name" }, SLOT_NAMES[slot]))
+        const row = el(
+          "tr",
+          {},
+          el("td", { class: "slot-name" }, SLOT_NAMES[slot]),
+        )
         for (const d of days) {
           const isWeekend = d.getDay() === 0 || d.getDay() === 6
           const cls = [
@@ -764,7 +833,9 @@ function renderGrille(main) {
             .filter(Boolean)
             .join(" ")
           const cell = el("td", { class: cls })
-          const dayEvents = (byDay.get(localKey(d)) || []).filter((e) => slotOf(e) === slot)
+          const dayEvents = (byDay.get(localKey(d)) || []).filter(
+            (e) => slotOf(e) === slot,
+          )
           for (const e of dayEvents) cell.append(eventChip(e))
           row.append(cell)
         }
@@ -786,7 +857,9 @@ function renderAgenda(main) {
   const list = upcoming.length ? upcoming : events
 
   if (!list.length) {
-    main.append(el("p", { class: "empty-msg" }, "Aucun événement pour cette sélection."))
+    main.append(
+      el("p", { class: "empty-msg" }, "Aucun événement pour cette sélection."),
+    )
     return
   }
 
@@ -796,7 +869,9 @@ function renderAgenda(main) {
     const key = e.start.slice(0, 10)
     if (key !== currentDay) {
       currentDay = key
-      dayBox = el("div", { class: "agenda-day" + (key === todayKey ? " today" : "") })
+      dayBox = el("div", {
+        class: "agenda-day" + (key === todayKey ? " today" : ""),
+      })
       dayBox.append(el("h3", {}, fmtDay(parseDate(e.start), true)))
       main.append(dayBox)
     }
@@ -834,7 +909,12 @@ function countChanges(entry) {
 }
 
 // Libellés des champs d'un programme dans le diff du mémo de production.
-const MEMO_FIELD_LABELS = { chef: "chef", effectif: "effectif", duree: "durée", solistes: "solistes" }
+const MEMO_FIELD_LABELS = {
+  chef: "chef",
+  effectif: "effectif",
+  duree: "durée",
+  solistes: "solistes",
+}
 
 // Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
 function planningEntryBox(entry) {
@@ -842,15 +922,33 @@ function planningEntryBox(entry) {
   box.append(el("h3", {}, changeEntryHeading(entry.at)))
 
   for (const e of entry.added)
-    box.append(el("div", { class: "change-item added", onclick: () => showDetail(e) }, `➕ Ajouté : ${changeLine(e)}`))
+    box.append(
+      el(
+        "div",
+        { class: "change-item added", onclick: () => showDetail(e) },
+        `➕ Ajouté : ${changeLine(e)}`,
+      ),
+    )
 
   for (const m of entry.modified) {
-    const item = el("div", { class: "change-item modified", onclick: () => showDetail(m.after) }, `✏️ Modifié : ${changeLine(m.after)}`)
+    const item = el(
+      "div",
+      { class: "change-item modified", onclick: () => showDetail(m.after) },
+      `✏️ Modifié : ${changeLine(m.after)}`,
+    )
     for (const f of m.fields) {
       const fmt = (v) =>
-        f === "cancelled" ? (v ? "annulé" : "confirmé") : f === "start" || f === "end" ? fmtDateStr(String(v)) : String(v || "—")
+        f === "cancelled"
+          ? v
+            ? "annulé"
+            : "confirmé"
+          : f === "start" || f === "end"
+            ? fmtDateStr(String(v))
+            : String(v || "—")
       item.append(
-        el("div", { class: "field-diff" },
+        el(
+          "div",
+          { class: "field-diff" },
           `${FIELD_LABELS[f] || f} : `,
           el("span", { class: "old" }, fmt(m.before[f])),
           " → ",
@@ -862,7 +960,13 @@ function planningEntryBox(entry) {
   }
 
   for (const e of entry.removed)
-    box.append(el("div", { class: "change-item removed" }, `➖ Supprimé : ${changeLine(e)}`))
+    box.append(
+      el(
+        "div",
+        { class: "change-item removed" },
+        `➖ Supprimé : ${changeLine(e)}`,
+      ),
+    )
 
   return box
 }
@@ -872,14 +976,31 @@ function planningEntryBox(entry) {
 function memoProgramItem(p) {
   const tag = el("span", { class: "change-tag" }, "Mémo de production")
   if (p.status === "added")
-    return el("div", { class: "change-item memo added" }, tag, ` ${p.liste} : nouveau programme au mémo`)
+    return el(
+      "div",
+      { class: "change-item memo added" },
+      tag,
+      ` ${p.liste} : nouveau programme au mémo`,
+    )
   if (p.status === "removed")
-    return el("div", { class: "change-item memo removed" }, tag, ` ${p.liste} : programme retiré du mémo`)
+    return el(
+      "div",
+      { class: "change-item memo removed" },
+      tag,
+      ` ${p.liste} : programme retiré du mémo`,
+    )
 
-  const item = el("div", { class: "change-item memo modified" }, tag, ` ${p.liste}`)
+  const item = el(
+    "div",
+    { class: "change-item memo modified" },
+    tag,
+    ` ${p.liste}`,
+  )
   for (const f of p.fields || [])
     item.append(
-      el("div", { class: "field-diff" },
+      el(
+        "div",
+        { class: "field-diff" },
         `${MEMO_FIELD_LABELS[f.field] || f.field} : `,
         el("span", { class: "old" }, f.before || "—"),
         " → ",
@@ -887,15 +1008,33 @@ function memoProgramItem(p) {
       ),
     )
   for (const oeuvre of p.worksAdded || [])
-    item.append(el("div", { class: "field-diff" }, "œuvre ajoutée : ", el("span", { class: "new" }, oeuvre)))
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        "œuvre ajoutée : ",
+        el("span", { class: "new" }, oeuvre),
+      ),
+    )
   for (const oeuvre of p.worksRemoved || [])
-    item.append(el("div", { class: "field-diff" }, "œuvre retirée : ", el("span", { class: "old" }, oeuvre)))
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        "œuvre retirée : ",
+        el("span", { class: "old" }, oeuvre),
+      ),
+    )
   for (const w of p.worksModified || [])
     item.append(
-      el("div", { class: "field-diff" },
+      el(
+        "div",
+        { class: "field-diff" },
         "œuvre modifiée : ",
         el("span", { class: "new" }, w.oeuvre),
-        w.fields && w.fields.length ? ` (${w.fields.map((k) => WORK_FIELD_LABELS[k] || k).join(", ")})` : "",
+        w.fields && w.fields.length
+          ? ` (${w.fields.map((k) => WORK_FIELD_LABELS[k] || k).join(", ")})`
+          : "",
       ),
     )
   return item
@@ -922,7 +1061,9 @@ function renderModifs(main) {
   }
 
   for (const entry of state.changes)
-    main.append(entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry))
+    main.append(
+      entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry),
+    )
 }
 
 // --- Légende / préférences ---------------------------------------------------
@@ -937,7 +1078,9 @@ function renderLegend() {
         class: `legend-item cat-${cat}${off ? " off" : ""}`,
         onclick: () => {
           const hidden = state.prefs.hiddenCategories
-          state.prefs.hiddenCategories = off ? hidden.filter((c) => c !== cat) : [...hidden, cat]
+          state.prefs.hiddenCategories = off
+            ? hidden.filter((c) => c !== cat)
+            : [...hidden, cat]
           savePrefs()
           render()
         },
@@ -1024,8 +1167,16 @@ function renderPrefs() {
         el(
           "div",
           { class: "liste-filter-actions" },
-          el("button", { type: "button", onclick: () => setAll(false) }, "Tout décocher"),
-          el("button", { type: "button", onclick: () => setAll(true) }, "Tout cocher"),
+          el(
+            "button",
+            { type: "button", onclick: () => setAll(false) },
+            "Tout décocher",
+          ),
+          el(
+            "button",
+            { type: "button", onclick: () => setAll(true) },
+            "Tout cocher",
+          ),
         ),
         el("div", { class: "liste-options" }, ...listeOptions),
       )
@@ -1047,12 +1198,16 @@ function renderPrefs() {
   const catNote = el("p", { class: "prefs-note" })
   const updateCatNote = () => {
     const shown = cats.filter((c) => !state.prefs.hiddenCategories.includes(c))
-    const partial = shown.filter((c) => (state.prefs.hiddenCatListes[c] || []).length).length
+    const partial = shown.filter(
+      (c) => (state.prefs.hiddenCatListes[c] || []).length,
+    ).length
     catNote.textContent =
       (shown.length === cats.length
         ? "Tous les types d'activité sont affichés."
         : `${shown.length} type${shown.length > 1 ? "s" : ""} d'activité affiché${shown.length > 1 ? "s" : ""} sur ${cats.length}.`) +
-      (partial ? ` (dont ${partial} filtré${partial > 1 ? "s" : ""} par liste)` : "")
+      (partial
+        ? ` (dont ${partial} filtré${partial > 1 ? "s" : ""} par liste)`
+        : "")
   }
 
   // Met à jour, en place, la case générale (cochée / indéterminée) et ses
@@ -1060,11 +1215,14 @@ function renderPrefs() {
   const refreshCat = (cat) => {
     const listes = catListesMap[cat] || []
     const fullyHidden = state.prefs.hiddenCategories.includes(cat)
-    const hid = new Set(fullyHidden ? listes : state.prefs.hiddenCatListes[cat] || [])
+    const hid = new Set(
+      fullyHidden ? listes : state.prefs.hiddenCatListes[cat] || [],
+    )
     const shown = listes.filter((l) => !hid.has(l)).length
     const parent = catParentCb.get(cat)
     parent.checked = listes.length ? shown === listes.length : !fullyHidden
-    parent.indeterminate = listes.length > 0 && shown > 0 && shown < listes.length
+    parent.indeterminate =
+      listes.length > 0 && shown > 0 && shown < listes.length
     const children = catChildCb.get(cat)
     if (children) for (const [l, cb] of children) cb.checked = !hid.has(l)
   }
@@ -1149,7 +1307,13 @@ function renderPrefs() {
           onchange: (ev) => toggleCatListe(cat, l, ev.target.checked),
         })
         children.set(l, cb)
-        return el("label", { class: "liste-option sous-liste-option" }, cb, " ", l)
+        return el(
+          "label",
+          { class: "liste-option sous-liste-option" },
+          cb,
+          " ",
+          l,
+        )
       }),
     )
     const caret = el(
@@ -1169,7 +1333,12 @@ function renderPrefs() {
     )
     // La case + le libellé restent dans le <label> ; le chevron est à part pour
     // ne pas cocher la case quand on déplie.
-    return el("div", { class: "activite-groupe" }, el("div", { class: "activite-tete" }, row, caret), subList)
+    return el(
+      "div",
+      { class: "activite-groupe" },
+      el("div", { class: "activite-tete" }, row, caret),
+      subList,
+    )
   })
 
   const catBox = el(
@@ -1178,8 +1347,16 @@ function renderPrefs() {
     el(
       "div",
       { class: "liste-filter-actions" },
-      el("button", { type: "button", onclick: () => setAllCategories(false) }, "Tout décocher"),
-      el("button", { type: "button", onclick: () => setAllCategories(true) }, "Tout cocher"),
+      el(
+        "button",
+        { type: "button", onclick: () => setAllCategories(false) },
+        "Tout décocher",
+      ),
+      el(
+        "button",
+        { type: "button", onclick: () => setAllCategories(true) },
+        "Tout cocher",
+      ),
     ),
     el("div", { class: "liste-options" }, ...catOptions),
   )
@@ -1300,8 +1477,16 @@ function renderSubscribe() {
         "Outlook…). Il se met à jour tout seul et reprend toutes les infos de la " +
         "Grille : chef, solistes, œuvres, instrumentation, effectif.",
     ),
-    el("a", { class: "subscribe-add", href: webcal }, "📅 Ajouter à mon agenda"),
-    el("p", { class: "subscribe-or" }, "…ou copie ce lien pour l'ajouter à la main :"),
+    el(
+      "a",
+      { class: "subscribe-add", href: webcal },
+      "📅 Ajouter à mon agenda",
+    ),
+    el(
+      "p",
+      { class: "subscribe-or" },
+      "…ou copie ce lien pour l'ajouter à la main :",
+    ),
     el("div", { class: "subscribe-url-row" }, urlField, copyBtn),
     el(
       "details",
@@ -1310,10 +1495,30 @@ function renderSubscribe() {
       el(
         "ul",
         {},
-        el("li", {}, el("b", {}, "iPhone / iPad : "), "touche « Ajouter à mon agenda », puis confirme l'abonnement dans l'app Calendrier."),
-        el("li", {}, el("b", {}, "Mac : "), "« Ajouter à mon agenda » ouvre l'app Calendrier ; valide l'abonnement."),
-        el("li", {}, el("b", {}, "Google Agenda : "), "sur ordinateur, « Autres agendas » → « À partir d'une URL », puis colle le lien copié."),
-        el("li", {}, el("b", {}, "Outlook : "), "« Ajouter un calendrier » → « S'abonner à partir du Web », puis colle le lien."),
+        el(
+          "li",
+          {},
+          el("b", {}, "iPhone / iPad : "),
+          "touche « Ajouter à mon agenda », puis confirme l'abonnement dans l'app Calendrier.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Mac : "),
+          "« Ajouter à mon agenda » ouvre l'app Calendrier ; valide l'abonnement.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Google Agenda : "),
+          "sur ordinateur, « Autres agendas » → « À partir d'une URL », puis colle le lien copié.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Outlook : "),
+          "« Ajouter un calendrier » → « S'abonner à partir du Web », puis colle le lien.",
+        ),
       ),
     ),
     el(
@@ -1444,7 +1649,11 @@ function setView(view) {
   render()
 }
 
-const VIEW_LABELS = { grille: "Grille", agenda: "Agenda", modifs: "Modifications" }
+const VIEW_LABELS = {
+  grille: "Grille",
+  agenda: "Agenda",
+  modifs: "Modifications",
+}
 
 function render() {
   renderPrefs()
@@ -1464,7 +1673,11 @@ function renderContent() {
       "div",
       { class: "print-title" },
       el("h1", {}, `♭ Bémol — Planning OSR`),
-      el("p", {}, `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`),
+      el(
+        "p",
+        {},
+        `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`,
+      ),
     ),
   )
   if (state.view === "grille") renderGrille(main)
@@ -1473,7 +1686,9 @@ function renderContent() {
 }
 
 function scrollToToday() {
-  const target = document.getElementById("current-week") || document.querySelector(".agenda-day.today")
+  const target =
+    document.getElementById("current-week") ||
+    document.querySelector(".agenda-day.today")
   if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
 }
 
@@ -1529,7 +1744,9 @@ async function init() {
     document.getElementById("update-info").textContent =
       `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
 
-  const defaultView = window.matchMedia("(max-width: 700px)").matches ? "agenda" : "grille"
+  const defaultView = window.matchMedia("(max-width: 700px)").matches
+    ? "agenda"
+    : "grille"
   setView(localStorage.getItem("bemol-view") || defaultView)
   scrollToToday()
 }
