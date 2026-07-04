@@ -1,0 +1,24 @@
+name: Test push GITHUB_TOKEN (jetable)
+
+# Workflow temporaire : vérifie empiriquement si un push direct sur main avec
+# le GITHUB_TOKEN passe malgré le ruleset « CI requise sur main ». Supprimé
+# aussitôt le verdict connu.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          date > .push-test
+          git add .push-test
+          git commit -m "test: push GITHUB_TOKEN vs ruleset (à supprimer)"
+          git push
