@@ -1,6 +1,57 @@
 {
  "entries": [
   {
+   "at": "2026-07-04T07:30:27.344Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — Nabucco, opéra en quatre parties",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 40",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 18 min",
+       "after": "≈ 24 min"
+      },
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Marion FONTANA, récitante · Choeurs des Ecoles de Musique (CPMDT - IJD - CMG - DIP), chœur d'enfants"
+      }
+     ],
+     "worksAdded": [
+      "Etienne PERRUCHON — Tchikidan"
+     ],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-07-03T14:34:25.134Z",
    "added": [
     {
