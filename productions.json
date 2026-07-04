@@ -586,8 +586,8 @@
   "works": [
    {
     "oeuvre": "Giuseppe VERDI — Nabucco, opéra en quatre parties",
-    "instrumentation": "2*.2.2*.2 / 4.2.3.1* / 1.3.2.0 / 10.8.6.4.3",
-    "remarques": "fl2+picc, cl2+cl.bs, 1 tuba",
+    "instrumentation": "2*.2*.2*.2 / 4.2.3.1* / 1.3.2.0 / 10.8.6.4.3",
+    "remarques": "fl2+picc, Ob2+ca, cl2+cl.bs, 1 tuba",
     "percussions": "GC, tri, cymb",
     "detail": "MdS : banda acte I et IV (et III ?) : 0.0.3.0 / 3.3.3.1 / 3 perc (tamb, GC, cymb.) trombe interne acte III : 3\ntrp",
     "note": "\nuniquement le 19 - sans entracte le 20",
@@ -1483,17 +1483,27 @@
  "Liste 40": {
   "chef": "Martyna SZYMCZAK",
   "effectif": "1.1.1.1 / 1.1.1.1 / 1.2.0.1 / 2.2.2.2.2 (22 musiciens)",
-  "duree": "≈ 18 min",
+  "duree": "≈ 24 min",
   "works": [
    {
+    "oeuvre": "Etienne PERRUCHON — Tchikidan",
+    "instrumentation": "1.1.1.1 / 1.1.1.1 / 1.1.0.0 / 2.2.2.2.2",
+    "note": "\n2 extraits : Tchouka et Djia",
+    "duree": "≈ 6 min"
+   },
+   {
     "oeuvre": "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre",
-    "instrumentation": "1*.1*.1.1 / 1.1.1.1* / 1.2.0.1 / 2*.2.2.2.2",
-    "remarques": "effectif prévisionnel",
+    "instrumentation": "1*.1*.1.1 / 1.1.1.1* / 1.2.0.1 / 2.2.2.2.2",
+    "remarques": "fl+picc, ob+ca, 1tub.ut",
     "percussions": "GC, cymb fr, side dr., timp., xyl, TT, 3 tmplblk, tri, cymb cloutées, 2 bsq",
     "claviers": "piano (orch.)",
     "detail": "Paroles et livret : Jeanne Perruchon d'après Grimm",
     "duree": "≈ 18 min"
    }
+  ],
+  "solistes": [
+   "Marion FONTANA, récitante",
+   "Choeurs des Ecoles de Musique (CPMDT - IJD - CMG - DIP), chœur d'enfants"
   ]
  },
  "Liste 38": {
