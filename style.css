@@ -35,6 +35,17 @@ header {
   padding: 8px 12px 6px;
 }
 
+/* Bandeau d'avertissement quand les données ne sont plus actualisées
+   (cf. checkDataFreshness() dans app.js) */
+.stale-banner {
+  background: #fff3cd;
+  color: #664d03;
+  border-bottom: 1px solid #ffe69c;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 0.95em;
+}
+
 .header-row {
   display: flex;
   align-items: center;

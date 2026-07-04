@@ -11,6 +11,8 @@ on:
 
 permissions:
   contents: write
+  # Pour signaler un échec du cron dans une issue (voir dernière étape)
+  issues: write
 
 concurrency:
   group: gh-pages
@@ -67,3 +69,30 @@ jobs:
           keep_files: true
           exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
           commit_message: "deploy: memo update @ ${{ github.sha }}"
+
+      # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
+      # échoue (mini-site Dièse modifié, parsing cassé…), on ouvre une issue —
+      # donc une notification. Les échecs suivants commentent la même issue
+      # tant qu'elle est ouverte ; la refermer une fois le problème réglé.
+      - name: Signaler l'échec dans une issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: "⚠️ La mise à jour automatique du mémo de production échoue"
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          num=$(gh issue list -R "${{ github.repository }}" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" -R "${{ github.repository }}" \
+              --body "Nouvel échec du cron : $RUN_URL"
+          else
+            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
+              "Le robot qui actualise le mémo de production (une fois par nuit depuis le mini-site Dièse) vient d'échouer : $RUN_URL
+
+          Le site continue de fonctionner : seules les infos de production (chef, solistes, œuvres, instrumentation) cessent d'être actualisées.
+
+          Causes possibles : changement du mini-site Dièse (URL, format du PDF), garde-fou du parseur déclenché (moins de 20 fiches), incident GitHub. Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
+
+          cc @isc"
+          fi
