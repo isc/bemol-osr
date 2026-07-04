@@ -16,7 +16,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=2026-07-04a" />
+    <link rel="stylesheet" href="style.css?v=dev" />
   </head>
   <body>
     <header>
@@ -75,7 +75,9 @@
 
     <!-- Le suffixe ?v=… force les navigateurs à recharger les fichiers après
          une mise à jour (sinon la version en cache masque les nouveautés).
-         À incrémenter lors d'un changement visible d'interface. -->
-    <script src="app.js?v=2026-07-04a"></script>
+         « dev » est un simple placeholder : les workflows de publication le
+         remplacent automatiquement par le SHA du commit — ne jamais le
+         modifier à la main. -->
+    <script src="app.js?v=dev"></script>
   </body>
 </html>
