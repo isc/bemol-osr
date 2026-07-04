@@ -1,0 +1,86 @@
+name: Claude — réparer la CI
+
+# Quand la CI échoue sur une PR, les utilisateurs (musiciens, pas développeurs)
+# ne sauraient pas quoi faire d'un check rouge. Claude est donc déclenché
+# automatiquement : il reproduit l'échec, corrige (souvent un simple coup de
+# Prettier), pousse le correctif sur la branche de la PR et explique en
+# commentaire. Le push passe par l'app GitHub Claude, donc il redéclenche la
+# CI (contrairement à un push fait avec le GITHUB_TOKEN, qui ne redéclencherait
+# rien et laisserait la PR bloquée sur un check « attendu »).
+#
+# Garde anti-boucle : si le dernier commit de la branche est déjà un correctif
+# de CI (préfixe « ci-fix: ») et que la CI est retombée en échec, Claude ne
+# repousse pas — il explique le problème en commentaire et mentionne @isc.
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  # Requis par claude-code-action pour l'échange OIDC avec l'app GitHub Claude
+  id-token: write
+  actions: read
+
+concurrency:
+  group: claude-ci-fix-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    # Uniquement les échecs, et uniquement pour les branches du dépôt lui-même
+    # (pas de fork). On ignore aussi main : un échec sur main est couvert par
+    # les issues d'alerte et un push direct est l'affaire de l'admin.
+    if: |
+      github.event.workflow_run.conclusion == 'failure'
+      && github.event.workflow_run.head_repository.full_name == github.repository
+      && github.event.workflow_run.head_branch != 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --model claude-opus-4-8
+            --max-turns 100
+            --allowedTools "Bash"
+          prompt: |
+            La CI du dépôt ${{ github.repository }} vient d'échouer sur la
+            branche `${{ github.event.workflow_run.head_branch }}` :
+            ${{ github.event.workflow_run.html_url }}
+
+            Le dépôt de travail est déjà positionné sur cette branche. Ta
+            mission : remettre la CI au vert pour que la PR associée puisse
+            être mergée (retrouve-la avec
+            `gh pr list --head "${{ github.event.workflow_run.head_branch }}"`).
+
+            1. GARDE ANTI-BOUCLE : si `git log -1` montre que le dernier commit
+               est déjà un correctif de CI (message commençant par « ci-fix: »),
+               n'essaie PAS de pousser un nouveau correctif. Poste un
+               commentaire sur la PR expliquant simplement ce qui bloque, en
+               mentionnant @isc pour qu'un humain tranche. Termine là.
+            2. Sinon, reproduis l'échec en local — la CI fait exactement :
+               `node --check` sur app.js, sw.js et scripts/*.mjs ;
+               `npx --yes prettier@3 --check "*.html" "*.css" "*.js" "scripts/*.mjs"` ;
+               puis `npm init -y && npm install --no-save playwright &&
+               node scripts/smoke-test.mjs`.
+               (Consulte aussi les logs du run avec `gh run view` si besoin.)
+            3. Corrige la cause (un simple `prettier --write` suffit souvent ;
+               ne committe JAMAIS package.json/package-lock.json ni
+               node_modules), vérifie que tout repasse au vert en local,
+               committe avec un message commençant par « ci-fix: » et pousse
+               sur la branche.
+            4. Poste un commentaire bref en français sur la PR : ce qui était
+               cassé, ce que tu as corrigé. Les utilisateurs sont des musiciens
+               de l'orchestre, pas des développeurs — pas de jargon.

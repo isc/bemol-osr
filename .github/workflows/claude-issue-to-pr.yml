@@ -73,7 +73,13 @@ jobs:
             2. Crée une nouvelle branche et ouvre une pull request vers `main`
                avec ton implémentation. Donne à la PR un titre clair et une
                description qui résume le changement et fait référence à l'issue
-               (« Closes #${{ github.event.issue.number }} »).
+               (« Closes #${{ github.event.issue.number }} » — ainsi l'issue se
+               ferme automatiquement au merge : ne jamais l'omettre).
+               Cas particuliers : si la demande est une simple question,
+               réponds en commentaire sans ouvrir de PR ; si après analyse il
+               n'y a rien à changer (malentendu, comportement voulu), explique
+               pourquoi en commentaire et FERME l'issue
+               (`gh issue close ${{ github.event.issue.number }}`).
             3. Poste un commentaire en français sur l'issue
                #${{ github.event.issue.number }} avec le lien vers la PR créée,
                en invitant l'auteur à :
