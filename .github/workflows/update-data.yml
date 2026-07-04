@@ -1,12 +1,14 @@
 name: Mise à jour des données ICS
 
 # Toutes les 2 heures : télécharge l'export ICS (URL secrète, elle contient un
-# jeton d'accès), régénère data/planning.json + data/changes.json, committe si
-# quelque chose a changé, puis republie le site.
+# jeton d'accès), régénère data/planning.json + data/changes.json et publie le
+# résultat DIRECTEMENT sur gh-pages (dossier data/), sans jamais pousser sur
+# main. Ainsi main ne contient que du code (protégeable par la CI requise) et
+# les données vivantes n'existent que sur gh-pages ; main garde un simple
+# instantané de data/ pour le dev local et le smoke test.
 #
-# Le push est fait avec le GITHUB_TOKEN, qui ne déclenche PAS les autres
-# workflows (protection anti-récursion de GitHub) : on publie donc gh-pages
-# directement ici plutôt que de compter sur deploy.yml.
+# L'état précédent des données est récupéré depuis gh-pages avant de lancer le
+# script, pour que le journal des différences (changes.json) reste continu.
 
 on:
   schedule:
@@ -19,7 +21,8 @@ permissions:
   issues: write
 
 concurrency:
-  # Même groupe que deploy.yml / preview.yml : sérialise les écritures gh-pages.
+  # Même groupe que deploy.yml / preview.yml / update-memo.yml : sérialise
+  # toutes les écritures sur gh-pages (et évite les races entre crons).
   group: gh-pages
   cancel-in-progress: false
 
@@ -36,43 +39,38 @@ jobs:
         with:
           node-version: 22
 
+      # Les données de référence (pour le diff) sont celles actuellement
+      # servies, pas l'instantané de main.
+      - name: Récupérer les données actuelles depuis gh-pages
+        run: |
+          git fetch -q origin gh-pages
+          git checkout -q FETCH_HEAD -- data/ || echo "gh-pages sans data/ (premier run ?)"
+
       - name: Récupérer et convertir l'ICS
         env:
           ICS_URL: ${{ secrets.ICS_URL }}
         run: node scripts/update-data.mjs
 
-      - name: Committer les données si elles ont changé
-        id: commit
+      - name: Détecter un changement
+        id: diff
         run: |
-          git add data/
-          if git diff --cached --quiet; then
+          if git diff --quiet -- data/; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Aucun changement de planning."
           else
-            git config user.name 'github-actions[bot]'
-            git config user.email 'github-actions[bot]@users.noreply.github.com'
-            git commit -m "data: mise à jour du planning ICS"
-            git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Cache-busting automatique : même mécanisme que deploy.yml, pour que la
-      # copie d'index.html republiée ici garde un ?v= résolu (pas le
-      # placeholder « dev »).
-      - name: Cache-busting (?v= → SHA du commit)
-        if: steps.commit.outputs.changed == 'true'
-        run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
-
-      - name: Republier le site (gh-pages)
-        if: steps.commit.outputs.changed == 'true'
+      - name: Publier les données (gh-pages/data)
+        if: steps.diff.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./data
+          destination_dir: data
           publish_branch: gh-pages
           keep_files: true
-          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts"
-          commit_message: "deploy: data update @ ${{ github.sha }}"
+          commit_message: "data: mise à jour du planning ICS"
 
       # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
       # échoue (jeton ICS invalide, changement côté Dièse, incident GitHub…),

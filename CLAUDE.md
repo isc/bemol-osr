@@ -29,14 +29,19 @@ production (GitHub Pages) comme dans les previews de PR.
   ICS (URL dans le secret Actions `ICS_URL` — **jamais en clair dans le code**,
   elle contient un jeton d'accès), le convertit en `data/planning.json` et
   journalise les différences dans `data/changes.json`.
-- Le workflow `.github/workflows/update-data.yml` l'exécute toutes les 2 h,
-  committe si quelque chose a changé et republie le site.
+- Le workflow `.github/workflows/update-data.yml` l'exécute toutes les 2 h et
+  publie le résultat **directement sur la branche `gh-pages`** (jamais de push
+  sur `main`). Les données vivantes n'existent que sur `gh-pages` ; les copies
+  de `data/` et `productions.json` présentes sur `main` ne sont que des
+  **instantanés** pour le dev local et le smoke test (les workflows de deploy
+  et de preview servent toujours les données de `gh-pages`).
 - `scripts/update-memo.mjs` (Node ≥ 20 + `pdftotext`) régénère de la même façon
   `productions.json` (chef, solistes, œuvres, instrumentation par programme) à
   partir du « Mémo de Production » du mini-site Dièse — génération PDF côté
   serveur puis parsing. Workflow `update-memo.yml`, une fois par nuit.
 - **Ne jamais éditer `data/` ni `productions.json` à la main** : ils sont
-  générés. Pour tester en local : `node scripts/update-data.mjs export.ics` /
+  générés (et de toute façon jamais servis depuis `main`, cf. ci-dessus). Pour
+  tester en local : `node scripts/update-data.mjs export.ics` /
   `node scripts/update-memo.mjs [memo.txt]`.
 - Format d'un événement dans `planning.json` :
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`

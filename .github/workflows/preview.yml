@@ -31,6 +31,14 @@ jobs:
           slug=$(echo "$raw" | tr -c 'a-zA-Z0-9-' '-' | tr -s '-' | sed 's/^-\|-$//g')
           echo "slug=$slug" >> "$GITHUB_OUTPUT"
 
+      # Les données vivantes sont sur gh-pages (publiées par les crons), pas
+      # sur les branches de code : on les récupère pour que la preview montre
+      # le vrai planning à jour (l'instantané de la branche sert de secours).
+      - name: Récupérer les données actuelles depuis gh-pages
+        run: |
+          git fetch -q origin gh-pages
+          git checkout -q FETCH_HEAD -- data/ productions.json || echo "gh-pages incomplet, instantané de la branche conservé"
+
       # Marqueur interrogeable depuis GitHub Pages une fois la build réellement
       # servie, pour ne pas commenter la PR avant la propagation.
       - name: Write deployment marker
