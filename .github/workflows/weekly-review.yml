@@ -1,0 +1,90 @@
+name: Revue hebdomadaire du système
+
+# Une fois par semaine, Claude (Opus) prend du recul : il relit l'activité de
+# la semaine (issues, PRs, runs de workflows), cherche les frictions dans les
+# process et propose des améliorations concrètes dans une issue de synthèse.
+# Chaque proposition doit être actionnable d'un simple « @claude … » (le
+# workflow claude.yml prend alors le relais). Pour les ajustements purement
+# documentaires (CLAUDE.md, prompts des workflows), il peut ouvrir directement
+# une petite PR.
+#
+# Lundi 05:00 UTC ≈ 07:00 à Genève : la synthèse attend au réveil.
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  # Requis par claude-code-action pour l'échange OIDC avec l'app GitHub Claude
+  id-token: write
+  actions: read
+
+concurrency:
+  group: weekly-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Opus : c'est la tâche la plus ouverte du dépôt (prise de recul,
+          # diagnostic de process), celle où le modèle le plus fort se justifie.
+          claude_args: |
+            --model claude-opus-4-8
+            --max-turns 100
+            --allowedTools "Bash"
+          prompt: |
+            Tu es l'auditeur hebdomadaire du dépôt ${{ github.repository }} :
+            « Bémol », web app du planning de l'Orchestre de la Suisse Romande
+            (voir CLAUDE.md et README.md), maintenue par Ivan (@isc, développeur)
+            et son frère (@schneiderflute-create, musicien de l'orchestre, pas
+            développeur — il pilote tout via les issues et « @claude »).
+
+            Ta mission : prendre du recul sur la SEMAINE ÉCOULÉE et huiler les
+            process. Pas de refonte gratuite — ce système fonctionne bien, tu
+            cherches les frictions réelles, pas du travail pour t'occuper.
+
+            1. Collecte (via `gh`) :
+               - issues et PRs créées/mises à jour ces 8 derniers jours
+                 (lis les fils : c'est là qu'on voit les allers-retours inutiles,
+                 les malentendus, les demandes qui ont pris trop d'itérations) ;
+               - runs de workflows de la semaine : échecs, réparations de CI
+                 (`ci-fix:`), durées anormales, crons de données ;
+               - la ou les issues « Revue hebdomadaire » précédentes : points
+                 restés sans suite ;
+               - CLAUDE.md et .github/workflows/ : affirmations devenues
+                 fausses par rapport au code, consignes manquantes qui auraient
+                 évité une friction observée cette semaine.
+
+            2. Analyse : identifie au plus 3 à 5 améliorations à PROPOSER,
+               priorisées par douleur réelle observée (cite l'issue/PR/run qui
+               le prouve). Exemples de bonnes cibles : une étape manuelle
+               répétée, un pattern d'erreur récurrent de Claude dans les PRs,
+               une consigne CLAUDE.md qui aurait évité un aller-retour, un
+               workflow qui échoue en silence. Si la semaine n'a montré AUCUNE
+               friction notable, n'ouvre pas d'issue : termine en écrivant
+               simplement « RAS » dans le log.
+
+            3. Livrables :
+               - Une issue « 🔍 Revue hebdomadaire — semaine du <date> » en
+                 français, courte et pédagogue : 2-3 lignes d'état de santé
+                 (crons, CI, activité), puis les propositions. Chaque
+                 proposition doit être formulée pour être actionnable d'un
+                 simple commentaire « @claude vas-y pour le point N » —
+                 sois précis sur le quoi et le comment.
+               - Pour les ajustements purement documentaires et sans risque
+                 (CLAUDE.md, prompts des workflows Claude — PAS la logique des
+                 workflows de données ni de déploiement), tu peux directement
+                 ouvrir une PR (une seule, petite, bien justifiée) et la
+                 référencer dans l'issue.
+
+            Écris pour Ivan ET son frère : clair, concret, sans jargon inutile.
