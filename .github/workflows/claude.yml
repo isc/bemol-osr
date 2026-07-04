@@ -49,7 +49,7 @@ jobs:
           # Tout Bash autorisé (runner jetable et isolé) pour que Claude puisse
           # pousser les ajustements sur la branche de la PR et répondre.
           claude_args: |
-            --model claude-opus-4-8
+            --model claude-sonnet-5
             --max-turns 100
             --allowedTools "Bash"
 
@@ -83,7 +83,7 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: |
-            --model claude-opus-4-8
+            --model claude-sonnet-5
             --max-turns 100
             --allowedTools "Bash"
           prompt: |
