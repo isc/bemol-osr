@@ -2,9 +2,15 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Bémol · Planning OSR</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎼</text></svg>" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎼</text></svg>"
+    />
 
     <!-- Application installable (« Ajouter à l'écran d'accueil ») : manifeste,
          couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
@@ -16,7 +22,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=5c26fbd379f0" />
+    <link rel="stylesheet" href="style.css?v=cee672f5567a" />
   </head>
   <body>
     <header>
@@ -30,7 +36,9 @@
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
           </nav>
-          <button id="today-btn" title="Aller à aujourd'hui">Aujourd'hui</button>
+          <button id="today-btn" title="Aller à aujourd'hui">
+            Aujourd'hui
+          </button>
           <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
           <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
           <button id="install-btn" title="Installer l'application" hidden>
@@ -47,7 +55,10 @@
 
     <footer>
       <span id="update-info"></span>
-      <span>Source : export ICS Dièse · <a href="https://github.com/isc/bemol-osr">GitHub</a></span>
+      <span
+        >Source : export ICS Dièse ·
+        <a href="https://github.com/isc/bemol-osr">GitHub</a></span
+      >
     </footer>
 
     <dialog id="detail-dialog">
@@ -73,11 +84,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=5c26fbd379f0
+    <!-- Le suffixe ?v=cee672f5567a
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=5c26fbd379f0"></script>
+    <script src="app.js?v=cee672f5567a"></script>
   </body>
 </html>
