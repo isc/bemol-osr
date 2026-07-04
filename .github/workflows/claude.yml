@@ -1,8 +1,15 @@
 name: Claude
 
-# Boucle de feedback : un commentaire contenant « @claude » sur une PR (ou une
-# issue) déclenche Claude, qui applique les ajustements demandés et repush sur la
-# branche de la PR (ce qui rafraîchit la preview via preview.yml).
+# Boucle de feedback : un commentaire contenant « @claude » déclenche Claude.
+#
+# Deux cas distincts :
+#   - commentaire sur une PR → « tag mode » : Claude applique les ajustements
+#     demandés et repushe sur la branche de la PR (ce qui rafraîchit la preview
+#     via preview.yml) ;
+#   - commentaire sur une issue → mode agent : Claude implémente la demande et
+#     OUVRE LUI-MÊME une pull request (comme claude-issue-to-pr.yml). Avant, le
+#     tag mode ne postait qu'un lien « créer la PR » pré-rempli, au body tronqué
+#     par la limite d'URL — les PRs de suivi étaient appauvries.
 #
 # L'action n'agit que pour les utilisateurs ayant un accès en écriture au dépôt
 # — d'où l'importance d'inviter les contributeurs comme collaborateurs.
@@ -22,17 +29,14 @@ permissions:
   actions: read
 
 jobs:
-  claude:
-    # Commentaire d'un humain, contenant « @claude », et émis par le
-    # propriétaire ou un collaborateur (accès write) — même barrière que le
-    # workflow issue→PR, basée sur le statut collaborateur natif de GitHub.
+  # Commentaire « @claude » sur une PR (fil général ou review de code) :
+  # ajustements poussés directement sur la branche de la PR.
+  pr-feedback:
     if: |
       github.event.comment.user.type != 'Bot'
       && contains(fromJSON('["OWNER","COLLABORATOR","MEMBER"]'), github.event.comment.author_association)
-      && (
-        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
-      )
+      && contains(github.event.comment.body, '@claude')
+      && (github.event_name == 'pull_request_review_comment' || github.event.issue.pull_request)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,3 +52,67 @@ jobs:
             --model claude-opus-4-8
             --max-turns 100
             --allowedTools "Bash"
+
+  # Commentaire « @claude » sur une ISSUE : Claude lit tout le fil, implémente
+  # la demande et ouvre une PR complète (ou répond simplement si c'est une
+  # question). Même groupe de concurrence que claude-issue-to-pr.yml pour ne
+  # jamais travailler deux fois en parallèle sur la même issue.
+  issue-followup:
+    if: |
+      github.event.comment.user.type != 'Bot'
+      && contains(fromJSON('["OWNER","COLLABORATOR","MEMBER"]'), github.event.comment.author_association)
+      && contains(github.event.comment.body, '@claude')
+      && github.event_name == 'issue_comment'
+      && !github.event.issue.pull_request
+    runs-on: ubuntu-latest
+    concurrency:
+      group: claude-issue-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      # Visibilité immédiate : on poste nous-mêmes le commentaire de démarrage.
+      - name: Commenter le démarrage sur l'issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} -R ${{ github.repository }} --body \
+            "🤖 **Claude a repris cette issue** suite au dernier commentaire (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --model claude-opus-4-8
+            --max-turns 100
+            --allowedTools "Bash"
+          prompt: |
+            Tu es déclenché par un nouveau commentaire de
+            @${{ github.event.comment.user.login }} sur l'issue
+            #${{ github.event.issue.number }} du dépôt ${{ github.repository }}
+            (titre : "${{ github.event.issue.title }}").
+
+            Ce dépôt contient « Bémol », la web app de visualisation du planning
+            de l'Orchestre de la Suisse Romande (voir CLAUDE.md et README.md).
+
+            1. Lis TOUT le fil de l'issue pour avoir le contexte complet :
+               `gh issue view ${{ github.event.issue.number }} --comments`.
+               La demande à traiter est celle du DERNIER commentaire mentionnant
+               @claude (les demandes précédentes ont normalement déjà été
+               traitées — vérifie l'état du code plutôt que de refaire).
+            2. Selon la nature de la demande :
+               - Évolution ou correction → implémente en respectant
+                 SCRUPULEUSEMENT les conventions de CLAUDE.md, crée une branche,
+                 ouvre une PR vers `main` avec un titre clair et une description
+                 complète contenant « Closes #${{ github.event.issue.number }} »,
+                 puis poste sur l'issue un commentaire en français avec le lien
+                 de la PR, en invitant à tester la preview et à répondre
+                 « @claude … » sur la PR pour les ajustements.
+               - Simple question → réponds en commentaire, clairement et sans
+                 jargon.
+               - Rien à changer (malentendu, comportement voulu, déjà réglé) →
+                 explique-le en commentaire et FERME l'issue
+                 (`gh issue close ${{ github.event.issue.number }}`).
+
+            Les utilisateurs sont des musiciens de l'orchestre, pas des
+            développeurs : reste clair, simple et pédagogue dans tes réponses.
