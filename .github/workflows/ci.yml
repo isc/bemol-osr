@@ -1,0 +1,50 @@
+name: CI
+
+# Garde-fou avant merge : le site n'a ni build ni compilation, donc un app.js
+# cassé mergé sur main casse l'app pour tous les musiciens. Ce workflow
+# vérifie en ~1 minute la syntaxe, le formatage et surtout que l'app se charge
+# réellement dans un navigateur (smoke test), sur chaque PR et sur main.
+#
+# Le job « Tests » est un check REQUIS sur main (ruleset) : le bouton de merge
+# d'une PR reste bloqué tant qu'il n'est pas vert.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Syntaxe JavaScript
+        run: |
+          node --check app.js
+          node --check sw.js
+          for f in scripts/*.mjs; do node --check "$f"; done
+
+      - name: Formatage (Prettier)
+        run: npx --yes prettier@3 --check "*.html" "*.css" "*.js" "scripts/*.mjs"
+
+      - name: Smoke test navigateur
+        run: |
+          # playwright pilote le Chrome préinstallé sur le runner (channel
+          # "chrome") : pas de téléchargement de navigateur. Le package.json
+          # créé ici est jetable, le dépôt reste sans dépendance.
+          npm init -y > /dev/null
+          npm install --no-save --no-audit --no-fund playwright > /dev/null
+          node scripts/smoke-test.mjs
