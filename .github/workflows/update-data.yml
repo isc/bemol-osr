@@ -54,6 +54,13 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      # Cache-busting automatique : même mécanisme que deploy.yml, pour que la
+      # copie d'index.html republiée ici garde un ?v= résolu (pas le
+      # placeholder « dev »).
+      - name: Cache-busting (?v= → SHA du commit)
+        if: steps.commit.outputs.changed == 'true'
+        run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
+
       - name: Republier le site (gh-pages)
         if: steps.commit.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4

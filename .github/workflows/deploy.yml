@@ -23,6 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Cache-busting automatique : le placeholder ?v=dev d'index.html devient
+      # le SHA du commit publié → les navigateurs rechargent app.js/style.css
+      # après chaque mise à jour, sans bump manuel.
+      - name: Cache-busting (?v= → SHA du commit)
+        run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
+
       # Site statique « nobuild » : on publie le dépôt tel quel à la RACINE de
       # la branche gh-pages. `keep_files: true` préserve le dossier `previews/`
       # écrit par le workflow de preview. `exclude_assets` retire le superflu.
