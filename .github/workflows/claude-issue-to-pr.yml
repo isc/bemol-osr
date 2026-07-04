@@ -51,7 +51,7 @@ jobs:
           # et isolé) pour que Claude puisse pousser sa branche, créer la PR,
           # commenter l'issue et tester librement.
           claude_args: |
-            --model claude-opus-4-8
+            --model claude-sonnet-5
             --max-turns 100
             --allowedTools "Bash"
           prompt: |
