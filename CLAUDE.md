@@ -11,9 +11,15 @@ production (GitHub Pages) comme dans les previews de PR.
 
 ## Architecture
 
-- **Site statique, sans étape de build.** Trois fichiers : `index.html`,
-  `style.css`, `app.js`. Pas de framework, pas de bundler, pas de CDN, pas de
-  dépendance externe.
+- **Site statique, sans étape de build.** Le cœur tient en trois fichiers :
+  `index.html`, `style.css`, `app.js`. S'y ajoutent, depuis la PWA (#31), le
+  service worker `sw.js`, le `manifest.webmanifest` et le dossier `icons/`.
+  Pas de framework, pas de bundler, pas de CDN, pas de dépendance externe.
+- **PWA (installable + hors-ligne).** `sw.js` sert la page en *réseau d'abord*
+  (une nouvelle version d'`index.html` est prise dès qu'on est en ligne) et met
+  en cache les ressources versionnées par `?v=`. Si tu ajoutes un fichier
+  chargé au premier lancement hors-ligne, pense à l'ajouter à la liste
+  `PRECACHE` de `sw.js`.
 - **Chemins relatifs uniquement.** Jamais de chemin commençant par `/`.
   C'est critique : le site est servi sous un sous-dossier (`/bemol-osr/`, et
   `/bemol-osr/previews/<branche>/` pour les previews de PR).
