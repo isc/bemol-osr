@@ -136,7 +136,16 @@ function addDays(d, n) {
 }
 
 function fmtDay(d, withYear = false) {
-  return `${DAY_NAMES[d.getDay()]} ${d.getDate()} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+  const date = d.getDate() === 1 ? "1er" : d.getDate()
+  return `${DAY_NAMES[d.getDay()]} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+}
+
+// Formatte une plage de dates ("Du ... au ..."), en n'affichant l'année
+// qu'une seule fois (sur la borne de fin) quand les deux bornes tombent la
+// même année civile.
+function fmtDateRange(start, end) {
+  const sameYear = start.getFullYear() === end.getFullYear()
+  return `Du ${fmtDay(start, !sameYear)} au ${fmtDay(end, true)}`
 }
 
 function fmtTime(s) {
@@ -754,13 +763,7 @@ function showVacance(region, nom) {
   showHolidayDialog(
     "Vacances scolaires",
     el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
-    v
-      ? el(
-          "p",
-          {},
-          `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`,
-        )
-      : null,
+    v ? el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))) : null,
   )
 }
 
