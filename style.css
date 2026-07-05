@@ -1085,8 +1085,11 @@ footer a {
 /* --- Installation de l'application (PWA) --- */
 
 #install-btn {
-  color: var(--accent);
-  border-color: var(--accent);
+  /* Appel à l'action : or plein sur l'en-tête sombre (comme l'onglet actif).
+     Prime sur la déclinaison sombre générique des boutons d'en-tête. */
+  background: var(--gold);
+  color: var(--header-bg);
+  border-color: var(--gold);
   font-weight: 600;
   white-space: nowrap;
 }
