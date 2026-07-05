@@ -166,6 +166,9 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   cursor: pointer;
   user-select: none;
+  /* Les pastilles ont des fonds pastel clairs : encre sombre explicite,
+     sinon elles héritent du texte ivoire de l'en-tête sombre (illisible). */
+  color: var(--ink);
 }
 
 .legend-item.off {
