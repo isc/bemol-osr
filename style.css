@@ -665,6 +665,19 @@ dialog h2 {
   white-space: pre-wrap;
 }
 
+/* Historique des modifications d'un événement (issue #58), discret en bas de fiche */
+#detail-content .detail-history {
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e5ea;
+  color: #889;
+  font-size: 0.8em;
+}
+
+#detail-content .detail-history p {
+  margin: 2px 0;
+}
+
 .close-btn {
   margin-top: 10px;
 }
