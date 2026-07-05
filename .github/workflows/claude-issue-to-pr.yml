@@ -71,10 +71,16 @@ jobs:
                mobile-friendly, ne jamais éditer les fichiers de data/ à la
                main).
             2. Crée une nouvelle branche et ouvre une pull request vers `main`
-               avec ton implémentation. Donne à la PR un titre clair et une
-               description qui résume le changement et fait référence à l'issue
-               (« Closes #${{ github.event.issue.number }} » — ainsi l'issue se
-               ferme automatiquement au merge : ne jamais l'omettre).
+               avec ton implémentation. Titre clair ; description structurée
+               selon la section « Descriptions de PR » de CLAUDE.md — elle
+               COMMENCE par le pourquoi (reprends la motivation et le contexte
+               exprimés dans l'issue : la description doit se suffire à
+               elle-même, sans avoir l'issue sous les yeux), puis le quoi,
+               puis comment vérifier ; captures d'écran si le changement est
+               visible (section « Captures d'écran dans les PRs »). Termine
+               par « Closes #${{ github.event.issue.number }} » — ainsi
+               l'issue se ferme automatiquement au merge : ne jamais
+               l'omettre.
                Cas particuliers : si la demande est une simple question,
                réponds en commentaire sans ouvrir de PR ; si après analyse il
                n'y a rien à changer (malentendu, comportement voulu), explique

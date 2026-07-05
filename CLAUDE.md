@@ -113,6 +113,22 @@ plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
 - Le DOM est construit via le helper `el()` de `app.js` — pas d'`innerHTML`
   avec des données du planning (risque d'injection).
 
+## Descriptions de PR : commencer par le pourquoi
+
+Une PR se relit **sans l'issue sous les yeux** (et c'est elle qui reste dans
+l'historique). Sa description doit donc être auto-suffisante, dans cet ordre :
+
+1. **Pourquoi** — reprendre la motivation exprimée dans l'issue, avec le
+   contexte métier et, s'il éclaire la demande, le vécu raconté par son auteur
+   (« consulter le planning en fosse dans le noir »…). Ne pas se contenter de
+   « Closes #N » : le lien ferme l'issue, il ne raconte rien.
+2. **Quoi** — ce qui change, du point de vue de l'utilisateur d'abord,
+   technique ensuite.
+3. **Comment vérifier** — preview, captures, cas à tester.
+
+« Closes #N » reste obligatoire (fermeture automatique au merge), mais en
+complément du pourquoi, pas à sa place.
+
 ## Captures d'écran dans les PRs (obligatoire pour tout changement visible)
 
 Les relecteurs sont des musiciens : une PR qui change quelque chose à l'écran
