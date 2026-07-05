@@ -648,6 +648,7 @@ function vacancesRow(region, days) {
   while (i < days.length) {
     // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
     if (isRentree[i]) {
+      const day = days[i]
       row.append(
         el(
           "td",
@@ -657,7 +658,7 @@ function vacancesRow(region, days) {
             {
               class: "vac-band rentree-band",
               title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
-              onclick: () => showRentree(region, days[i]),
+              onclick: () => showRentree(region, day),
             },
             `Rentrée ${region}`,
           ),
@@ -669,7 +670,8 @@ function vacancesRow(region, days) {
     let j = i + 1
     while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
     const span = j - i
-    if (noms[i]) {
+    const nom = noms[i]
+    if (nom) {
       row.append(
         el(
           "td",
@@ -678,10 +680,10 @@ function vacancesRow(region, days) {
             "button",
             {
               class: "vac-band",
-              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${noms[i]}`,
-              onclick: () => showVacance(region, noms[i]),
+              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${nom}`,
+              onclick: () => showVacance(region, nom),
             },
-            noms[i],
+            nom,
           ),
         ),
       )
