@@ -15,7 +15,7 @@ production (GitHub Pages) comme dans les previews de PR.
   `index.html`, `style.css`, `app.js`. S'y ajoutent, depuis la PWA (#31), le
   service worker `sw.js`, le `manifest.webmanifest` et le dossier `icons/`.
   Pas de framework, pas de bundler, pas de CDN, pas de dépendance externe.
-- **PWA (installable + hors-ligne).** `sw.js` sert la page en *réseau d'abord*
+- **PWA (installable + hors-ligne).** `sw.js` sert la page en _réseau d'abord_
   (une nouvelle version d'`index.html` est prise dès qu'on est en ligne) et met
   en cache les ressources versionnées par `?v=`. Si tu ajoutes un fichier
   chargé au premier lancement hors-ligne, pense à l'ajouter à la liste
@@ -65,12 +65,12 @@ production (GitHub Pages) comme dans les previews de PR.
   `generale`, `italienne`, `enregistrement`, `repetition`, `concours`, `autre`,
   `resa`.
 - `changes.json` : `{ entries: [{ at, added: [evt], removed: [evt], modified:
-  [{ uid, fields, before, after }] }] }`, entrée la plus récente en premier.
+[{ uid, fields, before, after }] }] }`, entrée la plus récente en premier.
   Les évolutions du **mémo de production** (généré par `update-memo.mjs`) y sont
   journalisées avec un type distinct :
   `{ at, type: "memo", programs: [{ liste, status: "modified" | "added" |
-  "removed", fields: [{ field, before, after }], worksAdded: [oeuvre],
-  worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
+"removed", fields: [{ field, before, after }], worksAdded: [oeuvre],
+worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
   scripts partagent le même plafond d'entrées (`MAX_CHANGE_ENTRIES`).
 
 ## Vocabulaire métier (important pour comprendre les demandes)
@@ -112,6 +112,39 @@ plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
   fichier `app.js`), pas de TypeScript.
 - Le DOM est construit via le helper `el()` de `app.js` — pas d'`innerHTML`
   avec des données du planning (risque d'injection).
+
+## Captures d'écran dans les PRs (obligatoire pour tout changement visible)
+
+Les relecteurs sont des musiciens : une PR qui change quelque chose à l'écran
+doit **montrer le résultat en images dans sa description** (avant/après quand
+c'est pertinent), en plus du lien de preview.
+
+1. Générer les captures : `npm install --no-save playwright` puis
+   `node scripts/screenshots.mjs <dossier> <prefixe>` (sert le dépôt local et
+   capture les vues Grille/Agenda en mobile 390px et desktop 1280px). Pour un
+   « avant », lancer le script depuis `main` avant d'appliquer les changements
+   (ou depuis un worktree de `main`).
+2. Les publier sur la branche **`pr-assets`** — une branche orpheline UNIQUE
+   et partagée, réservée aux images des descriptions de PR, jamais mergée.
+   **Ne pas créer une branche d'assets par PR**, et ne rien y supprimer (les
+   PRs mergées y font toujours référence). Un dossier par PR :
+
+   ```bash
+   git fetch origin pr-assets
+   git worktree add /tmp/pr-assets origin/pr-assets
+   mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
+   cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
+   cd /tmp/pr-assets && git add -f pr/ \
+     && git commit -m "assets: captures PR #<numéro>" \
+     && git push origin HEAD:pr-assets
+   ```
+
+   (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
+   puis compléter la description avec `gh pr edit`.)
+
+3. Les référencer dans la description avec l'URL brute :
+   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png`
+   — par exemple dans un tableau avant/après.
 
 ## Déploiement (pour info)
 
