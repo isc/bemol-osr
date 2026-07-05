@@ -1,8 +1,10 @@
-/* Bémol · Planning OSR — palette inspirée de la « Bible » de saison */
+/* Bémol · Planning OSR — palette inspirée de l'identité visuelle de l'OSR
+   (or/bronze des titres et programmes sur osr.ch, fond ivoire sobre) */
 
 :root {
-  --accent: #2c5f8a;
-  --bg: #f0f2f5;
+  --accent: #75633f;
+  --accent-soft: #e9e1cf;
+  --bg: #f5f2ea;
   --cat-concert: #f5a83a;
   --cat-generale: #fbd45c;
   --cat-italienne: #d9b3e6;
@@ -31,7 +33,7 @@ header {
   top: 0;
   z-index: 10;
   background: #fff;
-  border-bottom: 1px solid #d8dce1;
+  border-bottom: 1px solid #ddd6c5;
   padding: 8px 12px 6px;
 }
 
@@ -77,7 +79,7 @@ select,
 button {
   font: inherit;
   padding: 5px 10px;
-  border: 1px solid #c5ccd4;
+  border: 1px solid #c9c0a9;
   border-radius: 6px;
   background: #fff;
   cursor: pointer;
@@ -182,13 +184,13 @@ table.week {
 
 table.week th,
 table.week td {
-  border: 1px solid #d8dce1;
+  border: 1px solid #ddd6c5;
   vertical-align: top;
   padding: 2px;
 }
 
 table.week th {
-  background: #dce8f5;
+  background: var(--accent-soft);
   font-size: 0.78em;
   font-weight: 600;
   padding: 4px 2px;
@@ -196,7 +198,7 @@ table.week th {
 
 table.week th.week-label {
   width: 52px;
-  background: #cadcf0;
+  background: #ddd0a8;
 }
 
 table.week th.today,
@@ -370,7 +372,7 @@ table.week th.ferie {
 }
 
 tr.vac-row td {
-  border: 1px solid #d8dce1;
+  border: 1px solid #ddd6c5;
   padding: 1px;
 }
 
@@ -462,7 +464,7 @@ table.week td.repos:not(.today) {
 
 .agenda-day {
   background: #fff;
-  border: 1px solid #d8dce1;
+  border: 1px solid #ddd6c5;
   border-radius: 8px;
   margin-bottom: 10px;
   overflow: hidden;
@@ -472,8 +474,8 @@ table.week td.repos:not(.today) {
   margin: 0;
   font-size: 0.9em;
   padding: 6px 12px;
-  background: #dce8f5;
-  color: #245;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .agenda-day.today > h3 {
@@ -492,7 +494,7 @@ table.week td.repos:not(.today) {
 
 .change-entry {
   background: #fff;
-  border: 1px solid #d8dce1;
+  border: 1px solid #ddd6c5;
   border-radius: 8px;
   margin-bottom: 12px;
   padding: 10px 14px;
@@ -637,7 +639,7 @@ dialog h2 {
 #detail-content .work-detail {
   margin: 3px 0 2px;
   padding-left: 0.6em;
-  border-left: 2px solid #d8dce1;
+  border-left: 2px solid #ddd6c5;
   color: #556;
   font-size: 0.85em;
 }
@@ -714,9 +716,9 @@ dialog h2 {
   flex: 1 1 12em;
   min-width: 0;
   padding: 8px 10px;
-  border: 1px solid #c5ccd4;
+  border: 1px solid #c9c0a9;
   border-radius: 6px;
-  background: #f5f7f9;
+  background: #f6f2e6;
   font-size: 0.85em;
   color: #334;
 }
@@ -786,7 +788,7 @@ dialog h2 {
 .liste-options {
   max-height: 45vh;
   overflow-y: auto;
-  border: 1px solid #d8dce1;
+  border: 1px solid #ddd6c5;
   border-radius: 8px;
   padding: 4px 0;
 }
@@ -807,7 +809,7 @@ dialog h2 {
 
 @media (hover: hover) {
   .liste-option:hover {
-    background: #eef;
+    background: var(--accent-soft);
   }
 }
 
