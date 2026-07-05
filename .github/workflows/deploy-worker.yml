@@ -1,0 +1,43 @@
+name: Déployer le worker calendrier
+
+# Déploie le worker Cloudflare d'abonnement personnalisé (worker/) à chaque
+# changement de son code sur main. Ne fait rien tant que les secrets Cloudflare
+# ne sont pas configurés (voir la condition ci-dessous) : le reste du dépôt
+# fonctionne sans lui.
+#
+# Secrets requis (une seule fois, cf. PR d'introduction du worker) :
+#   CLOUDFLARE_API_TOKEN   jeton API « Edit Cloudflare Workers »
+#   CLOUDFLARE_ACCOUNT_ID  identifiant du compte (tableau de bord Cloudflare)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "worker/**"
+      - ".github/workflows/deploy-worker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Silencieux tant que Cloudflare n'est pas configuré.
+    if: ${{ vars.CLOUDFLARE_READY == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tester le filtre sur les données du dépôt
+        run: node worker/test.mjs
+
+      - name: Déployer sur Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker

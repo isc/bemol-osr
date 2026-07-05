@@ -151,6 +151,10 @@ function vevent(e, prod, stamp) {
   rows.push(
     `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
   )
+  // Propriétés machine-lisibles pour le filtrage à la volée par le worker
+  // d'abonnement personnalisé (worker/) : liste et clé de catégorie brutes.
+  rows.push(`X-BEMOL-LISTE:${escapeText(e.liste)}`)
+  rows.push(`X-BEMOL-CAT:${escapeText(e.category)}`)
   rows.push(`STATUS:${e.cancelled ? "CANCELLED" : "CONFIRMED"}`)
   rows.push(`TRANSP:${e.cancelled ? "TRANSPARENT" : "OPAQUE"}`)
   rows.push("END:VEVENT")

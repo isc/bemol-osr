@@ -49,6 +49,15 @@ production (GitHub Pages) comme dans les previews de PR.
   générés (et de toute façon jamais servis depuis `main`, cf. ci-dessus). Pour
   tester en local : `node scripts/update-data.mjs export.ics` /
   `node scripts/update-memo.mjs [memo.txt]`.
+- `scripts/build-ics.mjs` (appelé par `update-data.mjs`) génère
+  `data/planning.ics`, le calendrier abonnable. Chaque `VEVENT` porte des
+  propriétés `X-BEMOL-LISTE` / `X-BEMOL-CAT` : elles servent au **worker
+  Cloudflare** (`worker/`, seule exception à la règle « site 100 % statique »)
+  qui filtre le calendrier à la volée pour les abonnements personnalisés
+  (`?listes=…&sans=…&annules=0`). Test : `node worker/test.mjs` (aussi en CI).
+  L'URL du worker est la constante `PERSONAL_CALENDAR_URL` d'`app.js` (vide =
+  fonctionnalité masquée). Déploiement : `deploy-worker.yml` (inactif tant que
+  la variable Actions `CLOUDFLARE_READY` n'est pas `true`).
 - Format d'un événement dans `planning.json` :
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`
   avec `start`/`end` en heure locale « `2026-08-13T21:15` » (fuseau de Genève),
