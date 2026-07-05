@@ -1,0 +1,6 @@
+{
+  "name": "bemol-calendrier-worker",
+  "private": true,
+  "type": "module",
+  "description": "Worker Cloudflare : filtre le calendrier ICS de Bémol à la volée (abonnement personnalisé)."
+}
