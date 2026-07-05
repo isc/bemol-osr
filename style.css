@@ -441,12 +441,12 @@ table.week td.repos:not(.today) {
   cursor: pointer;
 }
 
-#detail-content .holiday-list {
+.detail-box .holiday-list {
   margin: 8px 0 0;
   padding-left: 1.2em;
 }
 
-#detail-content .holiday-list li {
+.detail-box .holiday-list li {
   margin: 3px 0;
 }
 
@@ -574,7 +574,7 @@ dialog h2 {
   color: var(--accent);
 }
 
-#detail-content .detail-cat {
+.detail-box .detail-cat {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 10px;
@@ -583,58 +583,58 @@ dialog h2 {
 }
 
 /* Point rouge sur le titre quand le mémo du programme a changé récemment */
-#detail-content h2 .recent-dot {
+.detail-box h2 .recent-dot {
   color: #d33;
   margin-left: 6px;
   font-size: 0.7em;
   vertical-align: middle;
 }
 
-#detail-content dl {
+.detail-box dl {
   margin: 8px 0;
   display: grid;
   grid-template-columns: 90px 1fr;
   gap: 4px 10px;
 }
 
-#detail-content dt {
+.detail-box dt {
   color: #778;
   font-size: 0.85em;
 }
 
-#detail-content dd {
+.detail-box dd {
   margin: 0;
 }
 
-#detail-content .detail-section {
+.detail-box .detail-section {
   margin: 14px 0 4px;
   font-size: 0.95em;
   color: var(--accent);
 }
 
-#detail-content .works,
-#detail-content .solistes {
+.detail-box .works,
+.detail-box .solistes {
   margin: 0;
   padding-left: 1.2em;
 }
 
-#detail-content .works li,
-#detail-content .solistes li {
+.detail-box .works li,
+.detail-box .solistes li {
   margin: 2px 0;
 }
 
-#detail-content .works li {
+.detail-box .works li {
   margin: 6px 0;
 }
 
-#detail-content .work-dur {
+.detail-box .work-dur {
   color: #778;
   font-size: 0.85em;
   white-space: nowrap;
 }
 
 /* Détail d'instrumentation d'une œuvre (repris tel quel du mémo) */
-#detail-content .work-detail {
+.detail-box .work-detail {
   margin: 3px 0 2px;
   padding-left: 0.6em;
   border-left: 2px solid #d8dce1;
@@ -642,27 +642,57 @@ dialog h2 {
   font-size: 0.85em;
 }
 
-#detail-content .wd-row {
+.detail-box .wd-row {
   display: flex;
   gap: 6px;
   margin: 1px 0;
 }
 
-#detail-content .wd-label {
+.detail-box .wd-label {
   flex: 0 0 auto;
   min-width: 6.5em;
   color: #889;
 }
 
-#detail-content .wd-val {
+.detail-box .wd-val {
   white-space: pre-wrap;
 }
 
-#detail-content .chef,
-#detail-content .effectif,
-#detail-content .duree {
+.detail-box .chef,
+.detail-box .effectif,
+.detail-box .duree {
   margin: 0;
   white-space: pre-wrap;
+}
+
+/* Nom de la Liste cliquable dans une fiche d'événement, ouvrant la vue par
+   Liste (programme complet de la production) */
+.liste-link {
+  border: none;
+  background: none;
+  padding: 4px 2px;
+  margin: -4px -2px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+/* --- Dialogue « Liste » (programme complet d'une production) --- */
+
+.liste-events {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.liste-events .evt {
+  font-size: 0.85em;
+  padding: 7px 9px;
+  margin: 0;
+  border-radius: 6px;
 }
 
 .close-btn {
