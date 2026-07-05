@@ -16,6 +16,28 @@
          couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#2c5f8a" />
+    <!-- Applique le mode sombre avant le premier rendu (évite un flash blanc)
+         si l'utilisateur l'a choisi, ou si "auto" (par défaut) et que le
+         système est en sombre. Logique complète (bascule, écoute des
+         changements système) dans app.js. -->
+    <script>
+      ;(function () {
+        try {
+          var prefs = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
+          var theme = prefs.theme || "auto"
+          var dark =
+            theme === "dark" ||
+            (theme !== "light" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          if (dark) {
+            document.documentElement.dataset.theme = "dark"
+            document
+              .querySelector('meta[name="theme-color"]')
+              .setAttribute("content", "#1e2328")
+          }
+        } catch (e) {}
+      })()
+    </script>
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />

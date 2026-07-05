@@ -89,6 +89,8 @@ function loadPrefs() {
     // globalement (absent de hiddenCategories), listes masquées à l'intérieur
     // de ce seul type. { [catégorie]: ["Liste 04", …] }
     hiddenCatListes: {},
+    // "auto" (suit prefers-color-scheme), "light" ou "dark"
+    theme: "auto",
   }
   try {
     const stored = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
@@ -105,6 +107,31 @@ function loadPrefs() {
 function savePrefs() {
   localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
 }
+
+// --- Mode sombre -------------------------------------------------------------
+// "auto" suit la préférence système ; sinon la préférence utilisateur force le
+// thème. Les couleurs réelles sont définies en CSS (variables, cf. style.css) ;
+// ici on ne fait que poser l'attribut data-theme et assortir la couleur de la
+// barre d'état PWA (meta theme-color), qui elle ne peut pas être pilotée en CSS.
+const prefersDarkMedia = window.matchMedia("(prefers-color-scheme: dark)")
+
+function isDarkTheme() {
+  if (state.prefs.theme === "dark") return true
+  if (state.prefs.theme === "light") return false
+  return prefersDarkMedia.matches
+}
+
+function applyTheme() {
+  const dark = isDarkTheme()
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+  const meta = document.querySelector('meta[name="theme-color"]')
+  if (meta) meta.setAttribute("content", dark ? "#1e2328" : "#2c5f8a")
+}
+
+applyTheme()
+prefersDarkMedia.addEventListener("change", () => {
+  if (state.prefs.theme === "auto") applyTheme()
+})
 
 // --- Utilitaires dates -----------------------------------------------------
 
@@ -1427,7 +1454,32 @@ function renderPrefs() {
   for (const cat of cats) refreshCat(cat)
   updateCatNote()
 
+  const themeLabels = {
+    auto: "Automatique (suit le système)",
+    light: "Clair",
+    dark: "Sombre",
+  }
+  const themeOptions = Object.keys(themeLabels).map((val) => {
+    const input = el("input", {
+      type: "radio",
+      name: "theme",
+      onchange: () => {
+        state.prefs.theme = val
+        savePrefs()
+        applyTheme()
+      },
+    })
+    input.checked = state.prefs.theme === val
+    return el("label", { class: "liste-option" }, input, " ", themeLabels[val])
+  })
+
   box.replaceChildren(
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Thème de l'application :"),
+      el("div", { class: "liste-options" }, ...themeOptions),
+    ),
     el(
       "div",
       { class: "prefs-section" },
