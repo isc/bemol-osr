@@ -1470,9 +1470,10 @@ function renderPrefs() {
 // --- Abonnement au calendrier (ICS) ------------------------------------------
 
 // URL du worker Cloudflare qui filtre le calendrier à la volée (abonnement
-// personnalisé par listes/catégories — voir worker/). Vide tant que le worker
-// n'est pas déployé : le dialogue ne propose alors que l'abonnement complet.
-const PERSONAL_CALENDAR_URL = ""
+// personnalisé par listes/catégories — voir worker/). La vider masque la
+// fonctionnalité (le dialogue ne propose alors que l'abonnement complet).
+const PERSONAL_CALENDAR_URL =
+  "https://bemol-calendrier.ivan-schneider.workers.dev/planning.ics"
 
 // URL du calendrier ICS, calculée par rapport à la page courante : fonctionne
 // aussi bien en production que dans les previews de PR (sous-dossier). `webcal:`
