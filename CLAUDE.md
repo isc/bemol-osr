@@ -158,9 +158,20 @@ c'est pertinent), en plus du lien de preview.
    (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
    puis compléter la description avec `gh pr edit`.)
 
-3. Les référencer dans la description avec l'URL brute :
-   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png`
+3. Les référencer dans la description avec l'URL brute **suffixée `?v=1`** :
+   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`
    — par exemple dans un tableau avant/après.
+
+4. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`.
+   Le CDN de raw (et le cache d'images des navigateurs des relecteurs) peut
+   servir une version tronquée ou périmée d'une image ; le script compare ce
+   qui est servi à la vraie taille du fichier (API GitHub) et incrémente
+   lui-même le `?v=` dans la description en cas d'écart. À lancer après toute
+   édition des images d'une description.
+
+⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même nom
+sans relancer le script du point 4 (les caches continueraient de servir
+l'ancienne) — ou plus simple : nouveau nom de fichier à chaque version.
 
 ## Déploiement (pour info)
 
