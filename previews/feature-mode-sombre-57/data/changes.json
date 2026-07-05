@@ -1,0 +1,372 @@
+{
+ "entries": [
+  {
+   "at": "2026-07-03T14:34:25.134Z",
+   "added": [
+    {
+     "uid": "osr225046",
+     "start": "2026-08-11T10:00",
+     "end": "2026-08-11T12:30",
+     "liste": "Liste 01",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224799",
+     "start": "2026-08-12T09:15",
+     "end": "2026-08-12T09:45",
+     "liste": "Liste 01",
+     "activity": "rencontre chef-soliste(s)",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224800",
+     "start": "2026-08-12T10:00",
+     "end": "2026-08-12T12:30",
+     "liste": "Liste 01",
+     "activity": "répétition avec soliste",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224803",
+     "start": "2026-08-13T10:00",
+     "end": "2026-08-13T13:00",
+     "liste": "Liste 01",
+     "activity": "générale non publique (+ balance amplification)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224805",
+     "start": "2026-08-13T19:15",
+     "end": "2026-08-13T20:15",
+     "liste": "Liste 01",
+     "activity": "raccord (+balance)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224807",
+     "start": "2026-08-13T21:15",
+     "end": "2026-08-13T23:00",
+     "liste": "Liste 01",
+     "activity": "concert",
+     "category": "concert",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr225312",
+     "start": "2026-10-20T10:00",
+     "end": "2026-10-20T12:30",
+     "liste": "Liste 10",
+     "activity": "musicale choeur",
+     "category": "repetition",
+     "location": "à définir HEM",
+     "project": "ONU",
+     "cancelled": false
+    },
+    {
+     "uid": "osr225315",
+     "start": "2026-10-21T14:30",
+     "end": "2026-10-21T17:00",
+     "liste": "Liste 10",
+     "activity": "musicale choeur",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ONU",
+     "cancelled": false
+    },
+    {
+     "uid": "osr225318",
+     "start": "2026-10-22T18:00",
+     "end": "2026-10-22T20:00",
+     "liste": "Liste 10",
+     "activity": "soliste(s) seul(s)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "ONU",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr162098",
+     "start": "2026-08-11T10:00",
+     "end": "2026-08-11T12:30",
+     "liste": "Liste 01",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr214246",
+     "start": "2026-08-12T09:15",
+     "end": "2026-08-12T09:45",
+     "liste": "Liste 01",
+     "activity": "rencontre chef-soliste(s)",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr162100",
+     "start": "2026-08-12T10:00",
+     "end": "2026-08-12T12:30",
+     "liste": "Liste 01",
+     "activity": "répétition avec soliste",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr162099",
+     "start": "2026-08-13T10:00",
+     "end": "2026-08-13T13:00",
+     "liste": "Liste 01",
+     "activity": "générale non publique (+ balance amplification)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr162101",
+     "start": "2026-08-13T19:15",
+     "end": "2026-08-13T20:15",
+     "liste": "Liste 01",
+     "activity": "raccord (+balance)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr162097",
+     "start": "2026-08-13T21:15",
+     "end": "2026-08-13T23:00",
+     "liste": "Liste 01",
+     "activity": "concert",
+     "category": "concert",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP1",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr132805",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr132805",
+      "start": "2026-10-22T14:30",
+      "end": "2026-10-22T17:00",
+      "liste": "Liste 10",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "ONU",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132805",
+      "start": "2026-10-22T14:30",
+      "end": "2026-10-22T17:00",
+      "liste": "Liste 10",
+      "activity": "répétition avec choeurs",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "ONU",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132806",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr132806",
+      "start": "2026-10-23T10:00",
+      "end": "2026-10-23T12:30",
+      "liste": "Liste 10",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "ONU",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132806",
+      "start": "2026-10-23T10:00",
+      "end": "2026-10-23T12:30",
+      "liste": "Liste 10",
+      "activity": "répétition avec soliste(s) et choeurs",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "ONU",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr220676",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr220676",
+      "start": "2027-03-22T18:30",
+      "end": "2027-03-22T20:30",
+      "liste": "Liste 28b",
+      "activity": "partielle (violons 1)",
+      "category": "repetition",
+      "location": "Centre Saint Boniface, Salle Rosa Parks",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr220676",
+      "start": "2027-03-22T18:00",
+      "end": "2027-03-22T20:00",
+      "liste": "Liste 28b",
+      "activity": "partielle (violons 1)",
+      "category": "repetition",
+      "location": "Centre Saint Boniface, Salle Rosa Parks",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr220682",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr220682",
+      "start": "2027-03-22T20:45",
+      "end": "2027-03-22T22:30",
+      "liste": "Liste 28b",
+      "activity": "partielle (violons 2)",
+      "category": "repetition",
+      "location": "Centre Saint Boniface, Salle Rosa Parks",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr220682",
+      "start": "2027-03-22T20:15",
+      "end": "2027-03-22T22:00",
+      "liste": "Liste 28b",
+      "activity": "partielle (violons 2)",
+      "category": "repetition",
+      "location": "Centre Saint Boniface, Salle Rosa Parks",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
+   "at": "2026-07-02T18:05:17.176Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr218572",
+     "start": "2026-08-28T11:30",
+     "end": "2026-08-28T12:30",
+     "liste": "Liste 04b",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR2",
+     "cancelled": true
+    },
+    {
+     "uid": "osr218569",
+     "start": "2026-08-28T14:30",
+     "end": "2026-08-28T17:00",
+     "liste": "Liste 04b",
+     "activity": "répétition (+ balance)",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR2",
+     "cancelled": true
+    },
+    {
+     "uid": "osr218568",
+     "start": "2026-08-29T10:30",
+     "end": "2026-08-29T13:00",
+     "liste": "Liste 04b",
+     "activity": "session enregistrement",
+     "category": "enregistrement",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR2",
+     "cancelled": true
+    },
+    {
+     "uid": "osr218571",
+     "start": "2026-08-29T14:30",
+     "end": "2026-08-29T17:00",
+     "liste": "Liste 04b",
+     "activity": "session enregistrement",
+     "category": "enregistrement",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR2",
+     "cancelled": true
+    }
+   ],
+   "modified": []
+  },
+  {
+   "at": "2026-07-02T16:18:51.133Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr132646",
+     "start": "2026-08-15T08:00",
+     "end": "2026-08-15T23:00",
+     "liste": "Liste 04",
+     "activity": "Technique (sans orch)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132649",
+     "start": "2026-08-16T08:00",
+     "end": "2026-08-16T23:00",
+     "liste": "Liste 04",
+     "activity": "Technique (sans orch)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  }
+ ]
+}
