@@ -42,31 +42,21 @@ jobs:
       # L'état de référence (comparaison d'idempotence + journal des modifs)
       # est celui actuellement servi, pas l'instantané de main.
       - name: Récupérer les données actuelles depuis gh-pages
-        id: current
         run: |
           git fetch -q origin gh-pages
-          if git checkout -q FETCH_HEAD -- productions.json data/; then
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "gh-pages incomplet (premier run, ou publication précédente incomplète)"
-          fi
+          git checkout -q FETCH_HEAD -- productions.json data/ || echo "gh-pages incomplet (premier run ?)"
 
       - name: Régénérer productions.json
         run: node scripts/update-memo.mjs
 
-      # Si gh-pages n'avait pas encore productions.json / data/ (cf. étape
-      # précédente), on publie toujours : comparer au `git diff` par défaut
-      # reviendrait à comparer au seul instantané de main, qui peut coïncider
-      # par hasard avec le résultat frais et laisser gh-pages sans données.
       - name: Détecter un changement
         id: diff
         run: |
-          if [ "${{ steps.current.outputs.found }}" = "false" ] || ! git diff --quiet -- productions.json data/; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
+          if git diff --quiet -- productions.json data/; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Mémo inchangé."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       # On publie uniquement les fichiers générés, via un dossier de mise en

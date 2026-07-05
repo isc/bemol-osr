@@ -29,40 +29,18 @@ jobs:
       - name: Cache-busting (?v= → SHA du commit)
         run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
 
-      # Dossier de mise en scène ne contenant que ce qui doit être publié : ni
-      # les fichiers de dev (.github, scripts…), ni data/ / productions.json —
-      # ceux-ci sont publiés séparément par les crons (update-data /
-      # update-memo), l'instantané de main ne doit jamais les écraser.
-      #
-      # On n'utilise PLUS `exclude_assets` de peaceiris/actions-gh-pages pour
-      # ça : cette option supprime les chemins listés de la branche gh-pages
-      # ELLE-MÊME après publication, pas seulement de ce qui est copié — donc
-      # même avec `keep_files: true`, chaque déploiement de main effaçait le
-      # planning et le mémo déjà publiés par les crons, jusqu'au prochain
-      # passage du cron (jusqu'à 2h, voire une nuit entière, d'indisponibilité
-      # des données). C'est ce qui a cassé le chargement du planning en prod
-      # (issue #49). En préparant nous-mêmes un dossier propre, rien n'est
-      # jamais supprimé côté gh-pages.
-      - name: Préparer les fichiers à publier (sans data/ ni les fichiers de dev)
-        run: |
-          mkdir -p out
-          shopt -s dotglob
-          for f in *; do
-            case "$f" in
-              .git|.github|.gitignore|.prettierrc|README.md|scripts|data|productions.json|out)
-                continue ;;
-            esac
-            cp -r "$f" out/
-          done
-
-      # Site statique « nobuild » : on publie le dossier de mise en scène à la
-      # RACINE de la branche gh-pages. `keep_files: true` préserve `previews/`
-      # (workflow de preview) ainsi que data/ et productions.json (crons).
+      # Site statique « nobuild » : on publie le dépôt tel quel à la RACINE de
+      # la branche gh-pages. `keep_files: true` préserve le dossier `previews/`
+      # écrit par le workflow de preview. `exclude_assets` retire le superflu —
+      # dont data/ et productions.json : les données VIVANTES sont publiées sur
+      # gh-pages par les crons (update-data / update-memo), celles de main ne
+      # sont qu'un instantané pour le dev local qu'il ne faut pas servir.
       - name: Publish to gh-pages (root)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: .
           publish_branch: gh-pages
           keep_files: true
+          exclude_assets: ".github,.gitignore,.prettierrc,README.md,scripts,data,productions.json"
           commit_message: "deploy: main @ ${{ github.sha }}"
