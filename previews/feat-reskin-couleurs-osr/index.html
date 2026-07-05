@@ -22,7 +22,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=6561cf312cec" />
+    <link rel="stylesheet" href="style.css?v=e57499f40430" />
   </head>
   <body>
     <header>
@@ -41,8 +41,10 @@
           </button>
           <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
           <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
+               le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
-            📲 Installer
+            Installer l'app
           </button>
         </div>
       </div>
@@ -84,11 +86,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=6561cf312cec
+    <!-- Le suffixe ?v=e57499f40430
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=6561cf312cec"></script>
+    <script src="app.js?v=e57499f40430"></script>
   </body>
 </html>
