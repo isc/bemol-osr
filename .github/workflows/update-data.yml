@@ -42,23 +42,33 @@ jobs:
       # Les données de référence (pour le diff) sont celles actuellement
       # servies, pas l'instantané de main.
       - name: Récupérer les données actuelles depuis gh-pages
+        id: current
         run: |
           git fetch -q origin gh-pages
-          git checkout -q FETCH_HEAD -- data/ || echo "gh-pages sans data/ (premier run ?)"
+          if git checkout -q FETCH_HEAD -- data/; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "gh-pages sans data/ (premier run, ou publication précédente incomplète)"
+          fi
 
       - name: Récupérer et convertir l'ICS
         env:
           ICS_URL: ${{ secrets.ICS_URL }}
         run: node scripts/update-data.mjs
 
+      # Si gh-pages n'avait pas encore de data/ (cf. étape précédente), on
+      # publie toujours : comparer au `git diff` par défaut reviendrait à
+      # comparer au seul instantané de main, qui peut coïncider par hasard
+      # avec le résultat frais et laisser gh-pages sans données.
       - name: Détecter un changement
         id: diff
         run: |
-          if git diff --quiet -- data/; then
+          if [ "${{ steps.current.outputs.found }}" = "false" ] || ! git diff --quiet -- data/; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Aucun changement de planning."
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Publier les données (gh-pages/data)
