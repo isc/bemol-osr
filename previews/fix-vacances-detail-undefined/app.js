@@ -50,6 +50,15 @@ const FIELD_LABELS = {
 }
 
 const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+const DAY_NAMES_LONG = [
+  "dimanche",
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi",
+]
 const MONTH_NAMES = [
   "janv.",
   "févr.",
@@ -135,17 +144,20 @@ function addDays(d, n) {
   return r
 }
 
-function fmtDay(d, withYear = false) {
+function fmtDay(d, withYear = false, longDay = false) {
   const date = d.getDate() === 1 ? "1er" : d.getDate()
-  return `${DAY_NAMES[d.getDay()]} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+  const dayName = longDay ? DAY_NAMES_LONG[d.getDay()] : DAY_NAMES[d.getDay()]
+  return `${dayName} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
 }
 
 // Formatte une plage de dates ("Du ... au ..."), en n'affichant l'année
 // qu'une seule fois (sur la borne de fin) quand les deux bornes tombent la
-// même année civile.
+// même année civile. Jours en toutes lettres (« samedi », pas « Sa ») : il
+// s'agit ici de prose (détail des vacances scolaires), pas d'un en-tête de
+// grille compact.
 function fmtDateRange(start, end) {
   const sameYear = start.getFullYear() === end.getFullYear()
-  return `Du ${fmtDay(start, !sameYear)} au ${fmtDay(end, true)}`
+  return `Du ${fmtDay(start, !sameYear, true)} au ${fmtDay(end, true, true)}`
 }
 
 function fmtTime(s) {
