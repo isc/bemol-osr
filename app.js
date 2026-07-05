@@ -76,6 +76,7 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
+  searchQuery: "", // recherche courante (vue Recherche), conservée entre les rendus
 }
 
 function loadPrefs() {
@@ -160,6 +161,17 @@ function shortListe(liste) {
   const m = liste.match(/^Liste (.+)$/)
   if (!m) return liste.length > 10 ? liste.slice(0, 9) + "…" : liste
   return /^\d/.test(m[1]) ? "L" + m[1] : m[1]
+}
+
+// Normalise une chaîne pour la recherche : insensible à la casse et aux
+// accents (« dvorak » retrouve « Dvořák »).
+function normalizeSearch(s) {
+  return (s || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
 }
 
 // --- Vacances scolaires & jours fériés (repères de la vue Grille) ------------
@@ -1108,6 +1120,120 @@ function renderModifs(main) {
     )
 }
 
+// --- Vue recherche -----------------------------------------------------------
+
+// Cherche `query` dans le mémo de production (chef, solistes, œuvres) et dans
+// les événements (activité, lieu, programme) de la saison courante, et
+// regroupe les correspondances par Liste. Insensible à la casse et aux
+// accents. Ne tient pas compte des préférences d'affichage (catégories/listes
+// masquées) : la recherche doit pouvoir retrouver ce qu'on a caché ailleurs.
+function searchResults(query) {
+  const q = normalizeSearch(query)
+  if (!q) return []
+
+  const byListe = new Map() // liste → événements de la saison courante
+  for (const e of state.events) {
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!byListe.has(e.liste)) byListe.set(e.liste, [])
+    byListe.get(e.liste).push(e)
+  }
+
+  const results = []
+  for (const [liste, events] of byListe) {
+    const prod = state.productions[liste] || {}
+    const solistes = (prod.solistes || []).filter(Boolean)
+    const works = (prod.works || []).filter(Boolean)
+    const workTitles = works.map((w) => (typeof w === "string" ? w : w.oeuvre))
+    const haystack = [
+      liste,
+      prod.chef,
+      ...solistes,
+      ...workTitles,
+      ...events.map((e) => e.activity),
+      ...events.map((e) => e.location),
+      ...events.map((e) => e.project),
+    ]
+      .filter(Boolean)
+      .map(normalizeSearch)
+      .join("   ")
+    if (haystack.includes(q))
+      results.push({
+        liste,
+        chef: prod.chef,
+        solistes,
+        workTitles,
+        events: [...events].sort((a, b) => a.start.localeCompare(b.start)),
+      })
+  }
+
+  return results.sort((a, b) =>
+    a.liste.localeCompare(b.liste, "fr", { numeric: true }),
+  )
+}
+
+// Boîte d'un résultat : infos du programme (chef, solistes, œuvres) suivies
+// des services correspondants, réutilisant les chips habituelles (mêmes
+// codes couleur, même détail au clic que les autres vues).
+function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
+  const infoLines = []
+  if (chef) infoLines.push(el("p", { class: "search-chef" }, chef))
+  if (solistes.length)
+    infoLines.push(el("p", { class: "search-solistes" }, solistes.join(" · ")))
+  if (workTitles.length)
+    infoLines.push(el("p", { class: "search-works" }, workTitles.join(" · ")))
+  return el(
+    "div",
+    { class: "search-group" },
+    el("h3", {}, liste),
+    ...infoLines,
+    el(
+      "div",
+      { class: "search-dates" },
+      ...events.map((e) => eventChip(e, { showDate: true })),
+    ),
+  )
+}
+
+function renderSearchResults(container, query) {
+  const q = query.trim()
+  if (!q) {
+    container.replaceChildren(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Tape le nom d'une œuvre, d'un compositeur, d'un chef, d'un soliste, " +
+          "d'un lieu ou d'une liste pour retrouver les programmes correspondants.",
+      ),
+    )
+    return
+  }
+  const results = searchResults(q)
+  if (!results.length) {
+    container.replaceChildren(
+      el("p", { class: "empty-msg" }, `Aucun résultat pour « ${q} ».`),
+    )
+    return
+  }
+  container.replaceChildren(...results.map(searchGroupNode))
+}
+
+function renderRecherche(main) {
+  const results = el("div", { class: "search-results" })
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Œuvre, compositeur, chef, soliste, lieu…",
+    autofocus: "",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+  main.append(el("div", { class: "search-bar" }, input), results)
+  renderSearchResults(results, state.searchQuery)
+}
+
 // --- Légende / préférences ---------------------------------------------------
 
 function renderLegend() {
@@ -1766,6 +1892,7 @@ const VIEW_LABELS = {
   grille: "Grille",
   agenda: "Agenda",
   modifs: "Modifications",
+  recherche: "Recherche",
 }
 
 function render() {
@@ -1795,6 +1922,7 @@ function renderContent() {
   )
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "agenda") renderAgenda(main)
+  else if (state.view === "recherche") renderRecherche(main)
   else renderModifs(main)
 }
 
