@@ -94,6 +94,17 @@ affichage des annulés, vue courante) sont stockées dans `localStorage`
 (`bemol-prefs`, `bemol-view`, `bemol-last-visit`). Toute nouvelle préférence
 suit le même modèle : locale à l'appareil, jamais côté serveur.
 
+## Face à un signalement de bug
+
+Avant de construire un correctif complet, **vérifier d'abord que le
+comportement signalé est réellement indésirable** : le reproduire avec les
+données réelles (celles de `gh-pages`, cf. pipeline de données ci-dessus),
+en pensant aux cas de bord — notamment l'**inter-saison** (aucune saison
+n'est « en cours » entre la fin d'une saison et le 1er lundi d'août
+suivant, cf. Vocabulaire métier). Si le comportement s'avère normal/voulu,
+l'expliquer clairement et proposer de fermer l'issue sans changement,
+plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
+
 ## Style de code
 
 - Prettier est configuré (`.prettierrc` : `tabWidth: 2`, pas de point-virgule).
