@@ -35,10 +35,13 @@ jobs:
         run: |
           node --check app.js
           node --check sw.js
-          for f in scripts/*.mjs; do node --check "$f"; done
+          for f in scripts/*.mjs worker/src/*.js worker/*.mjs; do node --check "$f"; done
 
       - name: Formatage (Prettier)
-        run: npx --yes prettier@3 --check "*.html" "*.css" "*.js" "scripts/*.mjs"
+        run: npx --yes prettier@3 --check "*.html" "*.css" "*.js" "scripts/*.mjs" "worker/**/*.{js,mjs}"
+
+      - name: Test du worker calendrier
+        run: node worker/test.mjs
 
       - name: Smoke test navigateur
         run: |

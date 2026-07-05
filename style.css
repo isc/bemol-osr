@@ -675,6 +675,18 @@ dialog h2 {
   font-size: 0.9em;
 }
 
+/* Titres de section (« Mon planning » / « Calendrier complet ») quand
+   l'abonnement personnalisé est disponible */
+.subscribe-h {
+  margin: 18px 0 8px;
+  font-size: 1em;
+  color: var(--accent);
+}
+
+.subscribe-h:first-child {
+  margin-top: 0;
+}
+
 .subscribe-add {
   display: block;
   text-align: center;

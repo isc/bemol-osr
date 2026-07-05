@@ -1,9 +1,10 @@
 .DS_Store
 node_modules/
 .playwright-cli/
-# Créés par le smoke test (npm install jetable) — le projet reste sans dépendance
-package.json
-package-lock.json
+# Créés à la RACINE par le smoke test (npm install jetable) — le projet reste
+# sans dépendance. Ancrés avec « / » pour ne pas masquer worker/package.json.
+/package.json
+/package-lock.json
 *.png
 # Exception : les icônes de l'application (PWA) sont des ressources du site,
 # indispensables à l'installation sur écran d'accueil — on les versionne.

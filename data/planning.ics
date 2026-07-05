@@ -50,6 +50,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -71,6 +73,8 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 02
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -99,6 +103,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -127,6 +133,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -148,6 +156,8 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 02
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -176,6 +186,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -196,6 +208,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -224,6 +238,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -244,6 +260,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -272,6 +290,8 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 01
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -293,6 +313,8 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 02
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -313,6 +335,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -333,6 +357,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -354,6 +380,8 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 02
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -375,6 +403,8 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 02
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -395,6 +425,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -424,6 +456,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -444,6 +478,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -473,6 +509,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -493,6 +531,8 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 03
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -522,6 +562,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -551,6 +593,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -580,6 +624,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -609,6 +655,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -638,6 +686,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -667,6 +717,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -696,6 +748,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -725,6 +779,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -754,6 +810,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -766,6 +824,8 @@ SUMMARY:Conseil de Fondation Août — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Août
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -795,6 +855,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -824,6 +886,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -853,6 +917,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -882,6 +948,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -911,6 +979,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -940,6 +1010,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -969,6 +1041,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -998,6 +1072,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1027,6 +1103,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1056,6 +1134,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1085,6 +1165,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1114,6 +1196,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1143,6 +1227,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1172,6 +1258,8 @@ DESCRIPTION:Programme : ENR1\n\n— Mémo de production —\nDirection musi
  .1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)\nDurée totale approximative : 
  ≈ 2 h 50\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 04
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1202,6 +1290,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1214,6 +1304,8 @@ SUMMARY:Présentation de Saison GT 2627 — Présentation Saison GT
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Présentation de Saison GT 2627
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1244,6 +1336,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1274,6 +1368,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1304,6 +1400,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1334,6 +1432,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1364,6 +1464,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1393,6 +1495,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  .3 / 12.10.8.7.5 (81 musiciens)\nDurée totale approximative : ≈ 3 h 00\
  n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1423,6 +1527,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1437,6 +1543,8 @@ LOCATION:Victoria Hall de Genève
 DESCRIPTION:Programme : MDC\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Cérémonie d'Accueil des Nouveaux Habitants
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1467,6 +1575,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1497,6 +1607,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1527,6 +1639,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1557,6 +1671,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1587,6 +1703,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1617,6 +1735,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1647,6 +1767,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1710,6 +1832,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
   approximative : ≈ 38 min\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 05
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1773,6 +1897,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
   approximative : ≈ 38 min\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 05
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1803,6 +1929,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1866,6 +1994,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
   approximative : ≈ 38 min\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 05
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1929,6 +2059,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
   approximative : ≈ 38 min\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 05
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1992,6 +2124,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
   approximative : ≈ 38 min\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Enregistrement
+X-BEMOL-LISTE:Liste 05
+X-BEMOL-CAT:enregistrement
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2004,6 +2138,8 @@ SUMMARY:Conseil de Fondation Septembre — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Septembre
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2034,6 +2170,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2046,6 +2184,8 @@ SUMMARY:audiogrammes 1 — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes 1
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2059,6 +2199,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD1.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 1
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2072,6 +2214,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD1.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 1
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2102,6 +2246,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2132,6 +2278,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2156,6 +2304,8 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 06
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2180,6 +2330,8 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 06
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2210,6 +2362,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2234,6 +2388,8 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 06
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2246,6 +2402,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2270,6 +2428,8 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 06
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2294,6 +2454,8 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 06
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2324,6 +2486,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2351,6 +2515,8 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2378,6 +2544,8 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2405,6 +2573,8 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2432,6 +2602,8 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2459,6 +2631,8 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2489,6 +2663,8 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste A
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2513,6 +2689,8 @@ DESCRIPTION:Programme : MDC1\n\n— Mémo de production —\nSolistes :\n
  .0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 02\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 1
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2537,6 +2715,8 @@ DESCRIPTION:Programme : MDC1\n\n— Mémo de production —\nSolistes :\n
  .0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 02\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2564,6 +2744,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2591,6 +2773,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2618,6 +2802,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2645,6 +2831,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2672,6 +2860,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2699,6 +2889,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2726,6 +2918,8 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2738,6 +2932,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2765,6 +2961,8 @@ DESCRIPTION:Programme : aboL1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2792,6 +2990,8 @@ DESCRIPTION:Programme : aboL1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2819,6 +3019,8 @@ DESCRIPTION:Programme : aboL1\n\n— Mémo de production —\nDirection mus
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 08
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2841,6 +3043,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2863,6 +3067,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2875,6 +3081,8 @@ SUMMARY:Résa VH 2627 — salle résa 1M
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2887,6 +3095,8 @@ SUMMARY:Résa VH 2627 — salle résa 2AM
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2899,6 +3109,8 @@ SUMMARY:Résa VH 2627 — salle résa 3S
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2911,6 +3123,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2942,6 +3156,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2973,6 +3189,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2995,6 +3213,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3026,6 +3246,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3048,6 +3270,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3079,6 +3303,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3101,6 +3327,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3132,6 +3360,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3163,6 +3393,8 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3185,6 +3417,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3197,6 +3431,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3209,6 +3445,8 @@ SUMMARY:Conseil de Fondation Octobre — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Octobre
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3231,6 +3469,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3262,6 +3502,8 @@ DESCRIPTION:Programme : DPL1\n\n— Mémo de production —\nDirection musi
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3293,6 +3535,8 @@ DESCRIPTION:Programme : DPL1\n\n— Mémo de production —\nDirection musi
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3324,6 +3568,8 @@ DESCRIPTION:Programme : DPL1\n\n— Mémo de production —\nDirection musi
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 09
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3346,6 +3592,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3368,6 +3616,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3395,6 +3645,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  siciens)\nDurée totale approximative : ≈ 32 min\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3422,6 +3674,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3449,6 +3703,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3461,6 +3717,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3488,6 +3746,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3515,6 +3775,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3527,6 +3789,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3549,6 +3813,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3576,6 +3842,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3598,6 +3866,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3625,6 +3895,8 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3652,6 +3924,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  siciens)\nDurée totale approximative : ≈ 32 min\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 07
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3664,6 +3938,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3686,6 +3962,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3707,6 +3985,8 @@ DESCRIPTION:Programme : ONU\, VIL\n\n— Mémo de production —\nDirection
  2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale appr
  oximative : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3729,6 +4009,8 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste B
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3750,6 +4032,8 @@ DESCRIPTION:Programme : ONU\, VIL\n\n— Mémo de production —\nDirection
  2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale appr
  oximative : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3771,6 +4055,8 @@ DESCRIPTION:Programme : ONU\, VIL\n\n— Mémo de production —\nDirection
  2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale appr
  oximative : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3792,6 +4078,8 @@ DESCRIPTION:Programme : ONU\, VIL\n\n— Mémo de production —\nDirection
  2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale appr
  oximative : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3804,6 +4092,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3825,6 +4115,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3846,6 +4138,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3867,6 +4161,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3888,6 +4184,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3909,6 +4207,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3930,6 +4230,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3951,6 +4253,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3963,6 +4267,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3984,6 +4290,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4005,6 +4313,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4026,6 +4336,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4047,6 +4359,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4068,6 +4382,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4089,6 +4405,8 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4110,6 +4428,8 @@ DESCRIPTION:Programme : VIL\n\n— Mémo de production —\nDirection music
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 10
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4123,6 +4443,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD2.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 2
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4136,6 +4458,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD2.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 2
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4148,6 +4472,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4161,6 +4487,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD2.3\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 2
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4174,6 +4502,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD2.4\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 2
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4200,6 +4530,8 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4212,6 +4544,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4224,6 +4558,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4250,6 +4586,8 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4276,6 +4614,8 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4302,6 +4642,8 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4328,6 +4670,8 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4341,6 +4685,8 @@ SUMMARY:Concours à définir — répétitions candidats (poste à définir
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4367,6 +4713,8 @@ DESCRIPTION:Programme : DPL2\n\n— Mémo de production —\nDirection musi
  ée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jour 
  automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4393,6 +4741,8 @@ DESCRIPTION:Programme : DPL2\n\n— Mémo de production —\nDirection musi
  ée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jour 
  automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4419,6 +4769,8 @@ DESCRIPTION:Programme : DPL2\n\n— Mémo de production —\nDirection musi
  ée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jour 
  automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 11
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4431,6 +4783,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4454,6 +4808,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4477,6 +4833,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4500,6 +4858,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4523,6 +4883,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4546,6 +4908,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4569,6 +4933,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Krzysztof U
  otale approximative : ≈ 1 h 47\n\nCalendrier Bémol · mis à jour autom
  atiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Accueil 01
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4592,6 +4958,8 @@ DESCRIPTION:Programme : aboL2\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4615,6 +4983,8 @@ DESCRIPTION:Programme : aboS2\n\n— Mémo de production —\nDirection mus
  usiciens)\nDurée totale approximative : ≈ 1 h 47\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Accueil 01
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4638,6 +5008,8 @@ DESCRIPTION:Programme : aboL2\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4651,6 +5023,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD3.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 3
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4674,6 +5048,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  3 / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxi
  mative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4687,6 +5063,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD3.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 3
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4710,6 +5088,8 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4733,6 +5113,8 @@ DESCRIPTION:Programme : aboF2\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4756,6 +5138,8 @@ DESCRIPTION:Programme : aboF2\n\n— Mémo de production —\nDirection mus
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 12
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4769,6 +5153,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD4.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4781,6 +5167,8 @@ SUMMARY:Conseil de Fondation Novembre — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Novembre
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4809,6 +5197,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  otale approximative : ≈ 50 min\n\nCalendrier Bémol · mis à jour autom
  atiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 13
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4837,6 +5227,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  otale approximative : ≈ 50 min\n\nCalendrier Bémol · mis à jour autom
  atiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 13
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4850,6 +5242,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD4.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4894,6 +5288,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 14
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4938,6 +5334,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 14
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4982,6 +5380,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 14
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5026,6 +5426,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 14
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5072,6 +5474,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  .12.10.8.6 (86 musiciens)\nDurée totale approximative : ≈ 2 h 37\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 15
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5118,6 +5522,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  .12.10.8.6 (86 musiciens)\nDurée totale approximative : ≈ 2 h 37\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 15
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5164,6 +5570,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  .12.10.8.6 (86 musiciens)\nDurée totale approximative : ≈ 2 h 37\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 15
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5210,6 +5618,8 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  .12.10.8.6 (86 musiciens)\nDurée totale approximative : ≈ 2 h 37\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 15
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5233,6 +5643,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5256,6 +5668,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5279,6 +5693,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5302,6 +5718,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5325,6 +5743,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5348,6 +5768,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5371,6 +5793,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5394,6 +5818,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5417,6 +5843,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5429,6 +5857,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5452,6 +5882,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5475,6 +5907,8 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5487,6 +5921,8 @@ SUMMARY:Auditions de musicien·nes supplémentaires — audition
 LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Auditions de musicien·nes supplémentaires
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5507,6 +5943,8 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5530,6 +5968,8 @@ DESCRIPTION:Programme : aboF+\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5553,6 +5993,8 @@ DESCRIPTION:Programme : aboF+\n\n— Mémo de production —\nDirection mus
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 16
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5568,6 +6010,8 @@ DESCRIPTION:Programme : DDC1.1\n\n— Mémo de production —\nSolistes :\n
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5583,6 +6027,8 @@ DESCRIPTION:Programme : DDC1.2\n\n— Mémo de production —\nSolistes :\n
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5603,6 +6049,8 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5616,6 +6064,8 @@ LOCATION:Victoria Hall de Genève
 DESCRIPTION:⚠ Service ANNULÉ\n\nCalendrier Bémol · mis à jour automat
  iquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CANCELLED
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -5636,6 +6086,8 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5651,6 +6103,8 @@ DESCRIPTION:Programme : DDC1.3\n\n— Mémo de production —\nSolistes :\n
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5666,6 +6120,8 @@ DESCRIPTION:Programme : DDC1.4\n\n— Mémo de production —\nSolistes :\n
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5686,6 +6142,8 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5706,6 +6164,8 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5727,6 +6187,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5748,6 +6210,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5761,6 +6225,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD5.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 5
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5782,6 +6248,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5795,6 +6263,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD5.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 5
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5816,6 +6286,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5837,6 +6309,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5860,6 +6334,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  / 4.3.3.1 / 1.4.2.1 / 16.14.12.10.8 (90 musiciens)\nDurée totale approxim
  ative : ≈ 37 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 18
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5881,6 +6357,8 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5902,6 +6380,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  le approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5923,6 +6403,8 @@ DESCRIPTION:Programme : aboS3\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5944,6 +6426,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  le approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5965,6 +6449,8 @@ DESCRIPTION:Programme : aboR+\n\n— Mémo de production —\nDirection mus
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 17
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -5987,6 +6473,8 @@ DESCRIPTION:Programme : MDC2\n\n— Mémo de production —\nSolistes :\n
  1.1.0 (4 musiciens)\nDurée totale approximative : ≈ 55 min\n\nCalendrie
  r Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 2
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6009,6 +6497,8 @@ DESCRIPTION:Programme : MDC2\n\n— Mémo de production —\nSolistes :\n
  1.1.0 (4 musiciens)\nDurée totale approximative : ≈ 55 min\n\nCalendrie
  r Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6023,6 +6513,8 @@ LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:Programme : CC3\n\nCalendrier Bémol · mis à jour automatique
  ment
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6035,6 +6527,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6054,6 +6548,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6077,6 +6573,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  / 4.3.3.1 / 1.4.2.1 / 16.14.12.10.8 (90 musiciens)\nDurée totale approxim
  ative : ≈ 37 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 18
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6089,6 +6587,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6108,6 +6608,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6127,6 +6629,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6151,6 +6655,8 @@ DESCRIPTION:Programme : aboF3\n\n— Mémo de production —\nDirection mus
  totale approximative : ≈ 37 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 18
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6170,6 +6676,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6189,6 +6697,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6213,6 +6723,8 @@ DESCRIPTION:Programme : aboF3\n\n— Mémo de production —\nDirection mus
  totale approximative : ≈ 37 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 18
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6237,6 +6749,8 @@ DESCRIPTION:Programme : aboF3\n\n— Mémo de production —\nDirection mus
  totale approximative : ≈ 37 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 18
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6256,6 +6770,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6275,6 +6791,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6287,6 +6805,8 @@ SUMMARY:Conseil de Fondation Décembre 1 — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Décembre 1
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6306,6 +6826,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6325,6 +6847,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6344,6 +6868,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6363,6 +6889,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6382,6 +6910,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6394,6 +6924,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6413,6 +6945,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6432,6 +6966,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6451,6 +6987,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6478,6 +7016,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6505,6 +7045,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6532,6 +7074,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6559,6 +7103,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6586,6 +7132,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6605,6 +7153,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6632,6 +7182,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6659,6 +7211,8 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6671,6 +7225,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6683,6 +7239,8 @@ SUMMARY:Conseil de Fondation Décembre 2 — Séance CF
 LOCATION:Administration - Salle du Conseil
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Conseil de Fondation Décembre 2
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6702,6 +7260,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6729,6 +7289,8 @@ DESCRIPTION:Programme : aboS4\n\n— Mémo de production —\nDirection mus
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 19
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6750,6 +7312,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6771,6 +7335,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6790,6 +7356,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6811,6 +7379,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6830,6 +7400,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6851,6 +7423,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6872,6 +7446,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6893,6 +7469,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6912,6 +7490,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6933,6 +7513,8 @@ DESCRIPTION:Programme : NOEL\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6954,6 +7536,8 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 20
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6973,6 +7557,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -6992,6 +7578,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7011,6 +7599,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7030,6 +7620,8 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste C
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7080,6 +7672,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7130,6 +7724,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7180,6 +7776,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7230,6 +7828,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7280,6 +7880,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7330,6 +7932,8 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7342,6 +7946,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7392,6 +7998,8 @@ DESCRIPTION:Programme : aboL3\n\n— Mémo de production —\nDirection mus
  .6.4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrie
  r Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7442,6 +8050,8 @@ DESCRIPTION:Programme : aboL3\n\n— Mémo de production —\nDirection mus
  .6.4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrie
  r Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7492,6 +8102,8 @@ DESCRIPTION:Programme : aboL3\n\n— Mémo de production —\nDirection mus
  .6.4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrie
  r Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 21
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7512,6 +8124,8 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7527,6 +8141,8 @@ DESCRIPTION:Programme : DDC2.1\n\n— Mémo de production —\nSolistes :\n
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7542,6 +8158,8 @@ DESCRIPTION:Programme : DDC2.2\n\n— Mémo de production —\nSolistes :\n
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7562,6 +8180,8 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7582,6 +8202,8 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7604,6 +8226,8 @@ DESCRIPTION:Programme : MDC3\n\n— Mémo de production —\nSolistes :\n
  e approximative : ≈ 1 h 01\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 3
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7619,6 +8243,8 @@ DESCRIPTION:Programme : DDC2.3\n\n— Mémo de production —\nSolistes :\n
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7634,6 +8260,8 @@ DESCRIPTION:Programme : DDC2.4\n\n— Mémo de production —\nSolistes :\n
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7656,6 +8284,8 @@ DESCRIPTION:Programme : MDC3\n\n— Mémo de production —\nSolistes :\n
  e approximative : ≈ 1 h 01\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7676,6 +8306,8 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7696,6 +8328,8 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7724,6 +8358,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7752,6 +8388,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7780,6 +8418,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7808,6 +8448,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7836,6 +8478,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7864,6 +8508,8 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7876,6 +8522,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7904,6 +8552,8 @@ DESCRIPTION:Programme : aboS5\n\n— Mémo de production —\nDirection mus
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 23
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7929,6 +8579,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7954,6 +8606,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7979,6 +8633,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8004,6 +8660,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8029,6 +8687,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8049,6 +8709,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8074,6 +8736,8 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 24
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8094,6 +8758,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8114,6 +8780,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8134,6 +8802,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8154,6 +8824,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8174,6 +8846,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8194,6 +8868,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8206,6 +8882,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8226,6 +8904,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8243,6 +8923,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8260,6 +8942,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8277,6 +8961,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8294,6 +8980,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8311,6 +8999,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8328,6 +9018,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8345,6 +9037,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8362,6 +9056,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8382,6 +9078,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8399,6 +9097,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8416,6 +9116,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8436,6 +9138,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8453,6 +9157,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8470,6 +9176,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8487,6 +9195,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8507,6 +9217,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8519,6 +9231,8 @@ SUMMARY:audiogrammes — audiogrammes
 LOCATION:HUG
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:audiogrammes
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8536,6 +9250,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nŒuvres au prog
   musiciens)\nDurée totale approximative : ≈ 1 h 00\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 24b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8556,6 +9272,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8568,6 +9286,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8588,6 +9308,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8608,6 +9330,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8620,6 +9344,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8640,6 +9366,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8652,6 +9380,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8672,6 +9402,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8692,6 +9424,8 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste D
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8704,6 +9438,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8716,6 +9452,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8737,6 +9475,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8758,6 +9498,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8779,6 +9521,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8800,6 +9544,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8821,6 +9567,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8847,6 +9595,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8873,6 +9623,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8890,6 +9642,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
  .1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)\nDurée totale approxima
  tive : ≈ 1 h 00\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 26
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8916,6 +9670,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8942,6 +9698,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8968,6 +9726,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -8985,6 +9745,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
  .1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)\nDurée totale approxima
  tive : ≈ 1 h 00\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 26
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9011,6 +9773,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9028,6 +9792,8 @@ DESCRIPTION:Programme : OCV\n\n— Mémo de production —\nDirection music
  .1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)\nDurée totale approxima
  tive : ≈ 1 h 00\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 26
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9054,6 +9820,8 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9080,6 +9848,8 @@ DESCRIPTION:Programme : aboL4\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9106,6 +9876,8 @@ DESCRIPTION:Programme : aboL4\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9132,6 +9904,8 @@ DESCRIPTION:Programme : aboL4\n\n— Mémo de production —\nDirection mus
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 25
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9153,6 +9927,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9174,6 +9950,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9195,6 +9973,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9216,6 +9996,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9237,6 +10019,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9258,6 +10042,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9279,6 +10065,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9292,6 +10080,8 @@ LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:Programme : ADGT.1\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte GT
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9313,6 +10103,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9326,6 +10118,8 @@ LOCATION:UM - Salle Marie LAGGÉ
 DESCRIPTION:Programme : ADGT.2\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte GT
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9347,6 +10141,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9370,6 +10166,8 @@ DESCRIPTION:Programme : MDC4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 4
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9393,6 +10191,8 @@ DESCRIPTION:Programme : MDC4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 4
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9414,6 +10214,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9437,6 +10239,8 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9460,6 +10264,8 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9483,6 +10289,8 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9504,6 +10312,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9527,6 +10337,8 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9550,6 +10362,8 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9564,6 +10378,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  musicale : Daniele GATTI\n\nCalendrier Bémol · mis à jour automatiqueme
  nt
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 27b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9585,6 +10401,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9608,6 +10426,8 @@ DESCRIPTION:Programme : DPL3\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9631,6 +10451,8 @@ DESCRIPTION:Programme : DPL3\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9654,6 +10476,8 @@ DESCRIPTION:Programme : DPL3\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9667,6 +10491,8 @@ LOCATION:Victoria Hall de Genève
 DESCRIPTION:⚠ Service ANNULÉ\n\nCalendrier Bémol · mis à jour automat
  iquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CANCELLED
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -9688,6 +10514,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9711,6 +10539,8 @@ DESCRIPTION:Programme : DPL4\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9734,6 +10564,8 @@ DESCRIPTION:Programme : DPL4\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9757,6 +10589,8 @@ DESCRIPTION:Programme : DPL4\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9780,6 +10614,8 @@ DESCRIPTION:Programme : DPL4\n\n— Mémo de production —\nDirection musi
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 27
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9801,6 +10637,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9825,6 +10663,8 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9840,6 +10680,8 @@ DESCRIPTION:Programme : DDC3.1\n\n— Mémo de production —\nSolistes :\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9855,6 +10697,8 @@ DESCRIPTION:Programme : DDC3.2\n\n— Mémo de production —\nSolistes :\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9879,6 +10723,8 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9903,6 +10749,8 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9924,6 +10772,8 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste E
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9939,6 +10789,8 @@ DESCRIPTION:Programme : DDC3.3\n\n— Mémo de production —\nSolistes :\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9954,6 +10806,8 @@ DESCRIPTION:Programme : DDC3.4\n\n— Mémo de production —\nSolistes :\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Doudou Concert 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9978,6 +10832,8 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10002,6 +10858,8 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10031,6 +10889,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10060,6 +10920,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10076,6 +10938,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10092,6 +10956,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10108,6 +10974,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10124,6 +10992,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10140,6 +11010,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10156,6 +11028,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10172,6 +11046,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10201,6 +11077,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10230,6 +11108,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Daniel HARD
  1.9.7 (88 musiciens)\nDurée totale approximative : ≈ 1 h 23\n\nCalendri
  er Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10259,6 +11139,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10275,6 +11157,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
   4.3.2.2.2\nEffectif orchestral (max) : 1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.
  2.2.2 (20 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 28b
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10304,6 +11188,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10333,6 +11219,8 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10362,6 +11250,8 @@ DESCRIPTION:Programme : aboS6\n\n— Mémo de production —\nDirection mus
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 28
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10388,6 +11278,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10414,6 +11306,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10440,6 +11334,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10466,6 +11362,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10492,6 +11390,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10518,6 +11418,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10544,6 +11446,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10569,6 +11473,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10595,6 +11501,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10620,6 +11528,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10646,6 +11556,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10672,6 +11584,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10697,6 +11611,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10722,6 +11638,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10748,6 +11666,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10774,6 +11694,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10799,6 +11721,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10825,6 +11749,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10850,6 +11776,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10876,6 +11804,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10905,6 +11835,8 @@ DESCRIPTION:Programme : MDC5\n\n— Mémo de production —\nSolistes :\n
  e totale approximative : ≈ 57 min\n\nCalendrier Bémol · mis à jour au
  tomatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 5
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10935,6 +11867,8 @@ DESCRIPTION:Programme : MDC5\n\n— Mémo de production —\nSolistes :\n
  e totale approximative : ≈ 57 min\n\nCalendrier Bémol · mis à jour au
  tomatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 5
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10961,6 +11895,8 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste F
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10986,6 +11922,8 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 29
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11013,6 +11951,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11040,6 +11980,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11067,6 +12009,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11094,6 +12038,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11121,6 +12067,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11148,6 +12096,8 @@ DESCRIPTION:Programme : aboL5\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11175,6 +12125,8 @@ DESCRIPTION:Programme : aboL5\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11202,6 +12154,8 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 30
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11214,6 +12168,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11237,6 +12193,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11260,6 +12218,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11283,6 +12243,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11306,6 +12268,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11329,6 +12293,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11352,6 +12318,8 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11375,6 +12343,8 @@ DESCRIPTION:Programme : aboS7\n\n— Mémo de production —\nDirection mus
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11398,6 +12368,8 @@ DESCRIPTION:Programme : DPL5\n\n— Mémo de production —\nDirection musi
  82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11421,6 +12393,8 @@ DESCRIPTION:Programme : DPL5\n\n— Mémo de production —\nDirection musi
  82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11444,6 +12418,8 @@ DESCRIPTION:Programme : DPL5\n\n— Mémo de production —\nDirection musi
  82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 31
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11457,6 +12433,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD6.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 6
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11470,6 +12448,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD6.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 6
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11483,6 +12463,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD6.3\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 6
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11515,6 +12497,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11547,6 +12531,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11579,6 +12565,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11611,6 +12599,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11643,6 +12633,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11675,6 +12667,8 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11688,6 +12682,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD7.1\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 7
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11720,6 +12716,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  ale approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automat
  iquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11733,6 +12731,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD7.2\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 7
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11765,6 +12765,8 @@ DESCRIPTION:Programme : aboS8\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 32
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11778,6 +12780,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD7.3\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 7
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11790,6 +12794,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11803,6 +12809,8 @@ LOCATION:UM - Salle Marie LAGGÉ (st. A\, B & P)
 DESCRIPTION:Programme : AD7.4\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Atelier Découverte 7
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11827,6 +12835,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11851,6 +12861,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11875,6 +12887,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11899,6 +12913,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11923,6 +12939,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11947,6 +12965,8 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11971,6 +12991,8 @@ DESCRIPTION:Programme : H.Abo5\n\n— Mémo de production —\nDirection mu
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11995,6 +13017,8 @@ DESCRIPTION:Programme : H.Abo4\n⚠ Service ANNULÉ\n\n— Mémo de product
  3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)\nDurée totale approximativ
  e : ≈ 2 h 56\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 34
+X-BEMOL-CAT:concert
 STATUS:CANCELLED
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -12016,6 +13040,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12037,6 +13063,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12058,6 +13086,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12079,6 +13109,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12100,6 +13132,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12121,6 +13155,8 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12139,6 +13175,8 @@ DESCRIPTION:Programme : ACADchef\n\n— Mémo de production —\nDirection
  .3 / 4.3.3.1 / 1.3.1.0 / 7.6.5.3.2 (51 musiciens)\n\nCalendrier Bémol · 
  mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 36
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12160,6 +13198,8 @@ DESCRIPTION:Programme : aboL6\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12181,6 +13221,8 @@ DESCRIPTION:Programme : aboL6\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12202,6 +13244,8 @@ DESCRIPTION:Programme : aboL6\n\n— Mémo de production —\nDirection mus
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12214,6 +13258,8 @@ SUMMARY:Résa VH 2627 — salle résa 1M
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12239,6 +13285,8 @@ DESCRIPTION:Programme : aboF4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 36 min\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 37
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12260,6 +13308,8 @@ DESCRIPTION:Programme : DPL6\n\n— Mémo de production —\nDirection musi
  rée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12281,6 +13331,8 @@ DESCRIPTION:Programme : DPL6\n\n— Mémo de production —\nDirection musi
  rée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12302,6 +13354,8 @@ DESCRIPTION:Programme : DPL6\n\n— Mémo de production —\nDirection musi
  rée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jour
   automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 35
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12327,6 +13381,8 @@ DESCRIPTION:Programme : aboF4\n\n— Mémo de production —\nDirection mus
  e approximative : ≈ 36 min\n\nCalendrier Bémol · mis à jour automatiq
  uement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 37
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12340,6 +13396,8 @@ LOCATION:Victoria Hall de Genève
 DESCRIPTION:⚠ Service ANNULÉ\n\nCalendrier Bémol · mis à jour automat
  iquement
 CATEGORIES:Résa de salles
+X-BEMOL-LISTE:Résa VH 2627
+X-BEMOL-CAT:resa
 STATUS:CANCELLED
 TRANSP:TRANSPARENT
 END:VEVENT
@@ -12359,6 +13417,8 @@ DESCRIPTION:Programme : MDC6\n\n— Mémo de production —\nSolistes :\n
  cordes\n    Détail : John Williams : Olympic Fanfare\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Musique De Chambre 6
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12378,6 +13438,8 @@ DESCRIPTION:Programme : MDC6\n\n— Mémo de production —\nSolistes :\n
  cordes\n    Détail : John Williams : Olympic Fanfare\n\nCalendrier Bémol
   · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Musique De Chambre 6
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12390,6 +13452,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12402,6 +13466,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12420,6 +13486,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12438,6 +13506,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12456,6 +13526,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12474,6 +13546,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12490,6 +13564,8 @@ DESCRIPTION:Programme : FMUS\, OCV\n\n— Mémo de production —\nDirectio
  fectif orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musi
  ciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 39
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12506,6 +13582,8 @@ DESCRIPTION:Programme : FMUS1\n\n— Mémo de production —\nDirection mus
  f orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens
  )\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 39
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12524,6 +13602,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12542,6 +13622,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12560,6 +13642,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12578,6 +13662,8 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12590,6 +13676,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12615,6 +13703,8 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 40
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12634,6 +13724,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12653,6 +13745,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12672,6 +13766,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12691,6 +13787,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12710,6 +13808,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12729,6 +13829,8 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 38
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12741,6 +13843,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:à définir Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12766,6 +13870,8 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 40
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12791,6 +13897,8 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 40
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12814,6 +13922,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12830,6 +13940,8 @@ DESCRIPTION:Programme : FMUS1\n\n— Mémo de production —\nDirection mus
  f orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens
  )\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 39
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12853,6 +13965,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12869,6 +13983,8 @@ DESCRIPTION:Programme : FMUS1\n\n— Mémo de production —\nDirection mus
  f orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens
  )\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 39
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12892,6 +14008,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12917,6 +14035,8 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 40
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12933,6 +14053,8 @@ DESCRIPTION:Programme : FMUS1\n\n— Mémo de production —\nDirection mus
  f orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens
  )\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 39
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12958,6 +14080,8 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 40
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -12981,6 +14105,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13004,6 +14130,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13027,6 +14155,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13050,6 +14180,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Italienne / Scène & orch.
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:italienne
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13073,6 +14205,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13096,6 +14230,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13119,6 +14255,8 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste G
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13136,6 +14274,8 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13153,6 +14293,8 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13170,6 +14312,8 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13187,6 +14331,8 @@ DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13204,6 +14350,8 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13221,6 +14369,8 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 41
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13233,6 +14383,8 @@ SUMMARY:Concours à définir — concours (poste à définir)
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concours / Auditions
+X-BEMOL-LISTE:Concours à définir
+X-BEMOL-CAT:concours
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13249,6 +14401,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13265,6 +14419,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13281,6 +14437,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13297,6 +14455,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Répétition / Lecture
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:repetition
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13313,6 +14473,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13329,6 +14491,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Générale / Raccord
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:generale
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13345,6 +14509,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13361,6 +14527,8 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Autre
+X-BEMOL-LISTE:Liste 42
+X-BEMOL-CAT:autre
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13373,6 +14541,8 @@ SUMMARY:Projet 02 — concert
 LOCATION:Salle de Musique\, La-Chaux-de-Fonds
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Projet 02
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -13385,6 +14555,8 @@ SUMMARY:Projet 01 — concert hors contrat
 LOCATION:Salle de Musique\, La-Chaux-de-Fonds
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
 CATEGORIES:Concert / Représentation
+X-BEMOL-LISTE:Projet 01
+X-BEMOL-CAT:concert
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT

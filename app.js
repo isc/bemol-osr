@@ -1469,6 +1469,11 @@ function renderPrefs() {
 
 // --- Abonnement au calendrier (ICS) ------------------------------------------
 
+// URL du worker Cloudflare qui filtre le calendrier à la volée (abonnement
+// personnalisé par listes/catégories — voir worker/). Vide tant que le worker
+// n'est pas déployé : le dialogue ne propose alors que l'abonnement complet.
+const PERSONAL_CALENDAR_URL = ""
+
 // URL du calendrier ICS, calculée par rapport à la page courante : fonctionne
 // aussi bien en production que dans les previews de PR (sous-dossier). `webcal:`
 // fait ouvrir directement l'app d'agenda sur la plupart des appareils.
@@ -1477,41 +1482,102 @@ function subscribeUrls() {
   return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
 }
 
+// URL d'abonnement personnalisée reflétant les Réglages actuels (listes
+// sélectionnées, catégories masquées, annulés), ou null si aucun filtre n'est
+// actif ou si le worker n'est pas déployé. Les sous-cases « par liste » d'une
+// catégorie ne sont pas transposables dans l'abonnement (trop fin pour une
+// URL) — c'est dit dans la note du dialogue.
+function personalSubscribeUrls() {
+  if (!PERSONAL_CALENDAR_URL) return null
+  const p = state.prefs
+  const params = new URLSearchParams()
+  if (p.listes.length) params.set("listes", p.listes.join(","))
+  if (p.hiddenCategories.length)
+    params.set("sans", p.hiddenCategories.join(","))
+  if (!p.showCancelled) params.set("annules", "0")
+  if (![...params.keys()].length) return null
+  const ics = `${PERSONAL_CALENDAR_URL}?${params}`
+  return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
+}
+
 function renderSubscribe() {
   const box = document.getElementById("subscribe-content")
   const { ics, webcal } = subscribeUrls()
+  const personal = personalSubscribeUrls()
 
-  const urlField = el("input", {
-    class: "subscribe-url",
-    type: "text",
-    readonly: "",
-    value: ics,
-    onfocus: (ev) => ev.target.select(),
-  })
-
-  const copyBtn = el(
-    "button",
-    {
-      type: "button",
-      class: "copy-btn",
-      onclick: async () => {
-        try {
-          await navigator.clipboard.writeText(ics)
-          copyBtn.textContent = "Lien copié ✓"
-        } catch {
-          // Presse-papier indisponible (http, navigateur ancien) : on sélectionne
-          // le champ pour un copier-coller manuel.
-          urlField.focus()
-          urlField.select()
-          copyBtn.textContent = "Sélectionné — copie-le"
-        }
-        setTimeout(() => (copyBtn.textContent = "Copier le lien"), 2500)
+  // Champ + bouton « copier » pour une URL d'abonnement donnée.
+  const copyRow = (url) => {
+    const field = el("input", {
+      class: "subscribe-url",
+      type: "text",
+      readonly: "",
+      value: url,
+      onfocus: (ev) => ev.target.select(),
+    })
+    const btn = el(
+      "button",
+      {
+        type: "button",
+        class: "copy-btn",
+        onclick: async () => {
+          try {
+            await navigator.clipboard.writeText(url)
+            btn.textContent = "Lien copié ✓"
+          } catch {
+            // Presse-papier indisponible (http, navigateur ancien) : on
+            // sélectionne le champ pour un copier-coller manuel.
+            field.focus()
+            field.select()
+            btn.textContent = "Sélectionné — copie-le"
+          }
+          setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
+        },
       },
-    },
-    "Copier le lien",
-  )
+      "Copier le lien",
+    )
+    return el("div", { class: "subscribe-url-row" }, field, btn)
+  }
+
+  // Abonnement personnalisé : reflète les Réglages actuels, si le worker de
+  // filtrage est déployé. Sinon (ou sans filtre actif), section absente.
+  const personalSection = personal
+    ? [
+        el("h3", { class: "subscribe-h" }, "Mon planning (selon mes Réglages)"),
+        el(
+          "p",
+          { class: "subscribe-intro" },
+          "Reprend les filtres actifs en ce moment dans ⚙ Réglages " +
+            "(listes cochées, catégories masquées" +
+            (state.prefs.showCancelled ? "" : ", sans les annulés") +
+            "). Se met à jour tout seul, comme le calendrier complet.",
+        ),
+        el(
+          "a",
+          { class: "subscribe-add", href: personal.webcal },
+          "📅 Ajouter mon planning à mon agenda",
+        ),
+        el(
+          "p",
+          { class: "subscribe-or" },
+          "…ou copie ce lien pour l'ajouter à la main :",
+        ),
+        copyRow(personal.ics),
+        el("h3", { class: "subscribe-h" }, "Calendrier complet"),
+      ]
+    : PERSONAL_CALENDAR_URL
+      ? [
+          el(
+            "p",
+            { class: "subscribe-intro" },
+            "Astuce : coche tes listes ou masque des catégories dans " +
+              "⚙ Réglages, et ce dialogue te proposera aussi un abonnement " +
+              "personnalisé ne contenant que ça.",
+          ),
+        ]
+      : []
 
   box.replaceChildren(
+    ...personalSection,
     el(
       "p",
       { class: "subscribe-intro" },
@@ -1529,7 +1595,7 @@ function renderSubscribe() {
       { class: "subscribe-or" },
       "…ou copie ce lien pour l'ajouter à la main :",
     ),
-    el("div", { class: "subscribe-url-row" }, urlField, copyBtn),
+    copyRow(ics),
     el(
       "details",
       { class: "subscribe-help" },
@@ -1566,9 +1632,13 @@ function renderSubscribe() {
     el(
       "p",
       { class: "subscribe-note" },
-      "L'abonnement contient tous les services de la saison (les filtres et catégories " +
-        "masquées de l'app ne s'y appliquent pas). Selon l'agenda, les mises à jour peuvent " +
-        "mettre quelques heures à apparaître.",
+      (personal
+        ? "« Mon planning » fige les filtres au moment de l'abonnement : si tu changes " +
+          "tes Réglages plus tard, réabonne-toi avec le nouveau lien. Les sous-cases " +
+          "« par liste » d'une catégorie ne s'y appliquent pas. "
+        : "Le calendrier complet contient tous les services de la saison (les filtres et " +
+          "catégories masquées de l'app ne s'y appliquent pas). ") +
+        "Selon l'agenda, les mises à jour peuvent mettre quelques heures à apparaître.",
     ),
   )
 }
