@@ -606,6 +606,22 @@ dialog h2 {
   margin: 0;
 }
 
+#detail-content .location-link {
+  color: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+#detail-content .location-pin {
+  font-size: 0.9em;
+}
+
+@media (hover: hover) {
+  #detail-content .location-link:hover {
+    color: var(--accent);
+  }
+}
+
 #detail-content .detail-section {
   margin: 14px 0 4px;
   font-size: 0.95em;
