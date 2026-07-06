@@ -44,7 +44,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=ced4fed88116" />
+    <link rel="stylesheet" href="style.css?v=88128bea251c" />
   </head>
   <body>
     <header>
@@ -85,7 +85,12 @@
     </footer>
 
     <dialog id="detail-dialog">
-      <div id="detail-content"></div>
+      <div id="detail-content" class="detail-box"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="liste-dialog">
+      <div id="liste-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
@@ -112,11 +117,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=ced4fed88116
+    <!-- Le suffixe ?v=88128bea251c
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=ced4fed88116"></script>
+    <script src="app.js?v=88128bea251c"></script>
   </body>
 </html>

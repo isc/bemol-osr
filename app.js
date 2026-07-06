@@ -555,7 +555,16 @@ function showDetail(e) {
     el(
       "h2",
       {},
-      `${e.liste} — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
+      el(
+        "button",
+        {
+          class: "liste-link",
+          title: "Voir toute la production de cette liste",
+          onclick: () => showListe(e.liste),
+        },
+        e.liste,
+      ),
+      ` — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
       // Point rouge si le mémo de ce programme a changé récemment (cf. les
       // événements de planning récemment modifiés).
       state.recentListes.has(e.liste)
@@ -597,7 +606,7 @@ function showDetail(e) {
           )
         : null,
     ),
-    ...productionDetail(e),
+    ...productionDetail(e.liste),
     ...historyDetail(e.uid),
   )
   dlg.showModal()
@@ -703,10 +712,10 @@ function workNode(w) {
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour la Liste de l'événement. Renvoie []
+// d'instrumentation, effectif, durée) pour une Liste donnée. Renvoie []
 // si aucune info n'est saisie pour cette Liste dans productions.json.
-function productionDetail(e) {
-  const prod = state.productions[e.liste]
+function productionDetail(liste) {
+  const prod = state.productions[liste]
   if (!prod) return []
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
@@ -746,6 +755,143 @@ function productionDetail(e) {
     )
   }
   return nodes
+}
+
+// --- Vue par Liste (programme complet d'une production) --------------------
+
+// Champ + bouton « copier » pour une URL donnée (abonnement au calendrier,
+// lien partageable d'une Liste…).
+function copyLinkRow(url) {
+  const field = el("input", {
+    class: "subscribe-url",
+    type: "text",
+    readonly: "",
+    value: url,
+    onfocus: (ev) => ev.target.select(),
+  })
+  const btn = el(
+    "button",
+    {
+      type: "button",
+      class: "copy-btn",
+      onclick: async () => {
+        try {
+          await navigator.clipboard.writeText(url)
+          btn.textContent = "Lien copié ✓"
+        } catch {
+          // Presse-papier indisponible (http, navigateur ancien) : on
+          // sélectionne le champ pour un copier-coller manuel.
+          field.focus()
+          field.select()
+          btn.textContent = "Sélectionné — copie-le"
+        }
+        setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
+      },
+    },
+    "Copier le lien",
+  )
+  return el("div", { class: "subscribe-url-row" }, field, btn)
+}
+
+// Identifiant d'URL d'une Liste (fragment de hash), ex. "Liste 04" → "liste-04",
+// "Liste 24b" → "liste-24b", "Atelier Découverte 1" → "liste-atelier-decouverte-1".
+// Toujours ASCII (accents retirés) pour rester lisible/copiable tel quel
+// (ex. dans un groupe WhatsApp de pupitre).
+function listeSlug(liste) {
+  const slug = liste
+    .replace(/^Liste\s+/i, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+  return `liste-${slug}`
+}
+
+// Retrouve la Liste correspondant à un fragment de hash ("liste-04"), parmi
+// les Listes présentes dans les données chargées (une seule saison à la fois,
+// donc pas d'ambiguïté entre saisons).
+function listeFromSlug(slug) {
+  const listes = new Set(state.events.map((e) => e.liste))
+  for (const liste of listes) if (listeSlug(liste) === slug) return liste
+  return null
+}
+
+// URL absolue et partageable d'une Liste (chemin relatif à la page courante,
+// fonctionne donc aussi bien en production que dans une preview de PR).
+function listeUrl(liste) {
+  return new URL(`#${listeSlug(liste)}`, location.href).href
+}
+
+// Construit le contenu du dialogue « Liste » : mémo de production complet
+// (chef, solistes, œuvres, effectif, durée — réutilise productionDetail) et
+// tous les services de cette Liste, triés chronologiquement (réutilise
+// eventChip). Les services annulés et toutes les catégories sont inclus,
+// indépendamment des filtres de la vue courante : c'est le programme complet
+// de la production qu'on veut voir ici.
+function renderListeDialog(liste) {
+  const box = document.getElementById("liste-content")
+  const events = state.events
+    .filter((e) => e.liste === liste)
+    .sort((a, b) => a.start.localeCompare(b.start))
+
+  box.replaceChildren(
+    el(
+      "h2",
+      {},
+      liste,
+      state.recentListes.has(liste)
+        ? el(
+            "span",
+            {
+              class: "recent-dot",
+              title: "Mémo de production modifié récemment",
+            },
+            "●",
+          )
+        : null,
+    ),
+    ...productionDetail(liste),
+    el("h3", { class: "detail-section" }, `Services (${events.length})`),
+    events.length
+      ? el(
+          "div",
+          { class: "liste-events" },
+          ...events.map((e) => eventChip(e, { showDate: true })),
+        )
+      : el(
+          "p",
+          { class: "empty-msg" },
+          "Aucun service trouvé pour cette liste.",
+        ),
+    el("h3", { class: "detail-section" }, "Lien partageable"),
+    copyLinkRow(listeUrl(liste)),
+  )
+}
+
+// Ouvre le dialogue « Liste » pour la Liste donnée, et met à jour l'URL
+// (fragment #liste-04) pour permettre de la partager (ex. dans un groupe
+// WhatsApp de pupitre).
+function showListe(liste) {
+  const detailDlg = document.getElementById("detail-dialog")
+  if (detailDlg.open) detailDlg.close()
+  renderListeDialog(liste)
+  const slug = listeSlug(liste)
+  if (location.hash.slice(1) !== slug) history.pushState(null, "", `#${slug}`)
+  document.getElementById("liste-dialog").showModal()
+}
+
+// Synchronise le dialogue « Liste » avec le hash de l'URL courante : l'ouvre
+// si le hash pointe vers une Liste connue (lien partagé, rechargement de
+// page…), le referme si on navigue ailleurs (bouton précédent du navigateur).
+function syncListeFromHash() {
+  const slug = location.hash.slice(1)
+  const liste = slug.startsWith("liste-") ? listeFromSlug(slug) : null
+  if (liste) showListe(liste)
+  else {
+    const dlg = document.getElementById("liste-dialog")
+    if (dlg.open) dlg.close()
+  }
 }
 
 // --- Repères vacances / fériés dans la Grille --------------------------------
@@ -1774,39 +1920,6 @@ function renderSubscribe() {
   const { ics, webcal } = subscribeUrls()
   const personal = personalSubscribeUrls()
 
-  // Champ + bouton « copier » pour une URL d'abonnement donnée.
-  const copyRow = (url) => {
-    const field = el("input", {
-      class: "subscribe-url",
-      type: "text",
-      readonly: "",
-      value: url,
-      onfocus: (ev) => ev.target.select(),
-    })
-    const btn = el(
-      "button",
-      {
-        type: "button",
-        class: "copy-btn",
-        onclick: async () => {
-          try {
-            await navigator.clipboard.writeText(url)
-            btn.textContent = "Lien copié ✓"
-          } catch {
-            // Presse-papier indisponible (http, navigateur ancien) : on
-            // sélectionne le champ pour un copier-coller manuel.
-            field.focus()
-            field.select()
-            btn.textContent = "Sélectionné — copie-le"
-          }
-          setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
-        },
-      },
-      "Copier le lien",
-    )
-    return el("div", { class: "subscribe-url-row" }, field, btn)
-  }
-
   // Abonnement personnalisé : reflète les Réglages actuels, si le worker de
   // filtrage est déployé. Sinon (ou sans filtre actif), section absente.
   const personalSection = personal
@@ -1830,7 +1943,7 @@ function renderSubscribe() {
           { class: "subscribe-or" },
           "…ou copie ce lien pour l'ajouter à la main :",
         ),
-        copyRow(personal.ics),
+        copyLinkRow(personal.ics),
         el("h3", { class: "subscribe-h" }, "Calendrier complet"),
       ]
     : PERSONAL_CALENDAR_URL
@@ -1864,7 +1977,7 @@ function renderSubscribe() {
       { class: "subscribe-or" },
       "…ou copie ce lien pour l'ajouter à la main :",
     ),
-    copyRow(ics),
+    copyLinkRow(ics),
     el(
       "details",
       { class: "subscribe-help" },
@@ -2114,6 +2227,15 @@ async function init() {
   })
   updateInstallButton()
 
+  // Vue par Liste : le lien partageable (#liste-04) rouvre le dialogue.
+  // En quittant le dialogue (Fermer/Echap), on nettoie le hash sans laisser
+  // d'entrée d'historique, pour pouvoir rouvrir le même lien plus tard.
+  document.getElementById("liste-dialog").addEventListener("close", () => {
+    if (location.hash)
+      history.replaceState(null, "", location.pathname + location.search)
+  })
+  window.addEventListener("hashchange", syncListeFromHash)
+
   // Badge « modifs » : nombre de changements depuis la dernière visite
   const lastVisit = localStorage.getItem("bemol-last-visit")
   const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
@@ -2134,6 +2256,7 @@ async function init() {
     : "grille"
   setView(localStorage.getItem("bemol-view") || defaultView)
   scrollToToday()
+  syncListeFromHash()
 }
 
 init()
