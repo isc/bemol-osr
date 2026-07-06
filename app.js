@@ -50,6 +50,15 @@ const FIELD_LABELS = {
 }
 
 const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+const DAY_NAMES_LONG = [
+  "dimanche",
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi",
+]
 const MONTH_NAMES = [
   "janv.",
   "févr.",
@@ -162,8 +171,20 @@ function addDays(d, n) {
   return r
 }
 
-function fmtDay(d, withYear = false) {
-  return `${DAY_NAMES[d.getDay()]} ${d.getDate()} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+function fmtDay(d, withYear = false, longDay = false) {
+  const date = d.getDate() === 1 ? "1er" : d.getDate()
+  const dayName = longDay ? DAY_NAMES_LONG[d.getDay()] : DAY_NAMES[d.getDay()]
+  return `${dayName} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+}
+
+// Formatte une plage de dates ("Du ... au ..."), en n'affichant l'année
+// qu'une seule fois (sur la borne de fin) quand les deux bornes tombent la
+// même année civile. Jours en toutes lettres (« samedi », pas « Sa ») : il
+// s'agit ici de prose (détail des vacances scolaires), pas d'un en-tête de
+// grille compact.
+function fmtDateRange(start, end) {
+  const sameYear = start.getFullYear() === end.getFullYear()
+  return `Du ${fmtDay(start, !sameYear, true)} au ${fmtDay(end, true, true)}`
 }
 
 function fmtTime(s) {
@@ -756,6 +777,7 @@ function vacancesRow(region, days) {
   while (i < days.length) {
     // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
     if (isRentree[i]) {
+      const day = days[i]
       row.append(
         el(
           "td",
@@ -765,7 +787,7 @@ function vacancesRow(region, days) {
             {
               class: "vac-band rentree-band",
               title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
-              onclick: () => showRentree(region, days[i]),
+              onclick: () => showRentree(region, day),
             },
             `Rentrée ${region}`,
           ),
@@ -777,7 +799,8 @@ function vacancesRow(region, days) {
     let j = i + 1
     while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
     const span = j - i
-    if (noms[i]) {
+    const nom = noms[i]
+    if (nom) {
       row.append(
         el(
           "td",
@@ -786,10 +809,10 @@ function vacancesRow(region, days) {
             "button",
             {
               class: "vac-band",
-              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${noms[i]}`,
-              onclick: () => showVacance(region, noms[i]),
+              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${nom}`,
+              onclick: () => showVacance(region, nom),
             },
-            noms[i],
+            nom,
           ),
         ),
       )
@@ -860,13 +883,7 @@ function showVacance(region, nom) {
   showHolidayDialog(
     "Vacances scolaires",
     el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
-    v
-      ? el(
-          "p",
-          {},
-          `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`,
-        )
-      : null,
+    v ? el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))) : null,
   )
 }
 
