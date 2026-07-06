@@ -652,6 +652,50 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
+/* --- Vue recherche --- */
+
+.search-bar {
+  margin-bottom: 12px;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.search-group {
+  background: #fff;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+}
+
+.search-group > h3 {
+  margin: 0 0 4px;
+  font-size: 0.95em;
+  color: var(--accent);
+}
+
+.search-chef {
+  margin: 2px 0;
+  font-weight: 600;
+}
+
+.search-solistes,
+.search-works {
+  margin: 2px 0;
+  font-size: 0.85em;
+  color: #556;
+}
+
+.search-dates {
+  margin-top: 8px;
+}
+
 /* --- Dialogues --- */
 
 dialog {
