@@ -156,6 +156,17 @@ function shortLocation(loc) {
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
+// Pas de plan à proposer si le lieu n'est pas encore connu (placeholders
+// utilisés par Dièse en attendant confirmation).
+function mapsUrl(loc) {
+  if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
+  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
+  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
+  // explicite) sont laissés tels quels.
+  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  return `https://maps.google.com/?q=${encodeURIComponent(query)}`
+}
+
 function shortListe(liste) {
   const m = liste.match(/^Liste (.+)$/)
   if (!m) return liste.length > 10 ? liste.slice(0, 9) + "…" : liste
@@ -457,6 +468,21 @@ function eventChip(e, { showDate = false } = {}) {
   return chip
 }
 
+// Rend le lieu cliquable (ouvre l'app de plans du téléphone) quand on a une
+// requête exploitable ; sinon affiche le texte brut du lieu tel quel.
+function locationDetail(loc) {
+  if (!loc) return "—"
+  const url = mapsUrl(loc)
+  if (!url) return loc
+  return el(
+    "a",
+    { class: "location-link", href: url, target: "_blank", rel: "noopener" },
+    loc,
+    " ",
+    el("span", { class: "location-pin", "aria-hidden": "true" }, "📍"),
+  )
+}
+
 function showDetail(e) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
@@ -491,7 +517,7 @@ function showDetail(e) {
       el("dt", {}, "Horaire"),
       el("dd", {}, `${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}`),
       el("dt", {}, "Lieu"),
-      el("dd", {}, e.location || "—"),
+      el("dd", {}, locationDetail(e.location)),
       el("dt", {}, "Programme"),
       el("dd", {}, e.project || "—"),
       state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
