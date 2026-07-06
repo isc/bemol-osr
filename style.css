@@ -743,6 +743,14 @@ dialog h2 {
   line-height: 1.4;
 }
 
+/* Variante flottante du même bouton, pour les dialogues dont le titre est
+   généré dynamiquement (Détail, Liste) : mis en premier dans le contenu,
+   il flotte à droite du titre au lieu d'être dans un en-tête flexbox fixe. */
+.close-btn-top-form {
+  float: right;
+  margin: 0 0 6px 10px;
+}
+
 .detail-box .detail-cat {
   display: inline-block;
   padding: 2px 10px;

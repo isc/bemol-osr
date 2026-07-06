@@ -507,6 +507,18 @@ function el(tag, attrs = {}, ...children) {
   return node
 }
 
+// Bouton « Fermer » (✕) à placer en premier dans le contenu généré en JS
+// d'un dialogue (Détail, Liste) : flotte à droite du titre (cf. .close-btn-top-form),
+// en plus du bouton « Fermer » du bas, pour éviter de devoir tout faire
+// défiler si on n'a besoin de voir que le haut du dialogue.
+function closeBtnTop() {
+  return el(
+    "form",
+    { method: "dialog", class: "close-btn-top-form" },
+    el("button", { class: "close-btn-top", "aria-label": "Fermer" }, "✕"),
+  )
+}
+
 function eventChip(e, { showDate = false } = {}) {
   const classes = ["evt", `cat-${e.category}`]
   if (e.cancelled) classes.push("cancelled")
@@ -547,6 +559,7 @@ function showDetail(e) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   box.replaceChildren(
+    closeBtnTop(),
     el(
       "span",
       { class: `detail-cat evt cat-${e.category}` },
@@ -836,6 +849,7 @@ function renderListeDialog(liste) {
     .sort((a, b) => a.start.localeCompare(b.start))
 
   box.replaceChildren(
+    closeBtnTop(),
     el(
       "h2",
       {},
@@ -987,6 +1001,7 @@ function showHolidayDialog(tag, ...content) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   box.replaceChildren(
+    closeBtnTop(),
     el("span", { class: "detail-cat evt cat-autre" }, tag),
     ...content.filter((c) => c !== null && c !== undefined),
   )
