@@ -1,6 +1,31 @@
-# Bémol · worker d'abonnement personnalisé — config Cloudflare Workers.
-# Déployé automatiquement par .github/workflows/deploy-worker.yml.
+# Bémol · worker d'abonnement personnalisé + notifications push — config
+# Cloudflare Workers. Déployé automatiquement par
+# .github/workflows/deploy-worker.yml.
 name = "bemol-calendrier"
 main = "src/index.js"
 compatibility_date = "2026-07-01"
 workers_dev = true
+
+# Cron de détection des changements (cf. worker/src/notify.js) : toutes les
+# 15 min, largement suffisant vis-à-vis du cycle de 2 h de update-data.yml —
+# le curseur KV rattrape de toute façon tout ce qui a été manqué.
+[triggers]
+crons = ["*/15 * * * *"]
+
+# KV des profils (jeton d'appareil → { prefs, subscription }), qui sert à la
+# fois à l'abonnement ICS « qui suit les Réglages » et aux notifications push.
+#
+# ⚠️ Mise en place manuelle requise une seule fois (id ci-dessous à
+# remplacer) :
+#   1. wrangler kv namespace create NOTIF_PROFILES
+#      → copier le "id" retourné ci-dessous.
+#   2. Générer une paire de clés VAPID (une seule fois, ne dépend pas de ce
+#      worker en particulier) : npx web-push generate-vapid-keys
+#   3. Depuis worker/, avec wrangler authentifié (wrangler login) :
+#      wrangler secret put VAPID_PUBLIC_KEY
+#      wrangler secret put VAPID_PRIVATE_KEY
+#      wrangler secret put VAPID_SUBJECT   (ex. "mailto:toi@example.org")
+#   4. Redéployer (push sur main, ou workflow_dispatch de deploy-worker.yml).
+[[kv_namespaces]]
+binding = "NOTIF_PROFILES"
+id = "À_REMPLACER_APRES_wrangler_kv_namespace_create"
