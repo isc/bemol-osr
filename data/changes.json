@@ -1,6 +1,27 @@
 {
  "entries": [
   {
+   "at": "2026-07-06T08:51:40.793Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 02",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Neil BRAND — The Lodger, A story of the London Fog",
+       "fields": [
+        "detail"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-07-03T14:34:25.134Z",
    "added": [
     {
