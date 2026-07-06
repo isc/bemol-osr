@@ -666,18 +666,42 @@ dialog h2 {
 }
 
 /* Nom de la Liste cliquable dans une fiche d'événement, ouvrant la vue par
-   Liste (programme complet de la production) */
+   Liste (programme complet de la production). Style « pastille » (plutôt
+   qu'un simple lien souligné) pour bien la distinguer du titre — qui est
+   lui-même dans la couleur d'accent — et signaler que c'est tapable même
+   sans survol (mobile). */
 .liste-link {
-  border: none;
-  background: none;
-  padding: 4px 2px;
-  margin: -4px -2px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  background: #e3edf5;
+  padding: 3px 8px 3px 11px;
+  margin: 0 2px 0 0;
   font: inherit;
+  font-size: 0.85em;
   font-weight: 700;
   color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
   cursor: pointer;
+}
+
+.liste-link::after {
+  content: "›";
+  margin-left: 3px;
+  font-weight: 900;
+}
+
+.liste-link:active {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .liste-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
 }
 
 /* --- Dialogue « Liste » (programme complet d'une production) --- */
