@@ -1,6 +1,94 @@
 {
  "entries": [
   {
+   "at": "2026-07-06T15:57:04.496Z",
+   "added": [
+    {
+     "uid": "osr226832",
+     "start": "2026-09-22T17:00",
+     "end": "2026-09-22T18:00",
+     "liste": "Titularisation OSÓRIO",
+     "activity": "séance titularisation (Nuno OSÓRIO)",
+     "category": "autre",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr226835",
+     "start": "2026-09-24T17:00",
+     "end": "2026-09-24T18:00",
+     "liste": "Titularisation MARQUEZ TERUEL",
+     "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133366",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr133366",
+      "start": "2027-04-08T19:30",
+      "end": "2027-04-08T22:30",
+      "liste": "Liste F",
+      "activity": "scène et orchestre",
+      "category": "italienne",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133366",
+      "start": "2027-04-08T10:30",
+      "end": "2027-04-08T13:00",
+      "liste": "Liste F",
+      "activity": "scène et orchestre",
+      "category": "italienne",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133365",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr133365",
+      "start": "2027-04-08T14:00",
+      "end": "2027-04-08T17:00",
+      "liste": "Liste F",
+      "activity": "scène et orchestre",
+      "category": "italienne",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133365",
+      "start": "2027-04-08T15:00",
+      "end": "2027-04-08T17:30",
+      "liste": "Liste F",
+      "activity": "scène et orchestre",
+      "category": "italienne",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-07-06T11:07:43.079Z",
    "added": [
     {
