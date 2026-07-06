@@ -113,6 +113,22 @@ plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
 - Le DOM est construit via le helper `el()` de `app.js` — pas d'`innerHTML`
   avec des données du planning (risque d'injection).
 
+## Descriptions de PR : commencer par le pourquoi
+
+Une PR se relit **sans l'issue sous les yeux** (et c'est elle qui reste dans
+l'historique). Sa description doit donc être auto-suffisante, dans cet ordre :
+
+1. **Pourquoi** — reprendre la motivation exprimée dans l'issue, avec le
+   contexte métier et, s'il éclaire la demande, le vécu raconté par son auteur
+   (« consulter le planning en fosse dans le noir »…). Ne pas se contenter de
+   « Closes #N » : le lien ferme l'issue, il ne raconte rien.
+2. **Quoi** — ce qui change, du point de vue de l'utilisateur d'abord,
+   technique ensuite.
+3. **Comment vérifier** — preview, captures, cas à tester.
+
+« Closes #N » reste obligatoire (fermeture automatique au merge), mais en
+complément du pourquoi, pas à sa place.
+
 ## Captures d'écran dans les PRs (obligatoire pour tout changement visible)
 
 Les relecteurs sont des musiciens : une PR qui change quelque chose à l'écran
@@ -142,9 +158,20 @@ c'est pertinent), en plus du lien de preview.
    (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
    puis compléter la description avec `gh pr edit`.)
 
-3. Les référencer dans la description avec l'URL brute :
-   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png`
+3. Les référencer dans la description avec l'URL brute **suffixée `?v=1`** :
+   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`
    — par exemple dans un tableau avant/après.
+
+4. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`.
+   Le CDN de raw (et le cache d'images des navigateurs des relecteurs) peut
+   servir une version tronquée ou périmée d'une image ; le script compare ce
+   qui est servi à la vraie taille du fichier (API GitHub) et incrémente
+   lui-même le `?v=` dans la description en cas d'écart. À lancer après toute
+   édition des images d'une description.
+
+⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même nom
+sans relancer le script du point 4 (les caches continueraient de servir
+l'ancienne) — ou plus simple : nouveau nom de fichier à chaque version.
 
 ## Déploiement (pour info)
 
