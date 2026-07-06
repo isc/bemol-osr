@@ -1,15 +1,20 @@
-/* Bémol · Planning OSR — palette inspirée de la « Bible » de saison */
+/* Bémol · Planning OSR — habillage inspiré de l'identité visuelle de l'OSR :
+   noir chaud et or des programmes de concert (osr.ch), typographie serif pour
+   les titres, fond ivoire. Les couleurs de catégories restent celles de la
+   « Bible » papier (repère métier), lisibles sur fonds clairs uniquement —
+   c'est pourquoi le sombre est réservé à l'en-tête et aux titres. */
 
 :root {
-  --accent: #2c5f8a;
-  --bg: #f0f2f5;
+  /* Or/bronze foncé pour les surfaces claires (contraste AA sur blanc) */
+  --accent: #75633f;
+  --bg: #f5f2ea;
   --surface: #fff;
   --surface-alt: #f3f5f8;
-  --surface-accent-soft: #dce8f5;
-  --surface-accent-soft-2: #cadcf0;
-  --border: #d8dce1;
+  --surface-accent-soft: #ece5d2;
+  --surface-accent-soft-2: #ddd0a8;
+  --border: #ddd6c5;
   --border-soft: rgba(0, 0, 0, 0.06);
-  --text: #222;
+  --text: #26211a;
   --text-muted: #667;
   --text-faint: #889;
   --today-bg: #fdf6dd;
@@ -30,7 +35,14 @@
   --warn-border: #ffe69c;
   --legend-border: rgba(0, 0, 0, 0.15);
   --evt-loc: rgba(0, 0, 0, 0.55);
-  --head-accent-text: #245;
+  --head-accent-text: #75633f;
+
+  /* En-tête « programme de concert » : noir chaud, texte ivoire, or clair —
+     invariant par thème (cf. bloc [data-theme="dark"] plus bas) */
+  --header-bg: #1d1912;
+  --header-fg: #f2ecdd;
+  --gold: #c8a35c;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   --cat-concert: #f5a83a;
   --cat-generale: #fbd45c;
@@ -61,8 +73,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  background: var(--header-bg);
+  color: var(--header-fg);
+  border-bottom: 2px solid var(--gold);
   padding: 8px 12px 6px;
 }
 
@@ -86,15 +99,20 @@ header {
 
 h1 {
   margin: 0;
-  font-size: 1.3em;
-  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 1.45em;
+  font-weight: 600;
+  color: var(--gold);
   white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 h1 .subtitle {
   font-weight: normal;
-  font-size: 0.75em;
-  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.62em;
+  color: #a89a79;
+  letter-spacing: 0.03em;
 }
 
 .header-controls {
@@ -135,10 +153,19 @@ button {
   border-right-width: 1px;
 }
 
+/* Boutons de l'en-tête : déclinaison sombre (l'or est réservé à l'état actif) */
+.header-controls button,
+.header-controls select {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--header-fg);
+  border-color: #4d4536;
+}
+
 #view-nav button.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+  background: var(--gold);
+  color: var(--header-bg);
+  border-color: var(--gold);
+  font-weight: 600;
 }
 
 .badge {
@@ -152,8 +179,8 @@ button {
 }
 
 #view-nav button.active .badge {
-  background: #fff;
-  color: var(--danger);
+  background: var(--header-bg);
+  color: var(--gold);
 }
 
 /* Légende cliquable (filtre les catégories) */
@@ -171,10 +198,16 @@ button {
   border: 1px solid var(--legend-border);
   cursor: pointer;
   user-select: none;
+  /* Les pastilles ont des fonds pastel clairs : encre sombre explicite,
+     sinon elles héritent du texte ivoire de l'en-tête sombre (illisible). */
+  color: var(--ink);
 }
 
 .legend-item.off {
-  opacity: 0.35;
+  /* Sur l'en-tête sombre, une simple opacité rendrait la pastille illisible :
+     on désature et on garde assez de présence pour rester cliquable. */
+  opacity: 0.55;
+  filter: grayscale(0.85);
   text-decoration: line-through;
 }
 
@@ -191,10 +224,13 @@ main {
 }
 
 .periode > h2 {
-  background: var(--accent);
-  color: #fff;
-  font-size: 0.95em;
-  padding: 5px 10px;
+  background: var(--header-bg);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 6px 12px;
   border-radius: 6px 6px 0 0;
   margin: 0 0 2px;
 }
@@ -569,7 +605,8 @@ table.week td.repos:not(.today) {
 
 .agenda-day > h3 {
   margin: 0;
-  font-size: 0.9em;
+  font-family: var(--serif);
+  font-size: 0.95em;
   padding: 6px 12px;
   background: var(--surface-accent-soft);
   color: var(--head-accent-text);
@@ -715,7 +752,8 @@ dialog::backdrop {
 
 dialog h2 {
   margin-top: 0;
-  font-size: 1.1em;
+  font-family: var(--serif);
+  font-size: 1.2em;
   color: var(--accent);
 }
 
@@ -1067,7 +1105,7 @@ dialog h2 {
 
 @media (hover: hover) {
   .liste-option:hover {
-    background: var(--hover-soft);
+    background: var(--surface-accent-soft);
   }
 }
 
@@ -1307,8 +1345,11 @@ footer a {
 /* --- Installation de l'application (PWA) --- */
 
 #install-btn {
-  color: var(--accent);
-  border-color: var(--accent);
+  /* Appel à l'action : or plein sur l'en-tête sombre (comme l'onglet actif).
+     Prime sur la déclinaison sombre générique des boutons d'en-tête. */
+  background: var(--gold);
+  color: var(--header-bg);
+  border-color: var(--gold);
   font-weight: 600;
   white-space: nowrap;
 }
