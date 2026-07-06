@@ -50,6 +50,15 @@ const FIELD_LABELS = {
 }
 
 const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+const DAY_NAMES_LONG = [
+  "dimanche",
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi",
+]
 const MONTH_NAMES = [
   "janv.",
   "févr.",
@@ -76,6 +85,7 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
+  searchQuery: "", // recherche courante (vue Recherche), conservée entre les rendus
 }
 
 function loadPrefs() {
@@ -89,6 +99,8 @@ function loadPrefs() {
     // globalement (absent de hiddenCategories), listes masquées à l'intérieur
     // de ce seul type. { [catégorie]: ["Liste 04", …] }
     hiddenCatListes: {},
+    // "auto" (suit prefers-color-scheme), "light" ou "dark"
+    theme: "auto",
   }
   try {
     const stored = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
@@ -105,6 +117,31 @@ function loadPrefs() {
 function savePrefs() {
   localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
 }
+
+// --- Mode sombre -------------------------------------------------------------
+// "auto" suit la préférence système ; sinon la préférence utilisateur force le
+// thème. Les couleurs réelles sont définies en CSS (variables, cf. style.css) ;
+// ici on ne fait que poser l'attribut data-theme et assortir la couleur de la
+// barre d'état PWA (meta theme-color), qui elle ne peut pas être pilotée en CSS.
+const prefersDarkMedia = window.matchMedia("(prefers-color-scheme: dark)")
+
+function isDarkTheme() {
+  if (state.prefs.theme === "dark") return true
+  if (state.prefs.theme === "light") return false
+  return prefersDarkMedia.matches
+}
+
+function applyTheme() {
+  const dark = isDarkTheme()
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+  const meta = document.querySelector('meta[name="theme-color"]')
+  if (meta) meta.setAttribute("content", dark ? "#1e2328" : "#2c5f8a")
+}
+
+applyTheme()
+prefersDarkMedia.addEventListener("change", () => {
+  if (state.prefs.theme === "auto") applyTheme()
+})
 
 // --- Utilitaires dates -----------------------------------------------------
 
@@ -135,8 +172,20 @@ function addDays(d, n) {
   return r
 }
 
-function fmtDay(d, withYear = false) {
-  return `${DAY_NAMES[d.getDay()]} ${d.getDate()} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+function fmtDay(d, withYear = false, longDay = false) {
+  const date = d.getDate() === 1 ? "1er" : d.getDate()
+  const dayName = longDay ? DAY_NAMES_LONG[d.getDay()] : DAY_NAMES[d.getDay()]
+  return `${dayName} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+}
+
+// Formatte une plage de dates ("Du ... au ..."), en n'affichant l'année
+// qu'une seule fois (sur la borne de fin) quand les deux bornes tombent la
+// même année civile. Jours en toutes lettres (« samedi », pas « Sa ») : il
+// s'agit ici de prose (détail des vacances scolaires), pas d'un en-tête de
+// grille compact.
+function fmtDateRange(start, end) {
+  const sameYear = start.getFullYear() === end.getFullYear()
+  return `Du ${fmtDay(start, !sameYear, true)} au ${fmtDay(end, true, true)}`
 }
 
 function fmtTime(s) {
@@ -156,10 +205,32 @@ function shortLocation(loc) {
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
+// Pas de plan à proposer si le lieu n'est pas encore connu (placeholders
+// utilisés par Dièse en attendant confirmation).
+function mapsUrl(loc) {
+  if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
+  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
+  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
+  // explicite) sont laissés tels quels.
+  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  return `https://maps.google.com/?q=${encodeURIComponent(query)}`
+}
+
 function shortListe(liste) {
   const m = liste.match(/^Liste (.+)$/)
   if (!m) return liste.length > 10 ? liste.slice(0, 9) + "…" : liste
   return /^\d/.test(m[1]) ? "L" + m[1] : m[1]
+}
+
+// Normalise une chaîne pour la recherche : insensible à la casse et aux
+// accents (« dvorak » retrouve « Dvořák »).
+function normalizeSearch(s) {
+  return (s || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
 }
 
 // --- Vacances scolaires & jours fériés (repères de la vue Grille) ------------
@@ -436,6 +507,18 @@ function el(tag, attrs = {}, ...children) {
   return node
 }
 
+// Bouton « Fermer » (✕) à placer en premier dans le contenu généré en JS
+// d'un dialogue (Détail, Liste) : flotte à droite du titre (cf. .close-btn-top-form),
+// en plus du bouton « Fermer » du bas, pour éviter de devoir tout faire
+// défiler si on n'a besoin de voir que le haut du dialogue.
+function closeBtnTop() {
+  return el(
+    "form",
+    { method: "dialog", class: "close-btn-top-form" },
+    el("button", { class: "close-btn-top", "aria-label": "Fermer" }, "✕"),
+  )
+}
+
 function eventChip(e, { showDate = false } = {}) {
   const classes = ["evt", `cat-${e.category}`]
   if (e.cancelled) classes.push("cancelled")
@@ -457,10 +540,26 @@ function eventChip(e, { showDate = false } = {}) {
   return chip
 }
 
+// Rend le lieu cliquable (ouvre l'app de plans du téléphone) quand on a une
+// requête exploitable ; sinon affiche le texte brut du lieu tel quel.
+function locationDetail(loc) {
+  if (!loc) return "—"
+  const url = mapsUrl(loc)
+  if (!url) return loc
+  return el(
+    "a",
+    { class: "location-link", href: url, target: "_blank", rel: "noopener" },
+    loc,
+    " ",
+    el("span", { class: "location-pin", "aria-hidden": "true" }, "📍"),
+  )
+}
+
 function showDetail(e) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   box.replaceChildren(
+    closeBtnTop(),
     el(
       "span",
       { class: `detail-cat evt cat-${e.category}` },
@@ -469,7 +568,16 @@ function showDetail(e) {
     el(
       "h2",
       {},
-      `${e.liste} — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
+      el(
+        "button",
+        {
+          class: "liste-link",
+          title: "Voir toute la production de cette liste",
+          onclick: () => showListe(e.liste),
+        },
+        e.liste,
+      ),
+      ` — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
       // Point rouge si le mémo de ce programme a changé récemment (cf. les
       // événements de planning récemment modifiés).
       state.recentListes.has(e.liste)
@@ -491,7 +599,7 @@ function showDetail(e) {
       el("dt", {}, "Horaire"),
       el("dd", {}, `${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}`),
       el("dt", {}, "Lieu"),
-      el("dd", {}, e.location || "—"),
+      el("dd", {}, locationDetail(e.location)),
       el("dt", {}, "Programme"),
       el("dd", {}, e.project || "—"),
       state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
@@ -511,9 +619,64 @@ function showDetail(e) {
           )
         : null,
     ),
-    ...productionDetail(e),
+    ...productionDetail(e.liste),
+    ...historyDetail(e.uid),
   )
   dlg.showModal()
+}
+
+// Valeur affichable d'un champ d'événement dans un diff (vue Modifs,
+// historique de fiche ci-dessous).
+function fieldDiffValue(f, v) {
+  if (f === "cancelled") return v ? "annulé" : "confirmé"
+  if (f === "start" || f === "end") return fmtDateStr(String(v))
+  return String(v || "—")
+}
+
+// Historique des changements d'un événement (issue #58), croisé par uid avec
+// le journal `data/changes.json`. Ce journal est déjà plafonné (cf.
+// MAX_CHANGE_ENTRIES côté scripts/update-data.mjs) : l'historique reste donc
+// "récent" sans qu'il soit besoin de le borner ici. Une ligne par relevé où
+// l'événement a été ajouté ou modifié, la plus récente en premier (comme
+// state.changes).
+function eventHistory(uid) {
+  const lines = []
+  for (const entry of state.changes) {
+    if (entry.type === "memo") continue
+    const date = fmtDay(new Date(entry.at))
+    if (entry.added.some((e) => e.uid === uid)) lines.push(`Ajouté le ${date}`)
+
+    const m = entry.modified.find((m) => m.uid === uid)
+    if (!m) continue
+    const diffs = []
+    if (m.fields.includes("start") || m.fields.includes("end")) {
+      const sameDay = m.before.start.slice(0, 10) === m.after.start.slice(0, 10)
+      const horaire = (ev) =>
+        (sameDay ? "" : `${fmtDay(parseDate(ev.start))} `) +
+        `${fmtTime(ev.start)}–${fmtTime(ev.end)}`
+      diffs.push(`horaire ${horaire(m.before)} → ${horaire(m.after)}`)
+    }
+    for (const f of m.fields.filter((f) => f !== "start" && f !== "end"))
+      diffs.push(
+        `${FIELD_LABELS[f] || f} ${fieldDiffValue(f, m.before[f])} → ${fieldDiffValue(f, m.after[f])}`,
+      )
+    for (const d of diffs) lines.push(`Modifié le ${date} : ${d}`)
+  }
+  return lines
+}
+
+// Quelques lignes discrètes en bas de la fiche d'un événement, uniquement
+// s'il y a un historique (rien à afficher sinon).
+function historyDetail(uid) {
+  const lines = eventHistory(uid)
+  if (!lines.length) return []
+  return [
+    el(
+      "div",
+      { class: "detail-history" },
+      ...lines.map((l) => el("p", {}, "⏱ ", l)),
+    ),
+  ]
 }
 
 // Détail d'instrumentation d'une œuvre, repris tel quel du mémo de production
@@ -562,10 +725,10 @@ function workNode(w) {
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour la Liste de l'événement. Renvoie []
+// d'instrumentation, effectif, durée) pour une Liste donnée. Renvoie []
 // si aucune info n'est saisie pour cette Liste dans productions.json.
-function productionDetail(e) {
-  const prod = state.productions[e.liste]
+function productionDetail(liste) {
+  const prod = state.productions[liste]
   if (!prod) return []
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
@@ -605,6 +768,144 @@ function productionDetail(e) {
     )
   }
   return nodes
+}
+
+// --- Vue par Liste (programme complet d'une production) --------------------
+
+// Champ + bouton « copier » pour une URL donnée (abonnement au calendrier,
+// lien partageable d'une Liste…).
+function copyLinkRow(url) {
+  const field = el("input", {
+    class: "subscribe-url",
+    type: "text",
+    readonly: "",
+    value: url,
+    onfocus: (ev) => ev.target.select(),
+  })
+  const btn = el(
+    "button",
+    {
+      type: "button",
+      class: "copy-btn",
+      onclick: async () => {
+        try {
+          await navigator.clipboard.writeText(url)
+          btn.textContent = "Lien copié ✓"
+        } catch {
+          // Presse-papier indisponible (http, navigateur ancien) : on
+          // sélectionne le champ pour un copier-coller manuel.
+          field.focus()
+          field.select()
+          btn.textContent = "Sélectionné — copie-le"
+        }
+        setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
+      },
+    },
+    "Copier le lien",
+  )
+  return el("div", { class: "subscribe-url-row" }, field, btn)
+}
+
+// Identifiant d'URL d'une Liste (fragment de hash), ex. "Liste 04" → "liste-04",
+// "Liste 24b" → "liste-24b", "Atelier Découverte 1" → "liste-atelier-decouverte-1".
+// Toujours ASCII (accents retirés) pour rester lisible/copiable tel quel
+// (ex. dans un groupe WhatsApp de pupitre).
+function listeSlug(liste) {
+  const slug = liste
+    .replace(/^Liste\s+/i, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+  return `liste-${slug}`
+}
+
+// Retrouve la Liste correspondant à un fragment de hash ("liste-04"), parmi
+// les Listes présentes dans les données chargées (une seule saison à la fois,
+// donc pas d'ambiguïté entre saisons).
+function listeFromSlug(slug) {
+  const listes = new Set(state.events.map((e) => e.liste))
+  for (const liste of listes) if (listeSlug(liste) === slug) return liste
+  return null
+}
+
+// URL absolue et partageable d'une Liste (chemin relatif à la page courante,
+// fonctionne donc aussi bien en production que dans une preview de PR).
+function listeUrl(liste) {
+  return new URL(`#${listeSlug(liste)}`, location.href).href
+}
+
+// Construit le contenu du dialogue « Liste » : mémo de production complet
+// (chef, solistes, œuvres, effectif, durée — réutilise productionDetail) et
+// tous les services de cette Liste, triés chronologiquement (réutilise
+// eventChip). Les services annulés et toutes les catégories sont inclus,
+// indépendamment des filtres de la vue courante : c'est le programme complet
+// de la production qu'on veut voir ici.
+function renderListeDialog(liste) {
+  const box = document.getElementById("liste-content")
+  const events = state.events
+    .filter((e) => e.liste === liste)
+    .sort((a, b) => a.start.localeCompare(b.start))
+
+  box.replaceChildren(
+    closeBtnTop(),
+    el(
+      "h2",
+      {},
+      liste,
+      state.recentListes.has(liste)
+        ? el(
+            "span",
+            {
+              class: "recent-dot",
+              title: "Mémo de production modifié récemment",
+            },
+            "●",
+          )
+        : null,
+    ),
+    ...productionDetail(liste),
+    el("h3", { class: "detail-section" }, `Services (${events.length})`),
+    events.length
+      ? el(
+          "div",
+          { class: "liste-events" },
+          ...events.map((e) => eventChip(e, { showDate: true })),
+        )
+      : el(
+          "p",
+          { class: "empty-msg" },
+          "Aucun service trouvé pour cette liste.",
+        ),
+    el("h3", { class: "detail-section" }, "Lien partageable"),
+    copyLinkRow(listeUrl(liste)),
+  )
+}
+
+// Ouvre le dialogue « Liste » pour la Liste donnée, et met à jour l'URL
+// (fragment #liste-04) pour permettre de la partager (ex. dans un groupe
+// WhatsApp de pupitre).
+function showListe(liste) {
+  const detailDlg = document.getElementById("detail-dialog")
+  if (detailDlg.open) detailDlg.close()
+  renderListeDialog(liste)
+  const slug = listeSlug(liste)
+  if (location.hash.slice(1) !== slug) history.pushState(null, "", `#${slug}`)
+  document.getElementById("liste-dialog").showModal()
+}
+
+// Synchronise le dialogue « Liste » avec le hash de l'URL courante : l'ouvre
+// si le hash pointe vers une Liste connue (lien partagé, rechargement de
+// page…), le referme si on navigue ailleurs (bouton précédent du navigateur).
+function syncListeFromHash() {
+  const slug = location.hash.slice(1)
+  const liste = slug.startsWith("liste-") ? listeFromSlug(slug) : null
+  if (liste) showListe(liste)
+  else {
+    const dlg = document.getElementById("liste-dialog")
+    if (dlg.open) dlg.close()
+  }
 }
 
 // --- Repères vacances / fériés dans la Grille --------------------------------
@@ -648,6 +949,7 @@ function vacancesRow(region, days) {
   while (i < days.length) {
     // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
     if (isRentree[i]) {
+      const day = days[i]
       row.append(
         el(
           "td",
@@ -657,7 +959,7 @@ function vacancesRow(region, days) {
             {
               class: "vac-band rentree-band",
               title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
-              onclick: () => showRentree(region, days[i]),
+              onclick: () => showRentree(region, day),
             },
             `Rentrée ${region}`,
           ),
@@ -669,7 +971,8 @@ function vacancesRow(region, days) {
     let j = i + 1
     while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
     const span = j - i
-    if (noms[i]) {
+    const nom = noms[i]
+    if (nom) {
       row.append(
         el(
           "td",
@@ -678,10 +981,10 @@ function vacancesRow(region, days) {
             "button",
             {
               class: "vac-band",
-              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${noms[i]}`,
-              onclick: () => showVacance(region, noms[i]),
+              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${nom}`,
+              onclick: () => showVacance(region, nom),
             },
-            noms[i],
+            nom,
           ),
         ),
       )
@@ -698,6 +1001,7 @@ function showHolidayDialog(tag, ...content) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   box.replaceChildren(
+    closeBtnTop(),
     el("span", { class: "detail-cat evt cat-autre" }, tag),
     ...content.filter((c) => c !== null && c !== undefined),
   )
@@ -752,13 +1056,7 @@ function showVacance(region, nom) {
   showHolidayDialog(
     "Vacances scolaires",
     el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
-    v
-      ? el(
-          "p",
-          {},
-          `Du ${fmtDateStr(v.start, false)} au ${fmtDateStr(v.end, false)}`,
-        )
-      : null,
+    v ? el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))) : null,
   )
 }
 
@@ -979,22 +1277,14 @@ function planningEntryBox(entry) {
       `✏️ Modifié : ${changeLine(m.after)}`,
     )
     for (const f of m.fields) {
-      const fmt = (v) =>
-        f === "cancelled"
-          ? v
-            ? "annulé"
-            : "confirmé"
-          : f === "start" || f === "end"
-            ? fmtDateStr(String(v))
-            : String(v || "—")
       item.append(
         el(
           "div",
           { class: "field-diff" },
           `${FIELD_LABELS[f] || f} : `,
-          el("span", { class: "old" }, fmt(m.before[f])),
+          el("span", { class: "old" }, fieldDiffValue(f, m.before[f])),
           " → ",
-          el("span", { class: "new" }, fmt(m.after[f])),
+          el("span", { class: "new" }, fieldDiffValue(f, m.after[f])),
         ),
       )
     }
@@ -1106,6 +1396,120 @@ function renderModifs(main) {
     main.append(
       entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry),
     )
+}
+
+// --- Vue recherche -----------------------------------------------------------
+
+// Cherche `query` dans le mémo de production (chef, solistes, œuvres) et dans
+// les événements (activité, lieu, programme) de la saison courante, et
+// regroupe les correspondances par Liste. Insensible à la casse et aux
+// accents. Ne tient pas compte des préférences d'affichage (catégories/listes
+// masquées) : la recherche doit pouvoir retrouver ce qu'on a caché ailleurs.
+function searchResults(query) {
+  const q = normalizeSearch(query)
+  if (!q) return []
+
+  const byListe = new Map() // liste → événements de la saison courante
+  for (const e of state.events) {
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!byListe.has(e.liste)) byListe.set(e.liste, [])
+    byListe.get(e.liste).push(e)
+  }
+
+  const results = []
+  for (const [liste, events] of byListe) {
+    const prod = state.productions[liste] || {}
+    const solistes = (prod.solistes || []).filter(Boolean)
+    const works = (prod.works || []).filter(Boolean)
+    const workTitles = works.map((w) => (typeof w === "string" ? w : w.oeuvre))
+    const haystack = [
+      liste,
+      prod.chef,
+      ...solistes,
+      ...workTitles,
+      ...events.map((e) => e.activity),
+      ...events.map((e) => e.location),
+      ...events.map((e) => e.project),
+    ]
+      .filter(Boolean)
+      .map(normalizeSearch)
+      .join("   ")
+    if (haystack.includes(q))
+      results.push({
+        liste,
+        chef: prod.chef,
+        solistes,
+        workTitles,
+        events: [...events].sort((a, b) => a.start.localeCompare(b.start)),
+      })
+  }
+
+  return results.sort((a, b) =>
+    a.liste.localeCompare(b.liste, "fr", { numeric: true }),
+  )
+}
+
+// Boîte d'un résultat : infos du programme (chef, solistes, œuvres) suivies
+// des services correspondants, réutilisant les chips habituelles (mêmes
+// codes couleur, même détail au clic que les autres vues).
+function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
+  const infoLines = []
+  if (chef) infoLines.push(el("p", { class: "search-chef" }, chef))
+  if (solistes.length)
+    infoLines.push(el("p", { class: "search-solistes" }, solistes.join(" · ")))
+  if (workTitles.length)
+    infoLines.push(el("p", { class: "search-works" }, workTitles.join(" · ")))
+  return el(
+    "div",
+    { class: "search-group" },
+    el("h3", {}, liste),
+    ...infoLines,
+    el(
+      "div",
+      { class: "search-dates" },
+      ...events.map((e) => eventChip(e, { showDate: true })),
+    ),
+  )
+}
+
+function renderSearchResults(container, query) {
+  const q = query.trim()
+  if (!q) {
+    container.replaceChildren(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Tape le nom d'une œuvre, d'un compositeur, d'un chef, d'un soliste, " +
+          "d'un lieu ou d'une liste pour retrouver les programmes correspondants.",
+      ),
+    )
+    return
+  }
+  const results = searchResults(q)
+  if (!results.length) {
+    container.replaceChildren(
+      el("p", { class: "empty-msg" }, `Aucun résultat pour « ${q} ».`),
+    )
+    return
+  }
+  container.replaceChildren(...results.map(searchGroupNode))
+}
+
+function renderRecherche(main) {
+  const results = el("div", { class: "search-results" })
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Œuvre, compositeur, chef, soliste, lieu…",
+    autofocus: "",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+  main.append(el("div", { class: "search-bar" }, input), results)
+  renderSearchResults(results, state.searchQuery)
 }
 
 // --- Légende / préférences ---------------------------------------------------
@@ -1427,7 +1831,32 @@ function renderPrefs() {
   for (const cat of cats) refreshCat(cat)
   updateCatNote()
 
+  const themeLabels = {
+    auto: "Automatique (suit le système)",
+    light: "Clair",
+    dark: "Sombre",
+  }
+  const themeOptions = Object.keys(themeLabels).map((val) => {
+    const input = el("input", {
+      type: "radio",
+      name: "theme",
+      onchange: () => {
+        state.prefs.theme = val
+        savePrefs()
+        applyTheme()
+      },
+    })
+    input.checked = state.prefs.theme === val
+    return el("label", { class: "liste-option" }, input, " ", themeLabels[val])
+  })
+
   box.replaceChildren(
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Thème de l'application :"),
+      el("div", { class: "liste-options" }, ...themeOptions),
+    ),
     el(
       "div",
       { class: "prefs-section" },
@@ -1506,39 +1935,6 @@ function renderSubscribe() {
   const { ics, webcal } = subscribeUrls()
   const personal = personalSubscribeUrls()
 
-  // Champ + bouton « copier » pour une URL d'abonnement donnée.
-  const copyRow = (url) => {
-    const field = el("input", {
-      class: "subscribe-url",
-      type: "text",
-      readonly: "",
-      value: url,
-      onfocus: (ev) => ev.target.select(),
-    })
-    const btn = el(
-      "button",
-      {
-        type: "button",
-        class: "copy-btn",
-        onclick: async () => {
-          try {
-            await navigator.clipboard.writeText(url)
-            btn.textContent = "Lien copié ✓"
-          } catch {
-            // Presse-papier indisponible (http, navigateur ancien) : on
-            // sélectionne le champ pour un copier-coller manuel.
-            field.focus()
-            field.select()
-            btn.textContent = "Sélectionné — copie-le"
-          }
-          setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
-        },
-      },
-      "Copier le lien",
-    )
-    return el("div", { class: "subscribe-url-row" }, field, btn)
-  }
-
   // Abonnement personnalisé : reflète les Réglages actuels, si le worker de
   // filtrage est déployé. Sinon (ou sans filtre actif), section absente.
   const personalSection = personal
@@ -1562,7 +1958,7 @@ function renderSubscribe() {
           { class: "subscribe-or" },
           "…ou copie ce lien pour l'ajouter à la main :",
         ),
-        copyRow(personal.ics),
+        copyLinkRow(personal.ics),
         el("h3", { class: "subscribe-h" }, "Calendrier complet"),
       ]
     : PERSONAL_CALENDAR_URL
@@ -1596,7 +1992,7 @@ function renderSubscribe() {
       { class: "subscribe-or" },
       "…ou copie ce lien pour l'ajouter à la main :",
     ),
-    copyRow(ics),
+    copyLinkRow(ics),
     el(
       "details",
       { class: "subscribe-help" },
@@ -1766,6 +2162,7 @@ const VIEW_LABELS = {
   grille: "Grille",
   agenda: "Agenda",
   modifs: "Modifications",
+  recherche: "Recherche",
 }
 
 function render() {
@@ -1795,6 +2192,7 @@ function renderContent() {
   )
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "agenda") renderAgenda(main)
+  else if (state.view === "recherche") renderRecherche(main)
   else renderModifs(main)
 }
 
@@ -1844,6 +2242,15 @@ async function init() {
   })
   updateInstallButton()
 
+  // Vue par Liste : le lien partageable (#liste-04) rouvre le dialogue.
+  // En quittant le dialogue (Fermer/Echap), on nettoie le hash sans laisser
+  // d'entrée d'historique, pour pouvoir rouvrir le même lien plus tard.
+  document.getElementById("liste-dialog").addEventListener("close", () => {
+    if (location.hash)
+      history.replaceState(null, "", location.pathname + location.search)
+  })
+  window.addEventListener("hashchange", syncListeFromHash)
+
   // Badge « modifs » : nombre de changements depuis la dernière visite
   const lastVisit = localStorage.getItem("bemol-last-visit")
   const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
@@ -1864,6 +2271,7 @@ async function init() {
     : "grille"
   setView(localStorage.getItem("bemol-view") || defaultView)
   scrollToToday()
+  syncListeFromHash()
 }
 
 init()

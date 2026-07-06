@@ -16,13 +16,33 @@
          couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1d1912" />
+    <!-- Applique le mode sombre avant le premier rendu (évite un flash blanc)
+         si l'utilisateur l'a choisi, ou si "auto" (par défaut) et que le
+         système est en sombre. Logique complète (bascule, écoute des
+         changements système) dans app.js. L'en-tête « programme de concert »
+         (theme-color ci-dessus) ne change pas avec le thème. -->
+    <script>
+      ;(function () {
+        try {
+          var prefs = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
+          var theme = prefs.theme || "auto"
+          var dark =
+            theme === "dark" ||
+            (theme !== "light" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          if (dark) {
+            document.documentElement.dataset.theme = "dark"
+          }
+        } catch (e) {}
+      })()
+    </script>
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=e57499f40430" />
+    <link rel="stylesheet" href="style.css?v=c93775e71acb" />
   </head>
   <body>
     <header>
@@ -35,6 +55,7 @@
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
+            <button data-view="recherche">Recherche</button>
           </nav>
           <button id="today-btn" title="Aller à aujourd'hui">
             Aujourd'hui
@@ -64,33 +85,53 @@
     </footer>
 
     <dialog id="detail-dialog">
-      <div id="detail-content"></div>
+      <div id="detail-content" class="detail-box"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="liste-dialog">
+      <div id="liste-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
     <dialog id="prefs-dialog">
-      <h2>Préférences d'affichage</h2>
+      <div class="dialog-head">
+        <h2>Préférences d'affichage</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
       <div id="prefs-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
     <dialog id="subscribe-dialog">
-      <h2>S'abonner au calendrier</h2>
+      <div class="dialog-head">
+        <h2>S'abonner au calendrier</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
       <div id="subscribe-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
     <dialog id="install-dialog">
-      <h2>Installer l'application</h2>
+      <div class="dialog-head">
+        <h2>Installer l'application</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
       <div id="install-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=e57499f40430
+    <!-- Le suffixe ?v=c93775e71acb
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=e57499f40430"></script>
+    <script src="app.js?v=c93775e71acb"></script>
   </body>
 </html>
