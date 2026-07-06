@@ -16,13 +16,35 @@
          couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#2c5f8a" />
+    <!-- Applique le mode sombre avant le premier rendu (évite un flash blanc)
+         si l'utilisateur l'a choisi, ou si "auto" (par défaut) et que le
+         système est en sombre. Logique complète (bascule, écoute des
+         changements système) dans app.js. -->
+    <script>
+      ;(function () {
+        try {
+          var prefs = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
+          var theme = prefs.theme || "auto"
+          var dark =
+            theme === "dark" ||
+            (theme !== "light" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          if (dark) {
+            document.documentElement.dataset.theme = "dark"
+            document
+              .querySelector('meta[name="theme-color"]')
+              .setAttribute("content", "#1e2328")
+          }
+        } catch (e) {}
+      })()
+    </script>
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=c22f58cd5d14" />
+    <link rel="stylesheet" href="style.css?v=a81ec316f572" />
   </head>
   <body>
     <header>
@@ -84,11 +106,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=c22f58cd5d14
+    <!-- Le suffixe ?v=a81ec316f572
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=c22f58cd5d14"></script>
+    <script src="app.js?v=a81ec316f572"></script>
   </body>
 </html>
