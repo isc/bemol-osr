@@ -1,0 +1,72 @@
+name: Claude — détecter les conflits de merge
+
+# Une PR mise en conflit avec main par d'autres PRs mergées entre-temps reste
+# bloquée indéfiniment (l'auto-merge, si actif, ne peut jamais se déclencher ;
+# sans auto-merge, il faut de toute façon un rebase avant de pouvoir merger) et
+# personne n'est notifié, elle stagne juste. Ce workflow réagit à chaque push
+# sur main (l'évènement qui crée ce genre de conflit) : il repère TOUTES les
+# PRs ouvertes (hors brouillons) dont l'état de merge est DIRTY (conflit), et
+# déclenche pour chacune claude-merge-conflict-resolve.yml, qui fait le
+# travail de résolution proprement dit.
+#
+# La résolution vit dans un workflow séparé, déclenché en `workflow_dispatch` :
+# claude-code-action ne supporte que les évènements liés à une entité
+# (issue/PR/commentaire) ou d'automatisation (workflow_dispatch,
+# repository_dispatch, schedule, workflow_run) — jamais un simple `push`.
+# `workflow_dispatch` a aussi l'avantage d'être déclenchable à la main, ce qui
+# permet de tester la résolution sans attendre un vrai conflit.
+#
+# Les PRs en brouillon sont exclues : leur auteur est probablement encore en
+# plein travail dessus, un merge de main poussé par Claude au mauvais moment
+# gênerait plus qu'il n'aiderait.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Nécessaire pour déclencher claude-merge-conflict-resolve.yml via `gh
+  # workflow run` (l'exception documentée par GitHub à la règle « le
+  # GITHUB_TOKEN par défaut ne redéclenche pas d'autre workflow »).
+  actions: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repérer les PRs en conflit et déclencher leur résolution
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # GitHub recalcule l'état de merge de façon asynchrone après un push
+          # sur main : on patiente tant que des PRs sont encore à l'état
+          # UNKNOWN (jusqu'à ~100s), pour ne pas rater un conflit qui vient
+          # d'apparaître.
+          attempt=0
+          until [ "$attempt" -ge 10 ]; do
+            data=$(gh pr list -R "${{ github.repository }}" --state open \
+              --json number,headRefName,mergeStateStatus,isDraft,isCrossRepository)
+            if ! jq -e 'any(.[]; .mergeStateStatus == "UNKNOWN")' <<<"$data" >/dev/null; then
+              break
+            fi
+            attempt=$((attempt + 1))
+            sleep 10
+          done
+          prs=$(jq -c '[.[] | select(
+              .mergeStateStatus == "DIRTY"
+              and .isDraft == false
+              and .isCrossRepository == false
+            ) | {number, headRefName}]' <<<"$data")
+          echo "PRs en conflit : $prs"
+          echo "$prs" | jq -c '.[]' | while read -r pr; do
+            number=$(jq -r '.number' <<<"$pr")
+            branch=$(jq -r '.headRefName' <<<"$pr")
+            echo "Déclenchement de la résolution pour la PR #$number ($branch)"
+            gh workflow run claude-merge-conflict-resolve.yml \
+              -R "${{ github.repository }}" \
+              --ref main \
+              -f pr_number="$number" \
+              -f head_ref="$branch"
+          done

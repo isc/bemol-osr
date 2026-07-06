@@ -15,7 +15,7 @@ production (GitHub Pages) comme dans les previews de PR.
   `index.html`, `style.css`, `app.js`. S'y ajoutent, depuis la PWA (#31), le
   service worker `sw.js`, le `manifest.webmanifest` et le dossier `icons/`.
   Pas de framework, pas de bundler, pas de CDN, pas de dépendance externe.
-- **PWA (installable + hors-ligne).** `sw.js` sert la page en *réseau d'abord*
+- **PWA (installable + hors-ligne).** `sw.js` sert la page en _réseau d'abord_
   (une nouvelle version d'`index.html` est prise dès qu'on est en ligne) et met
   en cache les ressources versionnées par `?v=`. Si tu ajoutes un fichier
   chargé au premier lancement hors-ligne, pense à l'ajouter à la liste
@@ -65,12 +65,12 @@ production (GitHub Pages) comme dans les previews de PR.
   `generale`, `italienne`, `enregistrement`, `repetition`, `concours`, `autre`,
   `resa`.
 - `changes.json` : `{ entries: [{ at, added: [evt], removed: [evt], modified:
-  [{ uid, fields, before, after }] }] }`, entrée la plus récente en premier.
+[{ uid, fields, before, after }] }] }`, entrée la plus récente en premier.
   Les évolutions du **mémo de production** (généré par `update-memo.mjs`) y sont
   journalisées avec un type distinct :
   `{ at, type: "memo", programs: [{ liste, status: "modified" | "added" |
-  "removed", fields: [{ field, before, after }], worksAdded: [oeuvre],
-  worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
+"removed", fields: [{ field, before, after }], worksAdded: [oeuvre],
+worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
   scripts partagent le même plafond d'entrées (`MAX_CHANGE_ENTRIES`).
 
 ## Vocabulaire métier (important pour comprendre les demandes)
@@ -112,6 +112,66 @@ plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
   fichier `app.js`), pas de TypeScript.
 - Le DOM est construit via le helper `el()` de `app.js` — pas d'`innerHTML`
   avec des données du planning (risque d'injection).
+
+## Descriptions de PR : commencer par le pourquoi
+
+Une PR se relit **sans l'issue sous les yeux** (et c'est elle qui reste dans
+l'historique). Sa description doit donc être auto-suffisante, dans cet ordre :
+
+1. **Pourquoi** — reprendre la motivation exprimée dans l'issue, avec le
+   contexte métier et, s'il éclaire la demande, le vécu raconté par son auteur
+   (« consulter le planning en fosse dans le noir »…). Ne pas se contenter de
+   « Closes #N » : le lien ferme l'issue, il ne raconte rien.
+2. **Quoi** — ce qui change, du point de vue de l'utilisateur d'abord,
+   technique ensuite.
+3. **Comment vérifier** — preview, captures, cas à tester.
+
+« Closes #N » reste obligatoire (fermeture automatique au merge), mais en
+complément du pourquoi, pas à sa place.
+
+## Captures d'écran dans les PRs (obligatoire pour tout changement visible)
+
+Les relecteurs sont des musiciens : une PR qui change quelque chose à l'écran
+doit **montrer le résultat en images dans sa description** (avant/après quand
+c'est pertinent), en plus du lien de preview.
+
+1. Générer les captures : `npm install --no-save playwright` puis
+   `node scripts/screenshots.mjs <dossier> <prefixe>` (sert le dépôt local et
+   capture les vues Grille/Agenda en mobile 390px et desktop 1280px). Pour un
+   « avant », lancer le script depuis `main` avant d'appliquer les changements
+   (ou depuis un worktree de `main`).
+2. Les publier sur la branche **`pr-assets`** — une branche orpheline UNIQUE
+   et partagée, réservée aux images des descriptions de PR, jamais mergée.
+   **Ne pas créer une branche d'assets par PR**, et ne rien y supprimer (les
+   PRs mergées y font toujours référence). Un dossier par PR :
+
+   ```bash
+   git fetch origin pr-assets
+   git worktree add /tmp/pr-assets origin/pr-assets
+   mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
+   cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
+   cd /tmp/pr-assets && git add -f pr/ \
+     && git commit -m "assets: captures PR #<numéro>" \
+     && git push origin HEAD:pr-assets
+   ```
+
+   (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
+   puis compléter la description avec `gh pr edit`.)
+
+3. Les référencer dans la description avec l'URL brute **suffixée `?v=1`** :
+   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`
+   — par exemple dans un tableau avant/après.
+
+4. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`.
+   Le CDN de raw (et le cache d'images des navigateurs des relecteurs) peut
+   servir une version tronquée ou périmée d'une image ; le script compare ce
+   qui est servi à la vraie taille du fichier (API GitHub) et incrémente
+   lui-même le `?v=` dans la description en cas d'écart. À lancer après toute
+   édition des images d'une description.
+
+⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même nom
+sans relancer le script du point 4 (les caches continueraient de servir
+l'ancienne) — ou plus simple : nouveau nom de fichier à chaque version.
 
 ## Déploiement (pour info)
 

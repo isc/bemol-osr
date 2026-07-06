@@ -104,7 +104,10 @@ jobs:
                - Évolution ou correction → implémente en respectant
                  SCRUPULEUSEMENT les conventions de CLAUDE.md, crée une branche,
                  ouvre une PR vers `main` avec un titre clair et une description
-                 complète contenant « Closes #${{ github.event.issue.number }} »,
+                 structurée selon la section « Descriptions de PR » de CLAUDE.md
+                 (pourquoi d'abord — reprendre la motivation de l'issue —, puis
+                 quoi, puis comment vérifier ; captures si changement visible)
+                 contenant « Closes #${{ github.event.issue.number }} »,
                  puis poste sur l'issue un commentaire en français avec le lien
                  de la PR, en invitant à tester la preview et à répondre
                  « @claude … » sur la PR pour les ajustements.
