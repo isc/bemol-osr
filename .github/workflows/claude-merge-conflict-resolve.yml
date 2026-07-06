@@ -1,0 +1,87 @@
+name: Claude — résoudre un conflit de merge
+
+# Fait le travail réel de résolution d'un conflit sur une branche de PR :
+# fusionne main, résout les conflits, repousse. Toujours déclenché par
+# claude-merge-conflict.yml (ou manuellement, pour tester), jamais
+# directement par un push — claude-code-action ne supporte que des
+# évènements liés à une entité (issue/PR/commentaire) ou d'automatisation
+# (workflow_dispatch, workflow_run, schedule…), pas `push`.
+#
+# Garde anti-boucle : si le dernier commit de la branche est déjà une
+# résolution de conflit de ce workflow (préfixe « merge: résout le conflit
+# avec main ») et qu'elle est encore en conflit, Claude n'essaie pas à nouveau
+# — il commente en mentionnant @isc.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Numéro de la PR en conflit
+        required: true
+      head_ref:
+        description: Branche de la PR (dépôt isc/bemol-osr, jamais un fork)
+        required: true
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  # Requis par claude-code-action pour l'échange OIDC avec l'app GitHub Claude
+  id-token: write
+  actions: read
+
+concurrency:
+  group: claude-merge-conflict-${{ inputs.head_ref }}
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.head_ref }}
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: |
+            --model claude-sonnet-5
+            --max-turns 100
+            --allowedTools "Bash"
+          prompt: |
+            La branche `${{ inputs.head_ref }}` (PR #${{ inputs.pr_number }} du
+            dépôt ${{ github.repository }}) est en conflit avec `main`, suite à
+            d'autres PRs mergées entre-temps (si l'auto-merge est activé
+            dessus, il reste bloqué tant que le conflit persiste).
+
+            Le dépôt de travail est déjà positionné sur cette branche, avec
+            tout l'historique (`origin/main` est disponible). Ta mission :
+
+            1. GARDE ANTI-BOUCLE : si `git log -1 --format=%s` montre que le
+               dernier commit commence déjà par « merge: résout le conflit
+               avec main », n'essaie PAS de refaire un merge. Poste un
+               commentaire sur la PR #${{ inputs.pr_number }} expliquant ce qui
+               bloque encore, en mentionnant @isc pour qu'un humain tranche, et
+               termine là.
+            2. Sinon, lance `git merge origin/main`.
+               - Si ça passe sans conflit, le merge est déjà committé par
+                 git : pousse directement sur `${{ inputs.head_ref }}`.
+               - En cas de conflit, résous-le fichier par fichier en
+                 comprenant l'intention de CHAQUE côté (celle de cette PR et
+                 celle déjà mergée sur main) plutôt qu'en prenant
+                 systématiquement un côté. Respecte SCRUPULEUSEMENT les
+                 conventions de CLAUDE.md (site statique sans build, chemins
+                 relatifs uniquement, etc.). Si le conflit touche `data/` ou
+                 `productions.json`, garde la version de main : ce sont des
+                 fichiers générés, jamais mergés à la main (cf. CLAUDE.md,
+                 section « Pipeline de données »).
+               - Une fois tous les marqueurs `<<<<<<<`/`=======`/`>>>>>>>`
+                 éliminés, termine le merge avec
+                 `git commit -m "merge: résout le conflit avec main"` puis
+                 pousse sur `${{ inputs.head_ref }}`.
+            3. Poste un commentaire bref en français sur la PR
+               #${{ inputs.pr_number }} expliquant quel conflit a été résolu
+               et comment. Les utilisateurs sont des musiciens de l'orchestre,
+               pas des développeurs — reste clair et simple, sans jargon.
