@@ -538,8 +538,63 @@ function showDetail(e) {
         : null,
     ),
     ...productionDetail(e),
+    ...historyDetail(e.uid),
   )
   dlg.showModal()
+}
+
+// Valeur affichable d'un champ d'événement dans un diff (vue Modifs,
+// historique de fiche ci-dessous).
+function fieldDiffValue(f, v) {
+  if (f === "cancelled") return v ? "annulé" : "confirmé"
+  if (f === "start" || f === "end") return fmtDateStr(String(v))
+  return String(v || "—")
+}
+
+// Historique des changements d'un événement (issue #58), croisé par uid avec
+// le journal `data/changes.json`. Ce journal est déjà plafonné (cf.
+// MAX_CHANGE_ENTRIES côté scripts/update-data.mjs) : l'historique reste donc
+// "récent" sans qu'il soit besoin de le borner ici. Une ligne par relevé où
+// l'événement a été ajouté ou modifié, la plus récente en premier (comme
+// state.changes).
+function eventHistory(uid) {
+  const lines = []
+  for (const entry of state.changes) {
+    if (entry.type === "memo") continue
+    const date = fmtDay(new Date(entry.at))
+    if (entry.added.some((e) => e.uid === uid)) lines.push(`Ajouté le ${date}`)
+
+    const m = entry.modified.find((m) => m.uid === uid)
+    if (!m) continue
+    const diffs = []
+    if (m.fields.includes("start") || m.fields.includes("end")) {
+      const sameDay = m.before.start.slice(0, 10) === m.after.start.slice(0, 10)
+      const horaire = (ev) =>
+        (sameDay ? "" : `${fmtDay(parseDate(ev.start))} `) +
+        `${fmtTime(ev.start)}–${fmtTime(ev.end)}`
+      diffs.push(`horaire ${horaire(m.before)} → ${horaire(m.after)}`)
+    }
+    for (const f of m.fields.filter((f) => f !== "start" && f !== "end"))
+      diffs.push(
+        `${FIELD_LABELS[f] || f} ${fieldDiffValue(f, m.before[f])} → ${fieldDiffValue(f, m.after[f])}`,
+      )
+    for (const d of diffs) lines.push(`Modifié le ${date} : ${d}`)
+  }
+  return lines
+}
+
+// Quelques lignes discrètes en bas de la fiche d'un événement, uniquement
+// s'il y a un historique (rien à afficher sinon).
+function historyDetail(uid) {
+  const lines = eventHistory(uid)
+  if (!lines.length) return []
+  return [
+    el(
+      "div",
+      { class: "detail-history" },
+      ...lines.map((l) => el("p", {}, "⏱ ", l)),
+    ),
+  ]
 }
 
 // Détail d'instrumentation d'une œuvre, repris tel quel du mémo de production
@@ -1005,22 +1060,14 @@ function planningEntryBox(entry) {
       `✏️ Modifié : ${changeLine(m.after)}`,
     )
     for (const f of m.fields) {
-      const fmt = (v) =>
-        f === "cancelled"
-          ? v
-            ? "annulé"
-            : "confirmé"
-          : f === "start" || f === "end"
-            ? fmtDateStr(String(v))
-            : String(v || "—")
       item.append(
         el(
           "div",
           { class: "field-diff" },
           `${FIELD_LABELS[f] || f} : `,
-          el("span", { class: "old" }, fmt(m.before[f])),
+          el("span", { class: "old" }, fieldDiffValue(f, m.before[f])),
           " → ",
-          el("span", { class: "new" }, fmt(m.after[f])),
+          el("span", { class: "new" }, fieldDiffValue(f, m.after[f])),
         ),
       )
     }
