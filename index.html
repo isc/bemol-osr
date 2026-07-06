@@ -90,7 +90,12 @@
     </dialog>
 
     <dialog id="prefs-dialog">
-      <h2>Préférences d'affichage</h2>
+      <div class="dialog-head">
+        <h2>Préférences d'affichage</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
       <div id="prefs-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
