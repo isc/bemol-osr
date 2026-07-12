@@ -62,6 +62,8 @@ production (GitHub Pages) comme dans les previews de PR.
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`
   avec `start`/`end` en heure locale « `2026-08-13T21:15` » (fuseau de Genève),
   `liste` comme « Liste 04 » / « Liste A », `category` parmi : `concert`,
+  `representation` (représentation d'opéra/ballet, distinguée du `concert`
+  symphonique depuis #83 — reconnue aux ordinaux de l'activité, cf. § ci-dessous),
   `generale`, `italienne`, `enregistrement`, `repetition`, `concours`, `autre`,
   `resa`.
 - `changes.json` : `{ entries: [{ at, added: [evt], removed: [evt], modified:

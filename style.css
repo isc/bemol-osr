@@ -45,6 +45,7 @@
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   --cat-concert: #f5a83a;
+  --cat-representation: #e2704a;
   --cat-generale: #fbd45c;
   --cat-italienne: #d9b3e6;
   --cat-enregistrement: #b5e0bd;
@@ -334,6 +335,9 @@ table.week td.slot-name {
 .evt.cat-concert {
   background: var(--cat-concert);
 }
+.evt.cat-representation {
+  background: var(--cat-representation);
+}
 .evt.cat-generale {
   background: var(--cat-generale);
 }
@@ -356,6 +360,9 @@ table.week td.slot-name {
 
 .legend-item.cat-concert {
   background: var(--cat-concert);
+}
+.legend-item.cat-representation {
+  background: var(--cat-representation);
 }
 .legend-item.cat-generale {
   background: var(--cat-generale);
@@ -400,6 +407,26 @@ table.week td.slot-name {
   color: var(--danger);
   margin-left: 4px;
   font-size: 0.9em;
+}
+
+/* Case Grille contenant deux listes différentes au même créneau : programmes
+   contraires, incompatibles en horaire pour un·e même musicien·ne (#83). Un
+   groupe (une liste) par bloc, séparés par un liseré + une étiquette au lieu
+   d'un simple empilement indifférencié. */
+.evt-group + .evt-group {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 2px dashed var(--danger);
+}
+
+.evt-group + .evt-group::before {
+  content: "⚡ Programme parallèle";
+  display: block;
+  font-size: 0.66em;
+  font-weight: 700;
+  color: var(--danger);
+  overflow-wrap: anywhere;
+  margin-bottom: 2px;
 }
 
 @media (hover: hover) {
@@ -463,6 +490,7 @@ table.week td.slot-name {
   --head-accent-text: #bcdcef;
 
   --cat-concert: #8a5a1a;
+  --cat-representation: #7a3a20;
   --cat-generale: #7a6a1f;
   --cat-italienne: #5c3d6b;
   --cat-enregistrement: #2f5c3b;
@@ -1218,6 +1246,9 @@ dialog h2 {
 }
 .cat-swatch.cat-concert {
   background: var(--cat-concert);
+}
+.cat-swatch.cat-representation {
+  background: var(--cat-representation);
 }
 .cat-swatch.cat-generale {
   background: var(--cat-generale);

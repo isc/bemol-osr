@@ -90,12 +90,16 @@ function categorize(liste, activity) {
     l.startsWith("concours")
   )
     return "concours"
+  if (/concert|cinéconc/.test(a)) return "concert"
+  // Les ordinaux désignent les représentations d'opéra/ballet (cf. CLAUDE.md
+  // § Vocabulaire métier), à distinguer visuellement des concerts symphoniques
+  // même si les deux se trouvent dans le même créneau « Soir »/« Ap-midi » (#83).
   if (
-    /concert|cinéconc|première|deuxième|troisième|quatrième|cinquième|sixième|septième|huitième|neuvième|dixième|onzième|douzième/.test(
+    /première|deuxième|troisième|quatrième|cinquième|sixième|septième|huitième|neuvième|dixième|onzième|douzième/.test(
       a,
     )
   )
-    return "concert"
+    return "representation"
   if (/italienne|scène et orchestre|mise fosse/.test(a)) return "italienne"
   if (/enregistrement|enreg\./.test(a)) return "enregistrement"
   if (

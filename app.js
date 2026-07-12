@@ -1,7 +1,8 @@
 // Bémol · Planning OSR — logique de l'application (sans dépendance, sans build)
 
 const CATEGORIES = {
-  concert: "Concert / Représentation",
+  concert: "Concert",
+  representation: "Représentation (opéra/ballet)",
   generale: "Générale / Raccord",
   italienne: "Italienne / Scène & orch.",
   enregistrement: "Enregistrement",
@@ -1262,10 +1263,26 @@ function renderGrille(main) {
             .filter(Boolean)
             .join(" ")
           const cell = el("td", { class: cls })
-          const dayEvents = (byDay.get(localKey(d)) || []).filter(
-            (e) => slotOf(e) === slot,
-          )
-          for (const e of dayEvents) cell.append(eventChip(e))
+          const dayEvents = (byDay.get(localKey(d)) || [])
+            .filter((e) => slotOf(e) === slot)
+            .sort((a, b) => a.start.localeCompare(b.start))
+          // Deux listes différentes dans le même créneau = programmes
+          // contraires : incompatibles en horaire pour un·e même musicien·ne
+          // (#83). On les sépare visuellement au lieu de les empiler sans
+          // distinction, pour que ce soit lisible d'un coup d'œil.
+          const listesInSlot = [...new Set(dayEvents.map((e) => e.liste))]
+          if (listesInSlot.length > 1) {
+            cell.classList.add("split-slot")
+            cell.title = `Programmes en parallèle (incompatibles en horaire) : ${listesInSlot.join(" / ")}`
+            for (const liste of listesInSlot) {
+              const group = el("div", { class: "evt-group" })
+              for (const e of dayEvents.filter((ev) => ev.liste === liste))
+                group.append(eventChip(e))
+              cell.append(group)
+            }
+          } else {
+            for (const e of dayEvents) cell.append(eventChip(e))
+          }
           row.append(cell)
         }
         tbody.append(row)
