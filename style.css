@@ -375,9 +375,14 @@ table.week td.slot-name {
   background: var(--cat-resa);
 }
 
-/* Repère vacances/fériés : dégradé des deux couleurs de région (GE + France) */
+/* Repère vacances/fériés : dégradé des couleurs des trois régions (GE, VD, France) */
 .legend-item.legend-holidays {
-  background: linear-gradient(90deg, var(--hol-ge-soft), var(--hol-fr-soft));
+  background: linear-gradient(
+    90deg,
+    var(--hol-ge-soft),
+    var(--hol-vd-soft),
+    var(--hol-fr-soft)
+  );
   color: var(--text);
 }
 
@@ -402,12 +407,14 @@ table.week td.slot-name {
 /* Repères vacances scolaires & jours fériés (vue Grille) */
 :root {
   --hol-ge: #c0392b; /* Genève */
+  --hol-vd: #2f7d4f; /* Vaud */
   --hol-fr: #2f6fb0; /* France voisine */
   --hol-ge-soft: #ecc0bb;
+  --hol-vd-soft: #c5e0cd;
   --hol-fr-soft: #bcd2ec;
   --vac-ge-text: #6e211a;
+  --vac-vd-text: #1f5c34;
   --vac-fr-text: #1d3f63;
-  --ferie-bg: #fbe6e2;
   --repos-bg: #dce9dc;
   --repos-bg-soft: #eef4ee;
   --repos-text: #2f6b3a;
@@ -461,10 +468,11 @@ table.week td.slot-name {
   --cat-resa: #33363a;
 
   --hol-ge-soft: #4a2521;
+  --hol-vd-soft: #1f3a28;
   --hol-fr-soft: #1f3245;
   --vac-ge-text: #f0b4ab;
+  --vac-vd-text: #a8dab8;
   --vac-fr-text: #a9c9ec;
-  --ferie-bg: #3a2622;
 
   --repos-bg: #223020;
   --repos-bg-soft: #1c2a1a;
@@ -474,8 +482,37 @@ table.week td.slot-name {
   color-scheme: dark;
 }
 
-table.week th.ferie {
-  background: var(--ferie-bg);
+/* Case d'en-tête d'un jour férié : teinte de la (ou des) région(s) réellement
+   concernée(s), pour ne pas laisser croire qu'un férié propre à une seule
+   région (p. ex. FR) concerne aussi les autres. Les sélecteurs à deux/trois
+   classes ont naturellement une spécificité plus grande que les sélecteurs à
+   une classe : la combinaison l'emporte toujours sur une région seule, quel
+   que soit l'ordre des classes posées par app.js. */
+table.week th.ferie-ge {
+  background: var(--hol-ge-soft);
+}
+table.week th.ferie-vd {
+  background: var(--hol-vd-soft);
+}
+table.week th.ferie-fr {
+  background: var(--hol-fr-soft);
+}
+table.week th.ferie-ge.ferie-vd {
+  background: linear-gradient(90deg, var(--hol-ge-soft), var(--hol-vd-soft));
+}
+table.week th.ferie-ge.ferie-fr {
+  background: linear-gradient(90deg, var(--hol-ge-soft), var(--hol-fr-soft));
+}
+table.week th.ferie-vd.ferie-fr {
+  background: linear-gradient(90deg, var(--hol-vd-soft), var(--hol-fr-soft));
+}
+table.week th.ferie-ge.ferie-vd.ferie-fr {
+  background: linear-gradient(
+    90deg,
+    var(--hol-ge-soft),
+    var(--hol-vd-soft),
+    var(--hol-fr-soft)
+  );
 }
 
 .ferie-tags {
@@ -500,6 +537,10 @@ table.week th.ferie {
   background: var(--hol-ge);
 }
 
+.ferie-tag.ferie-vd {
+  background: var(--hol-vd);
+}
+
 .ferie-tag.ferie-fr {
   background: var(--hol-fr);
 }
@@ -510,12 +551,25 @@ tr.vac-row td {
 }
 
 td.vac-label {
-  background: var(--surface-alt);
-  color: var(--text-muted);
   font-size: 0.58rem;
   font-weight: 700;
   text-align: center;
   vertical-align: middle;
+}
+
+/* Initiale de région colorée comme les pastilles de jour férié (.ferie-tag),
+   pour identifier la région d'un coup d'œil sans ambiguïté possible. */
+td.vac-label-ge {
+  background: var(--hol-ge);
+  color: #fff;
+}
+td.vac-label-vd {
+  background: var(--hol-vd);
+  color: #fff;
+}
+td.vac-label-fr {
+  background: var(--hol-fr);
+  color: #fff;
 }
 
 .vac-band {
@@ -536,6 +590,11 @@ td.vac-label {
 .vac-ge .vac-band {
   background: var(--hol-ge-soft);
   color: var(--vac-ge-text);
+}
+
+.vac-vd .vac-band {
+  background: var(--hol-vd-soft);
+  color: var(--vac-vd-text);
 }
 
 .vac-fr .vac-band {

@@ -237,17 +237,25 @@ function normalizeSearch(s) {
 // --- Vacances scolaires & jours fériés (repères de la vue Grille) ------------
 // À la demande des musiciens : montrer dans la Grille quand les écoles sont en
 // vacances (utile pour caler ses propres congés) et les jours fériés (qui
-// décalent souvent les services), pour le canton de Genève ET la France
-// voisine (zone A : académies de Lyon, Grenoble, Clermont-Ferrand).
+// décalent souvent les services), pour le canton de Genève, le canton de
+// Vaud ET la France voisine (zone A : académies de Lyon, Grenoble,
+// Clermont-Ferrand).
 //
 // • Les JOURS FÉRIÉS sont CALCULÉS (fêtes fixes + fêtes mobiles dérivées de
 //   Pâques) : fiables pour n'importe quelle saison, rien à maintenir.
 // • Les VACANCES SCOLAIRES n'obéissent à aucune règle simple : leurs dates
 //   sont SAISIES À LA MAIN ci-dessous, à revérifier/compléter chaque saison
-//   (sources : DIP Genève / ge.ch et education.gouv.fr pour la zone A).
+//   (sources : DIP Genève / ge.ch, État de Vaud / vd.ch et education.gouv.fr
+//   pour la zone A).
 //
-// Une région vaut "GE" (Genève) ou "FR" (France voisine, zone A).
-const REGION_LABEL = { GE: "Genève", FR: "France voisine (zone A)" }
+// Une région vaut "GE" (Genève), "VD" (Vaud) ou "FR" (France voisine, zone A).
+const REGION_LABEL = {
+  GE: "Genève",
+  VD: "Vaud",
+  FR: "France voisine (zone A)",
+}
+// Ordre d'affichage stable des régions (dégradés de couleur, lignes de vacances…).
+const REGIONS = Object.keys(REGION_LABEL)
 
 // Vacances scolaires, en jours calendaires INCLUS (week-ends compris) : `start`
 // = premier jour sans école, `end` = dernier jour sans école (veille de la
@@ -258,6 +266,33 @@ const VACANCES_SCOLAIRES = [
   { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
   { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
   { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
+  // Vaud — source : calendrier officiel de l'État de Vaud (vd.ch), publié
+  // jusqu'en 2030-2031 : contrairement à GE/FR, pas besoin de le revérifier
+  // chaque saison, seulement de le prolonger quand vd.ch publie la suite.
+  { region: "VD", nom: "Automne", start: "2026-10-10", end: "2026-10-25" },
+  { region: "VD", nom: "Hiver", start: "2026-12-24", end: "2027-01-10" },
+  { region: "VD", nom: "Relâches", start: "2027-02-06", end: "2027-02-14" },
+  { region: "VD", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
+  { region: "VD", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "VD", nom: "Automne", start: "2027-10-09", end: "2027-10-24" },
+  { region: "VD", nom: "Hiver", start: "2027-12-24", end: "2028-01-09" },
+  { region: "VD", nom: "Relâches", start: "2028-02-12", end: "2028-02-20" },
+  { region: "VD", nom: "Pâques", start: "2028-04-14", end: "2028-04-30" },
+  { region: "VD", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "VD", nom: "Automne", start: "2028-10-14", end: "2028-10-29" },
+  { region: "VD", nom: "Hiver", start: "2028-12-23", end: "2029-01-07" },
+  { region: "VD", nom: "Relâches", start: "2029-02-10", end: "2029-02-18" },
+  { region: "VD", nom: "Pâques", start: "2029-03-30", end: "2029-04-15" },
+  { region: "VD", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "VD", nom: "Automne", start: "2029-10-13", end: "2029-10-28" },
+  { region: "VD", nom: "Hiver", start: "2029-12-22", end: "2030-01-06" },
+  { region: "VD", nom: "Relâches", start: "2030-02-16", end: "2030-02-24" },
+  { region: "VD", nom: "Pâques", start: "2030-04-19", end: "2030-05-05" },
+  { region: "VD", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  { region: "VD", nom: "Automne", start: "2030-10-12", end: "2030-10-27" },
+  { region: "VD", nom: "Hiver", start: "2030-12-21", end: "2031-01-05" },
+  { region: "VD", nom: "Relâches", start: "2031-02-15", end: "2031-02-23" },
+  { region: "VD", nom: "Pâques", start: "2031-04-11", end: "2031-04-27" },
   // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
@@ -267,10 +302,15 @@ const VACANCES_SCOLAIRES = [
 
 // Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
 // jour par région, SAISI À LA MAIN comme les vacances (aucune règle simple), à
-// revérifier/compléter chaque saison (sources : DIP Genève / ge.ch et
-// education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
+// revérifier/compléter chaque saison (sources : DIP Genève / ge.ch, État de
+// Vaud / vd.ch et education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
 const RENTREES = [
   { region: "GE", date: "2026-08-17" }, // Genève — lundi 17 août 2026
+  { region: "VD", date: "2026-08-17" }, // Vaud — lundi 17 août 2026
+  { region: "VD", date: "2027-08-23" }, // Vaud — lundi 23 août 2027
+  { region: "VD", date: "2028-08-21" }, // Vaud — lundi 21 août 2028
+  { region: "VD", date: "2029-08-20" }, // Vaud — lundi 20 août 2029
+  { region: "VD", date: "2030-08-26" }, // Vaud — lundi 26 août 2030
   { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
 ]
 
@@ -324,6 +364,13 @@ function jeuneGenevois(year) {
   return addDays(d, 4) // jeudi suivant
 }
 
+// Lundi du Jeûne (fédéral) vaudois : lundi qui suit le 3e dimanche de septembre.
+function lundiDuJeune(year) {
+  const d = new Date(year, 8, 1)
+  d.setDate(1 + ((7 - d.getDay()) % 7) + 14) // 3e dimanche de septembre
+  return addDays(d, 1) // lundi suivant
+}
+
 // Construit une Map localKey → [{ region, nom }] des jours fériés pour les
 // années demandées (une saison en couvre deux : août→déc puis janv→juil).
 function buildFeries(years) {
@@ -349,6 +396,16 @@ function buildFeries(years) {
     add(jeuneGenevois(y), "GE", "Jeûne genevois")
     add(new Date(y, 11, 25), "GE", "Noël")
     add(new Date(y, 11, 31), "GE", "Restauration de la République")
+    // Vaud (fériés officiels du canton, art. 123 loi sur le personnel de l'État de Vaud)
+    add(new Date(y, 0, 1), "VD", "Nouvel An")
+    add(new Date(y, 0, 2), "VD", "2 janvier")
+    add(vendrediSaint, "VD", "Vendredi Saint")
+    add(lundiPaques, "VD", "Lundi de Pâques")
+    add(ascension, "VD", "Ascension")
+    add(lundiPentecote, "VD", "Lundi de Pentecôte")
+    add(new Date(y, 7, 1), "VD", "Fête nationale")
+    add(lundiDuJeune(y), "VD", "Lundi du Jeûne")
+    add(new Date(y, 11, 25), "VD", "Noël")
     // France (jours fériés nationaux)
     add(new Date(y, 0, 1), "FR", "Jour de l'An")
     add(lundiPaques, "FR", "Lundi de Pâques")
@@ -934,7 +991,7 @@ function syncListeFromHash() {
 
 // --- Repères vacances / fériés dans la Grille --------------------------------
 
-// Petites pastilles "GE"/"FR" (une par région fériée ce jour) posées dans
+// Petites pastilles "GE"/"VD"/"FR" (une par région fériée ce jour) posées dans
 // l'en-tête de colonne du jour, cliquables pour afficher le détail.
 function feriesTags(date, feries) {
   return el(
@@ -967,7 +1024,7 @@ function vacancesRow(region, days) {
   const row = el(
     "tr",
     { class: "vac-row" },
-    el("td", { class: "vac-label" }, region),
+    el("td", { class: `vac-label vac-label-${region.toLowerCase()}` }, region),
   )
   let i = 0
   while (i < days.length) {
@@ -1161,9 +1218,17 @@ function renderGrille(main) {
         const key = localKey(d)
         const feries = showHolidays ? feriesMap.get(key) || [] : []
         const isWeekend = d.getDay() === 0 || d.getDay() === 6
+        // Une classe "ferie-<région>" par région fériée ce jour-là : la case
+        // se colore alors du dégradé des seules régions concernées (cf.
+        // règles CSS th.ferie-ge / .ferie-vd / .ferie-fr et leurs
+        // combinaisons), au lieu d'une teinte "férié" générique qui ne disait
+        // pas quelle(s) région(s) étaient concernées.
+        const ferieRegions = REGIONS.filter((r) =>
+          feries.some((f) => f.region === r),
+        )
         const cls = [
           key === todayKey ? "today" : "",
-          feries.length ? "ferie" : "",
+          ...ferieRegions.map((r) => `ferie-${r.toLowerCase()}`),
           reposWeekend && isWeekend ? "repos" : "",
         ]
           .filter(Boolean)
@@ -1175,7 +1240,7 @@ function renderGrille(main) {
       }
       const thead = el("thead", {}, headRow)
       if (showHolidays)
-        for (const region of ["GE", "FR"]) {
+        for (const region of REGIONS) {
           const vacRow = vacancesRow(region, days)
           if (vacRow) thead.append(vacRow)
         }
@@ -1568,7 +1633,8 @@ function renderLegend() {
         "span",
         {
           class: `legend-item legend-holidays${off ? " off" : ""}`,
-          title: "Vacances scolaires et jours fériés (Genève + France voisine)",
+          title:
+            "Vacances scolaires et jours fériés (Genève, Vaud + France voisine)",
           onclick: () => {
             state.prefs.showHolidays = !state.prefs.showHolidays
             savePrefs()
