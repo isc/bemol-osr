@@ -15,11 +15,12 @@
     <!-- Application installable (« Ajouter à l'écran d'accueil ») : manifeste,
          couleur de barre d'état et icônes iOS. Tout en chemins relatifs. -->
     <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="theme-color" content="#2c5f8a" />
+    <meta name="theme-color" content="#1d1912" />
     <!-- Applique le mode sombre avant le premier rendu (évite un flash blanc)
          si l'utilisateur l'a choisi, ou si "auto" (par défaut) et que le
          système est en sombre. Logique complète (bascule, écoute des
-         changements système) dans app.js. -->
+         changements système) dans app.js. L'en-tête « programme de concert »
+         (theme-color ci-dessus) ne change pas avec le thème. -->
     <script>
       ;(function () {
         try {
@@ -31,9 +32,6 @@
               window.matchMedia("(prefers-color-scheme: dark)").matches)
           if (dark) {
             document.documentElement.dataset.theme = "dark"
-            document
-              .querySelector('meta[name="theme-color"]')
-              .setAttribute("content", "#1e2328")
           }
         } catch (e) {}
       })()
@@ -44,7 +42,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=a27252298eff" />
+    <link rel="stylesheet" href="style.css?v=ed0337639a18" />
   </head>
   <body>
     <header>
@@ -64,8 +62,10 @@
           </button>
           <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
           <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
+               le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
-            📲 Installer
+            Installer l'app
           </button>
         </div>
       </div>
@@ -127,11 +127,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=a27252298eff
+    <!-- Le suffixe ?v=ed0337639a18
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=a27252298eff"></script>
+    <script src="app.js?v=ed0337639a18"></script>
   </body>
 </html>
