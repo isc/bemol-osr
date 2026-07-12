@@ -199,8 +199,12 @@ button {
   cursor: pointer;
   user-select: none;
   /* Les pastilles ont des fonds pastel clairs : encre sombre explicite,
-     sinon elles héritent du texte ivoire de l'en-tête sombre (illisible). */
-  color: var(--ink);
+     sinon elles héritent du texte ivoire de l'en-tête sombre (illisible).
+     --ink n'existe plus depuis la fusion avec le mode sombre (#63) : la
+     variable était invalide, donc ignorée, et la couleur héritait bel et
+     bien du texte ivoire de l'en-tête (illisible sur les pastilles claires
+     du mode clair) — d'où le bug. */
+  color: var(--text);
 }
 
 .legend-item.off {
