@@ -1,0 +1,6 @@
+# Bémol · worker d'abonnement personnalisé — config Cloudflare Workers.
+# Déployé automatiquement par .github/workflows/deploy-worker.yml.
+name = "bemol-calendrier"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+workers_dev = true
