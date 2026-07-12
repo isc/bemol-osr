@@ -116,6 +116,7 @@ function loadPrefs() {
 
 function savePrefs() {
   localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
+  syncProfile()
 }
 
 // --- Mode sombre -------------------------------------------------------------
@@ -1873,6 +1874,17 @@ function renderPrefs() {
     return el("label", { class: "liste-option" }, input, " ", themeLabels[val])
   })
 
+  // --- Notifications push --------------------------------------------------
+  // Statut résolu de façon asynchrone (support du navigateur, abonnement
+  // existant…) : le bouton reste caché le temps de la vérification.
+  const notifStatus = el(
+    "p",
+    { class: "prefs-note prefs-note-top" },
+    "Vérification du support de ton appareil…",
+  )
+  const notifBtn = el("button", { type: "button", hidden: "" }, "…")
+  refreshNotifUI(notifStatus, notifBtn)
+
   box.replaceChildren(
     el(
       "div",
@@ -1912,6 +1924,13 @@ function renderPrefs() {
       " Afficher les vacances scolaires et jours fériés (Grille)",
     ),
     el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Notifications :"),
+      notifStatus,
+      notifBtn,
+    ),
+    el(
       "p",
       { class: "prefs-note" },
       "Astuce : la légende sous le titre permet de masquer/afficher chaque catégorie d'un simple clic. Les préférences sont mémorisées sur cet appareil.",
@@ -1935,25 +1954,172 @@ function subscribeUrls() {
   return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
 }
 
-// URL d'abonnement personnalisée reflétant les Réglages actuels (listes
-// sélectionnées, catégories masquées, annulés), ou null si aucun filtre n'est
-// actif ou si le worker n'est pas déployé. Les sous-cases « par liste » d'une
-// catégorie ne sont pas transposables dans l'abonnement (trop fin pour une
-// URL) — c'est dit dans la note du dialogue.
+// Origine du worker (sans le chemin /planning.ics), pour ses autres routes
+// (/profile/:jeton, /vapid-public-key).
+function workerOrigin() {
+  return PERSONAL_CALENDAR_URL ? new URL(PERSONAL_CALENDAR_URL).origin : null
+}
+
+// Jeton opaque identifiant cet appareil auprès du worker, généré une seule
+// fois et conservé en local. Sert de clé au profil stocké dans son KV (cf.
+// worker/src/index.js) : les mêmes Réglages alimentent à la fois le lien ICS
+// personnalisé ci-dessous et les notifications push (⚙ Réglages).
+function profileToken() {
+  let token = localStorage.getItem("bemol-profile-token")
+  if (!token) {
+    token = crypto.randomUUID()
+    localStorage.setItem("bemol-profile-token", token)
+  }
+  return token
+}
+
+// Sous-ensemble des Réglages pertinent pour le worker (filtre du calendrier /
+// des notifications) — le thème et l'affichage des vacances n'en font pas partie.
+function prefsPayload() {
+  const { listes, hiddenCategories, hiddenCatListes, showCancelled } =
+    state.prefs
+  return { listes, hiddenCategories, hiddenCatListes, showCancelled }
+}
+
+let syncProfileTimer = null
+
+// Resynchronise silencieusement le profil (Réglages actuels) auprès du
+// worker, en tâche de fond : une panne réseau ne doit jamais gêner l'usage de
+// l'app. Débouncé pour ne pas le spammer quand on coche plusieurs cases à la
+// suite ; `immediate` court-circuite le délai (ouverture d'un dialogue, où le
+// lien/l'état affiché dépend de ce profil).
+function syncProfile(body = { prefs: prefsPayload() }, immediate = false) {
+  if (!workerOrigin()) return
+  const send = () =>
+    fetch(`${workerOrigin()}/profile/${profileToken()}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body),
+    }).catch(() => {})
+  clearTimeout(syncProfileTimer)
+  if (immediate) send()
+  else syncProfileTimer = setTimeout(send, 800)
+}
+
+// URL d'abonnement personnalisée qui suit les Réglages actuels dans la durée
+// (jeton résolu côté worker à chaque récupération du calendrier par l'agenda,
+// cf. worker/src/index.js), ou null si aucun filtre n'est actif ou si le
+// worker n'est pas déployé.
 function personalSubscribeUrls() {
   if (!PERSONAL_CALENDAR_URL) return null
   const p = state.prefs
-  const params = new URLSearchParams()
-  if (p.listes.length) params.set("listes", p.listes.join(","))
-  if (p.hiddenCategories.length)
-    params.set("sans", p.hiddenCategories.join(","))
-  if (!p.showCancelled) params.set("annules", "0")
-  if (![...params.keys()].length) return null
-  const ics = `${PERSONAL_CALENDAR_URL}?${params}`
+  const hasFilter =
+    p.listes.length ||
+    p.hiddenCategories.length ||
+    Object.keys(p.hiddenCatListes).length ||
+    !p.showCancelled
+  if (!hasFilter) return null
+  const ics = `${PERSONAL_CALENDAR_URL}?profile=${profileToken()}`
   return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
 }
 
+// --- Notifications push -------------------------------------------------
+
+// Clé VAPID publique (base64url) → tableau d'octets attendu par
+// PushManager.subscribe(). Conversion standard, cf. documentation Web Push.
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/")
+  const raw = atob(base64)
+  return Uint8Array.from([...raw].map((c) => c.charCodeAt(0)))
+}
+
+// Résout (de façon asynchrone) le statut des notifications sur cet appareil
+// et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
+async function refreshNotifUI(statusEl, btn) {
+  // Sur iOS/iPadOS, PushManager n'existe pas du tout hors mode standalone :
+  // ce test doit donc passer avant le test générique ci-dessous, sans quoi
+  // les utilisateurs iPhone/iPad non installés voient le message générique
+  // au lieu du message actionnable (« installe d'abord Bémol… »).
+  if (isIOS() && !isStandalone()) {
+    statusEl.textContent =
+      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
+      "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
+    btn.hidden = true
+    return
+  }
+  if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+    statusEl.textContent = "Notifications non disponibles sur ce navigateur."
+    btn.hidden = true
+    return
+  }
+  if (!workerOrigin()) {
+    statusEl.textContent = "Notifications indisponibles pour le moment."
+    btn.hidden = true
+    return
+  }
+
+  const reg = await navigator.serviceWorker.ready
+  const sub = await reg.pushManager.getSubscription()
+  btn.hidden = false
+  btn.disabled = false
+  if (sub) {
+    statusEl.textContent =
+      "Activées sur cet appareil : tu seras averti·e des changements dans tes listes."
+    btn.textContent = "Désactiver les notifications"
+    btn.onclick = () => disableNotifications(statusEl, btn)
+  } else {
+    statusEl.textContent =
+      "Sois averti·e (sur cet appareil) dès qu'un service de tes listes change " +
+      "d'horaire ou de lieu, est annulé, ajouté ou supprimé — ou que le programme " +
+      "d'une de tes productions évolue."
+    btn.textContent = "Activer les notifications"
+    btn.onclick = () => enableNotifications(statusEl, btn)
+  }
+}
+
+async function enableNotifications(statusEl, btn) {
+  btn.disabled = true
+  try {
+    const permission = await Notification.requestPermission()
+    if (permission !== "granted") {
+      statusEl.textContent =
+        "Autorisation refusée : active les notifications pour ce site dans les " +
+        "réglages du navigateur si tu changes d'avis."
+      return
+    }
+    const keyRes = await fetch(`${workerOrigin()}/vapid-public-key`)
+    if (!keyRes.ok) throw new Error("clé VAPID indisponible")
+    const { publicKey } = await keyRes.json()
+    const reg = await navigator.serviceWorker.ready
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(publicKey),
+    })
+    syncProfile({ prefs: prefsPayload(), subscription: sub.toJSON() }, true)
+  } catch {
+    statusEl.textContent =
+      "Échec de l'activation des notifications. Réessaie plus tard."
+  } finally {
+    refreshNotifUI(statusEl, btn)
+  }
+}
+
+async function disableNotifications(statusEl, btn) {
+  btn.disabled = true
+  try {
+    const reg = await navigator.serviceWorker.ready
+    const sub = await reg.pushManager.getSubscription()
+    if (sub) await sub.unsubscribe()
+    syncProfile({ subscription: null }, true)
+  } catch {
+    // best effort : l'abonnement navigateur est de toute façon déjà annulé
+    // ci-dessus si la panne vient seulement de la synchronisation au worker.
+  } finally {
+    refreshNotifUI(statusEl, btn)
+  }
+}
+
 function renderSubscribe() {
+  // Garantit que le profil existe côté worker dès que ce dialogue (qui en
+  // dépend) s'ouvre, sans attendre un premier changement de Réglages.
+  syncProfile(undefined, true)
+
   const box = document.getElementById("subscribe-content")
   const { ics, webcal } = subscribeUrls()
   const personal = personalSubscribeUrls()
@@ -1966,10 +2132,11 @@ function renderSubscribe() {
         el(
           "p",
           { class: "subscribe-intro" },
-          "Reprend les filtres actifs en ce moment dans ⚙ Réglages " +
-            "(listes cochées, catégories masquées" +
+          "Reprend les filtres actifs dans ⚙ Réglages (listes cochées, " +
+            "catégories masquées" +
             (state.prefs.showCancelled ? "" : ", sans les annulés") +
-            "). Se met à jour tout seul, comme le calendrier complet.",
+            "). Suit tes Réglages dans la durée : pas besoin de te réabonner " +
+            "si tu les changes plus tard.",
         ),
         el(
           "a",
@@ -2053,9 +2220,9 @@ function renderSubscribe() {
       "p",
       { class: "subscribe-note" },
       (personal
-        ? "« Mon planning » fige les filtres au moment de l'abonnement : si tu changes " +
-          "tes Réglages plus tard, réabonne-toi avec le nouveau lien. Les sous-cases " +
-          "« par liste » d'une catégorie ne s'y appliquent pas. "
+        ? "« Mon planning » reste lié à cet appareil : si tu vides les données du " +
+          "site ou changes de navigateur, réabonne-toi (⚙ Réglages, puis ce " +
+          "dialogue te redonnera un lien). "
         : "Le calendrier complet contient tous les services de la saison (les filtres et " +
           "catégories masquées de l'app ne s'y appliquent pas). ") +
         "Selon l'agenda, les mises à jour peuvent mettre quelques heures à apparaître.",
@@ -2250,6 +2417,10 @@ async function init() {
   document.getElementById("today-btn").addEventListener("click", scrollToToday)
 
   document.getElementById("prefs-btn").addEventListener("click", () => {
+    // Garantit que le profil existe côté worker dès l'ouverture des Réglages
+    // (dont dépendent le lien ICS personnel et les notifications push), sans
+    // le resynchroniser à chaque rendu (changement de vue, etc.).
+    syncProfile(undefined, true)
     renderPrefs()
     document.getElementById("prefs-dialog").showModal()
   })
