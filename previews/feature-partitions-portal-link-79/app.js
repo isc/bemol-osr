@@ -739,7 +739,7 @@ function scorePortalLink() {
       "a",
       {
         class: "score-portal-link",
-        href: "https://chdocuments.diesesoftware.com/",
+        href: "https://osr.opas-online.com/documents.php",
         target: "_blank",
         rel: "noopener noreferrer",
       },
