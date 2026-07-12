@@ -253,6 +253,8 @@ const REGION_LABEL = {
   VD: "Vaud",
   FR: "France voisine (zone A)",
 }
+// Ordre d'affichage stable des régions (dégradés de couleur, lignes de vacances…).
+const REGIONS = Object.keys(REGION_LABEL)
 
 // Vacances scolaires, en jours calendaires INCLUS (week-ends compris) : `start`
 // = premier jour sans école, `end` = dernier jour sans école (veille de la
@@ -1021,7 +1023,7 @@ function vacancesRow(region, days) {
   const row = el(
     "tr",
     { class: "vac-row" },
-    el("td", { class: "vac-label" }, region),
+    el("td", { class: `vac-label vac-label-${region.toLowerCase()}` }, region),
   )
   let i = 0
   while (i < days.length) {
@@ -1215,9 +1217,17 @@ function renderGrille(main) {
         const key = localKey(d)
         const feries = showHolidays ? feriesMap.get(key) || [] : []
         const isWeekend = d.getDay() === 0 || d.getDay() === 6
+        // Une classe "ferie-<région>" par région fériée ce jour-là : la case
+        // se colore alors du dégradé des seules régions concernées (cf.
+        // règles CSS th.ferie-ge / .ferie-vd / .ferie-fr et leurs
+        // combinaisons), au lieu d'une teinte "férié" générique qui ne disait
+        // pas quelle(s) région(s) étaient concernées.
+        const ferieRegions = REGIONS.filter((r) =>
+          feries.some((f) => f.region === r),
+        )
         const cls = [
           key === todayKey ? "today" : "",
-          feries.length ? "ferie" : "",
+          ...ferieRegions.map((r) => `ferie-${r.toLowerCase()}`),
           reposWeekend && isWeekend ? "repos" : "",
         ]
           .filter(Boolean)
@@ -1229,7 +1239,7 @@ function renderGrille(main) {
       }
       const thead = el("thead", {}, headRow)
       if (showHolidays)
-        for (const region of ["GE", "VD", "FR"]) {
+        for (const region of REGIONS) {
           const vacRow = vacancesRow(region, days)
           if (vacRow) thead.append(vacRow)
         }
