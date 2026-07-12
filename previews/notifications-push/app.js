@@ -592,6 +592,7 @@ function showDetail(e) {
           )
         : null,
     ),
+    scorePortalLink(),
     el(
       "dl",
       {},
@@ -725,12 +726,33 @@ function workNode(w) {
   )
 }
 
+// Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
+// le titre de la fiche (juste sous le bouton de Liste cliquable — #80) pour
+// rester visible sans défiler. Reste générique (page de connexion, pas de
+// partition précise) : Bémol est un site statique sans compte utilisateur,
+// il ne sait ni qui consulte la page ni quel instrument iel joue, et n'a pas
+// non plus accès à un système de partitions par production côté Dièse.
+function scorePortalLink() {
+  return el(
+    "p",
+    { class: "score-portal-row" },
+    el(
+      "a",
+      {
+        class: "score-portal-link",
+        href: "https://osr.opas-online.com/documents.php",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      "🎼 Portail partitions (Dièse)",
+    ),
+  )
+}
+
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour une Liste donnée. Renvoie []
-// si aucune info n'est saisie pour cette Liste dans productions.json.
+// d'instrumentation, effectif, durée) pour une Liste donnée.
 function productionDetail(liste) {
-  const prod = state.productions[liste]
-  if (!prod) return []
+  const prod = state.productions[liste] || {}
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
   const nodes = []
@@ -866,6 +888,7 @@ function renderListeDialog(liste) {
           )
         : null,
     ),
+    scorePortalLink(),
     ...productionDetail(liste),
     el("h3", { class: "detail-section" }, `Services (${events.length})`),
     events.length
@@ -2009,6 +2032,17 @@ function urlBase64ToUint8Array(base64String) {
 // Résout (de façon asynchrone) le statut des notifications sur cet appareil
 // et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
 async function refreshNotifUI(statusEl, btn) {
+  // Sur iOS/iPadOS, PushManager n'existe pas du tout hors mode standalone :
+  // ce test doit donc passer avant le test générique ci-dessous, sans quoi
+  // les utilisateurs iPhone/iPad non installés voient le message générique
+  // au lieu du message actionnable (« installe d'abord Bémol… »).
+  if (isIOS() && !isStandalone()) {
+    statusEl.textContent =
+      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
+      "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
+    btn.hidden = true
+    return
+  }
   if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
     statusEl.textContent = "Notifications non disponibles sur ce navigateur."
     btn.hidden = true
@@ -2016,13 +2050,6 @@ async function refreshNotifUI(statusEl, btn) {
   }
   if (!workerOrigin()) {
     statusEl.textContent = "Notifications indisponibles pour le moment."
-    btn.hidden = true
-    return
-  }
-  if (isIOS() && !isStandalone()) {
-    statusEl.textContent =
-      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
-      "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
     btn.hidden = true
     return
   }

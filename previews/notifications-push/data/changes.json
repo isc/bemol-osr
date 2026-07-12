@@ -1,6 +1,43 @@
 {
  "entries": [
   {
+   "at": "2026-07-07T08:03:17.569Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 05",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Domenico MODUGNO — Volare, pour orchestre d'harmonie",
+       "fields": [
+        "percussions",
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Benjamin BRITTEN — The Young person's guide to the orchestra op. 34 (variations et fugue sur un thème de Purcell)",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-07-06T15:57:04.496Z",
    "added": [
     {
