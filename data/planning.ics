@@ -289,7 +289,7 @@ DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
   ob2. / coucou\nEffectif orchestral (max) : 3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 
  10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 01
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -402,7 +402,7 @@ DESCRIPTION:Programme : OGP2\n\n— Mémo de production —\nDirection musi
  embre 25\nEffectif orchestral (max) : 1.0.1.1 / 1.0.0.0 / 1.2.0.1 / 8.6.4.
  3.2 (31 musiciens)\nDurée totale approximative : ≈ 1 h 29\n\nCalendrier
   Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 02
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -530,7 +530,7 @@ DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  Effectif orchestral (max) : 2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 mu
  siciens)\nDurée totale approximative : ≈ 1 h 30\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 03
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -1542,7 +1542,7 @@ SUMMARY:Cérémonie d'Accueil des Nouveaux Habitants — concert hors contr
 LOCATION:Victoria Hall de Genève
 DESCRIPTION:Programme : MDC\n\nCalendrier Bémol · mis à jour automatique
  ment
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Cérémonie d'Accueil des Nouveaux Habitants
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -2169,9 +2169,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2245,9 +2245,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2277,9 +2277,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2361,9 +2361,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2453,7 +2453,7 @@ DESCRIPTION:Programme : H.Abo1\n\n— Mémo de production —\nDirection mu
  fectif orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.1.1.0 / 6.5.4.3.2 (30 musi
  ciens)\nDurée totale approximative : ≈ 1 h 05\n\nCalendrier Bémol · m
  is à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 06
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -2485,9 +2485,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2601,7 +2601,7 @@ DESCRIPTION:Programme : aboF1\n\n— Mémo de production —\nDirection mus
  c.cl.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0
   / 12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -2662,9 +2662,9 @@ DESCRIPTION:Programme : La Tempête\n\n— Mémo de production —\nDirecti
   : 4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)\nDurée totale
   approximative : ≈ 3 h 00\n\nCalendrier Bémol · mis à jour automatiqu
  ement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste A
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -2714,7 +2714,7 @@ DESCRIPTION:Programme : MDC1\n\n— Mémo de production —\nSolistes :\n
  : 0.1.0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1\nEffectif orchestral (max) : 0.1
  .0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 02\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -2917,7 +2917,7 @@ DESCRIPTION:Programme : aboO1\n\n— Mémo de production —\nDirection mus
  rchestral (max) : 3.3.3.3 / 4.3.3.1 / 1.4.2.1 / 15.13.11.9.7 (86 musiciens
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 08
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3018,7 +3018,7 @@ DESCRIPTION:Programme : aboL1\n\n— Mémo de production —\nDirection mus
  rchestral (max) : 3.3.3.3 / 4.3.3.1 / 1.4.2.1 / 15.13.11.9.7 (86 musiciens
  )\nDurée totale approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à
   jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 08
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3392,7 +3392,7 @@ DESCRIPTION:Programme : aboS1\n\n— Mémo de production —\nDirection mus
  rfois jouées à la cl.bs (cl2+cl.bs)\nEffectif orchestral (max) : 3.3.3.3
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 09
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3468,9 +3468,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3567,7 +3567,7 @@ DESCRIPTION:Programme : DPL1\n\n— Mémo de production —\nDirection musi
  rfois jouées à la cl.bs (cl2+cl.bs)\nEffectif orchestral (max) : 3.3.3.3
   / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 45\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 09
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3591,9 +3591,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3615,9 +3615,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3702,7 +3702,7 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  l.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3745,7 +3745,7 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  l.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3774,7 +3774,7 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  l.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3812,9 +3812,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3841,7 +3841,7 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  l.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3865,9 +3865,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -3894,7 +3894,7 @@ DESCRIPTION:Programme : DIP1\n\n— Mémo de production —\nDirection musi
  l.\, tri\, bsq\nEffectif orchestral (max) : 3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 
  12.10.8.6.4 (68 musiciens)\nDurée totale approximative : ≈ 32 min\n\nCa
  lendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 07
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -3961,9 +3961,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4008,9 +4008,9 @@ DESCRIPTION:Programme : Company\n\n— Mémo de production —\nDirection m
  uitare\nEffectif orchestral (max) : 0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.
  3 (26 musiciens)\nDurée totale approximative : ≈ 2 h 50\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste B
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -4404,7 +4404,7 @@ DESCRIPTION:Programme : ONU\n\n— Mémo de production —\nDirection music
  n 19-20 liste 25 + en 06-07 liste 10\nEffectif orchestral (max) : 3.2.2.3 
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 10
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -4427,7 +4427,7 @@ DESCRIPTION:Programme : VIL\n\n— Mémo de production —\nDirection music
  n 19-20 liste 25 + en 06-07 liste 10\nEffectif orchestral (max) : 3.2.2.3 
  / 4.2.3.0 / 1.3.0.0 / 12.10.8.6.4 (63 musiciens)\nDurée totale approximat
  ive : ≈ 1 h 05\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 10
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -4669,7 +4669,7 @@ DESCRIPTION:Programme : H.Abo2\n\n— Mémo de production —\nDirection mu
  stral (max) : 3.2.3.2 / 4.3.3.1 / 1.3.1.2 / 14.12.10.8.6 (78 musiciens)\nD
  urée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jou
  r automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 11
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -4768,7 +4768,7 @@ DESCRIPTION:Programme : DPL2\n\n— Mémo de production —\nDirection musi
  al (max) : 3.2.3.2 / 4.3.3.1 / 1.3.1.2 / 14.12.10.8.6 (78 musiciens)\nDur
  ée totale approximative : ≈ 2 h 02\n\nCalendrier Bémol · mis à jour 
  automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 11
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -4982,7 +4982,7 @@ DESCRIPTION:Programme : aboS2\n\n— Mémo de production —\nDirection mus
  fectif orchestral (max) : 2.2.2.2 / 4.2.3.1 / 1.0.0.0 / 14.12.10.8.6 (69 m
  usiciens)\nDurée totale approximative : ≈ 1 h 47\n\nCalendrier Bémol 
  · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Accueil 01
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5007,7 +5007,7 @@ DESCRIPTION:Programme : aboL2\n\n— Mémo de production —\nDirection mus
  t et trb uniquement dans le 4ème mvt\nEffectif orchestral (max) : 3.2.2.3
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 12
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5087,7 +5087,7 @@ DESCRIPTION:Programme : aboR1\n\n— Mémo de production —\nDirection mus
  t et trb uniquement dans le 4ème mvt\nEffectif orchestral (max) : 3.2.2.3
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 12
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5137,7 +5137,7 @@ DESCRIPTION:Programme : aboF2\n\n— Mémo de production —\nDirection mus
  t et trb uniquement dans le 4ème mvt\nEffectif orchestral (max) : 3.2.2.3
   / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)\nDurée totale approxim
  ative : ≈ 1 h 51\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 12
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5425,7 +5425,7 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
   (max) : 3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)\nDurée 
  totale approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 14
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5617,7 +5617,7 @@ DESCRIPTION:Programme : CCGE\n\n— Mémo de production —\nDirection musi
  ad.lib+piano\nEffectif orchestral (max) : 4.3.3.4 / 4.3.3.1 / 1.5.2.3 / 14
  .12.10.8.6 (86 musiciens)\nDurée totale approximative : ≈ 2 h 37\n\nCal
  endrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 15
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5906,7 +5906,7 @@ DESCRIPTION:Programme : MOTET\n\n— Mémo de production —\nDirection mus
  nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3 (55 
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 16
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -5992,7 +5992,7 @@ DESCRIPTION:Programme : aboF+\n\n— Mémo de production —\nDirection mus
  nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3 (55 
  musiciens)\nDurée totale approximative : ≈ 2 h 35\n\nCalendrier Bémol 
  · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 16
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6009,7 +6009,7 @@ DESCRIPTION:Programme : DDC1.1\n\n— Mémo de production —\nSolistes :\n
  • Yumiko AWANO\, violon (21 novembre)\n• David VALLEZ\, violon (21 nov
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6026,7 +6026,7 @@ DESCRIPTION:Programme : DDC1.2\n\n— Mémo de production —\nSolistes :\n
  • Yumiko AWANO\, violon (21 novembre)\n• David VALLEZ\, violon (21 nov
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6048,7 +6048,7 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
   1.0.0.0.1\n    Claviers : piano\nEffectif orchestral (max) : 0.0.1.1 / 0.
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6085,7 +6085,7 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
   1.0.0.0.1\n    Claviers : piano\nEffectif orchestral (max) : 0.0.1.1 / 0.
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6102,7 +6102,7 @@ DESCRIPTION:Programme : DDC1.3\n\n— Mémo de production —\nSolistes :\n
  • Yumiko AWANO\, violon (21 novembre)\n• David VALLEZ\, violon (21 nov
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6119,7 +6119,7 @@ DESCRIPTION:Programme : DDC1.4\n\n— Mémo de production —\nSolistes :\n
  • Yumiko AWANO\, violon (21 novembre)\n• David VALLEZ\, violon (21 nov
  embre)\n• Gergana KUSHEVA\, contrebasse (22 novembre)\n• Katrin HERDA\
  , basson (22 novembre)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6141,7 +6141,7 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
   1.0.0.0.1\n    Claviers : piano\nEffectif orchestral (max) : 0.0.1.1 / 0.
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6163,7 +6163,7 @@ DESCRIPTION:Programme : CPO1\n\n— Mémo de production —\nSolistes :\n
   1.0.0.0.1\n    Claviers : piano\nEffectif orchestral (max) : 0.0.1.1 / 0.
  0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)\nDurée totale approximative : 
  ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 1
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6356,7 +6356,7 @@ DESCRIPTION:Programme : aboO2\n\n— Mémo de production —\nDirection mus
   2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)\nDurée totale 
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 17
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6402,7 +6402,7 @@ DESCRIPTION:Programme : aboS3\n\n— Mémo de production —\nDirection mus
   2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)\nDurée totale 
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 17
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6448,7 +6448,7 @@ DESCRIPTION:Programme : aboR+\n\n— Mémo de production —\nDirection mus
   2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)\nDurée totale 
  approximative : ≈ 1 h 39\n\nCalendrier Bémol · mis à jour automatique
  ment
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 17
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6496,7 +6496,7 @@ DESCRIPTION:Programme : MDC2\n\n— Mémo de production —\nSolistes :\n
  rs : piano\nEffectif orchestral (max) : 0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.
  1.1.0 (4 musiciens)\nDurée totale approximative : ≈ 55 min\n\nCalendrie
  r Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6748,7 +6748,7 @@ DESCRIPTION:Programme : aboF3\n\n— Mémo de production —\nDirection mus
  max) : 3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 16.14.12.10.8 (90 musiciens)\nDurée 
  totale approximative : ≈ 37 min\n\nCalendrier Bémol · mis à jour auto
  matiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 18
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -6986,9 +6986,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7152,9 +7152,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7210,7 +7210,7 @@ DESCRIPTION:Programme : aboO3\n\n— Mémo de production —\nDirection mus
  : 2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)\nDurée totale a
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 19
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -7259,9 +7259,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7288,7 +7288,7 @@ DESCRIPTION:Programme : aboS4\n\n— Mémo de production —\nDirection mus
  : 2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)\nDurée totale a
  pproximative : ≈ 1 h 54\n\nCalendrier Bémol · mis à jour automatiquem
  ent
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 19
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -7355,9 +7355,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7399,9 +7399,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7468,7 +7468,7 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  hone ténor\n    Détail : Set list parmi entre autres :\nEffectif orchest
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 20
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -7489,9 +7489,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7512,7 +7512,7 @@ DESCRIPTION:Programme : NOEL\n\n— Mémo de production —\nDirection musi
  hone ténor\n    Détail : Set list parmi entre autres :\nEffectif orchest
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 20
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -7535,7 +7535,7 @@ DESCRIPTION:Programme : DIP2\n\n— Mémo de production —\nDirection musi
  hone ténor\n    Détail : Set list parmi entre autres :\nEffectif orchest
  ral (max) : 2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)\n\nCale
  ndrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 20
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -7556,9 +7556,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7577,9 +7577,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7598,9 +7598,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7619,9 +7619,9 @@ DESCRIPTION:Programme : Les Noces\n\n— Mémo de production —\nDirection
  ffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 mu
  siciens)\nDurée totale approximative : ≈ 3 h 40\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste C
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -7931,7 +7931,7 @@ DESCRIPTION:Programme : AMI1\n\n— Mémo de production —\nDirection musi
  inir\nEffectif orchestral (max) : 3.3.3.3 / 4.3.4.1 / 1.4.1.0 / 12.10.8.6.
  4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 21
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8101,7 +8101,7 @@ DESCRIPTION:Programme : aboL3\n\n— Mémo de production —\nDirection mus
  éfinir\nEffectif orchestral (max) : 3.3.3.3 / 4.3.4.1 / 1.4.1.0 / 12.10.8
  .6.4 (70 musiciens)\nDurée totale approximative : ≈ 1 h 36\n\nCalendrie
  r Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 21
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8140,7 +8140,7 @@ DESCRIPTION:Programme : DDC2.1\n\n— Mémo de production —\nSolistes :\n
  • Elodie BERRY\, violon (16 janvier)\n• Jarita NG\, alto (16 janvier)\
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8157,7 +8157,7 @@ DESCRIPTION:Programme : DDC2.2\n\n— Mémo de production —\nSolistes :\n
  • Elodie BERRY\, violon (16 janvier)\n• Jarita NG\, alto (16 janvier)\
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8179,7 +8179,7 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  / 0.0.0.0.0\n    Remarques : Sans cordes\nEffectif orchestral (max) : 0.0.
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8201,7 +8201,7 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  / 0.0.0.0.0\n    Remarques : Sans cordes\nEffectif orchestral (max) : 0.0.
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8242,7 +8242,7 @@ DESCRIPTION:Programme : DDC2.3\n\n— Mémo de production —\nSolistes :\n
  • Elodie BERRY\, violon (16 janvier)\n• Jarita NG\, alto (16 janvier)\
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8259,7 +8259,7 @@ DESCRIPTION:Programme : DDC2.4\n\n— Mémo de production —\nSolistes :\n
  • Elodie BERRY\, violon (16 janvier)\n• Jarita NG\, alto (16 janvier)\
  n• Matteo DE LUCA\, trombone (17 janvier)\n• Vincent MÉTRAILLER\, tro
  mbone (17 janvier)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8283,7 +8283,7 @@ DESCRIPTION:Programme : MDC3\n\n— Mémo de production —\nSolistes :\n
  max) : 0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0 (5 musiciens)\nDurée total
  e approximative : ≈ 1 h 01\n\nCalendrier Bémol · mis à jour automatiq
  uement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8305,7 +8305,7 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  / 0.0.0.0.0\n    Remarques : Sans cordes\nEffectif orchestral (max) : 0.0.
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8327,7 +8327,7 @@ DESCRIPTION:Programme : CPO2\n\n— Mémo de production —\nSolistes :\n
  / 0.0.0.0.0\n    Remarques : Sans cordes\nEffectif orchestral (max) : 0.0.
  0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)\nDurée totale approxima
  tive : ≈ 45 min\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 2
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8507,7 +8507,7 @@ DESCRIPTION:Programme : aboO4\n\n— Mémo de production —\nDirection mus
  4ème mouvement\nEffectif orchestral (max) : 5.4.5.4 / 4.3.4.1 / 1.5.2.1 /
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 23
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8551,7 +8551,7 @@ DESCRIPTION:Programme : aboS5\n\n— Mémo de production —\nDirection mus
  4ème mouvement\nEffectif orchestral (max) : 5.4.5.4 / 4.3.4.1 / 1.5.2.1 /
   15.13.11.9.7 (94 musiciens)\nDurée totale approximative : ≈ 2 h 07\n\n
  Calendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 23
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8632,7 +8632,7 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  if orchestral (max) : 1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musicien
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 24
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8659,7 +8659,7 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  if orchestral (max) : 1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musicien
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 24
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8686,7 +8686,7 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  if orchestral (max) : 1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musicien
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 24
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -8735,7 +8735,7 @@ DESCRIPTION:Programme : DIP3\n\n— Mémo de production —\nDirection musi
  if orchestral (max) : 1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musicien
  s)\nDurée totale approximative : ≈ 36 min\n\nCalendrier Bémol · mis 
  à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 24
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -9307,9 +9307,9 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  ment dans le n° 9\nEffectif orchestral (max) : 3.2.2.2 / 4.2.3.1 / 1.4.1.
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste D
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9329,9 +9329,9 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  ment dans le n° 9\nEffectif orchestral (max) : 3.2.2.2 / 4.2.3.1 / 1.4.1.
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste D
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9365,9 +9365,9 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  ment dans le n° 9\nEffectif orchestral (max) : 3.2.2.2 / 4.2.3.1 / 1.4.1.
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste D
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9401,9 +9401,9 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  ment dans le n° 9\nEffectif orchestral (max) : 3.2.2.2 / 4.2.3.1 / 1.4.1.
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste D
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9423,9 +9423,9 @@ DESCRIPTION:Programme : Viaggio a Reims\n\n— Mémo de production —\nDir
  ment dans le n° 9\nEffectif orchestral (max) : 3.2.2.2 / 4.2.3.1 / 1.4.1.
  1 / 11.9.7.5.4 (62 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste D
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -9819,7 +9819,7 @@ DESCRIPTION:Programme : aboO5\n\n— Mémo de production —\nDirection mus
  tral (max) : 3.3.3.4 / 4.4.3.1 / 1.3.1.0 / 14.12.10.8.6 (80 musiciens)\nDu
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 25
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -9903,7 +9903,7 @@ DESCRIPTION:Programme : aboL4\n\n— Mémo de production —\nDirection mus
  tral (max) : 3.3.3.4 / 4.4.3.1 / 1.3.1.0 / 14.12.10.8.6 (80 musiciens)\nDu
  rée totale approximative : ≈ 1 h 32\n\nCalendrier Bémol · mis à jour
   automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 25
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10190,7 +10190,7 @@ DESCRIPTION:Programme : MDC4\n\n— Mémo de production —\nSolistes :\n
  (max) : 0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)\nDurée tota
  le approximative : ≈ 54 min\n\nCalendrier Bémol · mis à jour automati
  quement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 4
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10213,9 +10213,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10311,9 +10311,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10361,7 +10361,7 @@ DESCRIPTION:Programme : aboO6\n\n— Mémo de production —\nDirection mus
  l (max) : 3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)\nDurée
   totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour aut
  omatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 27
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10400,9 +10400,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10475,7 +10475,7 @@ DESCRIPTION:Programme : DPL3\n\n— Mémo de production —\nDirection musi
   (max) : 3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)\nDurée 
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 27
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10513,9 +10513,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10588,7 +10588,7 @@ DESCRIPTION:Programme : DPL4\n\n— Mémo de production —\nDirection musi
   (max) : 3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)\nDurée 
  totale approximative : ≈ 1 h 33\n\nCalendrier Bémol · mis à jour auto
  matiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 27
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10636,9 +10636,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10679,7 +10679,7 @@ DESCRIPTION:Programme : DDC3.1\n\n— Mémo de production —\nSolistes :\n
  • Hannah FRANKE\, alto (20 mars)\n• Katrin HERDA\, basson (20 mars)\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10696,7 +10696,7 @@ DESCRIPTION:Programme : DDC3.2\n\n— Mémo de production —\nSolistes :\n
  • Hannah FRANKE\, alto (20 mars)\n• Katrin HERDA\, basson (20 mars)\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10722,7 +10722,7 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
  es\nEffectif orchestral (max) : 1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10748,7 +10748,7 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
  es\nEffectif orchestral (max) : 1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10771,9 +10771,9 @@ DESCRIPTION:Programme : Fanciulla\n\n— Mémo de production —\nDirection
  esta\nEffectif orchestral (max) : 2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.
  5 (67 musiciens)\nDurée totale approximative : ≈ 2 h 45\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste E
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -10788,7 +10788,7 @@ DESCRIPTION:Programme : DDC3.3\n\n— Mémo de production —\nSolistes :\n
  • Hannah FRANKE\, alto (20 mars)\n• Katrin HERDA\, basson (20 mars)\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10805,7 +10805,7 @@ DESCRIPTION:Programme : DDC3.4\n\n— Mémo de production —\nSolistes :\n
  • Hannah FRANKE\, alto (20 mars)\n• Katrin HERDA\, basson (20 mars)\n
  • Leonid BARANOV\, violon (21 mars)\n• Yumi KUBO\, violon (21 mars)\n\
  nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Doudou Concert 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10831,7 +10831,7 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
  es\nEffectif orchestral (max) : 1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -10857,7 +10857,7 @@ DESCRIPTION:Programme : CPO3\n\n— Mémo de production —\nSolistes :\n
  es\nEffectif orchestral (max) : 1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0 (5
   musiciens)\nDurée totale approximative : ≈ 35 min\n\nCalendrier Bémol
   · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 3
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11218,7 +11218,7 @@ DESCRIPTION:Programme : aboR2\n\n— Mémo de production —\nDirection mus
  s\n    Claviers : célesta\nEffectif orchestral (max) : 3.3.3.4 / 4.5.3.1 
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 28
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11249,7 +11249,7 @@ DESCRIPTION:Programme : aboS6\n\n— Mémo de production —\nDirection mus
  s\n    Claviers : célesta\nEffectif orchestral (max) : 3.3.3.4 / 4.5.3.1 
  / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)\nDurée totale approximative : ≈
   1 h 23\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 28
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11610,7 +11610,7 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  drumset\nEffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 29
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11637,7 +11637,7 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  drumset\nEffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 29
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11665,9 +11665,9 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
  par pianiste ou danseurs sur scène\nEffectif orchestral (max) : 0.3.2.2 /
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste F
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11693,9 +11693,9 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
  par pianiste ou danseurs sur scène\nEffectif orchestral (max) : 0.3.2.2 /
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste F
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11720,7 +11720,7 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  drumset\nEffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 29
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11748,9 +11748,9 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
  par pianiste ou danseurs sur scène\nEffectif orchestral (max) : 0.3.2.2 /
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste F
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11775,7 +11775,7 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  drumset\nEffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 29
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11803,9 +11803,9 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
  par pianiste ou danseurs sur scène\nEffectif orchestral (max) : 0.3.2.2 /
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste F
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11866,7 +11866,7 @@ DESCRIPTION:Programme : MDC5\n\n— Mémo de production —\nSolistes :\n
  stral (max) : 2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)\nDuré
  e totale approximative : ≈ 57 min\n\nCalendrier Bémol · mis à jour au
  tomatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 5
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -11894,9 +11894,9 @@ DESCRIPTION:Programme : Dimmokratîa\n\n— Mémo de production —\nDirect
  par pianiste ou danseurs sur scène\nEffectif orchestral (max) : 0.3.2.2 /
   4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)\nDurée totale approximativ
  e : ≈ 1 h 15\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste F
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -11921,7 +11921,7 @@ DESCRIPTION:Programme : TROM\n\n— Mémo de production —\nDirection musi
  drumset\nEffectif orchestral (max) : 2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3
  .2 (38 musiciens)\nDurée totale approximative : ≈ 30 min\n\nCalendrier 
  Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 29
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12124,7 +12124,7 @@ DESCRIPTION:Programme : aboL5\n\n— Mémo de production —\nDirection mus
  n Sokhiev\nEffectif orchestral (max) : 3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.12
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 30
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12153,7 +12153,7 @@ DESCRIPTION:Programme : aboR3\n\n— Mémo de production —\nDirection mus
  n Sokhiev\nEffectif orchestral (max) : 3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.12
  .10.8.6 (80 musiciens)\nDurée totale approximative : ≈ 2 h 00\n\nCalend
  rier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 30
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12317,7 +12317,7 @@ DESCRIPTION:Programme : aboO7\n\n— Mémo de production —\nDirection mus
  .\nEffectif orchestral (max) : 3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 31
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12342,7 +12342,7 @@ DESCRIPTION:Programme : aboS7\n\n— Mémo de production —\nDirection mus
  .\nEffectif orchestral (max) : 3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 
  (82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bé
  mol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 31
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12417,7 +12417,7 @@ DESCRIPTION:Programme : DPL5\n\n— Mémo de production —\nDirection musi
  \nEffectif orchestral (max) : 3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 (
  82 musiciens)\nDurée totale approximative : ≈ 1 h 59\n\nCalendrier Bém
  ol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 31
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12666,7 +12666,7 @@ DESCRIPTION:Programme : aboR4\n\n— Mémo de production —\nDirection mus
   : 4.4.4.4 / 4.4.3.1 / 1.7.2.2 / 15.13.11.9.7 (95 musiciens)\nDurée total
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 32
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12764,7 +12764,7 @@ DESCRIPTION:Programme : aboS8\n\n— Mémo de production —\nDirection mus
   : 4.4.4.4 / 4.4.3.1 / 1.7.2.2 / 15.13.11.9.7 (95 musiciens)\nDurée total
  e approximative : ≈ 1 h 38\n\nCalendrier Bémol · mis à jour automatiq
  uement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 32
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12964,7 +12964,7 @@ DESCRIPTION:Programme : H.Abo3\n\n— Mémo de production —\nDirection mu
  nthétiseur\nEffectif orchestral (max) : 3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 34
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -12990,7 +12990,7 @@ DESCRIPTION:Programme : H.Abo5\n\n— Mémo de production —\nDirection mu
  nthétiseur\nEffectif orchestral (max) : 3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.
  14.12.10.8 (95 musiciens)\nDurée totale approximative : ≈ 2 h 56\n\nCal
  endrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 34
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13016,7 +13016,7 @@ DESCRIPTION:Programme : H.Abo4\n⚠ Service ANNULÉ\n\n— Mémo de product
  aviers : piano\, 2 synthétiseur\nEffectif orchestral (max) : 3.3.3.3 / 6.
  3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)\nDurée totale approximativ
  e : ≈ 2 h 56\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 34
 X-BEMOL-CAT:concert
 STATUS:CANCELLED
@@ -13154,7 +13154,7 @@ DESCRIPTION:Programme : aboO8\n\n— Mémo de production —\nDirection mus
  estral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)\nD
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 35
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13243,7 +13243,7 @@ DESCRIPTION:Programme : aboL6\n\n— Mémo de production —\nDirection mus
  estral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)\nD
  urée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jou
  r automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 35
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13353,7 +13353,7 @@ DESCRIPTION:Programme : DPL6\n\n— Mémo de production —\nDirection musi
  stral (max) : 2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)\nDu
  rée totale approximative : ≈ 1 h 27\n\nCalendrier Bémol · mis à jour
   automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 35
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13380,7 +13380,7 @@ DESCRIPTION:Programme : aboF4\n\n— Mémo de production —\nDirection mus
  ax) : 1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 2.2.2.2.2 (16 musiciens)\nDurée total
  e approximative : ≈ 36 min\n\nCalendrier Bémol · mis à jour automatiq
  uement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 37
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13437,7 +13437,7 @@ DESCRIPTION:Programme : MDC6\n\n— Mémo de production —\nSolistes :\n
  \, Giuseppe Verdi\, John Williams ... [saison 2627]\n    Remarques : Sans 
  cordes\n    Détail : John Williams : Olympic Fanfare\n\nCalendrier Bémol
   · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Musique De Chambre 6
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13601,7 +13601,7 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  marques : Sans cordes\n    Détail : effectif en construction\nDurée tota
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13621,7 +13621,7 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  marques : Sans cordes\n    Détail : effectif en construction\nDurée tota
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13641,7 +13641,7 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  marques : Sans cordes\n    Détail : effectif en construction\nDurée tota
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13661,7 +13661,7 @@ DESCRIPTION:Programme : CPO4\n\n— Mémo de production —\nSolistes :\n
  marques : Sans cordes\n    Détail : effectif en construction\nDurée tota
  le approximative : ≈ 45 min\n\nCalendrier Bémol · mis à jour automati
  quement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Concerts pour Petites Oreilles 4
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -13828,7 +13828,7 @@ DESCRIPTION:Programme : Gala FMCIM\n\n— Mémo de production —\nDirectio
  ectif en construction\nEffectif orchestral (max) : 3.3.3.3 / 4.3.3.1 / 1.3
  .1.1 / 12.10.8.6.4 (69 musiciens)\n\nCalendrier Bémol · mis à jour auto
  matiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 38
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14052,7 +14052,7 @@ DESCRIPTION:Programme : FMUS1\n\n— Mémo de production —\nDirection mus
  26\n    Instrumentation : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4\nEffecti
  f orchestral (max) : 1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens
  )\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 39
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14079,7 +14079,7 @@ DESCRIPTION:Programme : FMUS2\n\n— Mémo de production —\nDirection mus
  imm\nEffectif orchestral (max) : 1.1.1.1 / 1.1.1.1 / 1.2.0.1 / 2.2.2.2.2 (
  22 musiciens)\nDurée totale approximative : ≈ 24 min\n\nCalendrier Bém
  ol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 40
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14229,9 +14229,9 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
  er)\nEffectif orchestral (max) : 2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste G
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -14254,9 +14254,9 @@ DESCRIPTION:Programme : Candide\n\n— Mémo de production —\nDirection m
  er)\nEffectif orchestral (max) : 2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4
   (57 musiciens)\nDurée totale approximative : ≈ 3 h 00\n\nCalendrier B
  émol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Représentation (opéra/ballet)
 X-BEMOL-LISTE:Liste G
-X-BEMOL-CAT:concert
+X-BEMOL-CAT:representation
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -14368,7 +14368,7 @@ DESCRIPTION:Programme : ETE\n\n— Mémo de production —\nDirection music
  n    Remarques : effectif prévisionnel\nEffectif orchestral (max) : 2.2.2
  .2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)\n\nCalendrier Bémol ·
   mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 41
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14508,7 +14508,7 @@ DESCRIPTION:Programme : TOUR\n\n— Mémo de production —\nDirection musi
  ruction\n    Instrumentation : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8
  \nEffectif orchestral (max) : 4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 
  (101 musiciens)\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Liste 42
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14540,7 +14540,7 @@ DTEND;TZID=Europe/Zurich:20270710T210000
 SUMMARY:Projet 02 — concert
 LOCATION:Salle de Musique\, La-Chaux-de-Fonds
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Projet 02
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED
@@ -14554,7 +14554,7 @@ DTEND;TZID=Europe/Zurich:20270711T190000
 SUMMARY:Projet 01 — concert hors contrat
 LOCATION:Salle de Musique\, La-Chaux-de-Fonds
 DESCRIPTION:\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert / Représentation
+CATEGORIES:Concert
 X-BEMOL-LISTE:Projet 01
 X-BEMOL-CAT:concert
 STATUS:CONFIRMED

@@ -27,7 +27,8 @@ const icsPath = join(root, "data", "planning.ics")
 
 // Libellés des catégories, calqués sur ceux de l'app (app.js).
 const CATEGORIES = {
-  concert: "Concert / Représentation",
+  concert: "Concert",
+  representation: "Représentation (opéra/ballet)",
   generale: "Générale / Raccord",
   italienne: "Italienne / Scène & orch.",
   enregistrement: "Enregistrement",
