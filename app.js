@@ -1949,8 +1949,9 @@ function renderPrefs() {
     { class: "prefs-note prefs-note-top" },
     "Vérification du support de ton appareil…",
   )
+  const notifDot = el("span", { class: "notif-dot" })
   const notifBtn = el("button", { type: "button", hidden: "" }, "…")
-  refreshNotifUI(notifStatus, notifBtn)
+  refreshNotifUI(notifStatus, notifBtn, notifDot)
 
   box.replaceChildren(
     el(
@@ -1993,7 +1994,7 @@ function renderPrefs() {
     el(
       "div",
       { class: "prefs-section" },
-      el("div", { class: "prefs-label" }, "Notifications :"),
+      el("div", { class: "prefs-label" }, "Notifications :", notifDot),
       notifStatus,
       notifBtn,
     ),
@@ -2098,7 +2099,7 @@ function urlBase64ToUint8Array(base64String) {
 
 // Résout (de façon asynchrone) le statut des notifications sur cet appareil
 // et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
-async function refreshNotifUI(statusEl, btn) {
+async function refreshNotifUI(statusEl, btn, dot) {
   // Sur iOS/iPadOS, PushManager n'existe pas du tout hors mode standalone :
   // ce test doit donc passer avant le test générique ci-dessous, sans quoi
   // les utilisateurs iPhone/iPad non installés voient le message générique
@@ -2108,16 +2109,19 @@ async function refreshNotifUI(statusEl, btn) {
       "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
       "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
     btn.hidden = true
+    dot.classList.remove("is-on")
     return
   }
   if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
     statusEl.textContent = "Notifications non disponibles sur ce navigateur."
     btn.hidden = true
+    dot.classList.remove("is-on")
     return
   }
   if (!workerOrigin()) {
     statusEl.textContent = "Notifications indisponibles pour le moment."
     btn.hidden = true
+    dot.classList.remove("is-on")
     return
   }
 
@@ -2125,22 +2129,24 @@ async function refreshNotifUI(statusEl, btn) {
   const sub = await reg.pushManager.getSubscription()
   btn.hidden = false
   btn.disabled = false
+  dot.classList.toggle("is-on", !!sub)
+  btn.classList.toggle("notif-btn-on", !!sub)
   if (sub) {
     statusEl.textContent =
       "Activées sur cet appareil : tu seras averti·e des changements dans tes listes."
     btn.textContent = "Désactiver les notifications"
-    btn.onclick = () => disableNotifications(statusEl, btn)
+    btn.onclick = () => disableNotifications(statusEl, btn, dot)
   } else {
     statusEl.textContent =
       "Sois averti·e (sur cet appareil) dès qu'un service de tes listes change " +
       "d'horaire ou de lieu, est annulé, ajouté ou supprimé — ou que le programme " +
       "d'une de tes productions évolue."
     btn.textContent = "Activer les notifications"
-    btn.onclick = () => enableNotifications(statusEl, btn)
+    btn.onclick = () => enableNotifications(statusEl, btn, dot)
   }
 }
 
-async function enableNotifications(statusEl, btn) {
+async function enableNotifications(statusEl, btn, dot) {
   btn.disabled = true
   try {
     const permission = await Notification.requestPermission()
@@ -2163,11 +2169,11 @@ async function enableNotifications(statusEl, btn) {
     statusEl.textContent =
       "Échec de l'activation des notifications. Réessaie plus tard."
   } finally {
-    refreshNotifUI(statusEl, btn)
+    refreshNotifUI(statusEl, btn, dot)
   }
 }
 
-async function disableNotifications(statusEl, btn) {
+async function disableNotifications(statusEl, btn, dot) {
   btn.disabled = true
   try {
     const reg = await navigator.serviceWorker.ready
@@ -2178,7 +2184,7 @@ async function disableNotifications(statusEl, btn) {
     // best effort : l'abonnement navigateur est de toute façon déjà annulé
     // ci-dessus si la panne vient seulement de la synchronisation au worker.
   } finally {
-    refreshNotifUI(statusEl, btn)
+    refreshNotifUI(statusEl, btn, dot)
   }
 }
 
