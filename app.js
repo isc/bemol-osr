@@ -1151,12 +1151,29 @@ function showRentree(region, date) {
 
 // --- Vue grille (Bible) ------------------------------------------------------
 
-function slotOf(e) {
-  const h = parseInt(fmtTime(e.start).slice(0, 2) || "0", 10)
-  return h < 12 ? 0 : h < 18 ? 1 : 2
+const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
+// Bornes des 3 créneaux, en minutes depuis minuit : Matin < 12h, Ap-midi
+// 12h-18h, Soir >= 18h.
+const SLOT_BOUNDS = [0, 12 * 60, 18 * 60, 24 * 60]
+
+function minutesOfTime(hm) {
+  const [h, m] = hm.split(":").map(Number)
+  return h * 60 + (m || 0)
 }
 
-const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
+// Un service peut chevaucher plusieurs créneaux (ex. un concours annoncé de
+// 9h30 à 19h) : on renvoie tous les créneaux concernés par sa durée, pas
+// seulement celui de son heure de début, pour que sa case soit servie sur
+// toute la plage occupée.
+function slotsOf(e) {
+  const startMin = minutesOfTime(fmtTime(e.start))
+  const endMin = Math.max(minutesOfTime(fmtTime(e.end)), startMin + 1)
+  const slots = []
+  for (let s = 0; s < 3; s++) {
+    if (startMin < SLOT_BOUNDS[s + 1] && endMin > SLOT_BOUNDS[s]) slots.push(s)
+  }
+  return slots
+}
 
 function renderGrille(main) {
   const events = visibleEvents()
@@ -1262,8 +1279,8 @@ function renderGrille(main) {
             .filter(Boolean)
             .join(" ")
           const cell = el("td", { class: cls })
-          const dayEvents = (byDay.get(localKey(d)) || []).filter(
-            (e) => slotOf(e) === slot,
+          const dayEvents = (byDay.get(localKey(d)) || []).filter((e) =>
+            slotsOf(e).includes(slot),
           )
           for (const e of dayEvents) cell.append(eventChip(e))
           row.append(cell)
