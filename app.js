@@ -263,12 +263,33 @@ const VACANCES_SCOLAIRES = [
   { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
   { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
   { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
-  // Vaud — saison 2026-2027 (source : État de Vaud / vd.ch, noms officiels)
+  // Vaud — source : calendrier officiel de l'État de Vaud (vd.ch), publié
+  // jusqu'en 2030-2031 : contrairement à GE/FR, pas besoin de le revérifier
+  // chaque saison, seulement de le prolonger quand vd.ch publie la suite.
   { region: "VD", nom: "Automne", start: "2026-10-10", end: "2026-10-25" },
   { region: "VD", nom: "Hiver", start: "2026-12-24", end: "2027-01-10" },
   { region: "VD", nom: "Relâches", start: "2027-02-06", end: "2027-02-14" },
   { region: "VD", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
-  { region: "VD", nom: "Ascension", start: "2027-05-06", end: "2027-05-09" },
+  { region: "VD", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "VD", nom: "Automne", start: "2027-10-09", end: "2027-10-24" },
+  { region: "VD", nom: "Hiver", start: "2027-12-24", end: "2028-01-09" },
+  { region: "VD", nom: "Relâches", start: "2028-02-12", end: "2028-02-20" },
+  { region: "VD", nom: "Pâques", start: "2028-04-14", end: "2028-04-30" },
+  { region: "VD", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "VD", nom: "Automne", start: "2028-10-14", end: "2028-10-29" },
+  { region: "VD", nom: "Hiver", start: "2028-12-23", end: "2029-01-07" },
+  { region: "VD", nom: "Relâches", start: "2029-02-10", end: "2029-02-18" },
+  { region: "VD", nom: "Pâques", start: "2029-03-30", end: "2029-04-15" },
+  { region: "VD", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "VD", nom: "Automne", start: "2029-10-13", end: "2029-10-28" },
+  { region: "VD", nom: "Hiver", start: "2029-12-22", end: "2030-01-06" },
+  { region: "VD", nom: "Relâches", start: "2030-02-16", end: "2030-02-24" },
+  { region: "VD", nom: "Pâques", start: "2030-04-19", end: "2030-05-05" },
+  { region: "VD", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  { region: "VD", nom: "Automne", start: "2030-10-12", end: "2030-10-27" },
+  { region: "VD", nom: "Hiver", start: "2030-12-21", end: "2031-01-05" },
+  { region: "VD", nom: "Relâches", start: "2031-02-15", end: "2031-02-23" },
+  { region: "VD", nom: "Pâques", start: "2031-04-11", end: "2031-04-27" },
   // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
@@ -283,6 +304,10 @@ const VACANCES_SCOLAIRES = [
 const RENTREES = [
   { region: "GE", date: "2026-08-17" }, // Genève — lundi 17 août 2026
   { region: "VD", date: "2026-08-17" }, // Vaud — lundi 17 août 2026
+  { region: "VD", date: "2027-08-23" }, // Vaud — lundi 23 août 2027
+  { region: "VD", date: "2028-08-21" }, // Vaud — lundi 21 août 2028
+  { region: "VD", date: "2029-08-20" }, // Vaud — lundi 20 août 2029
+  { region: "VD", date: "2030-08-26" }, // Vaud — lundi 26 août 2030
   { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
 ]
 
