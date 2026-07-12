@@ -163,6 +163,14 @@ function seasonYear(localStart) {
 
 // --- Diff ------------------------------------------------------------------
 
+// "category" est dérivé de liste+activity (cf. categorize()) : il est inclus
+// ici pour que la mise à jour de la logique de catégorisation elle-même
+// (nouvelle catégorie, heuristique corrigée…) déclenche bien une réécriture de
+// planning.json, même quand aucun champ brut de l'ICS n'a changé — sinon
+// `changed` (plus bas) reste faux et gh-pages garde indéfiniment les
+// anciennes catégories tant que Dièse ne retouche pas l'événement (#83 vécu
+// après coup : la distinction concert/représentation n'apparaissait jamais en
+// production).
 const DIFF_FIELDS = [
   "start",
   "end",
@@ -171,6 +179,7 @@ const DIFF_FIELDS = [
   "location",
   "project",
   "cancelled",
+  "category",
 ]
 
 function diff(oldEvents, newEvents) {
