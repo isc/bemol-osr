@@ -410,23 +410,25 @@ table.week td.slot-name {
 }
 
 /* Case Grille contenant deux listes différentes au même créneau : programmes
-   contraires, incompatibles en horaire pour un·e même musicien·ne (#83). Un
-   groupe (une liste) par bloc, séparés par un liseré + une étiquette au lieu
-   d'un simple empilement indifférencié. */
-.evt-group + .evt-group {
-  margin-top: 5px;
-  padding-top: 5px;
-  border-top: 2px dashed var(--danger);
+   contraires, incompatibles en horaire pour un·e même musicien·ne (#83). Les
+   programmes sont placés côte à côte (un groupe par liste) plutôt qu'empilés
+   sans distinction, séparés par un liseré vertical ; le détail complet reste
+   dans le title de la case (info-bulle au survol). */
+.split-wrap {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
 }
 
-.evt-group + .evt-group::before {
-  content: "⚡ Programme parallèle";
-  display: block;
-  font-size: 0.66em;
-  font-weight: 700;
-  color: var(--danger);
-  overflow-wrap: anywhere;
-  margin-bottom: 2px;
+.evt-group {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.evt-group + .evt-group {
+  margin-left: 5px;
+  padding-left: 5px;
+  border-left: 2px dashed var(--danger);
 }
 
 @media (hover: hover) {
