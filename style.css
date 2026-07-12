@@ -45,6 +45,7 @@
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   --cat-concert: #f5a83a;
+  --cat-representation: #e2704a;
   --cat-generale: #fbd45c;
   --cat-italienne: #d9b3e6;
   --cat-enregistrement: #b5e0bd;
@@ -334,6 +335,9 @@ table.week td.slot-name {
 .evt.cat-concert {
   background: var(--cat-concert);
 }
+.evt.cat-representation {
+  background: var(--cat-representation);
+}
 .evt.cat-generale {
   background: var(--cat-generale);
 }
@@ -356,6 +360,9 @@ table.week td.slot-name {
 
 .legend-item.cat-concert {
   background: var(--cat-concert);
+}
+.legend-item.cat-representation {
+  background: var(--cat-representation);
 }
 .legend-item.cat-generale {
   background: var(--cat-generale);
@@ -463,6 +470,7 @@ table.week td.slot-name {
   --head-accent-text: #bcdcef;
 
   --cat-concert: #8a5a1a;
+  --cat-representation: #7a3a20;
   --cat-generale: #7a6a1f;
   --cat-italienne: #5c3d6b;
   --cat-enregistrement: #2f5c3b;
@@ -1218,6 +1226,9 @@ dialog h2 {
 }
 .cat-swatch.cat-concert {
   background: var(--cat-concert);
+}
+.cat-swatch.cat-representation {
+  background: var(--cat-representation);
 }
 .cat-swatch.cat-generale {
   background: var(--cat-generale);
