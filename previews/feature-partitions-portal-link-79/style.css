@@ -896,8 +896,14 @@ dialog h2 {
   white-space: pre-wrap;
 }
 
-/* Lien vers le portail de partitions Dièse (issue #79), même traitement
-   visuel « pastille » que .liste-link pour rester cohérent. */
+/* Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
+   le titre de la fiche (#80) : la ligne qui le contient a donc le même
+   traitement d'espacement qu'un <dl> voisin, et le lien lui-même reprend le
+   style « pastille » de .liste-link pour rester cohérent. */
+.score-portal-row {
+  margin: 8px 0;
+}
+
 .score-portal-link {
   display: inline-flex;
   align-items: center;

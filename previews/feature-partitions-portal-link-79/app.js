@@ -591,6 +591,7 @@ function showDetail(e) {
           )
         : null,
     ),
+    scorePortalLink(),
     el(
       "dl",
       {},
@@ -724,13 +725,31 @@ function workNode(w) {
   )
 }
 
+// Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
+// le titre de la fiche (juste sous le bouton de Liste cliquable — #80) pour
+// rester visible sans défiler. Reste générique (page de connexion, pas de
+// partition précise) : Bémol est un site statique sans compte utilisateur,
+// il ne sait ni qui consulte la page ni quel instrument iel joue, et n'a pas
+// non plus accès à un système de partitions par production côté Dièse.
+function scorePortalLink() {
+  return el(
+    "p",
+    { class: "score-portal-row" },
+    el(
+      "a",
+      {
+        class: "score-portal-link",
+        href: "https://chdocuments.diesesoftware.com/",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      "🎼 Portail partitions (Dièse)",
+    ),
+  )
+}
+
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour une Liste donnée, suivies d'un
-// lien vers le portail de partitions Dièse (issue #79). Ce lien reste
-// générique (page de connexion, pas de partition précise) : Bémol est un
-// site statique sans compte utilisateur, il ne sait ni qui consulte la
-// page ni quel instrument iel joue, et n'a pas non plus accès à un système
-// de partitions par production côté Dièse.
+// d'instrumentation, effectif, durée) pour une Liste donnée.
 function productionDetail(liste) {
   const prod = state.productions[liste] || {}
   const solistes = (prod.solistes || []).filter(Boolean)
@@ -770,19 +789,6 @@ function productionDetail(liste) {
       el("p", { class: "duree" }, prod.duree),
     )
   }
-  nodes.push(
-    el("h3", { class: "detail-section" }, "Partitions"),
-    el(
-      "a",
-      {
-        class: "score-portal-link",
-        href: "https://chdocuments.diesesoftware.com/",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      "🎼 Portail partitions (Dièse)",
-    ),
-  )
   return nodes
 }
 
@@ -881,6 +887,7 @@ function renderListeDialog(liste) {
           )
         : null,
     ),
+    scorePortalLink(),
     ...productionDetail(liste),
     el("h3", { class: "detail-section" }, `Services (${events.length})`),
     events.length
