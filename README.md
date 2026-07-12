@@ -26,7 +26,11 @@ l'export ICS du logiciel de planification (Dièse).
   agenda habituel (iPhone, Google Agenda, Outlook…) au planning. Le calendrier
   ([`data/planning.ics`](data/planning.ics)) se met à jour tout seul et enrichit chaque
   service avec les infos du mémo de production (chef, solistes, œuvres,
-  instrumentation, effectif), comme la vue Grille.
+  instrumentation, effectif), comme la vue Grille. Un lien personnalisé (même
+  bouton) suit en plus les Réglages actuels (listes/catégories), et peut être
+  complété par des **notifications push** (⚙ Réglages) sur les changements
+  concernant ces mêmes listes — le tout via un petit worker Cloudflare
+  ([`worker/`](worker/)), seule exception à la règle « site 100 % statique ».
 - Bouton « Aujourd'hui ». Une seule saison est publiée (la saison en cours,
   filtre `ONLY_SEASON` du pipeline — l'export ICS en contient d'autres).
 

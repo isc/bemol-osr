@@ -122,3 +122,49 @@ async function staleWhileRevalidate(req) {
     .catch(() => cached)
   return cached || network
 }
+
+// --- Notifications push ------------------------------------------------------
+//
+// Le worker Cloudflare (worker/src/index.js, cron) envoie une notification
+// groupée par abonné concerné, avec pour charge utile { title, body, url }
+// (url : lien profond vers la Liste unique concernée, ou racine si plusieurs
+// listes sont touchées — cf. worker/src/notify.js:buildNotificationPayload).
+
+self.addEventListener("push", (event) => {
+  let payload = { title: "Bémol", body: "Le planning a changé." }
+  try {
+    if (event.data) payload = { ...payload, ...event.data.json() }
+  } catch {
+    // charge utile absente/illisible : on garde le message générique ci-dessus
+  }
+  event.waitUntil(
+    self.registration.showNotification(payload.title, {
+      body: payload.body,
+      icon: "./icons/icon-192.png",
+      badge: "./icons/icon-192.png",
+      data: { url: payload.url || "./" },
+    }),
+  )
+})
+
+// Un clic ramène sur un onglet déjà ouvert de l'app (et le navigue vers le
+// lien profond) plutôt que d'en ouvrir un nouveau à chaque fois.
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close()
+  const url = new URL(event.notification.data?.url || "./", self.location.href)
+    .href
+  event.waitUntil(
+    (async () => {
+      const clientsList = await self.clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      })
+      for (const client of clientsList) {
+        if (new URL(client.url).origin !== new URL(url).origin) continue
+        await client.navigate(url)
+        return client.focus()
+      }
+      return self.clients.openWindow(url)
+    })(),
+  )
+})

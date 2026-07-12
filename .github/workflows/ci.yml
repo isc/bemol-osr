@@ -40,8 +40,15 @@ jobs:
       - name: Formatage (Prettier)
         run: npx --yes prettier@3 --check "*.html" "*.css" "*.js" "scripts/*.mjs" "worker/**/*.{js,mjs}"
 
+      - name: Installer les dépendances du worker
+        run: npm install
+        working-directory: worker
+
       - name: Test du worker calendrier
         run: node worker/test.mjs
+
+      - name: Test du filtrage anti-bruit des notifications
+        run: node worker/test-notify.mjs
 
       - name: Smoke test navigateur
         run: |

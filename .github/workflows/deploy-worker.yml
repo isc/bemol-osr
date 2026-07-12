@@ -1,13 +1,18 @@
 name: Déployer le worker calendrier
 
-# Déploie le worker Cloudflare d'abonnement personnalisé (worker/) à chaque
-# changement de son code sur main. Ne fait rien tant que les secrets Cloudflare
-# ne sont pas configurés (voir la condition ci-dessous) : le reste du dépôt
-# fonctionne sans lui.
+# Déploie le worker Cloudflare d'abonnement personnalisé + notifications push
+# (worker/) à chaque changement de son code sur main. Ne fait rien tant que
+# les secrets Cloudflare ne sont pas configurés (voir la condition
+# ci-dessous) : le reste du dépôt fonctionne sans lui.
 #
 # Secrets requis (une seule fois, cf. PR d'introduction du worker) :
 #   CLOUDFLARE_API_TOKEN   jeton API « Edit Cloudflare Workers »
 #   CLOUDFLARE_ACCOUNT_ID  identifiant du compte (tableau de bord Cloudflare)
+#
+# Pour les notifications push (KV + clés VAPID), mise en place manuelle
+# supplémentaire décrite en tête de worker/wrangler.toml — tant qu'elle n'est
+# pas faite, ce déploiement échoue (le KV référencé n'existe pas encore) sans
+# affecter la version déjà en ligne.
 
 on:
   push:
@@ -32,8 +37,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Installer les dépendances du worker
+        run: npm install
+        working-directory: worker
+
       - name: Tester le filtre sur les données du dépôt
         run: node worker/test.mjs
+
+      - name: Tester le filtrage anti-bruit des notifications
+        run: node worker/test-notify.mjs
 
       - name: Déployer sur Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
