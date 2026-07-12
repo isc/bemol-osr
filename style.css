@@ -1174,6 +1174,30 @@ dialog h2 {
   margin: 6px 0 0;
 }
 
+/* Pastille indiquant si les notifications sont activées sur cet appareil,
+   à côté du libellé « Notifications : » (l'énoncé du bouton seul, « Activer »
+   / « Désactiver », est trop discret pour voir l'état d'un coup d'œil). */
+.notif-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  vertical-align: middle;
+}
+
+.notif-dot.is-on {
+  background: var(--success);
+}
+
+/* Bouton « Désactiver les notifications » teinté quand elles sont actives,
+   pour la même raison. */
+#prefs-content .notif-btn-on {
+  border-color: var(--success);
+  color: var(--success-text);
+}
+
 .liste-filter-actions {
   display: flex;
   gap: 8px;
