@@ -167,7 +167,7 @@ function seasonYear(localStart) {
 // ici pour que la mise à jour de la logique de catégorisation elle-même
 // (nouvelle catégorie, heuristique corrigée…) déclenche bien une réécriture de
 // planning.json, même quand aucun champ brut de l'ICS n'a changé — sinon
-// `changed` (plus bas) reste faux et gh-pages garde indéfiniment les
+// `anyChange` (plus bas) reste faux et gh-pages garde indéfiniment les
 // anciennes catégories tant que Dièse ne retouche pas l'événement (#83 vécu
 // après coup : la distinction concert/représentation n'apparaissait jamais en
 // production).
@@ -182,19 +182,30 @@ const DIFF_FIELDS = [
   "category",
 ]
 
+// "category" en est exclu ici : ce n'est pas un changement décidé par
+// l'orchestre mais une reclassification issue du comité de lecture (ou d'une
+// évolution de l'heuristique de categorize()), qui ne doit pas apparaître
+// comme un service « modifié » dans la vue Modifications de l'app (#84).
+const LOGGED_FIELDS = DIFF_FIELDS.filter((f) => f !== "category")
+
 function diff(oldEvents, newEvents) {
   const oldByUid = new Map(oldEvents.map((e) => [e.uid, e]))
   const newByUid = new Map(newEvents.map((e) => [e.uid, e]))
   const added = newEvents.filter((e) => !oldByUid.has(e.uid))
   const removed = oldEvents.filter((e) => !newByUid.has(e.uid))
   const modified = []
+  let anyChange = added.length > 0 || removed.length > 0
   for (const [uid, after] of newByUid) {
     const before = oldByUid.get(uid)
     if (!before) continue
     const fields = DIFF_FIELDS.filter((f) => before[f] !== after[f])
-    if (fields.length) modified.push({ uid, fields, before, after })
+    if (!fields.length) continue
+    anyChange = true
+    const loggedFields = LOGGED_FIELDS.filter((f) => before[f] !== after[f])
+    if (loggedFields.length)
+      modified.push({ uid, fields: loggedFields, before, after })
   }
-  return { added, removed, modified }
+  return { added, removed, modified, anyChange }
 }
 
 // --- Main ------------------------------------------------------------------
@@ -217,10 +228,12 @@ const previous = existsSync(planningPath)
   ? JSON.parse(readFileSync(planningPath, "utf8"))
   : null
 
-const { added, removed, modified } = diff(previous?.events ?? [], events)
-const changed = added.length + removed.length + modified.length > 0
+const { added, removed, modified, anyChange } = diff(
+  previous?.events ?? [],
+  events,
+)
 
-if (previous && !changed) {
+if (previous && !anyChange) {
   console.log(`Aucun changement de planning (${events.length} événements).`)
   // Le planning n'a pas bougé, mais le mémo de production (productions.json) a
   // pu changer depuis : on régénère le calendrier ICS, réécrit seulement s'il
