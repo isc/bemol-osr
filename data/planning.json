@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-06T15:57:04.496Z",
+ "updatedAt": "2026-07-13T07:43:58.037Z",
  "count": 583,
  "events": [
   {
@@ -745,7 +745,7 @@
    "end": "2026-09-16T23:00",
    "liste": "Liste A",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -789,7 +789,7 @@
    "end": "2026-09-18T23:00",
    "liste": "Liste A",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -800,7 +800,7 @@
    "end": "2026-09-20T18:30",
    "liste": "Liste A",
    "activity": "troisième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -844,7 +844,7 @@
    "end": "2026-09-22T23:00",
    "liste": "Liste A",
    "activity": "quatrième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -910,7 +910,7 @@
    "end": "2026-09-24T23:00",
    "liste": "Liste A",
    "activity": "cinquième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -954,7 +954,7 @@
    "end": "2026-09-26T23:00",
    "liste": "Liste A",
    "activity": "sixième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
    "cancelled": false
@@ -1295,7 +1295,7 @@
    "end": "2026-10-09T22:30",
    "liste": "Liste B",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1339,7 +1339,7 @@
    "end": "2026-10-11T17:30",
    "liste": "Liste B",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1350,7 +1350,7 @@
    "end": "2026-10-11T23:00",
    "liste": "Liste B",
    "activity": "troisième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1405,7 +1405,7 @@
    "end": "2026-10-13T22:30",
    "liste": "Liste B",
    "activity": "quatrième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1427,7 +1427,7 @@
    "end": "2026-10-14T22:30",
    "liste": "Liste B",
    "activity": "cinquième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1460,7 +1460,7 @@
    "end": "2026-10-15T22:30",
    "liste": "Liste B",
    "activity": "sixième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -1482,7 +1482,7 @@
    "end": "2026-10-16T22:30",
    "liste": "Liste B",
    "activity": "septième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
    "cancelled": false
@@ -2923,7 +2923,7 @@
    "end": "2026-12-13T21:00",
    "liste": "Liste C",
    "activity": "première (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -2989,7 +2989,7 @@
    "end": "2026-12-15T23:00",
    "liste": "Liste C",
    "activity": "deuxième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3044,7 +3044,7 @@
    "end": "2026-12-17T23:00",
    "liste": "Liste C",
    "activity": "troisième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3088,7 +3088,7 @@
    "end": "2026-12-18T23:00",
    "liste": "Liste C",
    "activity": "quatrième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3110,7 +3110,7 @@
    "end": "2026-12-20T19:00",
    "liste": "Liste C",
    "activity": "cinquième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3154,7 +3154,7 @@
    "end": "2026-12-22T23:00",
    "liste": "Liste C",
    "activity": "sixième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3187,7 +3187,7 @@
    "end": "2026-12-26T23:00",
    "liste": "Liste C",
    "activity": "septième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3198,7 +3198,7 @@
    "end": "2026-12-28T23:00",
    "liste": "Liste C",
    "activity": "huitième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3209,7 +3209,7 @@
    "end": "2026-12-29T23:00",
    "liste": "Liste C",
    "activity": "neuvième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3220,7 +3220,7 @@
    "end": "2026-12-31T23:00",
    "liste": "Liste C",
    "activity": "dixième (lourd)",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
    "cancelled": false
@@ -3935,7 +3935,7 @@
    "end": "2027-02-06T22:30",
    "liste": "Liste D",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Viaggio a Reims",
    "cancelled": false
@@ -3946,7 +3946,7 @@
    "end": "2027-02-08T22:30",
    "liste": "Liste D",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Viaggio a Reims",
    "cancelled": false
@@ -3968,7 +3968,7 @@
    "end": "2027-02-10T22:30",
    "liste": "Liste D",
    "activity": "troisième",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Viaggio a Reims",
    "cancelled": false
@@ -3990,7 +3990,7 @@
    "end": "2027-02-12T22:30",
    "liste": "Liste D",
    "activity": "quatrième",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Viaggio a Reims",
    "cancelled": false
@@ -4001,7 +4001,7 @@
    "end": "2027-02-14T19:00",
    "liste": "Liste D",
    "activity": "cinquième",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Viaggio a Reims",
    "cancelled": false
@@ -4375,7 +4375,7 @@
    "end": "2027-03-07T20:00",
    "liste": "Liste E",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -4419,7 +4419,7 @@
    "end": "2027-03-09T22:30",
    "liste": "Liste E",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -4463,7 +4463,7 @@
    "end": "2027-03-11T22:30",
    "liste": "Liste E",
    "activity": "troisième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -4518,7 +4518,7 @@
    "end": "2027-03-14T18:00",
    "liste": "Liste E",
    "activity": "quatrième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -4573,7 +4573,7 @@
    "end": "2027-03-17T22:30",
    "liste": "Liste E",
    "activity": "cinquième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -4639,7 +4639,7 @@
    "end": "2027-03-20T22:30",
    "liste": "Liste E",
    "activity": "sixième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Fanciulla",
    "cancelled": false
@@ -5024,7 +5024,7 @@
    "end": "2027-04-13T23:00",
    "liste": "Liste F",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Dimmokratîa",
    "cancelled": false
@@ -5035,7 +5035,7 @@
    "end": "2027-04-14T23:00",
    "liste": "Liste F",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Dimmokratîa",
    "cancelled": false
@@ -5057,7 +5057,7 @@
    "end": "2027-04-15T23:00",
    "liste": "Liste F",
    "activity": "troisième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Dimmokratîa",
    "cancelled": false
@@ -5079,7 +5079,7 @@
    "end": "2027-04-17T23:00",
    "liste": "Liste F",
    "activity": "quatrième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Dimmokratîa",
    "cancelled": false
@@ -5112,7 +5112,7 @@
    "end": "2027-04-18T18:00",
    "liste": "Liste F",
    "activity": "cinquième",
-   "category": "concert",
+   "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Dimmokratîa",
    "cancelled": false
@@ -6212,7 +6212,7 @@
    "end": "2027-06-24T23:30",
    "liste": "Liste G",
    "activity": "première",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Candide",
    "cancelled": false
@@ -6223,7 +6223,7 @@
    "end": "2027-06-25T23:30",
    "liste": "Liste G",
    "activity": "deuxième",
-   "category": "concert",
+   "category": "representation",
    "location": "Victoria Hall de Genève",
    "project": "Candide",
    "cancelled": false

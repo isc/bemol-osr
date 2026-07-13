@@ -1,6 +1,1161 @@
 {
  "entries": [
   {
+   "at": "2026-07-13T07:43:58.037Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133270",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133270",
+      "start": "2026-09-16T19:30",
+      "end": "2026-09-16T23:00",
+      "liste": "Liste A",
+      "activity": "première",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133270",
+      "start": "2026-09-16T19:30",
+      "end": "2026-09-16T23:00",
+      "liste": "Liste A",
+      "activity": "première",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133271",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133271",
+      "start": "2026-09-18T19:30",
+      "end": "2026-09-18T23:00",
+      "liste": "Liste A",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133271",
+      "start": "2026-09-18T19:30",
+      "end": "2026-09-18T23:00",
+      "liste": "Liste A",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133272",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133272",
+      "start": "2026-09-20T15:00",
+      "end": "2026-09-20T18:30",
+      "liste": "Liste A",
+      "activity": "troisième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133272",
+      "start": "2026-09-20T15:00",
+      "end": "2026-09-20T18:30",
+      "liste": "Liste A",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133273",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133273",
+      "start": "2026-09-22T19:30",
+      "end": "2026-09-22T23:00",
+      "liste": "Liste A",
+      "activity": "quatrième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133273",
+      "start": "2026-09-22T19:30",
+      "end": "2026-09-22T23:00",
+      "liste": "Liste A",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133274",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133274",
+      "start": "2026-09-24T19:30",
+      "end": "2026-09-24T23:00",
+      "liste": "Liste A",
+      "activity": "cinquième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133274",
+      "start": "2026-09-24T19:30",
+      "end": "2026-09-24T23:00",
+      "liste": "Liste A",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133275",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133275",
+      "start": "2026-09-26T19:30",
+      "end": "2026-09-26T23:00",
+      "liste": "Liste A",
+      "activity": "sixième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133275",
+      "start": "2026-09-26T19:30",
+      "end": "2026-09-26T23:00",
+      "liste": "Liste A",
+      "activity": "sixième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133285",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133285",
+      "start": "2026-10-09T19:30",
+      "end": "2026-10-09T22:30",
+      "liste": "Liste B",
+      "activity": "première",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133285",
+      "start": "2026-10-09T19:30",
+      "end": "2026-10-09T22:30",
+      "liste": "Liste B",
+      "activity": "première",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133286",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133286",
+      "start": "2026-10-11T14:30",
+      "end": "2026-10-11T17:30",
+      "liste": "Liste B",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133286",
+      "start": "2026-10-11T14:30",
+      "end": "2026-10-11T17:30",
+      "liste": "Liste B",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133287",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133287",
+      "start": "2026-10-11T20:00",
+      "end": "2026-10-11T23:00",
+      "liste": "Liste B",
+      "activity": "troisième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133287",
+      "start": "2026-10-11T20:00",
+      "end": "2026-10-11T23:00",
+      "liste": "Liste B",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133288",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133288",
+      "start": "2026-10-13T19:30",
+      "end": "2026-10-13T22:30",
+      "liste": "Liste B",
+      "activity": "quatrième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133288",
+      "start": "2026-10-13T19:30",
+      "end": "2026-10-13T22:30",
+      "liste": "Liste B",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133289",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133289",
+      "start": "2026-10-14T19:30",
+      "end": "2026-10-14T22:30",
+      "liste": "Liste B",
+      "activity": "cinquième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133289",
+      "start": "2026-10-14T19:30",
+      "end": "2026-10-14T22:30",
+      "liste": "Liste B",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133290",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133290",
+      "start": "2026-10-15T19:30",
+      "end": "2026-10-15T22:30",
+      "liste": "Liste B",
+      "activity": "sixième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133290",
+      "start": "2026-10-15T19:30",
+      "end": "2026-10-15T22:30",
+      "liste": "Liste B",
+      "activity": "sixième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133291",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133291",
+      "start": "2026-10-16T19:30",
+      "end": "2026-10-16T22:30",
+      "liste": "Liste B",
+      "activity": "septième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133291",
+      "start": "2026-10-16T19:30",
+      "end": "2026-10-16T22:30",
+      "liste": "Liste B",
+      "activity": "septième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Company",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133311",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133311",
+      "start": "2026-12-13T17:00",
+      "end": "2026-12-13T21:00",
+      "liste": "Liste C",
+      "activity": "première (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133311",
+      "start": "2026-12-13T17:00",
+      "end": "2026-12-13T21:00",
+      "liste": "Liste C",
+      "activity": "première (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133312",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133312",
+      "start": "2026-12-15T19:00",
+      "end": "2026-12-15T23:00",
+      "liste": "Liste C",
+      "activity": "deuxième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133312",
+      "start": "2026-12-15T19:00",
+      "end": "2026-12-15T23:00",
+      "liste": "Liste C",
+      "activity": "deuxième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133313",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133313",
+      "start": "2026-12-17T19:00",
+      "end": "2026-12-17T23:00",
+      "liste": "Liste C",
+      "activity": "troisième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133313",
+      "start": "2026-12-17T19:00",
+      "end": "2026-12-17T23:00",
+      "liste": "Liste C",
+      "activity": "troisième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133314",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133314",
+      "start": "2026-12-18T19:00",
+      "end": "2026-12-18T23:00",
+      "liste": "Liste C",
+      "activity": "quatrième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133314",
+      "start": "2026-12-18T19:00",
+      "end": "2026-12-18T23:00",
+      "liste": "Liste C",
+      "activity": "quatrième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133305",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133305",
+      "start": "2026-12-20T15:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste C",
+      "activity": "cinquième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133305",
+      "start": "2026-12-20T15:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste C",
+      "activity": "cinquième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133315",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133315",
+      "start": "2026-12-22T19:00",
+      "end": "2026-12-22T23:00",
+      "liste": "Liste C",
+      "activity": "sixième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133315",
+      "start": "2026-12-22T19:00",
+      "end": "2026-12-22T23:00",
+      "liste": "Liste C",
+      "activity": "sixième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133306",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133306",
+      "start": "2026-12-26T19:00",
+      "end": "2026-12-26T23:00",
+      "liste": "Liste C",
+      "activity": "septième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133306",
+      "start": "2026-12-26T19:00",
+      "end": "2026-12-26T23:00",
+      "liste": "Liste C",
+      "activity": "septième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133316",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133316",
+      "start": "2026-12-28T19:00",
+      "end": "2026-12-28T23:00",
+      "liste": "Liste C",
+      "activity": "huitième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133316",
+      "start": "2026-12-28T19:00",
+      "end": "2026-12-28T23:00",
+      "liste": "Liste C",
+      "activity": "huitième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133307",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133307",
+      "start": "2026-12-29T19:00",
+      "end": "2026-12-29T23:00",
+      "liste": "Liste C",
+      "activity": "neuvième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133307",
+      "start": "2026-12-29T19:00",
+      "end": "2026-12-29T23:00",
+      "liste": "Liste C",
+      "activity": "neuvième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133308",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133308",
+      "start": "2026-12-31T19:00",
+      "end": "2026-12-31T23:00",
+      "liste": "Liste C",
+      "activity": "dixième (lourd)",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133308",
+      "start": "2026-12-31T19:00",
+      "end": "2026-12-31T23:00",
+      "liste": "Liste C",
+      "activity": "dixième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133329",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133329",
+      "start": "2027-02-06T19:30",
+      "end": "2027-02-06T22:30",
+      "liste": "Liste D",
+      "activity": "première",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133329",
+      "start": "2027-02-06T19:30",
+      "end": "2027-02-06T22:30",
+      "liste": "Liste D",
+      "activity": "première",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133330",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133330",
+      "start": "2027-02-08T19:30",
+      "end": "2027-02-08T22:30",
+      "liste": "Liste D",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133330",
+      "start": "2027-02-08T19:30",
+      "end": "2027-02-08T22:30",
+      "liste": "Liste D",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133331",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133331",
+      "start": "2027-02-10T19:30",
+      "end": "2027-02-10T22:30",
+      "liste": "Liste D",
+      "activity": "troisième",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133331",
+      "start": "2027-02-10T19:30",
+      "end": "2027-02-10T22:30",
+      "liste": "Liste D",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133332",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133332",
+      "start": "2027-02-12T19:30",
+      "end": "2027-02-12T22:30",
+      "liste": "Liste D",
+      "activity": "quatrième",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133332",
+      "start": "2027-02-12T19:30",
+      "end": "2027-02-12T22:30",
+      "liste": "Liste D",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133333",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133333",
+      "start": "2027-02-14T15:00",
+      "end": "2027-02-14T19:00",
+      "liste": "Liste D",
+      "activity": "cinquième",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133333",
+      "start": "2027-02-14T15:00",
+      "end": "2027-02-14T19:00",
+      "liste": "Liste D",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Viaggio a Reims",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133353",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133353",
+      "start": "2027-03-07T17:00",
+      "end": "2027-03-07T20:00",
+      "liste": "Liste E",
+      "activity": "première",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133353",
+      "start": "2027-03-07T17:00",
+      "end": "2027-03-07T20:00",
+      "liste": "Liste E",
+      "activity": "première",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133354",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133354",
+      "start": "2027-03-09T19:30",
+      "end": "2027-03-09T22:30",
+      "liste": "Liste E",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133354",
+      "start": "2027-03-09T19:30",
+      "end": "2027-03-09T22:30",
+      "liste": "Liste E",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133355",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133355",
+      "start": "2027-03-11T19:30",
+      "end": "2027-03-11T22:30",
+      "liste": "Liste E",
+      "activity": "troisième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133355",
+      "start": "2027-03-11T19:30",
+      "end": "2027-03-11T22:30",
+      "liste": "Liste E",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133356",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133356",
+      "start": "2027-03-14T15:00",
+      "end": "2027-03-14T18:00",
+      "liste": "Liste E",
+      "activity": "quatrième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133356",
+      "start": "2027-03-14T15:00",
+      "end": "2027-03-14T18:00",
+      "liste": "Liste E",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133357",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133357",
+      "start": "2027-03-17T19:30",
+      "end": "2027-03-17T22:30",
+      "liste": "Liste E",
+      "activity": "cinquième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133357",
+      "start": "2027-03-17T19:30",
+      "end": "2027-03-17T22:30",
+      "liste": "Liste E",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133358",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133358",
+      "start": "2027-03-20T19:30",
+      "end": "2027-03-20T22:30",
+      "liste": "Liste E",
+      "activity": "sixième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133358",
+      "start": "2027-03-20T19:30",
+      "end": "2027-03-20T22:30",
+      "liste": "Liste E",
+      "activity": "sixième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Fanciulla",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133370",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133370",
+      "start": "2027-04-13T20:00",
+      "end": "2027-04-13T23:00",
+      "liste": "Liste F",
+      "activity": "première",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133370",
+      "start": "2027-04-13T20:00",
+      "end": "2027-04-13T23:00",
+      "liste": "Liste F",
+      "activity": "première",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133371",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133371",
+      "start": "2027-04-14T20:00",
+      "end": "2027-04-14T23:00",
+      "liste": "Liste F",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133371",
+      "start": "2027-04-14T20:00",
+      "end": "2027-04-14T23:00",
+      "liste": "Liste F",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133372",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133372",
+      "start": "2027-04-15T20:00",
+      "end": "2027-04-15T23:00",
+      "liste": "Liste F",
+      "activity": "troisième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133372",
+      "start": "2027-04-15T20:00",
+      "end": "2027-04-15T23:00",
+      "liste": "Liste F",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133373",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133373",
+      "start": "2027-04-17T20:00",
+      "end": "2027-04-17T23:00",
+      "liste": "Liste F",
+      "activity": "quatrième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133373",
+      "start": "2027-04-17T20:00",
+      "end": "2027-04-17T23:00",
+      "liste": "Liste F",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133374",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr133374",
+      "start": "2027-04-18T15:00",
+      "end": "2027-04-18T18:00",
+      "liste": "Liste F",
+      "activity": "cinquième",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133374",
+      "start": "2027-04-18T15:00",
+      "end": "2027-04-18T18:00",
+      "liste": "Liste F",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Dimmokratîa",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128846",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr128846",
+      "start": "2027-06-24T19:30",
+      "end": "2027-06-24T23:30",
+      "liste": "Liste G",
+      "activity": "première",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Candide",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128846",
+      "start": "2027-06-24T19:30",
+      "end": "2027-06-24T23:30",
+      "liste": "Liste G",
+      "activity": "première",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Candide",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128847",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr128847",
+      "start": "2027-06-25T19:30",
+      "end": "2027-06-25T23:30",
+      "liste": "Liste G",
+      "activity": "deuxième",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "Candide",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128847",
+      "start": "2027-06-25T19:30",
+      "end": "2027-06-25T23:30",
+      "liste": "Liste G",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Victoria Hall de Genève",
+      "project": "Candide",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-07-07T08:03:17.569Z",
    "type": "memo",
    "programs": [
