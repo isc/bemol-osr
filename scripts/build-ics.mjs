@@ -3,7 +3,8 @@
 // quelle app d'agenda (Apple Calendar, Google Agenda, Outlook…). Contrairement à
 // l'export brut de Dièse, chaque événement est enrichi avec les infos du « mémo
 // de production » (chef, solistes, œuvres + instrumentation, effectif, durée),
-// exactement comme la vue Grille de l'app.
+// exactement comme la vue Grille de l'app, ainsi qu'avec les liens utiles de la
+// fiche (lieu sur Google Maps, portail partitions, série complète — issue #88).
 //
 // Entrées  : data/planning.json (généré par update-data.mjs)
 //            productions.json    (généré par update-memo.mjs, facultatif)
@@ -50,6 +51,16 @@ const WORK_FIELDS = [
   ["note", "Note"],
 ]
 
+// URL de production (GitHub Pages) : les liens embarqués dans l'ICS sont
+// ouverts depuis une app d'agenda externe, jamais depuis une page Bémol —
+// toujours une URL absolue vers le site publié, jamais une preview de PR
+// (même convention que UPSTREAM dans worker/src/index.js).
+const SITE_URL = "https://isc.github.io/bemol-osr/"
+
+// Portail partitions Dièse (issue #79), même lien que scorePortalLink() dans
+// app.js.
+const SCORE_PORTAL_URL = "https://osr.opas-online.com/documents.php"
+
 // --- Formatage ICS ----------------------------------------------------------
 
 // Échappe une valeur texte pour une propriété ICS (RFC 5545 §3.3.11).
@@ -87,6 +98,40 @@ const toIcsDate = (local) =>
 const toIcsStamp = (iso) =>
   iso.replace(/[-:]/g, "").replace(/\.\d+/, "").slice(0, 15) + "Z"
 
+// --- Liens (issue #88) -------------------------------------------------------
+//
+// Duplique deux petits helpers de app.js (listeSlug, mapsUrl) : ce script Node
+// ne peut pas importer app.js, qui a des effets de bord navigateur dès son
+// chargement (window.matchMedia…).
+
+// Identifiant d'URL d'une Liste (fragment de hash), ex. "Liste 04" → "liste-04".
+// Toujours ASCII (accents retirés) pour rester lisible tel quel.
+function listeSlug(liste) {
+  const slug = liste
+    .replace(/^Liste\s+/i, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+  return `liste-${slug}`
+}
+
+// Lien vers la fiche complète d'une Liste sur Bémol (mémo de production +
+// tous les services de la série, cf. renderListeDialog dans app.js).
+const listeUrl = (liste) => `${SITE_URL}#${listeSlug(liste)}`
+
+// Lien Google Maps du lieu, ou null si pas encore connu (placeholders "à
+// définir" utilisés par Dièse en attendant confirmation).
+function mapsUrl(loc) {
+  if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
+  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
+  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
+  // explicite) sont laissés tels quels.
+  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  return `https://maps.google.com/?q=${encodeURIComponent(query)}`
+}
+
 // --- Description enrichie (mémo de production) ------------------------------
 
 // Construit le texte de description d'un événement : contexte du service +
@@ -95,6 +140,13 @@ function description(e, prod) {
   const lines = []
   if (e.project) lines.push(`Programme : ${e.project}`)
   if (e.cancelled) lines.push("⚠ Service ANNULÉ")
+
+  // Liens utiles (issue #88), repris de la fiche de l'app : lieu sur Google
+  // Maps, portail partitions Dièse, série complète de la Liste sur Bémol.
+  const maps = mapsUrl(e.location)
+  if (maps) lines.push(`📍 Lieu (Google Maps) : ${maps}`)
+  lines.push(`🎼 Portail partitions (Dièse) : ${SCORE_PORTAL_URL}`)
+  lines.push(`📋 Série complète de ${e.liste} (Bémol) : ${listeUrl(e.liste)}`)
 
   if (prod) {
     const solistes = (prod.solistes || []).filter(Boolean)
@@ -148,6 +200,10 @@ function vevent(e, prod, stamp) {
   const prefix = e.cancelled ? "ANNULÉ · " : ""
   rows.push(`SUMMARY:${escapeText(`${prefix}${e.liste} — ${e.activity}`)}`)
   if (e.location) rows.push(`LOCATION:${escapeText(e.location)}`)
+  // Certaines apps d'agenda (Apple Calendar…) affichent la propriété URL comme
+  // un lien cliquable distinct : on y pointe vers la série complète, aussi
+  // reprise en clair dans DESCRIPTION pour les apps qui l'ignorent.
+  rows.push(`URL:${listeUrl(e.liste)}`)
   rows.push(`DESCRIPTION:${escapeText(description(e, prod))}`)
   rows.push(
     `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
