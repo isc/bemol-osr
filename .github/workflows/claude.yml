@@ -2,14 +2,19 @@ name: Claude
 
 # Boucle de feedback : un commentaire contenant « @claude » déclenche Claude.
 #
+# Les deux jobs tournent en MODE AGENT (input `prompt` fourni) : Claude fait
+# lui-même le git et le `gh`. Le « tag mode » (sans prompt) est à proscrire ici
+# — il ne permet pas à Claude de créer une pull request, il ne poste qu'un lien
+# « Create PR » pré-rempli, au body tronqué par la limite d'URL, que personne ne
+# clique (cf. la boucle de retours sur la PR #84).
+#
 # Deux cas distincts :
-#   - commentaire sur une PR → « tag mode » : Claude applique les ajustements
-#     demandés et repushe sur la branche de la PR (ce qui rafraîchit la preview
-#     via preview.yml) ;
-#   - commentaire sur une issue → mode agent : Claude implémente la demande et
-#     OUVRE LUI-MÊME une pull request (comme claude-issue-to-pr.yml). Avant, le
-#     tag mode ne postait qu'un lien « créer la PR » pré-rempli, au body tronqué
-#     par la limite d'URL — les PRs de suivi étaient appauvries.
+#   - commentaire sur une PR → job `pr-feedback` : si la PR est encore OUVERTE,
+#     Claude repushe les ajustements sur sa branche (ce qui rafraîchit la preview
+#     via preview.yml) ; si elle est MERGÉE ou FERMÉE, sa branche n'est plus
+#     déployée → Claude ouvre une NOUVELLE PR vers main ;
+#   - commentaire sur une issue → job `issue-followup` : Claude implémente la
+#     demande et ouvre une pull request (comme claude-issue-to-pr.yml).
 #
 # L'action n'agit que pour les utilisateurs ayant un accès en écriture au dépôt
 # — d'où l'importance d'inviter les contributeurs comme collaborateurs.
@@ -30,7 +35,9 @@ permissions:
 
 jobs:
   # Commentaire « @claude » sur une PR (fil général ou review de code) :
-  # ajustements poussés directement sur la branche de la PR.
+  # ajustements poussés sur la branche de la PR si elle est ouverte, NOUVELLE PR
+  # vers main si elle est déjà mergée/fermée (sa branche n'est alors plus
+  # déployée : y committer ne mettrait rien en preview ni en production).
   pr-feedback:
     if: |
       github.event.comment.user.type != 'Bot'
@@ -38,8 +45,25 @@ jobs:
       && contains(github.event.comment.body, '@claude')
       && (github.event_name == 'pull_request_review_comment' || github.event.issue.pull_request)
     runs-on: ubuntu-latest
+    concurrency:
+      group: claude-pr-${{ github.event.issue.number || github.event.pull_request.number }}
+      cancel-in-progress: false
     steps:
+      # Historique complet : Claude doit pouvoir basculer sur la branche de la PR
+      # ou repartir de `main` selon l'état de celle-ci.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Visibilité immédiate : on poste nous-mêmes le commentaire de démarrage
+      # (en mode agent, l'action n'en poste aucun).
+      - name: Commenter le démarrage sur la PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.issue.number || github.event.pull_request.number }}
+        run: |
+          gh pr comment "$PR" -R ${{ github.repository }} --body \
+            "🤖 **Claude a pris ce retour en charge** (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
       - uses: anthropics/claude-code-action@v1
         with:
@@ -47,11 +71,62 @@ jobs:
           # facturation API. Token généré localement par `claude setup-token`.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Tout Bash autorisé (runner jetable et isolé) pour que Claude puisse
-          # pousser les ajustements sur la branche de la PR et répondre.
+          # pousser les ajustements, ouvrir une PR et répondre.
           claude_args: |
             --model claude-sonnet-5
             --max-turns 100
             --allowedTools "Bash"
+          prompt: |
+            Tu es déclenché par un commentaire de
+            @${{ github.event.comment.user.login }} mentionnant @claude sur la
+            pull request #${{ github.event.issue.number || github.event.pull_request.number }}
+            du dépôt ${{ github.repository }}.
+
+            Ce dépôt contient « Bémol », la web app de visualisation du planning
+            de l'Orchestre de la Suisse Romande (voir CLAUDE.md et README.md).
+
+            1. Prends le contexte complet : `gh pr view ${{ github.event.issue.number || github.event.pull_request.number }} --comments`
+               (et le diff si utile). La demande à traiter est celle du DERNIER
+               commentaire mentionnant @claude — les retours précédents ont
+               normalement déjà été traités : vérifie l'état du code plutôt que
+               de refaire le travail.
+
+            2. Regarde l'ÉTAT de la PR
+               (`gh pr view ${{ github.event.issue.number || github.event.pull_request.number }} --json state`) :
+
+               - PR encore OUVERTE → applique les ajustements demandés sur SA
+                 branche : `gh pr checkout ${{ github.event.issue.number || github.event.pull_request.number }}`,
+                 implémente en respectant SCRUPULEUSEMENT les conventions de
+                 CLAUDE.md, commit, puis pousse sur cette même branche. La
+                 preview de la PR est redéployée automatiquement.
+
+               - PR déjà MERGÉE ou FERMÉE → sa branche n'est plus déployée :
+                 committer dessus ne mettrait RIEN ni en preview ni en
+                 production. Ne te contente donc JAMAIS d'un commit sur une
+                 branche jetable assorti d'un lien « Create PR » : le demandeur
+                 est un musicien, il ne le cliquera pas. Crée une NOUVELLE
+                 branche à partir de `main` à jour, implémente, et ouvre une
+                 NOUVELLE pull request vers `main` avec `gh pr create` :
+                 description structurée selon la section « Descriptions de PR »
+                 de CLAUDE.md — le pourquoi d'abord (reprends le retour de
+                 @${{ github.event.comment.user.login }} et le contexte de la PR
+                 d'origine, la description doit se suffire à elle-même), puis le
+                 quoi, puis comment vérifier ; captures d'écran si le changement
+                 est visible. Ajoute « Closes #N » si l'issue d'origine est
+                 encore ouverte. Cf. la section « Commentaires @claude sur une PR
+                 déjà mergée ou fermée » de CLAUDE.md.
+
+            3. Réponds TOUJOURS en commentaire sur la pull request
+               #${{ github.event.issue.number || github.event.pull_request.number }}
+               (`gh pr comment`), en français : ce que tu as changé et où le
+               tester — la preview de cette PR si elle est ouverte, ou le lien de
+               la NOUVELLE PR (dont la preview est déployée automatiquement) si
+               elle était mergée/fermée. Si c'est une simple question, ou s'il
+               n'y a finalement rien à changer, réponds simplement, sans rien
+               pousser.
+
+            Les utilisateurs sont des musiciens de l'orchestre, pas des
+            développeurs : reste clair, simple et pédagogue dans tes réponses.
 
   # Commentaire « @claude » sur une ISSUE : Claude lit tout le fil, implémente
   # la demande et ouvre une PR complète (ou répond simplement si c'est une
