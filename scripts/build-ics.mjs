@@ -134,51 +134,97 @@ function mapsUrl(loc) {
 
 // --- Description enrichie (mémo de production) ------------------------------
 
-// Construit le texte de description d'un événement : contexte du service +
-// infos du mémo de production (les mêmes que le détail de la vue Grille).
-function description(e, prod) {
+// Construit le contenu d'un événement sous forme de lignes neutres : contexte
+// du service + liens utiles + infos du mémo de production (les mêmes que le
+// détail de la vue Grille). Une ligne est soit du texte simple ({ text }),
+// soit un lien ({ icon, label, href }) — les deux rendus ci-dessous (texte
+// brut pour DESCRIPTION, HTML pour X-ALT-DESC) partagent cette même source
+// pour ne jamais diverger.
+function contentLines(e, prod) {
   const lines = []
-  if (e.project) lines.push(`Programme : ${e.project}`)
-  if (e.cancelled) lines.push("⚠ Service ANNULÉ")
+  if (e.project) lines.push({ text: `Programme : ${e.project}` })
+  if (e.cancelled) lines.push({ text: "⚠ Service ANNULÉ" })
 
   // Liens utiles (issue #88), repris de la fiche de l'app : lieu sur Google
   // Maps, portail partitions Dièse, série complète de la Liste sur Bémol.
   const maps = mapsUrl(e.location)
-  if (maps) lines.push(`📍 Lieu (Google Maps) : ${maps}`)
-  lines.push(`🎼 Portail partitions (Dièse) : ${SCORE_PORTAL_URL}`)
-  lines.push(`📋 Série complète de ${e.liste} (Bémol) : ${listeUrl(e.liste)}`)
+  if (maps) lines.push({ icon: "📍", label: "Lieu (Google Maps)", href: maps })
+  lines.push({
+    icon: "🎼",
+    label: "Portail partitions (Dièse)",
+    href: SCORE_PORTAL_URL,
+  })
+  lines.push({
+    icon: "📋",
+    label: `Série complète de ${e.liste} (Bémol)`,
+    href: listeUrl(e.liste),
+  })
 
   if (prod) {
     const solistes = (prod.solistes || []).filter(Boolean)
     const works = (prod.works || []).filter(Boolean)
-    lines.push("", "— Mémo de production —")
-    if (prod.chef) lines.push(`Direction musicale : ${prod.chef}`)
+    lines.push({ text: "" }, { text: "— Mémo de production —" })
+    if (prod.chef) lines.push({ text: `Direction musicale : ${prod.chef}` })
     if (solistes.length) {
-      lines.push(solistes.length > 1 ? "Solistes :" : "Soliste :")
-      for (const s of solistes) lines.push(`• ${s}`)
+      lines.push({ text: solistes.length > 1 ? "Solistes :" : "Soliste :" })
+      for (const s of solistes) lines.push({ text: `• ${s}` })
     }
     if (works.length) {
-      lines.push("Œuvres au programme :")
+      lines.push({ text: "Œuvres au programme :" })
       for (const w of works) {
         const title = typeof w === "string" ? w : w.oeuvre
         const dur = typeof w === "object" && w.duree ? ` (${w.duree})` : ""
-        lines.push(`• ${title}${dur}`)
+        lines.push({ text: `• ${title}${dur}` })
         if (typeof w === "object")
           for (const [k, label] of WORK_FIELDS)
             if (w[k])
               // Détail multi-lignes du mémo : chaque ligne reste lisible.
-              lines.push(
-                `    ${label} : ${String(w[k]).replace(/\s*\n\s*/g, " / ")}`,
-              )
+              lines.push({
+                text: `    ${label} : ${String(w[k]).replace(/\s*\n\s*/g, " / ")}`,
+              })
       }
     }
     if (prod.effectif)
-      lines.push(`Effectif orchestral (max) : ${prod.effectif}`)
-    if (prod.duree) lines.push(`Durée totale approximative : ${prod.duree}`)
+      lines.push({ text: `Effectif orchestral (max) : ${prod.effectif}` })
+    if (prod.duree)
+      lines.push({ text: `Durée totale approximative : ${prod.duree}` })
   }
 
-  lines.push("", "Calendrier Bémol · mis à jour automatiquement")
-  return lines.join("\n")
+  lines.push(
+    { text: "" },
+    { text: "Calendrier Bémol · mis à jour automatiquement" },
+  )
+  return lines
+}
+
+// Rendu texte brut des lignes : un lien s'affiche avec son URL en clair
+// (pour les apps qui ignorent X-ALT-DESC, cf. descriptionHtml ci-dessous).
+function description(lines) {
+  return lines
+    .map((l) => (l.href ? `${l.icon} ${l.label} : ${l.href}` : l.text))
+    .join("\n")
+}
+
+// Échappe une valeur pour l'insérer comme texte HTML.
+const htmlEscape = (s) =>
+  String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+
+// Rendu HTML des lignes, pour X-ALT-DESC (issue #88 retour) : un lien
+// s'affiche comme un bouton/texte cliquable (label court), sans exposer
+// l'URL — c'est ce que rendent les apps qui savent lire cette propriété
+// (Apple Calendar notamment, cf. capture d'écran de la demande).
+function descriptionHtml(lines) {
+  const body = lines
+    .map((l) =>
+      l.href
+        ? `${l.icon} <a href="${htmlEscape(l.href)}">${htmlEscape(l.label)}</a>`
+        : htmlEscape(l.text),
+    )
+    .join("<br>")
+  return `<html><body>${body}</body></html>`
 }
 
 // --- Construction du VEVENT -------------------------------------------------
@@ -204,7 +250,15 @@ function vevent(e, prod, stamp) {
   // un lien cliquable distinct : on y pointe vers la série complète, aussi
   // reprise en clair dans DESCRIPTION pour les apps qui l'ignorent.
   rows.push(`URL:${listeUrl(e.liste)}`)
-  rows.push(`DESCRIPTION:${escapeText(description(e, prod))}`)
+  const lines = contentLines(e, prod)
+  rows.push(`DESCRIPTION:${escapeText(description(lines))}`)
+  // Version HTML de la description (retour #88) : les apps qui la
+  // supportent (Apple Calendar…) affichent les liens comme des boutons à
+  // texte court plutôt que l'URL en clair ; les autres retombent sur
+  // DESCRIPTION ci-dessus, inchangée.
+  rows.push(
+    `X-ALT-DESC;FMTTYPE=text/html:${escapeText(descriptionHtml(lines))}`,
+  )
   rows.push(
     `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
   )
