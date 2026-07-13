@@ -48,6 +48,7 @@ const FIELD_LABELS = {
   location: "lieu",
   project: "programme",
   cancelled: "statut",
+  category: "catégorie",
 }
 
 const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
@@ -690,6 +691,7 @@ function showDetail(e) {
 function fieldDiffValue(f, v) {
   if (f === "cancelled") return v ? "annulé" : "confirmé"
   if (f === "start" || f === "end") return fmtDateStr(String(v))
+  if (f === "category") return CATEGORIES[v] || v
   return String(v || "—")
 }
 
