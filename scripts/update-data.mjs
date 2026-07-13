@@ -182,19 +182,33 @@ const DIFF_FIELDS = [
   "category",
 ]
 
+// Champs réellement journalisés dans changes.json / affichés dans la vue
+// Modifications : sans "category", pour qu'une recatégorisation décidée par
+// le comité de lecture (ex. #83 : concert → représentation) ne s'affiche pas
+// comme un changement fait par l'orchestre, même si elle déclenche bien une
+// réécriture de planning.json (cf. DIFF_FIELDS ci-dessus).
+const LOGGED_FIELDS = DIFF_FIELDS.filter((f) => f !== "category")
+
+// `changedFields` : tous les DIFF_FIELDS qui diffèrent (sert à décider si
+// planning.json doit être réécrit). `fields` : le sous-ensemble LOGGED_FIELDS
+// (sert à décider si l'événement doit apparaître dans changes.json).
 function diff(oldEvents, newEvents) {
   const oldByUid = new Map(oldEvents.map((e) => [e.uid, e]))
   const newByUid = new Map(newEvents.map((e) => [e.uid, e]))
   const added = newEvents.filter((e) => !oldByUid.has(e.uid))
   const removed = oldEvents.filter((e) => !newByUid.has(e.uid))
+  const changedEvents = []
   const modified = []
   for (const [uid, after] of newByUid) {
     const before = oldByUid.get(uid)
     if (!before) continue
-    const fields = DIFF_FIELDS.filter((f) => before[f] !== after[f])
+    const changedFields = DIFF_FIELDS.filter((f) => before[f] !== after[f])
+    if (!changedFields.length) continue
+    changedEvents.push({ uid, fields: changedFields, before, after })
+    const fields = changedFields.filter((f) => LOGGED_FIELDS.includes(f))
     if (fields.length) modified.push({ uid, fields, before, after })
   }
-  return { added, removed, modified }
+  return { added, removed, changedEvents, modified }
 }
 
 // --- Main ------------------------------------------------------------------
@@ -217,8 +231,11 @@ const previous = existsSync(planningPath)
   ? JSON.parse(readFileSync(planningPath, "utf8"))
   : null
 
-const { added, removed, modified } = diff(previous?.events ?? [], events)
-const changed = added.length + removed.length + modified.length > 0
+const { added, removed, changedEvents, modified } = diff(
+  previous?.events ?? [],
+  events,
+)
+const changed = added.length + removed.length + changedEvents.length > 0
 
 if (previous && !changed) {
   console.log(`Aucun changement de planning (${events.length} événements).`)
@@ -236,7 +253,9 @@ writeFileSync(
     "\n",
 )
 
-if (previous) {
+const loggable = added.length + removed.length + modified.length > 0
+
+if (previous && loggable) {
   const changes = existsSync(changesPath)
     ? JSON.parse(readFileSync(changesPath, "utf8"))
     : { entries: [] }
@@ -245,6 +264,13 @@ if (previous) {
   writeFileSync(changesPath, JSON.stringify(changes, null, 1) + "\n")
   console.log(
     `Mise à jour : ${events.length} événements (+${added.length} / -${removed.length} / ~${modified.length})`,
+  )
+} else if (previous) {
+  // Rien à journaliser (ex. recatégorisation seule, cf. LOGGED_FIELDS
+  // ci-dessus) : planning.json est réécrit, mais pas d'entrée dans
+  // changes.json pour ne pas afficher un faux « modifié » aux musicien·ne·s.
+  console.log(
+    `Mise à jour silencieuse : ${events.length} événements (recatégorisation sans changement journalisé).`,
   )
 } else {
   if (!existsSync(changesPath))
