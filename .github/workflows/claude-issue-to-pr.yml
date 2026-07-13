@@ -49,6 +49,7 @@ jobs:
             "🤖 **Claude a pris cette issue en charge** : il implémente la demande puis ouvrira une pull request (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
       - uses: anthropics/claude-code-action@v1
+        id: claude
         with:
           # Authentification via l'abonnement Claude (Pro/Max), pas de
           # facturation API. Token généré localement par `claude setup-token`.
@@ -57,9 +58,18 @@ jobs:
           # est permise par défaut : on autorise tout Bash (le runner est jetable
           # et isolé) pour que Claude puisse pousser sa branche, créer la PR,
           # commenter l'issue et tester librement.
+          #
+          # --max-turns : c'est le job le plus lourd du dépôt (implémenter, puis
+          # tout le rituel de CLAUDE.md — captures Playwright, worktree
+          # pr-assets, pr-images-check —, puis PR, puis commentaire). Le run de
+          # l'issue #83 a atteint le plafond de 100 tours APRÈS avoir créé la PR
+          # #84 mais AVANT d'en poster le lien sur l'issue : run rouge et
+          # demandeur laissé sans réponse, alors que le travail était fait. Les
+          # runs qui aboutissent tournent entre 6 et 63 tours ; 200 laisse de la
+          # marge aux demandes doubles sans jamais laisser un run partir en vrille.
           claude_args: |
             --model claude-sonnet-5
-            --max-turns 100
+            --max-turns 200
             --allowedTools "Bash"
           prompt: |
             Tu es déclenché par la création de l'issue #${{ github.event.issue.number }}
@@ -103,3 +113,17 @@ jobs:
 
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
+
+      # Un run rouge est aujourd'hui une BOÎTE NOIRE : le log du job ne contient
+      # que l'init et le résultat final (« error_max_turns »,
+      # « permission_denials_count: 7 ») — impossible de savoir où sont partis
+      # les tours ni quels outils ont été refusés. On archive donc la
+      # transcription complète, seul moyen de diagnostiquer le prochain échec.
+      - name: Archiver la transcription du run Claude
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-transcription-issue-${{ github.event.issue.number }}
+          path: ${{ steps.claude.outputs.execution_file }}
+          if-no-files-found: warn
+          retention-days: 30

@@ -66,15 +66,19 @@ jobs:
             "🤖 **Claude a pris ce retour en charge** (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
       - uses: anthropics/claude-code-action@v1
+        id: claude
         with:
           # Authentification via l'abonnement Claude (Pro/Max), pas de
           # facturation API. Token généré localement par `claude setup-token`.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Tout Bash autorisé (runner jetable et isolé) pour que Claude puisse
           # pousser les ajustements, ouvrir une PR et répondre.
+          # --max-turns 200 : cf. claude-issue-to-pr.yml — depuis que ce job peut
+          # ouvrir une nouvelle PR, il fait le même rituel complet (captures,
+          # pr-assets…), donc le même plafond.
           claude_args: |
             --model claude-sonnet-5
-            --max-turns 100
+            --max-turns 200
             --allowedTools "Bash"
           prompt: |
             Tu es déclenché par un commentaire de
@@ -128,6 +132,16 @@ jobs:
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
 
+      # Sans ça, un run rouge est une boîte noire (cf. claude-issue-to-pr.yml).
+      - name: Archiver la transcription du run Claude
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-transcription-pr-${{ github.event.issue.number || github.event.pull_request.number }}
+          path: ${{ steps.claude.outputs.execution_file }}
+          if-no-files-found: warn
+          retention-days: 30
+
   # Commentaire « @claude » sur une ISSUE : Claude lit tout le fil, implémente
   # la demande et ouvre une PR complète (ou répond simplement si c'est une
   # question). Même groupe de concurrence que claude-issue-to-pr.yml pour ne
@@ -155,11 +169,13 @@ jobs:
             "🤖 **Claude a repris cette issue** suite au dernier commentaire (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
       - uses: anthropics/claude-code-action@v1
+        id: claude
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # --max-turns 200 : même rituel complet que claude-issue-to-pr.yml.
           claude_args: |
             --model claude-sonnet-5
-            --max-turns 100
+            --max-turns 200
             --allowedTools "Bash"
           prompt: |
             Tu es déclenché par un nouveau commentaire de
@@ -194,3 +210,13 @@ jobs:
 
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
+
+      # Sans ça, un run rouge est une boîte noire (cf. claude-issue-to-pr.yml).
+      - name: Archiver la transcription du run Claude
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-transcription-issue-${{ github.event.issue.number }}
+          path: ${{ steps.claude.outputs.execution_file }}
+          if-no-files-found: warn
+          retention-days: 30
