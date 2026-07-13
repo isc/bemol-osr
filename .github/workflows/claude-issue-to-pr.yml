@@ -24,8 +24,15 @@ concurrency:
 jobs:
   implement:
     # N'agit que si l'auteur de l'issue est le propriétaire ou un collaborateur
-    # du dépôt (accès write) — statut collaborateur natif de GitHub.
-    if: contains(fromJSON('["OWNER","COLLABORATOR","MEMBER"]'), github.event.issue.author_association)
+    # du dépôt (accès write) — statut collaborateur natif de GitHub — ET si
+    # l'événement n'est pas déclenché par un bot : quand une PR porte
+    # « Closes #N » sur une issue déjà fermée, claude[bot] la rouvre, et ce
+    # reopen relançait ce workflow — commentaire « Claude a pris cette issue en
+    # charge » trompeur, puis run rouge sur le garde-fou interne de
+    # claude-code-action (« Workflow initiated by non-human actor »).
+    if: |
+      github.event.sender.type != 'Bot'
+      && contains(fromJSON('["OWNER","COLLABORATOR","MEMBER"]'), github.event.issue.author_association)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
