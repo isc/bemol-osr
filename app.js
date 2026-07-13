@@ -2245,7 +2245,9 @@ function renderSubscribe() {
       { class: "subscribe-intro" },
       "Ajoute le planning de l'OSR à ton agenda habituel (iPhone, Google Agenda, " +
         "Outlook…). Il se met à jour tout seul et reprend toutes les infos de la " +
-        "Grille : chef, solistes, œuvres, instrumentation, effectif.",
+        "Grille (chef, solistes, œuvres, instrumentation, effectif), avec un lien " +
+        "vers le lieu sur Google Maps, le portail partitions et la série complète " +
+        "de chaque programme.",
     ),
     el(
       "a",

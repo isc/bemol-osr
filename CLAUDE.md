@@ -107,6 +107,18 @@ suivant, cf. Vocabulaire métier). Si le comportement s'avère normal/voulu,
 l'expliquer clairement et proposer de fermer l'issue sans changement,
 plutôt que d'ouvrir une PR pour un problème qui n'existe pas.
 
+**Cas particulier : une preview (ou la prod) qui renvoie 404.** Avant de
+chercher une cause dans le code, suspecter d'abord l'**infrastructure GitHub
+Pages** : le build _natif_ « pages-build-deployment » se déclenche à chaque
+écriture sur `gh-pages` (deploy de `main`, previews de PR, crons de données)
+et, lors de rafales de push rapprochés, il lui arrive de rester figé sur
+« building » ou d'échouer — l'URL répond alors 404 alors que le code est
+parfaitement correct (cf. preview de la PR #65). Réflexe : vérifier l'état du
+dernier build (`gh api repos/isc/bemol-osr/pages/builds/latest --jq .status`)
+et, s'il est bloqué/en erreur, en redéclencher un
+(`gh api -X POST repos/isc/bemol-osr/pages/builds`) — la page repasse en 200
+sans toucher au code. Ne pas partir en chasse d'un bug fantôme.
+
 ## Style de code
 
 - Prettier est configuré (`.prettierrc` : `tabWidth: 2`, pas de point-virgule).
@@ -174,6 +186,23 @@ c'est pertinent), en plus du lien de preview.
 ⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même nom
 sans relancer le script du point 4 (les caches continueraient de servir
 l'ancienne) — ou plus simple : nouveau nom de fichier à chaque version.
+
+## Commentaires « @claude » sur une PR déjà mergée ou fermée
+
+Quand un retour « @claude … » arrive sur une PR **déjà mergée ou fermée**, sa
+branche n'existe plus (ou n'est plus déployée) : y repousser un commit ne
+produit **aucune preview** et ne met **rien** en production. Ne jamais se
+contenter, dans ce cas, de committer sur une branche jetable et de laisser un
+lien « Create PR » pré-rempli : le demandeur est un musicien, pas un
+développeur — il ne cliquera pas ce lien, verra que « rien n'a changé » et
+relancera en boucle (cf. la série de retours sur la PR #84, débloquée
+seulement le lendemain par l'ouverture manuelle de la PR #87).
+
+Réflexe : si la PR ciblée est mergée ou fermée, **ouvrir une nouvelle pull
+request vers `main`** (avec un « Closes #N » vers l'issue d'origine si elle est
+encore ouverte) exactement comme pour une nouvelle demande, puis poster le lien
+de cette PR. Ne repousser sur la branche existante que lorsque la PR est
+**encore ouverte**.
 
 ## Déploiement (pour info)
 
