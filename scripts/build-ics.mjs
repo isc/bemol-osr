@@ -137,9 +137,8 @@ function mapsUrl(loc) {
 // Construit le contenu d'un événement sous forme de lignes neutres : contexte
 // du service + liens utiles + infos du mémo de production (les mêmes que le
 // détail de la vue Grille). Une ligne est soit du texte simple ({ text }),
-// soit un lien ({ icon, label, href }) — les deux rendus ci-dessous (texte
-// brut pour DESCRIPTION, HTML pour X-ALT-DESC) partagent cette même source
-// pour ne jamais diverger.
+// soit un lien ({ icon, label, href }) — rendu ci-dessous en texte brut pour
+// DESCRIPTION.
 function contentLines(e, prod) {
   const lines = []
   if (e.project) lines.push({ text: `Programme : ${e.project}` })
@@ -197,34 +196,16 @@ function contentLines(e, prod) {
   return lines
 }
 
-// Rendu texte brut des lignes : un lien s'affiche avec son URL en clair
-// (pour les apps qui ignorent X-ALT-DESC, cf. descriptionHtml ci-dessous).
+// Rendu texte brut des lignes : un lien s'affiche avec son URL en clair.
+// (X-ALT-DESC, la variante HTML avec boutons à libellé court, a été essayée
+// puis retirée : les calendriers ABONNÉS — le seul mode d'usage de Bémol —
+// ignorent cette propriété non standard, y compris sur Apple Calendar qui
+// est pourtant censé la supporter pour les invitations reçues par mail.
+// Confirmé par capture d'écran sur la PR #95 : aucun bouton, nulle part.)
 function description(lines) {
   return lines
     .map((l) => (l.href ? `${l.icon} ${l.label} : ${l.href}` : l.text))
     .join("\n")
-}
-
-// Échappe une valeur pour l'insérer comme texte HTML.
-const htmlEscape = (s) =>
-  String(s ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-
-// Rendu HTML des lignes, pour X-ALT-DESC (issue #88 retour) : un lien
-// s'affiche comme un bouton/texte cliquable (label court), sans exposer
-// l'URL — c'est ce que rendent les apps qui savent lire cette propriété
-// (Apple Calendar notamment, cf. capture d'écran de la demande).
-function descriptionHtml(lines) {
-  const body = lines
-    .map((l) =>
-      l.href
-        ? `${l.icon} <a href="${htmlEscape(l.href)}">${htmlEscape(l.label)}</a>`
-        : htmlEscape(l.text),
-    )
-    .join("<br>")
-  return `<html><body>${body}</body></html>`
 }
 
 // --- Construction du VEVENT -------------------------------------------------
@@ -252,13 +233,6 @@ function vevent(e, prod, stamp) {
   rows.push(`URL:${listeUrl(e.liste)}`)
   const lines = contentLines(e, prod)
   rows.push(`DESCRIPTION:${escapeText(description(lines))}`)
-  // Version HTML de la description (retour #88) : les apps qui la
-  // supportent (Apple Calendar…) affichent les liens comme des boutons à
-  // texte court plutôt que l'URL en clair ; les autres retombent sur
-  // DESCRIPTION ci-dessus, inchangée.
-  rows.push(
-    `X-ALT-DESC;FMTTYPE=text/html:${escapeText(descriptionHtml(lines))}`,
-  )
   rows.push(
     `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
   )
