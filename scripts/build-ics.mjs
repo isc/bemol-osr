@@ -98,6 +98,42 @@ const toIcsDate = (local) =>
 const toIcsStamp = (iso) =>
   iso.replace(/[-:]/g, "").replace(/\.\d+/, "").slice(0, 15) + "Z"
 
+// --- Lieux : adresses postales ----------------------------------------------
+//
+// Dièse ne donne que le nom d'usage interne d'une salle (« UM - Salle Marie
+// LAGGÉ », « HUG », « Place Neuve »…). Tel quel, aucune app d'agenda ne sait le
+// géocoder : le lieu reste une chaîne inerte, sans carte ni bouton
+// « Itinéraire ». On lui adjoint donc son adresse postale complète dans
+// LOCATION — c'est elle que les apps géocodent — et ses coordonnées exactes
+// dans GEO (RFC 5545 §3.8.1.6). Le libellé de Dièse reste en tête, pour que les
+// musiciens reconnaissent la salle (et distinguent les studios d'Uni Mail).
+//
+// La table des salles vit dans venues.json, à la racine : elle est partagée
+// avec l'app (app.js s'en sert pour le lien 📍 de la fiche d'un service), et
+// vérifiée par scripts/check-venues.mjs.
+const VENUES = JSON.parse(readFileSync(join(root, "venues.json"), "utf8")).map(
+  (v) => ({ ...v, match: new RegExp(v.match) }),
+)
+
+// Fiche d'un lieu (adresse, coordonnées), ou null s'il n'est pas dans la table.
+export function venue(loc) {
+  if (!loc) return null
+  const key = loc
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+  return VENUES.find((v) => v.match.test(key)) || null
+}
+
+// Valeur de la propriété LOCATION : nom de la salle, complété de son adresse
+// postale quand on la connaît (c'est elle que les apps d'agenda géocodent).
+export const locationLine = (loc) => {
+  const v = venue(loc)
+  return v ? `${v.name || loc}, ${v.address}` : loc
+}
+
 // --- Liens (issue #88) -------------------------------------------------------
 //
 // Duplique deux petits helpers de app.js (listeSlug, mapsUrl) : ce script Node
@@ -125,10 +161,12 @@ const listeUrl = (liste) => `${SITE_URL}#${listeSlug(liste)}`
 // définir" utilisés par Dièse en attendant confirmation).
 function mapsUrl(loc) {
   if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
-  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
-  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
-  // explicite) sont laissés tels quels.
-  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  // Adresse postale quand on la connaît ; sinon, repli sur le libellé brut, en
+  // lui ajoutant la ville s'il n'en mentionne aucune (ambigu hors du contexte
+  // genevois).
+  const query = /,|genève/i.test(locationLine(loc))
+    ? locationLine(loc)
+    : `${loc}, Genève`
   return `https://maps.google.com/?q=${encodeURIComponent(query)}`
 }
 
@@ -226,7 +264,13 @@ function vevent(e, prod, stamp) {
   }
   const prefix = e.cancelled ? "ANNULÉ · " : ""
   rows.push(`SUMMARY:${escapeText(`${prefix}${e.liste} — ${e.activity}`)}`)
-  if (e.location) rows.push(`LOCATION:${escapeText(e.location)}`)
+  if (e.location) {
+    rows.push(`LOCATION:${escapeText(locationLine(e.location))}`)
+    // GEO donne au client d'agenda le point exact, sans dépendre de la qualité
+    // de son géocodage de l'adresse.
+    const geo = venue(e.location)?.geo
+    if (geo) rows.push(`GEO:${geo[0]};${geo[1]}`)
+  }
   // Certaines apps d'agenda (Apple Calendar…) affichent la propriété URL comme
   // un lien cliquable distinct : on y pointe vers la série complète, aussi
   // reprise en clair dans DESCRIPTION pour les apps qui l'ignorent.
