@@ -58,16 +58,18 @@ production (GitHub Pages) comme dans les previews de PR.
   L'URL du worker est la constante `PERSONAL_CALENDAR_URL` d'`app.js` (vide =
   fonctionnalité masquée). Déploiement : `deploy-worker.yml` (inactif tant que
   la variable Actions `CLOUDFLARE_READY` n'est pas `true`).
-- **Lieux du calendrier.** Dièse ne donne que le nom interne d'une salle
-  (« UM - Salle Marie LAGGÉ », « HUG »…), que nulle app d'agenda ne sait
-  géocoder. La table `VENUES` de `build-ics.mjs` lui adjoint son adresse
-  postale (propriété `LOCATION`) et ses coordonnées (`GEO`), ce qui donne au
-  musicien une carte et un itinéraire natifs. Toute salle ajoutée doit être
-  vérifiée : `node scripts/check-venues.mjs` (macOS ; interroge le géocodeur
-  d'Apple, celui de Calendar.app, et compare au point attendu). Il a ses lubies
-  — « La Grange au Lac » n'est pas géocodable, « Grange au Lac » oui — et un
-  mauvais épinglage envoie un musicien à la mauvaise salle : ne jamais ajouter
-  une salle sans faire passer le script au vert.
+- **Lieux : `venues.json`.** Dièse ne donne que le nom interne d'une salle
+  (« UM - Salle Marie LAGGÉ », « HUG »…), que nulle app de plans ne sait
+  géocoder. `venues.json` (racine, écrit à la main) lui adjoint son adresse
+  postale et ses coordonnées. Deux consommateurs : `build-ics.mjs` (propriétés
+  `LOCATION` et `GEO` du calendrier abonnable → carte et itinéraire natifs dans
+  l'app d'agenda du musicien) et `app.js` (lien 📍 de la fiche d'un service).
+  Toute salle ajoutée doit être vérifiée : `node scripts/check-venues.mjs`
+  (macOS ; interroge le géocodeur d'Apple, celui de Calendar.app, et compare au
+  point attendu). Il a ses lubies — « La Grange au Lac » n'est pas géocodable,
+  « Grange au Lac » oui — et un mauvais épinglage envoie un musicien à la
+  mauvaise salle : ne jamais ajouter une salle sans faire passer le script au
+  vert.
 - Format d'un événement dans `planning.json` :
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`
   avec `start`/`end` en heure locale « `2026-08-13T21:15` » (fuseau de Genève),
