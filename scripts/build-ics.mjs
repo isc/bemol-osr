@@ -98,6 +98,192 @@ const toIcsDate = (local) =>
 const toIcsStamp = (iso) =>
   iso.replace(/[-:]/g, "").replace(/\.\d+/, "").slice(0, 15) + "Z"
 
+// --- Lieux : adresses postales ----------------------------------------------
+//
+// Dièse ne donne que le nom d'usage interne d'une salle (« UM - Salle Marie
+// LAGGÉ », « HUG », « Place Neuve »…). Tel quel, aucune app d'agenda ne sait le
+// géocoder : le lieu reste une chaîne inerte, sans carte ni bouton
+// « Itinéraire ». On lui adjoint donc son adresse postale complète dans
+// LOCATION — c'est elle que les apps géocodent — et ses coordonnées exactes
+// dans GEO (RFC 5545 §3.8.1.6). Le libellé de Dièse reste en tête, pour que les
+// musiciens reconnaissent la salle (et distinguent les studios d'Uni Mail).
+//
+// `match`   : testé contre le libellé normalisé (minuscules, sans accents,
+//             espaces resserrés — Dièse en produit parfois de doubles).
+// `address` : adresse postale, vérifiée sur le site officiel de la salle.
+// `geo`     : [lat, lon], relevées sur OpenStreetMap.
+// `name`    : remplace le libellé de Dièse en tête de LOCATION. À ne poser que
+//             lorsque ce libellé empêche le géocodage : « La Grange au Lac,
+//             Evian » (Evian contredit la commune réelle) et « Noda BCVs | WKB,
+//             Sion » (la barre verticale) faisaient échouer le géocodeur
+//             d'Apple, et « Rosey Concert Hall, Rolle » l'envoyait dans l'Aude,
+//             à 400 km. Toute la table est vérifiée contre ce géocodeur —
+//             cf. scripts/check-venues.mjs.
+//
+// Un lieu absent de la table (les « à définir » de Dièse) garde son libellé
+// brut, sans adresse ni GEO — comme avant.
+const VENUES = [
+  {
+    match: /^victoria hall/,
+    address: "Rue du Général-Dufour 14, 1204 Genève",
+    geo: [46.2014, 6.14105],
+  },
+  // Salle de répétition et studios de l'OSR, tous à Uni Mail : l'OSR publie
+  // l'entrée côté Carl-Vogt, pas l'adresse de façade de l'université.
+  {
+    match: /^um\b/,
+    address: "Uni Mail, Boulevard Carl-Vogt 102, 1205 Genève",
+    geo: [46.19538, 6.14031],
+  },
+  {
+    match: /^(bfm|batiment des forces motrices)/,
+    address: "Place des Volontaires 2, 1204 Genève",
+    geo: [46.20456, 6.13686],
+  },
+  {
+    match: /franz liszt|\bcmg\b/,
+    address:
+      "Conservatoire de musique de Genève, Place de Neuve 5, 1204 Genève",
+    geo: [46.20087, 6.1425],
+  },
+  {
+    match: /^hug\b/,
+    address:
+      "Hôpitaux Universitaires de Genève, Rue Gabrielle-Perret-Gentil 4, 1205 Genève",
+    geo: [46.192, 6.14795],
+  },
+  {
+    match: /^place (de )?neuve$/,
+    address: "Place de Neuve, 1204 Genève",
+    geo: [46.20108, 6.1437],
+  },
+  {
+    match: /florimont/,
+    address: "Institut Florimont, Avenue du Petit-Lancy 37, 1213 Petit-Lancy",
+    geo: [46.19449, 6.11481],
+  },
+  {
+    match: /beaulieu/,
+    address: "Avenue des Bergières 10, 1004 Lausanne",
+    geo: [46.52948, 6.62348],
+  },
+  {
+    match: /geneve[ -]plage/,
+    address: "Quai de Cologny 5, 1223 Cologny",
+    geo: [46.21148, 6.17205],
+  },
+  {
+    match: /jaques[ -]dalcroze/,
+    address: "Rue de la Terrassière 44, 1207 Genève",
+    geo: [46.20021, 6.15951],
+  },
+  // L'Ecolint a trois campus ; l'OSR joue au Centre des arts (La Grande
+  // Boissière), seul lieu de l'école que citent ses propres pages « salles ».
+  {
+    match: /ecole internationale/,
+    address: "Centre des arts, Chemin Marie-Thérèse Maurette 7, 1208 Genève",
+    geo: [46.19808, 6.17132],
+  },
+  {
+    match: /cite bleue/,
+    address: "Avenue de Miremont 46, 1206 Genève",
+    geo: [46.18694, 6.1588],
+  },
+  {
+    match: /arena de geneve/,
+    address: "Route des Batailleux 3, 1218 Le Grand-Saconnex",
+    geo: [46.234, 6.11276],
+  },
+  {
+    match: /salle de musique/,
+    address: "Avenue Léopold-Robert 27, 2300 La Chaux-de-Fonds",
+    geo: [47.10171, 6.82903],
+  },
+  {
+    match: /ella fitzgerald/,
+    address: "Parc La Grange, Avenue Alice-et-William-Favre 19, 1207 Genève",
+    geo: [46.20662, 6.16809],
+  },
+  // Administrativement à Neuvecelle, même si tout le monde dit « Evian ». Deux
+  // pièges du géocodeur d'Apple ici : « Evian » (qui contredit la commune) le
+  // fait échouer… et l'article de « La Grange au Lac » aussi.
+  {
+    match: /grange au lac/,
+    name: "Grange au Lac",
+    address: "Avenue des Mélèzes 37, 74500 Neuvecelle, France",
+    geo: [46.3948, 6.59305],
+  },
+  // Le Rosey n'a pas de numéro de rue ; sans « Carnal Hall » ni le pays, le
+  // géocodeur part sur un homonyme du sud de la France.
+  {
+    match: /rosey/,
+    name: "Rosey Concert Hall",
+    address: "Carnal Hall, Institut Le Rosey, 1180 Rolle, Suisse",
+    geo: [46.45981, 6.32863],
+  },
+  {
+    match: /frank martin/,
+    address: "Rue Mina-Audemars 3, 1204 Genève",
+    geo: [46.20133, 6.15093],
+  },
+  {
+    match: /stadtcasino basel/,
+    address: "Steinenberg 14, 4051 Basel",
+    geo: [47.55424, 7.59003],
+  },
+  {
+    match: /boniface/,
+    address: "Avenue du Mail 14, 1205 Genève",
+    geo: [46.19876, 6.13874],
+  },
+  {
+    match: /casino bern/,
+    address: "Casinoplatz 1, 3011 Bern",
+    geo: [46.94688, 7.44817],
+  },
+  {
+    match: /^noda\b/,
+    name: "Noda",
+    address: "Avenue de Tourbillon 22, 1950 Sion, Suisse",
+    geo: [46.22865, 7.3624],
+  },
+  {
+    match: /^gare cornavin/,
+    address: "Place de Cornavin 7, 1201 Genève",
+    geo: [46.20817, 6.1425],
+  },
+  {
+    match: /grand theatre|^gtg\b/,
+    address: "Boulevard du Théâtre 11, 1204 Genève",
+    geo: [46.20183, 6.14258],
+  },
+  // Salles internes des bureaux de l'OSR (déménagés rue Bovy-Lysberg).
+  {
+    match: /^administration\b/,
+    address: "Administration de l'OSR, Rue Bovy-Lysberg 2, 1204 Genève",
+    geo: [46.20134, 6.14058],
+  },
+]
+
+// Fiche d'un lieu (adresse, coordonnées), ou null s'il n'est pas dans la table.
+export function venue(loc) {
+  if (!loc) return null
+  const key = loc
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+  return VENUES.find((v) => v.match.test(key)) || null
+}
+
+// Valeur de la propriété LOCATION : nom de la salle, complété de son adresse
+// postale quand on la connaît (c'est elle que les apps d'agenda géocodent).
+export const locationLine = (loc) => {
+  const v = venue(loc)
+  return v ? `${v.name || loc}, ${v.address}` : loc
+}
+
 // --- Liens (issue #88) -------------------------------------------------------
 //
 // Duplique deux petits helpers de app.js (listeSlug, mapsUrl) : ce script Node
@@ -125,10 +311,12 @@ const listeUrl = (liste) => `${SITE_URL}#${listeSlug(liste)}`
 // définir" utilisés par Dièse en attendant confirmation).
 function mapsUrl(loc) {
   if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
-  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
-  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
-  // explicite) sont laissés tels quels.
-  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  // Adresse postale quand on la connaît ; sinon, repli sur le libellé brut, en
+  // lui ajoutant la ville s'il n'en mentionne aucune (ambigu hors du contexte
+  // genevois).
+  const query = /,|genève/i.test(locationLine(loc))
+    ? locationLine(loc)
+    : `${loc}, Genève`
   return `https://maps.google.com/?q=${encodeURIComponent(query)}`
 }
 
@@ -199,7 +387,13 @@ function vevent(e, prod, stamp) {
   }
   const prefix = e.cancelled ? "ANNULÉ · " : ""
   rows.push(`SUMMARY:${escapeText(`${prefix}${e.liste} — ${e.activity}`)}`)
-  if (e.location) rows.push(`LOCATION:${escapeText(e.location)}`)
+  if (e.location) {
+    rows.push(`LOCATION:${escapeText(locationLine(e.location))}`)
+    // GEO donne au client d'agenda le point exact, sans dépendre de la qualité
+    // de son géocodage de l'adresse.
+    const geo = venue(e.location)?.geo
+    if (geo) rows.push(`GEO:${geo[0]};${geo[1]}`)
+  }
   // Certaines apps d'agenda (Apple Calendar…) affichent la propriété URL comme
   // un lien cliquable distinct : on y pointe vers la série complète, aussi
   // reprise en clair dans DESCRIPTION pour les apps qui l'ignorent.
