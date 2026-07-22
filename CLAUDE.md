@@ -58,6 +58,16 @@ production (GitHub Pages) comme dans les previews de PR.
   L'URL du worker est la constante `PERSONAL_CALENDAR_URL` d'`app.js` (vide =
   fonctionnalité masquée). Déploiement : `deploy-worker.yml` (inactif tant que
   la variable Actions `CLOUDFLARE_READY` n'est pas `true`).
+- **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, bouton
+  📅).** On ne teste pas le rendu d'un `.ics` en local ni en CI : la seule
+  vérité, c'est l'agenda du frère (Apple Calendar, abonnement webcal). Les apps
+  d'agenda qui s'abonnent à un flux **n'affichent que les propriétés standard**
+  (`DESCRIPTION` en texte brut, `URL`, `GEO`, `LOCATION`) et **filtrent les
+  propriétés non standard `X-…`** — donc pas de HTML ni de bouton dans la
+  description. Rester conservateur et s'appuyer sur les propriétés standard
+  pour tout contenu visible ; ne pas partir sur une extension `X-…` en pensant
+  qu'elle sera rendue (leçon de #95, un correctif `X-ALT-DESC` mergé puis
+  retiré dès le lendemain par #96, cf. commentaire dans `build-ics.mjs`).
 - Format d'un événement dans `planning.json` :
   `{ uid, start, end, liste, activity, category, location, project, cancelled }`
   avec `start`/`end` en heure locale « `2026-08-13T21:15` » (fuseau de Genève),
