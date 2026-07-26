@@ -87,18 +87,37 @@ jobs:
       # on ouvre une issue — donc une notification. Les échecs suivants
       # commentent la même issue tant qu'elle est ouverte ; la refermer une
       # fois le problème réglé.
+      #
+      # Le cron tourne toutes les 2 h : une panne externe longue (cf. #98, ~24 h
+      # d'indisponibilité de l'export Dièse) produirait un commentaire toutes
+      # les 2 h alors que le diagnostic ne change plus. On espace donc les
+      # rappels : on ne reposte que si le dernier message de l'issue (son
+      # dernier commentaire, ou sa création s'il n'y en a pas encore) date de
+      # plus de MIN_HOURS_BETWEEN_COMMENTS. L'échec reste de toute façon
+      # visible dans l'onglet Actions.
       - name: Signaler l'échec dans une issue
         if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TITLE: "⚠️ La mise à jour automatique du planning ICS échoue"
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          MIN_HOURS_BETWEEN_COMMENTS: 6
         run: |
           num=$(gh issue list -R "${{ github.repository }}" --state open \
             --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
           if [ -n "$num" ]; then
-            gh issue comment "$num" -R "${{ github.repository }}" \
-              --body "Nouvel échec du cron : $RUN_URL"
+            # En cas de doute (API muette, date illisible), last_ts vaut 0 et on
+            # commente : rater une alerte est pire qu'un commentaire de trop.
+            last=$(gh issue view "$num" -R "${{ github.repository }}" \
+              --json comments,createdAt --jq '.comments[-1].createdAt // .createdAt' || true)
+            last_ts=$(date -u -d "${last:-@0}" +%s 2>/dev/null || echo 0)
+            elapsed_hours=$(( ($(date -u +%s) - last_ts) / 3600 ))
+            if [ "$elapsed_hours" -ge "$MIN_HOURS_BETWEEN_COMMENTS" ]; then
+              gh issue comment "$num" -R "${{ github.repository }}" \
+                --body "Nouvel échec du cron : $RUN_URL"
+            else
+              echo "Dernier message de l'issue #$num il y a $elapsed_hours h (< $MIN_HOURS_BETWEEN_COMMENTS h) : pas de nouveau commentaire."
+            fi
           else
             gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
               "Le robot qui actualise le planning (toutes les 2 h depuis l'export ICS de Dièse) vient d'échouer : $RUN_URL
