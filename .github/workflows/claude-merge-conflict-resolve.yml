@@ -46,6 +46,14 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # claude-code-action refuse par défaut de démarrer si le workflow a
+          # été lancé par un robot (« Workflow initiated by non-human actor »).
+          # Or c'est TOUJOURS le cas ici : claude-merge-conflict.yml déclenche
+          # ce workflow avec le GITHUB_TOKEN, donc sous l'identité
+          # github-actions[bot]. Sans cette liste, la résolution échoue avant
+          # même de commencer (cf. les 4 runs en échec du 06/07 au 26/07).
+          # On n'autorise que ce robot-là, pas « * ».
+          allowed_bots: "github-actions[bot]"
           claude_args: |
             --model claude-sonnet-5
             --max-turns 100
