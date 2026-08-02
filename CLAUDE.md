@@ -214,6 +214,24 @@ encore ouverte) exactement comme pour une nouvelle demande, puis poster le lien
 de cette PR. Ne repousser sur la branche existante que lorsque la PR est
 **encore ouverte**.
 
+## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
+
+Le jeton du bot Claude **n'a pas** la permission GitHub `workflows` : tout push
+qui touche un fichier sous `.github/workflows/` est rejeté par GitHub
+(« refusing to allow a GitHub App to create or update workflow … without
+`workflows` permission »). C'est une restriction volontaire de GitHub, pour
+qu'un bot compromis ne puisse pas réécrire la CI — elle ne se contourne pas.
+
+Donc, quand une demande implique de **créer ou modifier un workflow** (espacer
+les alertes d'un cron, corriger un `allowed_bots`, ajouter une notification
+d'échec…), ne pas tenter de pousser puis découvrir l'échec, ni ouvrir une PR qui
+ne partira pas. **Fournir directement le diff complet** (ou le fichier entier)
+dans le commentaire ou la description, et dire clairement à Ivan qu'il doit
+l'appliquer et le merger lui-même — c'est lui qui a la permission `workflows`
+(cf. point 3 de la revue #100 : diff produit par Claude, PR #101 ouverte à la
+main par Ivan ; idem #102). Le reste du travail (le raisonnement, les tests hors
+CI, la description) reste à la charge de Claude.
+
 ## Déploiement (pour info)
 
 - Push sur `main` → publication sur GitHub Pages
