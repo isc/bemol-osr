@@ -81,6 +81,7 @@ const state = {
   events: [],
   changes: [],
   productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, généré par scripts/update-memo.mjs)
+  venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
   view: null,
@@ -208,14 +209,35 @@ function shortLocation(loc) {
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
+// Fiche d'une salle (adresse postale, coordonnées) dans venues.json, ou null si
+// le lieu n'y figure pas. Dièse ne donne que des noms d'usage internes
+// (« UM - Salle Marie LAGGÉ », « HUG »…) : sans cette table, une app de plans
+// n'a rien à se mettre sous la dent. Même table que le calendrier abonnable
+// (scripts/build-ics.mjs), vérifiée par scripts/check-venues.mjs.
+function venue(loc) {
+  if (!loc) return null
+  const key = loc
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+  return state.venues.find((v) => new RegExp(v.match).test(key)) || null
+}
+
 // Pas de plan à proposer si le lieu n'est pas encore connu (placeholders
 // utilisés par Dièse en attendant confirmation).
 function mapsUrl(loc) {
   if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
-  // La plupart des lieux n'indiquent pas la ville (ambigu hors du contexte
-  // genevois) ; ceux qui précisent déjà une ville (virgule, ou "Genève"
-  // explicite) sont laissés tels quels.
-  const query = /,|genève/i.test(loc) ? loc : `${loc}, Genève`
+  const v = venue(loc)
+  // Adresse postale quand on la connaît. Sinon, repli sur le libellé brut, en
+  // lui ajoutant la ville s'il n'en mentionne aucune (ambigu hors du contexte
+  // genevois).
+  const query = v
+    ? `${v.name || loc}, ${v.address}`
+    : /,|genève/i.test(loc)
+      ? loc
+      : `${loc}, Genève`
   return `https://maps.google.com/?q=${encodeURIComponent(query)}`
 }
 
@@ -436,7 +458,7 @@ function vacanceNom(region, key) {
 
 async function loadData() {
   const bust = `?t=${Date.now()}`
-  const [planning, changes, productions] = await Promise.all([
+  const [planning, changes, productions, venues] = await Promise.all([
     fetch(`data/planning.json${bust}`).then((r) => r.json()),
     fetch(`data/changes.json${bust}`)
       .then((r) => r.json())
@@ -445,11 +467,17 @@ async function loadData() {
     fetch(`productions.json${bust}`)
       .then((r) => r.json())
       .catch(() => ({})),
+    // Adresses postales des salles (partagées avec le calendrier abonnable).
+    // En cas d'échec, le lien 📍 retombe sur le libellé brut de Dièse.
+    fetch(`venues.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => []),
   ])
   state.events = planning.events
   state.updatedAt = planning.updatedAt
   state.changes = changes.entries || []
   state.productions = productions || {}
+  state.venues = venues || []
 
   const cutoff = Date.now() - RECENT_DAYS * 86400e3
   for (const entry of state.changes) {
@@ -606,12 +634,16 @@ function locationDetail(loc) {
   if (!loc) return "—"
   const url = mapsUrl(loc)
   if (!url) return loc
+  const v = venue(loc)
   return el(
     "a",
     { class: "location-link", href: url, target: "_blank", rel: "noopener" },
-    loc,
+    el("span", { class: "location-name" }, loc),
     " ",
     el("span", { class: "location-pin", "aria-hidden": "true" }, "📍"),
+    // L'adresse postale, quand on la connaît : de quoi reconnaître la salle et
+    // s'y rendre sans même ouvrir le plan.
+    v ? el("span", { class: "location-address" }, v.address) : "",
   )
 }
 

@@ -892,14 +892,28 @@ dialog h2 {
   margin: 0;
 }
 
+/* Seul le nom de la salle est souligné : l'adresse, en dessous, reste sobre
+   (un soulignement porté par le lien lui-même déborderait sur elle). */
 .detail-box .location-link {
   color: inherit;
+  text-decoration: none;
+}
+
+.detail-box .location-name {
   text-decoration: underline dotted;
   text-underline-offset: 2px;
 }
 
 .detail-box .location-pin {
   font-size: 0.9em;
+}
+
+/* Adresse postale de la salle, sous son nom d'usage (venues.json). */
+.detail-box .location-address {
+  display: block;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-decoration: none;
 }
 
 @media (hover: hover) {
