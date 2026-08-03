@@ -41,6 +41,18 @@ production (GitHub Pages) comme dans les previews de PR.
   de `data/` et `productions.json` présentes sur `main` ne sont que des
   **instantanés** pour le dev local et le smoke test (les workflows de deploy
   et de preview servent toujours les données de `gh-pages`).
+  - **Conséquence, à ne pas oublier en relecture de PR.** Une preview sert donc
+    les fichiers **déjà générés** de `gh-pages` (`planning.json`,
+    `planning.ics`, `productions.json`) : elle **ne réexécute pas** les scripts
+    du pipeline. Un changement apporté à `update-data.mjs`, `build-ics.mjs` ou
+    `update-memo.mjs` **ne se voit donc pas dans la preview** — son effet
+    n'apparaît qu'**après le merge**, au prochain passage du cron. En
+    particulier, une évolution de l'`.ics` (nouvelle `LOCATION`, `GEO`…) ne peut
+    **pas** être validée depuis une preview ni via un abonnement à la preview ;
+    seul se teste en preview le code de l'app qui lit, côté client, des fichiers
+    servis tels quels de la branche (ex. `venues.json` de #97). Le rendu du
+    calendrier abonné, lui, ne se vérifie qu'une fois mergé (cf. la contrainte
+    « calendriers ABONNÉS » plus bas).
 - `scripts/update-memo.mjs` (Node ≥ 20 + `pdftotext`) régénère de la même façon
   `productions.json` (chef, solistes, œuvres, instrumentation par programme) à
   partir du « Mémo de Production » du mini-site Dièse — génération PDF côté
