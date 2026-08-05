@@ -113,7 +113,7 @@
  },
  "Liste 05": {
   "chef": "Philippe BÉRAN",
-  "effectif": "3.3.3.2 / 4.4.3.1 / 1.4.1.2 / 10.8.6.4.3 (62 musiciens)",
+  "effectif": "3.3.3.3 / 4.4.3.1 / 1.4.1.2 / 10.8.6.4.3 (63 musiciens)",
   "duree": "≈ 38 min",
   "works": [
    {
@@ -150,8 +150,8 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Le Villi, La Tregenda (Danse des sorcières)",
-    "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 10.8.6.4.3",
-    "remarques": "1picc, 2cornets",
+    "instrumentation": "3*.2.2.3* / 4.4*.3.1 / 1.4.1.0 / 10.8.6.4.3",
+    "remarques": "1picc, 1kfgt, 2cornets",
     "percussions": "GC, cymb fr, TT, tri, cymb sus",
     "duree": "≈ 5 min"
    },
