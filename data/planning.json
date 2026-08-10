@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-07-13T07:43:58.037Z",
- "count": 583,
+ "updatedAt": "2026-08-10T09:51:50.196Z",
+ "count": 587,
  "events": [
   {
    "uid": "osr225046",
@@ -6350,9 +6350,20 @@
    "cancelled": false
   },
   {
+   "uid": "osr227893",
+   "start": "2027-07-05T10:00",
+   "end": "2027-07-05T12:30",
+   "liste": "Liste 42",
+   "activity": "répétition",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr162255",
-   "start": "2027-07-05T14:00",
-   "end": "2027-07-05T19:15",
+   "start": "2027-07-05T16:00",
+   "end": "2027-07-05T21:15",
    "liste": "Liste 42",
    "activity": "voyage",
    "category": "autre",
@@ -6378,7 +6389,7 @@
    "liste": "Liste 42",
    "activity": "concert en construction",
    "category": "concert",
-   "location": "lieu à définir",
+   "location": "Opéra Berlioz / Le Corum, Montpellier",
    "project": "TOUR",
    "cancelled": false
   },
@@ -6394,13 +6405,46 @@
    "cancelled": false
   },
   {
-   "uid": "osr223642",
-   "start": "2027-07-10T19:00",
-   "end": "2027-07-10T21:00",
-   "liste": "Projet 02",
-   "activity": "concert",
+   "uid": "osr227895",
+   "start": "2027-07-08T14:00",
+   "end": "2027-07-08T16:15",
+   "liste": "Liste 43",
+   "activity": "voyage",
+   "category": "autre",
+   "location": "bus",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr227897",
+   "start": "2027-07-08T17:30",
+   "end": "2027-07-08T18:30",
+   "liste": "Liste 43",
+   "activity": "raccord",
+   "category": "generale",
+   "location": "Salle de Musique, La-Chaux-de-Fonds",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr227891",
+   "start": "2027-07-08T19:00",
+   "end": "2027-07-08T21:00",
+   "liste": "Liste 43",
+   "activity": "concert en construction",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
+   "project": "TOUR",
+   "cancelled": false
+  },
+  {
+   "uid": "osr227899",
+   "start": "2027-07-08T21:00",
+   "end": "2027-07-08T22:00",
+   "liste": "Liste 43",
+   "activity": "voyage",
+   "category": "autre",
+   "location": "bus",
    "project": "",
    "cancelled": false
   },
