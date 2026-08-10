@@ -1,6 +1,24 @@
 {
  "entries": [
   {
+   "at": "2026-08-10T15:26:24.642Z",
+   "added": [
+    {
+     "uid": "osr229019",
+     "start": "2026-08-13T11:00",
+     "end": "2026-08-13T12:30",
+     "liste": "Liste 03",
+     "activity": "rencontre chef-soliste(s)",
+     "category": "repetition",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "OGP3",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-08-10T09:51:50.196Z",
    "added": [
     {
