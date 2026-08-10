@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-08-10T17:12:41.210Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133129",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133129",
+      "start": "2027-05-22T14:00",
+      "end": "2027-05-22T17:00",
+      "liste": "Liste 34",
+      "activity": "concert en construction",
+      "category": "concert",
+      "location": "Arena de Genève",
+      "project": "H.Abo5",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133129",
+      "start": "2027-05-22T14:00",
+      "end": "2027-05-22T17:00",
+      "liste": "Liste 34",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Arena de Genève",
+      "project": "H.Abo5",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-10T15:26:24.642Z",
    "added": [
     {
