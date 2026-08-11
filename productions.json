@@ -56,6 +56,7 @@
     "oeuvre": "Alexandre MASTRANGELO — Hommage à Josephine Baker",
     "instrumentation": "2*.2*.2*.2* / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2",
     "remarques": "picc, ca, cl.bs, kfgt",
+    "percussions": "GC, glock, steeldrum, xyl, TT, tri, vibra, cymb sus, cuillères, bsq",
     "duree": "≈ 1 h 30"
    }
   ],
@@ -1539,7 +1540,7 @@
   ]
  },
  "Liste 41": {
-  "chef": "NN1",
+  "chef": "Tugan SOKHIEV",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)",
   "works": [
    {
@@ -1550,13 +1551,20 @@
   ]
  },
  "Liste 42": {
-  "chef": "NN1",
+  "chef": "Tugan SOKHIEV",
   "effectif": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)",
   "works": [
    {
     "oeuvre": "PIÈCE(S) À DÉFINIR — en construction",
     "instrumentation": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8"
    }
+  ]
+ },
+ "Liste 43": {
+  "chef": "Tugan SOKHIEV",
+  "works": [],
+  "solistes": [
+   "Francesco PIEMONTESI, piano"
   ]
  }
 }
