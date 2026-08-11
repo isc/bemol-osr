@@ -32,6 +32,12 @@ env:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Un run normal dure 10 à 30 s. Le téléchargement de l'ICS est un `fetch`
+    # sans timeout (scripts/update-data.mjs) : si Dièse ne répond ni ne coupe,
+    # le job pendrait jusqu'au plafond GitHub de 6 h, en silence. On borne donc
+    # à 5 min (10× la marge) pour échouer vite et déclencher l'alerte
+    # ci-dessous plutôt que de rester invisible.
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
 
@@ -95,8 +101,13 @@ jobs:
       # dernier commentaire, ou sa création s'il n'y en a pas encore) date de
       # plus de MIN_HOURS_BETWEEN_COMMENTS. L'échec reste de toute façon
       # visible dans l'onglet Actions.
+      #
+      # failure() seul rate un run interrompu APRÈS son démarrage (dépassement
+      # du timeout-minutes ci-dessus, annulation manuelle) : sa conclusion est
+      # alors `cancelled`, et l'étape serait sautée. On alerte donc sur tout
+      # run qui n'est pas un succès.
       - name: Signaler l'échec dans une issue
-        if: failure()
+        if: ${{ failure() || cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TITLE: "⚠️ La mise à jour automatique du planning ICS échoue"
