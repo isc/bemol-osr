@@ -93,3 +93,17 @@ jobs:
                #${{ inputs.pr_number }} expliquant quel conflit a été résolu
                et comment. Les utilisateurs sont des musiciens de l'orchestre,
                pas des développeurs — reste clair et simple, sans jargon.
+
+      # Panne silencieuse : si la résolution échoue (comme les 4 runs du 06/07
+      # au 26/07, réparés par #102), personne n'est prévenu — on ne s'en rend
+      # compte qu'en constatant qu'une PR reste coincée. On commente donc la PR
+      # concernée, là où le problème se voit.
+      - name: Signaler l'échec de la résolution
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh pr comment "$PR_NUMBER" -R "${{ github.repository }}" --body \
+            "🛠️ La résolution automatique du conflit de cette PR a **échoué** ($RUN_URL). Le conflit avec \`main\` est donc **toujours là** et il faut le résoudre à la main. cc @isc"
