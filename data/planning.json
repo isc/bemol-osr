@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-11T13:47:08.991Z",
+ "updatedAt": "2026-08-11T17:15:46.818Z",
  "count": 589,
  "events": [
   {
@@ -6409,7 +6409,7 @@
    "start": "2027-07-06T20:00",
    "end": "2027-07-06T22:00",
    "liste": "Liste 42",
-   "activity": "concert en construction",
+   "activity": "concert",
    "category": "concert",
    "location": "Opéra Berlioz / Le Corum, Montpellier",
    "project": "TOUR",
