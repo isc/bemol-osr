@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-10T17:12:41.210Z",
- "count": 588,
+ "updatedAt": "2026-08-11T13:47:08.991Z",
+ "count": 589,
  "events": [
   {
    "uid": "osr225046",
@@ -66,6 +66,17 @@
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
    "project": "OGP1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229406",
+   "start": "2026-08-13T10:00",
+   "end": "2026-08-13T11:00",
+   "liste": "Liste 03",
+   "activity": "rencontre chef-soliste(s)",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ ((loge))",
+   "project": "OGP3",
    "cancelled": false
   },
   {
