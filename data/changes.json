@@ -1,6 +1,63 @@
 {
  "entries": [
   {
+   "at": "2026-08-12T06:05:08.041Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 30",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.12.10.8.6 (80 musiciens)",
+       "after": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.13.11.9.7 (84 musiciens)"
+      },
+      {
+       "field": "duree",
+       "before": "≈ 2 h 00",
+       "after": "≈ 1 h 48"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
+       "fields": [
+        "instrumentation",
+        "remarques",
+        "duree"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 42",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "",
+       "after": "≈ 1 h 46"
+      },
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Alexandre KANTOROW, piano"
+      }
+     ],
+     "worksAdded": [
+      "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
+      "Ludwig van BEETHOVEN — Concerto pour piano et orchestre N° 5 en mi bémol majeur op. 73, dit \"L'Empereur\"",
+      "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)"
+     ],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-08-11T17:15:46.818Z",
    "added": [],
    "removed": [],

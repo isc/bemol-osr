@@ -1260,8 +1260,8 @@
  },
  "Liste 30": {
   "chef": "Tugan SOKHIEV",
-  "effectif": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.12.10.8.6 (80 musiciens)",
-  "duree": "≈ 2 h 00",
+  "effectif": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 15.13.11.9.7 (84 musiciens)",
+  "duree": "≈ 1 h 48",
   "works": [
    {
     "oeuvre": "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
@@ -1279,11 +1279,11 @@
    },
    {
     "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
-    "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 15*.0.0.0.0",
-    "remarques": "effectif prévisionnel",
+    "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 15*.13.11.9.7",
+    "remarques": "ok Sokhiev (par SR) le 11.08.95",
     "percussions": "GC, cymb fr, glock, tamb.mil, bsq, cast, TT, tri",
     "detail": "Suite assemblée par Tugan Sokhiev",
-    "duree": "≈ 52 min"
+    "duree": "≈ 40 min"
    }
   ],
   "solistes": [
@@ -1553,11 +1553,38 @@
  "Liste 42": {
   "chef": "Tugan SOKHIEV",
   "effectif": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)",
+  "duree": "≈ 1 h 46",
   "works": [
+   {
+    "oeuvre": "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
+    "instrumentation": "2*.2*.2.4 / 4.4*.3.0 / 1.4.0.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "cymb fr, 2 bsq, tri",
+    "duree": "≈ 8 min"
+   },
+   {
+    "oeuvre": "Ludwig van BEETHOVEN — Concerto pour piano et orchestre N° 5 en mi bémol majeur op. 73, dit \"L'Empereur\"",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "claviers": "piano",
+    "duree": "≈ 38 min"
+   },
+   {
+    "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
+    "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, glock, tamb.mil, bsq, cast, TT, tri",
+    "detail": "Suite assemblée par Tugan Sokhiev",
+    "note": "\nsokhiev ok avec 15.13.11.9.7 le 11.08.26",
+    "duree": "≈ 40 min"
+   },
    {
     "oeuvre": "PIÈCE(S) À DÉFINIR — en construction",
     "instrumentation": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8"
    }
+  ],
+  "solistes": [
+   "Alexandre KANTOROW, piano"
   ]
  },
  "Liste 43": {
