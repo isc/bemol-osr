@@ -564,8 +564,12 @@ tr.vac-row td {
   padding: 1px;
 }
 
+/* En `em` (pas `rem`) : ces bandeaux doivent suivre la réduction de police de
+   la vue Bible à l'impression (body[data-view="document"], cf. plus bas) — en
+   `rem` ils restaient calés sur la taille racine et ressortaient ~2x trop
+   grands par rapport au reste du planning imprimé (retour #114). */
 td.vac-label {
-  font-size: 0.58rem;
+  font-size: 0.58em;
   font-weight: 700;
   text-align: center;
   vertical-align: middle;
@@ -592,7 +596,7 @@ td.vac-label-fr {
   border: none;
   border-radius: 3px;
   padding: 1px 5px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   text-align: center;
   white-space: nowrap;
