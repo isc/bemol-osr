@@ -535,11 +535,13 @@ table.week th.ferie-ge.ferie-vd.ferie-fr {
   margin-top: 2px;
 }
 
+/* En `em` (pas `rem`), même raison que .vac-band / .vac-label plus bas :
+   suivre la réduction de police de la vue Bible à l'impression. */
 .ferie-tag {
   border: none;
   border-radius: 3px;
   padding: 0 3px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   font-weight: 700;
   color: #fff;
@@ -637,6 +639,12 @@ table.week td.repos:not(.today) {
   background: var(--repos-bg-soft);
 }
 
+/* En `em` (pas `rem`), même raison que .vac-band / .vac-label plus bas :
+   suivre la réduction de police de la vue Bible à l'impression — sans ça,
+   les pastilles « Repos » (comme les fériés ci-dessus) restaient calées sur
+   la taille racine du document et ressortaient ~2x trop grandes par rapport
+   au reste du planning imprimé, faisant déborder les périodes qui
+   contiennent un week-end de repos (retour #114). */
 .repos-tag {
   display: block;
   margin: 2px auto 0;
@@ -644,7 +652,7 @@ table.week td.repos:not(.today) {
   border: none;
   border-radius: 3px;
   padding: 0 6px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   font-weight: 700;
   color: var(--repos-text);
