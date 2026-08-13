@@ -96,7 +96,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -726,6 +726,7 @@ function showDetail(e) {
           )
         : null,
     ),
+    ...serviceWorksDetail(e),
     ...productionDetail(e.liste),
     ...historyDetail(e.uid),
   )
@@ -853,6 +854,34 @@ function scorePortalLink() {
       "🎼 Portail partitions (Dièse)",
     ),
   )
+}
+
+// Œuvres travaillées pendant CE service précis (issue #110), d'après le
+// tableau des services du mémo de production (scripts/update-memo.mjs,
+// prod.serviceWorks : { uid → [n,...] }, n étant l'index 1-based dans
+// prod.works). Absent si le mémo ne le précise pas pour ce service ou si le
+// rapprochement avec le planning était ambigu — pas de repli approximatif.
+function serviceWorksDetail(e) {
+  const prod = state.productions[e.liste] || {}
+  const indices = (prod.serviceWorks || {})[e.uid]
+  if (!indices || !indices.length) return []
+  const works = prod.works || []
+  // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
+  // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
+  const titles = [...indices]
+    .sort((a, b) => a - b)
+    .map((i) => works[i - 1])
+    .filter(Boolean)
+    .map((w) => (typeof w === "string" ? w : w.oeuvre))
+  if (!titles.length) return []
+  return [
+    el(
+      "h3",
+      { class: "detail-section" },
+      "Œuvres travaillées pendant ce service",
+    ),
+    el("ul", { class: "works" }, ...titles.map((t) => el("li", {}, t))),
+  ]
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
