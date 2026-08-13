@@ -664,6 +664,39 @@ table.week td.repos:not(.today) {
   }
 }
 
+/* --- Vue document (saison complète imprimable) --- */
+
+.doc-intro {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+/* Fiches de programme (chef, solistes, œuvres…) par Liste, sous la grille de
+   chaque période — l'équivalent des « encarts » de l'ancienne Bible papier.
+   `.detail-box` (au lieu d'un préfixe dédié) pour hériter tel quel du style
+   de la fiche de production affiché dans le dialogue Liste. */
+.doc-encarts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  margin: 10px 0 26px;
+}
+
+.doc-liste-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: var(--surface);
+}
+
+.doc-liste-title {
+  margin: 0 0 4px;
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 1.05em;
+}
+
 /* --- Vue agenda --- */
 
 .agenda-day {
@@ -1358,6 +1391,30 @@ footer a {
     display: none;
   }
 
+  /* La barre de vues (Grille/Agenda/…/Document) ne tient plus sur une seule
+     ligne à 5 boutons en dessous d'un certain point : on la laisse défiler
+     horizontalement plutôt que de la faire déborder ou passer à la ligne
+     (ce qui casserait les coins arrondis du premier/dernier bouton).
+     `min-width: 0` sur .header-controls est nécessaire : par défaut, un
+     enfant flex ne rétrécit jamais sous la taille minimale de son propre
+     contenu (ici, les 5 boutons non compressibles de #view-nav), ce qui
+     ferait déborder toute la ligne d'en-tête au lieu de faire défiler
+     seulement la nav. */
+  .header-controls {
+    min-width: 0;
+  }
+
+  #view-nav {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #view-nav button {
+    flex: 0 0 auto;
+  }
+
   main {
     padding: 8px 6px 30px;
   }
@@ -1484,6 +1541,16 @@ footer a {
   /* Les chips ne sont plus cliquables sur papier */
   .evt {
     cursor: default;
+  }
+
+  /* Vue Document : l'aide en ligne ne sert à rien sur papier, et une fiche
+     de programme ne doit jamais être coupée entre deux pages. */
+  .doc-intro {
+    display: none;
+  }
+
+  .doc-liste-card {
+    break-inside: avoid;
   }
 }
 
