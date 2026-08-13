@@ -1636,29 +1636,65 @@ footer a {
   }
 
   .doc-periode-planning {
-    flex: 0 0 72%;
+    flex: 0 0 50%;
   }
 
+  /* Colonne des Listes nettement plus large que le planning n'en laisse
+     (retour #114, tour suivant) : le détail complet par œuvre reste très
+     verbeux (jusqu'à 7 lignes d'instrumentation par œuvre) même avec une
+     police minuscule — lui donner plus de largeur réduit le nombre de
+     lignes qui débordent en renvoi, ce qui compte plus pour la hauteur
+     totale que la taille de police elle-même. */
   .doc-periode-listes {
-    flex: 0 0 26%;
+    flex: 0 0 48%;
+    gap: 2px;
+    /* Police propre à cette colonne, plus petite que celle du planning
+       (6px, cf. body[data-view="document"] ci-dessus) : le planning tient
+       déjà sur une page, on ne touche plus à sa taille — mais le détail des
+       Listes, bien plus dense, a besoin d'être resserré davantage pour
+       suivre sur la même page. */
+    font-size: 4.3px;
+    line-height: 1.15;
   }
 
   .doc-liste-card {
     break-inside: avoid;
-    padding: 3px 5px;
+    padding: 1px 3px;
+  }
+
+  .doc-liste-title {
+    margin: 0 0 2px;
+    font-size: 1em;
   }
 
   /* Le détail complet par œuvre (instrumentation…) est restauré (retour
      #114) : resserrer ses espacements pour limiter le nombre de pages. */
   .doc-liste-card .detail-section {
-    margin: 4px 0 1px;
+    margin: 2px 0 0;
+    font-size: 1em;
   }
 
-  .doc-liste-card .works li {
-    margin: 1px 0;
+  .doc-liste-card .works li,
+  .doc-liste-card .solistes li {
+    margin: 0;
   }
 
   .doc-liste-card .work-detail {
+    margin: 0;
+  }
+
+  .doc-liste-card .wd-row {
+    margin: 0;
+    gap: 3px;
+  }
+
+  .doc-liste-card .wd-label {
+    min-width: 3.8em;
+  }
+
+  .doc-liste-card .chef,
+  .doc-liste-card .effectif,
+  .doc-liste-card .duree {
     margin: 0;
   }
 
