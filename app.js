@@ -852,7 +852,10 @@ function serviceWorksDetail(e) {
   const indices = (prod.serviceWorks || {})[e.uid]
   if (!indices || !indices.length) return []
   const works = prod.works || []
-  const titles = indices
+  // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
+  // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
+  const titles = [...indices]
+    .sort((a, b) => a - b)
     .map((i) => works[i - 1])
     .filter(Boolean)
     .map((w) => (typeof w === "string" ? w : w.oeuvre))
