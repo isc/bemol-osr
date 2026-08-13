@@ -12,6 +12,22 @@ const CATEGORIES = {
   resa: "Résa de salles",
 }
 
+// Code couleur (#109) : une couleur par Liste (production), stable sur tous
+// ses services (répétition, générale, concert…) plutôt que par type de
+// service. Indice dérivé d'un hash du nom de la Liste (pas d'état à stocker :
+// une même Liste retombe toujours sur la même couleur) dans une palette de
+// LISTE_COLOR_COUNT teintes qui tournent, comme les calendriers colorés d'un
+// agenda classique (au-delà de LISTE_COLOR_COUNT Listes actives à la fois,
+// la couleur peut se répéter).
+const LISTE_COLOR_COUNT = 12
+
+function listeColorClass(liste) {
+  let hash = 0
+  for (let i = 0; i < liste.length; i++)
+    hash = (hash * 31 + liste.charCodeAt(i)) | 0
+  return `liste-color-${Math.abs(hash) % LISTE_COLOR_COUNT}`
+}
+
 // Abréviations de lieux, du plus spécifique au plus générique
 const LOCATION_SHORT = [
   ["Victoria Hall", "VH"],
@@ -608,7 +624,7 @@ function closeBtnTop() {
 }
 
 function eventChip(e, { showDate = false } = {}) {
-  const classes = ["evt", `cat-${e.category}`]
+  const classes = ["evt", listeColorClass(e.liste)]
   if (e.cancelled) classes.push("cancelled")
   if (state.recentUids.has(e.uid)) classes.push("recent")
   const chip = el(
@@ -652,14 +668,12 @@ function showDetail(e) {
   const box = document.getElementById("detail-content")
   box.replaceChildren(
     closeBtnTop(),
-    el(
-      "span",
-      { class: `detail-cat evt cat-${e.category}` },
-      CATEGORIES[e.category],
-    ),
+    el("span", { class: "detail-cat" }, CATEGORIES[e.category]),
     el(
       "h2",
       {},
+      el("span", { class: `liste-swatch ${listeColorClass(e.liste)}` }),
+      " ",
       el(
         "button",
         {
@@ -968,6 +982,8 @@ function renderListeDialog(liste) {
     el(
       "h2",
       {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
       liste,
       state.recentListes.has(liste)
         ? el(
@@ -1118,7 +1134,7 @@ function showHolidayDialog(tag, ...content) {
   const box = document.getElementById("detail-content")
   box.replaceChildren(
     closeBtnTop(),
-    el("span", { class: "detail-cat evt cat-autre" }, tag),
+    el("span", { class: "detail-cat" }, tag),
     ...content.filter((c) => c !== null && c !== undefined),
   )
   dlg.showModal()
@@ -1586,7 +1602,13 @@ function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
   return el(
     "div",
     { class: "search-group" },
-    el("h3", {}, liste),
+    el(
+      "h3",
+      {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
+      liste,
+    ),
     ...infoLines,
     el(
       "div",
@@ -1645,7 +1667,7 @@ function renderLegend() {
     return el(
       "span",
       {
-        class: `legend-item cat-${cat}${off ? " off" : ""}`,
+        class: `legend-item${off ? " off" : ""}`,
         onclick: () => {
           const hidden = state.prefs.hiddenCategories
           state.prefs.hiddenCategories = off
@@ -1728,7 +1750,15 @@ function renderPrefs() {
     })
     cb.checked = state.prefs.listes.includes(l)
     checkboxes.set(l, cb)
-    return el("label", { class: "liste-option" }, cb, " ", l)
+    return el(
+      "label",
+      { class: "liste-option" },
+      cb,
+      " ",
+      el("span", { class: `liste-swatch ${listeColorClass(l)}` }),
+      " ",
+      l,
+    )
   })
 
   const filterBox = listeOptions.length
@@ -1860,7 +1890,6 @@ function renderPrefs() {
       "label",
       { class: "liste-option activite-option" },
       parent,
-      el("span", { class: `cat-swatch cat-${cat}` }),
       CATEGORIES[cat],
     )
 

@@ -11,8 +11,8 @@ l'export ICS du logiciel de planification (Dièse).
 
 - **Vue Grille** : reprend la présentation de la « Bible de saison » — périodes
   de 4 semaines, colonnes Lundi→Dimanche, lignes Matin / Après-midi / Soir,
-  codes couleur par type d'activité (concert, générale, italienne,
-  enregistrement, répétition…).
+  code couleur par Liste (production) : chaque production garde la même
+  couleur sur tous ses services (répétitions, générale, concert…).
 - **Vue Agenda** : liste chronologique des prochains services, pratique sur
   téléphone (vue par défaut sur petit écran).
 - **Vue Modifs** : journal des changements de planning détectés à chaque
