@@ -2586,7 +2586,7 @@ const VIEW_LABELS = {
   agenda: "Agenda",
   modifs: "Modifications",
   recherche: "Recherche",
-  document: "Document",
+  document: "Bible",
 }
 
 function render() {
