@@ -2588,6 +2588,7 @@ function renderInstall() {
 function setView(view) {
   state.view = view
   localStorage.setItem("bemol-view", view)
+  document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
   render()
