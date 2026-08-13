@@ -1559,6 +1559,18 @@ footer a {
     font-size: 9.5px;
   }
 
+  /* Vue Bible : police nettement resserrée par rapport à la vue Grille
+     (inchangée ci-dessus), pour que le planning et le détail des Listes
+     d'une période tiennent ensemble sur une seule page recto, comme
+     l'ancienne Bible papier (retour #114). Le document est pensé pour
+     l'export PDF, consultable en zoomant au besoin. Scopé à la vue Bible
+     via l'attribut posé par setView() dans app.js : la vue Grille n'est
+     jamais présente dans le DOM en même temps, donc aucun risque de fuite
+     sur son propre rendu à l'impression. */
+  body[data-view="document"] {
+    font-size: 6px;
+  }
+
   /* On n'imprime que le contenu de la vue courante */
   header,
   footer,
@@ -1633,6 +1645,7 @@ footer a {
     align-items: stretch;
     break-before: page;
     margin-bottom: 0;
+    gap: 8px;
   }
 
   .doc-periode-page:first-of-type {
@@ -1645,26 +1658,38 @@ footer a {
 
   .doc-periode-listes {
     flex: 0 0 26%;
-    font-size: 0.92em;
   }
 
   .doc-liste-card {
     break-inside: avoid;
-    padding: 6px 8px;
+    padding: 3px 5px;
   }
 
   /* Le détail complet par œuvre (instrumentation…) est restauré (retour
      #114) : resserrer ses espacements pour limiter le nombre de pages. */
   .doc-liste-card .detail-section {
-    margin: 6px 0 2px;
+    margin: 4px 0 1px;
   }
 
   .doc-liste-card .works li {
-    margin: 2px 0;
+    margin: 1px 0;
   }
 
   .doc-liste-card .work-detail {
-    margin: 1px 0;
+    margin: 0;
+  }
+
+  /* Cases de planning et chips d'événement : paddings fixes en px, à
+     resserrer encore pour la vue Bible (retour #114 : police divisée par
+     ~1.6, des paddings inchangés y deviendraient proportionnellement énormes). */
+  body[data-view="document"] table.week th,
+  body[data-view="document"] table.week td {
+    padding: 1px;
+  }
+
+  body[data-view="document"] .evt {
+    padding: 1px 2px;
+    line-height: 1.15;
   }
 }
 
