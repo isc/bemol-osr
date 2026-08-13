@@ -1619,16 +1619,28 @@ footer a {
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
      papier, planning et détail des Listes côte à côte sur la même page).
-     Largeurs figées plutôt que le flex-wrap de l'écran, pour un partage
-     planning / listes constant quelle que soit la largeur de la page
-     imprimée. Une période dont le contenu ne tient pas dans la hauteur de
-     la page déborde simplement sur la suivante. */
+     Colonnes en flottant (float) plutôt qu'en ligne flex comme à l'écran :
+     un conteneur flex "stretch" force ses deux enfants à casser ensemble
+     d'une pièce à l'impression — plusieurs moteurs (dont celui de Safari/
+     iPadOS, utilisé par les musiciens) fragmentent mal ce cas et pouvaient
+     couper le document trop tôt, voire abandonner une semaine seule sur la
+     page suivante alors que le planning tenait pourtant sur une page à lui
+     seul (retour #114, tour suivant). Un flottant laisse chaque colonne se
+     paginer pour son propre compte. Largeurs figées plutôt que le flex-wrap
+     de l'écran, pour un partage planning / listes constant quelle que soit
+     la largeur de la page imprimée, et sommées à 100 % pour exploiter toute
+     la largeur de la page. Une période dont le contenu ne tient pas dans la
+     hauteur de la page déborde simplement sur la suivante. */
   .doc-periode-page {
-    flex-wrap: nowrap;
-    align-items: stretch;
+    display: block;
     break-before: page;
     margin-bottom: 0;
-    gap: 8px;
+  }
+
+  .doc-periode-page::after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   .doc-periode-page:first-of-type {
@@ -1636,7 +1648,8 @@ footer a {
   }
 
   .doc-periode-planning {
-    flex: 0 0 50%;
+    float: left;
+    width: 51%;
   }
 
   /* Colonne des Listes nettement plus large que le planning n'en laisse
@@ -1646,7 +1659,8 @@ footer a {
      lignes qui débordent en renvoi, ce qui compte plus pour la hauteur
      totale que la taille de police elle-même. */
   .doc-periode-listes {
-    flex: 0 0 48%;
+    float: right;
+    width: 47%;
     gap: 2px;
     /* Police propre à cette colonne, plus petite que celle du planning
        (6px, cf. body[data-view="document"] ci-dessus) : le planning tient
@@ -1679,13 +1693,25 @@ footer a {
     margin: 0;
   }
 
+  /* Plusieurs catégories (Remarques, Percussions, Claviers…) sur la même
+     ligne quand elles tiennent, au lieu d'une ligne chacune (retour #114,
+     tour suivant) : chaque champ garde sa propre ligne .wd-row, mais le
+     conteneur passe en flex-wrap pour les enchaîner horizontalement — un
+     champ court (ex. « Claviers ») rejoint alors le précédent sur la même
+     ligne, un champ long (ex. « Instrumentation ») garde sa ligne à lui vu
+     sa largeur. */
   .doc-liste-card .work-detail {
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 0;
   }
 
   .doc-liste-card .wd-row {
     margin: 0;
     gap: 3px;
+    flex: 0 1 auto;
   }
 
   .doc-liste-card .wd-label {
