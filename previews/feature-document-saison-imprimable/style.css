@@ -698,10 +698,38 @@ table.week td.repos:not(.today) {
   }
 }
 
-/* Fiches de programme (chef, solistes, œuvres…) par Liste, sous la grille de
-   chaque période — l'équivalent des « encarts » de l'ancienne Bible papier.
-   `.detail-box` (au lieu d'un préfixe dédié) pour hériter tel quel du style
-   de la fiche de production affiché dans le dialogue Liste. */
+/* Titre de partie (« Programmes de la saison »), séparant la grille de
+   planning des fiches de programme — cf. renderDocument dans app.js. */
+.doc-part-title {
+  background: var(--header-bg);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 30px 0 16px;
+}
+
+.doc-encarts-periode {
+  margin-bottom: 22px;
+}
+
+.doc-encarts-heading {
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 0.95em;
+  font-weight: 600;
+  margin: 0 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Fiches de programme (chef, solistes, œuvres…) par Liste, groupées par
+   période sous ce titre — l'équivalent des « encarts » de l'ancienne Bible
+   papier. `.detail-box` (au lieu d'un préfixe dédié) pour hériter tel quel du
+   style de la fiche de production affiché dans le dialogue Liste. */
 .doc-encarts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1527,7 +1555,7 @@ footer a {
 
   body {
     background: #fff;
-    font-size: 11px;
+    font-size: 9.5px;
   }
 
   /* On n'imprime que le contenu de la vue courante */
@@ -1594,8 +1622,34 @@ footer a {
     display: none;
   }
 
+  /* Planning et programmes sont deux parties distinctes du document (cf.
+     renderDocument dans app.js) : la seconde démarre sur une nouvelle page
+     plutôt que de se mélanger à la fin de la grille (retour #114). */
+  .doc-part-title {
+    break-before: page;
+  }
+
+  .doc-encarts-heading {
+    break-after: avoid-page;
+  }
+
   .doc-liste-card {
     break-inside: avoid;
+    padding: 6px 8px;
+  }
+
+  /* Le détail complet par œuvre (instrumentation…) est restauré (retour
+     #114) : resserrer ses espacements pour limiter le nombre de pages. */
+  .doc-liste-card .detail-section {
+    margin: 6px 0 2px;
+  }
+
+  .doc-liste-card .works li {
+    margin: 2px 0;
+  }
+
+  .doc-liste-card .work-detail {
+    margin: 1px 0;
   }
 }
 
