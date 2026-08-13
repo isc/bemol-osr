@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-11T17:15:46.818Z",
- "count": 589,
+ "updatedAt": "2026-08-13T13:52:19.469Z",
+ "count": 594,
  "events": [
   {
    "uid": "osr225046",
@@ -1059,6 +1059,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr229805",
+   "start": "2026-09-29T17:00",
+   "end": "2026-09-29T18:30",
+   "liste": "Liste 08",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132755",
    "start": "2026-09-30T10:00",
    "end": "2026-09-30T13:00",
@@ -1243,6 +1254,17 @@
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
    "project": "Company",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229806",
+   "start": "2026-10-07T17:00",
+   "end": "2026-10-07T18:30",
+   "liste": "Liste 09",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
@@ -2027,6 +2049,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr229807",
+   "start": "2026-11-06T08:45",
+   "end": "2026-11-06T10:45",
+   "liste": "Liste 12",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr176073",
    "start": "2026-11-06T09:00",
    "end": "2026-11-06T11:00",
@@ -2588,6 +2621,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr229808",
+   "start": "2026-11-24T17:00",
+   "end": "2026-11-24T18:30",
+   "liste": "Liste 17",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132921",
    "start": "2026-11-25T10:00",
    "end": "2026-11-25T13:00",
@@ -3003,6 +3047,17 @@
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO3",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229809",
+   "start": "2026-12-15T17:00",
+   "end": "2026-12-15T18:30",
+   "liste": "Liste 19",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {

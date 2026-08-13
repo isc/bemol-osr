@@ -1,6 +1,68 @@
 {
  "entries": [
   {
+   "at": "2026-08-13T13:52:19.469Z",
+   "added": [
+    {
+     "uid": "osr229805",
+     "start": "2026-09-29T17:00",
+     "end": "2026-09-29T18:30",
+     "liste": "Liste 08",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229806",
+     "start": "2026-10-07T17:00",
+     "end": "2026-10-07T18:30",
+     "liste": "Liste 09",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229807",
+     "start": "2026-11-06T08:45",
+     "end": "2026-11-06T10:45",
+     "liste": "Liste 12",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229808",
+     "start": "2026-11-24T17:00",
+     "end": "2026-11-24T18:30",
+     "liste": "Liste 17",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229809",
+     "start": "2026-12-15T17:00",
+     "end": "2026-12-15T18:30",
+     "liste": "Liste 19",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-08-13T06:06:04.134Z",
    "type": "memo",
    "programs": [
