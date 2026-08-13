@@ -793,19 +793,14 @@ const WORK_FIELD_LABELS = { ...Object.fromEntries(WORK_FIELDS), duree: "durée" 
 // Construit le <li> d'une œuvre : le titre (« Compositeur — Titre ») et, si le
 // mémo le précise, un bloc de détail (instrumentation, remarques, etc.). Une
 // œuvre est soit une chaîne, soit un objet { oeuvre, instrumentation, … }.
-// En mode `compact` (vue Document, cf. #114), le détail par champ est omis :
-// affiché pour chaque programme de chaque période sur tout le document de
-// saison, il en faisait à lui seul l'essentiel du volume (retour « 59 pages,
-// trop dispersé »). Il reste disponible en un clic, dans la fiche complète de
-// la Liste.
-function workNode(w, compact) {
+function workNode(w) {
   const title = typeof w === "string" ? w : w.oeuvre
   const head = [el("span", { class: "work-title" }, title)]
   if (typeof w === "object" && w.duree) {
     head.push(" ", el("span", { class: "work-dur" }, w.duree))
   }
   const rows =
-    typeof w === "object" && !compact
+    typeof w === "object"
       ? WORK_FIELDS.filter(([k]) => w[k]).map(([k, label]) =>
           el(
             "div",
@@ -847,9 +842,8 @@ function scorePortalLink() {
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour une Liste donnée. `compact` (vue
-// Document, cf. workNode ci-dessus) omet le détail par œuvre.
-function productionDetail(liste, { compact = false } = {}) {
+// d'instrumentation, effectif, durée) pour une Liste donnée.
+function productionDetail(liste) {
   const prod = state.productions[liste] || {}
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
@@ -873,7 +867,7 @@ function productionDetail(liste, { compact = false } = {}) {
   if (works.length) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Œuvres au programme"),
-      el("ul", { class: "works" }, ...works.map((w) => workNode(w, compact))),
+      el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
     )
   }
   if (prod.effectif) {
@@ -1345,15 +1339,43 @@ function renderGrille(main) {
 
 // --- Vue document (saison complète imprimable) ------------------------------
 
-// Reprend la grille de services de la vue Grille, période par période, et
-// ajoute sous chacune les fiches de programme (chef, solistes, œuvres,
-// instrumentation) des Listes qui y ont un service — l'équivalent des
-// « encarts Listes » de l'ancienne Bible de saison papier (cf. issue #111).
+// Listes ayant au moins un service dans une période, avec leur fiche de
+// programme complète (chef, solistes, œuvres, instrumentation) — seulement
+// celles dont le mémo de production dit quelque chose (sinon la fiche serait
+// vide : beaucoup de programmes lointains n'ont pas encore de mémo publié).
+function periodeListeCards(periode, ctx) {
+  const startKey = localKey(periode.pStart)
+  const endKeyExcl = localKey(periode.pEndExcl)
+  const listes = [
+    ...new Set(
+      ctx.events
+        .filter((e) => {
+          const key = e.start.slice(0, 10)
+          return key >= startKey && key < endKeyExcl
+        })
+        .map((e) => e.liste),
+    ),
+  ].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+  return listes
+    .map((liste) => ({ liste, detail: productionDetail(liste) }))
+    .filter(({ detail }) => detail.length)
+}
+
+// Reprend la grille de services de la vue Grille, période par période
+// (partie « planning »), puis les fiches de programme (chef, solistes,
+// œuvres, instrumentation) des Listes de la saison (partie « programmes ») —
+// l'équivalent des « encarts Listes » de l'ancienne Bible de saison papier
+// (cf. issue #111). Les deux parties sont séparées (saut de page à
+// l'impression, cf. .doc-part-title dans style.css) plutôt qu'intercalées
+// période par période : mélanger grille et fiches sur les mêmes pages
+// rendait le document confus (retour #114).
 // Pensée pour l'impression (@media print, cf. style.css) : contrairement à
-// cette dernière, toujours à jour puisqu'elle vient des mêmes données que le
-// reste de l'app, sans pipeline de génération périodique à maintenir en plus.
+// l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
+// données que le reste de l'app, sans pipeline de génération périodique à
+// maintenir en plus.
 function renderDocument(main) {
   const ctx = weekTableContext()
+  const periodes = seasonPeriodes()
 
   main.append(
     el(
@@ -1377,7 +1399,8 @@ function renderDocument(main) {
     ),
   )
 
-  for (const periode of seasonPeriodes()) {
+  // Partie 1 : planning — grille de toute la saison, période par période.
+  for (const periode of periodes) {
     const section = el("section", {
       class: "periode",
       id: `doc-periode-${periode.index + 1}`,
@@ -1391,32 +1414,22 @@ function renderDocument(main) {
         el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
       )
     }
+    main.append(section)
+  }
 
-    // Fiches de programme des Listes ayant au moins un service dans cette
-    // période — seulement si le mémo de production en dit quelque chose
-    // (sinon la fiche serait vide : beaucoup de programmes lointains n'ont pas
-    // encore de mémo publié).
-    const startKey = localKey(periode.pStart)
-    const endKeyExcl = localKey(periode.pEndExcl)
-    const listes = [
-      ...new Set(
-        ctx.events
-          .filter((e) => {
-            const key = e.start.slice(0, 10)
-            return key >= startKey && key < endKeyExcl
-          })
-          .map((e) => e.liste),
-      ),
-    ].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
-    const cards = listes
-      .map((liste) => ({
-        liste,
-        detail: productionDetail(liste, { compact: true }),
-      }))
-      .filter(({ detail }) => detail.length)
+  // Partie 2 : fiches de programme, groupées par période, sur une nouvelle
+  // page à l'impression.
+  main.append(el("h2", { class: "doc-part-title" }, "Programmes de la saison"))
 
-    if (cards.length) {
-      section.append(
+  for (const periode of periodes) {
+    const cards = periodeListeCards(periode, ctx)
+    if (!cards.length) continue
+
+    main.append(
+      el(
+        "section",
+        { class: "doc-encarts-periode" },
+        el("h3", { class: "doc-encarts-heading" }, periodeTitle(periode)),
         el(
           "div",
           { class: "doc-encarts" },
@@ -1429,9 +1442,8 @@ function renderDocument(main) {
             ),
           ),
         ),
-      )
-    }
-    main.append(section)
+      ),
+    )
   }
 }
 
