@@ -1619,28 +1619,28 @@ footer a {
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
      papier, planning et détail des Listes côte à côte sur la même page).
-     Colonnes en flottant (float) plutôt qu'en ligne flex comme à l'écran :
-     un conteneur flex "stretch" force ses deux enfants à casser ensemble
-     d'une pièce à l'impression — plusieurs moteurs (dont celui de Safari/
-     iPadOS, utilisé par les musiciens) fragmentent mal ce cas et pouvaient
-     couper le document trop tôt, voire abandonner une semaine seule sur la
-     page suivante alors que le planning tenait pourtant sur une page à lui
-     seul (retour #114, tour suivant). Un flottant laisse chaque colonne se
-     paginer pour son propre compte. Largeurs figées plutôt que le flex-wrap
-     de l'écran, pour un partage planning / listes constant quelle que soit
-     la largeur de la page imprimée, et sommées à 100 % pour exploiter toute
-     la largeur de la page. Une période dont le contenu ne tient pas dans la
-     hauteur de la page déborde simplement sur la suivante. */
+     Colonnes en tableau CSS (display: table / table-cell) plutôt qu'en
+     ligne flex ou en flottant (essayé au tour précédent) : un conteneur
+     flex "stretch" force ses deux enfants à casser ensemble d'une pièce à
+     l'impression, et un flottant n'est pas fragmenté de façon fiable sur
+     plusieurs pages par tous les moteurs — Safari/iPadOS (utilisé par les
+     musiciens) tronquait le document avant sa fin et laissait des blocs
+     seuls sur la page suivante (retour #114, tours suivants). Un tableau
+     est la technique la plus ancienne et la plus robuste pour ce genre de
+     mise en page imprimée : une ligne qui ne tient pas sur une page se
+     scinde nativement entre ses colonnes, chacune continuant sur la page
+     suivante — le même mécanisme qui permet à un tableau de facture de
+     s'imprimer sur plusieurs pages dans n'importe quel navigateur. Largeurs
+     figées plutôt que le flex-wrap de l'écran, sommées à 100 % pour
+     exploiter toute la largeur de la page. Une période dont le contenu ne
+     tient pas dans la hauteur de la page déborde simplement sur la
+     suivante. */
   .doc-periode-page {
-    display: block;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
     break-before: page;
     margin-bottom: 0;
-  }
-
-  .doc-periode-page::after {
-    content: "";
-    display: table;
-    clear: both;
   }
 
   .doc-periode-page:first-of-type {
@@ -1648,8 +1648,10 @@ footer a {
   }
 
   .doc-periode-planning {
-    float: left;
+    display: table-cell;
+    vertical-align: top;
     width: 51%;
+    padding-right: 10px;
   }
 
   /* Colonne des Listes nettement plus large que le planning n'en laisse
@@ -1659,9 +1661,9 @@ footer a {
      lignes qui débordent en renvoi, ce qui compte plus pour la hauteur
      totale que la taille de police elle-même. */
   .doc-periode-listes {
-    float: right;
+    display: table-cell;
+    vertical-align: top;
     width: 47%;
-    gap: 2px;
     /* Police propre à cette colonne, plus petite que celle du planning
        (6px, cf. body[data-view="document"] ci-dessus) : le planning tient
        déjà sur une page, on ne touche plus à sa taille — mais le détail des
@@ -1674,6 +1676,7 @@ footer a {
   .doc-liste-card {
     break-inside: avoid;
     padding: 1px 3px;
+    margin-bottom: 2px;
   }
 
   .doc-liste-title {
@@ -1714,8 +1717,15 @@ footer a {
     flex: 0 1 auto;
   }
 
+  /* Étiquette (Remarques, Percussions, Détail…) en gras et plus sombre que
+     la valeur : sur une ligne partagée par plusieurs champs (ci-dessus), le
+     texte ne suffit plus à distinguer l'étiquette de la valeur — couleur
+     fixe plutôt que var(--accent), pour rester lisible sur le papier blanc
+     de l'impression même quand l'app est en thème sombre (retour #114). */
   .doc-liste-card .wd-label {
     min-width: 3.8em;
+    font-weight: 700;
+    color: #26211a;
   }
 
   .doc-liste-card .chef,
