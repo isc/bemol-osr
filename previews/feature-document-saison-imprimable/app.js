@@ -807,14 +807,19 @@ const WORK_FIELD_LABELS = { ...Object.fromEntries(WORK_FIELDS), duree: "durée" 
 // Construit le <li> d'une œuvre : le titre (« Compositeur — Titre ») et, si le
 // mémo le précise, un bloc de détail (instrumentation, remarques, etc.). Une
 // œuvre est soit une chaîne, soit un objet { oeuvre, instrumentation, … }.
-function workNode(w) {
+// En mode `compact` (vue Document, cf. #114), le détail par champ est omis :
+// affiché pour chaque programme de chaque période sur tout le document de
+// saison, il en faisait à lui seul l'essentiel du volume (retour « 59 pages,
+// trop dispersé »). Il reste disponible en un clic, dans la fiche complète de
+// la Liste.
+function workNode(w, compact) {
   const title = typeof w === "string" ? w : w.oeuvre
   const head = [el("span", { class: "work-title" }, title)]
   if (typeof w === "object" && w.duree) {
     head.push(" ", el("span", { class: "work-dur" }, w.duree))
   }
   const rows =
-    typeof w === "object"
+    typeof w === "object" && !compact
       ? WORK_FIELDS.filter(([k]) => w[k]).map(([k, label]) =>
           el(
             "div",
@@ -856,8 +861,9 @@ function scorePortalLink() {
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour une Liste donnée.
-function productionDetail(liste) {
+// d'instrumentation, effectif, durée) pour une Liste donnée. `compact` (vue
+// Document, cf. workNode ci-dessus) omet le détail par œuvre.
+function productionDetail(liste, { compact = false } = {}) {
   const prod = state.productions[liste] || {}
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
@@ -881,7 +887,7 @@ function productionDetail(liste) {
   if (works.length) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Œuvres au programme"),
-      el("ul", { class: "works" }, ...works.map(workNode)),
+      el("ul", { class: "works" }, ...works.map((w) => workNode(w, compact))),
     )
   }
   if (prod.effectif) {
@@ -1367,11 +1373,23 @@ function renderDocument(main) {
 
   main.append(
     el(
-      "p",
+      "div",
       { class: "doc-intro" },
-      "Vue pensée pour l'impression ou l'export en PDF (menu Imprimer du " +
-        "navigateur) : grille de services et fiches de programme de toute " +
-        "la saison, en un seul document toujours à jour.",
+      el(
+        "p",
+        {},
+        "Grille de services et fiches de programme de toute la saison, en " +
+          "un seul document toujours à jour.",
+      ),
+      el(
+        "button",
+        {
+          type: "button",
+          class: "doc-print-btn",
+          onclick: () => window.print(),
+        },
+        "🖨️ Imprimer / exporter en PDF",
+      ),
     ),
   )
 
@@ -1407,7 +1425,10 @@ function renderDocument(main) {
       ),
     ].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
     const cards = listes
-      .map((liste) => ({ liste, detail: productionDetail(liste) }))
+      .map((liste) => ({
+        liste,
+        detail: productionDetail(liste, { compact: true }),
+      }))
       .filter(({ detail }) => detail.length)
 
     if (cards.length) {

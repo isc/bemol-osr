@@ -666,9 +666,36 @@ table.week td.repos:not(.today) {
 /* --- Vue document (saison complète imprimable) --- */
 
 .doc-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
   margin: 0 0 16px;
+}
+
+.doc-intro p {
+  margin: 0;
   color: var(--text-muted);
   font-size: 0.9em;
+}
+
+.doc-print-btn {
+  flex: none;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .doc-print-btn:hover {
+    filter: brightness(var(--hover-brightness));
+  }
 }
 
 /* Fiches de programme (chef, solistes, œuvres…) par Liste, sous la grille de
@@ -1533,16 +1560,17 @@ footer a {
     font-size: 0.9em;
   }
 
-  /* Chaque période commence sur une nouvelle page, comme la « Bible » PDF */
+  /* Les périodes s'enchaînent sans saut de page forcé : sur un document de
+     saison complète (13 périodes), imposer une page par période gâchait
+     beaucoup de papier en bas de page et dispersait le document sur bien
+     plus de pages que nécessaire (retour #114). On évite seulement de
+     couper une période juste après son titre. */
   .periode {
-    break-before: page;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 
-  /* …sauf la première, pour ne pas gâcher une page blanche au début */
-  .print-title + .periode,
-  .periode:first-child {
-    break-before: auto;
+  .periode > h2 {
+    break-after: avoid-page;
   }
 
   /* Plus de défilement horizontal ni de semaine coupée en deux pages */
