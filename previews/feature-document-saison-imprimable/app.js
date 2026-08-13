@@ -1369,7 +1369,7 @@ function renderGrille(main) {
       class: "periode",
       id: `periode-${periode.index + 1}`,
     })
-    section.append(el("h2", {}, periodeTitle(periode)))
+    section.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
 
     for (let w = 0; w < periode.weeksInPeriode; w++) {
       const monday = addDays(periode.pStart, w * 7)
@@ -1406,21 +1406,65 @@ function periodeListeCards(periode, ctx) {
     .filter(({ detail }) => detail.length)
 }
 
-// Reprend la grille de services de la vue Grille, période par période
-// (partie « planning »), puis les fiches de programme (chef, solistes,
-// œuvres, instrumentation) des Listes de la saison (partie « programmes ») —
+// Une période, avec sa grille de services et les fiches de programme
+// (chef, solistes, œuvres, instrumentation) des Listes travaillées pendant
+// cette période, côte à côte sur la même page à l'impression — reprend la
+// mise en page de l'ancienne Bible de saison papier, où le planning et le
+// détail des Listes apparaissaient sur une seule et même page plutôt que sur
+// des pages séparées (retour #114 : PDF fourni en exemple par
+// @schneiderflute-create, dont on ne reprend que la mise en page, pas les
+// données). Une période commence toujours sur une nouvelle page à
+// l'impression (cf. .doc-periode-page dans style.css) ; une période trop
+// chargée déborde simplement sur la page suivante, l'objectif étant une
+// période par page dans le cas courant, pas une garantie absolue.
+function renderPeriodePage(periode, ctx) {
+  const planning = el("div", { class: "doc-periode-planning" })
+  planning.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
+  for (let w = 0; w < periode.weeksInPeriode; w++) {
+    const monday = addDays(periode.pStart, w * 7)
+    const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
+    planning.append(
+      el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+    )
+  }
+
+  const cards = periodeListeCards(periode, ctx)
+  const listes = cards.length
+    ? el(
+        "div",
+        { class: "doc-periode-listes" },
+        ...cards.map(({ liste, detail }) =>
+          el(
+            "div",
+            { class: "detail-box doc-liste-card" },
+            el("h3", { class: "doc-liste-title" }, liste),
+            ...detail,
+          ),
+        ),
+      )
+    : null
+
+  return el(
+    "section",
+    {
+      class: "doc-periode-page" + (listes ? "" : " no-listes"),
+      id: `doc-periode-${periode.index + 1}`,
+    },
+    planning,
+    ...(listes ? [listes] : []),
+  )
+}
+
+// Reprend la grille de services de la vue Grille, avec, à côté de chaque
+// période, les fiches de programme des Listes qui y sont travaillées —
 // l'équivalent des « encarts Listes » de l'ancienne Bible de saison papier
-// (cf. issue #111). Les deux parties sont séparées (saut de page à
-// l'impression, cf. .doc-part-title dans style.css) plutôt qu'intercalées
-// période par période : mélanger grille et fiches sur les mêmes pages
-// rendait le document confus (retour #114).
+// (cf. issue #111 et retour #114).
 // Pensée pour l'impression (@media print, cf. style.css) : contrairement à
 // l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
 // données que le reste de l'app, sans pipeline de génération périodique à
 // maintenir en plus.
 function renderDocument(main) {
   const ctx = weekTableContext()
-  const periodes = seasonPeriodes()
 
   main.append(
     el(
@@ -1444,52 +1488,8 @@ function renderDocument(main) {
     ),
   )
 
-  // Partie 1 : planning — grille de toute la saison, période par période.
-  for (const periode of periodes) {
-    const section = el("section", {
-      class: "periode",
-      id: `doc-periode-${periode.index + 1}`,
-    })
-    section.append(el("h2", {}, periodeTitle(periode)))
-
-    for (let w = 0; w < periode.weeksInPeriode; w++) {
-      const monday = addDays(periode.pStart, w * 7)
-      const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
-      section.append(
-        el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
-      )
-    }
-    main.append(section)
-  }
-
-  // Partie 2 : fiches de programme, groupées par période, sur une nouvelle
-  // page à l'impression.
-  main.append(el("h2", { class: "doc-part-title" }, "Programmes de la saison"))
-
-  for (const periode of periodes) {
-    const cards = periodeListeCards(periode, ctx)
-    if (!cards.length) continue
-
-    main.append(
-      el(
-        "section",
-        { class: "doc-encarts-periode" },
-        el("h3", { class: "doc-encarts-heading" }, periodeTitle(periode)),
-        el(
-          "div",
-          { class: "doc-encarts" },
-          ...cards.map(({ liste, detail }) =>
-            el(
-              "div",
-              { class: "detail-box doc-liste-card" },
-              el("h3", { class: "doc-liste-title" }, liste),
-              ...detail,
-            ),
-          ),
-        ),
-      ),
-    )
-  }
+  for (const periode of seasonPeriodes())
+    main.append(renderPeriodePage(periode, ctx))
 }
 
 // --- Vue agenda --------------------------------------------------------------

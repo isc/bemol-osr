@@ -238,7 +238,9 @@ main {
   margin-bottom: 26px;
 }
 
-.periode > h2 {
+/* Titre d'une période (« Période N — du … au … »), partagé entre la vue
+   Grille (.periode > h2) et la vue Document (.doc-periode-planning > h2). */
+.periode-title {
   background: var(--header-bg);
   color: var(--gold);
   font-family: var(--serif);
@@ -698,43 +700,42 @@ table.week td.repos:not(.today) {
   }
 }
 
-/* Titre de partie (« Programmes de la saison »), séparant la grille de
-   planning des fiches de programme — cf. renderDocument dans app.js. */
-.doc-part-title {
-  background: var(--header-bg);
-  color: var(--gold);
-  font-family: var(--serif);
-  font-size: 1.1em;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin: 30px 0 16px;
+/* Une période : planning (grille de services) et fiches de programme des
+   Listes travaillées pendant la période, côte à côte — reprend la mise en
+   page de l'ancienne Bible de saison papier, planning et détail des Listes
+   sur la même page plutôt que sur des pages séparées (retour #114) — cf.
+   renderPeriodePage dans app.js. Sur petit écran, les deux colonnes
+   s'empilent (`flex-wrap`) : la vue Document/Bible se consulte surtout à
+   l'impression, un empilement reste largement lisible à l'écran. */
+.doc-periode-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
 }
 
-.doc-encarts-periode {
-  margin-bottom: 22px;
+.doc-periode-planning {
+  flex: 3 1 640px;
+  min-width: 0;
 }
 
-.doc-encarts-heading {
-  font-family: var(--serif);
-  color: var(--accent);
-  font-size: 0.95em;
-  font-weight: 600;
-  margin: 0 0 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--border);
-}
-
-/* Fiches de programme (chef, solistes, œuvres…) par Liste, groupées par
-   période sous ce titre — l'équivalent des « encarts » de l'ancienne Bible
-   papier. `.detail-box` (au lieu d'un préfixe dédié) pour hériter tel quel du
-   style de la fiche de production affiché dans le dialogue Liste. */
-.doc-encarts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+/* Fiches de programme (chef, solistes, œuvres…) des Listes de la période, en
+   colonne à côté du planning. `.detail-box` sur `.doc-liste-card` (au lieu
+   d'un préfixe dédié) pour hériter tel quel du style de la fiche de
+   production affiché dans le dialogue Liste. */
+.doc-periode-listes {
+  flex: 1 1 260px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  margin: 10px 0 26px;
+}
+
+/* Pas de fiche de programme pour cette période (mémo pas encore publié) :
+   le planning occupe alors toute la largeur. */
+.doc-periode-page.no-listes .doc-periode-planning {
+  flex-basis: 100%;
 }
 
 .doc-liste-card {
@@ -1588,16 +1589,16 @@ footer a {
     font-size: 0.9em;
   }
 
-  /* Les périodes s'enchaînent sans saut de page forcé : sur un document de
-     saison complète (13 périodes), imposer une page par période gâchait
-     beaucoup de papier en bas de page et dispersait le document sur bien
-     plus de pages que nécessaire (retour #114). On évite seulement de
+  /* Vue Grille : les périodes s'enchaînent sans saut de page forcé — sur un
+     document de saison complète (13 périodes), imposer une page par période
+     gâchait beaucoup de papier en bas de page et dispersait le document sur
+     bien plus de pages que nécessaire (retour #114). On évite seulement de
      couper une période juste après son titre. */
   .periode {
     margin-bottom: 10px;
   }
 
-  .periode > h2 {
+  .periode-title {
     break-after: avoid-page;
   }
 
@@ -1616,21 +1617,35 @@ footer a {
     cursor: default;
   }
 
-  /* Vue Document : l'aide en ligne ne sert à rien sur papier, et une fiche
-     de programme ne doit jamais être coupée entre deux pages. */
+  /* Vue Document : l'aide en ligne ne sert à rien sur papier. */
   .doc-intro {
     display: none;
   }
 
-  /* Planning et programmes sont deux parties distinctes du document (cf.
-     renderDocument dans app.js) : la seconde démarre sur une nouvelle page
-     plutôt que de se mélanger à la fin de la grille (retour #114). */
-  .doc-part-title {
+  /* Une période par page (retour #114 : mise en page de l'ancienne Bible
+     papier, planning et détail des Listes côte à côte sur la même page).
+     Largeurs figées plutôt que le flex-wrap de l'écran, pour un partage
+     planning / listes constant quelle que soit la largeur de la page
+     imprimée. Une période dont le contenu ne tient pas dans la hauteur de
+     la page déborde simplement sur la suivante. */
+  .doc-periode-page {
+    flex-wrap: nowrap;
+    align-items: stretch;
     break-before: page;
+    margin-bottom: 0;
   }
 
-  .doc-encarts-heading {
-    break-after: avoid-page;
+  .doc-periode-page:first-of-type {
+    break-before: avoid-page;
+  }
+
+  .doc-periode-planning {
+    flex: 0 0 72%;
+  }
+
+  .doc-periode-listes {
+    flex: 0 0 26%;
+    font-size: 0.92em;
   }
 
   .doc-liste-card {
