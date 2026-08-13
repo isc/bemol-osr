@@ -1,6 +1,24 @@
 {
  "entries": [
   {
+   "at": "2026-08-13T15:17:56.377Z",
+   "added": [
+    {
+     "uid": "osr229810",
+     "start": "2026-12-21T13:00",
+     "end": "2026-12-21T14:30",
+     "liste": "Liste 20",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-08-13T13:52:19.469Z",
    "added": [
     {
