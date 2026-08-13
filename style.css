@@ -1652,11 +1652,27 @@ footer a {
     table-layout: fixed;
     width: 100%;
     break-before: page;
+    /* Saut de page renforcé dans les deux sens (avant ET après), pas
+       seulement "break-before" sur la période suivante : sur un très long
+       document, quand une période déborde déjà sur une page de
+       continuation (ex. Période 12 sur 2 pages), Safari/iPadOS a perdu à
+       plusieurs reprises le saut de page forcé de la période suivante,
+       faisant carrément disparaître cette dernière plutôt que de lui
+       trouver une page (retour #114 : Période 13, la plus courte de la
+       saison — une semaine, sans fiche de programme — manquante après
+       une Période 12 qui déborde). "break-after" sur la période qui
+       précède double le signal de rupture, ceinture et bretelles pour ce
+       moteur. */
+    break-after: page;
     margin-bottom: 0;
   }
 
   .doc-periode-page:first-of-type {
     break-before: avoid-page;
+  }
+
+  .doc-periode-page:last-of-type {
+    break-after: avoid-page;
   }
 
   .doc-periode-planning {
