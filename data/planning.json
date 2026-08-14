@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-13T15:17:56.377Z",
- "count": 595,
+ "updatedAt": "2026-08-14T09:30:30.104Z",
+ "count": 591,
  "events": [
   {
    "uid": "osr225046",
@@ -6490,50 +6490,6 @@
    "category": "autre",
    "location": "à définir",
    "project": "TOUR",
-   "cancelled": false
-  },
-  {
-   "uid": "osr227895",
-   "start": "2027-07-08T14:00",
-   "end": "2027-07-08T16:15",
-   "liste": "Liste 43",
-   "activity": "voyage",
-   "category": "autre",
-   "location": "bus",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr227897",
-   "start": "2027-07-08T17:30",
-   "end": "2027-07-08T18:30",
-   "liste": "Liste 43",
-   "activity": "raccord",
-   "category": "generale",
-   "location": "Salle de Musique, La-Chaux-de-Fonds",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr227891",
-   "start": "2027-07-08T19:00",
-   "end": "2027-07-08T21:00",
-   "liste": "Liste 43",
-   "activity": "concert en construction",
-   "category": "concert",
-   "location": "Salle de Musique, La-Chaux-de-Fonds",
-   "project": "TOUR",
-   "cancelled": false
-  },
-  {
-   "uid": "osr227899",
-   "start": "2027-07-08T21:00",
-   "end": "2027-07-08T22:00",
-   "liste": "Liste 43",
-   "activity": "voyage",
-   "category": "autre",
-   "location": "bus",
-   "project": "",
    "cancelled": false
   },
   {
