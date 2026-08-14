@@ -1668,29 +1668,42 @@ footer a {
     display: table;
     table-layout: fixed;
     width: 100%;
+    /* Un seul signal de rupture, sur la période qui commence (pas sur celle
+       qui précède) : "break-before" sur CETTE période identifie sans
+       ambiguïté "il faut une page neuve juste avant CET élément précis",
+       alors qu'un "break-after" sur la période précédente dépend d'abord de
+       savoir laquelle est "la dernière" (cf. plus bas). Un tour précédent
+       avait ajouté ce "break-after" en plus, en pensant doubler le signal
+       de rupture — analyse plus poussée à partir d'un export PDF Safari
+       fourni par l'utilisatrice (retour #114) : ce n'est pas ce doublon qui
+       causait la Période 13 manquante. La vraie cause : la Période 11 (juste
+       avant), pourtant pas spécialement chargée, déborde parfois sur une
+       page de continuation sous Safari/iPadOS alors qu'elle tient sur une
+       seule page sous Chromium (différence de retour à la ligne du texte
+       selon le moteur de rendu) — un débordement bénin en soi (comme la
+       Période 4, cf. commentaire plus haut), mais qui décale toutes les
+       pages suivantes d'une unité. */
     break-before: page;
-    /* Saut de page renforcé dans les deux sens (avant ET après), pas
-       seulement "break-before" sur la période suivante : sur un très long
-       document, quand une période déborde déjà sur une page de
-       continuation (ex. Période 12 sur 2 pages), Safari/iPadOS a perdu à
-       plusieurs reprises le saut de page forcé de la période suivante,
-       faisant carrément disparaître cette dernière plutôt que de lui
-       trouver une page (retour #114 : Période 13, la plus courte de la
-       saison — une semaine, sans fiche de programme — manquante après
-       une Période 12 qui déborde). "break-after" sur la période qui
-       précède double le signal de rupture, ceinture et bretelles pour ce
-       moteur. */
-    break-after: page;
     margin-bottom: 0;
   }
 
   .doc-periode-page:first-of-type {
+    /* Seule exception sûre : "le tout premier élément du document" ne
+       dépend d'aucun décompte, juste du fait que rien ne le précède. */
     break-before: avoid-page;
   }
 
-  .doc-periode-page:last-of-type {
-    break-after: avoid-page;
-  }
+  /* Pas d'équivalent ":last-of-type" ici : cette pseudo-classe désigne "le
+     dernier élément de ce NOM DE BALISE" (ici <section>), pas "le dernier
+     élément de cette CLASSE" — un piège classique. Elle servait ici à
+     supprimer un "break-after" sur la Période 13 pour éviter une page
+     blanche de fin de document ; mais si le décompte de pages se dérègle
+     (cf. ci-dessus, Période 11 qui déborde), rien ne garantit qu'elle cible
+     encore la bonne section une fois le document fragmenté par le moteur
+     d'impression. Sans "break-after" du tout sur `.doc-periode-page`, cette
+     ambiguïté disparaît : au pire, une page blanche superflue en fin de
+     document (gênant mais inoffensif) — jamais une période qui disparaît
+     (ce qui, lui, était arrivé). */
 
   .doc-periode-planning {
     display: table-cell;

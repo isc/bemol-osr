@@ -1,5 +1,5 @@
 {
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », et « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]). Les clés commençant par « _ » sont ignorées par l'app.",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]) et « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu). Les clés commençant par « _ » sont ignorées par l'app.",
  "Liste 01": {
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens)",
@@ -30,7 +30,26 @@
   ],
   "solistes": [
    "Valentine MICHAUD, saxophone alto"
-  ]
+  ],
+  "serviceWorks": {
+   "osr225046": [
+    3
+   ],
+   "osr224800": [
+    2,
+    1
+   ],
+   "osr224803": [
+    1,
+    2,
+    3
+   ],
+   "osr224807": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 02": {
   "chef": "Philippe BÉRAN",
@@ -45,7 +64,24 @@
     "claviers": "piano",
     "duree": "≈ 1 h 29"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr128422": [
+    1
+   ],
+   "osr128423": [
+    1
+   ],
+   "osr128424": [
+    1
+   ],
+   "osr128421": [
+    1
+   ],
+   "osr128425": [
+    1
+   ]
+  }
  },
  "Liste 03": {
   "chef": "Alexandre MASTRANGELO",
@@ -65,7 +101,12 @@
    "Matti KLEIN, keyboard",
    "Christian VON KAPHENGST, bass [guit.]",
    "Guido JÖRIS, drums"
-  ]
+  ],
+  "serviceWorks": {
+   "osr229406": [
+    1
+   ]
+  }
  },
  "Liste 04": {
   "chef": "Kent NAGANO",
@@ -92,7 +133,84 @@
    "Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin)",
    "Chœur du Grand Théâtre de Genève, chœur",
    "Mark BIGGINS, chef·fe de choeur"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132647": [
+    1
+   ],
+   "osr132648": [
+    1
+   ],
+   "osr210774": [
+    1
+   ],
+   "osr210775": [
+    1
+   ],
+   "osr132650": [
+    1
+   ],
+   "osr132651": [
+    1
+   ],
+   "osr132652": [
+    1
+   ],
+   "osr132653": [
+    1
+   ],
+   "osr132654": [
+    1
+   ],
+   "osr161270": [
+    1
+   ],
+   "osr210778": [
+    1
+   ],
+   "osr132659": [
+    1
+   ],
+   "osr132660": [
+    1
+   ],
+   "osr132657": [
+    1
+   ],
+   "osr132658": [
+    1
+   ],
+   "osr161271": [
+    1
+   ],
+   "osr210779": [
+    1
+   ],
+   "osr210780": [
+    1
+   ],
+   "osr132661": [
+    1
+   ],
+   "osr132662": [
+    1
+   ],
+   "osr132663": [
+    1
+   ],
+   "osr132664": [
+    1
+   ],
+   "osr132665": [
+    1
+   ],
+   "osr132666": [
+    1
+   ],
+   "osr132667": [
+    1
+   ]
+  }
  },
  "Liste A": {
   "chef": "Thierry FISCHER",
@@ -110,7 +228,69 @@
     "note": "\nle petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
     "duree": "≈ 2 h 30"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr133255": [
+    1
+   ],
+   "osr133256": [
+    1
+   ],
+   "osr133257": [
+    1
+   ],
+   "osr133258": [
+    1
+   ],
+   "osr133259": [
+    1
+   ],
+   "osr133261": [
+    1
+   ],
+   "osr133262": [
+    1
+   ],
+   "osr133263": [
+    1
+   ],
+   "osr133264": [
+    1
+   ],
+   "osr133265": [
+    1
+   ],
+   "osr133266": [
+    1
+   ],
+   "osr133267": [
+    1
+   ],
+   "osr133268": [
+    1
+   ],
+   "osr133269": [
+    1
+   ],
+   "osr133270": [
+    1
+   ],
+   "osr133271": [
+    1
+   ],
+   "osr133272": [
+    1
+   ],
+   "osr133273": [
+    1
+   ],
+   "osr133274": [
+    1
+   ],
+   "osr133275": [
+    1
+   ]
+  }
  },
  "Liste 05": {
   "chef": "Philippe BÉRAN",
@@ -198,7 +378,12 @@
     "extra": "0 saxophone alto (coupé pour le didacticiel), 0 saxophone ténor (coupé pour le didacticiel)",
     "duree": "≈ 4 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr216144": [
+    4
+   ]
+  }
  },
  "Liste 06": {
   "chef": "Jean Deroyer",
@@ -213,7 +398,12 @@
     "detail": "Musique originale (2023) pour petit orchestre pour accompagner 3 films de Laurel et Hardy :\n-Oeil pour oeil (1929) de Leo McCarey\n-Vive la liberté (1929) de Leo McCarey\n-La bataille du siècle (1927) de Clyde Bruckman",
     "duree": "≈ 1 h 05"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132719": [
+    1
+   ]
+  }
  },
  "Liste 07": {
   "chef": "Martyna SZYMCZAK",
@@ -242,7 +432,54 @@
     "percussions": "GC, cymb fr, glock, xyl, chimes, c.cl., tri, bsq",
     "duree": "≈ 18 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132731": [
+    1,
+    2,
+    3
+   ],
+   "osr132732": [
+    1,
+    2,
+    3
+   ],
+   "osr132733": [
+    1,
+    2,
+    3
+   ],
+   "osr132734": [
+    1,
+    2,
+    3
+   ],
+   "osr132736": [
+    1,
+    2,
+    3
+   ],
+   "osr132737": [
+    1,
+    2,
+    3
+   ],
+   "osr132738": [
+    1,
+    2,
+    3
+   ],
+   "osr132739": [
+    1,
+    2,
+    3
+   ],
+   "osr132740": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Musique De Chambre 1": {
   "effectif": "0.1.0.0 / 2.0.0.0 / 0.0.0.0 / 1.1.1.1.1 (8 musiciens)",
@@ -273,7 +510,14 @@
    "Marco NIRTA, alto",
    "Gabriel ESTEBAN, violoncelle",
    "Ivy WONG, contrebasse"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132183": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 08": {
   "chef": "Elim CHAN",
@@ -306,7 +550,23 @@
   ],
   "solistes": [
    "Marianne CREBASSA, mezzo-soprano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132755": [
+    1,
+    2
+   ],
+   "osr132756": [
+    1,
+    2,
+    3
+   ],
+   "osr132759": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 09": {
   "chef": "Eva OLLIKAINEN",
@@ -345,7 +605,21 @@
   "solistes": [
    "Anu KOMSI, soprano",
    "Lionel COTTET, violoncelle"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132774": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132776": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
  },
  "Liste B": {
   "chef": "Larry BLANK",
@@ -360,7 +634,48 @@
     "detail": "musiciens de la production hors OSR : 4 reeds (polyinstrumentistes sax/bois), 1 batterie, 1 synthéthiseur,\n1 guitare",
     "duree": "≈ 2 h 20"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr133277": [
+    1
+   ],
+   "osr133278": [
+    1
+   ],
+   "osr133281": [
+    1
+   ],
+   "osr133282": [
+    1
+   ],
+   "osr133283": [
+    1
+   ],
+   "osr133284": [
+    1
+   ],
+   "osr133285": [
+    1
+   ],
+   "osr133286": [
+    1
+   ],
+   "osr133287": [
+    1
+   ],
+   "osr133288": [
+    1
+   ],
+   "osr133289": [
+    1
+   ],
+   "osr133290": [
+    1
+   ],
+   "osr133291": [
+    1
+   ]
+  }
  },
  "Liste 10": {
   "chef": "Ton KOOPMAN",
@@ -378,7 +693,15 @@
   ],
   "solistes": [
    "Etudiant·es du Département Vocal de la HEM, Solistes et Choeur"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132808": [
+    1
+   ],
+   "osr132809": [
+    1
+   ]
+  }
  },
  "Liste 11": {
   "chef": "Stefan GEIGER",
@@ -394,7 +717,15 @@
     "note": "\n1ère partie 58'\n2ème partie 44'\nlampe pupitres tutti\norchestre à plat",
     "duree": "≈ 1 h 42"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132833": [
+    1
+   ],
+   "osr132832": [
+    1
+   ]
+  }
  },
  "Liste 12": {
   "chef": "Daniele GATTI",
@@ -420,7 +751,19 @@
     "detail": "picc, kfgt et trb uniquement dans le 4ème mvt",
     "duree": "≈ 31 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132852": [
+    1,
+    2,
+    3
+   ],
+   "osr132853": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Accueil 01": {
   "chef": "Krzysztof URBAŃSKI",
@@ -443,7 +786,13 @@
   ],
   "solistes": [
    "Francesco PIEMONTESI, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133235": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 13": {
   "chef": "6 demi-finalistes du Concours",
@@ -476,7 +825,19 @@
   "solistes": [
    "Kevin CHEN, piano",
    "Michiaki UENO, violoncelle"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132871": [
+    1,
+    2,
+    3
+   ],
+   "osr132872": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 14": {
   "chef": "Finaliste 1 du concours",
@@ -513,7 +874,29 @@
     "detail": "-effectif maximum du règlement du Concours\n-disposition symphonique obligée\n-instrumentarium percussion maximum en construction\n-2 instruments jokers libres sur validation du Concours\n-1 pianiste qui peut jouer piano et/ou célesta et/ou clavecin\n-cet effectif est un maximum (16 musiciens minimum)",
     "duree": "≈ 15 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132885": [
+    2,
+    3,
+    4
+   ],
+   "osr132886": [
+    2,
+    3,
+    4
+   ],
+   "osr132887": [
+    2,
+    3,
+    4
+   ],
+   "osr132888": [
+    2,
+    3,
+    4
+   ]
+  }
  },
  "Liste 15": {
   "chef": "Finalistes du concours",
@@ -597,7 +980,15 @@
   "solistes": [
    "Maria Jose SIRI, soprano (tous les concerts)",
    "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
-  ]
+  ],
+  "serviceWorks": {
+   "osr128610": [
+    1
+   ],
+   "osr132906": [
+    1
+   ]
+  }
  },
  "Concerts pour Petites Oreilles 1": {
   "effectif": "0.0.1.1 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.1 (5 musiciens)",
@@ -617,7 +1008,21 @@
    "Ivy WONG, contrebasse",
    "Didier PUNTOS, piano",
    "Louise CALAME, récitant"
-  ]
+  ],
+  "serviceWorks": {
+   "osr162175": [
+    1
+   ],
+   "osr162176": [
+    1
+   ],
+   "osr162178": [
+    1
+   ],
+   "osr162179": [
+    1
+   ]
+  }
  },
  "Doudou Concert 1": {
   "works": [],
@@ -645,7 +1050,21 @@
     "remarques": "ok chef",
     "duree": "≈ 47 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132922": [
+    1,
+    2
+   ],
+   "osr132923": [
+    1,
+    2
+   ],
+   "osr132925": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 18": {
   "chef": "Philippe BÉRAN",
@@ -664,7 +1083,15 @@
   ],
   "solistes": [
    "Joan MOMPART, récitant"
-  ]
+  ],
+  "serviceWorks": {
+   "osr206164": [
+    1
+   ],
+   "osr132934": [
+    1
+   ]
+  }
  },
  "Musique De Chambre 2": {
   "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)",
@@ -688,7 +1115,13 @@
    "Verena SCHWEIZER, alto",
    "Yao JIN, violoncelle",
    "Meglena TZANEVA DUPRAZ, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132185": [
+    1,
+    2
+   ]
+  }
  },
  "Liste C": {
   "chef": "Marta GARDOLIŃSKA",
@@ -702,7 +1135,30 @@
     "claviers": "piano-forte",
     "duree": "≈ 3 h 10"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr133314": [
+    1
+   ],
+   "osr133305": [
+    1
+   ],
+   "osr133315": [
+    1
+   ],
+   "osr133306": [
+    1
+   ],
+   "osr133316": [
+    1
+   ],
+   "osr133307": [
+    1
+   ],
+   "osr133308": [
+    1
+   ]
+  }
  },
  "Liste 19": {
   "chef": "Pablo HERAS-CASADO",
@@ -733,7 +1189,19 @@
   ],
   "solistes": [
    "Patricia KOPATCHINSKAJA, violon"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132947": [
+    1,
+    2,
+    3
+   ],
+   "osr132948": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 20": {
   "chef": "NN1",
@@ -859,7 +1327,24 @@
    "Alexandre FAURE, trombone",
    "Ross KNIGHT, tuba",
    "Thomas DIEBOLD, récitant"
-  ]
+  ],
+  "serviceWorks": {
+   "osr162228": [
+    1
+   ],
+   "osr162229": [
+    1
+   ],
+   "osr162230": [
+    1
+   ],
+   "osr162231": [
+    1
+   ],
+   "osr162232": [
+    1
+   ]
+  }
  },
  "Doudou Concert 2": {
   "works": [],
@@ -917,7 +1402,17 @@
   ],
   "solistes": [
    "Janine JANSEN, violon"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132991": [
+    1,
+    2
+   ],
+   "osr132992": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 24": {
   "chef": "Martyna SZYMCZAK",
@@ -944,7 +1439,25 @@
   ],
   "solistes": [
    "NN1, récitant"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133004": [
+    1,
+    2
+   ],
+   "osr133005": [
+    1,
+    2
+   ],
+   "osr133006": [
+    1,
+    2
+   ],
+   "osr133007": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 24b": {
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
@@ -971,7 +1484,60 @@
     "detail": "fl3, percu4 et tuba uniquement dans le n° 9",
     "duree": "≈ 2 h 15"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr133317": [
+    1
+   ],
+   "osr133318": [
+    1
+   ],
+   "osr133319": [
+    1
+   ],
+   "osr133320": [
+    1
+   ],
+   "osr133321": [
+    1
+   ],
+   "osr133322": [
+    1
+   ],
+   "osr133323": [
+    1
+   ],
+   "osr133324": [
+    1
+   ],
+   "osr133325": [
+    1
+   ],
+   "osr133326": [
+    1
+   ],
+   "osr133327": [
+    1
+   ],
+   "osr133328": [
+    1
+   ],
+   "osr133329": [
+    1
+   ],
+   "osr133330": [
+    1
+   ],
+   "osr133331": [
+    1
+   ],
+   "osr133332": [
+    1
+   ],
+   "osr133333": [
+    1
+   ]
+  }
  },
  "Liste 25": {
   "chef": "Bertrand de BILLY",
@@ -1002,7 +1568,19 @@
   ],
   "solistes": [
    "Alexandra CONUNOVA, violon"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133022": [
+    1,
+    2,
+    3
+   ],
+   "osr133025": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 26": {
   "chef": "Philippe BÉRAN",
@@ -1056,7 +1634,14 @@
    "Guillaume JACOT, violon 2",
    "Luca CASCIATO, alto",
    "Lucas HENRY, violoncelle"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132189": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 27": {
   "chef": "Daniele GATTI",
@@ -1080,7 +1665,17 @@
   ],
   "solistes": [
    "Mao FUJITA, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132568": [
+    1,
+    2
+   ],
+   "osr132571": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 27b": {
   "chef": "Daniele GATTI",
@@ -1108,7 +1703,24 @@
    "Vincent GODEL, basson (21 mars)",
    "Clément CHARPENTIER-LEROY, cor (20 et 21 mars)",
    "Marion FONTANA, récitant (20 et 21 mars)"
-  ]
+  ],
+  "serviceWorks": {
+   "osr162238": [
+    1
+   ],
+   "osr162239": [
+    1
+   ],
+   "osr162241": [
+    1
+   ],
+   "osr162240": [
+    1
+   ],
+   "osr162242": [
+    1
+   ]
+  }
  },
  "Doudou Concert 3": {
   "works": [],
@@ -1153,7 +1765,27 @@
    "Fleur BARRON, mezzo-soprano",
    "Andrew STAPLES, ténor",
    "NN1, baryton"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133047": [
+    2,
+    1
+   ],
+   "osr133049": [
+    2,
+    1
+   ],
+   "osr133052": [
+    1,
+    2,
+    3
+   ],
+   "osr133053": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 28b": {
   "chef": "Philippe BÉRAN",
@@ -1215,7 +1847,33 @@
   "solistes": [
    "Dimitris SKYLLAS, piano",
    "ALKANNA GRAECA, 3 voix féminines grecques"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133367": [
+    1
+   ],
+   "osr133368": [
+    1
+   ],
+   "osr133369": [
+    1
+   ],
+   "osr133370": [
+    1
+   ],
+   "osr133371": [
+    1
+   ],
+   "osr133372": [
+    1
+   ],
+   "osr133373": [
+    1
+   ],
+   "osr133374": [
+    1
+   ]
+  }
  },
  "Musique De Chambre 5": {
   "effectif": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)",
@@ -1288,7 +1946,19 @@
   ],
   "solistes": [
    "Michiaki UENO, violoncelle"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133084": [
+    1,
+    2,
+    3
+   ],
+   "osr133085": [
+    1,
+    2,
+    3
+   ]
+  }
  },
  "Liste 31": {
   "chef": "Tugan SOKHIEV",
@@ -1313,7 +1983,21 @@
   ],
   "solistes": [
    "Yefim BRONFMAN, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133101": [
+    1,
+    2
+   ],
+   "osr133102": [
+    1,
+    2
+   ],
+   "osr133105": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 32": {
   "chef": "Alan Gilbert",
@@ -1356,7 +2040,43 @@
   ],
   "solistes": [
    "Beatrice RANA, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132301": [
+    1
+   ],
+   "osr132302": [
+    4
+   ],
+   "osr132303": [
+    4,
+    1
+   ],
+   "osr132304": [
+    2,
+    1
+   ],
+   "osr132305": [
+    1,
+    2,
+    4
+   ],
+   "osr132306": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr173588": [
+    4
+   ],
+   "osr132307": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
  },
  "Liste 34": {
   "chef": "Ludwig Wicki",
@@ -1374,7 +2094,18 @@
   ],
   "solistes": [
    "Le Motet de Genève, chœur"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133128": [
+    1
+   ],
+   "osr133129": [
+    1
+   ],
+   "osr133130": [
+    1
+   ]
+  }
  },
  "Liste 35": {
   "chef": "Daniele GATTI",
@@ -1396,7 +2127,13 @@
   ],
   "solistes": [
    "Vilde FRANG, violon"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133155": [
+    1,
+    2
+   ]
+  }
  },
  "Liste 36": {
   "chef": "divers candidats",
@@ -1435,7 +2172,13 @@
   ],
   "solistes": [
    "Anne-Claire REY-BELLET, récitant (récit et animation)"
-  ]
+  ],
+  "serviceWorks": {
+   "osr133167": [
+    1,
+    2
+   ]
+  }
  },
  "Musique De Chambre 6": {
   "works": [
@@ -1451,7 +2194,12 @@
    "Vincent MÉTRAILLER, trombone",
    "Andrea BANDINI, trombone",
    "Ross KNIGHT, tuba"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132191": [
+    1
+   ]
+  }
  },
  "Concerts pour Petites Oreilles 4": {
   "duree": "≈ 45 min",
@@ -1468,7 +2216,21 @@
    "Luca CASCIATO, alto",
    "Jean-Noël GOS, guitare",
    "Michael TSCHAMPER, percussion"
-  ]
+  ],
+  "serviceWorks": {
+   "osr162251": [
+    1
+   ],
+   "osr162253": [
+    1
+   ],
+   "osr162252": [
+    1
+   ],
+   "osr162254": [
+    1
+   ]
+  }
  },
  "Liste 39": {
   "chef": "Philippe BÉRAN",
@@ -1537,7 +2299,39 @@
     "extra": "saxophone soprano (ad.lib à confirmer)",
     "duree": "≈ 2 h 30"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr128838": [
+    1
+   ],
+   "osr128839": [
+    1
+   ],
+   "osr128840": [
+    1
+   ],
+   "osr128841": [
+    1
+   ],
+   "osr128842": [
+    1
+   ],
+   "osr128843": [
+    1
+   ],
+   "osr128844": [
+    1
+   ],
+   "osr128845": [
+    1
+   ],
+   "osr128846": [
+    1
+   ],
+   "osr128847": [
+    1
+   ]
+  }
  },
  "Liste 41": {
   "chef": "Tugan SOKHIEV",
@@ -1585,7 +2379,15 @@
   ],
   "solistes": [
    "Alexandre KANTOROW, piano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr162257": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
  },
  "Liste 43": {
   "chef": "Tugan SOKHIEV",
