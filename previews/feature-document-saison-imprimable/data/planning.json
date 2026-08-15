@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-13T15:17:56.377Z",
+ "updatedAt": "2026-08-14T11:11:17.256Z",
  "count": 595,
  "events": [
   {
@@ -704,7 +704,7 @@
    "category": "enregistrement",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "OCV",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr133269",
@@ -6493,10 +6493,10 @@
    "cancelled": false
   },
   {
-   "uid": "osr227895",
+   "uid": "osr230032",
    "start": "2027-07-08T14:00",
    "end": "2027-07-08T16:15",
-   "liste": "Liste 43",
+   "liste": "Liste 42",
    "activity": "voyage",
    "category": "autre",
    "location": "bus",
@@ -6504,10 +6504,10 @@
    "cancelled": false
   },
   {
-   "uid": "osr227897",
+   "uid": "osr230034",
    "start": "2027-07-08T17:30",
    "end": "2027-07-08T18:30",
-   "liste": "Liste 43",
+   "liste": "Liste 42",
    "activity": "raccord",
    "category": "generale",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
@@ -6515,21 +6515,21 @@
    "cancelled": false
   },
   {
-   "uid": "osr227891",
+   "uid": "osr230030",
    "start": "2027-07-08T19:00",
    "end": "2027-07-08T21:00",
-   "liste": "Liste 43",
-   "activity": "concert en construction",
+   "liste": "Liste 42",
+   "activity": "concert",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
    "project": "TOUR",
    "cancelled": false
   },
   {
-   "uid": "osr227899",
+   "uid": "osr230036",
    "start": "2027-07-08T21:00",
    "end": "2027-07-08T22:00",
-   "liste": "Liste 43",
+   "liste": "Liste 42",
    "activity": "voyage",
    "category": "autre",
    "location": "bus",

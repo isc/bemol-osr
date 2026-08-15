@@ -53,13 +53,13 @@
  },
  "Liste 02": {
   "chef": "Philippe BÉRAN",
-  "effectif": "1.0.1.1 / 1.0.0.0 / 1.2.0.1 / 8.6.4.3.2 (31 musiciens)",
+  "effectif": "1.0.1.1 / 1.0.0.0 / 0.2.0.1 / 8.6.4.3.2 (30 musiciens)",
   "duree": "≈ 1 h 29",
   "works": [
    {
     "oeuvre": "Neil BRAND — The Lodger, A story of the London Fog",
-    "instrumentation": "1*.0.1*.1 / 1.0.0.0 / 1.2.0.1 / 8.6.4.3.2",
-    "remarques": "fl+picc, cl+cl.bs",
+    "instrumentation": "1*.0.1*.1 / 1.0.0.0 / 0.2*.0.1 / 8.6.4.3.2",
+    "remarques": "fl+picc, cl+cl.bs, 2perc y compris timp",
     "percussions": "GC, cymb fr, glock, woodblk, xyl, c.cl., TT, vibra, cymb sus, cl.tub.",
     "claviers": "piano",
     "duree": "≈ 1 h 29"
@@ -320,12 +320,10 @@
    },
    {
     "oeuvre": "Domenico MODUGNO — Volare, pour orchestre d'harmonie",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "percussions": "0 bongos (coupé pour le didacticiel), 0 cast (coupé pour le didacticiel)",
-    "claviers": "piano (réduction pour piano pour les didacticiels de l'arrangement pour orchestre d'harmonie)",
     "extra": "0 saxophone alto (coupé pour le didacticiel), 0 saxophone baryton (coupé pour le didacticiel), 0\nsaxophone ténor (coupé pour le didacticiel), 0 guitare basse (coupé pour le didacticiel)",
-    "note": "\n-arrangement original (réduit au piano pour le didacticiel) : 1.1.5*.1 / 3.4.3.3* / 0.3.0.0 / 3 sax / guitare basse //\nsans cordes",
+    "note": "\n-COUPÉ POUR LE DIDACTICIEL\n-arrangement original : 1.1.5*.1 / 3.4.3.3* / 0.3.0.0 / 3 sax / guitare basse // sans cordes",
     "duree": "≈ 4 min"
    },
    {
@@ -378,12 +376,7 @@
     "extra": "0 saxophone alto (coupé pour le didacticiel), 0 saxophone ténor (coupé pour le didacticiel)",
     "duree": "≈ 4 min"
    }
-  ],
-  "serviceWorks": {
-   "osr216144": [
-    4
-   ]
-  }
+  ]
  },
  "Liste 06": {
   "chef": "Jean Deroyer",
@@ -1460,6 +1453,7 @@
   }
  },
  "Liste 24b": {
+  "chef": "Philippe BÉRAN",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
   "duree": "≈ 1 h 00",
   "works": [
@@ -2375,10 +2369,16 @@
    {
     "oeuvre": "PIÈCE(S) À DÉFINIR — en construction",
     "instrumentation": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8"
+   },
+   {
+    "oeuvre": "N.N. — Cto piano à définir",
+    "remarques": "Sans cordes",
+    "detail": "effectif en construction"
    }
   ],
   "solistes": [
-   "Alexandre KANTOROW, piano"
+   "Alexandre KANTOROW, piano",
+   "Francesco PIEMONTESI, piano"
   ],
   "serviceWorks": {
    "osr162257": [
@@ -2386,14 +2386,12 @@
     2,
     3,
     4
+   ],
+   "osr230030": [
+    5,
+    3,
+    4
    ]
   }
- },
- "Liste 43": {
-  "chef": "Tugan SOKHIEV",
-  "works": [],
-  "solistes": [
-   "Francesco PIEMONTESI, piano"
-  ]
  }
 }
