@@ -1,6 +1,85 @@
 {
  "entries": [
   {
+   "at": "2026-08-15T05:02:38.124Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 02",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "1.0.1.1 / 1.0.0.0 / 1.2.0.1 / 8.6.4.3.2 (31 musiciens)",
+       "after": "1.0.1.1 / 1.0.0.0 / 0.2.0.1 / 8.6.4.3.2 (30 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Neil BRAND — The Lodger, A story of the London Fog",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 05",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Domenico MODUGNO — Volare, pour orchestre d'harmonie",
+       "fields": [
+        "instrumentation",
+        "claviers",
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 24b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "",
+       "after": "Philippe BÉRAN"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 42",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Alexandre KANTOROW, piano",
+       "after": "Alexandre KANTOROW, piano · Francesco PIEMONTESI, piano"
+      }
+     ],
+     "worksAdded": [
+      "N.N. — Cto piano à définir"
+     ],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 43",
+     "status": "removed"
+    }
+   ]
+  },
+  {
    "at": "2026-08-14T11:11:17.256Z",
    "added": [
     {
