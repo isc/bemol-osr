@@ -695,6 +695,12 @@ table.week td.repos:not(.today) {
   font-size: 0.9em;
 }
 
+.doc-print-hint {
+  flex-basis: 100%;
+  font-size: 0.8em !important;
+  font-style: italic;
+}
+
 .doc-print-btn {
   flex: none;
   background: var(--accent);
@@ -1537,9 +1543,22 @@ footer a {
 }
 
 @media print {
-  /* Orientation paysage recommandée, comme la « Bible » papier */
+  /* Pas d'orientation forcée ici (retour #114) : la propriété CSS "size"
+     n'est qu'une recommandation, que les navigateurs traitent chacun à leur
+     façon quand l'utilisateur choisit une orientation différente dans la
+     boîte de dialogue d'impression — sur Safari/iPadOS en particulier, cette
+     contradiction entre l'orientation demandée par la CSS (paysage, fixée
+     ici) et celle réellement choisie dans la boîte de dialogue (portrait, ou
+     l'inverse en repassant) est l'explication la plus plausible aux pages
+     manquantes en fin de document constatées en changeant d'orientation en
+     cours d'aperçu : la pagination est calculée une fois pour une largeur de
+     page, puis rendue sur une feuille d'une autre largeur. En laissant le
+     choix entièrement à la boîte de dialogue (sans "size" ici), la
+     pagination reste calculée pour l'orientation effectivement imprimée.
+     Le mode Paysage reste conseillé pour la lisibilité (cf. le texte
+     au-dessus du bouton Imprimer) mais c'est à choisir dans la boîte de
+     dialogue d'impression, pas imposé par l'app. */
   @page {
-    size: landscape;
     margin: 1cm;
   }
 
