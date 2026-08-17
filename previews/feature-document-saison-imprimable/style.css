@@ -1666,42 +1666,32 @@ footer a {
   }
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
-     papier, planning et détail des Listes côte à côte sur la même page).
-     Colonnes en tableau CSS (display: table / table-cell) plutôt qu'en
-     ligne flex ou en flottant (essayé au tour précédent) : un conteneur
-     flex "stretch" force ses deux enfants à casser ensemble d'une pièce à
-     l'impression, et un flottant n'est pas fragmenté de façon fiable sur
-     plusieurs pages par tous les moteurs — Safari/iPadOS (utilisé par les
-     musiciens) tronquait le document avant sa fin et laissait des blocs
-     seuls sur la page suivante (retour #114, tours suivants). Un tableau
-     est la technique la plus ancienne et la plus robuste pour ce genre de
-     mise en page imprimée : une ligne qui ne tient pas sur une page se
-     scinde nativement entre ses colonnes, chacune continuant sur la page
-     suivante — le même mécanisme qui permet à un tableau de facture de
-     s'imprimer sur plusieurs pages dans n'importe quel navigateur. Largeurs
-     figées plutôt que le flex-wrap de l'écran, sommées à 100 % pour
-     exploiter toute la largeur de la page. Une période dont le contenu ne
-     tient pas dans la hauteur de la page déborde simplement sur la
-     suivante. */
+     papier). Planning et détail des Listes EMPILÉS (plus côte à côte) :
+     table CSS (display: table/table-cell), flex et flottants ont chacun été
+     essayés (retours #114 précédents) et chacun a fini par tronquer le
+     document en fin d'impression sous Safari/iPadOS (utilisé par les
+     musiciens) tout en s'imprimant complet sous Chrome/Android — cf. le PDF
+     "paysage" fourni par l'utilisatrice où les Périodes 12-13 disparaissent
+     purement et simplement. C'est un bug connu du moteur d'impression de
+     WebKit : le contenu d'une colonne (table-cell, flex-item ou flottant)
+     dont la hauteur dépasse l'espace restant sur la page est purement
+     TRONQUÉ au lieu de se poursuivre sur la page suivante, alors que
+     Chromium gère ce cas correctement — d'où la différence Android/iOS.
+     Le flux normal de blocs empilés (aucune colonne) est la seule mise en
+     page dont la fragmentation à l'impression est fiable sur tous les
+     moteurs, y compris WebKit : plus de pages au total (le détail des
+     Listes vient sous la grille plutôt qu'à côté), mais aucun contenu ne
+     peut plus disparaître silencieusement — priorité à l'exactitude du
+     document sur sa compacité (cf. CLAUDE.md, § calendriers abonnés :
+     rester conservateur plutôt que de miser sur un comportement non
+     garanti). */
   .doc-periode-page {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
+    display: block;
     /* Un seul signal de rupture, sur la période qui commence (pas sur celle
        qui précède) : "break-before" sur CETTE période identifie sans
        ambiguïté "il faut une page neuve juste avant CET élément précis",
        alors qu'un "break-after" sur la période précédente dépend d'abord de
-       savoir laquelle est "la dernière" (cf. plus bas). Un tour précédent
-       avait ajouté ce "break-after" en plus, en pensant doubler le signal
-       de rupture — analyse plus poussée à partir d'un export PDF Safari
-       fourni par l'utilisatrice (retour #114) : ce n'est pas ce doublon qui
-       causait la Période 13 manquante. La vraie cause : la Période 11 (juste
-       avant), pourtant pas spécialement chargée, déborde parfois sur une
-       page de continuation sous Safari/iPadOS alors qu'elle tient sur une
-       seule page sous Chromium (différence de retour à la ligne du texte
-       selon le moteur de rendu) — un débordement bénin en soi (comme la
-       Période 4, cf. commentaire plus haut), mais qui décale toutes les
-       pages suivantes d'une unité. */
+       savoir laquelle est "la dernière". */
     break-before: page;
     margin-bottom: 0;
   }
@@ -1714,40 +1704,27 @@ footer a {
 
   /* Pas d'équivalent ":last-of-type" ici : cette pseudo-classe désigne "le
      dernier élément de ce NOM DE BALISE" (ici <section>), pas "le dernier
-     élément de cette CLASSE" — un piège classique. Elle servait ici à
-     supprimer un "break-after" sur la Période 13 pour éviter une page
-     blanche de fin de document ; mais si le décompte de pages se dérègle
-     (cf. ci-dessus, Période 11 qui déborde), rien ne garantit qu'elle cible
-     encore la bonne section une fois le document fragmenté par le moteur
-     d'impression. Sans "break-after" du tout sur `.doc-periode-page`, cette
-     ambiguïté disparaît : au pire, une page blanche superflue en fin de
-     document (gênant mais inoffensif) — jamais une période qui disparaît
-     (ce qui, lui, était arrivé). */
+     élément de cette CLASSE" — un piège classique. Elle servait à supprimer
+     un "break-after" sur la Période 13 pour éviter une page blanche de fin
+     de document ; mais si le décompte de pages se dérègle, rien ne garantit
+     qu'elle cible encore la bonne section une fois le document fragmenté.
+     Sans "break-after" du tout sur `.doc-periode-page`, cette ambiguïté
+     disparaît : au pire, une page blanche superflue en fin de document
+     (gênant mais inoffensif) — jamais une période qui disparaît. */
 
   .doc-periode-planning {
-    display: table-cell;
-    vertical-align: top;
-    width: 51%;
-    padding-right: 10px;
+    display: block;
+    margin-bottom: 6px;
   }
 
-  /* Colonne des Listes nettement plus large que le planning n'en laisse
-     (retour #114, tour suivant) : le détail complet par œuvre reste très
-     verbeux (jusqu'à 7 lignes d'instrumentation par œuvre) même avec une
-     police minuscule — lui donner plus de largeur réduit le nombre de
-     lignes qui débordent en renvoi, ce qui compte plus pour la hauteur
-     totale que la taille de police elle-même. */
+  /* Détail des Listes désormais sous le planning, pleine largeur (plus à
+     côté, cf. commentaire ci-dessus) : la police peut remonter un peu par
+     rapport à la version en colonne étroite (4.3px), la largeur disponible
+     réduisant le nombre de lignes en renvoi. */
   .doc-periode-listes {
-    display: table-cell;
-    vertical-align: top;
-    width: 47%;
-    /* Police propre à cette colonne, plus petite que celle du planning
-       (6px, cf. body[data-view="document"] ci-dessus) : le planning tient
-       déjà sur une page, on ne touche plus à sa taille — mais le détail des
-       Listes, bien plus dense, a besoin d'être resserré davantage pour
-       suivre sur la même page. */
-    font-size: 4.3px;
-    line-height: 1.15;
+    display: block;
+    font-size: 5px;
+    line-height: 1.2;
   }
 
   .doc-liste-card {
