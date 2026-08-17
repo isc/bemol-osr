@@ -28,6 +28,15 @@ function listeColorClass(liste) {
   return `liste-color-${Math.abs(hash) % LISTE_COLOR_COUNT}`
 }
 
+// Services qui ne concernent pas les musicien·nes de l'orchestre (répétition
+// chef+soliste(s)+piano, travail technique seul…) : cette distinction traverse
+// plusieurs catégories (répétition, générale…) et n'existe pas comme catégorie
+// à part entière côté Dièse — on la repère à la mention « (sans orchestre) »
+// que Dièse ajoute elle-même au libellé de l'activité (issue #116).
+function isNoOrchestra(e) {
+  return /sans orchestre/i.test(e.activity)
+}
+
 // Abréviations de lieux, du plus spécifique au plus générique
 const LOCATION_SHORT = [
   ["Victoria Hall", "VH"],
@@ -110,6 +119,7 @@ const state = {
 function loadPrefs() {
   const defaults = {
     hiddenCategories: ["resa"],
+    hideNoOrchestra: false,
     showCancelled: true,
     // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
     showHolidays: true,
@@ -560,6 +570,7 @@ function visibleEvents() {
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
       !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
+      !(p.hideNoOrchestra && isNoOrchestra(e)) &&
       (p.showCancelled || !e.cancelled) &&
       (!p.listes.length || p.listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
@@ -625,6 +636,7 @@ function closeBtnTop() {
 
 function eventChip(e, { showDate = false } = {}) {
   const classes = ["evt", listeColorClass(e.liste)]
+  if (isNoOrchestra(e)) classes.push("no-orchestra")
   if (e.cancelled) classes.push("cancelled")
   if (state.recentUids.has(e.uid)) classes.push("recent")
   const chip = el(
@@ -1710,6 +1722,30 @@ function renderLegend() {
     )
   })
 
+  // Bascule « Sans orchestre » : traverse plusieurs catégories (répétition,
+  // générale…), affichée dans les deux vues (Agenda et Grille), cliquable
+  // comme les catégories pour masquer/afficher (#116).
+  {
+    const off = state.prefs.hideNoOrchestra
+    items.push(
+      el(
+        "span",
+        {
+          class: `legend-item legend-no-orchestra${off ? " off" : ""}`,
+          title:
+            "Services qui ne concernent pas les musicien·nes de l'orchestre " +
+            "(répétition chef+soliste(s)+piano, technique seule…)",
+          onclick: () => {
+            state.prefs.hideNoOrchestra = !state.prefs.hideNoOrchestra
+            savePrefs()
+            render()
+          },
+        },
+        "Sans orchestre",
+      ),
+    )
+  }
+
   // Repère « Vacances / fériés » : uniquement en vue Grille (ces repères n'y
   // apparaissent que là), cliquable comme les catégories pour masquer/afficher.
   if (state.view === "grille") {
@@ -2010,6 +2046,16 @@ function renderPrefs() {
   })
   holidaysCheckbox.checked = state.prefs.showHolidays
 
+  const noOrchestraCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.hideNoOrchestra = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  noOrchestraCheckbox.checked = state.prefs.hideNoOrchestra
+
   updateNote()
   for (const cat of cats) refreshCat(cat)
   updateCatNote()
@@ -2082,6 +2128,12 @@ function renderPrefs() {
       { class: "prefs-cancelled" },
       holidaysCheckbox,
       " Afficher les vacances scolaires et jours fériés (Grille)",
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      noOrchestraCheckbox,
+      " Masquer les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
     ),
     el(
       "div",
