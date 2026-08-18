@@ -741,12 +741,12 @@ table.week td.repos:not(.today) {
 }
 
 /* Une période : planning (grille de services) et fiches de programme des
-   Listes travaillées pendant la période, côte à côte — reprend la mise en
-   page de l'ancienne Bible de saison papier, planning et détail des Listes
-   sur la même page plutôt que sur des pages séparées (retour #114) — cf.
-   renderPeriodePage dans app.js. Sur petit écran, les deux colonnes
-   s'empilent (`flex-wrap`) : la vue Document/Bible se consulte surtout à
-   l'impression, un empilement reste largement lisible à l'écran. */
+   Listes travaillées pendant la période, côte à côte à l'écran — reprend
+   l'esprit de l'ancienne Bible de saison papier (retour #114) — cf.
+   renderPeriodePage dans app.js. À l'impression, les deux parties sont
+   plutôt empilées sur deux pages dédiées (cf. @media print plus bas) : ce
+   layout flex ne sert alors qu'à l'écran, où un empilement (`flex-wrap`)
+   reste largement lisible. */
 .doc-periode-page {
   display: flex;
   flex-wrap: wrap;
@@ -1612,14 +1612,14 @@ footer a {
     font-size: 9.5px;
   }
 
-  /* Vue Bible : police nettement resserrée par rapport à la vue Grille
-     (inchangée ci-dessus), pour que le planning et le détail des Listes
-     d'une période tiennent ensemble sur une seule page recto, comme
-     l'ancienne Bible papier (retour #114). Le document est pensé pour
-     l'export PDF, consultable en zoomant au besoin. Scopé à la vue Bible
-     via l'attribut posé par setView() dans app.js : la vue Grille n'est
-     jamais présente dans le DOM en même temps, donc aucun risque de fuite
-     sur son propre rendu à l'impression. */
+  /* Vue Bible : police de base nettement resserrée par rapport à la vue
+     Grille (inchangée ci-dessus) — sert de socle au détail des Listes
+     (5px, cf. .doc-periode-listes plus bas) ; le planning, lui, remonte à
+     9px puisqu'il a désormais sa propre page (retour #114, cf. plus bas).
+     Le document est pensé pour l'export PDF, consultable en zoomant au
+     besoin. Scopé à la vue Bible via l'attribut posé par setView() dans
+     app.js : la vue Grille n'est jamais présente dans le DOM en même temps,
+     donc aucun risque de fuite sur son propre rendu à l'impression. */
   body[data-view="document"] {
     font-size: 6px;
   }
@@ -1734,17 +1734,27 @@ footer a {
      disparaît : au pire, une page blanche superflue en fin de document
      (gênant mais inoffensif) — jamais une période qui disparaît. */
 
+  /* Planning agrandi, seul sur sa page (retour #114) : tant qu’à empiler
+     planning et détail des Listes (cf. commentaire ci-dessus), autant que
+     le planning profite de toute la page plutôt que de rester à la taille
+     resserrée pensée pour cohabiter avec les Listes juste en dessous —
+     laisser des pages presque vides entre deux périodes n’a plus de sens
+     une fois les deux parties séparées par un saut de page (retour #114). */
   .doc-periode-planning {
     display: block;
-    margin-bottom: 6px;
+    font-size: 9px;
+    margin-bottom: 0;
   }
 
-  /* Détail des Listes désormais sous le planning, pleine largeur (plus à
-     côté, cf. commentaire ci-dessus) : la police peut remonter un peu par
-     rapport à la version en colonne étroite (4.3px), la largeur disponible
-     réduisant le nombre de lignes en renvoi. */
+  /* Détail des Listes sur la page suivante (retour #114) : un saut de page
+     dédié, plutôt que de le laisser s’enchaîner, sur la même page, à la
+     suite du planning — auparavant, un planning qui ne remplissait pas
+     toute la page laissait le détail des Listes commencer dans l’espace
+     restant, trop juste pour sa première fiche mais trop grand pour rester
+     vide : d’où les pages presque blanches signalées. */
   .doc-periode-listes {
     display: block;
+    break-before: page;
     font-size: 5px;
     line-height: 1.2;
   }
@@ -1810,17 +1820,17 @@ footer a {
     margin: 0;
   }
 
-  /* Cases de planning et chips d'événement : paddings fixes en px, à
-     resserrer encore pour la vue Bible (retour #114 : police divisée par
-     ~1.6, des paddings inchangés y deviendraient proportionnellement énormes). */
-  body[data-view="document"] table.week th,
-  body[data-view="document"] table.week td {
-    padding: 1px;
+  /* Cases de planning et chips d'événement : paddings fixes en px, ajustés
+     à la police du planning (9px, cf. .doc-periode-planning ci-dessus) —
+     pas à celle, plus petite, du reste de la vue Bible (retour #114). */
+  .doc-periode-planning table.week th,
+  .doc-periode-planning table.week td {
+    padding: 2px;
   }
 
-  body[data-view="document"] .evt {
-    padding: 1px 2px;
-    line-height: 1.15;
+  .doc-periode-planning .evt {
+    padding: 2px 3px;
+    line-height: 1.2;
   }
 }
 
