@@ -12,6 +12,31 @@ const CATEGORIES = {
   resa: "Résa de salles",
 }
 
+// Code couleur (#109) : une couleur par Liste (production), stable sur tous
+// ses services (répétition, générale, concert…) plutôt que par type de
+// service. Indice dérivé d'un hash du nom de la Liste (pas d'état à stocker :
+// une même Liste retombe toujours sur la même couleur) dans une palette de
+// LISTE_COLOR_COUNT teintes qui tournent, comme les calendriers colorés d'un
+// agenda classique (au-delà de LISTE_COLOR_COUNT Listes actives à la fois,
+// la couleur peut se répéter).
+const LISTE_COLOR_COUNT = 12
+
+function listeColorClass(liste) {
+  let hash = 0
+  for (let i = 0; i < liste.length; i++)
+    hash = (hash * 31 + liste.charCodeAt(i)) | 0
+  return `liste-color-${Math.abs(hash) % LISTE_COLOR_COUNT}`
+}
+
+// Services qui ne concernent pas les musicien·nes de l'orchestre (répétition
+// chef+soliste(s)+piano, travail technique seul…) : cette distinction traverse
+// plusieurs catégories (répétition, générale…) et n'existe pas comme catégorie
+// à part entière côté Dièse — on la repère à la mention « (sans orchestre) »
+// que Dièse ajoute elle-même au libellé de l'activité (issue #116).
+function isNoOrchestra(e) {
+  return /sans orchestre/i.test(e.activity)
+}
+
 // Abréviations de lieux, du plus spécifique au plus générique
 const LOCATION_SHORT = [
   ["Victoria Hall", "VH"],
@@ -80,7 +105,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }] } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -94,6 +119,7 @@ const state = {
 function loadPrefs() {
   const defaults = {
     hiddenCategories: ["resa"],
+    hideNoOrchestra: false,
     showCancelled: true,
     // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
     showHolidays: true,
@@ -544,6 +570,7 @@ function visibleEvents() {
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
       !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
+      !(p.hideNoOrchestra && isNoOrchestra(e)) &&
       (p.showCancelled || !e.cancelled) &&
       (!p.listes.length || p.listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
@@ -608,7 +635,8 @@ function closeBtnTop() {
 }
 
 function eventChip(e, { showDate = false } = {}) {
-  const classes = ["evt", `cat-${e.category}`]
+  const classes = ["evt", listeColorClass(e.liste)]
+  if (isNoOrchestra(e)) classes.push("no-orchestra")
   if (e.cancelled) classes.push("cancelled")
   if (state.recentUids.has(e.uid)) classes.push("recent")
   const chip = el(
@@ -652,14 +680,12 @@ function showDetail(e) {
   const box = document.getElementById("detail-content")
   box.replaceChildren(
     closeBtnTop(),
-    el(
-      "span",
-      { class: `detail-cat evt cat-${e.category}` },
-      CATEGORIES[e.category],
-    ),
+    el("span", { class: "detail-cat" }, CATEGORIES[e.category]),
     el(
       "h2",
       {},
+      el("span", { class: `liste-swatch ${listeColorClass(e.liste)}` }),
+      " ",
       el(
         "button",
         {
@@ -712,6 +738,7 @@ function showDetail(e) {
           )
         : null,
     ),
+    ...serviceWorksDetail(e),
     ...productionDetail(e.liste),
     ...historyDetail(e.uid),
   )
@@ -841,6 +868,34 @@ function scorePortalLink() {
   )
 }
 
+// Œuvres travaillées pendant CE service précis (issue #110), d'après le
+// tableau des services du mémo de production (scripts/update-memo.mjs,
+// prod.serviceWorks : { uid → [n,...] }, n étant l'index 1-based dans
+// prod.works). Absent si le mémo ne le précise pas pour ce service ou si le
+// rapprochement avec le planning était ambigu — pas de repli approximatif.
+function serviceWorksDetail(e) {
+  const prod = state.productions[e.liste] || {}
+  const indices = (prod.serviceWorks || {})[e.uid]
+  if (!indices || !indices.length) return []
+  const works = prod.works || []
+  // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
+  // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
+  const titles = [...indices]
+    .sort((a, b) => a - b)
+    .map((i) => works[i - 1])
+    .filter(Boolean)
+    .map((w) => (typeof w === "string" ? w : w.oeuvre))
+  if (!titles.length) return []
+  return [
+    el(
+      "h3",
+      { class: "detail-section" },
+      "Œuvres travaillées pendant ce service",
+    ),
+    el("ul", { class: "works" }, ...titles.map((t) => el("li", {}, t))),
+  ]
+}
+
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
 // d'instrumentation, effectif, durée) pour une Liste donnée.
 function productionDetail(liste) {
@@ -968,6 +1023,8 @@ function renderListeDialog(liste) {
     el(
       "h2",
       {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
       liste,
       state.recentListes.has(liste)
         ? el(
@@ -1118,7 +1175,7 @@ function showHolidayDialog(tag, ...content) {
   const box = document.getElementById("detail-content")
   box.replaceChildren(
     closeBtnTop(),
-    el("span", { class: "detail-cat evt cat-autre" }, tag),
+    el("span", { class: "detail-cat" }, tag),
     ...content.filter((c) => c !== null && c !== undefined),
   )
   dlg.showModal()
@@ -1730,7 +1787,13 @@ function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
   return el(
     "div",
     { class: "search-group" },
-    el("h3", {}, liste),
+    el(
+      "h3",
+      {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
+      liste,
+    ),
     ...infoLines,
     el(
       "div",
@@ -1789,7 +1852,7 @@ function renderLegend() {
     return el(
       "span",
       {
-        class: `legend-item cat-${cat}${off ? " off" : ""}`,
+        class: `legend-item${off ? " off" : ""}`,
         onclick: () => {
           const hidden = state.prefs.hiddenCategories
           state.prefs.hiddenCategories = off
@@ -1802,6 +1865,30 @@ function renderLegend() {
       label,
     )
   })
+
+  // Bascule « Sans orchestre » : traverse plusieurs catégories (répétition,
+  // générale…), affichée dans les deux vues (Agenda et Grille), cliquable
+  // comme les catégories pour masquer/afficher (#116).
+  {
+    const off = state.prefs.hideNoOrchestra
+    items.push(
+      el(
+        "span",
+        {
+          class: `legend-item legend-no-orchestra${off ? " off" : ""}`,
+          title:
+            "Services qui ne concernent pas les musicien·nes de l'orchestre " +
+            "(répétition chef+soliste(s)+piano, technique seule…)",
+          onclick: () => {
+            state.prefs.hideNoOrchestra = !state.prefs.hideNoOrchestra
+            savePrefs()
+            render()
+          },
+        },
+        "Sans orchestre",
+      ),
+    )
+  }
 
   // Repère « Vacances / fériés » : en vue Grille et Document, les deux seules
   // vues à afficher la grille de services (ces repères n'apparaissent que
@@ -1873,7 +1960,15 @@ function renderPrefs() {
     })
     cb.checked = state.prefs.listes.includes(l)
     checkboxes.set(l, cb)
-    return el("label", { class: "liste-option" }, cb, " ", l)
+    return el(
+      "label",
+      { class: "liste-option" },
+      cb,
+      " ",
+      el("span", { class: `liste-swatch ${listeColorClass(l)}` }),
+      " ",
+      l,
+    )
   })
 
   const filterBox = listeOptions.length
@@ -2005,7 +2100,6 @@ function renderPrefs() {
       "label",
       { class: "liste-option activite-option" },
       parent,
-      el("span", { class: `cat-swatch cat-${cat}` }),
       CATEGORIES[cat],
     )
 
@@ -2097,6 +2191,16 @@ function renderPrefs() {
   })
   holidaysCheckbox.checked = state.prefs.showHolidays
 
+  const noOrchestraCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.hideNoOrchestra = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  noOrchestraCheckbox.checked = state.prefs.hideNoOrchestra
+
   updateNote()
   for (const cat of cats) refreshCat(cat)
   updateCatNote()
@@ -2169,6 +2273,12 @@ function renderPrefs() {
       { class: "prefs-cancelled" },
       holidaysCheckbox,
       " Afficher les vacances scolaires et jours fériés (Grille)",
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      noOrchestraCheckbox,
+      " Masquer les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
     ),
     el(
       "div",

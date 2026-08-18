@@ -130,7 +130,15 @@ async function generateMemoPdfText() {
   const pdfPath = join(dir, "memo.pdf")
   writeFileSync(pdfPath, pdf)
   execFileSync("pdftotext", [pdfPath, join(dir, "memo.txt")])
-  return readFileSync(join(dir, "memo.txt"), "utf8")
+  // Extraction séparée « -layout » (colonnes alignées), uniquement pour lire le
+  // tableau des services (cf. parseServiceTables ci-dessous) : le reste du
+  // parseur s'appuie sur la linéarisation par défaut de pdftotext, minutieusement
+  // calée sur son ordre de lecture — ne pas y substituer ce second mode.
+  execFileSync("pdftotext", ["-layout", pdfPath, join(dir, "memo-layout.txt")])
+  return {
+    text: readFileSync(join(dir, "memo.txt"), "utf8"),
+    layoutText: readFileSync(join(dir, "memo-layout.txt"), "utf8"),
+  }
 }
 
 // --- Parsing -------------------------------------------------------------------
@@ -415,22 +423,22 @@ function parseSection(body) {
   return prod
 }
 
-function parseMemoText(text) {
-  const knownListes = new Set(
-    JSON.parse(readFileSync(planningPath, "utf8")).events.map((e) => e.liste),
+// Canonicalise un titre de fiche du PDF vers le nom de liste du planning
+// (partagé par parseMemoText et parseServiceTables, cf. plus bas).
+function canonicalListeKey(line, knownListes) {
+  const l = line.trim()
+  if (knownListes.has(l)) return l
+  const mdc = l.match(/^MDC(\d+)\b/)
+  if (mdc) return `Musique De Chambre ${mdc[1]}`
+  const short = l.match(
+    /^(Liste \S+|Concours à définir|Doudou Concert \d+|Concerts pour Petites Oreilles \d+|Projet \d+|Accueil \d+|Atelier Découverte \S+)/,
   )
-  // Canonicalise un titre de fiche du PDF vers le nom de liste du planning.
-  const canonicalKey = (line) => {
-    const l = line.trim()
-    if (knownListes.has(l)) return l
-    const mdc = l.match(/^MDC(\d+)\b/)
-    if (mdc) return `Musique De Chambre ${mdc[1]}`
-    const short = l.match(
-      /^(Liste \S+|Concours à définir|Doudou Concert \d+|Concerts pour Petites Oreilles \d+|Projet \d+|Accueil \d+|Atelier Découverte \S+)/,
-    )
-    if (short && knownListes.has(short[1])) return short[1]
-    return null
-  }
+  if (short && knownListes.has(short[1])) return short[1]
+  return null
+}
+
+function parseMemoText(text, knownListes) {
+  const canonicalKey = (line) => canonicalListeKey(line, knownListes)
 
   const lines = text.split("\n").map((l) => l.trim())
 
@@ -461,6 +469,201 @@ function parseMemoText(text) {
     result[sections[s].key] = prod
   }
   return result
+}
+
+// --- Tableau des services (œuvres travaillées par service, issue #110) -----
+// Le mémo détaille, pour chaque programme, un tableau DATE / HEURE / LIEU /
+// ACTIVITÉ / ŒUVRES / NOTES listant les œuvres travaillées à chaque service.
+// L'extraction par défaut de pdftotext (parseSection ci-dessus) linéarise ce
+// tableau dans un ordre inexploitable (le texte d'une cellule DATE fusionnée
+// sur plusieurs lignes peut apparaître APRÈS les lignes qu'elle couvre) ; on
+// relit donc spécifiquement l'extraction `-layout` (colonnes alignées) pour
+// cette table, sans toucher au reste du parseur.
+//
+// Principe, volontairement défensif (mieux vaut ne rien afficher qu'afficher
+// une fausse association œuvre ↔ service) : chaque ligne de service est
+// repérée par son horaire "HH:MM - HH:MM" ; la date qui le précède sur la
+// même ligne (ou, si coupée par la mise en page, sur la ligne suivante) est
+// résolue en date ISO grâce à la période ("Période N du DD/MM/AAAA au
+// DD/MM/AAAA") en cours. Le rapprochement avec un service précis du planning
+// (par uid) se fait ensuite dans matchServiceWorks, sur la correspondance
+// EXACTE liste + date + horaire — tout service ambigu ou introuvable dans
+// planning.json est simplement ignoré (le mémo peut être légèrement désynchro
+// du planning, ex. horaire encore provisoire).
+
+const FRENCH_MONTHS = {
+  janvier: 0,
+  février: 1,
+  mars: 2,
+  avril: 3,
+  mai: 4,
+  juin: 5,
+  juillet: 6,
+  août: 7,
+  septembre: 8,
+  octobre: 9,
+  novembre: 10,
+  décembre: 11,
+}
+const MONTH_NAMES_RE =
+  /janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre/i
+const SERVICE_TIME_RE = /(\d{2}:\d{2})\s*-\s*(\d{2}:\d{2})/
+const PERIOD_RANGE_RE =
+  /Période \d+ du (\d{2})\/(\d{2})\/(\d{4}) au (\d{2})\/(\d{2})\/(\d{4})/
+const SERVICE_TABLE_HEADER_RE =
+  /^\s*DATE\s+HEURE\s+LIEU\s+ACTIVITÉ\s+ŒUVRES\s+NOTES\s*$/
+const PDF_FOOTER_RE =
+  /^Edité le \d{2}\/\d{2}\/\d{4} \d{2}:\d{2}.*Page \d+ sur \d+$/
+
+// "16 août" (jour + mois, la semaine et l'année n'étant pas fiables dans le
+// texte) → date ISO, l'année étant déduite de la période en cours (à 3 jours
+// de marge, pour couvrir un service en fin/début de période).
+function resolveServiceDate(dateText, period) {
+  if (!period) return null
+  const m = dateText.match(
+    new RegExp(`(\\d{1,2})\\s+(${MONTH_NAMES_RE.source})`, "i"),
+  )
+  if (!m) return null
+  const day = parseInt(m[1], 10)
+  const month = FRENCH_MONTHS[m[2].toLowerCase()]
+  if (month === undefined) return null
+  const slackMs = 3 * 24 * 60 * 60 * 1000
+  for (const year of [
+    period.start.getFullYear(),
+    period.start.getFullYear() + 1,
+    period.start.getFullYear() - 1,
+  ]) {
+    const d = new Date(year, month, day)
+    if (
+      d.getTime() >= period.start.getTime() - slackMs &&
+      d.getTime() <= period.end.getTime() + slackMs
+    ) {
+      return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`
+    }
+  }
+  return null
+}
+
+// Relit l'extraction -layout et renvoie, par liste, les lignes du tableau des
+// services qui précisent des œuvres : [{ date (ISO), debut, fin, oeuvres
+// ([n,...], 1-indexé dans l'ordre de prod.works) }].
+function parseServiceTables(layoutText, knownListes) {
+  const rawLines = layoutText.split("\n")
+  const result = {}
+  let period = null
+  let currentListe = null
+  let dateCarry = null
+  let inTable = false
+
+  for (let i = 0; i < rawLines.length; i++) {
+    const line = rawLines[i]
+    const trimmed = line.trim()
+
+    const pm = trimmed.match(PERIOD_RANGE_RE)
+    if (pm) {
+      period = {
+        start: new Date(
+          parseInt(pm[3], 10),
+          parseInt(pm[2], 10) - 1,
+          parseInt(pm[1], 10),
+        ),
+        end: new Date(
+          parseInt(pm[6], 10),
+          parseInt(pm[5], 10) - 1,
+          parseInt(pm[4], 10),
+        ),
+      }
+    }
+
+    if (!trimmed) continue
+    if (PDF_FOOTER_RE.test(trimmed)) continue
+
+    if (SERVICE_TABLE_HEADER_RE.test(line)) {
+      inTable = true
+      continue
+    }
+
+    // Nouvelle fiche : une ligne canonicalisable en dehors du tableau clôt la
+    // table de la fiche précédente (report de date remis à zéro).
+    const key = canonicalListeKey(trimmed, knownListes)
+    if (key) {
+      currentListe = key
+      dateCarry = null
+      inTable = false
+      continue
+    }
+
+    if (!inTable || !currentListe) continue
+
+    // Une ligne de service commence toujours par (ou contient) son horaire ;
+    // les lignes sans horaire sont des retours à la ligne d'ACTIVITÉ/NOTES
+    // trop longues, sans intérêt ici.
+    const tm = line.match(SERVICE_TIME_RE)
+    if (!tm) continue
+
+    const before = line.slice(0, tm.index)
+    let dateText = before.trim()
+    if (dateText && !MONTH_NAMES_RE.test(dateText)) {
+      // Date coupée par la mise en colonnes ("Dimanche 16" / "août" sur la
+      // ligne suivante) : recolle le mois s'il est bien seul en tête de la
+      // ligne suivante (sinon c'est déjà un autre service).
+      const next = rawLines[i + 1] || ""
+      const nm = next.match(/^(\S+)(\s{2,}|$)/)
+      if (nm && MONTH_NAMES_RE.test(nm[1]) && !SERVICE_TIME_RE.test(next)) {
+        dateText = `${dateText} ${nm[1]}`
+      }
+    }
+    if (dateText) dateCarry = dateText
+    const effectiveDateText = dateText || dateCarry
+    if (!effectiveDateText) continue
+
+    // Colonne ŒUVRES : un ou plusieurs chiffres séparés par des tirets,
+    // isolés par au moins deux espaces (la marge de colonne) — jamais un
+    // fragment de mot du LIEU/ACTIVITÉ/NOTES environnant.
+    const after = line.slice(tm.index + tm[0].length)
+    const oeuvresMatch = after.match(
+      /(?:^|\s{2,})(\d(?:\s*-\s*\d)*)(?:\s{2,}|$)/,
+    )
+    if (!oeuvresMatch) continue
+    const oeuvres = oeuvresMatch[1]
+      .split("-")
+      .map((n) => parseInt(n.trim(), 10))
+      .filter((n) => n >= 1)
+    if (!oeuvres.length) continue
+
+    const isoDate = resolveServiceDate(effectiveDateText, period)
+    if (!isoDate) continue
+
+    result[currentListe] ??= []
+    result[currentListe].push({
+      date: isoDate,
+      debut: tm[1],
+      fin: tm[2],
+      oeuvres,
+    })
+  }
+  return result
+}
+
+// Rapproche les lignes du tableau des services des événements du planning
+// (par liste + date + horaire EXACTS) pour produire { uid: [n,...] }. Un
+// service sans correspondance unique (mémo désynchro, rencontre non publiée
+// à l'ICS…) est silencieusement omis plutôt que mal associé.
+function matchServiceWorks(rows, events, workCount) {
+  const serviceWorks = {}
+  for (const row of rows) {
+    const oeuvres = row.oeuvres.filter((n) => n <= workCount)
+    if (!oeuvres.length) continue
+    const candidates = events.filter(
+      (e) =>
+        e.start.slice(0, 10) === row.date &&
+        e.start.slice(11) === row.debut &&
+        e.end.slice(11) === row.fin,
+    )
+    if (candidates.length !== 1) continue
+    serviceWorks[candidates[0].uid] = oeuvres
+  }
+  return serviceWorks
 }
 
 // --- Diff du mémo -----------------------------------------------------------
@@ -552,10 +755,28 @@ function diffMemo(previous, next) {
 // --- Main ------------------------------------------------------------------------
 
 const textArg = process.argv[2]
-const memoText = textArg
-  ? readFileSync(textArg, "utf8")
+// En test local (fichier texte déjà extrait), pas de pendant `-layout` : le
+// tableau des services (issue #110) reste simplement vide, tout le reste du
+// parseur fonctionne à l'identique.
+const { text: memoText, layoutText } = textArg
+  ? { text: readFileSync(textArg, "utf8"), layoutText: null }
   : await generateMemoPdfText()
-const parsed = parseMemoText(memoText)
+
+const planningEvents = JSON.parse(readFileSync(planningPath, "utf8")).events
+const knownListes = new Set(planningEvents.map((e) => e.liste))
+
+const parsed = parseMemoText(memoText, knownListes)
+
+if (layoutText) {
+  const serviceTables = parseServiceTables(layoutText, knownListes)
+  for (const [liste, rows] of Object.entries(serviceTables)) {
+    const prod = parsed[liste]
+    if (!prod || !prod.works || !prod.works.length) continue
+    const events = planningEvents.filter((e) => e.liste === liste)
+    const serviceWorks = matchServiceWorks(rows, events, prod.works.length)
+    if (Object.keys(serviceWorks).length) prod.serviceWorks = serviceWorks
+  }
+}
 
 if (Object.keys(parsed).length < 20)
   throw new Error(
@@ -567,7 +788,7 @@ const previous = existsSync(productionsPath)
   : {}
 const output = {
   _lisezmoi:
-    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », et « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]). Les clés commençant par « _ » sont ignorées par l'app.",
+    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]) et « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu). Les clés commençant par « _ » sont ignorées par l'app.",
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
