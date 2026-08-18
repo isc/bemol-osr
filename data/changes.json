@@ -1,6 +1,69 @@
 {
  "entries": [
   {
+   "at": "2026-08-18T14:55:43.700Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133258",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr133258",
+      "start": "2026-09-03T14:30",
+      "end": "2026-09-03T17:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133258",
+      "start": "2026-09-03T14:30",
+      "end": "2026-09-03T17:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133259",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr133259",
+      "start": "2026-09-04T10:00",
+      "end": "2026-09-04T13:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "La Tempête",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133259",
+      "start": "2026-09-04T10:00",
+      "end": "2026-09-04T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "La Tempête",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-15T05:02:38.124Z",
    "type": "memo",
    "programs": [
