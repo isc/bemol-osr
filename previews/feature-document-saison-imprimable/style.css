@@ -66,6 +66,13 @@
      Modifs (cf. .change-item.modified) — anciennement --cat-concert. */
   --change-modified: #f5a83a;
 
+  /* Services « sans orchestre » (#116) : couleur neutre et volontairement
+     distincte de la palette --liste-color-*, pour signaler d'un coup d'œil
+     qu'un service ne concerne pas les musicien·nes de l'orchestre — quelle
+     que soit sa Liste. */
+  --no-orchestre-bg: #d8d4c8;
+  --no-orchestre-text: #55503f;
+
   color-scheme: light;
 }
 
@@ -381,6 +388,18 @@ table.week td.slot-name {
   background: var(--liste-color-11);
 }
 
+/* Service « sans orchestre » (#116) : couleur neutre volontairement à part de
+   la palette --liste-color-*, prioritaire sur elle (déclarée après dans la
+   cascade) pour rester reconnaissable quelle que soit la Liste. */
+.evt.no-orchestra {
+  background: var(--no-orchestre-bg);
+  color: var(--no-orchestre-text);
+}
+.evt.no-orchestra .evt-loc {
+  color: var(--no-orchestre-text);
+  opacity: 0.75;
+}
+
 /* Repère vacances/fériés : dégradé des couleurs des trois régions (GE, VD, France) */
 .legend-item.legend-holidays {
   background: linear-gradient(
@@ -479,6 +498,9 @@ table.week td.slot-name {
   --liste-color-11: #3a4560;
 
   --change-modified: #8a5a1a;
+
+  --no-orchestre-bg: #3a3f47;
+  --no-orchestre-text: #c2c8d1;
 
   --hol-ge-soft: #4a2521;
   --hol-vd-soft: #1f3a28;
