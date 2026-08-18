@@ -1418,17 +1418,16 @@ function periodeListeCards(periode, ctx) {
     .filter(({ detail }) => detail.length)
 }
 
-// Une période, avec sa grille de services et les fiches de programme
+// Une période, avec sa grille de services puis les fiches de programme
 // (chef, solistes, œuvres, instrumentation) des Listes travaillées pendant
-// cette période, côte à côte sur la même page à l'impression — reprend la
-// mise en page de l'ancienne Bible de saison papier, où le planning et le
-// détail des Listes apparaissaient sur une seule et même page plutôt que sur
-// des pages séparées (retour #114 : PDF fourni en exemple par
-// @schneiderflute-create, dont on ne reprend que la mise en page, pas les
-// données). Une période commence toujours sur une nouvelle page à
-// l'impression (cf. .doc-periode-page dans style.css) ; une période trop
-// chargée déborde simplement sur la page suivante, l'objectif étant une
-// période par page dans le cas courant, pas une garantie absolue.
+// cette période — reprend l'esprit de l'ancienne Bible de saison papier
+// (retour #114 : PDF fourni en exemple par @schneiderflute-create, dont on
+// ne reprend que la mise en page, pas les données), en deux pages dédiées
+// plutôt qu'une seule : le planning, agrandi, occupe sa propre page (cf.
+// .doc-periode-planning dans style.css), suivi d'un saut de page vers le
+// détail des Listes. Un planning ou un détail trop chargé déborde
+// simplement sur la page suivante, l'objectif étant une page pleine par
+// partie dans le cas courant, pas une garantie absolue.
 function renderPeriodePage(periode, ctx) {
   const planning = el("div", { class: "doc-periode-planning" })
   planning.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
