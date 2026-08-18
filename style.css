@@ -716,12 +716,6 @@ table.week td.repos:not(.today) {
   font-size: 0.9em;
 }
 
-.doc-print-hint {
-  flex-basis: 100%;
-  font-size: 0.8em !important;
-  font-style: italic;
-}
-
 .doc-print-btn {
   flex: none;
   background: var(--accent);
@@ -1594,9 +1588,9 @@ footer a {
      page, puis rendue sur une feuille d'une autre largeur. En laissant le
      choix entièrement à la boîte de dialogue (sans "size" ici), la
      pagination reste calculée pour l'orientation effectivement imprimée.
-     Le mode Paysage reste conseillé pour la lisibilité (cf. le texte
-     au-dessus du bouton Imprimer) mais c'est à choisir dans la boîte de
-     dialogue d'impression, pas imposé par l'app. */
+     La mise en page cible désormais le Portrait (planning agrandi sur sa
+     propre page, détail des Listes sur la suivante, retour #114) ; le
+     Paysage reste possible mais n'est plus recommandé dans l'app. */
   @page {
     margin: 1cm;
   }
