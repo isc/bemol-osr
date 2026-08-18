@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-18T14:55:43.700Z",
- "count": 595,
+ "updatedAt": "2026-08-18T19:00:53.036Z",
+ "count": 587,
  "events": [
   {
    "uid": "osr225046",
@@ -883,17 +883,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr213474",
-   "start": "2026-09-23T18:00",
-   "end": "2026-09-23T21:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (cors)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132718",
    "start": "2026-09-24T10:00",
    "end": "2026-09-24T13:00",
@@ -1488,17 +1477,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr213476",
-   "start": "2026-10-15T14:30",
-   "end": "2026-10-15T17:30",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (violons)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr133290",
    "start": "2026-10-15T19:30",
    "end": "2026-10-15T22:30",
@@ -1562,28 +1540,6 @@
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU, VIL",
-   "cancelled": false
-  },
-  {
-   "uid": "osr213477",
-   "start": "2026-10-19T10:00",
-   "end": "2026-10-19T13:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "répétitions candidats (percussion)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr226653",
-   "start": "2026-10-19T14:00",
-   "end": "2026-10-19T17:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (percussion)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
    "cancelled": false
   },
   {
@@ -1818,17 +1774,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr213479",
-   "start": "2026-10-29T09:30",
-   "end": "2026-10-29T12:30",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (altos)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr223651",
    "start": "2026-10-29T09:30",
    "end": "2026-10-29T15:30",
@@ -1836,17 +1781,6 @@
    "activity": "audiogrammes",
    "category": "autre",
    "location": "HUG",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr226655",
-   "start": "2026-10-29T14:00",
-   "end": "2026-10-29T17:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (tubas)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
    "project": "",
    "cancelled": false
   },
@@ -2398,28 +2332,6 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "MOTET",
-   "cancelled": false
-  },
-  {
-   "uid": "osr213480",
-   "start": "2026-11-20T10:00",
-   "end": "2026-11-20T13:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (contrebasses)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr226657",
-   "start": "2026-11-20T14:00",
-   "end": "2026-11-20T17:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition (hautbois)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
    "cancelled": false
   },
   {
