@@ -1739,10 +1739,18 @@ footer a {
      le planning profite de toute la page plutôt que de rester à la taille
      resserrée pensée pour cohabiter avec les Listes juste en dessous —
      laisser des pages presque vides entre deux périodes n’a plus de sens
-     une fois les deux parties séparées par un saut de page (retour #114). */
+     une fois les deux parties séparées par un saut de page (retour #114).
+     Resserré une nouvelle fois à 8px (retour #114, tour suivant) : à 9px,
+     les périodes les plus chargées en semaines (3, 4, 7, 9) atteignaient
+     jusqu'à 76 % de la hauteur d'une page mesuré sur Chromium en local avec
+     les vraies données de production — marge trop juste pour rester sous
+     100 % une fois rendu par le moteur d'impression de Safari/iPadOS
+     (utilisé par les musiciens), qui a déjà montré à plusieurs reprises sur
+     ce document un rendu plus haut que Chromium à réglage identique. Avec
+     ce réglage, le pire cas mesuré redescend à 60 %. */
   .doc-periode-planning {
     display: block;
-    font-size: 9px;
+    font-size: 8px;
     margin-bottom: 0;
   }
 
@@ -1752,22 +1760,22 @@ footer a {
      toute la page laissait le détail des Listes commencer dans l’espace
      restant, trop juste pour sa première fiche mais trop grand pour rester
      vide : d’où les pages presque blanches signalées. */
-  /* Resserré à 3.6px/1.08 (retour #114, dernier tour) : sur les données de
-     production, les deux périodes les plus chargées (4 et 9 — concours de
-     composition, programmes Petites Oreilles/Doudou Concert en plus des
-     listes normales) dépassaient toujours la hauteur d'une page à 5px
-     (jusqu'à 137 % d'une page pour la Période 4, mesuré en local), forçant
-     une page de débordement — but demandé : une page agenda + une page
-     Listes par période, sans débordement. Marge de sécurité volontaire
-     jusqu'à ~87 % au pire cas plutôt que 100 % pile : les tours précédents
-     ont montré que la fragmentation à l'impression varie d'un moteur à
-     l'autre (Safari/iPadOS en particulier), un calcul pile-poil sur Chromium
-     redevient un débordement ailleurs. */
+  /* Légèrement agrandi à 3.8px/1.1 (retour #114, tour suivant), au prix
+     d'un peu de compacité : le resserrement précédent (3.6px) rendait le
+     détail des Listes difficile à lire. Combiné au retour d'une ligne par
+     catégorie ci-dessous (.work-detail), la période la plus chargée de la
+     saison (Période 4 : concours de composition, programmes Petites
+     Oreilles/Doudou Concert en plus des listes normales) remonte à ~84 %
+     de la hauteur d'une page mesuré en local — un débordement sur une page
+     supplémentaire pour cette période reste donc possible selon le moteur
+     d'impression, comme déjà observé et accepté pour cette période
+     précédemment dans ce fil : priorité donnée à la lisibilité plutôt qu'à
+     un calcul pile-poil. */
   .doc-periode-listes {
     display: block;
     break-before: page;
-    font-size: 3.6px;
-    line-height: 1.08;
+    font-size: 3.8px;
+    line-height: 1.1;
   }
 
   .doc-liste-card {
@@ -1793,32 +1801,26 @@ footer a {
     margin: 0;
   }
 
-  /* Plusieurs catégories (Remarques, Percussions, Claviers…) sur la même
-     ligne quand elles tiennent, au lieu d'une ligne chacune (retour #114,
-     tour suivant) : chaque champ garde sa propre ligne .wd-row, mais le
-     conteneur passe en flex-wrap pour les enchaîner horizontalement — un
-     champ court (ex. « Claviers ») rejoint alors le précédent sur la même
-     ligne, un champ long (ex. « Instrumentation ») garde sa ligne à lui vu
-     sa largeur. */
+  /* Une ligne par catégorie (Remarques, Percussions, Claviers…), comme
+     avant le tour précédent (retour #114) : le regroupement sur une même
+     ligne (flex-wrap) gagnait de la place mais rendait le détail difficile
+     à lire une fois combiné à une police déjà très petite. `.work-detail`
+     retrouve son comportement par défaut (celui de `.detail-box`, cf. plus
+     haut dans ce fichier) : bloc normal, chaque `.wd-row` sur sa propre
+     ligne. Contrepartie assumée : plus de hauteur pour les Listes des
+     périodes les plus chargées (cf. `.doc-periode-listes` ci-dessus). */
   .doc-liste-card .work-detail {
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    row-gap: 0;
   }
 
   .doc-liste-card .wd-row {
     margin: 0;
     gap: 3px;
-    flex: 0 1 auto;
   }
 
   /* Étiquette (Remarques, Percussions, Détail…) en gras et plus sombre que
-     la valeur : sur une ligne partagée par plusieurs champs (ci-dessus), le
-     texte ne suffit plus à distinguer l'étiquette de la valeur — couleur
-     fixe plutôt que var(--accent), pour rester lisible sur le papier blanc
-     de l'impression même quand l'app est en thème sombre (retour #114). */
+     la valeur, pour rester lisible sur le papier blanc de l'impression
+     même quand l'app est en thème sombre (retour #114). */
   .doc-liste-card .wd-label {
     min-width: 3.8em;
     font-weight: 700;
@@ -1832,16 +1834,16 @@ footer a {
   }
 
   /* Cases de planning et chips d'événement : paddings fixes en px, ajustés
-     à la police du planning (9px, cf. .doc-periode-planning ci-dessus) —
+     à la police du planning (8px, cf. .doc-periode-planning ci-dessus) —
      pas à celle, plus petite, du reste de la vue Bible (retour #114). */
   .doc-periode-planning table.week th,
   .doc-periode-planning table.week td {
-    padding: 2px;
+    padding: 1.5px;
   }
 
   .doc-periode-planning .evt {
-    padding: 2px 3px;
-    line-height: 1.2;
+    padding: 1.5px 2px;
+    line-height: 1.1;
   }
 }
 
