@@ -922,7 +922,7 @@ function productionDetail(liste) {
   if (works.length) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Œuvres au programme"),
-      el("ul", { class: "works" }, ...works.map(workNode)),
+      el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
     )
   }
   if (prod.effectif) {
@@ -1250,123 +1250,257 @@ function slotOf(e) {
 
 const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
 
-function renderGrille(main) {
+// Découpage de la saison courante en périodes de 4 semaines à partir du 1er
+// lundi d'août (cf. § Vocabulaire métier de CLAUDE.md), même découpage que la
+// « Bible » papier. Partagé entre la vue Grille et la vue Document.
+function seasonPeriodes() {
+  const start = firstMondayOfAugust(state.season)
+  const end = firstMondayOfAugust(state.season + 1)
+  const nWeeks = Math.round((end - start) / (7 * 86400e3))
+  const nPeriodes = Math.ceil(nWeeks / 4)
+  const periodes = []
+  for (let p = 0; p < nPeriodes; p++) {
+    const pStart = addDays(start, p * 28)
+    const pEndExcl = p === nPeriodes - 1 ? end : addDays(pStart, 28)
+    const pEnd = addDays(pEndExcl, -1)
+    const weeksInPeriode = Math.round((pEndExcl - pStart) / (7 * 86400e3))
+    periodes.push({ index: p, pStart, pEnd, pEndExcl, weeksInPeriode })
+  }
+  return periodes
+}
+
+function periodeTitle({ index, pStart, pEnd }) {
+  return `Période ${index + 1} — du ${pStart.getDate()} ${MONTH_NAMES[pStart.getMonth()]} au ${pEnd.getDate()} ${MONTH_NAMES[pEnd.getMonth()]} ${pEnd.getFullYear()}`
+}
+
+// Regroupe par jour les événements visibles, et rassemble les repères
+// (fériés, week-ends de repos) nécessaires à la construction des grilles de
+// semaine. Partagé entre la vue Grille et la vue Document.
+function weekTableContext() {
   const events = visibleEvents()
-  const showHolidays = state.prefs.showHolidays
-  const feriesMap = (state.holidays && state.holidays.feries) || new Map()
   const byDay = new Map()
   for (const e of events) {
     const key = e.start.slice(0, 10)
     if (!byDay.has(key)) byDay.set(key, [])
     byDay.get(key).push(e)
   }
+  return {
+    events,
+    byDay,
+    todayKey: localKey(new Date()),
+    showHolidays: state.prefs.showHolidays,
+    feriesMap: (state.holidays && state.holidays.feries) || new Map(),
+    // Week-ends de repos officiels (repris du tableau de service, cf.
+    // WEEKENDS_REPOS), repérés par la date de leur samedi. Ne se déduisent pas
+    // du planning : un week-end de repos peut comporter des services sans les
+    // musiciens de l'orchestre.
+    reposSaturdays: new Set(WEEKENDS_REPOS),
+  }
+}
 
-  // Week-ends de repos officiels (repris du tableau de service, cf.
-  // WEEKENDS_REPOS), repérés par la date de leur samedi. Ne se déduisent pas du
-  // planning : un week-end de repos peut comporter des services sans les
-  // musiciens de l'orchestre.
-  const reposSaturdays = new Set(WEEKENDS_REPOS)
+// Construit le <table class="week"> d'une semaine (grille de 7 jours × 3
+// créneaux), avec repères jour courant / week-end de repos / jours fériés.
+// Partagé entre la vue Grille et la vue Document (impression).
+function buildWeekTable(days, weekIndex, ctx) {
+  const { byDay, todayKey, showHolidays, feriesMap, reposSaturdays } = ctx
+  const hasToday = days.some((d) => localKey(d) === todayKey)
+  // Week-end « repos » : week-end signalé « repos » dans le tableau de
+  // service (repéré par la date de son samedi, days[5]). Les deux jours sont
+  // alors teintés et portent chacun une pastille « Repos ».
+  const [sat, sun] = [days[5], days[6]]
+  const reposWeekend = reposSaturdays.has(localKey(sat))
 
-  const start = firstMondayOfAugust(state.season)
-  const end = firstMondayOfAugust(state.season + 1)
-  const todayKey = localKey(new Date())
-
-  const nWeeks = Math.round((end - start) / (7 * 86400e3))
-  const nPeriodes = Math.ceil(nWeeks / 4)
-
-  for (let p = 0; p < nPeriodes; p++) {
-    const pStart = addDays(start, p * 28)
-    const pEndExcl = p === nPeriodes - 1 ? end : addDays(pStart, 28)
-    const pEnd = addDays(pEndExcl, -1)
-    const weeksInPeriode = Math.round((pEndExcl - pStart) / (7 * 86400e3))
-
-    const section = el("section", { class: "periode", id: `periode-${p + 1}` })
-    section.append(
-      el(
-        "h2",
-        {},
-        `Période ${p + 1} — du ${pStart.getDate()} ${MONTH_NAMES[pStart.getMonth()]} au ${pEnd.getDate()} ${MONTH_NAMES[pEnd.getMonth()]} ${pEnd.getFullYear()}`,
-      ),
+  const table = el("table", { class: "week" })
+  if (hasToday) table.id = "current-week"
+  const headRow = el(
+    "tr",
+    {},
+    el("th", { class: "week-label" }, `S${weekIndex + 1}`),
+  )
+  for (const d of days) {
+    const key = localKey(d)
+    const feries = showHolidays ? feriesMap.get(key) || [] : []
+    const isWeekend = d.getDay() === 0 || d.getDay() === 6
+    // Une classe "ferie-<région>" par région fériée ce jour-là : la case
+    // se colore alors du dégradé des seules régions concernées (cf.
+    // règles CSS th.ferie-ge / .ferie-vd / .ferie-fr et leurs
+    // combinaisons), au lieu d'une teinte "férié" générique qui ne disait
+    // pas quelle(s) région(s) étaient concernées.
+    const ferieRegions = REGIONS.filter((r) =>
+      feries.some((f) => f.region === r),
     )
+    const cls = [
+      key === todayKey ? "today" : "",
+      ...ferieRegions.map((r) => `ferie-${r.toLowerCase()}`),
+      reposWeekend && isWeekend ? "repos" : "",
+    ]
+      .filter(Boolean)
+      .join(" ")
+    const th = el("th", { class: cls }, fmtDay(d))
+    if (feries.length) th.append(feriesTags(d, feries))
+    if (reposWeekend && isWeekend) th.append(reposTag(sat, sun))
+    headRow.append(th)
+  }
+  const thead = el("thead", {}, headRow)
+  if (showHolidays)
+    for (const region of REGIONS) {
+      const vacRow = vacancesRow(region, days)
+      if (vacRow) thead.append(vacRow)
+    }
+  table.append(thead)
 
-    for (let w = 0; w < weeksInPeriode; w++) {
-      const monday = addDays(pStart, w * 7)
-      const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
-      const hasToday = days.some((d) => localKey(d) === todayKey)
-      // Week-end « repos » : week-end signalé « repos » dans le tableau de
-      // service (repéré par la date de son samedi, days[5]). Les deux jours sont
-      // alors teintés et portent chacun une pastille « Repos ».
-      const [sat, sun] = [days[5], days[6]]
-      const reposWeekend = reposSaturdays.has(localKey(sat))
-
-      const table = el("table", { class: "week" })
-      if (hasToday) table.id = "current-week"
-      const headRow = el(
-        "tr",
-        {},
-        el("th", { class: "week-label" }, `S${w + 1}`),
+  const tbody = el("tbody")
+  for (let slot = 0; slot < 3; slot++) {
+    const row = el("tr", {}, el("td", { class: "slot-name" }, SLOT_NAMES[slot]))
+    for (const d of days) {
+      const isWeekend = d.getDay() === 0 || d.getDay() === 6
+      const cls = [
+        localKey(d) === todayKey ? "today" : "",
+        reposWeekend && isWeekend ? "repos" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")
+      const cell = el("td", { class: cls })
+      const dayEvents = (byDay.get(localKey(d)) || []).filter(
+        (e) => slotOf(e) === slot,
       )
-      for (const d of days) {
-        const key = localKey(d)
-        const feries = showHolidays ? feriesMap.get(key) || [] : []
-        const isWeekend = d.getDay() === 0 || d.getDay() === 6
-        // Une classe "ferie-<région>" par région fériée ce jour-là : la case
-        // se colore alors du dégradé des seules régions concernées (cf.
-        // règles CSS th.ferie-ge / .ferie-vd / .ferie-fr et leurs
-        // combinaisons), au lieu d'une teinte "férié" générique qui ne disait
-        // pas quelle(s) région(s) étaient concernées.
-        const ferieRegions = REGIONS.filter((r) =>
-          feries.some((f) => f.region === r),
-        )
-        const cls = [
-          key === todayKey ? "today" : "",
-          ...ferieRegions.map((r) => `ferie-${r.toLowerCase()}`),
-          reposWeekend && isWeekend ? "repos" : "",
-        ]
-          .filter(Boolean)
-          .join(" ")
-        const th = el("th", { class: cls }, fmtDay(d))
-        if (feries.length) th.append(feriesTags(d, feries))
-        if (reposWeekend && isWeekend) th.append(reposTag(sat, sun))
-        headRow.append(th)
-      }
-      const thead = el("thead", {}, headRow)
-      if (showHolidays)
-        for (const region of REGIONS) {
-          const vacRow = vacancesRow(region, days)
-          if (vacRow) thead.append(vacRow)
-        }
-      table.append(thead)
+      for (const e of dayEvents) cell.append(eventChip(e))
+      row.append(cell)
+    }
+    tbody.append(row)
+  }
+  table.append(tbody)
+  return table
+}
 
-      const tbody = el("tbody")
-      for (let slot = 0; slot < 3; slot++) {
-        const row = el(
-          "tr",
-          {},
-          el("td", { class: "slot-name" }, SLOT_NAMES[slot]),
-        )
-        for (const d of days) {
-          const isWeekend = d.getDay() === 0 || d.getDay() === 6
-          const cls = [
-            localKey(d) === todayKey ? "today" : "",
-            reposWeekend && isWeekend ? "repos" : "",
-          ]
-            .filter(Boolean)
-            .join(" ")
-          const cell = el("td", { class: cls })
-          const dayEvents = (byDay.get(localKey(d)) || []).filter(
-            (e) => slotOf(e) === slot,
-          )
-          for (const e of dayEvents) cell.append(eventChip(e))
-          row.append(cell)
-        }
-        tbody.append(row)
-      }
-      table.append(tbody)
-      section.append(el("div", { class: "week-scroll" }, table))
+function renderGrille(main) {
+  const ctx = weekTableContext()
+
+  for (const periode of seasonPeriodes()) {
+    const section = el("section", {
+      class: "periode",
+      id: `periode-${periode.index + 1}`,
+    })
+    section.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
+
+    for (let w = 0; w < periode.weeksInPeriode; w++) {
+      const monday = addDays(periode.pStart, w * 7)
+      const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
+      section.append(
+        el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+      )
     }
     main.append(section)
   }
+}
+
+// --- Vue document (saison complète imprimable) ------------------------------
+
+// Listes ayant au moins un service dans une période, avec leur fiche de
+// programme complète (chef, solistes, œuvres, instrumentation) — seulement
+// celles dont le mémo de production dit quelque chose (sinon la fiche serait
+// vide : beaucoup de programmes lointains n'ont pas encore de mémo publié).
+function periodeListeCards(periode, ctx) {
+  const startKey = localKey(periode.pStart)
+  const endKeyExcl = localKey(periode.pEndExcl)
+  const listes = [
+    ...new Set(
+      ctx.events
+        .filter((e) => {
+          const key = e.start.slice(0, 10)
+          return key >= startKey && key < endKeyExcl
+        })
+        .map((e) => e.liste),
+    ),
+  ].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+  return listes
+    .map((liste) => ({ liste, detail: productionDetail(liste) }))
+    .filter(({ detail }) => detail.length)
+}
+
+// Une période, avec sa grille de services puis les fiches de programme
+// (chef, solistes, œuvres, instrumentation) des Listes travaillées pendant
+// cette période — reprend l'esprit de l'ancienne Bible de saison papier
+// (retour #114 : PDF fourni en exemple par @schneiderflute-create, dont on
+// ne reprend que la mise en page, pas les données), en deux pages dédiées
+// plutôt qu'une seule : le planning, agrandi, occupe sa propre page (cf.
+// .doc-periode-planning dans style.css), suivi d'un saut de page vers le
+// détail des Listes. Un planning ou un détail trop chargé déborde
+// simplement sur la page suivante, l'objectif étant une page pleine par
+// partie dans le cas courant, pas une garantie absolue.
+function renderPeriodePage(periode, ctx) {
+  const planning = el("div", { class: "doc-periode-planning" })
+  planning.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
+  for (let w = 0; w < periode.weeksInPeriode; w++) {
+    const monday = addDays(periode.pStart, w * 7)
+    const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
+    planning.append(
+      el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+    )
+  }
+
+  const cards = periodeListeCards(periode, ctx)
+  const listes = cards.length
+    ? el(
+        "div",
+        { class: "doc-periode-listes" },
+        ...cards.map(({ liste, detail }) =>
+          el(
+            "div",
+            { class: "detail-box doc-liste-card" },
+            el("h3", { class: "doc-liste-title" }, liste),
+            ...detail,
+          ),
+        ),
+      )
+    : null
+
+  return el(
+    "section",
+    {
+      class: "doc-periode-page" + (listes ? "" : " no-listes"),
+      id: `doc-periode-${periode.index + 1}`,
+    },
+    planning,
+    ...(listes ? [listes] : []),
+  )
+}
+
+// Reprend la grille de services de la vue Grille, avec, à côté de chaque
+// période, les fiches de programme des Listes qui y sont travaillées —
+// l'équivalent des « encarts Listes » de l'ancienne Bible de saison papier
+// (cf. issue #111 et retour #114).
+// Pensée pour l'impression (@media print, cf. style.css) : contrairement à
+// l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
+// données que le reste de l'app, sans pipeline de génération périodique à
+// maintenir en plus.
+function renderDocument(main) {
+  const ctx = weekTableContext()
+
+  main.append(
+    el(
+      "div",
+      { class: "doc-intro" },
+      el(
+        "p",
+        {},
+        "Grille de services et fiches de programme de toute la saison, en " +
+          "un seul document toujours à jour.",
+      ),
+      el(
+        "button",
+        {
+          type: "button",
+          class: "doc-print-btn",
+          onclick: () => window.print(),
+        },
+        "🖨️ Imprimer / exporter en PDF",
+      ),
+    ),
+  )
+
+  for (const periode of seasonPeriodes())
+    main.append(renderPeriodePage(periode, ctx))
 }
 
 // --- Vue agenda --------------------------------------------------------------
@@ -1746,9 +1880,10 @@ function renderLegend() {
     )
   }
 
-  // Repère « Vacances / fériés » : uniquement en vue Grille (ces repères n'y
-  // apparaissent que là), cliquable comme les catégories pour masquer/afficher.
-  if (state.view === "grille") {
+  // Repère « Vacances / fériés » : en vue Grille et Document, les deux seules
+  // vues à afficher la grille de services (ces repères n'apparaissent que
+  // là), cliquable comme les catégories pour masquer/afficher.
+  if (state.view === "grille" || state.view === "document") {
     const off = !state.prefs.showHolidays
     items.push(
       el(
@@ -2562,6 +2697,7 @@ function renderInstall() {
 function setView(view) {
   state.view = view
   localStorage.setItem("bemol-view", view)
+  document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
   render()
@@ -2572,6 +2708,7 @@ const VIEW_LABELS = {
   agenda: "Agenda",
   modifs: "Modifications",
   recherche: "Recherche",
+  document: "Bible",
 }
 
 function render() {
@@ -2602,6 +2739,7 @@ function renderContent() {
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "agenda") renderAgenda(main)
   else if (state.view === "recherche") renderRecherche(main)
+  else if (state.view === "document") renderDocument(main)
   else renderModifs(main)
 }
 
