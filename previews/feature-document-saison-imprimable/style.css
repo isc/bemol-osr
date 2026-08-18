@@ -1752,28 +1752,39 @@ footer a {
      toute la page laissait le détail des Listes commencer dans l’espace
      restant, trop juste pour sa première fiche mais trop grand pour rester
      vide : d’où les pages presque blanches signalées. */
+  /* Resserré à 3.6px/1.08 (retour #114, dernier tour) : sur les données de
+     production, les deux périodes les plus chargées (4 et 9 — concours de
+     composition, programmes Petites Oreilles/Doudou Concert en plus des
+     listes normales) dépassaient toujours la hauteur d'une page à 5px
+     (jusqu'à 137 % d'une page pour la Période 4, mesuré en local), forçant
+     une page de débordement — but demandé : une page agenda + une page
+     Listes par période, sans débordement. Marge de sécurité volontaire
+     jusqu'à ~87 % au pire cas plutôt que 100 % pile : les tours précédents
+     ont montré que la fragmentation à l'impression varie d'un moteur à
+     l'autre (Safari/iPadOS en particulier), un calcul pile-poil sur Chromium
+     redevient un débordement ailleurs. */
   .doc-periode-listes {
     display: block;
     break-before: page;
-    font-size: 5px;
-    line-height: 1.2;
+    font-size: 3.6px;
+    line-height: 1.08;
   }
 
   .doc-liste-card {
     break-inside: avoid;
-    padding: 1px 3px;
-    margin-bottom: 2px;
+    padding: 0.5px 2px;
+    margin-bottom: 1px;
   }
 
   .doc-liste-title {
-    margin: 0 0 2px;
+    margin: 0 0 1px;
     font-size: 1em;
   }
 
   /* Le détail complet par œuvre (instrumentation…) est restauré (retour
      #114) : resserrer ses espacements pour limiter le nombre de pages. */
   .doc-liste-card .detail-section {
-    margin: 2px 0 0;
+    margin: 1px 0 0;
     font-size: 1em;
   }
 
