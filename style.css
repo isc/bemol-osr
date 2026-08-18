@@ -245,7 +245,9 @@ main {
   margin-bottom: 26px;
 }
 
-.periode > h2 {
+/* Titre d'une période (« Période N — du … au … »), partagé entre la vue
+   Grille (.periode > h2) et la vue Document (.doc-periode-planning > h2). */
+.periode-title {
   background: var(--header-bg);
   color: var(--gold);
   font-family: var(--serif);
@@ -555,11 +557,13 @@ table.week th.ferie-ge.ferie-vd.ferie-fr {
   margin-top: 2px;
 }
 
+/* En `em` (pas `rem`), même raison que .vac-band / .vac-label plus bas :
+   suivre la réduction de police de la vue Bible à l'impression. */
 .ferie-tag {
   border: none;
   border-radius: 3px;
   padding: 0 3px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   font-weight: 700;
   color: #fff;
@@ -583,8 +587,12 @@ tr.vac-row td {
   padding: 1px;
 }
 
+/* En `em` (pas `rem`) : ces bandeaux doivent suivre la réduction de police de
+   la vue Bible à l'impression (body[data-view="document"], cf. plus bas) — en
+   `rem` ils restaient calés sur la taille racine et ressortaient ~2x trop
+   grands par rapport au reste du planning imprimé (retour #114). */
 td.vac-label {
-  font-size: 0.58rem;
+  font-size: 0.58em;
   font-weight: 700;
   text-align: center;
   vertical-align: middle;
@@ -611,7 +619,7 @@ td.vac-label-fr {
   border: none;
   border-radius: 3px;
   padding: 1px 5px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   text-align: center;
   white-space: nowrap;
@@ -653,6 +661,12 @@ table.week td.repos:not(.today) {
   background: var(--repos-bg-soft);
 }
 
+/* En `em` (pas `rem`), même raison que .vac-band / .vac-label plus bas :
+   suivre la réduction de police de la vue Bible à l'impression — sans ça,
+   les pastilles « Repos » (comme les fériés ci-dessus) restaient calées sur
+   la taille racine du document et ressortaient ~2x trop grandes par rapport
+   au reste du planning imprimé, faisant déborder les périodes qui
+   contiennent un week-end de repos (retour #114). */
 .repos-tag {
   display: block;
   margin: 2px auto 0;
@@ -660,7 +674,7 @@ table.week td.repos:not(.today) {
   border: none;
   border-radius: 3px;
   padding: 0 6px;
-  font-size: 0.62rem;
+  font-size: 0.62em;
   line-height: 1.5;
   font-weight: 700;
   color: var(--repos-text);
@@ -683,6 +697,93 @@ table.week td.repos:not(.today) {
   .repos-tag:hover {
     filter: brightness(var(--hover-brightness));
   }
+}
+
+/* --- Vue document (saison complète imprimable) --- */
+
+.doc-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+}
+
+.doc-intro p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
+
+.doc-print-btn {
+  flex: none;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .doc-print-btn:hover {
+    filter: brightness(var(--hover-brightness));
+  }
+}
+
+/* Une période : planning (grille de services) et fiches de programme des
+   Listes travaillées pendant la période, côte à côte à l'écran — reprend
+   l'esprit de l'ancienne Bible de saison papier (retour #114) — cf.
+   renderPeriodePage dans app.js. À l'impression, les deux parties sont
+   plutôt empilées sur deux pages dédiées (cf. @media print plus bas) : ce
+   layout flex ne sert alors qu'à l'écran, où un empilement (`flex-wrap`)
+   reste largement lisible. */
+.doc-periode-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.doc-periode-planning {
+  flex: 3 1 640px;
+  min-width: 0;
+}
+
+/* Fiches de programme (chef, solistes, œuvres…) des Listes de la période, en
+   colonne à côté du planning. `.detail-box` sur `.doc-liste-card` (au lieu
+   d'un préfixe dédié) pour hériter tel quel du style de la fiche de
+   production affiché dans le dialogue Liste. */
+.doc-periode-listes {
+  flex: 1 1 260px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Pas de fiche de programme pour cette période (mémo pas encore publié) :
+   le planning occupe alors toute la largeur. */
+.doc-periode-page.no-listes .doc-periode-planning {
+  flex-basis: 100%;
+}
+
+.doc-liste-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: var(--surface);
+}
+
+.doc-liste-title {
+  margin: 0 0 4px;
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 1.05em;
 }
 
 /* --- Vue agenda --- */
@@ -1397,6 +1498,30 @@ footer a {
     display: none;
   }
 
+  /* La barre de vues (Grille/Agenda/…/Document) ne tient plus sur une seule
+     ligne à 5 boutons en dessous d'un certain point : on la laisse défiler
+     horizontalement plutôt que de la faire déborder ou passer à la ligne
+     (ce qui casserait les coins arrondis du premier/dernier bouton).
+     `min-width: 0` sur .header-controls est nécessaire : par défaut, un
+     enfant flex ne rétrécit jamais sous la taille minimale de son propre
+     contenu (ici, les 5 boutons non compressibles de #view-nav), ce qui
+     ferait déborder toute la ligne d'en-tête au lieu de faire défiler
+     seulement la nav. */
+  .header-controls {
+    min-width: 0;
+  }
+
+  #view-nav {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #view-nav button {
+    flex: 0 0 auto;
+  }
+
   main {
     padding: 8px 6px 30px;
   }
@@ -1451,9 +1576,22 @@ footer a {
 }
 
 @media print {
-  /* Orientation paysage recommandée, comme la « Bible » papier */
+  /* Pas d'orientation forcée ici (retour #114) : la propriété CSS "size"
+     n'est qu'une recommandation, que les navigateurs traitent chacun à leur
+     façon quand l'utilisateur choisit une orientation différente dans la
+     boîte de dialogue d'impression — sur Safari/iPadOS en particulier, cette
+     contradiction entre l'orientation demandée par la CSS (paysage, fixée
+     ici) et celle réellement choisie dans la boîte de dialogue (portrait, ou
+     l'inverse en repassant) est l'explication la plus plausible aux pages
+     manquantes en fin de document constatées en changeant d'orientation en
+     cours d'aperçu : la pagination est calculée une fois pour une largeur de
+     page, puis rendue sur une feuille d'une autre largeur. En laissant le
+     choix entièrement à la boîte de dialogue (sans "size" ici), la
+     pagination reste calculée pour l'orientation effectivement imprimée.
+     La mise en page cible désormais le Portrait (planning agrandi sur sa
+     propre page, détail des Listes sur la suivante, retour #114) ; le
+     Paysage reste possible mais n'est plus recommandé dans l'app. */
   @page {
-    size: landscape;
     margin: 1cm;
   }
 
@@ -1465,7 +1603,19 @@ footer a {
 
   body {
     background: #fff;
-    font-size: 11px;
+    font-size: 9.5px;
+  }
+
+  /* Vue Bible : police de base nettement resserrée par rapport à la vue
+     Grille (inchangée ci-dessus) — sert de socle au détail des Listes
+     (5px, cf. .doc-periode-listes plus bas) ; le planning, lui, remonte à
+     9px puisqu'il a désormais sa propre page (retour #114, cf. plus bas).
+     Le document est pensé pour l'export PDF, consultable en zoomant au
+     besoin. Scopé à la vue Bible via l'attribut posé par setView() dans
+     app.js : la vue Grille n'est jamais présente dans le DOM en même temps,
+     donc aucun risque de fuite sur son propre rendu à l'impression. */
+  body[data-view="document"] {
+    font-size: 6px;
   }
 
   /* On n'imprime que le contenu de la vue courante */
@@ -1498,16 +1648,17 @@ footer a {
     font-size: 0.9em;
   }
 
-  /* Chaque période commence sur une nouvelle page, comme la « Bible » PDF */
+  /* Vue Grille : les périodes s'enchaînent sans saut de page forcé — sur un
+     document de saison complète (13 périodes), imposer une page par période
+     gâchait beaucoup de papier en bas de page et dispersait le document sur
+     bien plus de pages que nécessaire (retour #114). On évite seulement de
+     couper une période juste après son titre. */
   .periode {
-    break-before: page;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 
-  /* …sauf la première, pour ne pas gâcher une page blanche au début */
-  .print-title + .periode,
-  .periode:first-child {
-    break-before: auto;
+  .periode-title {
+    break-after: avoid-page;
   }
 
   /* Plus de défilement horizontal ni de semaine coupée en deux pages */
@@ -1523,6 +1674,170 @@ footer a {
   /* Les chips ne sont plus cliquables sur papier */
   .evt {
     cursor: default;
+  }
+
+  /* Vue Document : l'aide en ligne ne sert à rien sur papier. */
+  .doc-intro {
+    display: none;
+  }
+
+  /* Une période par page (retour #114 : mise en page de l'ancienne Bible
+     papier). Planning et détail des Listes EMPILÉS (plus côte à côte) :
+     table CSS (display: table/table-cell), flex et flottants ont chacun été
+     essayés (retours #114 précédents) et chacun a fini par tronquer le
+     document en fin d'impression sous Safari/iPadOS (utilisé par les
+     musiciens) tout en s'imprimant complet sous Chrome/Android — cf. le PDF
+     "paysage" fourni par l'utilisatrice où les Périodes 12-13 disparaissent
+     purement et simplement. C'est un bug connu du moteur d'impression de
+     WebKit : le contenu d'une colonne (table-cell, flex-item ou flottant)
+     dont la hauteur dépasse l'espace restant sur la page est purement
+     TRONQUÉ au lieu de se poursuivre sur la page suivante, alors que
+     Chromium gère ce cas correctement — d'où la différence Android/iOS.
+     Le flux normal de blocs empilés (aucune colonne) est la seule mise en
+     page dont la fragmentation à l'impression est fiable sur tous les
+     moteurs, y compris WebKit : plus de pages au total (le détail des
+     Listes vient sous la grille plutôt qu'à côté), mais aucun contenu ne
+     peut plus disparaître silencieusement — priorité à l'exactitude du
+     document sur sa compacité (cf. CLAUDE.md, § calendriers abonnés :
+     rester conservateur plutôt que de miser sur un comportement non
+     garanti). */
+  .doc-periode-page {
+    display: block;
+    /* Un seul signal de rupture, sur la période qui commence (pas sur celle
+       qui précède) : "break-before" sur CETTE période identifie sans
+       ambiguïté "il faut une page neuve juste avant CET élément précis",
+       alors qu'un "break-after" sur la période précédente dépend d'abord de
+       savoir laquelle est "la dernière". */
+    break-before: page;
+    margin-bottom: 0;
+  }
+
+  .doc-periode-page:first-of-type {
+    /* Seule exception sûre : "le tout premier élément du document" ne
+       dépend d'aucun décompte, juste du fait que rien ne le précède. */
+    break-before: avoid-page;
+  }
+
+  /* Pas d'équivalent ":last-of-type" ici : cette pseudo-classe désigne "le
+     dernier élément de ce NOM DE BALISE" (ici <section>), pas "le dernier
+     élément de cette CLASSE" — un piège classique. Elle servait à supprimer
+     un "break-after" sur la Période 13 pour éviter une page blanche de fin
+     de document ; mais si le décompte de pages se dérègle, rien ne garantit
+     qu'elle cible encore la bonne section une fois le document fragmenté.
+     Sans "break-after" du tout sur `.doc-periode-page`, cette ambiguïté
+     disparaît : au pire, une page blanche superflue en fin de document
+     (gênant mais inoffensif) — jamais une période qui disparaît. */
+
+  /* Planning agrandi, seul sur sa page (retour #114) : tant qu’à empiler
+     planning et détail des Listes (cf. commentaire ci-dessus), autant que
+     le planning profite de toute la page plutôt que de rester à la taille
+     resserrée pensée pour cohabiter avec les Listes juste en dessous —
+     laisser des pages presque vides entre deux périodes n’a plus de sens
+     une fois les deux parties séparées par un saut de page (retour #114).
+     Resserré une nouvelle fois à 8px (retour #114, tour suivant) : à 9px,
+     les périodes les plus chargées en semaines (3, 4, 7, 9) atteignaient
+     jusqu'à 76 % de la hauteur d'une page mesuré sur Chromium en local avec
+     les vraies données de production — marge trop juste pour rester sous
+     100 % une fois rendu par le moteur d'impression de Safari/iPadOS
+     (utilisé par les musiciens), qui a déjà montré à plusieurs reprises sur
+     ce document un rendu plus haut que Chromium à réglage identique. Avec
+     ce réglage, le pire cas mesuré redescend à 60 %. */
+  .doc-periode-planning {
+    display: block;
+    font-size: 8px;
+    margin-bottom: 0;
+  }
+
+  /* Détail des Listes sur la page suivante (retour #114) : un saut de page
+     dédié, plutôt que de le laisser s’enchaîner, sur la même page, à la
+     suite du planning — auparavant, un planning qui ne remplissait pas
+     toute la page laissait le détail des Listes commencer dans l’espace
+     restant, trop juste pour sa première fiche mais trop grand pour rester
+     vide : d’où les pages presque blanches signalées. */
+  /* Légèrement agrandi à 3.8px/1.1 (retour #114, tour suivant), au prix
+     d'un peu de compacité : le resserrement précédent (3.6px) rendait le
+     détail des Listes difficile à lire. Combiné au retour d'une ligne par
+     catégorie ci-dessous (.work-detail), la période la plus chargée de la
+     saison (Période 4 : concours de composition, programmes Petites
+     Oreilles/Doudou Concert en plus des listes normales) remonte à ~84 %
+     de la hauteur d'une page mesuré en local — un débordement sur une page
+     supplémentaire pour cette période reste donc possible selon le moteur
+     d'impression, comme déjà observé et accepté pour cette période
+     précédemment dans ce fil : priorité donnée à la lisibilité plutôt qu'à
+     un calcul pile-poil. */
+  .doc-periode-listes {
+    display: block;
+    break-before: page;
+    font-size: 3.8px;
+    line-height: 1.1;
+  }
+
+  .doc-liste-card {
+    break-inside: avoid;
+    padding: 0.5px 2px;
+    margin-bottom: 1px;
+  }
+
+  .doc-liste-title {
+    margin: 0 0 1px;
+    font-size: 1em;
+  }
+
+  /* Le détail complet par œuvre (instrumentation…) est restauré (retour
+     #114) : resserrer ses espacements pour limiter le nombre de pages. */
+  .doc-liste-card .detail-section {
+    margin: 1px 0 0;
+    font-size: 1em;
+  }
+
+  .doc-liste-card .works li,
+  .doc-liste-card .solistes li {
+    margin: 0;
+  }
+
+  /* Une ligne par catégorie (Remarques, Percussions, Claviers…), comme
+     avant le tour précédent (retour #114) : le regroupement sur une même
+     ligne (flex-wrap) gagnait de la place mais rendait le détail difficile
+     à lire une fois combiné à une police déjà très petite. `.work-detail`
+     retrouve son comportement par défaut (celui de `.detail-box`, cf. plus
+     haut dans ce fichier) : bloc normal, chaque `.wd-row` sur sa propre
+     ligne. Contrepartie assumée : plus de hauteur pour les Listes des
+     périodes les plus chargées (cf. `.doc-periode-listes` ci-dessus). */
+  .doc-liste-card .work-detail {
+    margin: 0;
+  }
+
+  .doc-liste-card .wd-row {
+    margin: 0;
+    gap: 3px;
+  }
+
+  /* Étiquette (Remarques, Percussions, Détail…) en gras et plus sombre que
+     la valeur, pour rester lisible sur le papier blanc de l'impression
+     même quand l'app est en thème sombre (retour #114). */
+  .doc-liste-card .wd-label {
+    min-width: 3.8em;
+    font-weight: 700;
+    color: #26211a;
+  }
+
+  .doc-liste-card .chef,
+  .doc-liste-card .effectif,
+  .doc-liste-card .duree {
+    margin: 0;
+  }
+
+  /* Cases de planning et chips d'événement : paddings fixes en px, ajustés
+     à la police du planning (8px, cf. .doc-periode-planning ci-dessus) —
+     pas à celle, plus petite, du reste de la vue Bible (retour #114). */
+  .doc-periode-planning table.week th,
+  .doc-periode-planning table.week td {
+    padding: 1.5px;
+  }
+
+  .doc-periode-planning .evt {
+    padding: 1.5px 2px;
+    line-height: 1.1;
   }
 }
 
