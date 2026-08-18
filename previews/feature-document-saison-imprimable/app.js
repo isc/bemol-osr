@@ -1496,15 +1496,6 @@ function renderDocument(main) {
         },
         "🖨️ Imprimer / exporter en PDF",
       ),
-      el(
-        "p",
-        { class: "doc-print-hint" },
-        "Conseil : choisir l'orientation « Paysage » dans la boîte de " +
-          "dialogue d'impression (plus lisible sur ce document). Éviter de " +
-          "changer d'orientation en cours d'aperçu — fermer et rouvrir " +
-          "l'impression plutôt que de basculer : certains navigateurs " +
-          "paginent alors mal les dernières pages.",
-      ),
     ),
   )
 
