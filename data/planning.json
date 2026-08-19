@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-18T19:00:53.036Z",
- "count": 587,
+ "updatedAt": "2026-08-19T10:49:32.424Z",
+ "count": 588,
  "events": [
   {
    "uid": "osr225046",
@@ -1180,17 +1180,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr178690",
-   "start": "2026-10-05T09:30",
-   "end": "2026-10-05T19:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132769",
    "start": "2026-10-06T10:00",
    "end": "2026-10-06T12:30",
@@ -1540,6 +1529,28 @@
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU, VIL",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232433",
+   "start": "2026-10-19T10:00",
+   "end": "2026-10-19T13:00",
+   "liste": "Audition 3 de musicien·nes supplémentaires",
+   "activity": "répétitions candidats (percussion)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232435",
+   "start": "2026-10-19T14:00",
+   "end": "2026-10-19T17:00",
+   "liste": "Audition 3 de musicien·nes supplémentaires",
+   "activity": "audition (percussion)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
    "cancelled": false
   },
   {
