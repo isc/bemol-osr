@@ -1,6 +1,85 @@
 {
  "entries": [
   {
+   "at": "2026-08-19T05:14:08.401Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 04",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Bernard RICHTER, ténor (Pelléas) · Jenny DAVIET, soprano (Mélisande) · Jérôme BOUTILLIER, baryton (Golaud) · Nicolas TESTÉ, basse (Arkel) · Lucile RICHARDOT, mezzo-soprano (Geneviève) · Anne Blanche TRILLAUD RUGGERI, soprano (Yniold) · Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin) · Chœur du Grand Théâtre de Genève, chœur · Mark BIGGINS, chef·fe de choeur",
+       "after": "Bernard RICHTER, ténor (Pelléas) · Jenny DAVIET, soprano (Mélisande) · Jérôme BOUTILLIER, baryton (Golaud) · Nicolas TESTÉ, basse (Arkel) · Lucile RICHARDOT, mezzo-soprano (Geneviève) · Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold) · Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin) · Chœur du Grand Théâtre de Genève, chœur · Mark BIGGINS, chef·fe de choeur"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 32 min",
+       "after": "≈ 30 min"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Benjamin BRITTEN — The Young person's guide to the orchestra op. 34 (variations et fugue sur un thème de Purcell)",
+       "fields": [
+        "duree"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 08",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Béla BARTÓK — Concerto pour orchestre",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste A",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)",
+       "after": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue",
+       "fields": [
+        "instrumentation",
+        "percussions",
+        "detail"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-08-18T19:00:53.036Z",
    "added": [],
    "removed": [

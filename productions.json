@@ -129,7 +129,7 @@
    "Jérôme BOUTILLIER, baryton (Golaud)",
    "Nicolas TESTÉ, basse (Arkel)",
    "Lucile RICHARDOT, mezzo-soprano (Geneviève)",
-   "Anne Blanche TRILLAUD RUGGERI, soprano (Yniold)",
+   "Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold)",
    "Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin)",
    "Chœur du Grand Théâtre de Genève, chœur",
    "Mark BIGGINS, chef·fe de choeur"
@@ -214,17 +214,17 @@
  },
  "Liste A": {
   "chef": "Thierry FISCHER",
-  "effectif": "4.3.3.3 / 6.4.3.1 / 1.6.2.3 / 12.10.8.7.5 (81 musiciens)",
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)",
   "duree": "≈ 3 h 00",
   "works": [
    {
     "oeuvre": "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue",
-    "instrumentation": "4*.3*.3*.3* / 6*.4*.3.1 / 1*.6*.2*.3* / 12*.10.8.7.5",
+    "instrumentation": "3*.3*.3*.3* / 4*.3*.3.1 / 1*.6.2*.3* / 12*.10.8.7.5",
     "remarques": "10.8.6.5.3 en fosse + 1.1.1.1.1 pour le tournus + 1.1.1.1.1 en coulisse",
-    "percussions": "GC, cymb fr, glock, mach.à vent (coupée en fosse et remplacée soit par un effet-son soit en\ncoulisse), xyl (dans un sas d'entrée de fosse), c.cl., TT, tri, vibra, cymb sus, c.roul., cloche (fa#)",
+    "percussions": "GC, cymb fr, glock, plaque tonnerre (en coulisse), mach.à vent (coupée en fosse et\nremplacée soit par un effet-son soit en coulisse), xyl (dans un sas d'entrée de fosse), c.cl., TT, tri, vibra, cymb\nsus, c.roul., cloche (fa#)",
     "claviers": "célesta (dans un sas d'entrée de fosse), clavecin (en coulisse), piano (bon piano droit en fosse)",
     "extra": "saxophone ténor",
-    "detail": "deux orchestres :\n-1 orchestre en fosse : 3333 / 4331 / 1412 // 10.8.6.5.3\n-1 orchestre derrière le décor : 1000 / 2100 / 0211 // 1.1.1.1.1",
+    "detail": "deux orchestres :\n-1 orchestre en fosse : 3333 / 4331 / 1412 // 10.8.6.5.3\n-1 orchestre derrière le décor : 1000 / 2100 / 0111 // 1.1.1.1.1",
     "note": "\nle petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
     "duree": "≈ 2 h 30"
    }
@@ -401,7 +401,7 @@
  "Liste 07": {
   "chef": "Martyna SZYMCZAK",
   "effectif": "3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (68 musiciens)",
-  "duree": "≈ 32 min",
+  "duree": "≈ 30 min",
   "works": [
    {
     "oeuvre": "Benjamin BRITTEN — The Young person's guide to the orchestra op. 34 (variations et fugue sur un thème de Purcell)",
@@ -409,7 +409,7 @@
     "remarques": "1picc",
     "percussions": "GC, cymb fr, blck.chin., gong, bsq, xyl, cast, c.cl., tri, fouet",
     "note": "\ntoujours suivre option 1 'avec le texte' dans les partitions",
-    "duree": "≈ 6 min"
+    "duree": "≈ 4 min"
    },
    {
     "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
@@ -538,6 +538,7 @@
     "remarques": "effectif prévisionnel",
     "percussions": "GC, cymb fr, c.cl., TT, tri, cymb sus",
     "detail": "Un 2ème percu est nécessaire si la fin alternative est choisie.",
+    "note": "\nen attente du choix de la cheffe pour la fin alternative ou pas",
     "duree": "≈ 36 min"
    }
   ],
