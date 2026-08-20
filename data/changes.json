@@ -1,6 +1,196 @@
 {
  "entries": [
   {
+   "at": "2026-08-20T16:55:08.944Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr229805",
+     "start": "2026-09-29T17:00",
+     "end": "2026-09-29T18:30",
+     "liste": "Liste 08",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr232645",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr232645",
+      "start": "2026-09-23T18:00",
+      "end": "2026-09-23T21:00",
+      "liste": "Audition 1 de musicien·nes supplémentaires",
+      "activity": "audition (cors)",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232645",
+      "start": "2026-09-23T18:00",
+      "end": "2026-09-23T21:00",
+      "liste": "Audition de cors supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132777",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132777",
+      "start": "2026-10-10T16:15",
+      "end": "2026-10-10T18:00",
+      "liste": "Liste 09",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "DPL1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132777",
+      "start": "2026-10-10T16:30",
+      "end": "2026-10-10T18:15",
+      "liste": "Liste 09",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "DPL1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132737",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr132737",
+      "start": "2026-10-13T09:15",
+      "end": "2026-10-13T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132737",
+      "start": "2026-10-13T09:15",
+      "end": "2026-10-13T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires (9h15 + 10h30)",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132739",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr132739",
+      "start": "2026-10-14T09:15",
+      "end": "2026-10-14T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132739",
+      "start": "2026-10-14T09:15",
+      "end": "2026-10-14T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires (9h15 + 10h30)",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132740",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr132740",
+      "start": "2026-10-15T09:15",
+      "end": "2026-10-15T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132740",
+      "start": "2026-10-15T09:15",
+      "end": "2026-10-15T11:30",
+      "liste": "Liste 07",
+      "activity": "deux concerts scolaires (9h15 + 10h30)",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232654",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr232654",
+      "start": "2026-11-20T14:00",
+      "end": "2026-11-20T17:00",
+      "liste": "Audition 7 de musicien·nes supplémentaires",
+      "activity": "audition (hautbois)",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232654",
+      "start": "2026-11-20T14:00",
+      "end": "2026-11-20T17:00",
+      "liste": "Audition 7 de hautbois supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-20T10:51:01.646Z",
    "added": [],
    "removed": [],
