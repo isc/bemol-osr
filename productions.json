@@ -212,86 +212,6 @@
    ]
   }
  },
- "Liste A": {
-  "chef": "Thierry FISCHER",
-  "effectif": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)",
-  "duree": "≈ 3 h 00",
-  "works": [
-   {
-    "oeuvre": "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue",
-    "instrumentation": "3*.3*.3*.3* / 4*.3*.3.1 / 1*.6.2*.3* / 12*.10.8.7.5",
-    "remarques": "10.8.6.5.3 en fosse + 1.1.1.1.1 pour le tournus + 1.1.1.1.1 en coulisse",
-    "percussions": "GC, cymb fr, glock, plaque tonnerre (en coulisse), mach.à vent (coupée en fosse et\nremplacée soit par un effet-son soit en coulisse), xyl (dans un sas d'entrée de fosse), c.cl., TT, tri, vibra, cymb\nsus, c.roul., cloche (fa#)",
-    "claviers": "célesta (dans un sas d'entrée de fosse), clavecin (en coulisse), piano (bon piano droit en fosse)",
-    "extra": "saxophone ténor",
-    "detail": "deux orchestres :\n-1 orchestre en fosse : 3333 / 4331 / 1412 // 10.8.6.5.3\n-1 orchestre derrière le décor : 1000 / 2100 / 0111 // 1.1.1.1.1",
-    "note": "\nle petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
-    "duree": "≈ 2 h 30"
-   }
-  ],
-  "serviceWorks": {
-   "osr133255": [
-    1
-   ],
-   "osr133256": [
-    1
-   ],
-   "osr133257": [
-    1
-   ],
-   "osr133258": [
-    1
-   ],
-   "osr133259": [
-    1
-   ],
-   "osr133261": [
-    1
-   ],
-   "osr133262": [
-    1
-   ],
-   "osr133263": [
-    1
-   ],
-   "osr133264": [
-    1
-   ],
-   "osr133265": [
-    1
-   ],
-   "osr133266": [
-    1
-   ],
-   "osr133267": [
-    1
-   ],
-   "osr133268": [
-    1
-   ],
-   "osr133269": [
-    1
-   ],
-   "osr133270": [
-    1
-   ],
-   "osr133271": [
-    1
-   ],
-   "osr133272": [
-    1
-   ],
-   "osr133273": [
-    1
-   ],
-   "osr133274": [
-    1
-   ],
-   "osr133275": [
-    1
-   ]
-  }
- },
  "Liste 05": {
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.4.3.1 / 1.4.1.1 / 10.8.6.4.3 (61 musiciens)",
@@ -377,6 +297,86 @@
     "duree": "≈ 4 min"
    }
   ]
+ },
+ "Liste A": {
+  "chef": "Thierry FISCHER",
+  "effectif": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)",
+  "duree": "≈ 3 h 00",
+  "works": [
+   {
+    "oeuvre": "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue",
+    "instrumentation": "3*.3*.3*.3* / 4*.3*.3.1 / 1*.6.2*.3* / 12*.10.8.7.5",
+    "remarques": "10.8.6.5.3 en fosse + 1.1.1.1.1 pour le tournus + 1.1.1.1.1 en coulisse",
+    "percussions": "GC, cymb fr, glock, plaque tonnerre (en coulisse), mach.à vent (coupée en fosse et\nremplacée soit par un effet-son soit en coulisse), xyl (dans un sas d'entrée de fosse), c.cl., TT, tri, vibra, cymb\nsus, c.roul., cloche (fa#)",
+    "claviers": "célesta (dans un sas d'entrée de fosse), clavecin (en coulisse), piano (bon piano droit en fosse)",
+    "extra": "saxophone ténor",
+    "detail": "deux orchestres :\n-1 orchestre en fosse : 3333 / 4331 / 1412 // 10.8.6.5.3\n-1 orchestre derrière le décor : 1000 / 2100 / 0111 // 1.1.1.1.1",
+    "note": "\nle petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
+    "duree": "≈ 2 h 30"
+   }
+  ],
+  "serviceWorks": {
+   "osr133255": [
+    1
+   ],
+   "osr133256": [
+    1
+   ],
+   "osr133257": [
+    1
+   ],
+   "osr133258": [
+    1
+   ],
+   "osr133259": [
+    1
+   ],
+   "osr133261": [
+    1
+   ],
+   "osr133262": [
+    1
+   ],
+   "osr133263": [
+    1
+   ],
+   "osr133264": [
+    1
+   ],
+   "osr133265": [
+    1
+   ],
+   "osr133266": [
+    1
+   ],
+   "osr133267": [
+    1
+   ],
+   "osr133268": [
+    1
+   ],
+   "osr133269": [
+    1
+   ],
+   "osr133270": [
+    1
+   ],
+   "osr133271": [
+    1
+   ],
+   "osr133272": [
+    1
+   ],
+   "osr133273": [
+    1
+   ],
+   "osr133274": [
+    1
+   ],
+   "osr133275": [
+    1
+   ]
+  }
  },
  "Liste 06": {
   "chef": "Jean Deroyer",
@@ -519,8 +519,8 @@
   "works": [
    {
     "oeuvre": "Noriko KOIDE — Swaddling Silk and Gossamer Rain, pour orchestre",
-    "instrumentation": "3.2.3*.2 / 4.2.3.0 / 0.4.1.1 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
+    "instrumentation": "3.2.3*.2 / 4.2.3.0 / 0.4.1.1 / 12.10.8.6.4",
+    "remarques": "1cl.bs",
     "percussions": "marim., TT, vibra, 2 cymb sus",
     "claviers": "piano (orch.)",
     "note": "\n1ère suisse",
@@ -528,14 +528,13 @@
    },
    {
     "oeuvre": "Hector BERLIOZ — Les Nuits d’été op. 7",
-    "instrumentation": "2.1.2.2 / 3.0.0.0 / 0.0.1.0 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
+    "instrumentation": "2.1.2.2 / 3.0.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "duree": "≈ 31 min"
    },
    {
     "oeuvre": "Béla BARTÓK — Concerto pour orchestre",
-    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.1.2.0 / 15*.13.11.9.7",
-    "remarques": "effectif prévisionnel",
+    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.1.2.0 / 15.13.11.9.7",
+    "remarques": "fl3+picc, ob3+ca, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, c.cl., TT, tri, cymb sus",
     "detail": "Un 2ème percu est nécessaire si la fin alternative est choisie.",
     "note": "\nen attente du choix de la cheffe pour la fin alternative ou pas",
@@ -546,6 +545,12 @@
    "Marianne CREBASSA, mezzo-soprano"
   ],
   "serviceWorks": {
+   "osr132753": [
+    1
+   ],
+   "osr132754": [
+    2
+   ],
    "osr132755": [
     1,
     2
@@ -562,68 +567,16 @@
    ]
   }
  },
- "Liste 09": {
-  "chef": "Eva OLLIKAINEN",
-  "effectif": "3.3.3.3 / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)",
-  "duree": "≈ 1 h 45",
-  "works": [
-   {
-    "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
-    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.6.1.1 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
-    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum",
-    "claviers": "piano (orch.)",
-    "duree": "≈ 12 min"
-   },
-   {
-    "oeuvre": "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
-    "instrumentation": "3*.3*.3*.3* / 4.4*.3.1 / 1.0.1.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
-    "duree": "≈ 17 min"
-   },
-   {
-    "oeuvre": "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
-    "instrumentation": "2*.2.3*.2 / 4.2.3.0 / 2.0.2.0 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
-    "duree": "≈ 10 min"
-   },
-   {
-    "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
-    "instrumentation": "3*.2.2.2 / 4.2.3.1 / 1.2.0.0 / 15*.13.11.9.7",
-    "remarques": "effectif prévisionnel",
-    "percussions": "GC, cymb fr, TT",
-    "detail": "remarque : 4 notes du fgt1 dans le 1er mvt sont parfois jouées à la cl.bs (cl2+cl.bs)",
-    "duree": "≈ 46 min"
-   }
-  ],
-  "solistes": [
-   "Anu KOMSI, soprano",
-   "Lionel COTTET, violoncelle"
-  ],
-  "serviceWorks": {
-   "osr132774": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "osr132776": [
-    1,
-    2,
-    3,
-    4
-   ]
-  }
- },
  "Liste B": {
   "chef": "Larry BLANK",
-  "effectif": "0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.3 (26 musiciens)",
+  "effectif": "0.2.0.0 / 2.3.2.0 / 1.1.0.0 / 3.3.3.4.3 (27 musiciens)",
   "duree": "≈ 2 h 50",
   "works": [
    {
     "oeuvre": "Stephen SONDHEIM — Company",
-    "instrumentation": "0.2*.0.0 / 2.3.2*.0 / 1.0.0.0 / 3*.3.3.4.3",
+    "instrumentation": "0.2*.0.0 / 2.3.2*.0 / 1.1.0.0 / 3*.3.3.4.3",
     "remarques": "partitions pour violins A + violins B + violins C sans alti, joué pour cette production avec V1",
+    "percussions": "glock, vibrslp, afouché, timp., scraper, woodblk, xyl, chimes, cast, pol whstle, tmplblk, tri,\nvibra, cabasa, bsq, ratch",
     "extra": "guitare (de la prod.), claviériste (de la prod.), drum set (de la prod.), 4 reeds (de la prod.)",
     "detail": "musiciens de la production hors OSR : 4 reeds (polyinstrumentistes sax/bois), 1 batterie, 1 synthéthiseur,\n1 guitare",
     "duree": "≈ 2 h 20"
@@ -668,6 +621,59 @@
    ],
    "osr133291": [
     1
+   ]
+  }
+ },
+ "Liste 09": {
+  "chef": "Eva OLLIKAINEN",
+  "effectif": "3.3.3.3 / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)",
+  "duree": "≈ 1 h 45",
+  "works": [
+   {
+    "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.6.1.1 / 12*.10.8.6.4",
+    "remarques": "effectif prévisionnel",
+    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum",
+    "claviers": "piano (orch.)",
+    "duree": "≈ 12 min"
+   },
+   {
+    "oeuvre": "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
+    "instrumentation": "3*.3*.3*.3* / 4.4*.3.1 / 1.0.1.0 / 14*.12.10.8.6",
+    "remarques": "effectif prévisionnel",
+    "duree": "≈ 17 min"
+   },
+   {
+    "oeuvre": "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
+    "instrumentation": "2*.2.3*.2 / 4.2.3.0 / 2.0.2.0 / 12*.10.8.6.4",
+    "remarques": "effectif prévisionnel",
+    "duree": "≈ 10 min"
+   },
+   {
+    "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
+    "instrumentation": "3*.2.2.2 / 4.2.3.1 / 1.2.0.0 / 15*.13.11.9.7",
+    "remarques": "effectif max.",
+    "percussions": "GC, cymb fr, TT",
+    "detail": "remarque : 4 notes du fgt1 dans le 1er mvt sont parfois jouées à la cl.bs (cl2+cl.bs)",
+    "duree": "≈ 46 min"
+   }
+  ],
+  "solistes": [
+   "Anu KOMSI, soprano",
+   "Lionel COTTET, violoncelle"
+  ],
+  "serviceWorks": {
+   "osr132774": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132776": [
+    1,
+    2,
+    3,
+    4
    ]
   }
  },
@@ -1588,6 +1594,10 @@
     "duree": "≈ 1 h 00"
    }
   ]
+ },
+ "Atelier Découverte GT": {
+  "chef": "Martyna SZYMCZAK",
+  "works": []
  },
  "Liste E": {
   "chef": "Antonino FOGLIANI",

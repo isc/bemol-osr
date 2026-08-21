@@ -1,6 +1,83 @@
 {
  "entries": [
   {
+   "at": "2026-08-21T05:16:32.792Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Atelier Découverte GT",
+     "status": "added"
+    },
+    {
+     "liste": "Liste 08",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Noriko KOIDE — Swaddling Silk and Gossamer Rain, pour orchestre",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Hector BERLIOZ — Les Nuits d’été op. 7",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Béla BARTÓK — Concerto pour orchestre",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
+       "fields": [
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste B",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "0.2.0.0 / 2.3.2.0 / 1.0.0.0 / 3.3.3.4.3 (26 musiciens)",
+       "after": "0.2.0.0 / 2.3.2.0 / 1.1.0.0 / 3.3.3.4.3 (27 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Stephen SONDHEIM — Company",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-08-20T19:04:27.809Z",
    "added": [
     {
