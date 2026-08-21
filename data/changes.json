@@ -1,6 +1,253 @@
 {
  "entries": [
   {
+   "at": "2026-08-21T19:00:46.840Z",
+   "added": [
+    {
+     "uid": "osr234461",
+     "start": "2027-04-12T15:30",
+     "end": "2027-04-12T18:00",
+     "liste": "Liste 29",
+     "activity": "bus (Place Neuve)",
+     "category": "autre",
+     "location": "Bicubic, Romont",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr234459",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234459",
+      "start": "2027-04-12T10:30",
+      "end": "2027-04-12T12:45",
+      "liste": "Liste 29",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234459",
+      "start": "2027-04-12T10:30",
+      "end": "2027-04-12T12:45",
+      "liste": "Liste 29",
+      "activity": "bus (Romont)",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234439",
+     "fields": [
+      "start",
+      "end",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234439",
+      "start": "2027-04-13T15:30",
+      "end": "2027-04-13T16:30",
+      "liste": "Liste 29",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Rosey Concert Hall, Rolle",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234439",
+      "start": "2027-04-13T16:00",
+      "end": "2027-04-13T17:00",
+      "liste": "Liste 29",
+      "activity": "bus (Place Neuve)",
+      "category": "autre",
+      "location": "Rosey Concert Hall, Rolle",
+      "project": "TROM",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234455",
+     "fields": [
+      "activity",
+      "location"
+     ],
+     "before": {
+      "uid": "osr234455",
+      "start": "2027-04-15T10:20",
+      "end": "2027-04-15T12:30",
+      "liste": "Liste 29",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234455",
+      "start": "2027-04-15T10:20",
+      "end": "2027-04-15T12:30",
+      "liste": "Liste 29",
+      "activity": "train (Sion)",
+      "category": "autre",
+      "location": "Gare Cornavin",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234457",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234457",
+      "start": "2027-04-15T16:30",
+      "end": "2027-04-15T18:40",
+      "liste": "Liste 29",
+      "activity": "train",
+      "category": "autre",
+      "location": "Noda  BCVs | WKB, Sion",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234457",
+      "start": "2027-04-15T16:30",
+      "end": "2027-04-15T18:40",
+      "liste": "Liste 29",
+      "activity": "train (Cornavin)",
+      "category": "autre",
+      "location": "Noda  BCVs | WKB, Sion",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234441",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234441",
+      "start": "2027-04-16T09:15",
+      "end": "2027-04-16T12:10",
+      "liste": "Liste 29",
+      "activity": "train",
+      "category": "autre",
+      "location": "Gare Cornavin",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234441",
+      "start": "2027-04-16T09:15",
+      "end": "2027-04-16T12:10",
+      "liste": "Liste 29",
+      "activity": "train (Porrentruy)",
+      "category": "autre",
+      "location": "Gare Cornavin",
+      "project": "TROM",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234449",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234449",
+      "start": "2027-04-16T16:15",
+      "end": "2027-04-16T18:55",
+      "liste": "Liste 29",
+      "activity": "train",
+      "category": "autre",
+      "location": "Eglise des Jésuites, Porrentruy",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234449",
+      "start": "2027-04-16T16:15",
+      "end": "2027-04-16T18:55",
+      "liste": "Liste 29",
+      "activity": "train (Cornavin)",
+      "category": "autre",
+      "location": "Eglise des Jésuites, Porrentruy",
+      "project": "TROM",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234451",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234451",
+      "start": "2027-04-19T12:00",
+      "end": "2027-04-19T13:40",
+      "liste": "Liste 29",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234451",
+      "start": "2027-04-19T12:00",
+      "end": "2027-04-19T13:40",
+      "liste": "Liste 29",
+      "activity": "bus (Neuchâtel)",
+      "category": "autre",
+      "location": "Place Neuve",
+      "project": "TROM",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr234453",
+     "fields": [
+      "end",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr234453",
+      "start": "2027-04-19T15:15",
+      "end": "2027-04-19T17:10",
+      "liste": "Liste 29",
+      "activity": "bus",
+      "category": "autre",
+      "location": "Temple du Bas, Neuchâtel",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr234453",
+      "start": "2027-04-19T15:15",
+      "end": "2027-04-19T17:30",
+      "liste": "Liste 29",
+      "activity": "bus (Place Neuve)",
+      "category": "autre",
+      "location": "Temple du Bas, Neuchâtel",
+      "project": "TROM",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-21T16:55:19.771Z",
    "added": [
     {
