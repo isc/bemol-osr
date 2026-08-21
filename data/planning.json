@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-20T19:04:27.809Z",
- "count": 600,
+ "updatedAt": "2026-08-21T14:56:22.658Z",
+ "count": 602,
  "events": [
   {
    "uid": "osr225046",
@@ -5118,24 +5118,46 @@
    "cancelled": false
   },
   {
-   "uid": "osr133063",
-   "start": "2027-04-12T10:30",
-   "end": "2027-04-12T18:00",
+   "uid": "osr133064",
+   "start": "2027-04-12T13:30",
+   "end": "2027-04-12T15:30",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Bicubic, Romont",
    "project": "TROM",
    "cancelled": false
   },
   {
-   "uid": "osr133064",
-   "start": "2027-04-13T10:30",
-   "end": "2027-04-13T18:00",
+   "uid": "osr234106",
+   "start": "2027-04-13T11:15",
+   "end": "2027-04-13T12:15",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "bus (Rolle)",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr133063",
+   "start": "2027-04-13T13:00",
+   "end": "2027-04-13T15:30",
+   "liste": "Liste 29",
+   "activity": "deux concerts scolaires (13h + 14h15)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Rosey Concert Hall, Rolle ((VD))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234439",
+   "start": "2027-04-13T15:30",
+   "end": "2027-04-13T16:30",
+   "liste": "Liste 29",
+   "activity": "bus",
+   "category": "autre",
+   "location": "Rosey Concert Hall, Rolle",
    "project": "TROM",
    "cancelled": false
   },
@@ -5163,12 +5185,12 @@
   },
   {
    "uid": "osr133065",
-   "start": "2027-04-15T10:30",
-   "end": "2027-04-15T18:00",
+   "start": "2027-04-15T13:30",
+   "end": "2027-04-15T15:30",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Noda  BCVs | WKB, Sion ((VS))",
    "project": "TROM",
    "cancelled": false
   },
@@ -5185,12 +5207,12 @@
   },
   {
    "uid": "osr133066",
-   "start": "2027-04-16T10:30",
-   "end": "2027-04-16T18:00",
+   "start": "2027-04-16T13:30",
+   "end": "2027-04-16T16:00",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Eglise des Jésuites, Porrentruy ((JU))",
    "project": "TROM",
    "cancelled": false
   },
@@ -5240,12 +5262,12 @@
   },
   {
    "uid": "osr133067",
-   "start": "2027-04-19T10:30",
-   "end": "2027-04-19T18:15",
+   "start": "2027-04-19T14:30",
+   "end": "2027-04-19T15:15",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "un concert scolaire",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Temple du Bas, Neuchâtel ((NE))",
    "project": "TROM",
    "cancelled": false
   },
