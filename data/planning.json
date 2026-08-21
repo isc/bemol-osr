@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-21T14:56:22.658Z",
- "count": 602,
+ "updatedAt": "2026-08-21T16:55:19.771Z",
+ "count": 609,
  "events": [
   {
    "uid": "osr225046",
@@ -5118,13 +5118,24 @@
    "cancelled": false
   },
   {
+   "uid": "osr234459",
+   "start": "2027-04-12T10:30",
+   "end": "2027-04-12T12:45",
+   "liste": "Liste 29",
+   "activity": "bus",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133064",
    "start": "2027-04-12T13:30",
    "end": "2027-04-12T15:30",
    "liste": "Liste 29",
    "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "Bicubic, Romont",
+   "location": "Bicubic, Romont ((FR))",
    "project": "TROM",
    "cancelled": false
   },
@@ -5184,6 +5195,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr234455",
+   "start": "2027-04-15T10:20",
+   "end": "2027-04-15T12:30",
+   "liste": "Liste 29",
+   "activity": "bus",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133065",
    "start": "2027-04-15T13:30",
    "end": "2027-04-15T15:30",
@@ -5192,6 +5214,17 @@
    "category": "concert",
    "location": "Noda  BCVs | WKB, Sion ((VS))",
    "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234457",
+   "start": "2027-04-15T16:30",
+   "end": "2027-04-15T18:40",
+   "liste": "Liste 29",
+   "activity": "train",
+   "category": "autre",
+   "location": "Noda  BCVs | WKB, Sion",
+   "project": "",
    "cancelled": false
   },
   {
@@ -5206,6 +5239,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr234441",
+   "start": "2027-04-16T09:15",
+   "end": "2027-04-16T12:10",
+   "liste": "Liste 29",
+   "activity": "train",
+   "category": "autre",
+   "location": "Gare Cornavin",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
    "uid": "osr133066",
    "start": "2027-04-16T13:30",
    "end": "2027-04-16T16:00",
@@ -5213,6 +5257,17 @@
    "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
    "location": "Eglise des Jésuites, Porrentruy ((JU))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234449",
+   "start": "2027-04-16T16:15",
+   "end": "2027-04-16T18:55",
+   "liste": "Liste 29",
+   "activity": "train",
+   "category": "autre",
+   "location": "Eglise des Jésuites, Porrentruy",
    "project": "TROM",
    "cancelled": false
   },
@@ -5261,6 +5316,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr234451",
+   "start": "2027-04-19T12:00",
+   "end": "2027-04-19T13:40",
+   "liste": "Liste 29",
+   "activity": "bus",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
    "uid": "osr133067",
    "start": "2027-04-19T14:30",
    "end": "2027-04-19T15:15",
@@ -5268,6 +5334,17 @@
    "activity": "un concert scolaire",
    "category": "concert",
    "location": "Temple du Bas, Neuchâtel ((NE))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234453",
+   "start": "2027-04-19T15:15",
+   "end": "2027-04-19T17:10",
+   "liste": "Liste 29",
+   "activity": "bus",
+   "category": "autre",
+   "location": "Temple du Bas, Neuchâtel",
    "project": "TROM",
    "cancelled": false
   },

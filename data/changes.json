@@ -1,6 +1,119 @@
 {
  "entries": [
   {
+   "at": "2026-08-21T16:55:19.771Z",
+   "added": [
+    {
+     "uid": "osr234459",
+     "start": "2027-04-12T10:30",
+     "end": "2027-04-12T12:45",
+     "liste": "Liste 29",
+     "activity": "bus",
+     "category": "autre",
+     "location": "Place Neuve",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234455",
+     "start": "2027-04-15T10:20",
+     "end": "2027-04-15T12:30",
+     "liste": "Liste 29",
+     "activity": "bus",
+     "category": "autre",
+     "location": "Place Neuve",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234457",
+     "start": "2027-04-15T16:30",
+     "end": "2027-04-15T18:40",
+     "liste": "Liste 29",
+     "activity": "train",
+     "category": "autre",
+     "location": "Noda  BCVs | WKB, Sion",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234441",
+     "start": "2027-04-16T09:15",
+     "end": "2027-04-16T12:10",
+     "liste": "Liste 29",
+     "activity": "train",
+     "category": "autre",
+     "location": "Gare Cornavin",
+     "project": "TROM",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234449",
+     "start": "2027-04-16T16:15",
+     "end": "2027-04-16T18:55",
+     "liste": "Liste 29",
+     "activity": "train",
+     "category": "autre",
+     "location": "Eglise des Jésuites, Porrentruy",
+     "project": "TROM",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234451",
+     "start": "2027-04-19T12:00",
+     "end": "2027-04-19T13:40",
+     "liste": "Liste 29",
+     "activity": "bus",
+     "category": "autre",
+     "location": "Place Neuve",
+     "project": "TROM",
+     "cancelled": false
+    },
+    {
+     "uid": "osr234453",
+     "start": "2027-04-19T15:15",
+     "end": "2027-04-19T17:10",
+     "liste": "Liste 29",
+     "activity": "bus",
+     "category": "autre",
+     "location": "Temple du Bas, Neuchâtel",
+     "project": "TROM",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133064",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133064",
+      "start": "2027-04-12T13:30",
+      "end": "2027-04-12T15:30",
+      "liste": "Liste 29",
+      "activity": "deux concerts scolaires (13h30 + 14h45)",
+      "category": "concert",
+      "location": "Bicubic, Romont",
+      "project": "TROM",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133064",
+      "start": "2027-04-12T13:30",
+      "end": "2027-04-12T15:30",
+      "liste": "Liste 29",
+      "activity": "deux concerts scolaires (13h30 + 14h45)",
+      "category": "concert",
+      "location": "Bicubic, Romont ((FR))",
+      "project": "TROM",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-21T14:56:22.658Z",
    "added": [
     {
