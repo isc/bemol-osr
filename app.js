@@ -577,6 +577,17 @@ function visibleEvents() {
   )
 }
 
+// Tous les services de la saison, sans tenir compte des préférences
+// d'affichage personnelles (catégories/listes masquées, services sans
+// orchestre…) : la vue Bible est le document de référence de la saison
+// complète, il ne doit pas dépendre du filtre courant du musicien qui la
+// consulte (retour #114).
+function allSeasonEvents() {
+  return state.events.filter(
+    (e) => seasonYear(parseDate(e.start)) === state.season,
+  )
+}
+
 function seasonsInData() {
   const set = new Set(state.events.map((e) => seasonYear(parseDate(e.start))))
   return [...set].sort()
@@ -1276,8 +1287,7 @@ function periodeTitle({ index, pStart, pEnd }) {
 // Regroupe par jour les événements visibles, et rassemble les repères
 // (fériés, week-ends de repos) nécessaires à la construction des grilles de
 // semaine. Partagé entre la vue Grille et la vue Document.
-function weekTableContext() {
-  const events = visibleEvents()
+function weekTableContext(events = visibleEvents()) {
   const byDay = new Map()
   for (const e of events) {
     const key = e.start.slice(0, 10)
@@ -1474,8 +1484,12 @@ function renderPeriodePage(periode, ctx) {
 // l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
 // données que le reste de l'app, sans pipeline de génération périodique à
 // maintenir en plus.
+// Volontairement indépendante des Réglages du musicien qui la consulte
+// (catégories/listes masquées, services sans orchestre…, cf. allSeasonEvents) :
+// c'est le document de référence de la saison complète, pas une vue
+// personnalisée (retour #114).
 function renderDocument(main) {
-  const ctx = weekTableContext()
+  const ctx = weekTableContext(allSeasonEvents())
 
   main.append(
     el(
@@ -1485,7 +1499,8 @@ function renderDocument(main) {
         "p",
         {},
         "Grille de services et fiches de programme de toute la saison, en " +
-          "un seul document toujours à jour.",
+          "un seul document toujours à jour — tous les services, " +
+          "indépendamment de tes filtres dans ⚙ Réglages.",
       ),
       el(
         "button",
