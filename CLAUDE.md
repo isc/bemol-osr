@@ -153,6 +153,31 @@ et, s'il est bloqué/en erreur, en redéclencher un
 (`gh api -X POST repos/isc/bemol-osr/pages/builds`) — la page repasse en 200
 sans toucher au code. Ne pas partir en chasse d'un bug fantôme.
 
+**Cas particulier : un rendu qui ne se reproduit que sur l'appareil du frère
+(impression PDF, Safari/iPadOS).** Comme pour les calendriers abonnés (§
+« Contrainte des calendriers ABONNÉS » plus haut), la seule vérité pour tout ce
+qui touche à l'**impression / export PDF** (vue Document…) est l'appareil du
+frère : l'export PDF n'est pas fabriqué par l'app mais par le **moteur du
+navigateur**, et sur iPad c'est **toujours Safari/WebKit** (iOS impose son
+moteur à tous les navigateurs, y compris l'app installée en PWA — inutile de lui
+suggérer d'en changer). Claude n'a **pas de Safari/iPad** dans son environnement :
+un rendu d'impression ne se reproduit ni ne se vérifie de son côté (Chromium
+pagine autrement). Conséquences, tirées du long aller-retour de #114 (17 échanges
+pour une pagination qui « tournait en rond ») :
+
+1. **Ouvrir et analyser le PDF ou la capture d'écran fournis AVANT de retoucher
+   la CSS.** Dans #114, plusieurs tours ont été gâchés sur des théories fausses
+   (« la période 12 est chargée »…) faute d'avoir ouvert les pièces jointes ;
+   c'est en les ouvrant enfin que la vraie cause est apparue. Le fichier joint
+   par le frère est la donnée la plus précieuse — le lire en premier.
+2. **Annoncer d'emblée la limite** : un correctif d'impression ne peut pas être
+   vérifié en local ni en preview, seulement chez lui. Le dire dès le départ et
+   demander un PDF/capture après chaque essai, plutôt que de promettre un
+   correctif « vérifié » qu'on ne peut pas garantir.
+3. **Rester conservateur sur la CSS d'impression** (`@media print`) : préférer
+   les mécanismes de pagination les plus simples et éprouvés aux montages
+   fragiles que WebKit gère mal.
+
 ## Style de code
 
 - Prettier est configuré (`.prettierrc` : `tabWidth: 2`, pas de point-virgule).
