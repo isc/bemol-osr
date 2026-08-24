@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-08-24T09:07:49.948Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr225312",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr225312",
+      "start": "2026-10-20T10:00",
+      "end": "2026-10-20T12:30",
+      "liste": "Liste 10",
+      "activity": "musicale choeur",
+      "category": "repetition",
+      "location": "à définir HEM",
+      "project": "ONU",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr225312",
+      "start": "2026-10-20T10:00",
+      "end": "2026-10-20T12:30",
+      "liste": "Liste 10",
+      "activity": "musicale choeur",
+      "category": "repetition",
+      "location": "HEM Dufour GD10",
+      "project": "ONU",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-21T19:00:46.840Z",
    "added": [
     {
