@@ -1,6 +1,70 @@
 {
  "entries": [
   {
+   "at": "2026-08-25T10:53:42.006Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr232657",
+     "fields": [
+      "activity",
+      "location"
+     ],
+     "before": {
+      "uid": "osr232657",
+      "start": "2027-02-04T16:00",
+      "end": "2027-02-04T22:00",
+      "liste": "Concours à définir",
+      "activity": "répétitions candidats (poste à définir)",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232657",
+      "start": "2027-02-04T16:00",
+      "end": "2027-02-04T22:00",
+      "liste": "Concours à définir",
+      "activity": "répétitions candidats (Premier soliste des seconds violons (coordonné))",
+      "category": "concours",
+      "location": "UM - Studio P",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr178693",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr178693",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "à définir Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr178693",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "Les Salons",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-25T05:17:34.503Z",
    "type": "memo",
    "programs": [

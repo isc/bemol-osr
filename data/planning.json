@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-24T09:07:49.948Z",
+ "updatedAt": "2026-08-25T10:53:42.006Z",
  "count": 610,
  "events": [
   {
@@ -4011,9 +4011,9 @@
    "start": "2027-02-04T16:00",
    "end": "2027-02-04T22:00",
    "liste": "Concours à définir",
-   "activity": "répétitions candidats (poste à définir)",
+   "activity": "répétitions candidats (Premier soliste des seconds violons (coordonné))",
    "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
+   "location": "UM - Studio P",
    "project": "",
    "cancelled": false
   },
@@ -4046,7 +4046,7 @@
    "liste": "Concours à définir",
    "activity": "concours (poste à définir)",
    "category": "concours",
-   "location": "à définir Genève",
+   "location": "Les Salons",
    "project": "",
    "cancelled": false
   },
