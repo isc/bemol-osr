@@ -1,6 +1,91 @@
 {
  "entries": [
   {
+   "at": "2026-08-25T05:17:34.503Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 05",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Nicola PIOVANI — La vita è bella, suite pour orchestre",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      },
+      {
+       "oeuvre": "Nino ROTA — Otto e mezzo, N° 6 'Passerella d'addio'",
+       "fields": [
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Benjamin BRITTEN — The Young person's guide to the orchestra op. 34 (variations et fugue sur un thème de Purcell)",
+       "fields": [
+        "duree"
+       ]
+      },
+      {
+       "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
+       "fields": [
+        "duree"
+       ]
+      },
+      {
+       "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 2 op. 1b",
+       "fields": [
+        "duree"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — Nabucco, opéra en quatre parties",
+       "fields": [
+        "remarques",
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 28",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Fleur BARRON, mezzo-soprano · Andrew STAPLES, ténor · NN1, baryton",
+       "after": "Fleur BARRON, mezzo-soprano · Andrew STAPLES, ténor · Jean-Sébastien BOU, baryton"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-08-24T09:07:49.948Z",
    "added": [],
    "removed": [],
