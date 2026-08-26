@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-25T10:53:42.006Z",
+ "updatedAt": "2026-08-26T09:05:42.586Z",
  "count": 610,
  "events": [
   {
@@ -1954,9 +1954,9 @@
    "start": "2026-11-02T10:00",
    "end": "2026-11-02T19:30",
    "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
+   "activity": "concours (Violoncelle tuttiste)",
    "category": "concours",
-   "location": "à définir Genève",
+   "location": "Victoria Hall de Genève",
    "project": "",
    "cancelled": false
   },
@@ -2743,13 +2743,13 @@
   },
   {
    "uid": "osr178811",
-   "start": "2026-11-30T13:00",
+   "start": "2026-11-30T18:00",
    "end": "2026-11-30T22:00",
    "liste": "Concours à définir",
    "activity": "répétitions candidats (poste à définir)",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
-   "project": "CC3",
+   "project": "",
    "cancelled": false
   },
   {
