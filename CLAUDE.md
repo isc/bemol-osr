@@ -178,6 +178,16 @@ pour une pagination qui « tournait en rond ») :
    les mécanismes de pagination les plus simples et éprouvés aux montages
    fragiles que WebKit gère mal.
 
+**Inviter à retester une preview : toujours rappeler le rechargement forcé.**
+Deux délais se cumulent entre le push et ce que le frère a sous les yeux : le
+build GitHub Pages de la preview (~1 min après le commentaire de Claude) et le
+cache du **service worker** de la PWA, qui sert la version précédente. S'il
+teste immédiatement, il voit l'ancienne page et conclut « rien n'a changé » — un
+aller-retour perdu à chaque fois (observé plusieurs fois dans #114). Terminer
+donc **systématiquement**, et pas seulement quand on y pense, toute invitation à
+retester par : « pense à un rechargement forcé — ou ferme et rouvre l'app si tu
+l'as installée sur l'écran d'accueil ; le build de la preview prend ~1 min ».
+
 ## Style de code
 
 - Prettier est configuré (`.prettierrc` : `tabWidth: 2`, pas de point-virgule).
