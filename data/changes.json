@@ -1,6 +1,69 @@
 {
  "entries": [
   {
+   "at": "2026-08-26T13:26:45.148Z",
+   "added": [
+    {
+     "uid": "osr236289",
+     "start": "2027-02-05T10:00",
+     "end": "2027-02-05T19:30",
+     "liste": "Concours Premier Soliste des seconds violons",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "Les Salons",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr178810",
+     "start": "2026-11-01T13:00",
+     "end": "2026-11-01T22:00",
+     "liste": "Concours à définir",
+     "activity": "répétitions candidats (poste à définir)",
+     "category": "concours",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178809",
+     "start": "2026-11-02T10:00",
+     "end": "2026-11-02T19:30",
+     "liste": "Concours à définir",
+     "activity": "concours (Violoncelle tuttiste)",
+     "category": "concours",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr232657",
+     "start": "2027-02-04T16:00",
+     "end": "2027-02-04T22:00",
+     "liste": "Concours à définir",
+     "activity": "répétitions candidats (Premier soliste des seconds violons (coordonné))",
+     "category": "concours",
+     "location": "UM - Studio P",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178693",
+     "start": "2027-02-05T10:00",
+     "end": "2027-02-05T19:30",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "Les Salons",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-08-26T10:54:08.561Z",
    "added": [],
    "removed": [],
