@@ -68,8 +68,14 @@ production (GitHub Pages) comme dans les previews de PR.
   qui filtre le calendrier à la volée pour les abonnements personnalisés
   (`?listes=…&sans=…&annules=0`). Test : `node worker/test.mjs` (aussi en CI).
   L'URL du worker est la constante `PERSONAL_CALENDAR_URL` d'`app.js` (vide =
-  fonctionnalité masquée). Déploiement : `deploy-worker.yml` (inactif tant que
-  la variable Actions `CLOUDFLARE_READY` n'est pas `true`).
+  fonctionnalité masquée). Déploiement : `deploy-worker.yml`, conditionné à la
+  variable Actions `CLOUDFLARE_READY`. **Cette variable est à `true` depuis le
+  05/07/2026 : le worker est déployé et en service** sur
+  `bemol-calendrier.ivan-schneider.workers.dev`, et tout push sur `main`
+  touchant `worker/` le redéploie. Ne pas conclure de la condition `if:` du
+  workflow que la fonctionnalité dort encore — c'est un garde-fou de mise en
+  route, pas l'état courant. (Vérifiable :
+  `gh api repos/isc/bemol-osr/actions/variables/CLOUDFLARE_READY --jq .value`.)
 - **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, bouton
   📅).** On ne teste pas le rendu d'un `.ics` en local ni en CI : la seule
   vérité, c'est l'agenda du frère (Apple Calendar, abonnement webcal). Les apps
