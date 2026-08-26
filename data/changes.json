@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-08-26T10:54:08.561Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr226832",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "autre",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "autre",
+      "location": "UM - Salle Marie LAGGÉ (Foyer des musiciens)",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-26T09:05:42.586Z",
    "added": [],
    "removed": [],
