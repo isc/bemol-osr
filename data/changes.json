@@ -1,6 +1,349 @@
 {
  "entries": [
   {
+   "at": "2026-08-27T20:35:11.881Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133309",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133309",
+      "start": "2026-12-10T19:00",
+      "end": "2026-12-10T23:00",
+      "liste": "Liste C",
+      "activity": "prégénérale GT (lourd)",
+      "category": "generale",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133309",
+      "start": "2026-12-10T19:00",
+      "end": "2026-12-10T23:00",
+      "liste": "Liste C",
+      "activity": "prégénérale GT",
+      "category": "generale",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133310",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133310",
+      "start": "2026-12-11T19:00",
+      "end": "2026-12-11T23:00",
+      "liste": "Liste C",
+      "activity": "générale GT (lourd)",
+      "category": "generale",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133310",
+      "start": "2026-12-11T19:00",
+      "end": "2026-12-11T23:00",
+      "liste": "Liste C",
+      "activity": "générale GT",
+      "category": "generale",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133311",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133311",
+      "start": "2026-12-13T17:00",
+      "end": "2026-12-13T21:00",
+      "liste": "Liste C",
+      "activity": "première (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133311",
+      "start": "2026-12-13T17:00",
+      "end": "2026-12-13T21:00",
+      "liste": "Liste C",
+      "activity": "première",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133312",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133312",
+      "start": "2026-12-15T19:00",
+      "end": "2026-12-15T23:00",
+      "liste": "Liste C",
+      "activity": "deuxième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133312",
+      "start": "2026-12-15T19:00",
+      "end": "2026-12-15T23:00",
+      "liste": "Liste C",
+      "activity": "deuxième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133313",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133313",
+      "start": "2026-12-17T19:00",
+      "end": "2026-12-17T23:00",
+      "liste": "Liste C",
+      "activity": "troisième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133313",
+      "start": "2026-12-17T19:00",
+      "end": "2026-12-17T23:00",
+      "liste": "Liste C",
+      "activity": "troisième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133314",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133314",
+      "start": "2026-12-18T19:00",
+      "end": "2026-12-18T23:00",
+      "liste": "Liste C",
+      "activity": "quatrième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133314",
+      "start": "2026-12-18T19:00",
+      "end": "2026-12-18T23:00",
+      "liste": "Liste C",
+      "activity": "quatrième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133305",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133305",
+      "start": "2026-12-20T15:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste C",
+      "activity": "cinquième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133305",
+      "start": "2026-12-20T15:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste C",
+      "activity": "cinquième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133315",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133315",
+      "start": "2026-12-22T19:00",
+      "end": "2026-12-22T23:00",
+      "liste": "Liste C",
+      "activity": "sixième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133315",
+      "start": "2026-12-22T19:00",
+      "end": "2026-12-22T23:00",
+      "liste": "Liste C",
+      "activity": "sixième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133306",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133306",
+      "start": "2026-12-26T19:00",
+      "end": "2026-12-26T23:00",
+      "liste": "Liste C",
+      "activity": "septième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133306",
+      "start": "2026-12-26T19:00",
+      "end": "2026-12-26T23:00",
+      "liste": "Liste C",
+      "activity": "septième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133316",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133316",
+      "start": "2026-12-28T19:00",
+      "end": "2026-12-28T23:00",
+      "liste": "Liste C",
+      "activity": "huitième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133316",
+      "start": "2026-12-28T19:00",
+      "end": "2026-12-28T23:00",
+      "liste": "Liste C",
+      "activity": "huitième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133307",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133307",
+      "start": "2026-12-29T19:00",
+      "end": "2026-12-29T23:00",
+      "liste": "Liste C",
+      "activity": "neuvième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133307",
+      "start": "2026-12-29T19:00",
+      "end": "2026-12-29T23:00",
+      "liste": "Liste C",
+      "activity": "neuvième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133308",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133308",
+      "start": "2026-12-31T19:00",
+      "end": "2026-12-31T23:00",
+      "liste": "Liste C",
+      "activity": "dixième (lourd)",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133308",
+      "start": "2026-12-31T19:00",
+      "end": "2026-12-31T23:00",
+      "liste": "Liste C",
+      "activity": "dixième",
+      "category": "representation",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "Les Noces",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-08-27T15:32:04.653Z",
    "type": "memo",
    "programs": [
