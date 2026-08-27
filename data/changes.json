@@ -1,6 +1,148 @@
 {
  "entries": [
   {
+   "at": "2026-08-27T15:32:04.653Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.3.3.3 / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)",
+       "after": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 30",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
+       "fields": [
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 42",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)",
+       "after": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 0.0.0.0.0 (29 musiciens)"
+      },
+      {
+       "field": "duree",
+       "before": "≈ 1 h 58",
+       "after": "≈ 2 h 37"
+      },
+      {
+       "field": "solistes",
+       "before": "Alexandre KANTOROW, piano (à Montpellier) · Francesco PIEMONTESI, piano (à La Chaux de Fonds)",
+       "after": "Alexandre KANTOROW, piano (à Montpellier) · Nelson GOERNER, piano (à La Chaux de Fonds)"
+      }
+     ],
+     "worksAdded": [
+      "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30"
+     ],
+     "worksRemoved": [
+      "PIÈCE(S) À DÉFINIR — en construction",
+      "N.N. — Cto piano à définir"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)",
+       "after": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0 (5 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Rita STROHL — Grande Fantaisie-Quintette pour piano, deux violons, alto et violoncelle [1886]",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Musique De Chambre 5",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)",
+       "after": "2.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0 (7 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Mel BONIS — Suite en trio pour deux flûtes et piano op. 59",
+       "fields": [
+        "instrumentation",
+        "claviers"
+       ]
+      },
+      {
+       "oeuvre": "Mel BONIS — Fantaisie en septuor pour deux flûtes, piano et quatuor à cordes op. 72",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Musique De Chambre 6",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "",
+       "after": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams ... [saison 2627]",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-08-26T13:26:45.148Z",
    "added": [
     {

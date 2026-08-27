@@ -626,14 +626,14 @@
  },
  "Liste 09": {
   "chef": "Eva OLLIKAINEN",
-  "effectif": "3.3.3.3 / 4.4.3.1 / 2.6.2.1 / 15.13.11.9.7 (90 musiciens)",
+  "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
   "duree": "≈ 1 h 45",
   "works": [
    {
     "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
-    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.6.1.1 / 12*.10.8.6.4",
+    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.3.1.1 / 12*.10.8.6.4",
     "remarques": "effectif prévisionnel",
-    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum",
+    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum, 6 cymb susp avec\narchet",
     "claviers": "piano (orch.)",
     "duree": "≈ 12 min"
    },
@@ -1093,7 +1093,7 @@
   }
  },
  "Musique De Chambre 2": {
-  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (4 musiciens)",
+  "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0 (5 musiciens)",
   "duree": "≈ 55 min",
   "works": [
    {
@@ -1103,7 +1103,7 @@
    },
    {
     "oeuvre": "Rita STROHL — Grande Fantaisie-Quintette pour piano, deux violons, alto et violoncelle [1886]",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0",
     "claviers": "piano",
     "duree": "≈ 30 min"
    }
@@ -1880,7 +1880,7 @@
   }
  },
  "Musique De Chambre 5": {
-  "effectif": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0 (6 musiciens)",
+  "effectif": "2.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0 (7 musiciens)",
   "duree": "≈ 57 min",
   "works": [
    {
@@ -1895,7 +1895,8 @@
    },
    {
     "oeuvre": "Mel BONIS — Suite en trio pour deux flûtes et piano op. 59",
-    "instrumentation": "2.0.0.0 / 0.0.0.0 / 0.0.0.0 / 0.0.0.0.0",
+    "instrumentation": "2.0.0.0 / 0.0.0.0 / 0.0.0.1 / 0.0.0.0.0",
+    "claviers": "piano",
     "duree": "≈ 10 min"
    },
    {
@@ -1905,7 +1906,7 @@
    },
    {
     "oeuvre": "Mel BONIS — Fantaisie en septuor pour deux flûtes, piano et quatuor à cordes op. 72",
-    "instrumentation": "1.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0",
+    "instrumentation": "1.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0",
     "claviers": "piano",
     "duree": "≈ 14 min"
    }
@@ -1942,7 +1943,7 @@
    {
     "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
     "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 15*.13.11.9.7",
-    "remarques": "ok Sokhiev (par SR) le 11.08.95",
+    "remarques": "ok Sokhiev (par SR) le 11.08.26",
     "percussions": "GC, cymb fr, glock, tamb.mil, bsq, cast, TT, tri",
     "detail": "Suite assemblée par Tugan Sokhiev",
     "duree": "≈ 52 min"
@@ -2185,9 +2186,11 @@
   }
  },
  "Musique De Chambre 6": {
+  "effectif": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)",
   "works": [
    {
     "oeuvre": "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams ... [saison 2627]",
+    "instrumentation": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "detail": "John Williams : Olympic Fanfare"
    }
@@ -2350,8 +2353,8 @@
  },
  "Liste 42": {
   "chef": "Tugan SOKHIEV",
-  "effectif": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8 (101 musiciens)",
-  "duree": "≈ 1 h 58",
+  "effectif": "3.2.2.4 / 4.4.3.1 / 1.4.1.0 / 0.0.0.0.0 (29 musiciens)",
+  "duree": "≈ 2 h 37",
   "works": [
    {
     "oeuvre": "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
@@ -2368,6 +2371,14 @@
     "duree": "≈ 38 min"
    },
    {
+    "oeuvre": "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30",
+    "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.2.0.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, c.cl.",
+    "claviers": "piano",
+    "duree": "≈ 39 min"
+   },
+   {
     "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
     "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
@@ -2375,30 +2386,19 @@
     "detail": "Suite assemblée par Tugan Sokhiev",
     "note": "\nsokhiev ok avec 15.13.11.9.7 le 11.08.26",
     "duree": "≈ 52 min"
-   },
-   {
-    "oeuvre": "PIÈCE(S) À DÉFINIR — en construction",
-    "instrumentation": "4.4.4.4 / 8.5.4.1 / 1.4.1.1 / 16.14.12.10.8"
-   },
-   {
-    "oeuvre": "N.N. — Cto piano à définir",
-    "remarques": "Sans cordes",
-    "detail": "effectif en construction"
    }
   ],
   "solistes": [
    "Alexandre KANTOROW, piano (à Montpellier)",
-   "Francesco PIEMONTESI, piano (à La Chaux de Fonds)"
+   "Nelson GOERNER, piano (à La Chaux de Fonds)"
   ],
   "serviceWorks": {
    "osr162257": [
     1,
     2,
-    3,
     4
    ],
    "osr230030": [
-    5,
     3,
     4
    ]
