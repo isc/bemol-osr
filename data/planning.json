@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-08-27T20:35:11.881Z",
- "count": 607,
+ "updatedAt": "2026-08-28T18:49:13.576Z",
+ "count": 612,
  "events": [
   {
    "uid": "osr225046",
@@ -586,6 +586,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr236839",
+   "start": "2026-09-04T15:00",
+   "end": "2026-09-04T17:00",
+   "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+   "activity": "répétition hors contrat",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133261",
    "start": "2026-09-05T14:00",
    "end": "2026-09-05T17:00",
@@ -1041,10 +1052,21 @@
    "start": "2026-09-29T14:30",
    "end": "2026-09-29T17:00",
    "liste": "Liste 08",
-   "activity": "répétition",
+   "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr236938",
+   "start": "2026-09-29T17:00",
+   "end": "2026-09-29T18:30",
+   "liste": "Liste 08",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1184,7 +1206,7 @@
    "start": "2026-10-06T14:30",
    "end": "2026-10-06T17:00",
    "liste": "Liste 09",
-   "activity": "répétition",
+   "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1206,7 +1228,7 @@
    "start": "2026-10-07T10:00",
    "end": "2026-10-07T12:30",
    "liste": "Liste 09",
-   "activity": "répétition avec soliste",
+   "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1224,11 +1246,22 @@
    "cancelled": false
   },
   {
+   "uid": "osr236932",
+   "start": "2026-10-07T17:00",
+   "end": "2026-10-07T18:30",
+   "liste": "Liste 09",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132772",
    "start": "2026-10-07T19:30",
    "end": "2026-10-07T22:00",
    "liste": "Liste 09",
-   "activity": "répétition avec soliste",
+   "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1356,6 +1389,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr236835",
+   "start": "2026-10-12T08:00",
+   "end": "2026-10-12T11:00",
+   "liste": "Liste 07",
+   "activity": "technique tv (sans orch.)",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132734",
    "start": "2026-10-12T12:00",
    "end": "2026-10-12T13:00",
@@ -1441,6 +1485,17 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "DIP1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr236836",
+   "start": "2026-10-15T12:00",
+   "end": "2026-10-15T13:00",
+   "liste": "Liste 07",
+   "activity": "technique tv (sans orch.)",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
