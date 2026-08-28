@@ -1,6 +1,84 @@
 {
  "entries": [
   {
+   "at": "2026-08-28T16:56:27.132Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 10",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Etudiant·es du Département Vocal de la HEM, Solistes et Choeur",
+       "after": "Talia OR, soprano · Susanne SCHIMMACK, mezzo-soprano · Anicio ZORZI GIUSTINIANI, ténor · Ivan THIRION, baryton · Etudiant·es du Département Vocal de la HEM, chœur"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste B",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "0.2.0.0 / 2.3.2.0 / 1.1.0.0 / 3.3.3.4.3 (27 musiciens)",
+       "after": "0.1.0.0 / 2.3.2.0 / 0.1.0.0 / 3.3.3.4.3 (25 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Stephen SONDHEIM — Company",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-08-27T20:35:11.881Z",
    "added": [],
    "removed": [],

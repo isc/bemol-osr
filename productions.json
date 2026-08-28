@@ -567,14 +567,77 @@
    ]
   }
  },
+ "Liste 09": {
+  "chef": "Eva OLLIKAINEN",
+  "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
+  "duree": "≈ 1 h 45",
+  "works": [
+   {
+    "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.3.1.1 / 12.10.8.6.4",
+    "remarques": "fl2+picc+fl.alto, fgt2+kfgt",
+    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum, 6 cymb susp avec\narchet",
+    "claviers": "piano (orch.)",
+    "duree": "≈ 12 min"
+   },
+   {
+    "oeuvre": "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
+    "instrumentation": "3*.3*.3*.3* / 4.4*.3.1 / 1.0.1.0 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 2crt",
+    "duree": "≈ 17 min"
+   },
+   {
+    "oeuvre": "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
+    "instrumentation": "2*.2.3*.2 / 4.2.3.0 / 2.0.2.0 / 12.10.8.6.4",
+    "remarques": "fl1&2+picc, 1cl.bs",
+    "duree": "≈ 10 min"
+   },
+   {
+    "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
+    "instrumentation": "3*.2.2.2 / 4.2.3.1 / 1.2.0.0 / 15.13.11.9.7",
+    "remarques": "fl3+picc",
+    "percussions": "GC, cymb fr, TT",
+    "detail": "remarque : 4 notes du fgt1 dans le 1er mvt sont parfois jouées à la cl.bs (cl2+cl.bs)",
+    "duree": "≈ 46 min"
+   }
+  ],
+  "solistes": [
+   "Anu KOMSI, soprano",
+   "Lionel COTTET, violoncelle"
+  ],
+  "serviceWorks": {
+   "osr137820": [
+    1,
+    3,
+    2
+   ],
+   "osr132770": [
+    2,
+    1,
+    3
+   ],
+   "osr132774": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132776": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
+ },
  "Liste B": {
   "chef": "Larry BLANK",
-  "effectif": "0.2.0.0 / 2.3.2.0 / 1.1.0.0 / 3.3.3.4.3 (27 musiciens)",
+  "effectif": "0.1.0.0 / 2.3.2.0 / 0.1.0.0 / 3.3.3.4.3 (25 musiciens)",
   "duree": "≈ 2 h 50",
   "works": [
    {
     "oeuvre": "Stephen SONDHEIM — Company",
-    "instrumentation": "0.2*.0.0 / 2.3.2*.0 / 1.1.0.0 / 3*.3.3.4.3",
+    "instrumentation": "0.1*.0.0 / 2.3.2*.0 / 0.1*.0.0 / 3*.3.3.4.3",
     "remarques": "partitions pour violins A + violins B + violins C sans alti, joué pour cette production avec V1",
     "percussions": "glock, vibrslp, afouché, timp., scraper, woodblk, xyl, chimes, cast, pol whstle, tmplblk, tri,\nvibra, cabasa, bsq, ratch",
     "extra": "guitare (de la prod.), claviériste (de la prod.), drum set (de la prod.), 4 reeds (de la prod.)",
@@ -624,59 +687,6 @@
    ]
   }
  },
- "Liste 09": {
-  "chef": "Eva OLLIKAINEN",
-  "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
-  "duree": "≈ 1 h 45",
-  "works": [
-   {
-    "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
-    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.3.1.1 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
-    "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum, 6 cymb susp avec\narchet",
-    "claviers": "piano (orch.)",
-    "duree": "≈ 12 min"
-   },
-   {
-    "oeuvre": "Jean SIBELIUS — La Fille de Pohjola, fantaisie symphonique pour grand orchestre op. 49",
-    "instrumentation": "3*.3*.3*.3* / 4.4*.3.1 / 1.0.1.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
-    "duree": "≈ 17 min"
-   },
-   {
-    "oeuvre": "Jean SIBELIUS — Luonnotar, poème symphonique pour soprano et orchestre op. 70",
-    "instrumentation": "2*.2.3*.2 / 4.2.3.0 / 2.0.2.0 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
-    "duree": "≈ 10 min"
-   },
-   {
-    "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Symphonie N° 6 en si mineur op. 74, dite 'Pathétique'",
-    "instrumentation": "3*.2.2.2 / 4.2.3.1 / 1.2.0.0 / 15*.13.11.9.7",
-    "remarques": "effectif max.",
-    "percussions": "GC, cymb fr, TT",
-    "detail": "remarque : 4 notes du fgt1 dans le 1er mvt sont parfois jouées à la cl.bs (cl2+cl.bs)",
-    "duree": "≈ 46 min"
-   }
-  ],
-  "solistes": [
-   "Anu KOMSI, soprano",
-   "Lionel COTTET, violoncelle"
-  ],
-  "serviceWorks": {
-   "osr132774": [
-    1,
-    2,
-    3,
-    4
-   ],
-   "osr132776": [
-    1,
-    2,
-    3,
-    4
-   ]
-  }
- },
  "Liste 10": {
   "chef": "Ton KOOPMAN",
   "effectif": "3.2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.12.10.8.5 (70 musiciens)",
@@ -692,9 +702,37 @@
    }
   ],
   "solistes": [
-   "Etudiant·es du Département Vocal de la HEM, Solistes et Choeur"
+   "Talia OR, soprano",
+   "Susanne SCHIMMACK, mezzo-soprano",
+   "Anicio ZORZI GIUSTINIANI, ténor",
+   "Ivan THIRION, baryton",
+   "Etudiant·es du Département Vocal de la HEM, chœur"
   ],
   "serviceWorks": {
+   "osr132800": [
+    1
+   ],
+   "osr132802": [
+    1
+   ],
+   "osr225315": [
+    1
+   ],
+   "osr132803": [
+    1
+   ],
+   "osr132804": [
+    1
+   ],
+   "osr132805": [
+    1
+   ],
+   "osr132806": [
+    1
+   ],
+   "osr132807": [
+    1
+   ],
    "osr132808": [
     1
    ],
