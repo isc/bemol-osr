@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-28T18:49:13.576Z",
+ "updatedAt": "2026-08-31T17:38:31.059Z",
  "count": 612,
  "events": [
   {
@@ -807,8 +807,8 @@
   },
   {
    "uid": "osr176102",
-   "start": "2026-09-18T13:30",
-   "end": "2026-09-18T15:30",
+   "start": "2026-09-18T13:45",
+   "end": "2026-09-18T15:45",
    "liste": "Atelier Découverte 1",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
@@ -1686,17 +1686,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr233631",
-   "start": "2026-10-20T10:00",
-   "end": "2026-10-20T12:30",
-   "liste": "Liste 10",
-   "activity": "partielle par pupitre (trombones)",
-   "category": "repetition",
-   "location": "UM - Studio P",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132800",
    "start": "2026-10-20T14:30",
    "end": "2026-10-20T17:00",
@@ -1705,6 +1694,17 @@
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233631",
+   "start": "2026-10-20T14:30",
+   "end": "2026-10-20T17:00",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (trombones)",
+   "category": "repetition",
+   "location": "UM - Studio P",
+   "project": "",
    "cancelled": false
   },
   {
@@ -2052,7 +2052,7 @@
    "uid": "osr133234",
    "start": "2026-11-05T16:30",
    "end": "2026-11-05T18:30",
-   "liste": "Accueil 01",
+   "liste": "Accueil Berner Symphonieorchester",
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
@@ -2074,7 +2074,7 @@
    "uid": "osr133235",
    "start": "2026-11-05T19:30",
    "end": "2026-11-05T21:30",
-   "liste": "Accueil 01",
+   "liste": "Accueil Berner Symphonieorchester",
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
