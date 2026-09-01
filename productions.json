@@ -732,9 +732,6 @@
    "Etudiant·es du Département Vocal de la HEM, chœur"
   ],
   "serviceWorks": {
-   "osr132800": [
-    1
-   ],
    "osr132802": [
     1
    ],
@@ -826,7 +823,7 @@
    ]
   }
  },
- "Accueil 01": {
+ "Accueil Berner Symphonieorchester": {
   "chef": "Krzysztof URBAŃSKI",
   "effectif": "2.2.2.2 / 4.2.3.1 / 1.0.0.0 / 14.12.10.8.6 (69 musiciens)",
   "duree": "≈ 1 h 47",
