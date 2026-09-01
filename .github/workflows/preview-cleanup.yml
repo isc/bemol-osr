@@ -8,13 +8,19 @@ permissions:
   contents: write
   pull-requests: write
 
-# Groupe DISTINCT de celui de deploy.yml / preview.yml (`gh-pages`).
-# La fermeture d'une PR (cleanup) coïncide souvent avec le merge (push sur
-# main → deploy). S'ils partageaient le même groupe, le cleanup en file
-# supplanterait le déploiement en attente. On isole donc le cleanup ; la
-# concurrence avec un push peaceiris est gérée par la boucle rebase ci-dessous.
+# Même groupe que deploy.yml / preview.yml / update-data.yml / update-memo.yml :
+# TOUTES les écritures sur gh-pages sont sérialisées.
+#
+# Ce cleanup a longtemps eu son propre groupe, pour qu'une fermeture de PR ne
+# supplante pas un déploiement en attente. Mais c'est précisément la
+# coïncidence « merge d'une PR = push sur main (deploy) + PR fermée (cleanup) »
+# qui posait problème : sur les 60 derniers runs de deploy.yml, les 4 échecs
+# (`! [remote rejected] gh-pages … cannot lock ref`) tombent tous à la seconde
+# près sur un run de ce workflow. Un déploiement perdu ne republie pas
+# index.html / app.js / style.css jusqu'au prochain push sur main, alors qu'une
+# preview périmée qui traîne un moment est bénigne : on sérialise.
 concurrency:
-  group: gh-pages-cleanup
+  group: gh-pages
   cancel-in-progress: false
 
 jobs:
@@ -43,8 +49,9 @@ jobs:
             git config user.email 'github-actions[bot]@users.noreply.github.com'
             git rm -rf "$dir"
             git commit -m "cleanup: remove preview ${{ steps.slug.outputs.slug }}"
-            # N'étant pas sérialisé avec les pushes peaceiris (deploy/preview),
-            # on retente avec rebase si gh-pages a bougé entre-temps.
+            # Filet de secours : la concurrence ci-dessus sérialise déjà les
+            # écritures gh-pages, mais rien n'interdit une écriture venue
+            # d'ailleurs (push manuel). On retente avec rebase le cas échéant.
             for i in 1 2 3 4 5; do
               if git push origin gh-pages; then
                 exit 0
