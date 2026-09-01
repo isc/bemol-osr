@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-31T17:38:31.059Z",
+ "updatedAt": "2026-09-01T16:44:31.665Z",
  "count": 612,
  "events": [
   {
@@ -575,6 +575,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr236839",
+   "start": "2026-09-04T13:30",
+   "end": "2026-09-04T15:30",
+   "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+   "activity": "répétition hors contrat",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133260",
    "start": "2026-09-04T14:30",
    "end": "2026-09-04T18:30",
@@ -583,17 +594,6 @@
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
-   "cancelled": false
-  },
-  {
-   "uid": "osr236839",
-   "start": "2026-09-04T15:00",
-   "end": "2026-09-04T17:00",
-   "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
-   "activity": "répétition hors contrat",
-   "category": "repetition",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
    "cancelled": false
   },
   {
