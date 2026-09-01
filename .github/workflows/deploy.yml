@@ -7,10 +7,12 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   # Sérialise les écritures sur gh-pages entre ce déploiement, les previews de
-  # PR et les mises à jour de données, sinon deux jobs peuvent se marcher dessus.
+  # PR (dépôt ET suppression) et les mises à jour de données, sinon deux jobs
+  # peuvent se marcher dessus.
   group: gh-pages
   cancel-in-progress: false
 
@@ -66,3 +68,54 @@ jobs:
           publish_branch: gh-pages
           keep_files: true
           commit_message: "deploy: main @ ${{ github.sha }}"
+
+      # Un déploiement raté est un angle mort : contrairement aux crons de
+      # données (dont l'app finit par afficher un bandeau « données anciennes »),
+      # rien dans l'interface ne signale que index.html / app.js / style.css
+      # publiés ne sont plus ceux de main. Le changement reste invisible jusqu'au
+      # prochain push sur main — potentiellement des jours, les crons de données
+      # ne republiant pas les fichiers de l'app. On alerte donc, comme
+      # update-data / update-memo.
+      #
+      # `failure() || cancelled()` pour la même raison qu'en #122 : un run
+      # interrompu après son démarrage conclut `cancelled`, et failure() seul le
+      # raterait. (Limite assumée : un run supplanté alors qu'il était encore EN
+      # ATTENTE dans le groupe de concurrence n'exécute aucune étape — aucune
+      # alerte possible dans ce cas. C'est bénin quand c'est un autre
+      # déploiement de main qui le supplante : celui-là publie un arbre plus
+      # récent, qui contient le commit perdu.)
+      - name: Signaler l'échec dans une issue
+        if: ${{ failure() || cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: "⚠️ La publication du site sur GitHub Pages échoue"
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          MIN_HOURS_BETWEEN_COMMENTS: 1
+        run: |
+          num=$(gh issue list -R "${{ github.repository }}" --state open \
+            --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            # En cas de doute (API muette, date illisible), last_ts vaut 0 et on
+            # commente : rater une alerte est pire qu'un commentaire de trop.
+            last=$(gh issue view "$num" -R "${{ github.repository }}" \
+              --json comments,createdAt --jq '.comments[-1].createdAt // .createdAt' || true)
+            last_ts=$(date -u -d "${last:-@0}" +%s 2>/dev/null || echo 0)
+            elapsed_hours=$(( ($(date -u +%s) - last_ts) / 3600 ))
+            if [ "$elapsed_hours" -ge "$MIN_HOURS_BETWEEN_COMMENTS" ]; then
+              gh issue comment "$num" -R "${{ github.repository }}" \
+                --body "Nouvel échec de publication (\`${GITHUB_SHA:0:12}\`) : $RUN_URL"
+            else
+              echo "Dernier message de l'issue #$num il y a $elapsed_hours h (< $MIN_HOURS_BETWEEN_COMMENTS h) : pas de nouveau commentaire."
+            fi
+          else
+            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
+              "La publication de \`main\` sur GitHub Pages vient d'échouer (commit \`${GITHUB_SHA:0:12}\`) : $RUN_URL
+
+          Le site reste en ligne, mais il sert la **version précédente** de l'app : le changement qui vient d'être mergé n'est pas publié, et le restera jusqu'au prochain push sur \`main\` (les crons de données ne republient pas \`index.html\` / \`app.js\` / \`style.css\`).
+
+          **Réparation : relancer le workflow** — onglet Actions → *Deploy to GitHub Pages* → *Run workflow* sur \`main\` (le workflow accepte \`workflow_dispatch\`). Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le site republié.**
+
+          Causes déjà vues : rejet du push sur \`gh-pages\` (\`cannot lock ref\`) quand une autre écriture s'y glisse, incident GitHub. À ne pas confondre avec un 404 de Pages, qui vient du build natif \`pages-build-deployment\` (cf. CLAUDE.md).
+
+          cc @isc"
+          fi
