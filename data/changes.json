@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-09-02T16:40:27.038Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr162256",
+     "fields": [
+      "start"
+     ],
+     "before": {
+      "uid": "osr162256",
+      "start": "2027-07-06T10:00",
+      "end": "2027-07-06T13:00",
+      "liste": "Liste 42",
+      "activity": "générale non publique",
+      "category": "generale",
+      "location": "lieu à définir",
+      "project": "TOUR",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162256",
+      "start": "2027-07-06T10:30",
+      "end": "2027-07-06T13:00",
+      "liste": "Liste 42",
+      "activity": "générale non publique",
+      "category": "generale",
+      "location": "lieu à définir",
+      "project": "TOUR",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-02T09:04:50.140Z",
    "type": "memo",
    "programs": [

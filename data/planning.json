@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-01T16:44:31.665Z",
+ "updatedAt": "2026-09-02T16:40:27.038Z",
  "count": 612,
  "events": [
   {
@@ -6648,7 +6648,7 @@
   },
   {
    "uid": "osr162256",
-   "start": "2027-07-06T10:00",
+   "start": "2027-07-06T10:30",
    "end": "2027-07-06T13:00",
    "liste": "Liste 42",
    "activity": "générale non publique",
