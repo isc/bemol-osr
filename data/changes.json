@@ -1,6 +1,49 @@
 {
  "entries": [
   {
+   "at": "2026-09-02T09:04:50.140Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "",
+       "after": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 1.0.0.0.0 (3 musiciens)"
+      },
+      {
+       "field": "duree",
+       "before": "≈ 12 min",
+       "after": "≈ 11 min"
+      }
+     ],
+     "worksAdded": [
+      "Johannes BRAHMS — "
+     ],
+     "worksRemoved": [
+      "Johannes BRAHMS — Scherzo du trio pour violon, cor et piano en mi bémol majeur op. 40 - Scherzo. Allegro - Trio. Molto meno allegro"
+     ],
+     "worksModified": [
+      {
+       "oeuvre": "Edward ELGAR — Salut d'amour, op. 12 pour violon et piano",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Franz SCHUBERT — La Truite, op. 32 D 550, arrangement pour cor et piano",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-09-01T16:44:31.665Z",
    "added": [],
    "removed": [],

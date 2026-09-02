@@ -213,22 +213,24 @@
   }
  },
  "Cérémonie d'Accueil des Nouveaux Habitants": {
-  "duree": "≈ 12 min",
+  "effectif": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 1.0.0.0.0 (3 musiciens)",
+  "duree": "≈ 11 min",
   "works": [
    {
-    "oeuvre": "Johannes BRAHMS — Scherzo du trio pour violon, cor et piano en mi bémol majeur op. 40 - Scherzo. Allegro - Trio. Molto meno allegro",
-    "remarques": "Sans cordes",
+    "oeuvre": "Johannes BRAHMS — ",
+    "instrumentation": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 1.0.0.0.0",
     "claviers": "piano",
-    "duree": "≈ 7 min"
+    "duree": "≈ 6 min"
    },
    {
     "oeuvre": "Edward ELGAR — Salut d'amour, op. 12 pour violon et piano",
-    "remarques": "Sans cordes",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.0",
     "claviers": "piano",
     "duree": "≈ 3 min"
    },
    {
     "oeuvre": "Franz SCHUBERT — La Truite, op. 32 D 550, arrangement pour cor et piano",
+    "instrumentation": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "claviers": "piano",
     "duree": "≈ 2 min"
