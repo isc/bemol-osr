@@ -1,6 +1,48 @@
 {
  "entries": [
   {
+   "at": "2026-09-03T09:12:38.814Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "NN1",
+       "after": "NN"
+      },
+      {
+       "field": "duree",
+       "before": "",
+       "after": "≈ 1 h 35"
+      },
+      {
+       "field": "solistes",
+       "before": "Matt DUSK, jazz vocalist · NN1, choriste gospel alto · NN2, choriste gospel soprano · NN3, choriste gospel ténor",
+       "after": "Matt DUSK, jazz vocalist · NN1, choriste gospel soprano · NN2, choriste gospel soprano · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
+       "fields": [
+        "instrumentation",
+        "remarques",
+        "claviers",
+        "extra",
+        "detail",
+        "duree"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-09-02T16:40:27.038Z",
    "added": [],
    "removed": [],

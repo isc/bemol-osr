@@ -1263,23 +1263,29 @@
   }
  },
  "Liste 20": {
-  "chef": "NN1",
+  "chef": "NN",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
   "works": [
    {
     "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3.3*.1 / 1.4.0.1 / 8.7.6.5.4",
-    "remarques": "1 cl.bs, 1 trb.bs",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "4 contrebasses dont 1 acoustique+électrique",
     "percussions": "perc.en construct., drumset",
-    "extra": "2 saxophone alto, saxophone baryton, 2 saxophone ténor",
-    "detail": "Set list parmi entre autres :"
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells (+scolaires)\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
    }
   ],
   "solistes": [
    "Matt DUSK, jazz vocalist",
-   "NN1, choriste gospel alto",
+   "NN1, choriste gospel soprano",
    "NN2, choriste gospel soprano",
-   "NN3, choriste gospel ténor"
+   "NN3, choriste gospel alto",
+   "NN4, choriste gospel alto",
+   "NN5, choriste gospel ténor",
+   "NN6, choriste gospel ténor"
   ]
  },
  "Liste 21": {
