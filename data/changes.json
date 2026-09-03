@@ -1,6 +1,36 @@
 {
  "entries": [
   {
+   "at": "2026-09-03T16:31:40.301Z",
+   "added": [
+    {
+     "uid": "osr239151",
+     "start": "2026-09-16T10:15",
+     "end": "2026-09-16T12:30",
+     "liste": "Réunion d'accueil et d'information des Etudiants DAS",
+     "activity": "Réunion d'information (tuteurs et étudiants)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr216071",
+     "start": "2026-09-17T09:30",
+     "end": "2026-09-17T15:30",
+     "liste": "audiogrammes 1",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-09-03T09:12:38.814Z",
    "type": "memo",
    "programs": [

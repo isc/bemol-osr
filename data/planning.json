@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-02T16:40:27.038Z",
+ "updatedAt": "2026-09-03T16:31:40.301Z",
  "count": 612,
  "events": [
   {
@@ -762,6 +762,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr239151",
+   "start": "2026-09-16T10:15",
+   "end": "2026-09-16T12:30",
+   "liste": "Réunion d'accueil et d'information des Etudiants DAS",
+   "activity": "Réunion d'information (tuteurs et étudiants)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr193687",
    "start": "2026-09-16T12:00",
    "end": "2026-09-16T14:00",
@@ -781,17 +792,6 @@
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
-   "cancelled": false
-  },
-  {
-   "uid": "osr216071",
-   "start": "2026-09-17T09:30",
-   "end": "2026-09-17T15:30",
-   "liste": "audiogrammes 1",
-   "activity": "audiogrammes",
-   "category": "autre",
-   "location": "HUG",
-   "project": "",
    "cancelled": false
   },
   {
