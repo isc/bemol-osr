@@ -42,7 +42,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=48f2c0dbb52f" />
+    <link rel="stylesheet" href="style.css?v=d9bd517634e1" />
   </head>
   <body>
     <header>
@@ -50,19 +50,15 @@
         <h1>♭ Bémol <span class="subtitle">Planning OSR</span></h1>
         <div class="header-controls">
           <nav id="view-nav">
-            <button data-view="grille">Grille</button>
-            <button data-view="agenda">Agenda</button>
+            <button data-view="grille">Agenda personnalisé</button>
+            <button data-view="document">Bible</button>
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
-            <button data-view="recherche">Recherche</button>
-            <button data-view="document">Bible</button>
           </nav>
-          <button id="today-btn" title="Aller à aujourd'hui">
-            Aujourd'hui
-          </button>
-          <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
-          <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
+               plus dans l'en-tête : ils sont désormais dans le sous-menu de
+               chaque onglet qui en a besoin (#132 sur #131). -->
           <button id="feedback-btn" title="Donner un avis" hidden>💬</button>
           <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
                le bouton doré (CTA) de l'en-tête sombre. -->
@@ -71,7 +67,6 @@
           </button>
         </div>
       </div>
-      <div id="legend"></div>
     </header>
 
     <main id="main">
@@ -88,6 +83,11 @@
 
     <dialog id="detail-dialog">
       <div id="detail-content" class="detail-box"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="today-dialog">
+      <div id="today-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
@@ -140,11 +140,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=48f2c0dbb52f
+    <!-- Le suffixe ?v=d9bd517634e1
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=48f2c0dbb52f"></script>
+    <script src="app.js?v=d9bd517634e1"></script>
   </body>
 </html>
