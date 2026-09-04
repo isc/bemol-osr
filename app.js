@@ -2798,6 +2798,20 @@ async function init() {
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
+  // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
+  // à viser la croix ou le bouton Fermer.
+  for (const dlg of document.querySelectorAll("dialog"))
+    dlg.addEventListener("click", (e) => {
+      const r = dlg.getBoundingClientRect()
+      if (
+        e.clientX < r.left ||
+        e.clientX > r.right ||
+        e.clientY < r.top ||
+        e.clientY > r.bottom
+      )
+        dlg.close()
+    })
+
   document.getElementById("install-btn").addEventListener("click", () => {
     renderInstall()
     document.getElementById("install-dialog").showModal()
