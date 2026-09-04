@@ -50,19 +50,15 @@
         <h1>♭ Bémol <span class="subtitle">Planning OSR</span></h1>
         <div class="header-controls">
           <nav id="view-nav">
-            <button data-view="grille">Grille</button>
-            <button data-view="agenda">Agenda</button>
+            <button data-view="grille">Agenda personnalisé</button>
+            <button data-view="document">Bible</button>
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
-            <button data-view="recherche">Recherche</button>
-            <button data-view="document">Bible</button>
           </nav>
-          <button id="today-btn" title="Aller à aujourd'hui">
-            Aujourd'hui
-          </button>
-          <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
-          <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
+               plus dans l'en-tête : ils sont désormais dans le sous-menu de
+               chaque onglet qui en a besoin (#132 sur #131). -->
           <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
                le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
@@ -70,7 +66,6 @@
           </button>
         </div>
       </div>
-      <div id="legend"></div>
     </header>
 
     <main id="main">
@@ -87,6 +82,11 @@
 
     <dialog id="detail-dialog">
       <div id="detail-content" class="detail-box"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="today-dialog">
+      <div id="today-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 

@@ -9,30 +9,39 @@ l'export ICS du logiciel de planification (Dièse).
 
 ## Fonctionnalités
 
-- **Vue Grille** : reprend la présentation de la « Bible de saison » — périodes
-  de 4 semaines, colonnes Lundi→Dimanche, lignes Matin / Après-midi / Soir,
-  code couleur par Liste (production) : chaque production garde la même
-  couleur sur tous ses services (répétitions, générale, concert…).
-- **Vue Agenda** : liste chronologique des prochains services, pratique sur
-  téléphone (vue par défaut sur petit écran).
+- **Vue Agenda personnalisé** (vue par défaut) : reprend la présentation de
+  la « Bible de saison » — périodes de 4 semaines, colonnes Lundi→Dimanche,
+  lignes Matin / Après-midi / Soir, code couleur par Liste (production) :
+  chaque production garde la même couleur sur tous ses services
+  (répétitions, générale, concert…). Filtrée par tes Réglages (productions,
+  types de service…) ; un sous-menu en haut de l'onglet donne un accès direct
+  à « Aujourd'hui », aux Réglages et à l'abonnement au calendrier.
+- **Vue Bible** : document de référence de la saison complète (planning +
+  fiches de programme), indépendant de tes Réglages — recherche par mots-clés
+  (œuvre, compositeur, chef, soliste, lieu…), impression / export PDF, et un
+  sous-menu « Aujourd'hui » pour le détail du jour en cours.
 - **Vue Modifs** : journal des changements de planning détectés à chaque
   mise à jour de l'ICS (ajouts, annulations, changements d'horaire ou de
   lieu, avant → après). Un badge indique les nouveautés depuis ta dernière
   visite, et les événements récemment modifiés sont marqués d'un point rouge.
-- **Préférences personnelles** (mémorisées sur l'appareil) : masquer des
-  catégories d'un clic sur la légende, filtrer par Liste, afficher ou non les
-  événements annulés.
-- **Abonnement calendrier (ICS)** : bouton 📅 dans l'en-tête → abonne ton
-  agenda habituel (iPhone, Google Agenda, Outlook…) au planning. Le calendrier
+- **Préférences personnelles** (⚙ Réglages, mémorisées sur l'appareil) :
+  masquer des catégories, filtrer par Liste, afficher ou non les événements
+  annulés.
+- **Abonnement calendrier (ICS)** : bouton 📅, dans le sous-menu de l'onglet
+  Agenda personnalisé, → abonne ton agenda habituel (iPhone, Google Agenda,
+  Outlook…) au planning. Le calendrier
   ([`data/planning.ics`](data/planning.ics)) se met à jour tout seul et enrichit chaque
   service avec les infos du mémo de production (chef, solistes, œuvres,
-  instrumentation, effectif), comme la vue Grille. Un lien personnalisé (même
-  bouton) suit en plus les Réglages actuels (listes/catégories), et peut être
-  complété par des **notifications push** (⚙ Réglages) sur les changements
-  concernant ces mêmes listes — le tout via un petit worker Cloudflare
-  ([`worker/`](worker/)), seule exception à la règle « site 100 % statique ».
-- Bouton « Aujourd'hui ». Une seule saison est publiée (la saison en cours,
-  filtre `ONLY_SEASON` du pipeline — l'export ICS en contient d'autres).
+  instrumentation, effectif), comme la vue Agenda personnalisé. Un lien
+  personnalisé (même bouton) suit en plus les Réglages actuels
+  (listes/catégories), et peut être complété par des **notifications push**
+  (⚙ Réglages) sur les changements concernant ces mêmes listes — le tout via
+  un petit worker Cloudflare ([`worker/`](worker/)), seule exception à la
+  règle « site 100 % statique ».
+- Bouton « Aujourd'hui » : dans les onglets Bible et Agenda personnalisé,
+  ouvre le détail du jour en cours dans une fenêtre. Une seule saison est
+  publiée (la saison en cours, filtre `ONLY_SEASON` du pipeline — l'export
+  ICS en contient d'autres).
 
 ## Architecture
 

@@ -137,7 +137,7 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
-  searchQuery: "", // recherche courante (vue Recherche), conservée entre les rendus
+  searchQuery: "", // recherche courante (vue Bible), conservée entre les rendus
 }
 
 function loadPrefs() {
@@ -1433,6 +1433,8 @@ function buildWeekTable(days, weekIndex, ctx) {
 }
 
 function renderGrille(main) {
+  renderGrilleActions(main)
+
   const ctx = weekTableContext()
 
   for (const periode of seasonPeriodes()) {
@@ -1537,8 +1539,37 @@ function renderPeriodePage(periode, ctx) {
 // (catégories/listes masquées, services sans orchestre…, cf. allSeasonEvents) :
 // c'est le document de référence de la saison complète, pas une vue
 // personnalisée (retour #114).
+// Intègre aussi la recherche par mots-clés (#131) : les deux vivent dans le
+// même onglet Bible, puisque toutes deux portent sur la saison complète,
+// indépendamment des filtres du musicien (cf. searchResults ci-dessous).
+// Une recherche active masque la grille au profit des résultats ; imprimer
+// (@media print) affiche toujours le document complet, cf. style.css.
 function renderDocument(main) {
+  const results = el("div", { class: "search-results doc-search-results" })
+  const docBody = el("div", { class: "doc-body" })
+
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      const q = !!ev.target.value.trim()
+      docBody.hidden = q
+      results.hidden = !q
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+
+  const hasQuery = !!state.searchQuery.trim()
+  docBody.hidden = hasQuery
+  results.hidden = !hasQuery
+  renderSearchResults(results, state.searchQuery)
+
   const ctx = weekTableContext(allSeasonEvents())
+  for (const periode of seasonPeriodes())
+    docBody.append(renderPeriodePage(periode, ctx))
 
   main.append(
     el(
@@ -1552,50 +1583,74 @@ function renderDocument(main) {
           "indépendamment de tes filtres dans ⚙ Réglages.",
       ),
       el(
-        "button",
-        {
-          type: "button",
-          class: "doc-print-btn",
-          onclick: () => window.print(),
-        },
-        "🖨️ Imprimer / exporter en PDF",
+        "div",
+        { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
+        el(
+          "button",
+          {
+            type: "button",
+            class: "doc-print-btn",
+            onclick: () => window.print(),
+          },
+          "🖨️ Imprimer / exporter en PDF",
+        ),
+      ),
+    ),
+    el("div", { class: "search-bar doc-search-bar" }, input),
+    results,
+    docBody,
+  )
+}
+
+// Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
+// « Aujourd'hui » (détail du jour en popup), Réglages (choix des
+// productions/listes) et abonnement au calendrier, directement dans
+// l'onglet — ces icônes vivaient dans l'en-tête, redondant maintenant que la
+// navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
+// vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
+// filtrée (cf. renderDocument).
+function renderGrilleActions(main) {
+  main.append(
+    el(
+      "div",
+      { class: "doc-intro agenda-actions" },
+      el(
+        "p",
+        {},
+        "Uniquement les productions et types de service que tu as choisis " +
+          "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
+          "agenda personnel.",
+      ),
+      el(
+        "div",
+        { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
+        el(
+          "button",
+          { type: "button", onclick: openPrefsDialog },
+          "⚙ Réglages : choisir les productions",
+        ),
+        el(
+          "button",
+          {
+            type: "button",
+            class: "doc-print-btn",
+            onclick: openSubscribeDialog,
+          },
+          "📅 S'abonner au calendrier",
+        ),
       ),
     ),
   )
-
-  for (const periode of seasonPeriodes())
-    main.append(renderPeriodePage(periode, ctx))
-}
-
-// --- Vue agenda --------------------------------------------------------------
-
-function renderAgenda(main) {
-  const events = visibleEvents()
-  const todayKey = localKey(new Date())
-  const upcoming = events.filter((e) => e.start.slice(0, 10) >= todayKey)
-  const list = upcoming.length ? upcoming : events
-
-  if (!list.length) {
-    main.append(
-      el("p", { class: "empty-msg" }, "Aucun événement pour cette sélection."),
-    )
-    return
-  }
-
-  let currentDay = null
-  let dayBox = null
-  for (const e of list) {
-    const key = e.start.slice(0, 10)
-    if (key !== currentDay) {
-      currentDay = key
-      dayBox = el("div", {
-        class: "agenda-day" + (key === todayKey ? " today" : ""),
-      })
-      dayBox.append(el("h3", {}, fmtDay(parseDate(e.start), true)))
-      main.append(dayBox)
-    }
-    dayBox.append(eventChip(e))
-  }
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -1777,7 +1832,7 @@ function renderModifs(main) {
     )
 }
 
-// --- Vue recherche -----------------------------------------------------------
+// --- Recherche (intégrée à la vue Bible) --------------------------------------
 
 // Cherche `query` dans le mémo de production (chef, solistes, œuvres) et dans
 // les événements (activité, lieu, programme) de la saison courante, et
@@ -1880,95 +1935,7 @@ function renderSearchResults(container, query) {
   container.replaceChildren(...results.map(searchGroupNode))
 }
 
-function renderRecherche(main) {
-  const results = el("div", { class: "search-results" })
-  const input = el("input", {
-    type: "search",
-    class: "search-input",
-    placeholder: "Œuvre, compositeur, chef, soliste, lieu…",
-    autofocus: "",
-    oninput: (ev) => {
-      state.searchQuery = ev.target.value
-      renderSearchResults(results, state.searchQuery)
-    },
-  })
-  input.value = state.searchQuery
-  main.append(el("div", { class: "search-bar" }, input), results)
-  renderSearchResults(results, state.searchQuery)
-}
-
-// --- Légende / préférences ---------------------------------------------------
-
-function renderLegend() {
-  const legend = document.getElementById("legend")
-  const items = Object.entries(CATEGORIES).map(([cat, label]) => {
-    const off = state.prefs.hiddenCategories.includes(cat)
-    return el(
-      "span",
-      {
-        class: `legend-item${off ? " off" : ""}`,
-        onclick: () => {
-          const hidden = state.prefs.hiddenCategories
-          state.prefs.hiddenCategories = off
-            ? hidden.filter((c) => c !== cat)
-            : [...hidden, cat]
-          savePrefs()
-          render()
-        },
-      },
-      label,
-    )
-  })
-
-  // Bascule « Sans orchestre » : traverse plusieurs catégories (répétition,
-  // générale…), affichée dans les deux vues (Agenda et Grille), cliquable
-  // comme les catégories pour masquer/afficher (#116).
-  {
-    const off = state.prefs.hideNoOrchestra
-    items.push(
-      el(
-        "span",
-        {
-          class: `legend-item legend-no-orchestra${off ? " off" : ""}`,
-          title:
-            "Services qui ne concernent pas les musicien·nes de l'orchestre " +
-            "(répétition chef+soliste(s)+piano, technique seule…)",
-          onclick: () => {
-            state.prefs.hideNoOrchestra = !state.prefs.hideNoOrchestra
-            savePrefs()
-            render()
-          },
-        },
-        "Sans orchestre",
-      ),
-    )
-  }
-
-  // Repère « Vacances / fériés » : en vue Grille et Document, les deux seules
-  // vues à afficher la grille de services (ces repères n'apparaissent que
-  // là), cliquable comme les catégories pour masquer/afficher.
-  if (state.view === "grille" || state.view === "document") {
-    const off = !state.prefs.showHolidays
-    items.push(
-      el(
-        "span",
-        {
-          class: `legend-item legend-holidays${off ? " off" : ""}`,
-          title:
-            "Vacances scolaires et jours fériés (Genève, Vaud + France voisine)",
-          onclick: () => {
-            state.prefs.showHolidays = !state.prefs.showHolidays
-            savePrefs()
-            render()
-          },
-        },
-        "Vacances / fériés",
-      ),
-    )
-  }
-
-  legend.replaceChildren(...items)
-}
+// --- Préférences --------------------------------------------------------------
 
 function renderPrefs() {
   const box = document.getElementById("prefs-content")
@@ -2621,10 +2588,8 @@ function setView(view) {
 }
 
 const VIEW_LABELS = {
-  grille: "Grille",
-  agenda: "Agenda",
+  grille: "Agenda personnalisé",
   modifs: "Modifications",
-  recherche: "Recherche",
   document: "Bible",
 }
 
@@ -2649,11 +2614,10 @@ function printGenerationNotice() {
   )
 }
 
-// Rendu du contenu affiché (légende + vue courante), sans toucher au panneau
-// des réglages : appelé quand on coche/décoche une liste pour ne pas
-// reconstruire les cases (et donc ne pas faire remonter la liste).
+// Rendu du contenu affiché (vue courante), sans toucher au panneau des
+// réglages : appelé quand on coche/décoche une liste pour ne pas reconstruire
+// les cases (et donc ne pas faire remonter la liste).
 function renderContent() {
-  renderLegend()
   const main = document.getElementById("main")
   main.replaceChildren()
   // Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué)
@@ -2671,17 +2635,65 @@ function renderContent() {
     ),
   )
   if (state.view === "grille") renderGrille(main)
-  else if (state.view === "agenda") renderAgenda(main)
-  else if (state.view === "recherche") renderRecherche(main)
   else if (state.view === "document") renderDocument(main)
   else renderModifs(main)
 }
 
 function scrollToToday() {
-  const target =
-    document.getElementById("current-week") ||
-    document.querySelector(".agenda-day.today")
+  const target = document.getElementById("current-week")
   if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
+}
+
+// Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
+// accessible depuis le sous-menu de la vue Agenda personnalisé (#131, #132).
+function openPrefsDialog() {
+  // Garantit que le profil existe côté worker dès l'ouverture des Réglages
+  // (dont dépendent le lien ICS personnel et les notifications push), sans
+  // le resynchroniser à chaque rendu (changement de vue, etc.).
+  syncProfile(undefined, true)
+  renderPrefs()
+  document.getElementById("prefs-dialog").showModal()
+}
+
+// Ouvre l'abonnement au calendrier, accessible depuis le sous-menu de la vue
+// Agenda personnalisé (#131, #132).
+function openSubscribeDialog() {
+  renderSubscribe()
+  document.getElementById("subscribe-dialog").showModal()
+}
+
+// Popup « Aujourd'hui » (#131), ouverte depuis le sous-menu de la vue
+// courante (#132) : détaille la journée en cours, sans avoir à faire défiler
+// la vue. Dans l'onglet Bible, tous les services du jour (document de
+// référence, indépendant des filtres — cf. renderDocument) ; dans l'onglet
+// Agenda personnalisé, uniquement ceux qui passent les Réglages courants
+// (mêmes filtres que la vue elle-même).
+function showTodayDialog() {
+  const todayKey = localKey(new Date())
+  const global = state.view === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents())
+    .filter((e) => e.start.slice(0, 10) === todayKey)
+    .sort((a, b) => a.start.localeCompare(b.start))
+
+  const children = [closeBtnTop(), el("h2", {}, fmtDay(new Date(), true, true))]
+  if (!events.length) {
+    children.push(
+      el(
+        "p",
+        { class: "empty-msg" },
+        global
+          ? "Aucun service aujourd'hui."
+          : "Aucun service aujourd'hui pour ta sélection (⚙ Réglages).",
+      ),
+    )
+  } else {
+    children.push(
+      el("div", { class: "today-events" }, ...events.map((e) => eventChip(e))),
+    )
+  }
+
+  document.getElementById("today-content").replaceChildren(...children)
+  document.getElementById("today-dialog").showModal()
 }
 
 async function init() {
@@ -2705,21 +2717,19 @@ async function init() {
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
-  document.getElementById("today-btn").addEventListener("click", scrollToToday)
-
-  document.getElementById("prefs-btn").addEventListener("click", () => {
-    // Garantit que le profil existe côté worker dès l'ouverture des Réglages
-    // (dont dépendent le lien ICS personnel et les notifications push), sans
-    // le resynchroniser à chaque rendu (changement de vue, etc.).
-    syncProfile(undefined, true)
-    renderPrefs()
-    document.getElementById("prefs-dialog").showModal()
-  })
-
-  document.getElementById("subscribe-btn").addEventListener("click", () => {
-    renderSubscribe()
-    document.getElementById("subscribe-dialog").showModal()
-  })
+  // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
+  // à viser la croix ou le bouton Fermer.
+  for (const dlg of document.querySelectorAll("dialog"))
+    dlg.addEventListener("click", (e) => {
+      const r = dlg.getBoundingClientRect()
+      if (
+        e.clientX < r.left ||
+        e.clientX > r.right ||
+        e.clientY < r.top ||
+        e.clientY > r.bottom
+      )
+        dlg.close()
+    })
 
   document.getElementById("install-btn").addEventListener("click", () => {
     renderInstall()
@@ -2751,10 +2761,8 @@ async function init() {
     document.getElementById("update-info").textContent =
       `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
 
-  const defaultView = window.matchMedia("(max-width: 700px)").matches
-    ? "agenda"
-    : "grille"
-  setView(localStorage.getItem("bemol-view") || defaultView)
+  const storedView = localStorage.getItem("bemol-view")
+  setView(storedView === "agenda" ? "grille" : storedView || "grille")
   scrollToToday()
   syncListeFromHash()
 }
