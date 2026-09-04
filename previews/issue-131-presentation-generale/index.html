@@ -42,7 +42,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=6f24ff813aa6" />
+    <link rel="stylesheet" href="style.css?v=bf87774b851b" />
   </head>
   <body>
     <header>
@@ -50,18 +50,15 @@
         <h1>♭ Bémol <span class="subtitle">Planning OSR</span></h1>
         <div class="header-controls">
           <nav id="view-nav">
-            <button data-view="grille">Grille</button>
-            <button data-view="agenda">Agenda personnalisé</button>
+            <button data-view="grille">Agenda personnalisé</button>
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
             <button data-view="document">Bible</button>
           </nav>
-          <button id="today-btn" title="Voir le programme du jour">
-            Aujourd'hui
-          </button>
-          <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
-          <button id="subscribe-btn" title="S'abonner au calendrier">📅</button>
+          <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
+               plus dans l'en-tête : ils sont désormais dans le sous-menu de
+               chaque onglet qui en a besoin (#132 sur #131). -->
           <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
                le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
@@ -131,11 +128,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=6f24ff813aa6
+    <!-- Le suffixe ?v=bf87774b851b
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=6f24ff813aa6"></script>
+    <script src="app.js?v=bf87774b851b"></script>
   </body>
 </html>

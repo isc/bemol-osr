@@ -7,9 +7,33 @@ const CATEGORIES = {
   italienne: "Italienne / Scène & orch.",
   enregistrement: "Enregistrement",
   repetition: "Répétition / Lecture",
-  concours: "Concours / Auditions",
+  concours: "Concours / Auditions / Titularisations",
   autre: "Autre",
   resa: "Résa de salles",
+}
+
+// Regroupement des Listes par genre de production, pour le filtre « par liste »
+// des Réglages (#128 : remplace l'ancien filtre par type d'activité, jugé peu
+// utile car il ne distinguait que répétition/générale/italienne d'une même
+// production). Dièse ne fournit aucun champ « genre » : on le déduit du nom de
+// la Liste et des catégories de ses services (cf. listeGenre ci-dessous), avec
+// « autre » en repli pour tout ce qui ne correspond à aucun motif connu
+// (Conseils de Fondation, réservations de salle, projets ponctuels…).
+const GENRE_ORDER = [
+  "symphonique",
+  "chambre",
+  "jeune-public",
+  "opera",
+  "concours",
+  "autre",
+]
+const GENRE_LABELS = {
+  symphonique: "Symphonique",
+  chambre: "Musique de chambre",
+  "jeune-public": "Scolaire / Jeune public",
+  opera: "Opéra / Ballet",
+  concours: "Concours / Auditions / Titularisations",
+  autre: "Autre",
 }
 
 // Code couleur (#109) : une couleur par Liste (production), stable sur tous
@@ -137,6 +161,11 @@ function loadPrefs() {
     if (typeof stored.liste === "string" && !("listes" in stored))
       stored.listes = stored.liste ? [stored.liste] : []
     delete stored.liste
+    // Migration (#128) : le sous-filtre « type d'activité → liste » a été retiré
+    // des Réglages (remplacé par le regroupement par genre du filtre « liste »)
+    // ; on efface d'éventuelles valeurs qu'aucune UI ne permettrait plus de
+    // corriger, pour ne pas laisser un service masqué sans recours.
+    delete stored.hiddenCatListes
     return { ...defaults, ...stored }
   } catch {
     return defaults
@@ -602,22 +631,42 @@ function listesInSeason() {
   return [...set].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
 }
 
-// Pour chaque catégorie, les listes qui ont au moins un service de ce type dans
-// la saison courante (triées). Sert aux sous-cases « par liste » du filtre par
-// type d'activité.
-function listesByCategory() {
-  const map = new Map()
+// Genre d'une Liste, déduit de son nom et des catégories de ses services
+// (cats = Set des `category` rencontrées sur ses événements de la saison).
+// Motifs observés dans les données Dièse (cf. discussion #128) : les Listes
+// lettrées et les productions lyriques portent des services `representation`
+// (opéra/ballet) ; « Musique De Chambre N », « Concerts pour Petites
+// Oreilles N », « Doudou Concert N » et « Atelier Découverte… » sont nommées
+// explicitement ; les auditions/concours n'ont que des services `concours` ;
+// le gros des « Liste NN » numérotées est la saison symphonique. Le reste
+// (Conseils de Fondation, résas de salle, projets ponctuels…) tombe en
+// « autre ».
+function listeGenre(liste, cats) {
+  if (/chambre/i.test(liste)) return "chambre"
+  if (cats.has("representation")) return "opera"
+  if (/petites oreilles|doudou|atelier découverte/i.test(liste))
+    return "jeune-public"
+  if (cats.has("concours") && !cats.has("concert") && !cats.has("repetition"))
+    return "concours"
+  if (/^liste\s+\d/i.test(liste)) return "symphonique"
+  return "autre"
+}
+
+// Listes de la saison courante, groupées par genre (ordre GENRE_ORDER), pour
+// les sous-menus dépliables du filtre « par liste » des Réglages.
+function listesByGenre() {
+  const catsByListe = new Map()
   for (const e of state.events) {
     if (seasonYear(parseDate(e.start)) !== state.season) continue
-    if (!map.has(e.category)) map.set(e.category, new Set())
-    map.get(e.category).add(e.liste)
+    if (!catsByListe.has(e.liste)) catsByListe.set(e.liste, new Set())
+    catsByListe.get(e.liste).add(e.category)
   }
-  const out = {}
-  for (const [cat, set] of map)
-    out[cat] = [...set].sort((a, b) =>
-      a.localeCompare(b, "fr", { numeric: true }),
-    )
-  return out
+  const groups = {}
+  for (const liste of listesInSeason()) {
+    const genre = listeGenre(liste, catsByListe.get(liste) || new Set())
+    ;(groups[genre] ||= []).push(liste)
+  }
+  return groups
 }
 
 // --- Rendu : éléments communs ----------------------------------------------
@@ -1384,6 +1433,8 @@ function buildWeekTable(days, weekIndex, ctx) {
 }
 
 function renderGrille(main) {
+  renderGrilleActions(main)
+
   const ctx = weekTableContext()
 
   for (const periode of seasonPeriodes()) {
@@ -1532,13 +1583,22 @@ function renderDocument(main) {
           "indépendamment de tes filtres dans ⚙ Réglages.",
       ),
       el(
-        "button",
-        {
-          type: "button",
-          class: "doc-print-btn",
-          onclick: () => window.print(),
-        },
-        "🖨️ Imprimer / exporter en PDF",
+        "div",
+        { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
+        el(
+          "button",
+          {
+            type: "button",
+            class: "doc-print-btn",
+            onclick: () => window.print(),
+          },
+          "🖨️ Imprimer / exporter en PDF",
+        ),
       ),
     ),
     el("div", { class: "search-bar doc-search-bar" }, input),
@@ -1547,13 +1607,14 @@ function renderDocument(main) {
   )
 }
 
-// --- Vue agenda --------------------------------------------------------------
-
-// Vue personnalisée (filtrée par les Réglages) : abonnement au calendrier et
-// accès aux Réglages (choix des productions/listes) directement dans l'onglet,
-// en plus de l'en-tête — la vue Bible, elle, n'en a pas besoin puisqu'elle
-// n'est pas filtrée (#131).
-function renderAgendaActions(main) {
+// Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
+// « Aujourd'hui » (détail du jour en popup), Réglages (choix des
+// productions/listes) et abonnement au calendrier, directement dans
+// l'onglet — ces icônes vivaient dans l'en-tête, redondant maintenant que la
+// navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
+// vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
+// filtrée (cf. renderDocument).
+function renderGrilleActions(main) {
   main.append(
     el(
       "div",
@@ -1568,6 +1629,11 @@ function renderAgendaActions(main) {
       el(
         "div",
         { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
         el(
           "button",
           { type: "button", onclick: openPrefsDialog },
@@ -1585,37 +1651,6 @@ function renderAgendaActions(main) {
       ),
     ),
   )
-}
-
-function renderAgenda(main) {
-  renderAgendaActions(main)
-
-  const events = visibleEvents()
-  const todayKey = localKey(new Date())
-  const upcoming = events.filter((e) => e.start.slice(0, 10) >= todayKey)
-  const list = upcoming.length ? upcoming : events
-
-  if (!list.length) {
-    main.append(
-      el("p", { class: "empty-msg" }, "Aucun événement pour cette sélection."),
-    )
-    return
-  }
-
-  let currentDay = null
-  let dayBox = null
-  for (const e of list) {
-    const key = e.start.slice(0, 10)
-    if (key !== currentDay) {
-      currentDay = key
-      dayBox = el("div", {
-        class: "agenda-day" + (key === todayKey ? " today" : ""),
-      })
-      dayBox.append(el("h3", {}, fmtDay(parseDate(e.start), true)))
-      main.append(dayBox)
-    }
-    dayBox.append(eventChip(e))
-  }
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -1939,7 +1974,9 @@ function renderPrefs() {
     renderContent()
   }
 
-  const listeOptions = listes.map((l) => {
+  // Case d'une liste (checkbox + pastille couleur + nom), utilisée telle
+  // quelle qu'elle soit affichée à plat ou dans un sous-menu de genre.
+  const listeOption = (l) => {
     const cb = el("input", {
       type: "checkbox",
       onchange: (ev) => toggleListe(l, ev.target.checked),
@@ -1955,9 +1992,47 @@ function renderPrefs() {
       " ",
       l,
     )
+  }
+
+  // --- Regroupement par genre (#128) ---------------------------------------
+  // Chaque genre est un sous-menu dépliable (▸) listant ses productions ;
+  // toujours replié à l'ouverture des Réglages, même si une de ses listes
+  // est déjà cochée (retour #129 : des sous-menus dépliés d'office rendaient
+  // le panneau confus).
+  const genreGroups = listesByGenre()
+  const genreEntries = GENRE_ORDER.filter((g) => genreGroups[g]?.length)
+
+  const listeGroups = genreEntries.map((genre) => {
+    const listesDuGenre = genreGroups[genre]
+    const subList = el(
+      "div",
+      { class: "activite-sous-listes", hidden: "" },
+      ...listesDuGenre.map(listeOption),
+    )
+    const caret = el("span", { class: "activite-caret" }, "▸")
+    const tete = el(
+      "button",
+      {
+        type: "button",
+        class: "activite-tete",
+        onclick: () => {
+          const open = subList.hasAttribute("hidden")
+          if (open) subList.removeAttribute("hidden")
+          else subList.setAttribute("hidden", "")
+          caret.textContent = open ? "▾" : "▸"
+        },
+      },
+      el(
+        "span",
+        { class: "activite-option" },
+        `${GENRE_LABELS[genre]} (${listesDuGenre.length})`,
+      ),
+      caret,
+    )
+    return el("div", { class: "activite-groupe" }, tete, subList)
   })
 
-  const filterBox = listeOptions.length
+  const filterBox = listes.length
     ? el(
         "div",
         { class: "liste-filter" },
@@ -1975,187 +2050,9 @@ function renderPrefs() {
             "Tout cocher",
           ),
         ),
-        el("div", { class: "liste-options" }, ...listeOptions),
+        el("div", { class: "liste-options" }, ...listeGroups),
       )
     : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
-
-  // --- Filtre par type d'activité (catégorie → liste) ---------------------
-  // Une « case générale » par type d'activité. Cochée = ce type est affiché,
-  // décochée = masqué (piloté par hiddenCategories, partagé avec la légende).
-  // Chaque type dépliable (▸) révèle une sous-case par liste : on peut n'afficher
-  // qu'une partie des listes d'un type (piloté par hiddenCatListes). La case
-  // générale devient « indéterminée » quand seules certaines listes sont cochées.
-  // Comme les cases de liste, cocher/décocher ne reconstruit pas le panneau :
-  // on met à jour les cases en place et on ne re-render que le contenu.
-  const cats = Object.keys(CATEGORIES)
-  const catListesMap = listesByCategory()
-  const catParentCb = new Map() // catégorie → <input> général
-  const catChildCb = new Map() // catégorie → Map(liste → <input>)
-
-  const catNote = el("p", { class: "prefs-note" })
-  const updateCatNote = () => {
-    const shown = cats.filter((c) => !state.prefs.hiddenCategories.includes(c))
-    const partial = shown.filter(
-      (c) => (state.prefs.hiddenCatListes[c] || []).length,
-    ).length
-    catNote.textContent =
-      (shown.length === cats.length
-        ? "Tous les types d'activité sont affichés."
-        : `${shown.length} type${shown.length > 1 ? "s" : ""} d'activité affiché${shown.length > 1 ? "s" : ""} sur ${cats.length}.`) +
-      (partial
-        ? ` (dont ${partial} filtré${partial > 1 ? "s" : ""} par liste)`
-        : "")
-  }
-
-  // Met à jour, en place, la case générale (cochée / indéterminée) et ses
-  // sous-cases d'après les préférences courantes.
-  const refreshCat = (cat) => {
-    const listes = catListesMap[cat] || []
-    const fullyHidden = state.prefs.hiddenCategories.includes(cat)
-    const hid = new Set(
-      fullyHidden ? listes : state.prefs.hiddenCatListes[cat] || [],
-    )
-    const shown = listes.filter((l) => !hid.has(l)).length
-    const parent = catParentCb.get(cat)
-    parent.checked = listes.length ? shown === listes.length : !fullyHidden
-    parent.indeterminate =
-      listes.length > 0 && shown > 0 && shown < listes.length
-    const children = catChildCb.get(cat)
-    if (children) for (const [l, cb] of children) cb.checked = !hid.has(l)
-  }
-
-  const applyCat = (cat) => {
-    savePrefs()
-    refreshCat(cat)
-    updateCatNote()
-    renderContent()
-  }
-
-  // Case générale : coche → tout le type affiché ; décoche → tout masqué.
-  const toggleCategory = (cat, on) => {
-    const hidden = new Set(state.prefs.hiddenCategories)
-    const map = { ...state.prefs.hiddenCatListes }
-    delete map[cat]
-    if (on) hidden.delete(cat)
-    else hidden.add(cat)
-    state.prefs.hiddenCategories = [...hidden]
-    state.prefs.hiddenCatListes = map
-    applyCat(cat)
-  }
-
-  // Sous-case « liste dans ce type ». Normalise : tout masqué ⇒ type masqué
-  // globalement ; rien masqué ⇒ entrée supprimée.
-  const toggleCatListe = (cat, liste, on) => {
-    const listes = catListesMap[cat] || []
-    const hidden = new Set(state.prefs.hiddenCategories)
-    const map = { ...state.prefs.hiddenCatListes }
-    // Si le type était masqué en bloc, on le réactive en ne gardant que cette liste.
-    let hid = hidden.has(cat) ? new Set(listes) : new Set(map[cat] || [])
-    hidden.delete(cat)
-    if (on) hid.delete(liste)
-    else hid.add(liste)
-    if (listes.every((l) => hid.has(l))) {
-      hidden.add(cat)
-      delete map[cat]
-    } else if (hid.size === 0) {
-      delete map[cat]
-    } else {
-      map[cat] = [...hid]
-    }
-    state.prefs.hiddenCategories = [...hidden]
-    state.prefs.hiddenCatListes = map
-    applyCat(cat)
-  }
-
-  const setAllCategories = (all) => {
-    state.prefs.hiddenCategories = all ? [] : [...cats]
-    state.prefs.hiddenCatListes = {}
-    savePrefs()
-    for (const cat of cats) refreshCat(cat)
-    updateCatNote()
-    renderContent()
-  }
-
-  const catOptions = cats.map((cat) => {
-    const parent = el("input", {
-      type: "checkbox",
-      onchange: (ev) => toggleCategory(cat, ev.target.checked),
-    })
-    catParentCb.set(cat, parent)
-    const row = el(
-      "label",
-      { class: "liste-option activite-option" },
-      parent,
-      CATEGORIES[cat],
-    )
-
-    const listes = catListesMap[cat] || []
-    if (!listes.length) return row // type sans service cette saison : pas de sous-cases
-
-    const children = new Map()
-    catChildCb.set(cat, children)
-    const subList = el(
-      "div",
-      { class: "activite-sous-listes", hidden: "" },
-      ...listes.map((l) => {
-        const cb = el("input", {
-          type: "checkbox",
-          onchange: (ev) => toggleCatListe(cat, l, ev.target.checked),
-        })
-        children.set(l, cb)
-        return el(
-          "label",
-          { class: "liste-option sous-liste-option" },
-          cb,
-          " ",
-          l,
-        )
-      }),
-    )
-    const caret = el(
-      "button",
-      {
-        type: "button",
-        class: "activite-toggle",
-        "aria-label": "Afficher/masquer les listes de ce type",
-        onclick: () => {
-          const open = subList.hasAttribute("hidden")
-          if (open) subList.removeAttribute("hidden")
-          else subList.setAttribute("hidden", "")
-          caret.textContent = open ? "▾" : "▸"
-        },
-      },
-      "▸",
-    )
-    // La case + le libellé restent dans le <label> ; le chevron est à part pour
-    // ne pas cocher la case quand on déplie.
-    return el(
-      "div",
-      { class: "activite-groupe" },
-      el("div", { class: "activite-tete" }, row, caret),
-      subList,
-    )
-  })
-
-  const catBox = el(
-    "div",
-    { class: "liste-filter" },
-    el(
-      "div",
-      { class: "liste-filter-actions" },
-      el(
-        "button",
-        { type: "button", onclick: () => setAllCategories(false) },
-        "Tout décocher",
-      ),
-      el(
-        "button",
-        { type: "button", onclick: () => setAllCategories(true) },
-        "Tout cocher",
-      ),
-    ),
-    el("div", { class: "liste-options" }, ...catOptions),
-  )
 
   const cancelledCheckbox = el("input", {
     type: "checkbox",
@@ -2188,8 +2085,6 @@ function renderPrefs() {
   noOrchestraCheckbox.checked = state.prefs.hideNoOrchestra
 
   updateNote()
-  for (const cat of cats) refreshCat(cat)
-  updateCatNote()
 
   const themeLabels = {
     auto: "Automatique (suit le système)",
@@ -2233,20 +2128,13 @@ function renderPrefs() {
       "div",
       { class: "prefs-section" },
       el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
-      filterBox,
-      note,
-    ),
-    el(
-      "div",
-      { class: "prefs-section" },
-      el("div", { class: "prefs-label" }, "Filtrer par type d'activité :"),
       el(
         "p",
         { class: "prefs-note prefs-note-top" },
-        "Déplie un type (▸) pour n'afficher que certaines listes de ce type.",
+        "Déplie un genre (▸) pour cocher les productions sur lesquelles tu joues.",
       ),
-      catBox,
-      catNote,
+      filterBox,
+      note,
     ),
     el(
       "label",
@@ -2700,8 +2588,7 @@ function setView(view) {
 }
 
 const VIEW_LABELS = {
-  grille: "Grille",
-  agenda: "Agenda personnalisé",
+  grille: "Agenda personnalisé",
   modifs: "Modifications",
   document: "Bible",
 }
@@ -2731,21 +2618,17 @@ function renderContent() {
     ),
   )
   if (state.view === "grille") renderGrille(main)
-  else if (state.view === "agenda") renderAgenda(main)
   else if (state.view === "document") renderDocument(main)
   else renderModifs(main)
 }
 
 function scrollToToday() {
-  const target =
-    document.getElementById("current-week") ||
-    document.querySelector(".agenda-day.today")
+  const target = document.getElementById("current-week")
   if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
 }
 
 // Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
-// accessible depuis l'en-tête (toutes les vues) et depuis la vue Agenda
-// personnalisé (#131).
+// accessible depuis le sous-menu de la vue Agenda personnalisé (#131, #132).
 function openPrefsDialog() {
   // Garantit que le profil existe côté worker dès l'ouverture des Réglages
   // (dont dépendent le lien ICS personnel et les notifications push), sans
@@ -2755,18 +2638,19 @@ function openPrefsDialog() {
   document.getElementById("prefs-dialog").showModal()
 }
 
-// Ouvre l'abonnement au calendrier, accessible depuis l'en-tête (toutes les
-// vues) et depuis la vue Agenda personnalisé (#131).
+// Ouvre l'abonnement au calendrier, accessible depuis le sous-menu de la vue
+// Agenda personnalisé (#131, #132).
 function openSubscribeDialog() {
   renderSubscribe()
   document.getElementById("subscribe-dialog").showModal()
 }
 
-// Popup « Aujourd'hui » (#131) : détaille la journée en cours, sans avoir à
-// faire défiler la vue. Dans l'onglet Bible, tous les services du jour
-// (document de référence, indépendant des filtres — cf. renderDocument) ;
-// dans l'onglet Agenda personnalisé, uniquement ceux qui passent les
-// Réglages courants (mêmes filtres que la vue elle-même).
+// Popup « Aujourd'hui » (#131), ouverte depuis le sous-menu de la vue
+// courante (#132) : détaille la journée en cours, sans avoir à faire défiler
+// la vue. Dans l'onglet Bible, tous les services du jour (document de
+// référence, indépendant des filtres — cf. renderDocument) ; dans l'onglet
+// Agenda personnalisé, uniquement ceux qui passent les Réglages courants
+// (mêmes filtres que la vue elle-même).
 function showTodayDialog() {
   const todayKey = localKey(new Date())
   const global = state.view === "document"
@@ -2816,22 +2700,6 @@ async function init() {
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
-  // Sur Bible et Agenda personnalisé, « Aujourd'hui » ouvre le détail du jour
-  // en popup plutôt que de faire défiler la page (#131) ; sur Grille (et
-  // Modifs, où l'action est sans effet), on garde le défilement existant.
-  document.getElementById("today-btn").addEventListener("click", () => {
-    if (state.view === "document" || state.view === "agenda") showTodayDialog()
-    else scrollToToday()
-  })
-
-  document
-    .getElementById("prefs-btn")
-    .addEventListener("click", openPrefsDialog)
-
-  document
-    .getElementById("subscribe-btn")
-    .addEventListener("click", openSubscribeDialog)
-
   document.getElementById("install-btn").addEventListener("click", () => {
     renderInstall()
     document.getElementById("install-dialog").showModal()
@@ -2862,10 +2730,8 @@ async function init() {
     document.getElementById("update-info").textContent =
       `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
 
-  const defaultView = window.matchMedia("(max-width: 700px)").matches
-    ? "agenda"
-    : "grille"
-  setView(localStorage.getItem("bemol-view") || defaultView)
+  const storedView = localStorage.getItem("bemol-view")
+  setView(storedView === "agenda" ? "grille" : storedView || "grille")
   scrollToToday()
   syncListeFromHash()
 }
