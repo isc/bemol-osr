@@ -7,7 +7,7 @@ const CATEGORIES = {
   italienne: "Italienne / Scène & orch.",
   enregistrement: "Enregistrement",
   repetition: "Répétition / Lecture",
-  concours: "Concours / Auditions",
+  concours: "Concours / Auditions / Titularisations",
   autre: "Autre",
   resa: "Résa de salles",
 }
@@ -32,7 +32,7 @@ const GENRE_LABELS = {
   chambre: "Musique de chambre",
   "jeune-public": "Scolaire / Jeune public",
   opera: "Opéra / Ballet",
-  concours: "Concours / Auditions",
+  concours: "Concours / Auditions / Titularisations",
   autre: "Autre",
 }
 
@@ -2029,24 +2029,20 @@ function renderPrefs() {
 
   // --- Regroupement par genre (#128) ---------------------------------------
   // Chaque genre est un sous-menu dépliable (▸) listant ses productions ;
-  // déplié d'office si une de ses listes est déjà cochée, pour ne pas cacher
-  // la sélection en cours derrière un clic.
+  // toujours replié à l'ouverture des Réglages, même si une de ses listes
+  // est déjà cochée (retour #129 : des sous-menus dépliés d'office rendaient
+  // le panneau confus).
   const genreGroups = listesByGenre()
   const genreEntries = GENRE_ORDER.filter((g) => genreGroups[g]?.length)
 
   const listeGroups = genreEntries.map((genre) => {
     const listesDuGenre = genreGroups[genre]
-    const hasChecked = listesDuGenre.some((l) => state.prefs.listes.includes(l))
     const subList = el(
       "div",
-      { class: "activite-sous-listes", hidden: hasChecked ? null : "" },
+      { class: "activite-sous-listes", hidden: "" },
       ...listesDuGenre.map(listeOption),
     )
-    const caret = el(
-      "span",
-      { class: "activite-caret" },
-      hasChecked ? "▾" : "▸",
-    )
+    const caret = el("span", { class: "activite-caret" }, "▸")
     const tete = el(
       "button",
       {
