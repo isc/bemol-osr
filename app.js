@@ -1384,6 +1384,8 @@ function buildWeekTable(days, weekIndex, ctx) {
 }
 
 function renderGrille(main) {
+  renderGrilleActions(main)
+
   const ctx = weekTableContext()
 
   for (const periode of seasonPeriodes()) {
@@ -1532,13 +1534,22 @@ function renderDocument(main) {
           "indépendamment de tes filtres dans ⚙ Réglages.",
       ),
       el(
-        "button",
-        {
-          type: "button",
-          class: "doc-print-btn",
-          onclick: () => window.print(),
-        },
-        "🖨️ Imprimer / exporter en PDF",
+        "div",
+        { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
+        el(
+          "button",
+          {
+            type: "button",
+            class: "doc-print-btn",
+            onclick: () => window.print(),
+          },
+          "🖨️ Imprimer / exporter en PDF",
+        ),
       ),
     ),
     el("div", { class: "search-bar doc-search-bar" }, input),
@@ -1547,13 +1558,14 @@ function renderDocument(main) {
   )
 }
 
-// --- Vue agenda --------------------------------------------------------------
-
-// Vue personnalisée (filtrée par les Réglages) : abonnement au calendrier et
-// accès aux Réglages (choix des productions/listes) directement dans l'onglet,
-// en plus de l'en-tête — la vue Bible, elle, n'en a pas besoin puisqu'elle
-// n'est pas filtrée (#131).
-function renderAgendaActions(main) {
+// Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
+// « Aujourd'hui » (détail du jour en popup), Réglages (choix des
+// productions/listes) et abonnement au calendrier, directement dans
+// l'onglet — ces icônes vivaient dans l'en-tête, redondant maintenant que la
+// navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
+// vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
+// filtrée (cf. renderDocument).
+function renderGrilleActions(main) {
   main.append(
     el(
       "div",
@@ -1568,6 +1580,11 @@ function renderAgendaActions(main) {
       el(
         "div",
         { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: showTodayDialog },
+          "Aujourd'hui",
+        ),
         el(
           "button",
           { type: "button", onclick: openPrefsDialog },
@@ -1585,37 +1602,6 @@ function renderAgendaActions(main) {
       ),
     ),
   )
-}
-
-function renderAgenda(main) {
-  renderAgendaActions(main)
-
-  const events = visibleEvents()
-  const todayKey = localKey(new Date())
-  const upcoming = events.filter((e) => e.start.slice(0, 10) >= todayKey)
-  const list = upcoming.length ? upcoming : events
-
-  if (!list.length) {
-    main.append(
-      el("p", { class: "empty-msg" }, "Aucun événement pour cette sélection."),
-    )
-    return
-  }
-
-  let currentDay = null
-  let dayBox = null
-  for (const e of list) {
-    const key = e.start.slice(0, 10)
-    if (key !== currentDay) {
-      currentDay = key
-      dayBox = el("div", {
-        class: "agenda-day" + (key === todayKey ? " today" : ""),
-      })
-      dayBox.append(el("h3", {}, fmtDay(parseDate(e.start), true)))
-      main.append(dayBox)
-    }
-    dayBox.append(eventChip(e))
-  }
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -2700,8 +2686,7 @@ function setView(view) {
 }
 
 const VIEW_LABELS = {
-  grille: "Grille",
-  agenda: "Agenda personnalisé",
+  grille: "Agenda personnalisé",
   modifs: "Modifications",
   document: "Bible",
 }
@@ -2731,21 +2716,17 @@ function renderContent() {
     ),
   )
   if (state.view === "grille") renderGrille(main)
-  else if (state.view === "agenda") renderAgenda(main)
   else if (state.view === "document") renderDocument(main)
   else renderModifs(main)
 }
 
 function scrollToToday() {
-  const target =
-    document.getElementById("current-week") ||
-    document.querySelector(".agenda-day.today")
+  const target = document.getElementById("current-week")
   if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
 }
 
 // Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
-// accessible depuis l'en-tête (toutes les vues) et depuis la vue Agenda
-// personnalisé (#131).
+// accessible depuis le sous-menu de la vue Agenda personnalisé (#131, #132).
 function openPrefsDialog() {
   // Garantit que le profil existe côté worker dès l'ouverture des Réglages
   // (dont dépendent le lien ICS personnel et les notifications push), sans
@@ -2755,18 +2736,19 @@ function openPrefsDialog() {
   document.getElementById("prefs-dialog").showModal()
 }
 
-// Ouvre l'abonnement au calendrier, accessible depuis l'en-tête (toutes les
-// vues) et depuis la vue Agenda personnalisé (#131).
+// Ouvre l'abonnement au calendrier, accessible depuis le sous-menu de la vue
+// Agenda personnalisé (#131, #132).
 function openSubscribeDialog() {
   renderSubscribe()
   document.getElementById("subscribe-dialog").showModal()
 }
 
-// Popup « Aujourd'hui » (#131) : détaille la journée en cours, sans avoir à
-// faire défiler la vue. Dans l'onglet Bible, tous les services du jour
-// (document de référence, indépendant des filtres — cf. renderDocument) ;
-// dans l'onglet Agenda personnalisé, uniquement ceux qui passent les
-// Réglages courants (mêmes filtres que la vue elle-même).
+// Popup « Aujourd'hui » (#131), ouverte depuis le sous-menu de la vue
+// courante (#132) : détaille la journée en cours, sans avoir à faire défiler
+// la vue. Dans l'onglet Bible, tous les services du jour (document de
+// référence, indépendant des filtres — cf. renderDocument) ; dans l'onglet
+// Agenda personnalisé, uniquement ceux qui passent les Réglages courants
+// (mêmes filtres que la vue elle-même).
 function showTodayDialog() {
   const todayKey = localKey(new Date())
   const global = state.view === "document"
@@ -2816,22 +2798,6 @@ async function init() {
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
-  // Sur Bible et Agenda personnalisé, « Aujourd'hui » ouvre le détail du jour
-  // en popup plutôt que de faire défiler la page (#131) ; sur Grille (et
-  // Modifs, où l'action est sans effet), on garde le défilement existant.
-  document.getElementById("today-btn").addEventListener("click", () => {
-    if (state.view === "document" || state.view === "agenda") showTodayDialog()
-    else scrollToToday()
-  })
-
-  document
-    .getElementById("prefs-btn")
-    .addEventListener("click", openPrefsDialog)
-
-  document
-    .getElementById("subscribe-btn")
-    .addEventListener("click", openSubscribeDialog)
-
   document.getElementById("install-btn").addEventListener("click", () => {
     renderInstall()
     document.getElementById("install-dialog").showModal()
@@ -2862,10 +2828,8 @@ async function init() {
     document.getElementById("update-info").textContent =
       `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
 
-  const defaultView = window.matchMedia("(max-width: 700px)").matches
-    ? "agenda"
-    : "grille"
-  setView(localStorage.getItem("bemol-view") || defaultView)
+  const storedView = localStorage.getItem("bemol-view")
+  setView(storedView === "agenda" ? "grille" : storedView || "grille")
   scrollToToday()
   syncListeFromHash()
 }

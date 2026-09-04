@@ -2,8 +2,8 @@
 // Captures d'écran de l'app (état du dépôt local), pour illustrer les PRs.
 //
 // Sert le dépôt sur un port local puis capture, dans un vrai navigateur :
-//   <prefixe>-mobile-grille.png / -mobile-agenda.png   (390×844)
-//   <prefixe>-desktop-grille.png                        (1280×900)
+//   <prefixe>-mobile-grille.png    (390×844)
+//   <prefixe>-desktop-grille.png   (1280×900)
 //
 // Usage :  node scripts/screenshots.mjs [dossier-de-sortie] [prefixe]
 //          (par défaut : ./screenshots, « app »)
@@ -73,7 +73,7 @@ for (const [device, viewport] of [
   const page = await browser.newPage({ viewport })
   await page.goto(base, { waitUntil: "load" })
   await page.waitForSelector("#loading", { state: "detached", timeout: 15000 })
-  const views = device === "mobile" ? ["grille", "agenda"] : ["grille"]
+  const views = ["grille"]
   for (const view of views) {
     await page.click(`#view-nav button[data-view="${view}"]`)
     await page.waitForTimeout(400)

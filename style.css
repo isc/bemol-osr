@@ -691,7 +691,9 @@ table.week td.repos:not(.today) {
   }
 }
 
-/* --- Vue agenda personnalisé : accès Réglages/Abonnement dans l'onglet --- */
+/* --- Vue Agenda personnalisé : sous-menu Aujourd'hui/Réglages/Abonnement,
+   aussi réutilisé pour le sous-menu Aujourd'hui/Imprimer de la vue Bible
+   (#132 sur #131) --- */
 
 .agenda-actions-btns {
   display: flex;
@@ -749,37 +751,6 @@ table.week td.repos:not(.today) {
   font-family: var(--serif);
   color: var(--accent);
   font-size: 1.05em;
-}
-
-/* --- Vue agenda --- */
-
-.agenda-day {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-.agenda-day > h3 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 0.95em;
-  padding: 6px 12px;
-  background: var(--surface-accent-soft);
-  color: var(--head-accent-text);
-}
-
-.agenda-day.today > h3 {
-  background: var(--today-bg-strong);
-}
-
-.agenda-day .evt {
-  border-radius: 0;
-  padding: 7px 12px;
-  font-size: 0.9em;
-  margin: 0;
-  border-top: 1px solid var(--border-soft);
 }
 
 /* Popup « Aujourd'hui » (#131) : liste des services du jour. */
