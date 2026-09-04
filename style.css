@@ -1451,6 +1451,30 @@ dialog h2 {
   }
 }
 
+/* Sous-menu « Détail par service » (#144) : dans une Liste dont certains
+   services de répétition sont spécifiques à un pupitre, indenté sous la case
+   de la Liste, en plus discret que les sous-menus de genre (mêmes classes
+   .activite-tete/.activite-caret, réduites) pour marquer un niveau plus fin. */
+.liste-detail {
+  margin: 0 0 4px 30px;
+}
+.liste-detail .activite-tete {
+  padding: 6px 12px;
+  font-size: 0.92em;
+  color: var(--text-faint);
+}
+.liste-detail .activite-caret {
+  width: 22px;
+  height: 22px;
+  font-size: 1em;
+}
+.activite-sous-listes-niveau2 {
+  margin-left: 20px;
+}
+.sous-liste-note {
+  margin: 2px 12px 4px;
+}
+
 footer {
   padding: 14px 12px 24px;
   text-align: center;
