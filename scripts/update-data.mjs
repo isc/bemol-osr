@@ -84,12 +84,14 @@ function categorize(liste, activity) {
   const l = liste.toLowerCase()
   const a = activity.toLowerCase()
   if (l.startsWith("résa") || /^(résa|salle résa)/.test(a)) return "resa"
-  if (/assemblée|séance|présentation saison|dîner/.test(a)) return "autre"
   if (
     /concours|candidats|audition|titularisation/.test(a) ||
     l.startsWith("concours")
   )
     return "concours"
+  // Testé après concours/titularisation : une « séance titularisation »
+  // matcherait sinon « séance » et tomberait à tort dans « autre ».
+  if (/assemblée|séance|présentation saison|dîner/.test(a)) return "autre"
   if (/concert|cinéconc/.test(a)) return "concert"
   // Les ordinaux désignent les représentations d'opéra/ballet (cf. CLAUDE.md
   // § Vocabulaire métier), à distinguer visuellement des concerts symphoniques
