@@ -1,6 +1,121 @@
 {
  "entries": [
   {
+   "at": "2026-09-04T16:27:44.737Z",
+   "added": [
+    {
+     "uid": "osr239389",
+     "start": "2027-02-15T09:30",
+     "end": "2027-02-15T19:00",
+     "liste": "Concours Violon tuttiste",
+     "activity": "registre des seconds violons - concours ( Violon tuttiste - registre des seconds violons)",
+     "category": "concours",
+     "location": "Auditorium Ansermet",
+     "project": "registre des seconds violons) -",
+     "cancelled": false
+    },
+    {
+     "uid": "osr239392",
+     "start": "2027-04-24T09:30",
+     "end": "2027-04-24T19:00",
+     "liste": "Concours Deuxième violon solo (coordonné)",
+     "activity": "concours (Deuxième violon solo (coordonné))",
+     "category": "concours",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr178697",
+     "start": "2027-02-15T09:30",
+     "end": "2027-02-15T19:00",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "à définir Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178698",
+     "start": "2027-02-16T09:30",
+     "end": "2027-02-16T19:00",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "à définir Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr232666",
+     "start": "2027-04-23T16:00",
+     "end": "2027-04-23T22:00",
+     "liste": "Concours à définir",
+     "activity": "répétitions candidats (poste à définir)",
+     "category": "concours",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178750",
+     "start": "2027-04-24T10:00",
+     "end": "2027-04-24T19:30",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "à définir Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178699",
+     "start": "2027-05-14T10:00",
+     "end": "2027-05-14T19:30",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "à définir Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr236289",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr236289",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours Premier Soliste des seconds violons",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "Les Salons",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr236289",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours Premir.ère Soliste des seconds violons",
+      "activity": "concours (Premir.ère Soliste des seconds violons)",
+      "category": "concours",
+      "location": "Les Salons",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-04T11:27:09.823Z",
    "added": [],
    "removed": [],
