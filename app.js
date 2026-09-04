@@ -1530,7 +1530,12 @@ function renderPeriodePage(periode, ctx) {
 // Reprend la grille de services de la vue Grille, avec, à côté de chaque
 // période, les fiches de programme des Listes qui y sont travaillées —
 // l'équivalent des « encarts Listes » de l'ancienne Bible de saison papier
-// (cf. issue #111 et retour #114).
+// (cf. issue #111 et retour #114). Ces fiches sont construites ici pour les
+// deux usages de la vue Bible mais ne s'affichent qu'à l'impression
+// (`.doc-periode-listes` masquée à l'écran, restaurée sous @media print,
+// cf. style.css) : à l'écran, le détail d'une Liste reste à un clic (dialogue
+// Liste), la fiche complète n'apportait qu'un encombrement inutile (retour
+// #134) — seule la Bible PDF exportée reste le document complet.
 // Pensée pour l'impression (@media print, cf. style.css) : contrairement à
 // l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
 // données que le reste de l'app, sans pipeline de génération périodique à
@@ -1578,9 +1583,10 @@ function renderDocument(main) {
       el(
         "p",
         {},
-        "Grille de services et fiches de programme de toute la saison, en " +
-          "un seul document toujours à jour — tous les services, " +
-          "indépendamment de tes filtres dans ⚙ Réglages.",
+        "Grille de services de toute la saison, toujours à jour — tous les " +
+          "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
+          "sur un service pour le détail complet de sa Liste ; le PDF " +
+          "exporté ci-dessous ajoute en plus une fiche par Liste.",
       ),
       el(
         "div",
@@ -2598,6 +2604,22 @@ function render() {
   renderContent()
 }
 
+// Date et heure de génération du PDF, avec rappel que le document n'est
+// qu'un instantané (contrairement à l'app en ligne, cf. § Pipeline de
+// données de CLAUDE.md) — n'apparaît que sur la vue Bible (retour #114) :
+// c'est ce document, pensé pour être imprimé et conservé, qui a besoin de
+// ce rappel ; les autres vues s'impriment plutôt pour un usage immédiat.
+function printGenerationNotice() {
+  const now = new Date()
+  const stamp = `${fmtDay(now, true, true)} à ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`
+  return el(
+    "p",
+    { class: "print-disclaimer" },
+    `Document généré le ${stamp}. Les informations sont susceptibles d'être modifiées : ` +
+      "vérifie régulièrement la version en ligne de Bémol.",
+  )
+}
+
 // Rendu du contenu affiché (vue courante), sans toucher au panneau des
 // réglages : appelé quand on coche/décoche une liste pour ne pas reconstruire
 // les cases (et donc ne pas faire remonter la liste).
@@ -2615,6 +2637,7 @@ function renderContent() {
         {},
         `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`,
       ),
+      ...(state.view === "document" ? [printGenerationNotice()] : []),
     ),
   )
   if (state.view === "grille") renderGrille(main)
