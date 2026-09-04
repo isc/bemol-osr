@@ -2509,7 +2509,11 @@ function renderSubscribe() {
           "dialogue te redonnera un lien). "
         : "Le calendrier complet contient tous les services de la saison (les filtres et " +
           "catégories masquées de l'app ne s'y appliquent pas). ") +
-        "Selon l'agenda, les mises à jour peuvent mettre quelques heures à apparaître.",
+        "Une fois abonné·e, c'est ton app d'agenda (pas Bémol) qui décide quand " +
+        "elle revérifie les mises à jour — ça peut prendre plusieurs heures, " +
+        "parfois plus selon l'appareil, et Bémol ne peut pas l'accélérer. Pour " +
+        "être averti·e sans délai d'un changement (horaire, lieu, annulation…), " +
+        "active plutôt les notifications, dans ⚙ Réglages.",
     ),
   )
 }
