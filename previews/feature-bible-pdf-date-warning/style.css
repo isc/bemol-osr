@@ -1750,7 +1750,7 @@ footer a {
   .doc-periode-listes {
     display: block;
     break-before: page;
-    font-size: 3.8px;
+    font-size: 4.3px;
     line-height: 1.1;
   }
 
@@ -1780,11 +1780,11 @@ footer a {
   /* Une ligne par catégorie (Remarques, Percussions, Claviers…), comme
      avant le tour précédent (retour #114) : le regroupement sur une même
      ligne (flex-wrap) gagnait de la place mais rendait le détail difficile
-     à lire une fois combiné à une police déjà très petite. `.work-detail`
-     retrouve son comportement par défaut (celui de `.detail-box`, cf. plus
-     haut dans ce fichier) : bloc normal, chaque `.wd-row` sur sa propre
-     ligne. Contrepartie assumée : plus de hauteur pour les Listes des
-     périodes les plus chargées (cf. `.doc-periode-listes` ci-dessus). */
+     à lire une fois combiné à une police déjà très petite : plusieurs
+     libellés se retrouvaient bout à bout sur la même ligne, sans séparation
+     claire. `.work-detail` retrouve son comportement par défaut (celui de
+     `.detail-box`, cf. plus haut dans ce fichier) : bloc normal, chaque
+     `.wd-row` sur sa propre ligne, texte complet et lisible. */
   .doc-liste-card .work-detail {
     margin: 0;
   }
@@ -1792,6 +1792,35 @@ footer a {
   .doc-liste-card .wd-row {
     margin: 0;
     gap: 3px;
+  }
+
+  /* Mesuré sur les vraies données de production, une ligne de détail (ex.
+     « Percussions  GC, cymb fr, glock ») dépasse rarement la moitié de la
+     largeur de la fiche : demande explicite (retour #134, testé comme tel
+     — « peut-être que ça ne fonctionne pas ») d'exploiter cet espace pour
+     agrandir le texte. Un premier essai en colonnes sur `.work-detail`
+     directement (le détail d'UNE SEULE œuvre) a été écarté : le bloc est
+     trop court, la colonne s'étire alors sur toute la largeur de la fiche et
+     le contenu se retrouve séparé par un grand vide, illisible. On répartit
+     donc plutôt les ŒUVRES ENTIÈRES (titre + détail, chacune protégée par
+     `break-inside: avoid-column`) : plusieurs œuvres courtes tiennent côte à
+     côte, chacune sur une largeur de colonne cohérente avec son propre
+     texte — sans jamais couper une ligne en deux. Différent, sur le fond,
+     des mises en page qui ont tronqué des périodes entières sous
+     Safari/iPadOS plus haut dans ce fichier (table-cell, flex, flottants,
+     utilisées pour scinder des blocs pouvant dépasser une page) : le CSS
+     multi-colonnes (`columns`) est conçu dès l'origine pour la pagination,
+     et la portée est ici réduite à la liste des œuvres d'UNE fiche — jamais
+     proche de la hauteur d'une page. Reste un essai non vérifiable ailleurs
+     que sur l'iPad du frère (cf. CLAUDE.md, § impression PDF) : à confirmer
+     sur la prochaine preview. */
+  .doc-liste-card .works {
+    columns: 2;
+    column-gap: 10px;
+  }
+
+  .doc-liste-card .works li {
+    break-inside: avoid-column;
   }
 
   /* Étiquette (Remarques, Percussions, Détail…) en gras et plus sombre que
