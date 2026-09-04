@@ -1,0 +1,137 @@
+[
+  {
+    "match": "^victoria hall",
+    "address": "Rue du Général-Dufour 14, 1204 Genève",
+    "geo": [46.2014, 6.14105]
+  },
+  {
+    "match": "^um\\b",
+    "address": "Uni Mail, Boulevard Carl-Vogt 102, 1205 Genève",
+    "geo": [46.19538, 6.14031],
+    "note": "Salle de répétition et studios de l'OSR, tous à Uni Mail : l'OSR publie l'entrée côté Carl-Vogt, pas l'adresse de façade de l'université."
+  },
+  {
+    "match": "^(bfm|batiment des forces motrices)",
+    "address": "Place des Volontaires 2, 1204 Genève",
+    "geo": [46.20456, 6.13686]
+  },
+  {
+    "match": "franz liszt|\\bcmg\\b",
+    "address": "Conservatoire de musique de Genève, Place de Neuve 5, 1204 Genève",
+    "geo": [46.20087, 6.1425],
+    "note": "Sans « Conservatoire de musique de Genève », le géocodeur d'Apple part sur la rue Neuve-du-Molard."
+  },
+  {
+    "match": "^hug\\b",
+    "address": "Hôpitaux Universitaires de Genève, Rue Gabrielle-Perret-Gentil 4, 1205 Genève",
+    "geo": [46.192, 6.14795]
+  },
+  {
+    "match": "^place (de )?neuve$",
+    "address": "Place de Neuve, 1204 Genève",
+    "geo": [46.20108, 6.1437]
+  },
+  {
+    "match": "florimont",
+    "address": "Institut Florimont, Avenue du Petit-Lancy 37, 1213 Petit-Lancy",
+    "geo": [46.19449, 6.11481]
+  },
+  {
+    "match": "beaulieu",
+    "address": "Avenue des Bergières 10, 1004 Lausanne",
+    "geo": [46.52948, 6.62348]
+  },
+  {
+    "match": "geneve[ -]plage",
+    "address": "Quai de Cologny 5, 1223 Cologny",
+    "geo": [46.21148, 6.17205]
+  },
+  {
+    "match": "jaques[ -]dalcroze",
+    "address": "Rue de la Terrassière 44, 1207 Genève",
+    "geo": [46.20021, 6.15951]
+  },
+  {
+    "match": "ecole internationale",
+    "address": "Centre des arts, Chemin Marie-Thérèse Maurette 7, 1208 Genève",
+    "geo": [46.19808, 6.17132],
+    "note": "L'Ecolint a trois campus ; l'OSR joue au Centre des arts (La Grande Boissière), seul lieu de l'école que citent ses propres pages « salles »."
+  },
+  {
+    "match": "cite bleue",
+    "address": "Avenue de Miremont 46, 1206 Genève",
+    "geo": [46.18694, 6.1588]
+  },
+  {
+    "match": "arena de geneve",
+    "address": "Route des Batailleux 3, 1218 Le Grand-Saconnex",
+    "geo": [46.234, 6.11276]
+  },
+  {
+    "match": "salle de musique",
+    "address": "Avenue Léopold-Robert 27, 2300 La Chaux-de-Fonds",
+    "geo": [47.10171, 6.82903]
+  },
+  {
+    "match": "ella fitzgerald",
+    "address": "Parc La Grange, Avenue Alice-et-William-Favre 19, 1207 Genève",
+    "geo": [46.20662, 6.16809]
+  },
+  {
+    "match": "grange au lac",
+    "name": "Grange au Lac",
+    "address": "Avenue des Mélèzes 37, 74500 Neuvecelle, France",
+    "geo": [46.3948, 6.59305],
+    "note": "Administrativement à Neuvecelle, même si tout le monde dit « Evian ». Deux pièges du géocodeur d'Apple ici : « Evian » (qui contredit la commune) le fait échouer… et l'article de « La Grange au Lac » aussi."
+  },
+  {
+    "match": "rosey",
+    "name": "Rosey Concert Hall",
+    "address": "Carnal Hall, Institut Le Rosey, 1180 Rolle, Suisse",
+    "geo": [46.45981, 6.32863],
+    "note": "Le Rosey n'a pas de numéro de rue ; sans « Carnal Hall » ni le pays, le géocodeur part sur un homonyme du sud de la France, à 400 km."
+  },
+  {
+    "match": "frank martin",
+    "address": "Rue Mina-Audemars 3, 1204 Genève",
+    "geo": [46.20133, 6.15093]
+  },
+  {
+    "match": "stadtcasino basel",
+    "address": "Steinenberg 14, 4051 Basel",
+    "geo": [47.55424, 7.59003]
+  },
+  {
+    "match": "boniface",
+    "address": "Avenue du Mail 14, 1205 Genève",
+    "geo": [46.19876, 6.13874]
+  },
+  {
+    "match": "casino bern",
+    "address": "Casinoplatz 1, 3011 Bern",
+    "geo": [46.94688, 7.44817]
+  },
+  {
+    "match": "^noda\\b",
+    "name": "Noda",
+    "address": "Avenue de Tourbillon 22, 1950 Sion, Suisse",
+    "geo": [46.22865, 7.3624],
+    "note": "La barre verticale de « Noda BCVs | WKB, Sion » fait échouer le géocodeur d'Apple."
+  },
+  {
+    "match": "^gare cornavin",
+    "address": "Place de Cornavin 7, 1201 Genève",
+    "geo": [46.20817, 6.1425]
+  },
+  {
+    "match": "grand theatre|^gtg\\b",
+    "address": "Boulevard du Théâtre 11, 1204 Genève",
+    "geo": [46.20183, 6.14258]
+  },
+  {
+    "match": "^administration\\b",
+    "address": "Administration de l'OSR, Rue Bovy-Lysberg 2, 1204 Genève",
+    "geo": [46.20134, 6.14058],
+    "note": "Salles internes des bureaux de l'OSR (déménagés rue Bovy-Lysberg)."
+  }
+]
