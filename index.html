@@ -51,14 +51,13 @@
         <div class="header-controls">
           <nav id="view-nav">
             <button data-view="grille">Grille</button>
-            <button data-view="agenda">Agenda</button>
+            <button data-view="agenda">Agenda personnalisé</button>
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
-            <button data-view="recherche">Recherche</button>
             <button data-view="document">Bible</button>
           </nav>
-          <button id="today-btn" title="Aller à aujourd'hui">
+          <button id="today-btn" title="Voir le programme du jour">
             Aujourd'hui
           </button>
           <button id="prefs-btn" title="Préférences d'affichage">⚙</button>
@@ -70,7 +69,6 @@
           </button>
         </div>
       </div>
-      <div id="legend"></div>
     </header>
 
     <main id="main">
@@ -87,6 +85,11 @@
 
     <dialog id="detail-dialog">
       <div id="detail-content" class="detail-box"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="today-dialog">
+      <div id="today-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 

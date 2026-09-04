@@ -34,7 +34,6 @@
   --warn-bg: #fff3cd;
   --warn-text: #664d03;
   --warn-border: #ffe69c;
-  --legend-border: rgba(0, 0, 0, 0.15);
   --evt-loc: rgba(0, 0, 0, 0.55);
   --head-accent-text: #75633f;
 
@@ -201,36 +200,6 @@ button {
 #view-nav button.active .badge {
   background: var(--header-bg);
   color: var(--gold);
-}
-
-/* Légende cliquable (filtre les catégories) */
-#legend {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
-
-.legend-item {
-  font-size: 0.75em;
-  padding: 2px 8px;
-  border-radius: 10px;
-  border: 1px solid var(--legend-border);
-  cursor: pointer;
-  user-select: none;
-  /* Depuis #109, la couleur identifie la Liste (production), pas le type de
-     service : cette légende (qui filtre par type) reste donc neutre, fond
-     uni au lieu d'un pastel par catégorie. */
-  background: var(--surface-alt);
-  color: var(--text);
-}
-
-.legend-item.off {
-  /* Sur l'en-tête sombre, une simple opacité rendrait la pastille illisible :
-     on désature et on garde assez de présence pour rester cliquable. */
-  opacity: 0.55;
-  filter: grayscale(0.85);
-  text-decoration: line-through;
 }
 
 main {
@@ -400,17 +369,6 @@ table.week td.slot-name {
   opacity: 0.75;
 }
 
-/* Repère vacances/fériés : dégradé des couleurs des trois régions (GE, VD, France) */
-.legend-item.legend-holidays {
-  background: linear-gradient(
-    90deg,
-    var(--hol-ge-soft),
-    var(--hol-vd-soft),
-    var(--hol-fr-soft)
-  );
-  color: var(--text);
-}
-
 .evt.cancelled {
   text-decoration: line-through;
   opacity: 0.55;
@@ -480,7 +438,6 @@ table.week td.slot-name {
   --warn-bg: #4a3f14;
   --warn-text: #f0d585;
   --warn-border: #6b5a1e;
-  --legend-border: rgba(255, 255, 255, 0.18);
   --evt-loc: rgba(255, 255, 255, 0.65);
   --head-accent-text: #bcdcef;
 
@@ -734,6 +691,14 @@ table.week td.repos:not(.today) {
   }
 }
 
+/* --- Vue agenda personnalisé : accès Réglages/Abonnement dans l'onglet --- */
+
+.agenda-actions-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 /* Une période : planning (grille de services) et fiches de programme des
    Listes travaillées pendant la période, côte à côte à l'écran — reprend
    l'esprit de l'ancienne Bible de saison papier (retour #114) — cf.
@@ -817,6 +782,14 @@ table.week td.repos:not(.today) {
   border-top: 1px solid var(--border-soft);
 }
 
+/* Popup « Aujourd'hui » (#131) : liste des services du jour. */
+.today-events {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
 /* --- Vue modifications --- */
 
 .change-entry {
@@ -882,7 +855,7 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
-/* --- Vue recherche --- */
+/* --- Recherche (intégrée à la vue Bible) --- */
 
 .search-bar {
   margin-bottom: 12px;
@@ -1498,13 +1471,13 @@ footer a {
     display: none;
   }
 
-  /* La barre de vues (Grille/Agenda/…/Document) ne tient plus sur une seule
-     ligne à 5 boutons en dessous d'un certain point : on la laisse défiler
+  /* La barre de vues (Grille/Agenda personnalisé/…/Bible) ne tient plus sur
+     une seule ligne en dessous d'un certain point : on la laisse défiler
      horizontalement plutôt que de la faire déborder ou passer à la ligne
      (ce qui casserait les coins arrondis du premier/dernier bouton).
      `min-width: 0` sur .header-controls est nécessaire : par défaut, un
      enfant flex ne rétrécit jamais sous la taille minimale de son propre
-     contenu (ici, les 5 boutons non compressibles de #view-nav), ce qui
+     contenu (ici, les boutons non compressibles de #view-nav), ce qui
      ferait déborder toute la ligne d'en-tête au lieu de faire défiler
      seulement la nav. */
   .header-controls {
@@ -1679,6 +1652,19 @@ footer a {
   /* Vue Document : l'aide en ligne ne sert à rien sur papier. */
   .doc-intro {
     display: none;
+  }
+
+  /* Recherche intégrée à la vue Bible (#131) : jamais imprimée, et le
+     document complet reste imprimable même quand une recherche est active à
+     l'écran (cf. renderDocument dans app.js, qui masque .doc-body via
+     [hidden] pendant une recherche). */
+  .doc-search-bar,
+  .doc-search-results {
+    display: none !important;
+  }
+
+  .doc-body[hidden] {
+    display: block !important;
   }
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
