@@ -17,6 +17,14 @@ export const DEFAULT_PREFS = {
   hiddenCatListes: {},
   hiddenActivities: {},
   showCancelled: true,
+  showNoOrchestra: true,
+}
+
+// Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
+// worker n'a pas accès au code de la page statique (cf. listeSlug() plus bas,
+// même principe).
+function isNoOrchestra(activity) {
+  return /sans orchestre/i.test(activity) || /générale piano/i.test(activity)
 }
 
 // Un événement du planning concerne-t-il ce profil ? Mêmes règles que le
@@ -39,6 +47,8 @@ export function eventMatchesPrefs(event, prefs) {
     const key = event.activity.trim().toLowerCase()
     if (hidden.some((h) => h.trim().toLowerCase() === key)) return false
   }
+  if (prefs.showNoOrchestra === false && isNoOrchestra(event.activity))
+    return false
   return true
 }
 

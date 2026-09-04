@@ -114,6 +114,30 @@ if (count(byHiddenActivitiesCasse) !== expectedHiddenActivitiesCasse)
     `filtre hiddenActivities (casse) : ${count(byHiddenActivitiesCasse)} ≠ ${expectedHiddenActivitiesCasse} attendus`,
   )
 
+// Filtre « services sans orchestre » (#146) : reprend, pour l'abonnement,
+// le réglage « Afficher les services sans orchestre » de l'app (répétitions
+// chef+soliste(s)+piano « (sans orchestre) », générales piano) — sans lui,
+// ces services (masqués dans l'agenda personnalisé de l'app) continuaient de
+// fuiter dans le calendrier ICS abonné.
+const expectedNoOrchestra = planning.events.filter(
+  (e) =>
+    !/sans orchestre/i.test(e.activity) && !/générale piano/i.test(e.activity),
+).length
+const byNoOrchestra = filterIcs(ics, {
+  listes: [],
+  sans: [],
+  annules: true,
+  showNoOrchestra: false,
+})
+if (count(byNoOrchestra) !== expectedNoOrchestra)
+  fail(
+    `filtre showNoOrchestra : ${count(byNoOrchestra)} ≠ ${expectedNoOrchestra} attendus`,
+  )
+if (count(byNoOrchestra) === total)
+  fail(
+    "filtre showNoOrchestra : le jeu de données de test devrait contenir au moins un service sans orchestre",
+  )
+
 // sanitizePrefs ne doit jamais laisser passer autre chose que des tableaux de
 // chaînes / un objet de tableaux — entrée du KV, donc pas de confiance.
 const dirty = {
@@ -122,6 +146,7 @@ const dirty = {
   hiddenCatListes: { repetition: ["Liste 01", {}] },
   hiddenActivities: { "Liste 28b": ["partielle (violons 1)", 42] },
   showCancelled: "oui", // seule la valeur booléenne false doit compter
+  showNoOrchestra: "oui", // idem
 }
 const clean = sanitizePrefs(dirty)
 if (JSON.stringify(clean.listes) !== JSON.stringify(["Liste 01"]))
@@ -151,6 +176,10 @@ if (clean.showCancelled !== true)
   fail(
     "sanitizePrefs : showCancelled ne doit être false que si explicitement false",
   )
+if (clean.showNoOrchestra !== true)
+  fail(
+    "sanitizePrefs : showNoOrchestra ne doit être false que si explicitement false",
+  )
 
 // La structure reste un VCALENDAR équilibré et terminé proprement.
 for (const [name, out] of [
@@ -158,6 +187,7 @@ for (const [name, out] of [
   ["catégories", byCat],
   ["sansListes", bySansListes],
   ["hiddenActivities", byHiddenActivities],
+  ["showNoOrchestra", byNoOrchestra],
 ]) {
   if (!out.endsWith("END:VCALENDAR\r\n"))
     fail(`${name} : fin de fichier invalide`)

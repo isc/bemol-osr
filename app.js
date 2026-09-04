@@ -2415,6 +2415,7 @@ function prefsPayload() {
     hiddenCatListes,
     hiddenActivities,
     showCancelled,
+    showNoOrchestra,
   } = state.prefs
   return {
     listes,
@@ -2422,6 +2423,7 @@ function prefsPayload() {
     hiddenCatListes,
     hiddenActivities,
     showCancelled,
+    showNoOrchestra,
   }
 }
 
@@ -2457,7 +2459,8 @@ function personalSubscribeUrls() {
     p.hiddenCategories.length ||
     Object.keys(p.hiddenCatListes).length ||
     Object.keys(p.hiddenActivities).length ||
-    !p.showCancelled
+    !p.showCancelled ||
+    !p.showNoOrchestra
   if (!hasFilter) return null
   const ics = `${PERSONAL_CALENDAR_URL}?profile=${profileToken()}`
   return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
@@ -2585,6 +2588,9 @@ function renderSubscribe() {
           "Reprend les filtres actifs dans ⚙ Réglages (listes cochées, " +
             "catégories masquées" +
             (state.prefs.showCancelled ? "" : ", sans les annulés") +
+            (state.prefs.showNoOrchestra
+              ? ""
+              : ", sans les services sans orchestre") +
             "). Suit tes Réglages dans la durée : pas besoin de te réabonner " +
             "si tu les changes plus tard.",
         ),

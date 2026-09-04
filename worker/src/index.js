@@ -65,13 +65,23 @@ function activityHidden(hidden, activity) {
   return hidden.some((h) => h.trim().toLowerCase() === key)
 }
 
+// Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
+// worker n'a pas accès au code de la page statique (même principe que
+// activityHidden ci-dessus).
+function isNoOrchestra(activity) {
+  return /sans orchestre/i.test(activity) || /générale piano/i.test(activity)
+}
+
 // Filtre le texte ICS complet selon les critères. Exporté pour les tests.
 // sansListes est le pendant fin de « sans » : { [catégorie]: [listes à
 // exclure] }, seulement exploitable par un profil KV (trop détaillé pour
 // tenir dans l'URL du format figé). hiddenActivities (#144) est plus fin
 // encore : { [liste]: [libellés `activity` à exclure] } — exclut un service
 // précis d'une Liste (ex. une répétition partielle d'un autre pupitre),
-// même principe, même limite (profil KV seulement).
+// même principe, même limite (profil KV seulement). showNoOrchestra (#146)
+// reprend côté abonnement le réglage « Afficher les services sans orchestre »
+// de l'app — sans lui, ces services (masqués dans l'agenda personnalisé de
+// l'app) continuaient de fuiter dans le calendrier ICS abonné.
 export function filterIcs(
   text,
   {
@@ -80,6 +90,7 @@ export function filterIcs(
     annules = true,
     sansListes = {},
     hiddenActivities = {},
+    showNoOrchestra = true,
   },
 ) {
   if (
@@ -87,7 +98,8 @@ export function filterIcs(
     !sans.length &&
     annules &&
     !Object.keys(sansListes).length &&
-    !Object.keys(hiddenActivities).length
+    !Object.keys(hiddenActivities).length &&
+    showNoOrchestra
   )
     return text
 
@@ -101,6 +113,7 @@ export function filterIcs(
     if (sans.includes(cat)) return false
     if ((sansListes[cat] || []).includes(liste)) return false
     if (activityHidden(hiddenActivities[liste], activity)) return false
+    if (!showNoOrchestra && isNoOrchestra(activity)) return false
     if (!annules && /^STATUS:CANCELLED\r?$/m.test(block)) return false
     return true
   })
@@ -150,6 +163,7 @@ export function sanitizePrefs(p) {
     hiddenCatListes,
     hiddenActivities,
     showCancelled: p.showCancelled !== false,
+    showNoOrchestra: p.showNoOrchestra !== false,
   }
 }
 
@@ -294,6 +308,7 @@ async function handleIcs(request, env, url) {
       annules: prefs.showCancelled !== false,
       sansListes: prefs.hiddenCatListes,
       hiddenActivities: prefs.hiddenActivities,
+      showNoOrchestra: prefs.showNoOrchestra !== false,
     }
   } else {
     opts = {
