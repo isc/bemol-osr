@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-07-03T14:34:25.134Z",
- "count": 586,
+ "updatedAt": "2026-09-04T11:27:09.823Z",
+ "count": 612,
  "events": [
   {
    "uid": "osr225046",
@@ -66,6 +66,28 @@
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
    "project": "OGP1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229406",
+   "start": "2026-08-13T10:00",
+   "end": "2026-08-13T11:00",
+   "liste": "Liste 03",
+   "activity": "rencontre chef-soliste(s)",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ ((loge))",
+   "project": "OGP3",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229019",
+   "start": "2026-08-13T11:00",
+   "end": "2026-08-13T12:30",
+   "liste": "Liste 03",
+   "activity": "rencontre chef-soliste(s)",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -533,7 +555,7 @@
   {
    "uid": "osr133258",
    "start": "2026-09-03T14:30",
-   "end": "2026-09-03T17:30",
+   "end": "2026-09-03T17:00",
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
@@ -544,12 +566,23 @@
   {
    "uid": "osr133259",
    "start": "2026-09-04T10:00",
-   "end": "2026-09-04T13:00",
+   "end": "2026-09-04T12:30",
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "La Tempête",
+   "cancelled": false
+  },
+  {
+   "uid": "osr236839",
+   "start": "2026-09-04T13:30",
+   "end": "2026-09-04T15:30",
+   "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+   "activity": "répétition hors contrat",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
    "cancelled": false
   },
   {
@@ -561,17 +594,6 @@
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
-   "cancelled": false
-  },
-  {
-   "uid": "osr191310",
-   "start": "2026-09-05T08:00",
-   "end": "2026-09-05T12:00",
-   "liste": "Liste A",
-   "activity": "-mise fosse",
-   "category": "italienne",
-   "location": "Bâtiment des Forces Motrices",
-   "project": "",
    "cancelled": false
   },
   {
@@ -693,7 +715,7 @@
    "category": "enregistrement",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "OCV",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr133269",
@@ -740,6 +762,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr239151",
+   "start": "2026-09-16T10:15",
+   "end": "2026-09-16T12:30",
+   "liste": "Réunion d'accueil et d'information des Etudiants DAS",
+   "activity": "Réunion d'information (tuteurs et étudiants)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr193687",
    "start": "2026-09-16T12:00",
    "end": "2026-09-16T14:00",
@@ -762,17 +795,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr216071",
-   "start": "2026-09-17T09:30",
-   "end": "2026-09-17T15:30",
-   "liste": "audiogrammes 1",
-   "activity": "audiogrammes",
-   "category": "autre",
-   "location": "HUG",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr176101",
    "start": "2026-09-18T09:00",
    "end": "2026-09-18T11:00",
@@ -785,8 +807,8 @@
   },
   {
    "uid": "osr176102",
-   "start": "2026-09-18T13:30",
-   "end": "2026-09-18T15:30",
+   "start": "2026-09-18T13:45",
+   "end": "2026-09-18T15:45",
    "liste": "Atelier Découverte 1",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
@@ -808,7 +830,7 @@
   {
    "uid": "osr133272",
    "start": "2026-09-20T15:00",
-   "end": "2026-09-20T19:00",
+   "end": "2026-09-20T18:30",
    "liste": "Liste A",
    "activity": "troisième",
    "category": "representation",
@@ -839,6 +861,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr226832",
+   "start": "2026-09-22T17:00",
+   "end": "2026-09-22T18:00",
+   "liste": "Titularisation OSÓRIO",
+   "activity": "séance titularisation (Nuno OSÓRIO)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ (Foyer des musiciens)",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133273",
    "start": "2026-09-22T19:30",
    "end": "2026-09-22T23:00",
@@ -861,10 +894,10 @@
    "cancelled": false
   },
   {
-   "uid": "osr213474",
-   "start": "2026-09-23T17:00",
-   "end": "2026-09-23T22:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
+   "uid": "osr232645",
+   "start": "2026-09-23T18:00",
+   "end": "2026-09-23T21:00",
+   "liste": "Audition de cornistes supplémentaires",
    "activity": "audition",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
@@ -880,6 +913,17 @@
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "H.Abo1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr226835",
+   "start": "2026-09-24T17:00",
+   "end": "2026-09-24T18:00",
+   "liste": "Titularisation MARQUEZ TERUEL",
+   "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
+   "category": "concours",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
@@ -902,17 +946,6 @@
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "La Tempête",
-   "cancelled": false
-  },
-  {
-   "uid": "osr159749",
-   "start": "2026-09-25T10:00",
-   "end": "2026-09-25T13:00",
-   "liste": "Liste 07",
-   "activity": "technique tv (sans orch.)",
-   "category": "generale",
-   "location": "Victoria Hall de Genève",
-   "project": "aboF1",
    "cancelled": false
   },
   {
@@ -944,17 +977,6 @@
    "liste": "Liste 07",
    "activity": "concert",
    "category": "concert",
-   "location": "Victoria Hall de Genève",
-   "project": "aboF1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr159750",
-   "start": "2026-09-26T13:00",
-   "end": "2026-09-26T14:00",
-   "liste": "Liste 07",
-   "activity": "technique tv (sans orch.)",
-   "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "aboF1",
    "cancelled": false
@@ -1026,25 +1048,25 @@
    "cancelled": false
   },
   {
-   "uid": "osr203846",
-   "start": "2026-09-29T13:30",
-   "end": "2026-09-29T14:00",
+   "uid": "osr132754",
+   "start": "2026-09-29T14:30",
+   "end": "2026-09-29T17:00",
    "liste": "Liste 08",
-   "activity": "rencontre chef-soliste(s)",
+   "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO1",
    "cancelled": false
   },
   {
-   "uid": "osr132754",
-   "start": "2026-09-29T14:30",
-   "end": "2026-09-29T17:00",
+   "uid": "osr236938",
+   "start": "2026-09-29T17:00",
+   "end": "2026-09-29T18:30",
    "liste": "Liste 08",
-   "activity": "répétition",
-   "category": "repetition",
+   "activity": "technique RTS",
+   "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "aboO1",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1169,17 +1191,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr178690",
-   "start": "2026-10-05T09:30",
-   "end": "2026-10-05T19:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132769",
    "start": "2026-10-06T10:00",
    "end": "2026-10-06T12:30",
@@ -1195,7 +1206,7 @@
    "start": "2026-10-06T14:30",
    "end": "2026-10-06T17:00",
    "liste": "Liste 09",
-   "activity": "répétition",
+   "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1217,7 +1228,7 @@
    "start": "2026-10-07T10:00",
    "end": "2026-10-07T12:30",
    "liste": "Liste 09",
-   "activity": "répétition avec soliste",
+   "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1235,11 +1246,22 @@
    "cancelled": false
   },
   {
+   "uid": "osr236932",
+   "start": "2026-10-07T17:00",
+   "end": "2026-10-07T18:30",
+   "liste": "Liste 09",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132772",
    "start": "2026-10-07T19:30",
    "end": "2026-10-07T22:00",
    "liste": "Liste 09",
-   "activity": "répétition avec soliste",
+   "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboS1",
@@ -1290,17 +1312,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr213473",
-   "start": "2026-10-09T08:00",
-   "end": "2026-10-09T18:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr193686",
    "start": "2026-10-09T12:00",
    "end": "2026-10-09T14:00",
@@ -1324,8 +1335,8 @@
   },
   {
    "uid": "osr132777",
-   "start": "2026-10-10T16:15",
-   "end": "2026-10-10T18:00",
+   "start": "2026-10-10T16:30",
+   "end": "2026-10-10T18:15",
    "liste": "Liste 09",
    "activity": "bus",
    "category": "autre",
@@ -1378,7 +1389,7 @@
    "cancelled": false
   },
   {
-   "uid": "osr159751",
+   "uid": "osr236835",
    "start": "2026-10-12T08:00",
    "end": "2026-10-12T11:00",
    "liste": "Liste 07",
@@ -1411,22 +1422,11 @@
    "cancelled": false
   },
   {
-   "uid": "osr213478",
-   "start": "2026-10-12T16:30",
-   "end": "2026-10-12T22:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132737",
    "start": "2026-10-13T09:15",
    "end": "2026-10-13T11:30",
    "liste": "Liste 07",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "DIP1",
@@ -1441,17 +1441,6 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "DIP1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr213475",
-   "start": "2026-10-13T16:30",
-   "end": "2026-10-13T18:30",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
    "cancelled": false
   },
   {
@@ -1470,7 +1459,7 @@
    "start": "2026-10-14T09:15",
    "end": "2026-10-14T11:30",
    "liste": "Liste 07",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "DIP1",
@@ -1492,14 +1481,14 @@
    "start": "2026-10-15T09:15",
    "end": "2026-10-15T11:30",
    "liste": "Liste 07",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "DIP1",
    "cancelled": false
   },
   {
-   "uid": "osr159752",
+   "uid": "osr236836",
    "start": "2026-10-15T12:00",
    "end": "2026-10-15T13:00",
    "liste": "Liste 07",
@@ -1510,10 +1499,10 @@
    "cancelled": false
   },
   {
-   "uid": "osr213476",
-   "start": "2026-10-15T14:00",
-   "end": "2026-10-15T18:30",
-   "liste": "Auditions de musicien·nes supplémentaires",
+   "uid": "osr232647",
+   "start": "2026-10-15T14:30",
+   "end": "2026-10-15T17:30",
+   "liste": "Audition de violonistes supplémentaires",
    "activity": "audition",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
@@ -1536,10 +1525,32 @@
    "start": "2026-10-16T10:00",
    "end": "2026-10-16T12:30",
    "liste": "Liste 10",
-   "activity": "partielle par pupitre (sans OSR)",
+   "activity": "partielle par pupitre (violons 1)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU, VIL",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233616",
+   "start": "2026-10-16T10:00",
+   "end": "2026-10-16T12:30",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (hautbois)",
+   "category": "repetition",
+   "location": "UM - Studio B",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233619",
+   "start": "2026-10-16T10:00",
+   "end": "2026-10-16T12:30",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (flûtes)",
+   "category": "repetition",
+   "location": "UM - Studio P",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1558,10 +1569,32 @@
    "start": "2026-10-17T10:00",
    "end": "2026-10-17T12:30",
    "liste": "Liste 10",
-   "activity": "partielle par pupitre",
+   "activity": "partielle par pupitre (violons 2)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU, VIL",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233622",
+   "start": "2026-10-17T10:00",
+   "end": "2026-10-17T12:30",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (clarinettes)",
+   "category": "repetition",
+   "location": "UM - Studio P",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233625",
+   "start": "2026-10-17T10:00",
+   "end": "2026-10-17T12:30",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (bassons)",
+   "category": "repetition",
+   "location": "UM - Studio B",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1569,10 +1602,21 @@
    "start": "2026-10-17T14:00",
    "end": "2026-10-17T16:30",
    "liste": "Liste 10",
-   "activity": "partielle par pupitre",
+   "activity": "partielle par pupitre (altos)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU, VIL",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233628",
+   "start": "2026-10-17T14:00",
+   "end": "2026-10-17T16:30",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (trompettes)",
+   "category": "repetition",
+   "location": "UM - Studio P",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1580,17 +1624,39 @@
    "start": "2026-10-17T18:30",
    "end": "2026-10-17T21:00",
    "liste": "Liste 10",
-   "activity": "partielle par pupitre (Sans OSR)",
+   "activity": "partielle par pupitre (trimbales+percussions)",
    "category": "repetition",
-   "location": "UM - Salle Marie LAGGÉ",
+   "location": "UM - Studio P",
    "project": "ONU, VIL",
    "cancelled": false
   },
   {
-   "uid": "osr213477",
-   "start": "2026-10-19T08:00",
-   "end": "2026-10-19T22:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
+   "uid": "osr233634",
+   "start": "2026-10-17T18:30",
+   "end": "2026-10-17T21:00",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (contrebasses)",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232433",
+   "start": "2026-10-19T10:00",
+   "end": "2026-10-19T13:00",
+   "liste": "Audition de percussionistes supplémentaires",
+   "activity": "répétitions candidats",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232435",
+   "start": "2026-10-19T14:00",
+   "end": "2026-10-19T17:00",
+   "liste": "Audition de percussionistes supplémentaires",
    "activity": "audition",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
@@ -1602,7 +1668,7 @@
    "start": "2026-10-20T10:00",
    "end": "2026-10-20T12:30",
    "liste": "Liste 10",
-   "activity": "partielle par pupitre",
+   "activity": "partielle par pupitre (violoncelles)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU",
@@ -1615,7 +1681,7 @@
    "liste": "Liste 10",
    "activity": "musicale choeur",
    "category": "repetition",
-   "location": "à définir HEM",
+   "location": "HEM Dufour GD10",
    "project": "ONU",
    "cancelled": false
   },
@@ -1624,10 +1690,21 @@
    "start": "2026-10-20T14:30",
    "end": "2026-10-20T17:00",
    "liste": "Liste 10",
-   "activity": "partielle par registre",
+   "activity": "partielle par registre (cordes)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233631",
+   "start": "2026-10-20T14:30",
+   "end": "2026-10-20T17:00",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (trombones)",
+   "category": "repetition",
+   "location": "UM - Studio P",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1635,7 +1712,7 @@
    "start": "2026-10-20T19:30",
    "end": "2026-10-20T22:00",
    "liste": "Liste 10",
-   "activity": "partielle par registre",
+   "activity": "partielle par registre (bois, cuivres, timbales, percussions)",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
    "project": "ONU",
@@ -1708,17 +1785,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr225318",
-   "start": "2026-10-22T18:00",
-   "end": "2026-10-22T20:00",
-   "liste": "Liste 10",
-   "activity": "soliste(s) seul(s)",
-   "category": "autre",
-   "location": "Victoria Hall de Genève",
-   "project": "ONU",
-   "cancelled": false
-  },
-  {
    "uid": "osr132806",
    "start": "2026-10-23T10:00",
    "end": "2026-10-23T12:30",
@@ -1785,17 +1851,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr223640",
-   "start": "2026-10-27T09:30",
-   "end": "2026-10-27T19:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr176069",
    "start": "2026-10-27T13:30",
    "end": "2026-10-27T15:30",
@@ -1829,17 +1884,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr213479",
-   "start": "2026-10-29T08:00",
-   "end": "2026-10-29T22:00",
-   "liste": "Auditions de musicien·nes supplémentaires",
-   "activity": "audition",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr223651",
    "start": "2026-10-29T09:30",
    "end": "2026-10-29T15:30",
@@ -1847,6 +1891,28 @@
    "activity": "audiogrammes",
    "category": "autre",
    "location": "HUG",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232649",
+   "start": "2026-10-29T09:30",
+   "end": "2026-10-29T12:30",
+   "liste": "Audition d'altistes supplémentaires",
+   "activity": "audition",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232650",
+   "start": "2026-10-29T14:00",
+   "end": "2026-10-29T17:00",
+   "liste": "Audition de tubistes supplémentaires",
+   "activity": "audition",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
    "project": "",
    "cancelled": false
   },
@@ -1895,17 +1961,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr178810",
-   "start": "2026-11-01T13:00",
-   "end": "2026-11-01T22:00",
-   "liste": "Concours à définir",
-   "activity": "répétitions candidats (poste à définir)",
-   "category": "concours",
-   "location": "UM - Salle Marie LAGGÉ",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr132831",
    "start": "2026-11-01T17:15",
    "end": "2026-11-01T18:15",
@@ -1936,17 +1991,6 @@
    "category": "concert",
    "location": "Rosey Concert Hall, Rolle",
    "project": "DPL2",
-   "cancelled": false
-  },
-  {
-   "uid": "osr178809",
-   "start": "2026-11-02T10:00",
-   "end": "2026-11-02T19:30",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
    "cancelled": false
   },
   {
@@ -2008,7 +2052,7 @@
    "uid": "osr133234",
    "start": "2026-11-05T16:30",
    "end": "2026-11-05T18:30",
-   "liste": "Accueil 01",
+   "liste": "Accueil Berner Symphonieorchester",
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
@@ -2030,7 +2074,7 @@
    "uid": "osr133235",
    "start": "2026-11-05T19:30",
    "end": "2026-11-05T21:30",
-   "liste": "Accueil 01",
+   "liste": "Accueil Berner Symphonieorchester",
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
@@ -2046,6 +2090,17 @@
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
    "project": "aboL2",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229807",
+   "start": "2026-11-06T08:45",
+   "end": "2026-11-06T10:45",
+   "liste": "Liste 12",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
@@ -2390,10 +2445,21 @@
    "cancelled": false
   },
   {
-   "uid": "osr213480",
-   "start": "2026-11-20T08:00",
-   "end": "2026-11-20T17:30",
-   "liste": "Auditions de musicien·nes supplémentaires",
+   "uid": "osr232652",
+   "start": "2026-11-20T10:00",
+   "end": "2026-11-20T13:00",
+   "liste": "Audition de contrebassistes supplémentaires",
+   "activity": "audition",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232654",
+   "start": "2026-11-20T14:00",
+   "end": "2026-11-20T17:00",
+   "liste": "Audition de hautboïstes supplémentaires",
    "activity": "audition",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
@@ -2413,10 +2479,10 @@
   },
   {
    "uid": "osr128611",
-   "start": "2026-11-20T18:30",
-   "end": "2026-11-20T19:00",
+   "start": "2026-11-20T17:45",
+   "end": "2026-11-20T18:30",
    "liste": "Liste 16",
-   "activity": "raccord choeur seul (sans orch.)",
+   "activity": "raccord (chœur + orch.)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "aboF+",
@@ -2599,6 +2665,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr229808",
+   "start": "2026-11-24T17:00",
+   "end": "2026-11-24T18:30",
+   "liste": "Liste 17",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132921",
    "start": "2026-11-25T10:00",
    "end": "2026-11-25T13:00",
@@ -2699,13 +2776,13 @@
   },
   {
    "uid": "osr178811",
-   "start": "2026-11-30T13:00",
+   "start": "2026-11-30T18:00",
    "end": "2026-11-30T22:00",
    "liste": "Concours à définir",
    "activity": "répétitions candidats (poste à définir)",
    "category": "concours",
    "location": "UM - Salle Marie LAGGÉ",
-   "project": "CC3",
+   "project": "",
    "cancelled": false
   },
   {
@@ -2933,7 +3010,7 @@
    "start": "2026-12-10T19:00",
    "end": "2026-12-10T23:00",
    "liste": "Liste C",
-   "activity": "prégénérale GT (lourd)",
+   "activity": "prégénérale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -2944,7 +3021,7 @@
    "start": "2026-12-11T19:00",
    "end": "2026-12-11T23:00",
    "liste": "Liste C",
-   "activity": "générale GT (lourd)",
+   "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -2955,7 +3032,7 @@
    "start": "2026-12-13T17:00",
    "end": "2026-12-13T21:00",
    "liste": "Liste C",
-   "activity": "première (lourd)",
+   "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3017,11 +3094,22 @@
    "cancelled": false
   },
   {
+   "uid": "osr229809",
+   "start": "2026-12-15T17:00",
+   "end": "2026-12-15T18:30",
+   "liste": "Liste 19",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133312",
    "start": "2026-12-15T19:00",
    "end": "2026-12-15T23:00",
    "liste": "Liste C",
-   "activity": "deuxième (lourd)",
+   "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3076,7 +3164,7 @@
    "start": "2026-12-17T19:00",
    "end": "2026-12-17T23:00",
    "liste": "Liste C",
-   "activity": "troisième (lourd)",
+   "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3120,7 +3208,7 @@
    "start": "2026-12-18T19:00",
    "end": "2026-12-18T23:00",
    "liste": "Liste C",
-   "activity": "quatrième (lourd)",
+   "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3142,10 +3230,21 @@
    "start": "2026-12-20T15:00",
    "end": "2026-12-20T19:00",
    "liste": "Liste C",
-   "activity": "cinquième (lourd)",
+   "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229810",
+   "start": "2026-12-21T13:00",
+   "end": "2026-12-21T14:30",
+   "liste": "Liste 20",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {
@@ -3186,7 +3285,7 @@
    "start": "2026-12-22T19:00",
    "end": "2026-12-22T23:00",
    "liste": "Liste C",
-   "activity": "sixième (lourd)",
+   "activity": "sixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3219,7 +3318,7 @@
    "start": "2026-12-26T19:00",
    "end": "2026-12-26T23:00",
    "liste": "Liste C",
-   "activity": "septième (lourd)",
+   "activity": "septième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3230,7 +3329,7 @@
    "start": "2026-12-28T19:00",
    "end": "2026-12-28T23:00",
    "liste": "Liste C",
-   "activity": "huitième (lourd)",
+   "activity": "huitième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3241,7 +3340,7 @@
    "start": "2026-12-29T19:00",
    "end": "2026-12-29T23:00",
    "liste": "Liste C",
-   "activity": "neuvième (lourd)",
+   "activity": "neuvième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3252,7 +3351,7 @@
    "start": "2026-12-31T19:00",
    "end": "2026-12-31T23:00",
    "liste": "Liste C",
-   "activity": "dixième (lourd)",
+   "activity": "dixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
    "project": "Les Noces",
@@ -3721,6 +3820,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr232662",
+   "start": "2027-01-31T16:00",
+   "end": "2027-01-31T22:00",
+   "liste": "Concours à définir",
+   "activity": "répétitions candidats (poste à définir)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr178694",
    "start": "2027-02-01T09:30",
    "end": "2027-02-01T19:00",
@@ -3952,13 +4062,13 @@
    "cancelled": false
   },
   {
-   "uid": "osr178693",
+   "uid": "osr236289",
    "start": "2027-02-05T10:00",
    "end": "2027-02-05T19:30",
-   "liste": "Concours à définir",
+   "liste": "Concours Premier Soliste des seconds violons",
    "activity": "concours (poste à définir)",
    "category": "concours",
-   "location": "à définir Genève",
+   "location": "Les Salons",
    "project": "",
    "cancelled": false
   },
@@ -4953,9 +5063,9 @@
    "cancelled": false
   },
   {
-   "uid": "osr133365",
-   "start": "2027-04-08T14:00",
-   "end": "2027-04-08T17:00",
+   "uid": "osr133366",
+   "start": "2027-04-08T10:30",
+   "end": "2027-04-08T13:00",
    "liste": "Liste F",
    "activity": "scène et orchestre",
    "category": "italienne",
@@ -4964,9 +5074,9 @@
    "cancelled": false
   },
   {
-   "uid": "osr133366",
-   "start": "2027-04-08T19:30",
-   "end": "2027-04-08T22:30",
+   "uid": "osr133365",
+   "start": "2027-04-08T15:00",
+   "end": "2027-04-08T17:30",
    "liste": "Liste F",
    "activity": "scène et orchestre",
    "category": "italienne",
@@ -5030,24 +5140,68 @@
    "cancelled": false
   },
   {
-   "uid": "osr133063",
+   "uid": "osr234459",
    "start": "2027-04-12T10:30",
-   "end": "2027-04-12T18:00",
+   "end": "2027-04-12T12:45",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
-   "category": "concert",
-   "location": "à définir Romandie",
-   "project": "TROM",
+   "activity": "bus (Romont)",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "",
    "cancelled": false
   },
   {
    "uid": "osr133064",
-   "start": "2027-04-13T10:30",
-   "end": "2027-04-13T18:00",
+   "start": "2027-04-12T13:30",
+   "end": "2027-04-12T15:30",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Bicubic, Romont ((FR))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234461",
+   "start": "2027-04-12T15:30",
+   "end": "2027-04-12T18:00",
+   "liste": "Liste 29",
+   "activity": "bus (Place Neuve)",
+   "category": "autre",
+   "location": "Bicubic, Romont",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234106",
+   "start": "2027-04-13T11:15",
+   "end": "2027-04-13T12:15",
+   "liste": "Liste 29",
+   "activity": "bus (Rolle)",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr133063",
+   "start": "2027-04-13T13:00",
+   "end": "2027-04-13T15:30",
+   "liste": "Liste 29",
+   "activity": "deux concerts scolaires (13h + 14h15)",
+   "category": "concert",
+   "location": "Rosey Concert Hall, Rolle ((VD))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234439",
+   "start": "2027-04-13T16:00",
+   "end": "2027-04-13T17:00",
+   "liste": "Liste 29",
+   "activity": "bus (Place Neuve)",
+   "category": "autre",
+   "location": "Rosey Concert Hall, Rolle",
    "project": "TROM",
    "cancelled": false
   },
@@ -5074,14 +5228,36 @@
    "cancelled": false
   },
   {
-   "uid": "osr133065",
-   "start": "2027-04-15T10:30",
-   "end": "2027-04-15T18:00",
+   "uid": "osr234455",
+   "start": "2027-04-15T10:20",
+   "end": "2027-04-15T12:30",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "train (Sion)",
+   "category": "autre",
+   "location": "Gare Cornavin",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr133065",
+   "start": "2027-04-15T13:30",
+   "end": "2027-04-15T15:30",
+   "liste": "Liste 29",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Noda  BCVs | WKB, Sion ((VS))",
    "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234457",
+   "start": "2027-04-15T16:30",
+   "end": "2027-04-15T18:40",
+   "liste": "Liste 29",
+   "activity": "train (Cornavin)",
+   "category": "autre",
+   "location": "Noda  BCVs | WKB, Sion",
+   "project": "",
    "cancelled": false
   },
   {
@@ -5096,13 +5272,35 @@
    "cancelled": false
   },
   {
-   "uid": "osr133066",
-   "start": "2027-04-16T10:30",
-   "end": "2027-04-16T18:00",
+   "uid": "osr234441",
+   "start": "2027-04-16T09:15",
+   "end": "2027-04-16T12:10",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "train (Porrentruy)",
+   "category": "autre",
+   "location": "Gare Cornavin",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr133066",
+   "start": "2027-04-16T13:30",
+   "end": "2027-04-16T16:00",
+   "liste": "Liste 29",
+   "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Eglise des Jésuites, Porrentruy ((JU))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234449",
+   "start": "2027-04-16T16:15",
+   "end": "2027-04-16T18:55",
+   "liste": "Liste 29",
+   "activity": "train (Cornavin)",
+   "category": "autre",
+   "location": "Eglise des Jésuites, Porrentruy",
    "project": "TROM",
    "cancelled": false
   },
@@ -5151,13 +5349,35 @@
    "cancelled": false
   },
   {
-   "uid": "osr133067",
-   "start": "2027-04-19T10:30",
-   "end": "2027-04-19T18:15",
+   "uid": "osr234451",
+   "start": "2027-04-19T12:00",
+   "end": "2027-04-19T13:40",
    "liste": "Liste 29",
-   "activity": "deux concerts scolaires",
+   "activity": "bus (Neuchâtel)",
+   "category": "autre",
+   "location": "Place Neuve",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr133067",
+   "start": "2027-04-19T14:30",
+   "end": "2027-04-19T15:15",
+   "liste": "Liste 29",
+   "activity": "un concert scolaire",
    "category": "concert",
-   "location": "à définir Romandie",
+   "location": "Temple du Bas, Neuchâtel ((NE))",
+   "project": "TROM",
+   "cancelled": false
+  },
+  {
+   "uid": "osr234453",
+   "start": "2027-04-19T15:15",
+   "end": "2027-04-19T17:30",
+   "liste": "Liste 29",
+   "activity": "bus (Place Neuve)",
+   "category": "autre",
+   "location": "Temple du Bas, Neuchâtel",
    "project": "TROM",
    "cancelled": false
   },
@@ -5236,6 +5456,17 @@
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
    "project": "aboL5",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232666",
+   "start": "2027-04-23T16:00",
+   "end": "2027-04-23T22:00",
+   "liste": "Concours à définir",
+   "activity": "répétitions candidats (poste à définir)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
    "cancelled": false
   },
   {
@@ -5617,7 +5848,7 @@
    "start": "2027-05-22T14:00",
    "end": "2027-05-22T17:00",
    "liste": "Liste 34",
-   "activity": "concert en construction",
+   "activity": "concert",
    "category": "concert",
    "location": "Arena de Genève",
    "project": "H.Abo5",
@@ -6329,12 +6560,23 @@
   },
   {
    "uid": "osr178751",
-   "start": "2027-07-01T09:30",
-   "end": "2027-07-01T19:00",
+   "start": "2027-07-01T14:00",
+   "end": "2027-07-01T22:00",
    "liste": "Concours à définir",
    "activity": "concours (poste à définir)",
    "category": "concours",
-   "location": "Victoria Hall de Genève",
+   "location": "lieu à définir",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr232669",
+   "start": "2027-07-02T09:30",
+   "end": "2027-07-02T19:00",
+   "liste": "Concours à définir",
+   "activity": "concours (poste à définir)",
+   "category": "concours",
+   "location": "lieu à définir",
    "project": "",
    "cancelled": false
   },
@@ -6383,9 +6625,20 @@
    "cancelled": false
   },
   {
+   "uid": "osr227893",
+   "start": "2027-07-05T10:00",
+   "end": "2027-07-05T12:30",
+   "liste": "Liste 42",
+   "activity": "répétition",
+   "category": "repetition",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr162255",
-   "start": "2027-07-05T14:00",
-   "end": "2027-07-05T19:15",
+   "start": "2027-07-05T16:00",
+   "end": "2027-07-05T21:15",
    "liste": "Liste 42",
    "activity": "voyage",
    "category": "autre",
@@ -6395,7 +6648,7 @@
   },
   {
    "uid": "osr162256",
-   "start": "2027-07-06T10:00",
+   "start": "2027-07-06T10:30",
    "end": "2027-07-06T13:00",
    "liste": "Liste 42",
    "activity": "générale non publique",
@@ -6409,9 +6662,9 @@
    "start": "2027-07-06T20:00",
    "end": "2027-07-06T22:00",
    "liste": "Liste 42",
-   "activity": "concert en construction",
+   "activity": "concert",
    "category": "concert",
-   "location": "lieu à définir",
+   "location": "Opéra Berlioz / Le Corum, Montpellier",
    "project": "TOUR",
    "cancelled": false
   },
@@ -6427,13 +6680,46 @@
    "cancelled": false
   },
   {
-   "uid": "osr223642",
-   "start": "2027-07-10T19:00",
-   "end": "2027-07-10T21:00",
-   "liste": "Projet 02",
+   "uid": "osr230032",
+   "start": "2027-07-08T14:00",
+   "end": "2027-07-08T16:15",
+   "liste": "Liste 42",
+   "activity": "voyage",
+   "category": "autre",
+   "location": "bus",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr230034",
+   "start": "2027-07-08T17:30",
+   "end": "2027-07-08T18:30",
+   "liste": "Liste 42",
+   "activity": "raccord",
+   "category": "generale",
+   "location": "Salle de Musique, La-Chaux-de-Fonds",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr230030",
+   "start": "2027-07-08T19:00",
+   "end": "2027-07-08T21:00",
+   "liste": "Liste 42",
    "activity": "concert",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
+   "project": "TOUR",
+   "cancelled": false
+  },
+  {
+   "uid": "osr230036",
+   "start": "2027-07-08T21:00",
+   "end": "2027-07-08T22:00",
+   "liste": "Liste 42",
+   "activity": "voyage",
+   "category": "autre",
+   "location": "bus",
    "project": "",
    "cancelled": false
   },
