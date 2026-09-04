@@ -1750,21 +1750,27 @@ function memoProgramItem(p) {
   if (p.status === "added")
     return el(
       "div",
-      { class: "change-item memo added" },
+      {
+        class: "change-item memo added",
+        onclick: () => showListe(p.liste),
+      },
       tag,
       ` ${p.liste} : nouveau programme au mémo`,
     )
   if (p.status === "removed")
     return el(
       "div",
-      { class: "change-item memo removed" },
+      {
+        class: "change-item memo removed",
+        onclick: () => showListe(p.liste),
+      },
       tag,
       ` ${p.liste} : programme retiré du mémo`,
     )
 
   const item = el(
     "div",
-    { class: "change-item memo modified" },
+    { class: "change-item memo modified", onclick: () => showListe(p.liste) },
     tag,
     ` ${p.liste}`,
   )
