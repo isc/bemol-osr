@@ -1430,24 +1430,29 @@ dialog h2 {
   background: var(--liste-color-11);
 }
 
-/* Type d'activité dépliable : la case générale + son chevron, puis les listes */
+/* Genre de production dépliable (#128) : un bouton pleine largeur (grande
+   cible tactile) révèle les listes du genre, avec un chevron d'état. */
 .activite-tete {
   display: flex;
   align-items: center;
+  width: 100%;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  padding: 9px 12px;
+  cursor: pointer;
 }
 .activite-tete .activite-option {
   flex: 1;
   min-width: 0;
 }
-.activite-toggle {
+.activite-caret {
   flex: none;
-  border: none;
-  background: none;
-  font-size: 1em;
   color: var(--text-muted);
-  padding: 9px 12px;
-  cursor: pointer;
   line-height: 1;
+  padding-left: 8px;
 }
 .activite-sous-listes {
   padding: 2px 0 6px;
@@ -1458,7 +1463,10 @@ dialog h2 {
   padding: 7px 12px;
 }
 @media (hover: hover) {
-  .activite-toggle:hover {
+  .activite-tete:hover {
+    background: var(--surface-accent-soft);
+  }
+  .activite-tete:hover .activite-caret {
     color: var(--text);
   }
 }
