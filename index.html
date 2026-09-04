@@ -59,6 +59,7 @@
           <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
                plus dans l'en-tête : ils sont désormais dans le sous-menu de
                chaque onglet qui en a besoin (#132 sur #131). -->
+          <button id="feedback-btn" title="Donner un avis" hidden>💬</button>
           <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
                le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
@@ -125,6 +126,17 @@
         </form>
       </div>
       <div id="install-content"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="feedback-dialog">
+      <div class="dialog-head">
+        <h2>Donner un avis</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
+      <div id="feedback-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 

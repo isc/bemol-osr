@@ -25,6 +25,13 @@
 // Le filtrage s'appuie sur les propriétés X-BEMOL-LISTE / X-BEMOL-CAT que
 // scripts/build-ics.mjs écrit dans chaque VEVENT (valeurs brutes, jamais
 // pliées car courtes — cf. fold() côté générateur).
+//
+// POST /feedback { message, name? } dépose un retour libre (issue #125) dans
+// le même KV, sous la clé "feedback:<horodatage>-<id>". Pas de route de
+// lecture dédiée (cf. discussion de l'issue) : relecture à la main, depuis
+// worker/ avec wrangler authentifié :
+//   wrangler kv key list --binding=NOTIF_PROFILES --remote --prefix=feedback:
+//   wrangler kv key get  --binding=NOTIF_PROFILES --remote <clé>
 
 import { buildPushPayload } from "@block65/webcrypto-web-push"
 import {
@@ -135,6 +142,79 @@ function sanitizeSubscription(s) {
   }
 }
 
+// Retour libre (issue #125) : taille plafonnée, nom facultatif. Pas de
+// collecte au-delà de ce que la personne tape elle-même (l'IP ne sert qu'à la
+// limitation de débit ci-dessous, jamais stockée dans l'entrée elle-même).
+const FEEDBACK_MESSAGE_MAX = 4000
+const FEEDBACK_NAME_MAX = 200
+// Anti-rafale minimal (formulaire public, sans compte) : un envoi par IP
+// toutes les 30 s, largement suffisant pour un musicien mais pas pour un
+// script.
+const FEEDBACK_RATE_LIMIT_SECONDS = 30
+
+export function sanitizeFeedback(body) {
+  if (!body || typeof body !== "object") return null
+  if (typeof body.message !== "string") return null
+  const message = body.message.trim()
+  if (!message || message.length > FEEDBACK_MESSAGE_MAX) return null
+  const name =
+    typeof body.name === "string"
+      ? body.name.trim().slice(0, FEEDBACK_NAME_MAX)
+      : ""
+  return { message, name }
+}
+
+// POST /feedback { message, name?, url? } — url est un piège à robots : champ
+// invisible côté app, qu'un humain ne remplit jamais. On répond succès sans
+// rien stocker si le formulaire arrive rempli, pour ne pas indiquer à un
+// robot qu'il a été repéré.
+async function handleFeedback(request, env) {
+  if (request.method !== "POST")
+    return new Response("Méthode non supportée", {
+      status: 405,
+      headers: CORS_HEADERS,
+    })
+
+  let body
+  try {
+    body = await request.json()
+  } catch {
+    return json({ error: "JSON invalide" }, 400)
+  }
+
+  if (typeof body.url === "string" && body.url.trim()) return json({ ok: true })
+
+  const clean = sanitizeFeedback(body)
+  if (!clean) return json({ error: "message manquant, vide ou trop long" }, 400)
+
+  const ip = request.headers.get("cf-connecting-ip") || "inconnue"
+  const rateKey = `feedback-rl:${ip}`
+  if (await env.NOTIF_PROFILES.get(rateKey))
+    return json(
+      {
+        error:
+          "un message a déjà été envoyé récemment depuis cet appareil, réessaie dans une minute",
+      },
+      429,
+    )
+
+  const at = new Date().toISOString()
+  const key = `feedback:${at}-${crypto.randomUUID().slice(0, 8)}`
+  // TTL généreux (1 an) : filet de sécurité contre l'accumulation si personne
+  // ne relit plus jamais, pas une purge active — la relecture reste manuelle
+  // (cf. commentaire d'en-tête).
+  await env.NOTIF_PROFILES.put(
+    key,
+    JSON.stringify({ message: clean.message, name: clean.name, at }),
+    { expirationTtl: 60 * 60 * 24 * 365 },
+  )
+  await env.NOTIF_PROFILES.put(rateKey, "1", {
+    expirationTtl: FEEDBACK_RATE_LIMIT_SECONDS,
+  })
+
+  return json({ ok: true })
+}
+
 // PUT /profile/<jeton> { prefs?, subscription? } — fusionne dans le KV. Un
 // champ absent du corps conserve la valeur précédente ; `subscription: null`
 // efface explicitement l'abonnement push (désactivation).
@@ -222,7 +302,7 @@ export default {
         status: 204,
         headers: {
           ...CORS_HEADERS,
-          "access-control-allow-methods": "GET, PUT, OPTIONS",
+          "access-control-allow-methods": "GET, POST, PUT, OPTIONS",
           "access-control-allow-headers": "content-type",
         },
       })
@@ -235,6 +315,8 @@ export default {
 
     if (url.pathname.startsWith("/profile/"))
       return handleProfile(request, env, url.pathname.slice("/profile/".length))
+
+    if (url.pathname === "/feedback") return handleFeedback(request, env)
 
     // Tout le reste (dont /planning.ics) : calendrier filtré, comme avant.
     return handleIcs(request, env, url)

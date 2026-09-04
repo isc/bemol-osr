@@ -5,7 +5,7 @@
 import { readFileSync } from "node:fs"
 import { join, dirname } from "node:path"
 import { fileURLToPath } from "node:url"
-import { filterIcs, sanitizePrefs } from "./src/index.js"
+import { filterIcs, sanitizePrefs, sanitizeFeedback } from "./src/index.js"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 const ics = readFileSync(join(root, "data", "planning.ics"), "utf8")
@@ -120,3 +120,38 @@ console.log(
   `✓ filtre OK — complet ${total}, listes ${count(byListe)}, ` +
     `catégories ${count(byCat)}, sans annulés ${count(actifs)}`,
 )
+
+// --- sanitizeFeedback (formulaire de retour, issue #125) --------------------
+
+if (sanitizeFeedback(null) !== null)
+  fail("sanitizeFeedback : corps absent devrait être rejeté")
+if (sanitizeFeedback({}) !== null)
+  fail("sanitizeFeedback : message manquant devrait être rejeté")
+if (sanitizeFeedback({ message: "   " }) !== null)
+  fail("sanitizeFeedback : message vide (une fois trimé) devrait être rejeté")
+if (sanitizeFeedback({ message: "x".repeat(4001) }) !== null)
+  fail("sanitizeFeedback : message trop long devrait être rejeté")
+
+const okFeedback = sanitizeFeedback({
+  message: "  Merci pour l'app, une suggestion : ...  ",
+  name: "  Alto, pupitre 2  ",
+})
+if (
+  !okFeedback ||
+  okFeedback.message !== "Merci pour l'app, une suggestion : ..."
+)
+  fail("sanitizeFeedback : le message valide devrait être conservé, trimé")
+if (okFeedback.name !== "Alto, pupitre 2")
+  fail("sanitizeFeedback : le nom valide devrait être conservé, trimé")
+
+const anonFeedback = sanitizeFeedback({ message: "Un souci sur la Liste 12" })
+if (anonFeedback.name !== "")
+  fail(
+    "sanitizeFeedback : sans nom fourni, le champ devrait être une chaîne vide",
+  )
+
+const longName = sanitizeFeedback({ message: "ok", name: "x".repeat(300) })
+if (longName.name.length !== 200)
+  fail("sanitizeFeedback : un nom trop long devrait être tronqué, pas rejeté")
+
+console.log("✓ sanitizeFeedback OK")
