@@ -143,7 +143,7 @@ const state = {
 function loadPrefs() {
   const defaults = {
     hiddenCategories: ["resa"],
-    hideNoOrchestra: false,
+    showNoOrchestra: true,
     showCancelled: true,
     // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
     showHolidays: true,
@@ -166,6 +166,11 @@ function loadPrefs() {
     // ; on efface d'éventuelles valeurs qu'aucune UI ne permettrait plus de
     // corriger, pour ne pas laisser un service masqué sans recours.
     delete stored.hiddenCatListes
+    // Migration (#117) : « hideNoOrchestra » (négatif) devient « showNoOrchestra »
+    // (positif, cohérent avec showCancelled/showHolidays)
+    if ("hideNoOrchestra" in stored && !("showNoOrchestra" in stored))
+      stored.showNoOrchestra = !stored.hideNoOrchestra
+    delete stored.hideNoOrchestra
     return { ...defaults, ...stored }
   } catch {
     return defaults
@@ -599,7 +604,7 @@ function visibleEvents() {
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
       !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
-      !(p.hideNoOrchestra && isNoOrchestra(e)) &&
+      (p.showNoOrchestra || !isNoOrchestra(e)) &&
       (p.showCancelled || !e.cancelled) &&
       (!p.listes.length || p.listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
@@ -2083,12 +2088,12 @@ function renderPrefs() {
   const noOrchestraCheckbox = el("input", {
     type: "checkbox",
     onchange: (ev) => {
-      state.prefs.hideNoOrchestra = ev.target.checked
+      state.prefs.showNoOrchestra = ev.target.checked
       savePrefs()
       renderContent()
     },
   })
-  noOrchestraCheckbox.checked = state.prefs.hideNoOrchestra
+  noOrchestraCheckbox.checked = state.prefs.showNoOrchestra
 
   updateNote()
 
@@ -2152,13 +2157,13 @@ function renderPrefs() {
       "label",
       { class: "prefs-cancelled" },
       holidaysCheckbox,
-      " Afficher les vacances scolaires et jours fériés (Grille)",
+      " Afficher les vacances scolaires et jours fériés",
     ),
     el(
       "label",
       { class: "prefs-cancelled" },
       noOrchestraCheckbox,
-      " Masquer les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
+      " Afficher les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
     ),
     el(
       "div",
