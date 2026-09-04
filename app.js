@@ -56,9 +56,14 @@ function listeColorClass(liste) {
 // chef+soliste(s)+piano, travail technique seul…) : cette distinction traverse
 // plusieurs catégories (répétition, générale…) et n'existe pas comme catégorie
 // à part entière côté Dièse — on la repère à la mention « (sans orchestre) »
-// que Dièse ajoute elle-même au libellé de l'activité (issue #116).
+// que Dièse ajoute elle-même au libellé de l'activité (issue #116), ou à
+// l'activité « générale piano » des productions lyriques (chef+solistes+piano,
+// sans l'orchestre — Dièse ne l'annote pas « sans orchestre » sur celle-ci,
+// issue #117).
 function isNoOrchestra(e) {
-  return /sans orchestre/i.test(e.activity)
+  return (
+    /sans orchestre/i.test(e.activity) || /générale piano/i.test(e.activity)
+  )
 }
 
 // Abréviations de lieux, du plus spécifique au plus générique
