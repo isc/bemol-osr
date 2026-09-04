@@ -137,7 +137,7 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
-  searchQuery: "", // recherche courante (vue Bible), conservée entre les rendus
+  searchQuery: "", // recherche courante (vues Bible et Agenda personnalisé), conservée entre les rendus
 }
 
 function loadPrefs() {
@@ -1432,8 +1432,36 @@ function buildWeekTable(days, weekIndex, ctx) {
   return table
 }
 
+// La recherche par mots-clés (#131, cf. searchResults plus bas) est reprise
+// telle quelle de la vue Bible (retour sur #132) : mêmes résultats, non
+// filtrés par les Réglages, puisqu'une recherche active masque de toute façon
+// la grille au profit des résultats — pas de risque de retrouver un service
+// qu'on ne pourrait pas voir juste après dans cette vue.
 function renderGrille(main) {
+  const results = el("div", { class: "search-results" })
+  const gridBody = el("div", { class: "grille-body" })
+
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      const q = !!ev.target.value.trim()
+      gridBody.hidden = q
+      results.hidden = !q
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+
+  const hasQuery = !!state.searchQuery.trim()
+  gridBody.hidden = hasQuery
+  results.hidden = !hasQuery
+  renderSearchResults(results, state.searchQuery)
+
   renderGrilleActions(main)
+  main.append(el("div", { class: "search-bar" }, input), results, gridBody)
 
   const ctx = weekTableContext()
 
@@ -1451,7 +1479,7 @@ function renderGrille(main) {
         el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
       )
     }
-    main.append(section)
+    gridBody.append(section)
   }
 }
 
@@ -1544,8 +1572,9 @@ function renderPeriodePage(periode, ctx) {
 // (catégories/listes masquées, services sans orchestre…, cf. allSeasonEvents) :
 // c'est le document de référence de la saison complète, pas une vue
 // personnalisée (retour #114).
-// Intègre aussi la recherche par mots-clés (#131) : les deux vivent dans le
-// même onglet Bible, puisque toutes deux portent sur la saison complète,
+// Intègre aussi la recherche par mots-clés (#131), reprise à l'identique
+// dans l'onglet Agenda personnalisé (retour sur #132, cf. renderGrille) :
+// dans les deux vues, la recherche porte sur la saison complète,
 // indépendamment des filtres du musicien (cf. searchResults ci-dessous).
 // Une recherche active masque la grille au profit des résultats ; imprimer
 // (@media print) affiche toujours le document complet, cf. style.css.
@@ -1838,7 +1867,7 @@ function renderModifs(main) {
     )
 }
 
-// --- Recherche (intégrée à la vue Bible) --------------------------------------
+// --- Recherche (intégrée aux vues Bible et Agenda personnalisé) --------------
 
 // Cherche `query` dans le mémo de production (chef, solistes, œuvres) et dans
 // les événements (activité, lieu, programme) de la saison courante, et
