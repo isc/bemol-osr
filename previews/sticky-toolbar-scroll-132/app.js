@@ -1,0 +1,3028 @@
+// Bémol · Planning OSR — logique de l'application (sans dépendance, sans build)
+
+const CATEGORIES = {
+  concert: "Concert",
+  representation: "Représentation (opéra/ballet)",
+  generale: "Générale / Raccord",
+  italienne: "Italienne / Scène & orch.",
+  enregistrement: "Enregistrement",
+  repetition: "Répétition / Lecture",
+  concours: "Concours / Auditions / Titularisations",
+  autre: "Autre",
+  resa: "Résa de salles",
+}
+
+// Regroupement des Listes par genre de production, pour le filtre « par liste »
+// des Réglages (#128 : remplace l'ancien filtre par type d'activité, jugé peu
+// utile car il ne distinguait que répétition/générale/italienne d'une même
+// production). Dièse ne fournit aucun champ « genre » : on le déduit du nom de
+// la Liste et des catégories de ses services (cf. listeGenre ci-dessous), avec
+// « autre » en repli pour tout ce qui ne correspond à aucun motif connu
+// (Conseils de Fondation, réservations de salle, projets ponctuels…).
+const GENRE_ORDER = [
+  "symphonique",
+  "chambre",
+  "jeune-public",
+  "opera",
+  "concours",
+  "autre",
+]
+const GENRE_LABELS = {
+  symphonique: "Symphonique",
+  chambre: "Musique de chambre",
+  "jeune-public": "Scolaire / Jeune public",
+  opera: "Opéra / Ballet",
+  concours: "Concours / Auditions / Titularisations",
+  autre: "Autre",
+}
+
+// Code couleur (#109) : une couleur par Liste (production), stable sur tous
+// ses services (répétition, générale, concert…) plutôt que par type de
+// service. Indice dérivé d'un hash du nom de la Liste (pas d'état à stocker :
+// une même Liste retombe toujours sur la même couleur) dans une palette de
+// LISTE_COLOR_COUNT teintes qui tournent, comme les calendriers colorés d'un
+// agenda classique (au-delà de LISTE_COLOR_COUNT Listes actives à la fois,
+// la couleur peut se répéter).
+const LISTE_COLOR_COUNT = 12
+
+function listeColorClass(liste) {
+  let hash = 0
+  for (let i = 0; i < liste.length; i++)
+    hash = (hash * 31 + liste.charCodeAt(i)) | 0
+  return `liste-color-${Math.abs(hash) % LISTE_COLOR_COUNT}`
+}
+
+// Services qui ne concernent pas les musicien·nes de l'orchestre (répétition
+// chef+soliste(s)+piano, travail technique seul…) : cette distinction traverse
+// plusieurs catégories (répétition, générale…) et n'existe pas comme catégorie
+// à part entière côté Dièse — on la repère à la mention « (sans orchestre) »
+// que Dièse ajoute elle-même au libellé de l'activité (issue #116).
+function isNoOrchestra(e) {
+  return /sans orchestre/i.test(e.activity)
+}
+
+// Abréviations de lieux, du plus spécifique au plus générique
+const LOCATION_SHORT = [
+  ["Victoria Hall", "VH"],
+  ["UM - Salle Marie LAGGÉ", "UM-ML"],
+  ["UM - Studio", "UM-St."],
+  ["Grand Théâtre - fosse", "GTG fosse"],
+  ["Grand Théâtre de Genève", "GTG"],
+  ["Grand Théâtre", "GTG"],
+  ["Bâtiment des Forces Motrices", "BFM"],
+  ["Théâtre de Beaulieu, Lausanne", "Beaulieu"],
+  ["Arena de Genève", "Arena"],
+  ["Genève-Plage", "Gve-Plage"],
+  ["Salle Franz Liszt", "S. Liszt"],
+  ["Auditorium Florimont", "Florimont"],
+  ["Ecole Internationale de Genève", "Ecolint"],
+  ["Institut Jaques-Dalcroze", "IJD"],
+  ["Théâtre de la Cité Bleue", "Cité Bleue"],
+  ["Kultur und Kongresszentrum Luzern", "KKL Luzern"],
+  ["Rosey Concert Hall", "Rosey"],
+  ["La Grange au Lac, Evian", "Evian"],
+  ["Salle de Musique, La-Chaux-de-Fonds", "Chx-de-Fds"],
+  ["Casino Bern", "Casino Bern"],
+  ["Stadtcasino Basel", "Basel"],
+  ["Tonhalle, Zürich", "Tonhalle"],
+  ["à définir", "à définir"],
+  ["lieu à définir", "à définir"],
+]
+
+const FIELD_LABELS = {
+  start: "début",
+  end: "fin",
+  liste: "liste",
+  activity: "activité",
+  location: "lieu",
+  project: "programme",
+  cancelled: "statut",
+  category: "catégorie",
+}
+
+const DAY_NAMES = ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+const DAY_NAMES_LONG = [
+  "dimanche",
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi",
+]
+const MONTH_NAMES = [
+  "janv.",
+  "févr.",
+  "mars",
+  "avr.",
+  "mai",
+  "juin",
+  "juil.",
+  "août",
+  "sept.",
+  "oct.",
+  "nov.",
+  "déc.",
+]
+const RECENT_DAYS = 14
+
+const state = {
+  events: [],
+  changes: [],
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] } } (mémo de production, généré par scripts/update-memo.mjs)
+  venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
+  updatedAt: null,
+  season: null,
+  view: null,
+  recentUids: new Map(), // uid → date du dernier changement récent
+  recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
+  prefs: loadPrefs(),
+  searchQuery: "", // recherche courante (vues Bible et Agenda personnalisé), conservée entre les rendus
+}
+
+function loadPrefs() {
+  const defaults = {
+    hiddenCategories: ["resa"],
+    showNoOrchestra: true,
+    showCancelled: true,
+    // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
+    showHolidays: true,
+    listes: [], // listes sélectionnées ; vide = toutes les listes
+    // Filtre fin « type d'activité → liste » : pour un type NON masqué
+    // globalement (absent de hiddenCategories), listes masquées à l'intérieur
+    // de ce seul type. { [catégorie]: ["Liste 04", …] }
+    hiddenCatListes: {},
+    // "auto" (suit prefers-color-scheme), "light" ou "dark"
+    theme: "auto",
+  }
+  try {
+    const stored = JSON.parse(localStorage.getItem("bemol-prefs") || "{}")
+    // Migration : l'ancien filtre « liste » (une seule) devient « listes » (plusieurs)
+    if (typeof stored.liste === "string" && !("listes" in stored))
+      stored.listes = stored.liste ? [stored.liste] : []
+    delete stored.liste
+    // Migration (#128) : le sous-filtre « type d'activité → liste » a été retiré
+    // des Réglages (remplacé par le regroupement par genre du filtre « liste »)
+    // ; on efface d'éventuelles valeurs qu'aucune UI ne permettrait plus de
+    // corriger, pour ne pas laisser un service masqué sans recours.
+    delete stored.hiddenCatListes
+    // Migration (#117) : « hideNoOrchestra » (négatif) devient « showNoOrchestra »
+    // (positif, cohérent avec showCancelled/showHolidays)
+    if ("hideNoOrchestra" in stored && !("showNoOrchestra" in stored))
+      stored.showNoOrchestra = !stored.hideNoOrchestra
+    delete stored.hideNoOrchestra
+    return { ...defaults, ...stored }
+  } catch {
+    return defaults
+  }
+}
+
+function savePrefs() {
+  localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
+  syncProfile()
+}
+
+// --- Mode sombre -------------------------------------------------------------
+// "auto" suit la préférence système ; sinon la préférence utilisateur force le
+// thème. Les couleurs réelles sont définies en CSS (variables, cf. style.css) ;
+// ici on ne fait que poser l'attribut data-theme et assortir la couleur de la
+// barre d'état PWA (meta theme-color), qui elle ne peut pas être pilotée en CSS.
+const prefersDarkMedia = window.matchMedia("(prefers-color-scheme: dark)")
+
+function isDarkTheme() {
+  if (state.prefs.theme === "dark") return true
+  if (state.prefs.theme === "light") return false
+  return prefersDarkMedia.matches
+}
+
+function applyTheme() {
+  const dark = isDarkTheme()
+  document.documentElement.dataset.theme = dark ? "dark" : "light"
+  const meta = document.querySelector('meta[name="theme-color"]')
+  if (meta) meta.setAttribute("content", dark ? "#1e2328" : "#2c5f8a")
+}
+
+applyTheme()
+prefersDarkMedia.addEventListener("change", () => {
+  if (state.prefs.theme === "auto") applyTheme()
+})
+
+// --- Utilitaires dates -----------------------------------------------------
+
+// Les dates du JSON sont des chaînes locales "2026-08-13T21:15"
+const parseDate = (s) => new Date(s)
+
+function localKey(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
+}
+
+function firstMondayOfAugust(year) {
+  const d = new Date(year, 7, 1)
+  d.setDate(1 + ((8 - d.getDay()) % 7))
+  return d
+}
+
+// saison d'une date : année N si date ∈ [1er lundi d'août N, 1er lundi d'août N+1)
+function seasonYear(date) {
+  const y = date.getFullYear()
+  return date >= firstMondayOfAugust(y) ? y : y - 1
+}
+
+const seasonLabel = (y) => `Saison ${y}-${String(y + 1).slice(2)}`
+
+function addDays(d, n) {
+  const r = new Date(d)
+  r.setDate(r.getDate() + n)
+  return r
+}
+
+function fmtDay(d, withYear = false, longDay = false) {
+  const date = d.getDate() === 1 ? "1er" : d.getDate()
+  const dayName = longDay ? DAY_NAMES_LONG[d.getDay()] : DAY_NAMES[d.getDay()]
+  return `${dayName} ${date} ${MONTH_NAMES[d.getMonth()]}${withYear ? " " + d.getFullYear() : ""}`
+}
+
+// Formatte une plage de dates ("Du ... au ..."), en n'affichant l'année
+// qu'une seule fois (sur la borne de fin) quand les deux bornes tombent la
+// même année civile. Jours en toutes lettres (« samedi », pas « Sa ») : il
+// s'agit ici de prose (détail des vacances scolaires), pas d'un en-tête de
+// grille compact.
+function fmtDateRange(start, end) {
+  const sameYear = start.getFullYear() === end.getFullYear()
+  return `Du ${fmtDay(start, !sameYear, true)} au ${fmtDay(end, true, true)}`
+}
+
+function fmtTime(s) {
+  return s && s.includes("T") ? s.slice(11) : ""
+}
+
+function fmtDateStr(s, withTime = true) {
+  const d = parseDate(s)
+  const base = fmtDay(d, true)
+  return withTime && s.includes("T") ? `${base} ${fmtTime(s)}` : base
+}
+
+function shortLocation(loc) {
+  if (!loc) return ""
+  for (const [full, short] of LOCATION_SHORT)
+    if (loc.includes(full)) return short
+  return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
+}
+
+// Fiche d'une salle (adresse postale, coordonnées) dans venues.json, ou null si
+// le lieu n'y figure pas. Dièse ne donne que des noms d'usage internes
+// (« UM - Salle Marie LAGGÉ », « HUG »…) : sans cette table, une app de plans
+// n'a rien à se mettre sous la dent. Même table que le calendrier abonnable
+// (scripts/build-ics.mjs), vérifiée par scripts/check-venues.mjs.
+function venue(loc) {
+  if (!loc) return null
+  const key = loc
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+  return state.venues.find((v) => new RegExp(v.match).test(key)) || null
+}
+
+// Pas de plan à proposer si le lieu n'est pas encore connu (placeholders
+// utilisés par Dièse en attendant confirmation).
+function mapsUrl(loc) {
+  if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
+  const v = venue(loc)
+  // Adresse postale quand on la connaît. Sinon, repli sur le libellé brut, en
+  // lui ajoutant la ville s'il n'en mentionne aucune (ambigu hors du contexte
+  // genevois).
+  const query = v
+    ? `${v.name || loc}, ${v.address}`
+    : /,|genève/i.test(loc)
+      ? loc
+      : `${loc}, Genève`
+  return `https://maps.google.com/?q=${encodeURIComponent(query)}`
+}
+
+function shortListe(liste) {
+  const m = liste.match(/^Liste (.+)$/)
+  if (!m) return liste.length > 10 ? liste.slice(0, 9) + "…" : liste
+  return /^\d/.test(m[1]) ? "L" + m[1] : m[1]
+}
+
+// Normalise une chaîne pour la recherche : insensible à la casse et aux
+// accents (« dvorak » retrouve « Dvořák »).
+function normalizeSearch(s) {
+  return (s || "")
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+}
+
+// --- Vacances scolaires & jours fériés (repères de la vue Grille) ------------
+// À la demande des musiciens : montrer dans la Grille quand les écoles sont en
+// vacances (utile pour caler ses propres congés) et les jours fériés (qui
+// décalent souvent les services), pour le canton de Genève, le canton de
+// Vaud ET la France voisine (zone A : académies de Lyon, Grenoble,
+// Clermont-Ferrand).
+//
+// • Les JOURS FÉRIÉS sont CALCULÉS (fêtes fixes + fêtes mobiles dérivées de
+//   Pâques) : fiables pour n'importe quelle saison, rien à maintenir.
+// • Les VACANCES SCOLAIRES n'obéissent à aucune règle simple : leurs dates
+//   sont SAISIES À LA MAIN ci-dessous, à revérifier/compléter chaque saison
+//   (sources : DIP Genève / ge.ch, État de Vaud / vd.ch et education.gouv.fr
+//   pour la zone A).
+//
+// Une région vaut "GE" (Genève), "VD" (Vaud) ou "FR" (France voisine, zone A).
+const REGION_LABEL = {
+  GE: "Genève",
+  VD: "Vaud",
+  FR: "France voisine (zone A)",
+}
+// Ordre d'affichage stable des régions (dégradés de couleur, lignes de vacances…).
+const REGIONS = Object.keys(REGION_LABEL)
+
+// Vacances scolaires, en jours calendaires INCLUS (week-ends compris) : `start`
+// = premier jour sans école, `end` = dernier jour sans école (veille de la
+// reprise). Format "AAAA-MM-JJ". À vérifier à chaque nouvelle saison.
+const VACANCES_SCOLAIRES = [
+  // Genève — saison 2026-2027 (source : DIP / ge.ch)
+  { region: "GE", nom: "Automne", start: "2026-10-17", end: "2026-10-25" },
+  { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
+  { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
+  { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
+  // Vaud — source : calendrier officiel de l'État de Vaud (vd.ch), publié
+  // jusqu'en 2030-2031 : contrairement à GE/FR, pas besoin de le revérifier
+  // chaque saison, seulement de le prolonger quand vd.ch publie la suite.
+  { region: "VD", nom: "Automne", start: "2026-10-10", end: "2026-10-25" },
+  { region: "VD", nom: "Hiver", start: "2026-12-24", end: "2027-01-10" },
+  { region: "VD", nom: "Relâches", start: "2027-02-06", end: "2027-02-14" },
+  { region: "VD", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
+  { region: "VD", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "VD", nom: "Automne", start: "2027-10-09", end: "2027-10-24" },
+  { region: "VD", nom: "Hiver", start: "2027-12-24", end: "2028-01-09" },
+  { region: "VD", nom: "Relâches", start: "2028-02-12", end: "2028-02-20" },
+  { region: "VD", nom: "Pâques", start: "2028-04-14", end: "2028-04-30" },
+  { region: "VD", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "VD", nom: "Automne", start: "2028-10-14", end: "2028-10-29" },
+  { region: "VD", nom: "Hiver", start: "2028-12-23", end: "2029-01-07" },
+  { region: "VD", nom: "Relâches", start: "2029-02-10", end: "2029-02-18" },
+  { region: "VD", nom: "Pâques", start: "2029-03-30", end: "2029-04-15" },
+  { region: "VD", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "VD", nom: "Automne", start: "2029-10-13", end: "2029-10-28" },
+  { region: "VD", nom: "Hiver", start: "2029-12-22", end: "2030-01-06" },
+  { region: "VD", nom: "Relâches", start: "2030-02-16", end: "2030-02-24" },
+  { region: "VD", nom: "Pâques", start: "2030-04-19", end: "2030-05-05" },
+  { region: "VD", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  { region: "VD", nom: "Automne", start: "2030-10-12", end: "2030-10-27" },
+  { region: "VD", nom: "Hiver", start: "2030-12-21", end: "2031-01-05" },
+  { region: "VD", nom: "Relâches", start: "2031-02-15", end: "2031-02-23" },
+  { region: "VD", nom: "Pâques", start: "2031-04-11", end: "2031-04-27" },
+  // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
+  { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
+  { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
+  { region: "FR", nom: "Hiver", start: "2027-02-06", end: "2027-02-21" },
+  { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
+]
+
+// Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
+// jour par région, SAISI À LA MAIN comme les vacances (aucune règle simple), à
+// revérifier/compléter chaque saison (sources : DIP Genève / ge.ch, État de
+// Vaud / vd.ch et education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
+const RENTREES = [
+  { region: "GE", date: "2026-08-17" }, // Genève — lundi 17 août 2026
+  { region: "VD", date: "2026-08-17" }, // Vaud — lundi 17 août 2026
+  { region: "VD", date: "2027-08-23" }, // Vaud — lundi 23 août 2027
+  { region: "VD", date: "2028-08-21" }, // Vaud — lundi 21 août 2028
+  { region: "VD", date: "2029-08-20" }, // Vaud — lundi 20 août 2029
+  { region: "VD", date: "2030-08-26" }, // Vaud — lundi 26 août 2030
+  { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
+]
+
+// Week-ends de repos officiels de l'orchestre, repris du « tableau de service »
+// de la saison (en principe un par période). Ils NE se déduisent PAS du
+// planning : un week-end de repos peut comporter des services SANS les musiciens
+// de l'orchestre (raccords, répétitions techniques…), et à l'inverse un simple
+// trou dans le planning n'est pas un week-end de repos officiel. Saisie à la
+// main, à revérifier/compléter à chaque saison (source : tableau de service).
+// On repère chaque week-end par la date de son SAMEDI, au format "AAAA-MM-JJ".
+const WEEKENDS_REPOS = [
+  // Saison 2026-2027 (source : tableau de service, mention « repos »)
+  "2026-08-22", // Période 1
+  "2026-09-12", // Période 2
+  "2026-10-03", // Période 3
+  "2026-11-14", // Période 4
+  "2026-11-28", // Période 5
+  "2027-01-02", // Période 6
+  "2027-01-23", // Période 7
+  "2027-02-20", // Période 8
+  "2027-03-27", // Période 9
+  "2027-04-24", // Période 10
+  "2027-05-15", // Période 11
+  "2027-06-26", // Période 12
+  // Période 13 : aucun week-end « repos » dans le tableau de service.
+]
+
+// Dimanche de Pâques (algorithme de Meeus/Butcher, calendrier grégorien).
+function easterSunday(year) {
+  const a = year % 19
+  const b = Math.floor(year / 100)
+  const c = year % 100
+  const d = Math.floor(b / 4)
+  const e = b % 4
+  const f = Math.floor((b + 8) / 25)
+  const g = Math.floor((b - f + 1) / 3)
+  const h = (19 * a + b - d - g + 15) % 30
+  const i = Math.floor(c / 4)
+  const k = c % 4
+  const l = (32 + 2 * e + 2 * i - h - k) % 7
+  const m = Math.floor((a + 11 * h + 22 * l) / 451)
+  const month = Math.floor((h + l - 7 * m + 114) / 31) // 3 = mars, 4 = avril
+  const day = ((h + l - 7 * m + 114) % 31) + 1
+  return new Date(year, month - 1, day)
+}
+
+// Jeûne genevois : jeudi qui suit le 1er dimanche de septembre.
+function jeuneGenevois(year) {
+  const d = new Date(year, 8, 1)
+  d.setDate(1 + ((7 - d.getDay()) % 7)) // 1er dimanche de septembre
+  return addDays(d, 4) // jeudi suivant
+}
+
+// Lundi du Jeûne (fédéral) vaudois : lundi qui suit le 3e dimanche de septembre.
+function lundiDuJeune(year) {
+  const d = new Date(year, 8, 1)
+  d.setDate(1 + ((7 - d.getDay()) % 7) + 14) // 3e dimanche de septembre
+  return addDays(d, 1) // lundi suivant
+}
+
+// Construit une Map localKey → [{ region, nom }] des jours fériés pour les
+// années demandées (une saison en couvre deux : août→déc puis janv→juil).
+function buildFeries(years) {
+  const map = new Map()
+  const add = (date, region, nom) => {
+    const key = localKey(date)
+    if (!map.has(key)) map.set(key, [])
+    map.get(key).push({ region, nom })
+  }
+  for (const y of years) {
+    const easter = easterSunday(y)
+    const vendrediSaint = addDays(easter, -2)
+    const lundiPaques = addDays(easter, 1)
+    const ascension = addDays(easter, 39)
+    const lundiPentecote = addDays(easter, 50)
+    // Genève (fériés officiels du canton)
+    add(new Date(y, 0, 1), "GE", "Nouvel An")
+    add(vendrediSaint, "GE", "Vendredi Saint")
+    add(lundiPaques, "GE", "Lundi de Pâques")
+    add(ascension, "GE", "Ascension")
+    add(lundiPentecote, "GE", "Lundi de Pentecôte")
+    add(new Date(y, 7, 1), "GE", "Fête nationale suisse")
+    add(jeuneGenevois(y), "GE", "Jeûne genevois")
+    add(new Date(y, 11, 25), "GE", "Noël")
+    add(new Date(y, 11, 31), "GE", "Restauration de la République")
+    // Vaud (fériés officiels du canton, art. 123 loi sur le personnel de l'État de Vaud)
+    add(new Date(y, 0, 1), "VD", "Nouvel An")
+    add(new Date(y, 0, 2), "VD", "2 janvier")
+    add(vendrediSaint, "VD", "Vendredi Saint")
+    add(lundiPaques, "VD", "Lundi de Pâques")
+    add(ascension, "VD", "Ascension")
+    add(lundiPentecote, "VD", "Lundi de Pentecôte")
+    add(new Date(y, 7, 1), "VD", "Fête nationale")
+    add(lundiDuJeune(y), "VD", "Lundi du Jeûne")
+    add(new Date(y, 11, 25), "VD", "Noël")
+    // France (jours fériés nationaux)
+    add(new Date(y, 0, 1), "FR", "Jour de l'An")
+    add(lundiPaques, "FR", "Lundi de Pâques")
+    add(new Date(y, 4, 1), "FR", "Fête du Travail")
+    add(new Date(y, 4, 8), "FR", "Victoire 1945")
+    add(ascension, "FR", "Ascension")
+    add(lundiPentecote, "FR", "Lundi de Pentecôte")
+    add(new Date(y, 6, 14), "FR", "Fête nationale")
+    add(new Date(y, 7, 15), "FR", "Assomption")
+    add(new Date(y, 10, 1), "FR", "Toussaint")
+    add(new Date(y, 10, 11), "FR", "Armistice 1918")
+    add(new Date(y, 11, 25), "FR", "Noël")
+  }
+  return map
+}
+
+// Nom de la période de vacances d'une région pour un jour donné, sinon null.
+// (comparaison lexicographique sur "AAAA-MM-JJ", qui suit l'ordre des dates)
+function vacanceNom(region, key) {
+  for (const v of VACANCES_SCOLAIRES)
+    if (v.region === region && key >= v.start && key <= v.end) return v.nom
+  return null
+}
+
+// --- Chargement ------------------------------------------------------------
+
+async function loadData() {
+  const bust = `?t=${Date.now()}`
+  const [planning, changes, productions, venues] = await Promise.all([
+    fetch(`data/planning.json${bust}`).then((r) => r.json()),
+    fetch(`data/changes.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => ({ entries: [] })),
+    // Mémo de production (œuvres + effectif), généré depuis le mini-site Dièse.
+    fetch(`productions.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => ({})),
+    // Adresses postales des salles (partagées avec le calendrier abonnable).
+    // En cas d'échec, le lien 📍 retombe sur le libellé brut de Dièse.
+    fetch(`venues.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => []),
+  ])
+  state.events = planning.events
+  state.updatedAt = planning.updatedAt
+  state.changes = changes.entries || []
+  state.productions = productions || {}
+  state.venues = venues || []
+
+  const cutoff = Date.now() - RECENT_DAYS * 86400e3
+  for (const entry of state.changes) {
+    if (new Date(entry.at).getTime() < cutoff) continue
+    // Relevé du mémo de production : ce sont des programmes (listes) qui bougent.
+    if (entry.type === "memo") {
+      for (const prog of entry.programs)
+        if (!state.recentListes.has(prog.liste))
+          state.recentListes.set(prog.liste, entry.at)
+      continue
+    }
+    for (const e of [...entry.added, ...entry.modified.map((m) => m.after)])
+      if (!state.recentUids.has(e.uid)) state.recentUids.set(e.uid, entry.at)
+  }
+}
+
+// --- Fraîcheur des données ---------------------------------------------------
+
+// Le planning est actualisé par un robot toutes les 2 h (update-data.yml).
+// Si ce robot est en panne (jeton ICS expiré, changement côté Dièse…), le site
+// continue de servir des données de plus en plus vieilles sans que rien ne le
+// signale. On date donc le dernier passage RÉUSSI du robot via l'API publique
+// de GitHub et on affiche un bandeau au-delà de STALE_HOURS (marge large :
+// un incident GitHub de quelques heures ne doit pas crier au loup). En cas
+// d'échec de l'appel (hors-ligne, quota API…), on ne montre rien : ce bandeau
+// est un filet de sécurité, pas une dépendance.
+const STALE_HOURS = 26
+
+async function checkDataFreshness() {
+  if (["localhost", "127.0.0.1"].includes(location.hostname)) return
+  try {
+    const r = await fetch(
+      "https://api.github.com/repos/isc/bemol-osr/actions/workflows/update-data.yml/runs?status=success&per_page=1",
+    )
+    if (!r.ok) return
+    const runs = (await r.json()).workflow_runs
+    if (!runs?.length) return
+    const hours = (Date.now() - new Date(runs[0].updated_at)) / 36e5
+    if (!(hours > STALE_HOURS)) return
+    const age =
+      hours < 48
+        ? `${Math.round(hours)} heures`
+        : `${Math.round(hours / 24)} jours`
+    document
+      .querySelector("header")
+      .after(
+        el(
+          "div",
+          { class: "stale-banner" },
+          `⚠️ Les données n'ont pas pu être actualisées depuis ${age} : ` +
+            `le planning affiché n'est peut-être plus à jour.`,
+        ),
+      )
+  } catch {
+    // silencieux : simple filet de sécurité
+  }
+}
+
+// --- Filtres ---------------------------------------------------------------
+
+function visibleEvents() {
+  const p = state.prefs
+  return state.events.filter(
+    (e) =>
+      !p.hiddenCategories.includes(e.category) &&
+      !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
+      (p.showNoOrchestra || !isNoOrchestra(e)) &&
+      (p.showCancelled || !e.cancelled) &&
+      (!p.listes.length || p.listes.includes(e.liste)) &&
+      seasonYear(parseDate(e.start)) === state.season,
+  )
+}
+
+// Tous les services de la saison, sans tenir compte des préférences
+// d'affichage personnelles (catégories/listes masquées, services sans
+// orchestre…) : la vue Bible est le document de référence de la saison
+// complète, il ne doit pas dépendre du filtre courant du musicien qui la
+// consulte (retour #114).
+function allSeasonEvents() {
+  return state.events.filter(
+    (e) => seasonYear(parseDate(e.start)) === state.season,
+  )
+}
+
+function seasonsInData() {
+  const set = new Set(state.events.map((e) => seasonYear(parseDate(e.start))))
+  return [...set].sort()
+}
+
+function listesInSeason() {
+  const set = new Set(
+    state.events
+      .filter((e) => seasonYear(parseDate(e.start)) === state.season)
+      .map((e) => e.liste),
+  )
+  return [...set].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+}
+
+// Genre d'une Liste, déduit de son nom et des catégories de ses services
+// (cats = Set des `category` rencontrées sur ses événements de la saison).
+// Motifs observés dans les données Dièse (cf. discussion #128) : les Listes
+// lettrées et les productions lyriques portent des services `representation`
+// (opéra/ballet) ; « Musique De Chambre N », « Concerts pour Petites
+// Oreilles N », « Doudou Concert N » et « Atelier Découverte… » sont nommées
+// explicitement ; les auditions/concours n'ont que des services `concours` ;
+// le gros des « Liste NN » numérotées est la saison symphonique. Le reste
+// (Conseils de Fondation, résas de salle, projets ponctuels…) tombe en
+// « autre ».
+function listeGenre(liste, cats) {
+  if (/chambre/i.test(liste)) return "chambre"
+  if (cats.has("representation")) return "opera"
+  if (/petites oreilles|doudou|atelier découverte/i.test(liste))
+    return "jeune-public"
+  if (cats.has("concours") && !cats.has("concert") && !cats.has("repetition"))
+    return "concours"
+  if (/^liste\s+\d/i.test(liste)) return "symphonique"
+  return "autre"
+}
+
+// Listes de la saison courante, groupées par genre (ordre GENRE_ORDER), pour
+// les sous-menus dépliables du filtre « par liste » des Réglages.
+function listesByGenre() {
+  const catsByListe = new Map()
+  for (const e of state.events) {
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!catsByListe.has(e.liste)) catsByListe.set(e.liste, new Set())
+    catsByListe.get(e.liste).add(e.category)
+  }
+  const groups = {}
+  for (const liste of listesInSeason()) {
+    const genre = listeGenre(liste, catsByListe.get(liste) || new Set())
+    ;(groups[genre] ||= []).push(liste)
+  }
+  return groups
+}
+
+// --- Rendu : éléments communs ----------------------------------------------
+
+function el(tag, attrs = {}, ...children) {
+  const node = document.createElement(tag)
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") node.className = v
+    else if (k.startsWith("on")) node.addEventListener(k.slice(2), v)
+    else if (v !== null && v !== undefined) node.setAttribute(k, v)
+  }
+  node.append(...children.filter((c) => c !== null && c !== undefined))
+  return node
+}
+
+// Bouton « Fermer » (✕) à placer en premier dans le contenu généré en JS
+// d'un dialogue (Détail, Liste) : flotte à droite du titre (cf. .close-btn-top-form),
+// en plus du bouton « Fermer » du bas, pour éviter de devoir tout faire
+// défiler si on n'a besoin de voir que le haut du dialogue.
+function closeBtnTop() {
+  return el(
+    "form",
+    { method: "dialog", class: "close-btn-top-form" },
+    el("button", { class: "close-btn-top", "aria-label": "Fermer" }, "✕"),
+  )
+}
+
+function eventChip(e, { showDate = false } = {}) {
+  const classes = ["evt", listeColorClass(e.liste)]
+  if (isNoOrchestra(e)) classes.push("no-orchestra")
+  if (e.cancelled) classes.push("cancelled")
+  if (state.recentUids.has(e.uid)) classes.push("recent")
+  const chip = el(
+    "button",
+    {
+      class: classes.join(" "),
+      title: `${e.liste} — ${e.activity}`,
+      onclick: () => showDetail(e),
+    },
+    el("b", {}, `${shortListe(e.liste)} ${fmtTime(e.start)}`),
+    " ",
+    el("span", { class: "evt-loc" }, shortLocation(e.location)),
+    el("br"),
+    showDate ? `${fmtDay(parseDate(e.start))} · ` : "",
+    e.activity + (e.project ? ` · ${e.project}` : ""),
+  )
+  return chip
+}
+
+// Rend le lieu cliquable (ouvre l'app de plans du téléphone) quand on a une
+// requête exploitable ; sinon affiche le texte brut du lieu tel quel.
+function locationDetail(loc) {
+  if (!loc) return "—"
+  const url = mapsUrl(loc)
+  if (!url) return loc
+  const v = venue(loc)
+  return el(
+    "a",
+    { class: "location-link", href: url, target: "_blank", rel: "noopener" },
+    el("span", { class: "location-name" }, loc),
+    " ",
+    el("span", { class: "location-pin", "aria-hidden": "true" }, "📍"),
+    // L'adresse postale, quand on la connaît : de quoi reconnaître la salle et
+    // s'y rendre sans même ouvrir le plan.
+    v ? el("span", { class: "location-address" }, v.address) : "",
+  )
+}
+
+function showDetail(e) {
+  const dlg = document.getElementById("detail-dialog")
+  const box = document.getElementById("detail-content")
+  box.replaceChildren(
+    closeBtnTop(),
+    el("span", { class: "detail-cat" }, CATEGORIES[e.category]),
+    el(
+      "h2",
+      {},
+      el("span", { class: `liste-swatch ${listeColorClass(e.liste)}` }),
+      " ",
+      el(
+        "button",
+        {
+          class: "liste-link",
+          title: "Voir toute la production de cette liste",
+          onclick: () => showListe(e.liste),
+        },
+        e.liste,
+      ),
+      ` — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
+      // Point rouge si le mémo de ce programme a changé récemment (cf. les
+      // événements de planning récemment modifiés).
+      state.recentListes.has(e.liste)
+        ? el(
+            "span",
+            {
+              class: "recent-dot",
+              title: "Mémo de production modifié récemment",
+            },
+            "●",
+          )
+        : null,
+    ),
+    scorePortalLink(),
+    el(
+      "dl",
+      {},
+      el("dt", {}, "Date"),
+      el("dd", {}, fmtDay(parseDate(e.start), true)),
+      el("dt", {}, "Horaire"),
+      el("dd", {}, `${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}`),
+      el("dt", {}, "Lieu"),
+      el("dd", {}, locationDetail(e.location)),
+      el("dt", {}, "Programme"),
+      el("dd", {}, e.project || "—"),
+      state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
+      state.recentUids.has(e.uid)
+        ? el(
+            "dd",
+            {},
+            `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`,
+          )
+        : null,
+      state.recentListes.has(e.liste) ? el("dt", {}, "Mémo") : null,
+      state.recentListes.has(e.liste)
+        ? el(
+            "dd",
+            {},
+            `modifié récemment (${fmtDateStr(state.recentListes.get(e.liste).slice(0, 16), false)})`,
+          )
+        : null,
+    ),
+    ...serviceWorksDetail(e),
+    ...productionDetail(e.liste),
+    ...historyDetail(e.uid),
+  )
+  dlg.showModal()
+}
+
+// Valeur affichable d'un champ d'événement dans un diff (vue Modifs,
+// historique de fiche ci-dessous).
+function fieldDiffValue(f, v) {
+  if (f === "cancelled") return v ? "annulé" : "confirmé"
+  if (f === "start" || f === "end") return fmtDateStr(String(v))
+  if (f === "category") return CATEGORIES[v] || v
+  return String(v || "—")
+}
+
+// Historique des changements d'un événement (issue #58), croisé par uid avec
+// le journal `data/changes.json`. Ce journal est déjà plafonné (cf.
+// MAX_CHANGE_ENTRIES côté scripts/update-data.mjs) : l'historique reste donc
+// "récent" sans qu'il soit besoin de le borner ici. Une ligne par relevé où
+// l'événement a été ajouté ou modifié, la plus récente en premier (comme
+// state.changes).
+function eventHistory(uid) {
+  const lines = []
+  for (const entry of state.changes) {
+    if (entry.type === "memo") continue
+    const date = fmtDay(new Date(entry.at))
+    if (entry.added.some((e) => e.uid === uid)) lines.push(`Ajouté le ${date}`)
+
+    const m = entry.modified.find((m) => m.uid === uid)
+    if (!m) continue
+    const diffs = []
+    if (m.fields.includes("start") || m.fields.includes("end")) {
+      const sameDay = m.before.start.slice(0, 10) === m.after.start.slice(0, 10)
+      const horaire = (ev) =>
+        (sameDay ? "" : `${fmtDay(parseDate(ev.start))} `) +
+        `${fmtTime(ev.start)}–${fmtTime(ev.end)}`
+      diffs.push(`horaire ${horaire(m.before)} → ${horaire(m.after)}`)
+    }
+    for (const f of m.fields.filter((f) => f !== "start" && f !== "end"))
+      diffs.push(
+        `${FIELD_LABELS[f] || f} ${fieldDiffValue(f, m.before[f])} → ${fieldDiffValue(f, m.after[f])}`,
+      )
+    for (const d of diffs) lines.push(`Modifié le ${date} : ${d}`)
+  }
+  return lines
+}
+
+// Quelques lignes discrètes en bas de la fiche d'un événement, uniquement
+// s'il y a un historique (rien à afficher sinon).
+function historyDetail(uid) {
+  const lines = eventHistory(uid)
+  if (!lines.length) return []
+  return [
+    el(
+      "div",
+      { class: "detail-history" },
+      ...lines.map((l) => el("p", {}, "⏱ ", l)),
+    ),
+  ]
+}
+
+// Détail d'instrumentation d'une œuvre, repris tel quel du mémo de production
+// (abréviations conservées). Les libellés reprennent ceux du mémo, familiers
+// aux musiciens.
+const WORK_FIELDS = [
+  ["instrumentation", "Instrumentation"],
+  ["remarques", "Remarques"],
+  ["percussions", "Percussions"],
+  ["claviers", "Claviers"],
+  ["extra", "Extra"],
+  ["detail", "Détail"],
+  ["note", "Note"],
+]
+
+// Libellés lisibles des champs d'œuvre, réutilisés par la vue Modifs (diff du
+// mémo de production).
+const WORK_FIELD_LABELS = { ...Object.fromEntries(WORK_FIELDS), duree: "durée" }
+
+// Construit le <li> d'une œuvre : le titre (« Compositeur — Titre ») et, si le
+// mémo le précise, un bloc de détail (instrumentation, remarques, etc.). Une
+// œuvre est soit une chaîne, soit un objet { oeuvre, instrumentation, … }.
+function workNode(w) {
+  const title = typeof w === "string" ? w : w.oeuvre
+  const head = [el("span", { class: "work-title" }, title)]
+  if (typeof w === "object" && w.duree) {
+    head.push(" ", el("span", { class: "work-dur" }, w.duree))
+  }
+  const rows =
+    typeof w === "object"
+      ? WORK_FIELDS.filter(([k]) => w[k]).map(([k, label]) =>
+          el(
+            "div",
+            { class: "wd-row" },
+            el("span", { class: "wd-label" }, label),
+            el("span", { class: "wd-val" }, w[k]),
+          ),
+        )
+      : []
+  return el(
+    "li",
+    {},
+    el("div", { class: "work-head" }, ...head),
+    rows.length ? el("div", { class: "work-detail" }, ...rows) : null,
+  )
+}
+
+// Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
+// le titre de la fiche (juste sous le bouton de Liste cliquable — #80) pour
+// rester visible sans défiler. Reste générique (page de connexion, pas de
+// partition précise) : Bémol est un site statique sans compte utilisateur,
+// il ne sait ni qui consulte la page ni quel instrument iel joue, et n'a pas
+// non plus accès à un système de partitions par production côté Dièse.
+function scorePortalLink() {
+  return el(
+    "p",
+    { class: "score-portal-row" },
+    el(
+      "a",
+      {
+        class: "score-portal-link",
+        href: "https://osr.opas-online.com/documents.php",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      "🎼 Portail partitions (Dièse)",
+    ),
+  )
+}
+
+// Œuvres travaillées pendant CE service précis (issue #110), d'après le
+// tableau des services du mémo de production (scripts/update-memo.mjs,
+// prod.serviceWorks : { uid → [n,...] }, n étant l'index 1-based dans
+// prod.works). Absent si le mémo ne le précise pas pour ce service ou si le
+// rapprochement avec le planning était ambigu — pas de repli approximatif.
+function serviceWorksDetail(e) {
+  const prod = state.productions[e.liste] || {}
+  const indices = (prod.serviceWorks || {})[e.uid]
+  if (!indices || !indices.length) return []
+  const works = prod.works || []
+  // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
+  // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
+  const titles = [...indices]
+    .sort((a, b) => a - b)
+    .map((i) => works[i - 1])
+    .filter(Boolean)
+    .map((w) => (typeof w === "string" ? w : w.oeuvre))
+  if (!titles.length) return []
+  return [
+    el(
+      "h3",
+      { class: "detail-section" },
+      "Œuvres travaillées pendant ce service",
+    ),
+    el("ul", { class: "works" }, ...titles.map((t) => el("li", {}, t))),
+  ]
+}
+
+// Infos du mémo de production (chef, solistes, œuvres avec leur détail
+// d'instrumentation, effectif, durée) pour une Liste donnée.
+function productionDetail(liste) {
+  const prod = state.productions[liste] || {}
+  const solistes = (prod.solistes || []).filter(Boolean)
+  const works = (prod.works || []).filter(Boolean)
+  const nodes = []
+  if (prod.chef) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Direction musicale"),
+      el("p", { class: "chef" }, prod.chef),
+    )
+  }
+  if (solistes.length) {
+    nodes.push(
+      el(
+        "h3",
+        { class: "detail-section" },
+        solistes.length > 1 ? "Solistes" : "Soliste",
+      ),
+      el("ul", { class: "solistes" }, ...solistes.map((s) => el("li", {}, s))),
+    )
+  }
+  if (works.length) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Œuvres au programme"),
+      el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
+    )
+  }
+  if (prod.effectif) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Effectif orchestral (max)"),
+      el("p", { class: "effectif" }, prod.effectif),
+    )
+  }
+  if (prod.duree) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Durée totale approximative"),
+      el("p", { class: "duree" }, prod.duree),
+    )
+  }
+  return nodes
+}
+
+// --- Vue par Liste (programme complet d'une production) --------------------
+
+// Champ + bouton « copier » pour une URL donnée (abonnement au calendrier,
+// lien partageable d'une Liste…).
+function copyLinkRow(url) {
+  const field = el("input", {
+    class: "subscribe-url",
+    type: "text",
+    readonly: "",
+    value: url,
+    onfocus: (ev) => ev.target.select(),
+  })
+  const btn = el(
+    "button",
+    {
+      type: "button",
+      class: "copy-btn",
+      onclick: async () => {
+        try {
+          await navigator.clipboard.writeText(url)
+          btn.textContent = "Lien copié ✓"
+        } catch {
+          // Presse-papier indisponible (http, navigateur ancien) : on
+          // sélectionne le champ pour un copier-coller manuel.
+          field.focus()
+          field.select()
+          btn.textContent = "Sélectionné — copie-le"
+        }
+        setTimeout(() => (btn.textContent = "Copier le lien"), 2500)
+      },
+    },
+    "Copier le lien",
+  )
+  return el("div", { class: "subscribe-url-row" }, field, btn)
+}
+
+// Identifiant d'URL d'une Liste (fragment de hash), ex. "Liste 04" → "liste-04",
+// "Liste 24b" → "liste-24b", "Atelier Découverte 1" → "liste-atelier-decouverte-1".
+// Toujours ASCII (accents retirés) pour rester lisible/copiable tel quel
+// (ex. dans un groupe WhatsApp de pupitre).
+function listeSlug(liste) {
+  const slug = liste
+    .replace(/^Liste\s+/i, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+  return `liste-${slug}`
+}
+
+// Retrouve la Liste correspondant à un fragment de hash ("liste-04"), parmi
+// les Listes présentes dans les données chargées (une seule saison à la fois,
+// donc pas d'ambiguïté entre saisons).
+function listeFromSlug(slug) {
+  const listes = new Set(state.events.map((e) => e.liste))
+  for (const liste of listes) if (listeSlug(liste) === slug) return liste
+  return null
+}
+
+// URL absolue et partageable d'une Liste (chemin relatif à la page courante,
+// fonctionne donc aussi bien en production que dans une preview de PR).
+function listeUrl(liste) {
+  return new URL(`#${listeSlug(liste)}`, location.href).href
+}
+
+// Construit le contenu du dialogue « Liste » : mémo de production complet
+// (chef, solistes, œuvres, effectif, durée — réutilise productionDetail) et
+// tous les services de cette Liste, triés chronologiquement (réutilise
+// eventChip). Les services annulés et toutes les catégories sont inclus,
+// indépendamment des filtres de la vue courante : c'est le programme complet
+// de la production qu'on veut voir ici.
+function renderListeDialog(liste) {
+  const box = document.getElementById("liste-content")
+  const events = state.events
+    .filter((e) => e.liste === liste)
+    .sort((a, b) => a.start.localeCompare(b.start))
+
+  box.replaceChildren(
+    closeBtnTop(),
+    el(
+      "h2",
+      {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
+      liste,
+      state.recentListes.has(liste)
+        ? el(
+            "span",
+            {
+              class: "recent-dot",
+              title: "Mémo de production modifié récemment",
+            },
+            "●",
+          )
+        : null,
+    ),
+    scorePortalLink(),
+    ...productionDetail(liste),
+    el("h3", { class: "detail-section" }, `Services (${events.length})`),
+    events.length
+      ? el(
+          "div",
+          { class: "liste-events" },
+          ...events.map((e) => eventChip(e, { showDate: true })),
+        )
+      : el(
+          "p",
+          { class: "empty-msg" },
+          "Aucun service trouvé pour cette liste.",
+        ),
+    el("h3", { class: "detail-section" }, "Lien partageable"),
+    copyLinkRow(listeUrl(liste)),
+  )
+}
+
+// Ouvre le dialogue « Liste » pour la Liste donnée, et met à jour l'URL
+// (fragment #liste-04) pour permettre de la partager (ex. dans un groupe
+// WhatsApp de pupitre).
+function showListe(liste) {
+  const detailDlg = document.getElementById("detail-dialog")
+  if (detailDlg.open) detailDlg.close()
+  renderListeDialog(liste)
+  const slug = listeSlug(liste)
+  if (location.hash.slice(1) !== slug) history.pushState(null, "", `#${slug}`)
+  document.getElementById("liste-dialog").showModal()
+}
+
+// Synchronise le dialogue « Liste » avec le hash de l'URL courante : l'ouvre
+// si le hash pointe vers une Liste connue (lien partagé, rechargement de
+// page…), le referme si on navigue ailleurs (bouton précédent du navigateur).
+function syncListeFromHash() {
+  const slug = location.hash.slice(1)
+  const liste = slug.startsWith("liste-") ? listeFromSlug(slug) : null
+  if (liste) showListe(liste)
+  else {
+    const dlg = document.getElementById("liste-dialog")
+    if (dlg.open) dlg.close()
+  }
+}
+
+// --- Repères vacances / fériés dans la Grille --------------------------------
+
+// Petites pastilles "GE"/"VD"/"FR" (une par région fériée ce jour) posées dans
+// l'en-tête de colonne du jour, cliquables pour afficher le détail.
+function feriesTags(date, feries) {
+  return el(
+    "div",
+    { class: "ferie-tags" },
+    ...feries.map((f) =>
+      el(
+        "button",
+        {
+          class: `ferie-tag ferie-${f.region.toLowerCase()}`,
+          title: `Jour férié · ${REGION_LABEL[f.region]} : ${f.nom}`,
+          onclick: () => showFeries(date, feries),
+        },
+        f.region,
+      ),
+    ),
+  )
+}
+
+// Ligne de bandeaux "vacances" d'une région pour une semaine (7 jours). Les
+// jours contigus d'une même période sont fusionnés (colspan) et portent le nom
+// de la période ; la rentrée scolaire y figure comme un bandeau « Rentrée » d'un
+// seul jour. Renvoie null si la semaine ne contient ni vacances ni rentrée.
+function vacancesRow(region, days) {
+  const noms = days.map((d) => vacanceNom(region, localKey(d)))
+  const isRentree = days.map((d) =>
+    RENTREES.some((r) => r.region === region && r.date === localKey(d)),
+  )
+  if (noms.every((n) => !n) && isRentree.every((r) => !r)) return null
+  const row = el(
+    "tr",
+    { class: "vac-row" },
+    el("td", { class: `vac-label vac-label-${region.toLowerCase()}` }, region),
+  )
+  let i = 0
+  while (i < days.length) {
+    // La rentrée est un jour isolé : bandeau « Rentrée » d'une seule colonne.
+    if (isRentree[i]) {
+      const day = days[i]
+      row.append(
+        el(
+          "td",
+          { class: `vac vac-${region.toLowerCase()}` },
+          el(
+            "button",
+            {
+              class: "vac-band rentree-band",
+              title: `Rentrée scolaire · ${REGION_LABEL[region]}`,
+              onclick: () => showRentree(region, day),
+            },
+            `Rentrée ${region}`,
+          ),
+        ),
+      )
+      i++
+      continue
+    }
+    let j = i + 1
+    while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
+    const span = j - i
+    const nom = noms[i]
+    if (nom) {
+      row.append(
+        el(
+          "td",
+          { class: `vac vac-${region.toLowerCase()}`, colspan: span },
+          el(
+            "button",
+            {
+              class: "vac-band",
+              title: `Vacances scolaires · ${REGION_LABEL[region]} : ${nom}`,
+              onclick: () => showVacance(region, nom),
+            },
+            nom,
+          ),
+        ),
+      )
+    } else {
+      row.append(el("td", { class: "vac-empty", colspan: span }))
+    }
+    i = j
+  }
+  return row
+}
+
+// Réutilise le dialogue de détail pour présenter un férié / des vacances.
+function showHolidayDialog(tag, ...content) {
+  const dlg = document.getElementById("detail-dialog")
+  const box = document.getElementById("detail-content")
+  box.replaceChildren(
+    closeBtnTop(),
+    el("span", { class: "detail-cat" }, tag),
+    ...content.filter((c) => c !== null && c !== undefined),
+  )
+  dlg.showModal()
+}
+
+function showFeries(date, feries) {
+  showHolidayDialog(
+    feries.length > 1 ? "Jours fériés" : "Jour férié",
+    el("h2", {}, fmtDay(date, true)),
+    el(
+      "ul",
+      { class: "holiday-list" },
+      ...feries.map((f) =>
+        el("li", {}, `${REGION_LABEL[f.region]} — ${f.nom}`),
+      ),
+    ),
+  )
+}
+
+// Pastille « Repos » posée dans l'en-tête du samedi et du dimanche d'un
+// week-end de repos (tableau de service) ; cliquable pour rappeler ce que ça
+// signifie (public = musiciens, pas devs).
+function reposTag(sat, sun) {
+  return el(
+    "button",
+    {
+      class: "repos-tag",
+      title: "Week-end de repos de l'orchestre (tableau de service)",
+      onclick: () => showRepos(sat, sun),
+    },
+    "Repos",
+  )
+}
+
+function showRepos(sat, sun) {
+  showHolidayDialog(
+    "Repos",
+    el("h2", {}, "Week-end de repos"),
+    el("p", {}, `Du ${fmtDay(sat)} au ${fmtDay(sun)}.`),
+    el(
+      "p",
+      {},
+      "Week-end de repos de l'orchestre, tel qu'indiqué au tableau de service. " +
+        "Des services techniques peuvent y figurer, mais sans les musicien·nes de l'orchestre.",
+    ),
+  )
+}
+
+function showVacance(region, nom) {
+  const v = VACANCES_SCOLAIRES.find((x) => x.region === region && x.nom === nom)
+  showHolidayDialog(
+    "Vacances scolaires",
+    el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
+    v ? el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))) : null,
+  )
+}
+
+function showRentree(region, date) {
+  showHolidayDialog(
+    "Rentrée scolaire",
+    el("h2", {}, `Rentrée — ${REGION_LABEL[region]}`),
+    el("p", {}, `Premier jour d'école : ${fmtDay(date, true)}.`),
+  )
+}
+
+// --- Vue grille (Bible) ------------------------------------------------------
+
+function slotOf(e) {
+  const h = parseInt(fmtTime(e.start).slice(0, 2) || "0", 10)
+  return h < 12 ? 0 : h < 18 ? 1 : 2
+}
+
+const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
+
+// Découpage de la saison courante en périodes de 4 semaines à partir du 1er
+// lundi d'août (cf. § Vocabulaire métier de CLAUDE.md), même découpage que la
+// « Bible » papier. Partagé entre la vue Grille et la vue Document.
+function seasonPeriodes() {
+  const start = firstMondayOfAugust(state.season)
+  const end = firstMondayOfAugust(state.season + 1)
+  const nWeeks = Math.round((end - start) / (7 * 86400e3))
+  const nPeriodes = Math.ceil(nWeeks / 4)
+  const periodes = []
+  for (let p = 0; p < nPeriodes; p++) {
+    const pStart = addDays(start, p * 28)
+    const pEndExcl = p === nPeriodes - 1 ? end : addDays(pStart, 28)
+    const pEnd = addDays(pEndExcl, -1)
+    const weeksInPeriode = Math.round((pEndExcl - pStart) / (7 * 86400e3))
+    periodes.push({ index: p, pStart, pEnd, pEndExcl, weeksInPeriode })
+  }
+  return periodes
+}
+
+function periodeTitle({ index, pStart, pEnd }) {
+  return `Période ${index + 1} — du ${pStart.getDate()} ${MONTH_NAMES[pStart.getMonth()]} au ${pEnd.getDate()} ${MONTH_NAMES[pEnd.getMonth()]} ${pEnd.getFullYear()}`
+}
+
+// Regroupe par jour les événements visibles, et rassemble les repères
+// (fériés, week-ends de repos) nécessaires à la construction des grilles de
+// semaine. Partagé entre la vue Grille et la vue Document.
+function weekTableContext(events = visibleEvents()) {
+  const byDay = new Map()
+  for (const e of events) {
+    const key = e.start.slice(0, 10)
+    if (!byDay.has(key)) byDay.set(key, [])
+    byDay.get(key).push(e)
+  }
+  return {
+    events,
+    byDay,
+    todayKey: localKey(new Date()),
+    showHolidays: state.prefs.showHolidays,
+    feriesMap: (state.holidays && state.holidays.feries) || new Map(),
+    // Week-ends de repos officiels (repris du tableau de service, cf.
+    // WEEKENDS_REPOS), repérés par la date de leur samedi. Ne se déduisent pas
+    // du planning : un week-end de repos peut comporter des services sans les
+    // musiciens de l'orchestre.
+    reposSaturdays: new Set(WEEKENDS_REPOS),
+  }
+}
+
+// Construit le <table class="week"> d'une semaine (grille de 7 jours × 3
+// créneaux), avec repères jour courant / week-end de repos / jours fériés.
+// Partagé entre la vue Grille et la vue Document (impression).
+function buildWeekTable(days, weekIndex, ctx) {
+  const { byDay, todayKey, showHolidays, feriesMap, reposSaturdays } = ctx
+  const hasToday = days.some((d) => localKey(d) === todayKey)
+  // Week-end « repos » : week-end signalé « repos » dans le tableau de
+  // service (repéré par la date de son samedi, days[5]). Les deux jours sont
+  // alors teintés et portent chacun une pastille « Repos ».
+  const [sat, sun] = [days[5], days[6]]
+  const reposWeekend = reposSaturdays.has(localKey(sat))
+
+  const table = el("table", { class: "week" })
+  if (hasToday) table.id = "current-week"
+  const headRow = el(
+    "tr",
+    {},
+    el("th", { class: "week-label" }, `S${weekIndex + 1}`),
+  )
+  for (const d of days) {
+    const key = localKey(d)
+    const feries = showHolidays ? feriesMap.get(key) || [] : []
+    const isWeekend = d.getDay() === 0 || d.getDay() === 6
+    // Une classe "ferie-<région>" par région fériée ce jour-là : la case
+    // se colore alors du dégradé des seules régions concernées (cf.
+    // règles CSS th.ferie-ge / .ferie-vd / .ferie-fr et leurs
+    // combinaisons), au lieu d'une teinte "férié" générique qui ne disait
+    // pas quelle(s) région(s) étaient concernées.
+    const ferieRegions = REGIONS.filter((r) =>
+      feries.some((f) => f.region === r),
+    )
+    const cls = [
+      key === todayKey ? "today" : "",
+      ...ferieRegions.map((r) => `ferie-${r.toLowerCase()}`),
+      reposWeekend && isWeekend ? "repos" : "",
+    ]
+      .filter(Boolean)
+      .join(" ")
+    const th = el("th", { class: cls }, fmtDay(d))
+    if (feries.length) th.append(feriesTags(d, feries))
+    if (reposWeekend && isWeekend) th.append(reposTag(sat, sun))
+    headRow.append(th)
+  }
+  const thead = el("thead", {}, headRow)
+  if (showHolidays)
+    for (const region of REGIONS) {
+      const vacRow = vacancesRow(region, days)
+      if (vacRow) thead.append(vacRow)
+    }
+  table.append(thead)
+
+  const tbody = el("tbody")
+  for (let slot = 0; slot < 3; slot++) {
+    const row = el("tr", {}, el("td", { class: "slot-name" }, SLOT_NAMES[slot]))
+    for (const d of days) {
+      const isWeekend = d.getDay() === 0 || d.getDay() === 6
+      const cls = [
+        localKey(d) === todayKey ? "today" : "",
+        reposWeekend && isWeekend ? "repos" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")
+      const cell = el("td", { class: cls })
+      const dayEvents = (byDay.get(localKey(d)) || []).filter(
+        (e) => slotOf(e) === slot,
+      )
+      for (const e of dayEvents) cell.append(eventChip(e))
+      row.append(cell)
+    }
+    tbody.append(row)
+  }
+  table.append(tbody)
+  return table
+}
+
+// La recherche par mots-clés (#131, cf. searchResults plus bas) est reprise
+// telle quelle de la vue Bible (retour sur #132) : mêmes résultats, non
+// filtrés par les Réglages, puisqu'une recherche active masque de toute façon
+// la grille au profit des résultats — pas de risque de retrouver un service
+// qu'on ne pourrait pas voir juste après dans cette vue.
+function renderGrille(main) {
+  const results = el("div", { class: "search-results" })
+  const gridBody = el("div", { class: "grille-body" })
+
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      const q = !!ev.target.value.trim()
+      gridBody.hidden = q
+      results.hidden = !q
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+
+  const hasQuery = !!state.searchQuery.trim()
+  gridBody.hidden = hasQuery
+  results.hidden = !hasQuery
+  renderSearchResults(results, state.searchQuery)
+
+  main.append(
+    viewToolbar(
+      renderGrilleActions(),
+      el("div", { class: "search-bar" }, input),
+    ),
+    results,
+    gridBody,
+  )
+
+  const ctx = weekTableContext()
+
+  for (const periode of seasonPeriodes()) {
+    const section = el("section", {
+      class: "periode",
+      id: `periode-${periode.index + 1}`,
+    })
+    section.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
+
+    for (let w = 0; w < periode.weeksInPeriode; w++) {
+      const monday = addDays(periode.pStart, w * 7)
+      const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
+      section.append(
+        el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+      )
+    }
+    gridBody.append(section)
+  }
+}
+
+// --- Vue document (saison complète imprimable) ------------------------------
+
+// Listes ayant au moins un service dans une période, avec leur fiche de
+// programme complète (chef, solistes, œuvres, instrumentation) — seulement
+// celles dont le mémo de production dit quelque chose (sinon la fiche serait
+// vide : beaucoup de programmes lointains n'ont pas encore de mémo publié).
+function periodeListeCards(periode, ctx) {
+  const startKey = localKey(periode.pStart)
+  const endKeyExcl = localKey(periode.pEndExcl)
+  const listes = [
+    ...new Set(
+      ctx.events
+        .filter((e) => {
+          const key = e.start.slice(0, 10)
+          return key >= startKey && key < endKeyExcl
+        })
+        .map((e) => e.liste),
+    ),
+  ].sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+  return listes
+    .map((liste) => ({ liste, detail: productionDetail(liste) }))
+    .filter(({ detail }) => detail.length)
+}
+
+// Une période, avec sa grille de services puis les fiches de programme
+// (chef, solistes, œuvres, instrumentation) des Listes travaillées pendant
+// cette période — reprend l'esprit de l'ancienne Bible de saison papier
+// (retour #114 : PDF fourni en exemple par @schneiderflute-create, dont on
+// ne reprend que la mise en page, pas les données), en deux pages dédiées
+// plutôt qu'une seule : le planning, agrandi, occupe sa propre page (cf.
+// .doc-periode-planning dans style.css), suivi d'un saut de page vers le
+// détail des Listes. Un planning ou un détail trop chargé déborde
+// simplement sur la page suivante, l'objectif étant une page pleine par
+// partie dans le cas courant, pas une garantie absolue.
+function renderPeriodePage(periode, ctx) {
+  const planning = el("div", { class: "doc-periode-planning" })
+  planning.append(el("h2", { class: "periode-title" }, periodeTitle(periode)))
+  for (let w = 0; w < periode.weeksInPeriode; w++) {
+    const monday = addDays(periode.pStart, w * 7)
+    const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
+    planning.append(
+      el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+    )
+  }
+
+  const cards = periodeListeCards(periode, ctx)
+  const listes = cards.length
+    ? el(
+        "div",
+        { class: "doc-periode-listes" },
+        ...cards.map(({ liste, detail }) =>
+          el(
+            "div",
+            { class: "detail-box doc-liste-card" },
+            el("h3", { class: "doc-liste-title" }, liste),
+            ...detail,
+          ),
+        ),
+      )
+    : null
+
+  return el(
+    "section",
+    {
+      class: "doc-periode-page" + (listes ? "" : " no-listes"),
+      id: `doc-periode-${periode.index + 1}`,
+    },
+    planning,
+    ...(listes ? [listes] : []),
+  )
+}
+
+// Reprend la grille de services de la vue Grille, avec, à côté de chaque
+// période, les fiches de programme des Listes qui y sont travaillées —
+// l'équivalent des « encarts Listes » de l'ancienne Bible de saison papier
+// (cf. issue #111 et retour #114). Ces fiches sont construites ici pour les
+// deux usages de la vue Bible mais ne s'affichent qu'à l'impression
+// (`.doc-periode-listes` masquée à l'écran, restaurée sous @media print,
+// cf. style.css) : à l'écran, le détail d'une Liste reste à un clic (dialogue
+// Liste), la fiche complète n'apportait qu'un encombrement inutile (retour
+// #134) — seule la Bible PDF exportée reste le document complet.
+// Pensée pour l'impression (@media print, cf. style.css) : contrairement à
+// l'ancienne Bible papier, toujours à jour puisqu'elle vient des mêmes
+// données que le reste de l'app, sans pipeline de génération périodique à
+// maintenir en plus.
+// Volontairement indépendante des Réglages du musicien qui la consulte
+// (catégories/listes masquées, services sans orchestre…, cf. allSeasonEvents) :
+// c'est le document de référence de la saison complète, pas une vue
+// personnalisée (retour #114).
+// Intègre aussi la recherche par mots-clés (#131), reprise à l'identique
+// dans l'onglet Agenda personnalisé (retour sur #132, cf. renderGrille) :
+// dans les deux vues, la recherche porte sur la saison complète,
+// indépendamment des filtres du musicien (cf. searchResults ci-dessous).
+// Une recherche active masque la grille au profit des résultats ; imprimer
+// (@media print) affiche toujours le document complet, cf. style.css.
+function renderDocument(main) {
+  const results = el("div", { class: "search-results doc-search-results" })
+  const docBody = el("div", { class: "doc-body" })
+
+  const input = el("input", {
+    type: "search",
+    class: "search-input",
+    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
+    oninput: (ev) => {
+      state.searchQuery = ev.target.value
+      const q = !!ev.target.value.trim()
+      docBody.hidden = q
+      results.hidden = !q
+      renderSearchResults(results, state.searchQuery)
+    },
+  })
+  input.value = state.searchQuery
+
+  const hasQuery = !!state.searchQuery.trim()
+  docBody.hidden = hasQuery
+  results.hidden = !hasQuery
+  renderSearchResults(results, state.searchQuery)
+
+  const ctx = weekTableContext(allSeasonEvents())
+  for (const periode of seasonPeriodes())
+    docBody.append(renderPeriodePage(periode, ctx))
+
+  main.append(
+    viewToolbar(
+      el(
+        "div",
+        { class: "doc-intro" },
+        el(
+          "p",
+          {},
+          "Grille de services de toute la saison, toujours à jour — tous les " +
+            "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
+            "sur un service pour le détail complet de sa Liste ; le PDF " +
+            "exporté ci-dessous ajoute en plus une fiche par Liste.",
+        ),
+        el(
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: showTodayDialog },
+            "Aujourd'hui",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
+        ),
+      ),
+      el("div", { class: "search-bar doc-search-bar" }, input),
+    ),
+    results,
+    docBody,
+  )
+}
+
+// Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
+// « Aujourd'hui » (détail du jour en popup), Réglages (choix des
+// productions/listes) et abonnement au calendrier, directement dans
+// l'onglet — ces icônes vivaient dans l'en-tête, redondant maintenant que la
+// navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
+// vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
+// filtrée (cf. renderDocument).
+// Retourne l'élément plutôt que de l'ajouter directement à main : il est
+// ensuite empaqueté avec la recherche dans le bandeau sticky commun (cf.
+// viewToolbar plus bas, retour sur #132).
+function renderGrilleActions() {
+  return el(
+    "div",
+    { class: "doc-intro agenda-actions" },
+    el(
+      "p",
+      {},
+      "Uniquement les productions et types de service que tu as choisis " +
+        "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
+        "agenda personnel.",
+    ),
+    el(
+      "div",
+      { class: "agenda-actions-btns" },
+      el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
+      el(
+        "button",
+        { type: "button", onclick: openPrefsDialog },
+        "⚙ Réglages : choisir les productions",
+      ),
+      el(
+        "button",
+        {
+          type: "button",
+          class: "doc-print-btn",
+          onclick: openSubscribeDialog,
+        },
+        "📅 S'abonner au calendrier",
+      ),
+    ),
+  )
+}
+
+// Bandeau sticky commun aux vues Agenda personnalisé et Bible : sous-menu
+// (Aujourd'hui/Réglages/Abonnement, ou Aujourd'hui/Imprimer) + barre de
+// recherche, regroupés pour rester visibles en tête de page pendant le
+// défilement du calendrier — jusque-là seul l'en-tête (les trois onglets)
+// restait fixe, le sous-menu et la recherche défilaient avec la grille
+// (retour #132). `--header-h`, posée par observeHeaderHeight() (cf. init()),
+// vaut la hauteur réelle de l'en-tête : variable selon l'écran et les zones
+// de sécurité iOS, le bandeau se colle donc juste en dessous, jamais dessous
+// ni par-dessus.
+function viewToolbar(...children) {
+  return el("div", { class: "view-toolbar" }, ...children)
+}
+
+// --- Vue modifications --------------------------------------------------------
+
+function changeLine(e) {
+  return `${fmtDateStr(e.start)} · ${e.liste} ${e.activity} · ${shortLocation(e.location)}`
+}
+
+// En-tête d'un relevé (date + heure), commun aux changements de planning et de mémo.
+function changeEntryHeading(at) {
+  const d = new Date(at)
+  return `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
+}
+
+// Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le badge.
+function countChanges(entry) {
+  if (entry.type === "memo")
+    return entry.programs.reduce(
+      (n, p) =>
+        p.status === "modified"
+          ? n +
+            (p.fields ? p.fields.length : 0) +
+            (p.worksAdded ? p.worksAdded.length : 0) +
+            (p.worksRemoved ? p.worksRemoved.length : 0) +
+            (p.worksModified ? p.worksModified.length : 0)
+          : n + 1,
+      0,
+    )
+  return entry.added.length + entry.removed.length + entry.modified.length
+}
+
+// Libellés des champs d'un programme dans le diff du mémo de production.
+const MEMO_FIELD_LABELS = {
+  chef: "chef",
+  effectif: "effectif",
+  duree: "durée",
+  solistes: "solistes",
+}
+
+// Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
+function planningEntryBox(entry) {
+  const box = el("div", { class: "change-entry" })
+  box.append(el("h3", {}, changeEntryHeading(entry.at)))
+
+  for (const e of entry.added)
+    box.append(
+      el(
+        "div",
+        { class: "change-item added", onclick: () => showDetail(e) },
+        `➕ Ajouté : ${changeLine(e)}`,
+      ),
+    )
+
+  for (const m of entry.modified) {
+    const item = el(
+      "div",
+      { class: "change-item modified", onclick: () => showDetail(m.after) },
+      `✏️ Modifié : ${changeLine(m.after)}`,
+    )
+    for (const f of m.fields) {
+      item.append(
+        el(
+          "div",
+          { class: "field-diff" },
+          `${FIELD_LABELS[f] || f} : `,
+          el("span", { class: "old" }, fieldDiffValue(f, m.before[f])),
+          " → ",
+          el("span", { class: "new" }, fieldDiffValue(f, m.after[f])),
+        ),
+      )
+    }
+    box.append(item)
+  }
+
+  for (const e of entry.removed)
+    box.append(
+      el(
+        "div",
+        { class: "change-item removed" },
+        `➖ Supprimé : ${changeLine(e)}`,
+      ),
+    )
+
+  return box
+}
+
+// Un programme dans un relevé de mémo : champs modifiés (chef, effectif, durée,
+// solistes) et œuvres ajoutées / retirées / modifiées.
+function memoProgramItem(p) {
+  const tag = el("span", { class: "change-tag" }, "Mémo de production")
+  if (p.status === "added")
+    return el(
+      "div",
+      {
+        class: "change-item memo added",
+        onclick: () => showListe(p.liste),
+      },
+      tag,
+      ` ${p.liste} : nouveau programme au mémo`,
+    )
+  if (p.status === "removed")
+    return el(
+      "div",
+      {
+        class: "change-item memo removed",
+        onclick: () => showListe(p.liste),
+      },
+      tag,
+      ` ${p.liste} : programme retiré du mémo`,
+    )
+
+  const item = el(
+    "div",
+    { class: "change-item memo modified", onclick: () => showListe(p.liste) },
+    tag,
+    ` ${p.liste}`,
+  )
+  for (const f of p.fields || [])
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        `${MEMO_FIELD_LABELS[f.field] || f.field} : `,
+        el("span", { class: "old" }, f.before || "—"),
+        " → ",
+        el("span", { class: "new" }, f.after || "—"),
+      ),
+    )
+  for (const oeuvre of p.worksAdded || [])
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        "œuvre ajoutée : ",
+        el("span", { class: "new" }, oeuvre),
+      ),
+    )
+  for (const oeuvre of p.worksRemoved || [])
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        "œuvre retirée : ",
+        el("span", { class: "old" }, oeuvre),
+      ),
+    )
+  for (const w of p.worksModified || [])
+    item.append(
+      el(
+        "div",
+        { class: "field-diff" },
+        "œuvre modifiée : ",
+        el("span", { class: "new" }, w.oeuvre),
+        w.fields && w.fields.length
+          ? ` (${w.fields.map((k) => WORK_FIELD_LABELS[k] || k).join(", ")})`
+          : "",
+      ),
+    )
+  return item
+}
+
+// Boîte d'un relevé de changements du mémo de production.
+function memoEntryBox(entry) {
+  const box = el("div", { class: "change-entry" })
+  box.append(el("h3", {}, changeEntryHeading(entry.at)))
+  for (const p of entry.programs) box.append(memoProgramItem(p))
+  return box
+}
+
+function renderModifs(main) {
+  if (!state.changes.length) {
+    main.append(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Aucune modification détectée pour l'instant. Cette page liste les changements de planning et du mémo de production au fil des mises à jour.",
+      ),
+    )
+    return
+  }
+
+  for (const entry of state.changes)
+    main.append(
+      entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry),
+    )
+}
+
+// --- Recherche (intégrée aux vues Bible et Agenda personnalisé) --------------
+
+// Cherche `query` dans le mémo de production (chef, solistes, œuvres) et dans
+// les événements (activité, lieu, programme) de la saison courante, et
+// regroupe les correspondances par Liste. Insensible à la casse et aux
+// accents. Ne tient pas compte des préférences d'affichage (catégories/listes
+// masquées) : la recherche doit pouvoir retrouver ce qu'on a caché ailleurs.
+function searchResults(query) {
+  const q = normalizeSearch(query)
+  if (!q) return []
+
+  const byListe = new Map() // liste → événements de la saison courante
+  for (const e of state.events) {
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!byListe.has(e.liste)) byListe.set(e.liste, [])
+    byListe.get(e.liste).push(e)
+  }
+
+  const results = []
+  for (const [liste, events] of byListe) {
+    const prod = state.productions[liste] || {}
+    const solistes = (prod.solistes || []).filter(Boolean)
+    const works = (prod.works || []).filter(Boolean)
+    const workTitles = works.map((w) => (typeof w === "string" ? w : w.oeuvre))
+    const haystack = [
+      liste,
+      prod.chef,
+      ...solistes,
+      ...workTitles,
+      ...events.map((e) => e.activity),
+      ...events.map((e) => e.location),
+      ...events.map((e) => e.project),
+    ]
+      .filter(Boolean)
+      .map(normalizeSearch)
+      .join("   ")
+    if (haystack.includes(q))
+      results.push({
+        liste,
+        chef: prod.chef,
+        solistes,
+        workTitles,
+        events: [...events].sort((a, b) => a.start.localeCompare(b.start)),
+      })
+  }
+
+  return results.sort((a, b) =>
+    a.liste.localeCompare(b.liste, "fr", { numeric: true }),
+  )
+}
+
+// Boîte d'un résultat : infos du programme (chef, solistes, œuvres) suivies
+// des services correspondants, réutilisant les chips habituelles (mêmes
+// codes couleur, même détail au clic que les autres vues).
+function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
+  const infoLines = []
+  if (chef) infoLines.push(el("p", { class: "search-chef" }, chef))
+  if (solistes.length)
+    infoLines.push(el("p", { class: "search-solistes" }, solistes.join(" · ")))
+  if (workTitles.length)
+    infoLines.push(el("p", { class: "search-works" }, workTitles.join(" · ")))
+  return el(
+    "div",
+    { class: "search-group" },
+    el(
+      "h3",
+      {},
+      el("span", { class: `liste-swatch ${listeColorClass(liste)}` }),
+      " ",
+      liste,
+    ),
+    ...infoLines,
+    el(
+      "div",
+      { class: "search-dates" },
+      ...events.map((e) => eventChip(e, { showDate: true })),
+    ),
+  )
+}
+
+function renderSearchResults(container, query) {
+  const q = query.trim()
+  if (!q) {
+    container.replaceChildren(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Tape le nom d'une œuvre, d'un compositeur, d'un chef, d'un soliste, " +
+          "d'un lieu ou d'une liste pour retrouver les programmes correspondants.",
+      ),
+    )
+    return
+  }
+  const results = searchResults(q)
+  if (!results.length) {
+    container.replaceChildren(
+      el("p", { class: "empty-msg" }, `Aucun résultat pour « ${q} ».`),
+    )
+    return
+  }
+  container.replaceChildren(...results.map(searchGroupNode))
+}
+
+// --- Préférences --------------------------------------------------------------
+
+function renderPrefs() {
+  const box = document.getElementById("prefs-content")
+  const listes = listesInSeason()
+
+  // Note récapitulative mise à jour en place (sans reconstruire le panneau,
+  // pour ne pas faire remonter la liste des cases au début à chaque coche).
+  const note = el("p", { class: "prefs-note" })
+  const updateNote = () => {
+    const n = state.prefs.listes.length
+    note.textContent = n
+      ? `${n} liste${n > 1 ? "s" : ""} affichée${n > 1 ? "s" : ""}. Coche les productions sur lesquelles tu joues.`
+      : "Aucune coche : toutes les listes sont affichées. Coche les productions sur lesquelles tu joues pour ne garder que celles-là."
+  }
+
+  const checkboxes = new Map() // liste → <input>
+
+  // Les boutons Tout cocher / Tout décocher se mettent en évidence (retour
+  // #129) quand ils correspondent à l'état courant, pour qu'on voie d'un
+  // coup d'œil si on a déjà tout coché ou tout décoché.
+  const updateAllButtons = () => {
+    checkAllBtn.classList.toggle(
+      "active",
+      state.prefs.listes.length === listes.length,
+    )
+    uncheckAllBtn.classList.toggle("active", state.prefs.listes.length === 0)
+  }
+
+  // Coche/décoche une liste, sans doublon. On ne re-render que le contenu
+  // (agenda/grille) : le panneau des réglages reste en place, la liste ne
+  // remonte pas, on peut cocher plusieurs cases à la suite.
+  const toggleListe = (liste, on) => {
+    const set = new Set(state.prefs.listes)
+    if (on) set.add(liste)
+    else set.delete(liste)
+    state.prefs.listes = [...set]
+    savePrefs()
+    updateNote()
+    updateAllButtons()
+    renderContent()
+  }
+
+  const setAll = (all) => {
+    state.prefs.listes = all ? [...listes] : []
+    savePrefs()
+    for (const cb of checkboxes.values()) cb.checked = all
+    updateNote()
+    updateAllButtons()
+    renderContent()
+  }
+
+  // Case d'une liste (checkbox + pastille couleur + nom), utilisée telle
+  // quelle qu'elle soit affichée à plat ou dans un sous-menu de genre.
+  const listeOption = (l) => {
+    const cb = el("input", {
+      type: "checkbox",
+      onchange: (ev) => toggleListe(l, ev.target.checked),
+    })
+    cb.checked = state.prefs.listes.includes(l)
+    checkboxes.set(l, cb)
+    return el(
+      "label",
+      { class: "liste-option" },
+      cb,
+      " ",
+      el("span", { class: `liste-swatch ${listeColorClass(l)}` }),
+      " ",
+      l,
+    )
+  }
+
+  // --- Regroupement par genre (#128) ---------------------------------------
+  // Chaque genre est un sous-menu dépliable (▸) listant ses productions ;
+  // toujours replié à l'ouverture des Réglages, même si une de ses listes
+  // est déjà cochée (retour #129 : des sous-menus dépliés d'office rendaient
+  // le panneau confus).
+  const genreGroups = listesByGenre()
+  const genreEntries = GENRE_ORDER.filter((g) => genreGroups[g]?.length)
+
+  const listeGroups = genreEntries.map((genre) => {
+    const listesDuGenre = genreGroups[genre]
+    const subList = el(
+      "div",
+      { class: "activite-sous-listes", hidden: "" },
+      ...listesDuGenre.map(listeOption),
+    )
+    const caret = el("span", { class: "activite-caret" }, "▸")
+    const tete = el(
+      "button",
+      {
+        type: "button",
+        class: "activite-tete",
+        onclick: () => {
+          const open = subList.hasAttribute("hidden")
+          if (open) subList.removeAttribute("hidden")
+          else subList.setAttribute("hidden", "")
+          caret.textContent = open ? "▾" : "▸"
+        },
+      },
+      el(
+        "span",
+        { class: "activite-option" },
+        `${GENRE_LABELS[genre]} (${listesDuGenre.length})`,
+      ),
+      caret,
+    )
+    return el("div", { class: "activite-groupe" }, tete, subList)
+  })
+
+  const uncheckAllBtn = el(
+    "button",
+    { type: "button", onclick: () => setAll(false) },
+    "Tout décocher",
+  )
+  const checkAllBtn = el(
+    "button",
+    { type: "button", onclick: () => setAll(true) },
+    "Tout cocher",
+  )
+
+  const filterBox = listes.length
+    ? el(
+        "div",
+        { class: "liste-filter" },
+        el(
+          "div",
+          { class: "liste-filter-actions" },
+          uncheckAllBtn,
+          checkAllBtn,
+        ),
+        el("div", { class: "liste-options" }, ...listeGroups),
+      )
+    : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
+
+  if (listes.length) updateAllButtons()
+
+  const cancelledCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.showCancelled = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  cancelledCheckbox.checked = state.prefs.showCancelled
+
+  const holidaysCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.showHolidays = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  holidaysCheckbox.checked = state.prefs.showHolidays
+
+  const noOrchestraCheckbox = el("input", {
+    type: "checkbox",
+    onchange: (ev) => {
+      state.prefs.showNoOrchestra = ev.target.checked
+      savePrefs()
+      renderContent()
+    },
+  })
+  noOrchestraCheckbox.checked = state.prefs.showNoOrchestra
+
+  updateNote()
+
+  const themeLabels = {
+    auto: "Automatique (suit le système)",
+    light: "Clair",
+    dark: "Sombre",
+  }
+  const themeOptions = Object.keys(themeLabels).map((val) => {
+    const input = el("input", {
+      type: "radio",
+      name: "theme",
+      onchange: () => {
+        state.prefs.theme = val
+        savePrefs()
+        applyTheme()
+      },
+    })
+    input.checked = state.prefs.theme === val
+    return el("label", { class: "liste-option" }, input, " ", themeLabels[val])
+  })
+
+  // --- Notifications push --------------------------------------------------
+  // Statut résolu de façon asynchrone (support du navigateur, abonnement
+  // existant…) : le bouton reste caché le temps de la vérification.
+  const notifStatus = el(
+    "p",
+    { class: "prefs-note prefs-note-top" },
+    "Vérification du support de ton appareil…",
+  )
+  const notifDot = el("span", { class: "notif-dot" })
+  const notifBtn = el("button", { type: "button", hidden: "" }, "…")
+  refreshNotifUI(notifStatus, notifBtn, notifDot)
+
+  box.replaceChildren(
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Thème de l'application :"),
+      el("div", { class: "liste-options" }, ...themeOptions),
+    ),
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
+      el(
+        "p",
+        { class: "prefs-note prefs-note-top" },
+        "Déplie un genre (▸) pour cocher les productions sur lesquelles tu joues.",
+      ),
+      filterBox,
+      note,
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      cancelledCheckbox,
+      " Afficher les événements annulés (barrés)",
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      holidaysCheckbox,
+      " Afficher les vacances scolaires et jours fériés",
+    ),
+    el(
+      "label",
+      { class: "prefs-cancelled" },
+      noOrchestraCheckbox,
+      " Afficher les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
+    ),
+    el(
+      "div",
+      { class: "prefs-section" },
+      el("div", { class: "prefs-label" }, "Notifications :", notifDot),
+      notifStatus,
+      notifBtn,
+    ),
+    el(
+      "p",
+      { class: "prefs-note" },
+      "Astuce : la légende sous le titre permet de masquer/afficher chaque catégorie d'un simple clic. Les préférences sont mémorisées sur cet appareil.",
+    ),
+  )
+}
+
+// --- Abonnement au calendrier (ICS) ------------------------------------------
+
+// URL du worker Cloudflare qui filtre le calendrier à la volée (abonnement
+// personnalisé par listes/catégories — voir worker/). La vider masque la
+// fonctionnalité (le dialogue ne propose alors que l'abonnement complet).
+const PERSONAL_CALENDAR_URL =
+  "https://bemol-calendrier.ivan-schneider.workers.dev/planning.ics"
+
+// URL du calendrier ICS, calculée par rapport à la page courante : fonctionne
+// aussi bien en production que dans les previews de PR (sous-dossier). `webcal:`
+// fait ouvrir directement l'app d'agenda sur la plupart des appareils.
+function subscribeUrls() {
+  const ics = new URL("data/planning.ics", location.href).href
+  return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
+}
+
+// Origine du worker (sans le chemin /planning.ics), pour ses autres routes
+// (/profile/:jeton, /vapid-public-key).
+function workerOrigin() {
+  return PERSONAL_CALENDAR_URL ? new URL(PERSONAL_CALENDAR_URL).origin : null
+}
+
+// Jeton opaque identifiant cet appareil auprès du worker, généré une seule
+// fois et conservé en local. Sert de clé au profil stocké dans son KV (cf.
+// worker/src/index.js) : les mêmes Réglages alimentent à la fois le lien ICS
+// personnalisé ci-dessous et les notifications push (⚙ Réglages).
+function profileToken() {
+  let token = localStorage.getItem("bemol-profile-token")
+  if (!token) {
+    token = crypto.randomUUID()
+    localStorage.setItem("bemol-profile-token", token)
+  }
+  return token
+}
+
+// Sous-ensemble des Réglages pertinent pour le worker (filtre du calendrier /
+// des notifications) — le thème et l'affichage des vacances n'en font pas partie.
+function prefsPayload() {
+  const { listes, hiddenCategories, hiddenCatListes, showCancelled } =
+    state.prefs
+  return { listes, hiddenCategories, hiddenCatListes, showCancelled }
+}
+
+let syncProfileTimer = null
+
+// Resynchronise silencieusement le profil (Réglages actuels) auprès du
+// worker, en tâche de fond : une panne réseau ne doit jamais gêner l'usage de
+// l'app. Débouncé pour ne pas le spammer quand on coche plusieurs cases à la
+// suite ; `immediate` court-circuite le délai (ouverture d'un dialogue, où le
+// lien/l'état affiché dépend de ce profil).
+function syncProfile(body = { prefs: prefsPayload() }, immediate = false) {
+  if (!workerOrigin()) return
+  const send = () =>
+    fetch(`${workerOrigin()}/profile/${profileToken()}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body),
+    }).catch(() => {})
+  clearTimeout(syncProfileTimer)
+  if (immediate) send()
+  else syncProfileTimer = setTimeout(send, 800)
+}
+
+// URL d'abonnement personnalisée qui suit les Réglages actuels dans la durée
+// (jeton résolu côté worker à chaque récupération du calendrier par l'agenda,
+// cf. worker/src/index.js), ou null si aucun filtre n'est actif ou si le
+// worker n'est pas déployé.
+function personalSubscribeUrls() {
+  if (!PERSONAL_CALENDAR_URL) return null
+  const p = state.prefs
+  const hasFilter =
+    p.listes.length ||
+    p.hiddenCategories.length ||
+    Object.keys(p.hiddenCatListes).length ||
+    !p.showCancelled
+  if (!hasFilter) return null
+  const ics = `${PERSONAL_CALENDAR_URL}?profile=${profileToken()}`
+  return { ics, webcal: ics.replace(/^https?:/, "webcal:") }
+}
+
+// --- Notifications push -------------------------------------------------
+
+// Clé VAPID publique (base64url) → tableau d'octets attendu par
+// PushManager.subscribe(). Conversion standard, cf. documentation Web Push.
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4)
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/")
+  const raw = atob(base64)
+  return Uint8Array.from([...raw].map((c) => c.charCodeAt(0)))
+}
+
+// Résout (de façon asynchrone) le statut des notifications sur cet appareil
+// et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
+async function refreshNotifUI(statusEl, btn, dot) {
+  // Sur iOS/iPadOS, PushManager n'existe pas du tout hors mode standalone :
+  // ce test doit donc passer avant le test générique ci-dessous, sans quoi
+  // les utilisateurs iPhone/iPad non installés voient le message générique
+  // au lieu du message actionnable (« installe d'abord Bémol… »).
+  if (isIOS() && !isStandalone()) {
+    statusEl.textContent =
+      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
+      "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
+    btn.hidden = true
+    dot.classList.remove("is-on")
+    return
+  }
+  if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+    statusEl.textContent = "Notifications non disponibles sur ce navigateur."
+    btn.hidden = true
+    dot.classList.remove("is-on")
+    return
+  }
+  if (!workerOrigin()) {
+    statusEl.textContent = "Notifications indisponibles pour le moment."
+    btn.hidden = true
+    dot.classList.remove("is-on")
+    return
+  }
+
+  const reg = await navigator.serviceWorker.ready
+  const sub = await reg.pushManager.getSubscription()
+  btn.hidden = false
+  btn.disabled = false
+  dot.classList.toggle("is-on", !!sub)
+  btn.classList.toggle("notif-btn-on", !!sub)
+  if (sub) {
+    statusEl.textContent =
+      "Activées sur cet appareil : tu seras averti·e des changements dans tes listes."
+    btn.textContent = "Désactiver les notifications"
+    btn.onclick = () => disableNotifications(statusEl, btn, dot)
+  } else {
+    statusEl.textContent =
+      "Sois averti·e (sur cet appareil) dès qu'un service de tes listes change " +
+      "d'horaire ou de lieu, est annulé, ajouté ou supprimé — ou que le programme " +
+      "d'une de tes productions évolue."
+    btn.textContent = "Activer les notifications"
+    btn.onclick = () => enableNotifications(statusEl, btn, dot)
+  }
+}
+
+async function enableNotifications(statusEl, btn, dot) {
+  btn.disabled = true
+  try {
+    const permission = await Notification.requestPermission()
+    if (permission !== "granted") {
+      statusEl.textContent =
+        "Autorisation refusée : active les notifications pour ce site dans les " +
+        "réglages du navigateur si tu changes d'avis."
+      return
+    }
+    const keyRes = await fetch(`${workerOrigin()}/vapid-public-key`)
+    if (!keyRes.ok) throw new Error("clé VAPID indisponible")
+    const { publicKey } = await keyRes.json()
+    const reg = await navigator.serviceWorker.ready
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(publicKey),
+    })
+    syncProfile({ prefs: prefsPayload(), subscription: sub.toJSON() }, true)
+  } catch {
+    statusEl.textContent =
+      "Échec de l'activation des notifications. Réessaie plus tard."
+  } finally {
+    refreshNotifUI(statusEl, btn, dot)
+  }
+}
+
+async function disableNotifications(statusEl, btn, dot) {
+  btn.disabled = true
+  try {
+    const reg = await navigator.serviceWorker.ready
+    const sub = await reg.pushManager.getSubscription()
+    if (sub) await sub.unsubscribe()
+    syncProfile({ subscription: null }, true)
+  } catch {
+    // best effort : l'abonnement navigateur est de toute façon déjà annulé
+    // ci-dessus si la panne vient seulement de la synchronisation au worker.
+  } finally {
+    refreshNotifUI(statusEl, btn, dot)
+  }
+}
+
+function renderSubscribe() {
+  // Garantit que le profil existe côté worker dès que ce dialogue (qui en
+  // dépend) s'ouvre, sans attendre un premier changement de Réglages.
+  syncProfile(undefined, true)
+
+  const box = document.getElementById("subscribe-content")
+  const { ics, webcal } = subscribeUrls()
+  const personal = personalSubscribeUrls()
+
+  // Abonnement personnalisé : reflète les Réglages actuels, si le worker de
+  // filtrage est déployé. Sinon (ou sans filtre actif), section absente.
+  const personalSection = personal
+    ? [
+        el("h3", { class: "subscribe-h" }, "Mon planning (selon mes Réglages)"),
+        el(
+          "p",
+          { class: "subscribe-intro" },
+          "Reprend les filtres actifs dans ⚙ Réglages (listes cochées, " +
+            "catégories masquées" +
+            (state.prefs.showCancelled ? "" : ", sans les annulés") +
+            "). Suit tes Réglages dans la durée : pas besoin de te réabonner " +
+            "si tu les changes plus tard.",
+        ),
+        el(
+          "a",
+          { class: "subscribe-add", href: personal.webcal },
+          "📅 Ajouter mon planning à mon agenda",
+        ),
+        el(
+          "p",
+          { class: "subscribe-or" },
+          "…ou copie ce lien pour l'ajouter à la main :",
+        ),
+        copyLinkRow(personal.ics),
+        el("h3", { class: "subscribe-h" }, "Calendrier complet"),
+      ]
+    : PERSONAL_CALENDAR_URL
+      ? [
+          el(
+            "p",
+            { class: "subscribe-intro" },
+            "Astuce : coche tes listes ou masque des catégories dans " +
+              "⚙ Réglages, et ce dialogue te proposera aussi un abonnement " +
+              "personnalisé ne contenant que ça.",
+          ),
+        ]
+      : []
+
+  box.replaceChildren(
+    ...personalSection,
+    el(
+      "p",
+      { class: "subscribe-intro" },
+      "Ajoute le planning de l'OSR à ton agenda habituel (iPhone, Google Agenda, " +
+        "Outlook…). Il se met à jour tout seul et reprend toutes les infos de la " +
+        "Grille (chef, solistes, œuvres, instrumentation, effectif), avec un lien " +
+        "vers le lieu sur Google Maps, le portail partitions et la série complète " +
+        "de chaque programme.",
+    ),
+    el(
+      "a",
+      { class: "subscribe-add", href: webcal },
+      "📅 Ajouter à mon agenda",
+    ),
+    el(
+      "p",
+      { class: "subscribe-or" },
+      "…ou copie ce lien pour l'ajouter à la main :",
+    ),
+    copyLinkRow(ics),
+    el(
+      "details",
+      { class: "subscribe-help" },
+      el("summary", {}, "Comment faire selon l'appareil ?"),
+      el(
+        "ul",
+        {},
+        el(
+          "li",
+          {},
+          el("b", {}, "iPhone / iPad : "),
+          "touche « Ajouter à mon agenda », puis confirme l'abonnement dans l'app Calendrier.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Mac : "),
+          "« Ajouter à mon agenda » ouvre l'app Calendrier ; valide l'abonnement.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Google Agenda : "),
+          "sur ordinateur, « Autres agendas » → « À partir d'une URL », puis colle le lien copié.",
+        ),
+        el(
+          "li",
+          {},
+          el("b", {}, "Outlook : "),
+          "« Ajouter un calendrier » → « S'abonner à partir du Web », puis colle le lien.",
+        ),
+      ),
+    ),
+    el(
+      "p",
+      { class: "subscribe-note" },
+      (personal
+        ? "« Mon planning » reste lié à cet appareil : si tu vides les données du " +
+          "site ou changes de navigateur, réabonne-toi (⚙ Réglages, puis ce " +
+          "dialogue te redonnera un lien). "
+        : "Le calendrier complet contient tous les services de la saison (les filtres et " +
+          "catégories masquées de l'app ne s'y appliquent pas). ") +
+        "Selon l'agenda, les mises à jour peuvent mettre quelques heures à apparaître.",
+    ),
+  )
+}
+
+// --- Formulaire de retour (issue #125) --------------------------------------
+// Point d'entrée : bouton de l'en-tête (💬), à côté des préférences et de
+// l'abonnement au calendrier — un lien en pied de page passait inaperçu, il
+// fallait défiler toute la grille de la saison pour l'atteindre (#133). Passe
+// par le worker Cloudflare (POST /feedback, cf. worker/src/index.js) : masqué
+// si le worker n'est pas déployé, comme les autres fonctionnalités qui en
+// dépendent (abonnement personnalisé, notifications).
+
+function renderFeedback() {
+  const box = document.getElementById("feedback-content")
+
+  const messageInput = el("textarea", {
+    id: "feedback-message-input",
+    class: "feedback-message",
+    rows: "5",
+    placeholder: "Un bug, une donnée manquante, une idée…",
+  })
+  const nameInput = el("input", {
+    id: "feedback-name-input",
+    type: "text",
+    class: "feedback-name",
+    maxlength: "200",
+  })
+  // Piège à robots : champ invisible pour un humain (masqué en CSS), qu'un
+  // robot de formulaire remplit pourtant souvent automatiquement. On ne le
+  // rend pas display:none pour ne pas se faire repérer trop facilement.
+  const honeypot = el("input", {
+    type: "text",
+    name: "url",
+    class: "feedback-honeypot",
+    tabindex: "-1",
+    autocomplete: "off",
+    "aria-hidden": "true",
+  })
+  const status = el("p", { class: "feedback-status" })
+  const submitBtn = el(
+    "button",
+    { type: "submit", class: "subscribe-add" },
+    "Envoyer",
+  )
+
+  const form = el(
+    "form",
+    {
+      class: "feedback-form",
+      onsubmit: async (ev) => {
+        ev.preventDefault()
+        const message = messageInput.value.trim()
+        if (!message) {
+          status.textContent = "Écris d'abord un message."
+          status.className = "feedback-status feedback-error"
+          return
+        }
+        submitBtn.disabled = true
+        status.textContent = "Envoi…"
+        status.className = "feedback-status"
+        try {
+          const res = await fetch(`${workerOrigin()}/feedback`, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              message,
+              name: nameInput.value.trim(),
+              url: honeypot.value,
+            }),
+          })
+          if (res.status === 429) {
+            status.textContent =
+              "Un message a déjà été envoyé récemment depuis cet appareil : réessaie dans une minute."
+            status.className = "feedback-status feedback-error"
+            submitBtn.disabled = false
+            return
+          }
+          if (!res.ok) throw new Error(`HTTP ${res.status}`)
+          form.replaceChildren(
+            el(
+              "p",
+              { class: "feedback-status feedback-ok" },
+              "Merci, ton message est envoyé !",
+            ),
+          )
+        } catch {
+          status.textContent = "Échec de l'envoi. Réessaie plus tard."
+          status.className = "feedback-status feedback-error"
+          submitBtn.disabled = false
+        }
+      },
+    },
+    el(
+      "div",
+      { class: "feedback-field" },
+      el(
+        "label",
+        { class: "prefs-label", for: "feedback-message-input" },
+        "Ton message :",
+      ),
+      messageInput,
+    ),
+    el(
+      "div",
+      { class: "feedback-field" },
+      el(
+        "label",
+        { class: "prefs-label", for: "feedback-name-input" },
+        "Ton nom / ton pupitre (facultatif) :",
+      ),
+      nameInput,
+    ),
+    honeypot,
+    status,
+    submitBtn,
+  )
+
+  box.replaceChildren(
+    el(
+      "p",
+      { class: "subscribe-intro" },
+      "Un bug, une donnée manquante, une suggestion… Aucun compte n'est " +
+        "nécessaire, et rien n'est collecté au-delà de ce que tu écris ici.",
+    ),
+    form,
+  )
+}
+
+// --- Installation de l'application (PWA) -----------------------------------
+
+// Invite d'installation native mémorisée (Chrome / Android) pour la déclencher
+// au bon moment. iOS ne la fournit pas : on affiche alors une aide manuelle.
+let deferredInstallPrompt = null
+
+function isStandalone() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  )
+}
+
+function isIOS() {
+  return (
+    /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    // iPad récent se présente comme un Mac tactile
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  )
+}
+
+// Affiche le bouton « Installer » de l'en-tête, sauf si l'app est déjà lancée
+// depuis l'écran d'accueil (mode « standalone »).
+function updateInstallButton() {
+  const btn = document.getElementById("install-btn")
+  if (btn) btn.hidden = isStandalone()
+}
+
+function renderInstall() {
+  const box = document.getElementById("install-content")
+  const steps = isIOS()
+    ? [
+        el("li", {}, "Ouvre Bémol dans ", el("b", {}, "Safari"), "."),
+        el(
+          "li",
+          {},
+          "Touche le bouton ",
+          el("b", {}, "Partager"),
+          " (le carré avec une flèche vers le haut).",
+        ),
+        el(
+          "li",
+          {},
+          "Choisis ",
+          el("b", {}, "« Sur l'écran d'accueil »"),
+          ", puis ",
+          el("b", {}, "« Ajouter »"),
+          ".",
+        ),
+      ]
+    : [
+        el("li", {}, "Ouvre Bémol dans ", el("b", {}, "Chrome"), "."),
+        el("li", {}, "Touche le menu ", el("b", {}, "⋮"), " en haut à droite."),
+        el(
+          "li",
+          {},
+          "Choisis ",
+          el("b", {}, "« Installer l'application »"),
+          " (ou « Ajouter à l'écran d'accueil »).",
+        ),
+      ]
+
+  const children = [
+    el(
+      "p",
+      { class: "install-intro" },
+      "Ajoute Bémol à ton écran d'accueil pour l'ouvrir comme une vraie " +
+        "application : en plein écran, d'un seul geste, et consultable même " +
+        "sans connexion.",
+    ),
+  ]
+
+  // Bouton d'installation natif quand le navigateur le propose (Android / Chrome).
+  if (deferredInstallPrompt) {
+    children.push(
+      el(
+        "button",
+        {
+          type: "button",
+          class: "install-now",
+          onclick: async () => {
+            const prompt = deferredInstallPrompt
+            deferredInstallPrompt = null
+            document.getElementById("install-dialog").close()
+            prompt.prompt()
+            await prompt.userChoice
+            updateInstallButton()
+          },
+        },
+        "📲 Installer maintenant",
+      ),
+      el("p", { class: "install-or" }, "…ou à la main :"),
+    )
+  }
+
+  children.push(
+    el("ol", { class: "install-steps" }, ...steps),
+    el(
+      "p",
+      { class: "install-note" },
+      "Une fois installée, l'application se met à jour toute seule quand tu " +
+        "l'ouvres avec une connexion.",
+    ),
+  )
+
+  box.replaceChildren(...children)
+}
+
+// --- Navigation / rendu global -------------------------------------------------
+
+function setView(view) {
+  state.view = view
+  localStorage.setItem("bemol-view", view)
+  document.body.dataset.view = view
+  for (const btn of document.querySelectorAll("#view-nav button"))
+    btn.classList.toggle("active", btn.dataset.view === view)
+  render()
+}
+
+const VIEW_LABELS = {
+  grille: "Agenda personnalisé",
+  modifs: "Modifications",
+  document: "Bible",
+}
+
+function render() {
+  renderPrefs()
+  renderContent()
+}
+
+// Date et heure de génération du PDF, avec rappel que le document n'est
+// qu'un instantané (contrairement à l'app en ligne, cf. § Pipeline de
+// données de CLAUDE.md) — n'apparaît que sur la vue Bible (retour #114) :
+// c'est ce document, pensé pour être imprimé et conservé, qui a besoin de
+// ce rappel ; les autres vues s'impriment plutôt pour un usage immédiat.
+function printGenerationNotice() {
+  const now = new Date()
+  const stamp = `${fmtDay(now, true, true)} à ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`
+  return el(
+    "p",
+    { class: "print-disclaimer" },
+    `Document généré le ${stamp}. Les informations sont susceptibles d'être modifiées : ` +
+      "vérifie régulièrement la version en ligne de Bémol.",
+  )
+}
+
+// Rendu du contenu affiché (vue courante), sans toucher au panneau des
+// réglages : appelé quand on coche/décoche une liste pour ne pas reconstruire
+// les cases (et donc ne pas faire remonter la liste).
+function renderContent() {
+  const main = document.getElementById("main")
+  main.replaceChildren()
+  // Titre affiché uniquement à l'impression (l'en-tête de navigation est masqué)
+  main.append(
+    el(
+      "div",
+      { class: "print-title" },
+      el("h1", {}, `♭ Bémol — Planning OSR`),
+      el(
+        "p",
+        {},
+        `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`,
+      ),
+      ...(state.view === "document" ? [printGenerationNotice()] : []),
+    ),
+  )
+  if (state.view === "grille") renderGrille(main)
+  else if (state.view === "document") renderDocument(main)
+  else renderModifs(main)
+}
+
+function scrollToToday() {
+  const target = document.getElementById("current-week")
+  if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
+}
+
+// Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
+// accessible depuis le sous-menu de la vue Agenda personnalisé (#131, #132).
+function openPrefsDialog() {
+  // Garantit que le profil existe côté worker dès l'ouverture des Réglages
+  // (dont dépendent le lien ICS personnel et les notifications push), sans
+  // le resynchroniser à chaque rendu (changement de vue, etc.).
+  syncProfile(undefined, true)
+  renderPrefs()
+  document.getElementById("prefs-dialog").showModal()
+}
+
+// Ouvre l'abonnement au calendrier, accessible depuis le sous-menu de la vue
+// Agenda personnalisé (#131, #132).
+function openSubscribeDialog() {
+  renderSubscribe()
+  document.getElementById("subscribe-dialog").showModal()
+}
+
+// Popup « Aujourd'hui » (#131), ouverte depuis le sous-menu de la vue
+// courante (#132) : détaille la journée en cours, sans avoir à faire défiler
+// la vue. Dans l'onglet Bible, tous les services du jour (document de
+// référence, indépendant des filtres — cf. renderDocument) ; dans l'onglet
+// Agenda personnalisé, uniquement ceux qui passent les Réglages courants
+// (mêmes filtres que la vue elle-même).
+function showTodayDialog() {
+  const todayKey = localKey(new Date())
+  const global = state.view === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents())
+    .filter((e) => e.start.slice(0, 10) === todayKey)
+    .sort((a, b) => a.start.localeCompare(b.start))
+
+  const children = [closeBtnTop(), el("h2", {}, fmtDay(new Date(), true, true))]
+  if (!events.length) {
+    children.push(
+      el(
+        "p",
+        { class: "empty-msg" },
+        global
+          ? "Aucun service aujourd'hui."
+          : "Aucun service aujourd'hui pour ta sélection (⚙ Réglages).",
+      ),
+    )
+  } else {
+    children.push(
+      el("div", { class: "today-events" }, ...events.map((e) => eventChip(e))),
+    )
+  }
+
+  document.getElementById("today-content").replaceChildren(...children)
+  document.getElementById("today-dialog").showModal()
+}
+
+// Hauteur réelle de l'en-tête (variable selon l'écran et les zones de
+// sécurité iOS), posée en variable CSS --header-h : le bandeau sticky des
+// sous-menus (cf. viewToolbar) s'appuie dessus pour se coller juste en
+// dessous de l'en-tête, jamais dessous ni par-dessus (retour #132).
+// ResizeObserver plutôt qu'un calcul ponctuel : le bouton d'avis (masqué
+// tant que le worker n'est pas prêt, cf. plus bas) ou le badge Modifs
+// peuvent changer la hauteur de l'en-tête après ce premier calcul.
+function observeHeaderHeight() {
+  const header = document.querySelector("header")
+  const setHeaderHeight = () =>
+    document.documentElement.style.setProperty(
+      "--header-h",
+      `${header.offsetHeight}px`,
+    )
+  new ResizeObserver(setHeaderHeight).observe(header)
+  setHeaderHeight()
+}
+
+async function init() {
+  try {
+    await loadData()
+  } catch (err) {
+    document.getElementById("loading").textContent =
+      "Impossible de charger les données du planning. Réessaie plus tard."
+    console.error(err)
+    return
+  }
+
+  checkDataFreshness()
+  observeHeaderHeight()
+
+  // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
+  // on l'adopte directement, sans sélecteur.
+  state.season = seasonsInData()[0]
+  // Jours fériés de la saison (elle chevauche deux années civiles)
+  state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
+
+  for (const btn of document.querySelectorAll("#view-nav button"))
+    btn.addEventListener("click", () => setView(btn.dataset.view))
+
+  // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
+  // à viser la croix ou le bouton Fermer.
+  for (const dlg of document.querySelectorAll("dialog"))
+    dlg.addEventListener("click", (e) => {
+      const r = dlg.getBoundingClientRect()
+      if (
+        e.clientX < r.left ||
+        e.clientX > r.right ||
+        e.clientY < r.top ||
+        e.clientY > r.bottom
+      )
+        dlg.close()
+    })
+
+  document.getElementById("install-btn").addEventListener("click", () => {
+    renderInstall()
+    document.getElementById("install-dialog").showModal()
+  })
+  updateInstallButton()
+
+  // Masqué (attribut `hidden` posé dans le HTML) tant que le worker n'est
+  // pas déployé : le formulaire n'a pas d'autre destination que lui.
+  if (workerOrigin()) {
+    const feedbackBtn = document.getElementById("feedback-btn")
+    feedbackBtn.hidden = false
+    feedbackBtn.addEventListener("click", () => {
+      renderFeedback()
+      document.getElementById("feedback-dialog").showModal()
+    })
+  }
+
+  // Vue par Liste : le lien partageable (#liste-04) rouvre le dialogue.
+  // En quittant le dialogue (Fermer/Echap), on nettoie le hash sans laisser
+  // d'entrée d'historique, pour pouvoir rouvrir le même lien plus tard.
+  document.getElementById("liste-dialog").addEventListener("close", () => {
+    if (location.hash)
+      history.replaceState(null, "", location.pathname + location.search)
+  })
+  window.addEventListener("hashchange", syncListeFromHash)
+
+  // Badge « modifs » : nombre de changements depuis la dernière visite
+  const lastVisit = localStorage.getItem("bemol-last-visit")
+  const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
+  const badge = document.getElementById("modifs-badge")
+  if (newChanges.length) {
+    const count = newChanges.reduce((n, c) => n + countChanges(c), 0)
+    badge.textContent = count
+    badge.hidden = false
+  }
+  localStorage.setItem("bemol-last-visit", new Date().toISOString())
+
+  if (state.updatedAt)
+    document.getElementById("update-info").textContent =
+      `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
+
+  const storedView = localStorage.getItem("bemol-view")
+  setView(storedView === "agenda" ? "grille" : storedView || "grille")
+  scrollToToday()
+  syncListeFromHash()
+}
+
+init()
+
+// Installation « écran d'accueil » : on intercepte l'invite native (Android /
+// Chrome) pour la déclencher depuis notre propre bouton, plus lisible.
+window.addEventListener("beforeinstallprompt", (ev) => {
+  ev.preventDefault()
+  deferredInstallPrompt = ev
+  updateInstallButton()
+})
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null
+  updateInstallButton()
+})
+
+// Service worker : rend l'app installable et consultable hors-ligne.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch((err) => {
+      console.warn("Service worker non enregistré :", err)
+    })
+  })
+}
