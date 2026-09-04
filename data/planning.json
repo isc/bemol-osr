@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-03T16:31:40.301Z",
+ "updatedAt": "2026-09-04T11:27:09.823Z",
  "count": 612,
  "events": [
   {
@@ -866,7 +866,7 @@
    "end": "2026-09-22T18:00",
    "liste": "Titularisation OSÓRIO",
    "activity": "séance titularisation (Nuno OSÓRIO)",
-   "category": "autre",
+   "category": "concours",
    "location": "UM - Salle Marie LAGGÉ (Foyer des musiciens)",
    "project": "",
    "cancelled": false
@@ -921,7 +921,7 @@
    "end": "2026-09-24T18:00",
    "liste": "Titularisation MARQUEZ TERUEL",
    "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
-   "category": "autre",
+   "category": "concours",
    "location": "Victoria Hall de Genève",
    "project": "",
    "cancelled": false

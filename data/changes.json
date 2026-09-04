@@ -1,6 +1,69 @@
 {
  "entries": [
   {
+   "at": "2026-09-04T11:27:09.823Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr226832",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "autre",
+      "location": "UM - Salle Marie LAGGÉ (Foyer des musiciens)",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ (Foyer des musiciens)",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr226835",
+     "fields": [
+      "category"
+     ],
+     "before": {
+      "uid": "osr226835",
+      "start": "2026-09-24T17:00",
+      "end": "2026-09-24T18:00",
+      "liste": "Titularisation MARQUEZ TERUEL",
+      "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
+      "category": "autre",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr226835",
+      "start": "2026-09-24T17:00",
+      "end": "2026-09-24T18:00",
+      "liste": "Titularisation MARQUEZ TERUEL",
+      "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
+      "category": "concours",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-04T09:04:24.237Z",
    "type": "memo",
    "programs": [
