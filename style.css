@@ -827,7 +827,7 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
-/* --- Recherche (intégrée à la vue Bible) --- */
+/* --- Recherche (intégrée aux vues Bible et Agenda personnalisé) --- */
 
 .search-bar {
   margin-bottom: 12px;
