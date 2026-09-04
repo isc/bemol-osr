@@ -42,7 +42,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=6489957f5b4a" />
+    <link rel="stylesheet" href="style.css?v=f1c5dcb0fd79" />
   </head>
   <body>
     <header>
@@ -59,6 +59,7 @@
           <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
                plus dans l'en-tête : ils sont désormais dans le sous-menu de
                chaque onglet qui en a besoin (#132 sur #131). -->
+          <button id="feedback-btn" title="Donner un avis" hidden>💬</button>
           <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
                le bouton doré (CTA) de l'en-tête sombre. -->
           <button id="install-btn" title="Installer l'application" hidden>
@@ -128,11 +129,22 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=6489957f5b4a
+    <dialog id="feedback-dialog">
+      <div class="dialog-head">
+        <h2>Donner un avis</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
+      <div id="feedback-content"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <!-- Le suffixe ?v=f1c5dcb0fd79
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=6489957f5b4a"></script>
+    <script src="app.js?v=f1c5dcb0fd79"></script>
   </body>
 </html>

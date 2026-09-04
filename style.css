@@ -1875,6 +1875,63 @@ footer a {
   color: var(--text-faint);
 }
 
+.feedback-field {
+  margin: 0 0 14px;
+}
+
+.feedback-message,
+.feedback-name {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-alt);
+  color: var(--text);
+  font: inherit;
+}
+
+.feedback-message {
+  resize: vertical;
+}
+
+/* Piège à robots : hors champ visuel, mais toujours dans le DOM (donc
+   toujours "rempli" par un robot naïf qui coche tout) — cf. app.js
+   renderFeedback(). Pas de display:none, plus facilement repéré par un
+   robot un peu moins naïf. */
+.feedback-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.feedback-status {
+  min-height: 1.2em;
+  margin: 4px 0 12px;
+  font-size: 0.85em;
+}
+
+.feedback-status.feedback-error {
+  color: var(--danger);
+}
+
+.feedback-status.feedback-ok {
+  padding: 12px 0;
+  font-size: 1em;
+  text-align: center;
+  color: var(--success-text);
+}
+
+.feedback-form .subscribe-add {
+  width: 100%;
+  border: none;
+  font-size: 1em;
+}
+
 /* Écrans à encoche (iPhone) en mode application plein écran : on décale
    l'en-tête et le pied de page pour ne rien cacher sous la barre système. */
 header {
