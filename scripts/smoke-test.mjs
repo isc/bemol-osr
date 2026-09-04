@@ -85,7 +85,7 @@ try {
   // Le chargement des données remplace le paragraphe « Chargement… ».
   await page.waitForSelector("#loading", { state: "detached", timeout: 15000 })
 
-  for (const view of ["grille", "agenda", "modifs"]) {
+  for (const view of ["grille", "modifs", "document"]) {
     await page.click(`#view-nav button[data-view="${view}"]`)
     // Chaque vue doit produire du contenu dans <main>.
     await page.waitForFunction(
