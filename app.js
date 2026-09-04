@@ -2502,9 +2502,11 @@ function renderSubscribe() {
 }
 
 // --- Formulaire de retour (issue #125) --------------------------------------
-// Point d'entrée : bouton du pied de page, à côté du lien GitHub. Passe par
-// le worker Cloudflare (POST /feedback, cf. worker/src/index.js) : masqué si
-// le worker n'est pas déployé, comme les autres fonctionnalités qui en
+// Point d'entrée : bouton de l'en-tête (💬), à côté des préférences et de
+// l'abonnement au calendrier — un lien en pied de page passait inaperçu, il
+// fallait défiler toute la grille de la saison pour l'atteindre (#133). Passe
+// par le worker Cloudflare (POST /feedback, cf. worker/src/index.js) : masqué
+// si le worker n'est pas déployé, comme les autres fonctionnalités qui en
 // dépendent (abonnement personnalisé, notifications).
 
 function renderFeedback() {
@@ -2616,8 +2618,8 @@ function renderFeedback() {
     el(
       "p",
       { class: "subscribe-intro" },
-      "Un bug, une donnée manquante, une suggestion… Loïc lit tous les messages. " +
-        "Aucun compte n'est nécessaire, et rien n'est collecté au-delà de ce que tu écris ici.",
+      "Un bug, une donnée manquante, une suggestion… Aucun compte n'est " +
+        "nécessaire, et rien n'est collecté au-delà de ce que tu écris ici.",
     ),
     form,
   )

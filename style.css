@@ -1909,18 +1909,6 @@ footer a {
   color: var(--text-faint);
 }
 
-/* Bouton du pied de page ouvrant le formulaire de retour (#125) : même
-   apparence que le lien GitHub voisin, mais un <button> (pas de navigation). */
-.footer-link-btn {
-  border: none;
-  background: none;
-  padding: 0;
-  font: inherit;
-  color: var(--text-muted);
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .feedback-field {
   margin: 0 0 14px;
 }
