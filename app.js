@@ -61,7 +61,9 @@ function listeColorClass(liste) {
 // sans l'orchestre — Dièse ne l'annote pas « sans orchestre » sur celle-ci,
 // issue #117).
 function isNoOrchestra(e) {
-  return /sans orchestre/i.test(e.activity) || /générale piano/i.test(e.activity)
+  return (
+    /sans orchestre/i.test(e.activity) || /générale piano/i.test(e.activity)
+  )
 }
 
 // Abréviations de lieux, du plus spécifique au plus générique
