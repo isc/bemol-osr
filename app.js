@@ -2633,6 +2633,22 @@ function render() {
   renderContent()
 }
 
+// Date et heure de génération du PDF, avec rappel que le document n'est
+// qu'un instantané (contrairement à l'app en ligne, cf. § Pipeline de
+// données de CLAUDE.md) — n'apparaît que sur la vue Bible (retour #114) :
+// c'est ce document, pensé pour être imprimé et conservé, qui a besoin de
+// ce rappel ; les autres vues s'impriment plutôt pour un usage immédiat.
+function printGenerationNotice() {
+  const now = new Date()
+  const stamp = `${fmtDay(now, true, true)} à ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`
+  return el(
+    "p",
+    { class: "print-disclaimer" },
+    `Document généré le ${stamp}. Les informations sont susceptibles d'être modifiées : ` +
+      "vérifie régulièrement la version en ligne de Bémol.",
+  )
+}
+
 // Rendu du contenu affiché (légende + vue courante), sans toucher au panneau
 // des réglages : appelé quand on coche/décoche une liste pour ne pas
 // reconstruire les cases (et donc ne pas faire remonter la liste).
@@ -2651,6 +2667,7 @@ function renderContent() {
         {},
         `${seasonLabel(state.season)} · vue ${VIEW_LABELS[state.view] || ""}`,
       ),
+      ...(state.view === "document" ? [printGenerationNotice()] : []),
     ),
   )
   if (state.view === "grille") renderGrille(main)

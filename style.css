@@ -1665,6 +1665,14 @@ footer a {
     font-size: 0.9em;
   }
 
+  /* Rappel, sur la vue Bible seulement (cf. printGenerationNotice() dans
+     app.js), que le PDF n'est qu'un instantané figé au moment de l'export —
+     contrairement à l'app en ligne, toujours à jour (retour #114). */
+  .print-disclaimer {
+    font-style: italic;
+    color: #667;
+  }
+
   /* Vue Grille : les périodes s'enchaînent sans saut de page forcé — sur un
      document de saison complète (13 périodes), imposer une page par période
      gâchait beaucoup de papier en bas de page et dispersait le document sur
