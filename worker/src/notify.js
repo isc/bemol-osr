@@ -3,7 +3,8 @@
 // Fonctions pures (aucun accès réseau/KV), testées par worker/test-notify.mjs.
 // Prennent en entrée des entrées de data/changes.json (cf. CLAUDE.md pour le
 // format exact) et le profil de filtres d'un abonné (mêmes champs que
-// state.prefs côté app : listes, hiddenCategories, hiddenCatListes).
+// state.prefs côté app : listes, hiddenCategories, hiddenCatListes,
+// hiddenActivities).
 
 // Champs dont la modification fait rater quelque chose à un musicien :
 // horaire, lieu, annulation. Les autres changements (activité, programme…)
@@ -14,6 +15,7 @@ export const DEFAULT_PREFS = {
   listes: [],
   hiddenCategories: [],
   hiddenCatListes: {},
+  hiddenActivities: {},
   showCancelled: true,
 }
 
@@ -25,10 +27,18 @@ export function eventMatchesPrefs(event, prefs) {
   const listes = prefs.listes || []
   const hiddenCategories = prefs.hiddenCategories || []
   const hiddenCatListes = prefs.hiddenCatListes || {}
+  const hiddenActivities = prefs.hiddenActivities || {}
   if (listes.length && !listes.includes(event.liste)) return false
   if (hiddenCategories.includes(event.category)) return false
   if ((hiddenCatListes[event.category] || []).includes(event.liste))
     return false
+  // Comparaison insensible à la casse/espaces (cf. worker/src/index.js) :
+  // Dièse laisse passer des variantes de casse pour un même service.
+  const hidden = hiddenActivities[event.liste] || []
+  if (hidden.length) {
+    const key = event.activity.trim().toLowerCase()
+    if (hidden.some((h) => h.trim().toLowerCase() === key)) return false
+  }
   return true
 }
 

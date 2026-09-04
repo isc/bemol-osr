@@ -281,9 +281,13 @@ function vevent(e, prod, stamp) {
     `CATEGORIES:${escapeText(CATEGORIES[e.category] || CATEGORIES.autre)}`,
   )
   // Propriétés machine-lisibles pour le filtrage à la volée par le worker
-  // d'abonnement personnalisé (worker/) : liste et clé de catégorie brutes.
+  // d'abonnement personnalisé (worker/) : liste et clé de catégorie brutes,
+  // et (#144) le libellé exact du service — permet d'exclure un service
+  // précis d'une Liste (ex. une répétition partielle d'un autre pupitre)
+  // sans dépendre d'un vocabulaire d'instruments à maintenir à la main.
   rows.push(`X-BEMOL-LISTE:${escapeText(e.liste)}`)
   rows.push(`X-BEMOL-CAT:${escapeText(e.category)}`)
+  rows.push(`X-BEMOL-ACTIVITY:${escapeText(e.activity)}`)
   rows.push(`STATUS:${e.cancelled ? "CANCELLED" : "CONFIRMED"}`)
   rows.push(`TRANSP:${e.cancelled ? "TRANSPARENT" : "OPAQUE"}`)
   rows.push("END:VEVENT")

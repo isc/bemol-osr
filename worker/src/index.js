@@ -55,19 +55,39 @@ function prop(block, name) {
   return m ? m[1].replace(/\r$/, "") : ""
 }
 
+// Un libellé `activity` est-il dans une liste de libellés masqués ? Comparaison
+// insensible à la casse/espaces, comme côté app (cf. isActivityHidden
+// d'app.js) : Dièse laisse passer des variantes de casse pour un même service
+// (« (sans OSR) » / « (Sans OSR) »).
+function activityHidden(hidden, activity) {
+  if (!hidden || !hidden.length) return false
+  const key = activity.trim().toLowerCase()
+  return hidden.some((h) => h.trim().toLowerCase() === key)
+}
+
 // Filtre le texte ICS complet selon les critères. Exporté pour les tests.
 // sansListes est le pendant fin de « sans » : { [catégorie]: [listes à
 // exclure] }, seulement exploitable par un profil KV (trop détaillé pour
-// tenir dans l'URL du format figé).
+// tenir dans l'URL du format figé). hiddenActivities (#144) est plus fin
+// encore : { [liste]: [libellés `activity` à exclure] } — exclut un service
+// précis d'une Liste (ex. une répétition partielle d'un autre pupitre),
+// même principe, même limite (profil KV seulement).
 export function filterIcs(
   text,
-  { listes = [], sans = [], annules = true, sansListes = {} },
+  {
+    listes = [],
+    sans = [],
+    annules = true,
+    sansListes = {},
+    hiddenActivities = {},
+  },
 ) {
   if (
     !listes.length &&
     !sans.length &&
     annules &&
-    !Object.keys(sansListes).length
+    !Object.keys(sansListes).length &&
+    !Object.keys(hiddenActivities).length
   )
     return text
 
@@ -76,9 +96,11 @@ export function filterIcs(
   const kept = events.filter((block) => {
     const liste = prop(block, "X-BEMOL-LISTE")
     const cat = prop(block, "X-BEMOL-CAT")
+    const activity = prop(block, "X-BEMOL-ACTIVITY")
     if (listes.length && !listes.includes(liste)) return false
     if (sans.includes(cat)) return false
     if ((sansListes[cat] || []).includes(liste)) return false
+    if (activityHidden(hiddenActivities[liste], activity)) return false
     if (!annules && /^STATUS:CANCELLED\r?$/m.test(block)) return false
     return true
   })
@@ -118,10 +140,15 @@ export function sanitizePrefs(p) {
   if (p.hiddenCatListes && typeof p.hiddenCatListes === "object")
     for (const [cat, listes] of Object.entries(p.hiddenCatListes))
       hiddenCatListes[cat] = arrayOfStrings(listes)
+  const hiddenActivities = {}
+  if (p.hiddenActivities && typeof p.hiddenActivities === "object")
+    for (const [liste, activities] of Object.entries(p.hiddenActivities))
+      hiddenActivities[liste] = arrayOfStrings(activities)
   return {
     listes: arrayOfStrings(p.listes),
     hiddenCategories: arrayOfStrings(p.hiddenCategories),
     hiddenCatListes,
+    hiddenActivities,
     showCancelled: p.showCancelled !== false,
   }
 }
@@ -266,6 +293,7 @@ async function handleIcs(request, env, url) {
       sans: prefs.hiddenCategories,
       annules: prefs.showCancelled !== false,
       sansListes: prefs.hiddenCatListes,
+      hiddenActivities: prefs.hiddenActivities,
     }
   } else {
     opts = {

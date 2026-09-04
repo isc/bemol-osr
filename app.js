@@ -157,6 +157,12 @@ function loadPrefs() {
     // globalement (absent de hiddenCategories), listes masquées à l'intérieur
     // de ce seul type. { [catégorie]: ["Liste 04", …] }
     hiddenCatListes: {},
+    // Filtre fin « service → liste » (#144) : au sein d'une Liste dont
+    // certains services de répétition sont spécifiques à un pupitre (ex.
+    // Liste 28b : « partielle (violons 1) », « partielle bois »…), services
+    // masqués. { [liste]: ["partielle (violons 1)", …] } — libellés exacts
+    // du champ `activity`, cf. partialActivitiesFor().
+    hiddenActivities: {},
     // "auto" (suit prefers-color-scheme), "light" ou "dark"
     theme: "auto",
   }
@@ -609,6 +615,7 @@ function visibleEvents() {
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
       !(p.hiddenCatListes[e.category] || []).includes(e.liste) &&
+      !isActivityHidden(p.hiddenActivities[e.liste], e.activity) &&
       (p.showNoOrchestra || !isNoOrchestra(e)) &&
       (p.showCancelled || !e.cancelled) &&
       (!p.listes.length || p.listes.includes(e.liste)) &&
@@ -677,6 +684,39 @@ function listesByGenre() {
     ;(groups[genre] ||= []).push(liste)
   }
   return groups
+}
+
+// Libellés (exacts, `activity`) des services de répétition d'une Liste qui
+// distinguent un pupitre/instrument dans leur texte (#144) — reconnus au mot
+// « partielle » tapé par le planificateur dans Dièse (ex. Liste 28b :
+// « partielle (violons 1) », « partielle bois »…) : c'est un texte libre,
+// sans vocabulaire ni casse standardisés, donc pas de liste d'instruments à
+// maintenir à la main — seulement ce mot pivot, observé stable sur toutes
+// les Listes du même genre. Deux libellés identiques (même pupitre à deux
+// dates) ne comptent qu'une fois : coché/décoché ensemble.
+function partialActivitiesFor(liste) {
+  // Clé insensible à la casse/espaces : Dièse laisse passer des variantes
+  // comme « partielle par pupitre (sans OSR) » / « (Sans OSR) » qui ne
+  // devraient pas devenir deux cases distinctes — on garde la première
+  // graphie rencontrée comme libellé affiché.
+  const byKey = new Map()
+  for (const e of state.events) {
+    if (e.liste !== liste) continue
+    if (seasonYear(parseDate(e.start)) !== state.season) continue
+    if (!/^partielle\b/i.test(e.activity)) continue
+    const key = e.activity.trim().toLowerCase()
+    if (!byKey.has(key)) byKey.set(key, e.activity)
+  }
+  return [...byKey.values()].sort((a, b) => a.localeCompare(b, "fr"))
+}
+
+// L'activité `activity` d'un événement est-elle dans la liste des libellés
+// masqués `hidden` (comparaison insensible à la casse/espaces, cf.
+// partialActivitiesFor) ?
+function isActivityHidden(hidden, activity) {
+  if (!hidden || !hidden.length) return false
+  const key = activity.trim().toLowerCase()
+  return hidden.some((h) => h.trim().toLowerCase() === key)
 }
 
 // --- Rendu : éléments communs ----------------------------------------------
@@ -2056,6 +2096,20 @@ function renderPrefs() {
     renderContent()
   }
 
+  // Masque/affiche un service précis d'une Liste (#144), indépendamment de
+  // la case de la Liste elle-même — cf. partialActivitiesFor().
+  const toggleActivity = (liste, activity, on) => {
+    const hidden = new Set(state.prefs.hiddenActivities[liste] || [])
+    if (on) hidden.delete(activity)
+    else hidden.add(activity)
+    const next = { ...state.prefs.hiddenActivities }
+    if (hidden.size) next[liste] = [...hidden]
+    else delete next[liste]
+    state.prefs.hiddenActivities = next
+    savePrefs()
+    renderContent()
+  }
+
   // Case d'une liste (checkbox + pastille couleur + nom), utilisée telle
   // quelle qu'elle soit affichée à plat ou dans un sous-menu de genre.
   const listeOption = (l) => {
@@ -2076,6 +2130,67 @@ function renderPrefs() {
     )
   }
 
+  // Sous-menu dépliable « Détail par service » (#144) : uniquement quand la
+  // Liste a au moins deux services de répétition dont le libellé distingue
+  // un pupitre (sinon rien à choisir). Replié par défaut, même logique que
+  // les sous-menus de genre ci-dessous.
+  const listeDetail = (l) => {
+    const activities = partialActivitiesFor(l)
+    if (activities.length < 2) return null
+    const subList = el(
+      "div",
+      {
+        class: "activite-sous-listes activite-sous-listes-niveau2",
+        hidden: "",
+      },
+      el(
+        "p",
+        { class: "prefs-note sous-liste-note" },
+        "Décoche les services qui ne concernent pas ton pupitre :",
+      ),
+      ...activities.map((a) => {
+        const cb = el("input", {
+          type: "checkbox",
+          onchange: (ev) => toggleActivity(l, a, ev.target.checked),
+        })
+        cb.checked = !isActivityHidden(state.prefs.hiddenActivities[l], a)
+        return el(
+          "label",
+          { class: "liste-option sous-liste-option" },
+          cb,
+          " ",
+          a,
+        )
+      }),
+    )
+    const caret = el("span", { class: "activite-caret" }, "▸")
+    const tete = el(
+      "button",
+      {
+        type: "button",
+        class: "activite-tete",
+        onclick: () => {
+          const open = subList.hasAttribute("hidden")
+          if (open) subList.removeAttribute("hidden")
+          else subList.setAttribute("hidden", "")
+          caret.textContent = open ? "▾" : "▸"
+        },
+      },
+      el("span", { class: "activite-option" }, "Détail par service"),
+      caret,
+    )
+    return el("div", { class: "liste-detail" }, tete, subList)
+  }
+
+  // Ligne d'une liste dans le filtre : sa case, suivie (si pertinent) du
+  // sous-menu « Détail par service ».
+  const listeRow = (l) => {
+    const detail = listeDetail(l)
+    return detail
+      ? el("div", { class: "liste-row" }, listeOption(l), detail)
+      : listeOption(l)
+  }
+
   // --- Regroupement par genre (#128) ---------------------------------------
   // Chaque genre est un sous-menu dépliable (▸) listant ses productions ;
   // toujours replié à l'ouverture des Réglages, même si une de ses listes
@@ -2089,7 +2204,7 @@ function renderPrefs() {
     const subList = el(
       "div",
       { class: "activite-sous-listes", hidden: "" },
-      ...listesDuGenre.map(listeOption),
+      ...listesDuGenre.map(listeRow),
     )
     const caret = el("span", { class: "activite-caret" }, "▸")
     const tete = el(
@@ -2294,9 +2409,20 @@ function profileToken() {
 // Sous-ensemble des Réglages pertinent pour le worker (filtre du calendrier /
 // des notifications) — le thème et l'affichage des vacances n'en font pas partie.
 function prefsPayload() {
-  const { listes, hiddenCategories, hiddenCatListes, showCancelled } =
-    state.prefs
-  return { listes, hiddenCategories, hiddenCatListes, showCancelled }
+  const {
+    listes,
+    hiddenCategories,
+    hiddenCatListes,
+    hiddenActivities,
+    showCancelled,
+  } = state.prefs
+  return {
+    listes,
+    hiddenCategories,
+    hiddenCatListes,
+    hiddenActivities,
+    showCancelled,
+  }
 }
 
 let syncProfileTimer = null
@@ -2330,6 +2456,7 @@ function personalSubscribeUrls() {
     p.listes.length ||
     p.hiddenCategories.length ||
     Object.keys(p.hiddenCatListes).length ||
+    Object.keys(p.hiddenActivities).length ||
     !p.showCancelled
   if (!hasFilter) return null
   const ics = `${PERSONAL_CALENDAR_URL}?profile=${profileToken()}`

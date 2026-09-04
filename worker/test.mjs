@@ -71,12 +71,56 @@ if (count(bySansListes) !== expectedSansListes)
     `filtre sansListes : ${count(bySansListes)} ≠ ${expectedSansListes} attendus`,
   )
 
+// Sous-case « service précis dans une liste » (hiddenActivities, #144) :
+// exclut UN libellé `activity` d'UNE liste sans toucher au reste de cette
+// liste ni aux autres — même principe et même limite (profil KV) que
+// sansListes ci-dessus.
+const hiddenActivities = { "Liste 28b": ["partielle (violons 1)"] }
+const expectedHiddenActivities = planning.events.filter(
+  (e) => !(e.liste === "Liste 28b" && e.activity === "partielle (violons 1)"),
+).length
+const byHiddenActivities = filterIcs(ics, {
+  listes: [],
+  sans: [],
+  annules: true,
+  hiddenActivities,
+})
+if (count(byHiddenActivities) !== expectedHiddenActivities)
+  fail(
+    `filtre hiddenActivities : ${count(byHiddenActivities)} ≠ ${expectedHiddenActivities} attendus`,
+  )
+
+// Dièse laisse passer des variantes de casse pour un même service (cas réel
+// de Liste 10 : « (sans OSR) » / « (Sans OSR) ») : les deux doivent être
+// exclues par un seul libellé masqué, casse insensible.
+const hiddenActivitiesCasse = {
+  "Liste 10": ["partielle par pupitre (sans osr)"],
+}
+const expectedHiddenActivitiesCasse = planning.events.filter(
+  (e) =>
+    !(
+      e.liste === "Liste 10" &&
+      e.activity.trim().toLowerCase() === "partielle par pupitre (sans osr)"
+    ),
+).length
+const byHiddenActivitiesCasse = filterIcs(ics, {
+  listes: [],
+  sans: [],
+  annules: true,
+  hiddenActivities: hiddenActivitiesCasse,
+})
+if (count(byHiddenActivitiesCasse) !== expectedHiddenActivitiesCasse)
+  fail(
+    `filtre hiddenActivities (casse) : ${count(byHiddenActivitiesCasse)} ≠ ${expectedHiddenActivitiesCasse} attendus`,
+  )
+
 // sanitizePrefs ne doit jamais laisser passer autre chose que des tableaux de
 // chaînes / un objet de tableaux — entrée du KV, donc pas de confiance.
 const dirty = {
   listes: ["Liste 01", 42, null],
   hiddenCategories: "resa", // pas un tableau
   hiddenCatListes: { repetition: ["Liste 01", {}] },
+  hiddenActivities: { "Liste 28b": ["partielle (violons 1)", 42] },
   showCancelled: "oui", // seule la valeur booléenne false doit compter
 }
 const clean = sanitizePrefs(dirty)
@@ -96,6 +140,13 @@ if (
   fail(
     "sanitizePrefs : hiddenCatListes devrait filtrer les valeurs non-chaînes",
   )
+if (
+  JSON.stringify(clean.hiddenActivities["Liste 28b"]) !==
+  JSON.stringify(["partielle (violons 1)"])
+)
+  fail(
+    "sanitizePrefs : hiddenActivities devrait filtrer les valeurs non-chaînes",
+  )
 if (clean.showCancelled !== true)
   fail(
     "sanitizePrefs : showCancelled ne doit être false que si explicitement false",
@@ -106,6 +157,7 @@ for (const [name, out] of [
   ["listes", byListe],
   ["catégories", byCat],
   ["sansListes", bySansListes],
+  ["hiddenActivities", byHiddenActivities],
 ]) {
   if (!out.endsWith("END:VCALENDAR\r\n"))
     fail(`${name} : fin de fichier invalide`)
