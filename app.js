@@ -2501,6 +2501,128 @@ function renderSubscribe() {
   )
 }
 
+// --- Formulaire de retour (issue #125) --------------------------------------
+// Point d'entrée : bouton du pied de page, à côté du lien GitHub. Passe par
+// le worker Cloudflare (POST /feedback, cf. worker/src/index.js) : masqué si
+// le worker n'est pas déployé, comme les autres fonctionnalités qui en
+// dépendent (abonnement personnalisé, notifications).
+
+function renderFeedback() {
+  const box = document.getElementById("feedback-content")
+
+  const messageInput = el("textarea", {
+    id: "feedback-message-input",
+    class: "feedback-message",
+    rows: "5",
+    placeholder: "Un bug, une donnée manquante, une idée…",
+  })
+  const nameInput = el("input", {
+    id: "feedback-name-input",
+    type: "text",
+    class: "feedback-name",
+    maxlength: "200",
+  })
+  // Piège à robots : champ invisible pour un humain (masqué en CSS), qu'un
+  // robot de formulaire remplit pourtant souvent automatiquement. On ne le
+  // rend pas display:none pour ne pas se faire repérer trop facilement.
+  const honeypot = el("input", {
+    type: "text",
+    name: "url",
+    class: "feedback-honeypot",
+    tabindex: "-1",
+    autocomplete: "off",
+    "aria-hidden": "true",
+  })
+  const status = el("p", { class: "feedback-status" })
+  const submitBtn = el(
+    "button",
+    { type: "submit", class: "subscribe-add" },
+    "Envoyer",
+  )
+
+  const form = el(
+    "form",
+    {
+      class: "feedback-form",
+      onsubmit: async (ev) => {
+        ev.preventDefault()
+        const message = messageInput.value.trim()
+        if (!message) {
+          status.textContent = "Écris d'abord un message."
+          status.className = "feedback-status feedback-error"
+          return
+        }
+        submitBtn.disabled = true
+        status.textContent = "Envoi…"
+        status.className = "feedback-status"
+        try {
+          const res = await fetch(`${workerOrigin()}/feedback`, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              message,
+              name: nameInput.value.trim(),
+              url: honeypot.value,
+            }),
+          })
+          if (res.status === 429) {
+            status.textContent =
+              "Un message a déjà été envoyé récemment depuis cet appareil : réessaie dans une minute."
+            status.className = "feedback-status feedback-error"
+            submitBtn.disabled = false
+            return
+          }
+          if (!res.ok) throw new Error(`HTTP ${res.status}`)
+          form.replaceChildren(
+            el(
+              "p",
+              { class: "feedback-status feedback-ok" },
+              "Merci, ton message est envoyé !",
+            ),
+          )
+        } catch {
+          status.textContent = "Échec de l'envoi. Réessaie plus tard."
+          status.className = "feedback-status feedback-error"
+          submitBtn.disabled = false
+        }
+      },
+    },
+    el(
+      "div",
+      { class: "feedback-field" },
+      el(
+        "label",
+        { class: "prefs-label", for: "feedback-message-input" },
+        "Ton message :",
+      ),
+      messageInput,
+    ),
+    el(
+      "div",
+      { class: "feedback-field" },
+      el(
+        "label",
+        { class: "prefs-label", for: "feedback-name-input" },
+        "Ton nom / ton pupitre (facultatif) :",
+      ),
+      nameInput,
+    ),
+    honeypot,
+    status,
+    submitBtn,
+  )
+
+  box.replaceChildren(
+    el(
+      "p",
+      { class: "subscribe-intro" },
+      "Un bug, une donnée manquante, une suggestion… Loïc lit tous les messages. " +
+        "Aucun compte n'est nécessaire, et rien n'est collecté au-delà de ce que tu écris ici.",
+    ),
+    form,
+  )
+}
+
 // --- Installation de l'application (PWA) -----------------------------------
 
 // Invite d'installation native mémorisée (Chrome / Android) pour la déclencher
@@ -2709,6 +2831,17 @@ async function init() {
     document.getElementById("install-dialog").showModal()
   })
   updateInstallButton()
+
+  // Masqué (attribut `hidden` posé dans le HTML) tant que le worker n'est
+  // pas déployé : le formulaire n'a pas d'autre destination que lui.
+  if (workerOrigin()) {
+    const feedbackBtn = document.getElementById("feedback-btn")
+    feedbackBtn.hidden = false
+    feedbackBtn.addEventListener("click", () => {
+      renderFeedback()
+      document.getElementById("feedback-dialog").showModal()
+    })
+  }
 
   // Vue par Liste : le lien partageable (#liste-04) rouvre le dialogue.
   // En quittant le dialogue (Fermer/Echap), on nettoie le hash sans laisser

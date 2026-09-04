@@ -81,7 +81,10 @@
       <span id="update-info"></span>
       <span
         >Source : export ICS Dièse ·
-        <a href="https://github.com/isc/bemol-osr">GitHub</a></span
+        <a href="https://github.com/isc/bemol-osr">GitHub</a> ·
+        <button id="feedback-btn" type="button" class="footer-link-btn" hidden>
+          Donner un avis
+        </button></span
       >
     </footer>
 
@@ -125,6 +128,17 @@
         </form>
       </div>
       <div id="install-content"></div>
+      <form method="dialog"><button class="close-btn">Fermer</button></form>
+    </dialog>
+
+    <dialog id="feedback-dialog">
+      <div class="dialog-head">
+        <h2>Donner un avis</h2>
+        <form method="dialog">
+          <button class="close-btn-top" aria-label="Fermer">✕</button>
+        </form>
+      </div>
+      <div id="feedback-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
