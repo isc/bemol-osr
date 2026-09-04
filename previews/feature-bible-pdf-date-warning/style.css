@@ -701,13 +701,14 @@ table.week td.repos:not(.today) {
   flex-wrap: wrap;
 }
 
-/* Une période : planning (grille de services) et fiches de programme des
-   Listes travaillées pendant la période, côte à côte à l'écran — reprend
-   l'esprit de l'ancienne Bible de saison papier (retour #114) — cf.
-   renderPeriodePage dans app.js. À l'impression, les deux parties sont
-   plutôt empilées sur deux pages dédiées (cf. @media print plus bas) : ce
-   layout flex ne sert alors qu'à l'écran, où un empilement (`flex-wrap`)
-   reste largement lisible. */
+/* Une période : planning (grille de services) — cf. renderPeriodePage dans
+   app.js. renderPeriodePage construit aussi, à côté, les fiches de programme
+   des Listes travaillées pendant la période (chef, solistes, œuvres…), mais
+   celles-ci ne sont plus affichées à l'écran (cf. .doc-periode-listes
+   plus bas) : toute l'info d'une Liste reste à un clic (dialogue Liste), la
+   fiche complète n'apporte donc ici que de l'encombrement (retour #134). Ce
+   layout flex ne sert donc plus qu'à l'impression, où planning et détail
+   sont empilés sur deux pages dédiées (cf. @media print plus bas). */
 .doc-periode-page {
   display: flex;
   flex-wrap: wrap;
@@ -721,16 +722,16 @@ table.week td.repos:not(.today) {
   min-width: 0;
 }
 
-/* Fiches de programme (chef, solistes, œuvres…) des Listes de la période, en
-   colonne à côté du planning. `.detail-box` sur `.doc-liste-card` (au lieu
-   d'un préfixe dédié) pour hériter tel quel du style de la fiche de
-   production affiché dans le dialogue Liste. */
+/* Fiches de programme (chef, solistes, œuvres…) des Listes de la période :
+   masquées à l'écran (retour #134 — « la version numérique [ne devrait
+   afficher] que la partie agenda sans le détail des listes », déjà
+   accessible en un clic sur un service), restaurées à l'impression
+   (`display: block` sous @media print, cf. plus bas) pour la Bible PDF, qui
+   reste le document de référence complet. `.detail-box` sur `.doc-liste-card`
+   (au lieu d'un préfixe dédié) pour hériter tel quel du style de la fiche de
+   production affichée dans le dialogue Liste. */
 .doc-periode-listes {
-  flex: 1 1 260px;
-  min-width: 240px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: none;
 }
 
 /* Pas de fiche de programme pour cette période (mémo pas encore publié) :
