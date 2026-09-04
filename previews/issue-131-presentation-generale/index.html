@@ -42,7 +42,7 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=bf87774b851b" />
+    <link rel="stylesheet" href="style.css?v=16c493dcc946" />
   </head>
   <body>
     <header>
@@ -51,10 +51,10 @@
         <div class="header-controls">
           <nav id="view-nav">
             <button data-view="grille">Agenda personnalisé</button>
+            <button data-view="document">Bible</button>
             <button data-view="modifs">
               Modifs<span id="modifs-badge" class="badge" hidden></span>
             </button>
-            <button data-view="document">Bible</button>
           </nav>
           <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
                plus dans l'en-tête : ils sont désormais dans le sous-menu de
@@ -128,11 +128,11 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=bf87774b851b
+    <!-- Le suffixe ?v=16c493dcc946
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=bf87774b851b"></script>
+    <script src="app.js?v=16c493dcc946"></script>
   </body>
 </html>
