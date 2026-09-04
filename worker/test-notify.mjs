@@ -65,6 +65,48 @@ if (
 )
   fail("sous-case liste masquée dans une catégorie : ne devrait pas matcher")
 
+// #144 : un service précis masqué dans une Liste (ex. « partielle (violons
+// 1) » dans une Liste dont un musicien ne joue pas ces pupitres).
+if (
+  eventMatchesPrefs(
+    event({ liste: "Liste 28b", activity: "partielle (violons 1)" }),
+    {
+      ...DEFAULT_PREFS,
+      hiddenActivities: { "Liste 28b": ["partielle (violons 1)"] },
+    },
+  )
+)
+  fail("service masqué dans une liste : ne devrait pas matcher")
+
+if (
+  !eventMatchesPrefs(
+    event({ liste: "Liste 28b", activity: "répétition tutti" }),
+    {
+      ...DEFAULT_PREFS,
+      hiddenActivities: { "Liste 28b": ["partielle (violons 1)"] },
+    },
+  )
+)
+  fail(
+    "service masqué dans une liste : les autres services de la liste devraient matcher",
+  )
+
+// Dièse laisse passer des variantes de casse pour un même service (observé
+// sur une vraie Liste : « (sans OSR) » / « (Sans OSR) ») : la comparaison
+// doit les traiter comme un seul et même service masqué.
+if (
+  eventMatchesPrefs(
+    event({ liste: "Liste 10", activity: "partielle par pupitre (Sans OSR)" }),
+    {
+      ...DEFAULT_PREFS,
+      hiddenActivities: { "Liste 10": ["partielle par pupitre (sans OSR)"] },
+    },
+  )
+)
+  fail(
+    "service masqué dans une liste : une variante de casse devrait aussi matcher",
+  )
+
 // --- anti-bruit : planning ---------------------------------------------------
 
 const planningEntry = (over = {}) => ({

@@ -63,10 +63,13 @@ production (GitHub Pages) comme dans les previews de PR.
   `node scripts/update-memo.mjs [memo.txt]`.
 - `scripts/build-ics.mjs` (appelé par `update-data.mjs`) génère
   `data/planning.ics`, le calendrier abonnable. Chaque `VEVENT` porte des
-  propriétés `X-BEMOL-LISTE` / `X-BEMOL-CAT` : elles servent au **worker
-  Cloudflare** (`worker/`, seule exception à la règle « site 100 % statique »)
-  qui filtre le calendrier à la volée pour les abonnements personnalisés
-  (`?listes=…&sans=…&annules=0`). Test : `node worker/test.mjs` (aussi en CI).
+  propriétés `X-BEMOL-LISTE` / `X-BEMOL-CAT` / `X-BEMOL-ACTIVITY` : elles
+  servent au **worker Cloudflare** (`worker/`, seule exception à la règle
+  « site 100 % statique ») qui filtre le calendrier à la volée pour les
+  abonnements personnalisés (`?listes=…&sans=…&annules=0` dans son format
+  figé ; le filtrage fin par service au sein d'une liste — `hiddenActivities`,
+  #144 — n'existe, comme `hiddenCatListes`, que via un profil KV, trop détaillé
+  pour l'URL). Test : `node worker/test.mjs` (aussi en CI).
   L'URL du worker est la constante `PERSONAL_CALENDAR_URL` d'`app.js` (vide =
   fonctionnalité masquée). Déploiement : `deploy-worker.yml`, conditionné à la
   variable Actions `CLOUDFLARE_READY`. **Cette variable est à `true` depuis le
