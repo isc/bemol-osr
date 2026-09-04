@@ -1999,6 +1999,17 @@ function renderPrefs() {
 
   const checkboxes = new Map() // liste → <input>
 
+  // Les boutons Tout cocher / Tout décocher se mettent en évidence (retour
+  // #129) quand ils correspondent à l'état courant, pour qu'on voie d'un
+  // coup d'œil si on a déjà tout coché ou tout décoché.
+  const updateAllButtons = () => {
+    checkAllBtn.classList.toggle(
+      "active",
+      state.prefs.listes.length === listes.length,
+    )
+    uncheckAllBtn.classList.toggle("active", state.prefs.listes.length === 0)
+  }
+
   // Coche/décoche une liste, sans doublon. On ne re-render que le contenu
   // (agenda/grille) : le panneau des réglages reste en place, la liste ne
   // remonte pas, on peut cocher plusieurs cases à la suite.
@@ -2009,6 +2020,7 @@ function renderPrefs() {
     state.prefs.listes = [...set]
     savePrefs()
     updateNote()
+    updateAllButtons()
     renderContent()
   }
 
@@ -2017,6 +2029,7 @@ function renderPrefs() {
     savePrefs()
     for (const cb of checkboxes.values()) cb.checked = all
     updateNote()
+    updateAllButtons()
     renderContent()
   }
 
@@ -2078,6 +2091,17 @@ function renderPrefs() {
     return el("div", { class: "activite-groupe" }, tete, subList)
   })
 
+  const uncheckAllBtn = el(
+    "button",
+    { type: "button", onclick: () => setAll(false) },
+    "Tout décocher",
+  )
+  const checkAllBtn = el(
+    "button",
+    { type: "button", onclick: () => setAll(true) },
+    "Tout cocher",
+  )
+
   const filterBox = listes.length
     ? el(
         "div",
@@ -2085,20 +2109,14 @@ function renderPrefs() {
         el(
           "div",
           { class: "liste-filter-actions" },
-          el(
-            "button",
-            { type: "button", onclick: () => setAll(false) },
-            "Tout décocher",
-          ),
-          el(
-            "button",
-            { type: "button", onclick: () => setAll(true) },
-            "Tout cocher",
-          ),
+          uncheckAllBtn,
+          checkAllBtn,
         ),
         el("div", { class: "liste-options" }, ...listeGroups),
       )
     : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
+
+  if (listes.length) updateAllButtons()
 
   const cancelledCheckbox = el("input", {
     type: "checkbox",
