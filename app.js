@@ -1465,8 +1465,14 @@ function renderGrille(main) {
   results.hidden = !hasQuery
   renderSearchResults(results, state.searchQuery)
 
-  renderGrilleActions(main)
-  main.append(el("div", { class: "search-bar" }, input), results, gridBody)
+  main.append(
+    viewToolbar(
+      renderGrilleActions(),
+      el("div", { class: "search-bar" }, input),
+    ),
+    results,
+    gridBody,
+  )
 
   const ctx = weekTableContext()
 
@@ -1611,37 +1617,39 @@ function renderDocument(main) {
     docBody.append(renderPeriodePage(periode, ctx))
 
   main.append(
-    el(
-      "div",
-      { class: "doc-intro" },
-      el(
-        "p",
-        {},
-        "Grille de services de toute la saison, toujours à jour — tous les " +
-          "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
-          "sur un service pour le détail complet de sa Liste ; le PDF " +
-          "exporté ci-dessous ajoute en plus une fiche par Liste.",
-      ),
+    viewToolbar(
       el(
         "div",
-        { class: "agenda-actions-btns" },
+        { class: "doc-intro" },
         el(
-          "button",
-          { type: "button", onclick: showTodayDialog },
-          "Aujourd'hui",
+          "p",
+          {},
+          "Grille de services de toute la saison, toujours à jour — tous les " +
+            "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
+            "sur un service pour le détail complet de sa Liste ; le PDF " +
+            "exporté ci-dessous ajoute en plus une fiche par Liste.",
         ),
         el(
-          "button",
-          {
-            type: "button",
-            class: "doc-print-btn",
-            onclick: () => window.print(),
-          },
-          "🖨️ Imprimer / exporter en PDF",
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: showTodayDialog },
+            "Aujourd'hui",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
         ),
       ),
+      el("div", { class: "search-bar doc-search-bar" }, input),
     ),
-    el("div", { class: "search-bar doc-search-bar" }, input),
     results,
     docBody,
   )
@@ -1654,43 +1662,53 @@ function renderDocument(main) {
 // navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
 // vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
 // filtrée (cf. renderDocument).
-function renderGrilleActions(main) {
-  main.append(
+// Retourne l'élément plutôt que de l'ajouter directement à main : il est
+// ensuite empaqueté avec la recherche dans le bandeau sticky commun (cf.
+// viewToolbar plus bas, retour sur #132).
+function renderGrilleActions() {
+  return el(
+    "div",
+    { class: "doc-intro agenda-actions" },
+    el(
+      "p",
+      {},
+      "Uniquement les productions et types de service que tu as choisis " +
+        "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
+        "agenda personnel.",
+    ),
     el(
       "div",
-      { class: "doc-intro agenda-actions" },
+      { class: "agenda-actions-btns" },
+      el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
       el(
-        "p",
-        {},
-        "Uniquement les productions et types de service que tu as choisis " +
-          "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
-          "agenda personnel.",
+        "button",
+        { type: "button", onclick: openPrefsDialog },
+        "⚙ Réglages : choisir les productions",
       ),
       el(
-        "div",
-        { class: "agenda-actions-btns" },
-        el(
-          "button",
-          { type: "button", onclick: showTodayDialog },
-          "Aujourd'hui",
-        ),
-        el(
-          "button",
-          { type: "button", onclick: openPrefsDialog },
-          "⚙ Réglages : choisir les productions",
-        ),
-        el(
-          "button",
-          {
-            type: "button",
-            class: "doc-print-btn",
-            onclick: openSubscribeDialog,
-          },
-          "📅 S'abonner au calendrier",
-        ),
+        "button",
+        {
+          type: "button",
+          class: "doc-print-btn",
+          onclick: openSubscribeDialog,
+        },
+        "📅 S'abonner au calendrier",
       ),
     ),
   )
+}
+
+// Bandeau sticky commun aux vues Agenda personnalisé et Bible : sous-menu
+// (Aujourd'hui/Réglages/Abonnement, ou Aujourd'hui/Imprimer) + barre de
+// recherche, regroupés pour rester visibles en tête de page pendant le
+// défilement du calendrier — jusque-là seul l'en-tête (les trois onglets)
+// restait fixe, le sous-menu et la recherche défilaient avec la grille
+// (retour #132). `--header-h`, posée par observeHeaderHeight() (cf. init()),
+// vaut la hauteur réelle de l'en-tête : variable selon l'écran et les zones
+// de sécurité iOS, le bandeau se colle donc juste en dessous, jamais dessous
+// ni par-dessus.
+function viewToolbar(...children) {
+  return el("div", { class: "view-toolbar" }, ...children)
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -2884,6 +2902,24 @@ function showTodayDialog() {
   document.getElementById("today-dialog").showModal()
 }
 
+// Hauteur réelle de l'en-tête (variable selon l'écran et les zones de
+// sécurité iOS), posée en variable CSS --header-h : le bandeau sticky des
+// sous-menus (cf. viewToolbar) s'appuie dessus pour se coller juste en
+// dessous de l'en-tête, jamais dessous ni par-dessus (retour #132).
+// ResizeObserver plutôt qu'un calcul ponctuel : le bouton d'avis (masqué
+// tant que le worker n'est pas prêt, cf. plus bas) ou le badge Modifs
+// peuvent changer la hauteur de l'en-tête après ce premier calcul.
+function observeHeaderHeight() {
+  const header = document.querySelector("header")
+  const setHeaderHeight = () =>
+    document.documentElement.style.setProperty(
+      "--header-h",
+      `${header.offsetHeight}px`,
+    )
+  new ResizeObserver(setHeaderHeight).observe(header)
+  setHeaderHeight()
+}
+
 async function init() {
   try {
     await loadData()
@@ -2895,6 +2931,7 @@ async function init() {
   }
 
   checkDataFreshness()
+  observeHeaderHeight()
 
   // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
   // on l'adopte directement, sans sélecteur.

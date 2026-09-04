@@ -691,6 +691,23 @@ table.week td.repos:not(.today) {
   }
 }
 
+/* Bandeau sticky (sous-menu + recherche), commun aux vues Agenda
+   personnalisé et Bible : reste visible en tête de page pendant le
+   défilement du calendrier, juste sous l'en-tête (retour #132). `--header-h`
+   est posée en JS par observeHeaderHeight() (cf. app.js) — hauteur réelle de
+   l'en-tête, variable selon l'écran et les zones de sécurité iOS ; un
+   décalage fixe aurait laissé un trou ou un chevauchement selon l'appareil.
+   Fond opaque et z-index sous l'en-tête (10) : le contenu qui défile doit
+   disparaître derrière, pas au travers. */
+.view-toolbar {
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 9;
+  background: var(--bg);
+  padding-top: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
 /* --- Vue Agenda personnalisé : sous-menu Aujourd'hui/Réglages/Abonnement,
    aussi réutilisé pour le sous-menu Aujourd'hui/Imprimer de la vue Bible
    (#132 sur #131) --- */
@@ -1655,7 +1672,15 @@ footer a {
     cursor: default;
   }
 
-  /* Vue Document : l'aide en ligne ne sert à rien sur papier. */
+  /* Vue Document : l'aide en ligne ne sert à rien sur papier. Le bandeau
+     sticky lui-même n'a plus de raison d'être à l'impression (retour #132) :
+     display: contents laisse ses enfants (.doc-intro, .doc-search-bar, déjà
+     masqués ci-dessous) piloter leur propre affichage, sans lui ajouter une
+     boîte vide. */
+  .view-toolbar {
+    display: contents;
+  }
+
   .doc-intro {
     display: none;
   }
