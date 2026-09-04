@@ -107,6 +107,37 @@ if (
     "service masqué dans une liste : une variante de casse devrait aussi matcher",
   )
 
+// #146 : réplique côté worker le réglage « Afficher les services sans
+// orchestre » de l'app — sans lui, ces services continuaient d'être notifiés
+// (et de fuiter dans l'ICS abonné) même quand l'app les masque.
+if (
+  eventMatchesPrefs(event({ activity: "répétition (sans orchestre)" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail(
+    "showNoOrchestra désactivé : un service « sans orchestre » ne devrait pas matcher",
+  )
+
+if (
+  eventMatchesPrefs(event({ activity: "générale piano" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail("showNoOrchestra désactivé : une générale piano ne devrait pas matcher")
+
+if (
+  !eventMatchesPrefs(
+    event({ activity: "répétition (sans orchestre)" }),
+    DEFAULT_PREFS,
+  )
+)
+  fail(
+    "showNoOrchestra par défaut (affiché) : un service « sans orchestre » devrait matcher",
+  )
+
 // --- anti-bruit : planning ---------------------------------------------------
 
 const planningEntry = (over = {}) => ({
