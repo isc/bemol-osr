@@ -1295,6 +1295,15 @@ dialog h2 {
   padding: 8px;
 }
 
+/* Bouton Tout cocher / Tout décocher mis en évidence (retour #129) quand il
+   correspond à l'état courant (toutes les listes cochées, ou aucune). */
+.liste-filter-actions button.active {
+  background: var(--surface-accent-soft-2);
+  border-color: var(--accent);
+  color: var(--head-accent-text);
+  font-weight: 600;
+}
+
 .liste-options {
   max-height: 45vh;
   overflow-y: auto;
