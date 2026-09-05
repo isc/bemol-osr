@@ -1,6 +1,42 @@
 {
  "entries": [
   {
+   "at": "2026-09-05T15:19:54.364Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132751",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132751",
+      "start": "2026-09-28T10:00",
+      "end": "2026-09-28T12:30",
+      "liste": "Liste 08",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132751",
+      "start": "2026-09-28T10:30",
+      "end": "2026-09-28T13:00",
+      "liste": "Liste 08",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO1",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-05T08:36:29.258Z",
    "type": "memo",
    "programs": [
