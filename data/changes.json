@@ -1,6 +1,42 @@
 {
  "entries": [
   {
+   "at": "2026-09-07T18:45:52.450Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133339",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr133339",
+      "start": "2027-02-17T19:30",
+      "end": "2027-02-17T22:00",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133339",
+      "start": "2027-02-17T10:00",
+      "end": "2027-02-17T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-07T12:45:01.357Z",
    "added": [],
    "removed": [],

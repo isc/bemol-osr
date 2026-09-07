@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-07T12:45:01.357Z",
+ "updatedAt": "2026-09-07T18:45:52.450Z",
  "count": 609,
  "events": [
   {
@@ -4162,8 +4162,8 @@
   },
   {
    "uid": "osr133339",
-   "start": "2027-02-17T19:30",
-   "end": "2027-02-17T22:00",
+   "start": "2027-02-17T10:00",
+   "end": "2027-02-17T12:30",
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
