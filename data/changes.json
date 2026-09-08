@@ -1,6 +1,112 @@
 {
  "entries": [
   {
+   "at": "2026-09-08T11:27:17.720Z",
+   "added": [
+    {
+     "uid": "osr240146",
+     "start": "2026-12-17T16:00",
+     "end": "2026-12-17T16:45",
+     "liste": "évaluation DAS #1",
+     "activity": "réunion évaluation DAS (violons)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240149",
+     "start": "2026-12-17T16:45",
+     "end": "2026-12-17T17:30",
+     "liste": "évaluation DAS #1",
+     "activity": "réunion évaluation DAS (alti)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240151",
+     "start": "2026-12-17T17:30",
+     "end": "2026-12-17T18:15",
+     "liste": "évaluation DAS #1",
+     "activity": "réunion évaluation DAS (cors)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240153",
+     "start": "2027-03-11T16:00",
+     "end": "2027-03-11T16:45",
+     "liste": "évaluation DAS #2",
+     "activity": "réunion évaluation DAS (alti)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240154",
+     "start": "2027-03-11T16:45",
+     "end": "2027-03-11T17:30",
+     "liste": "évaluation DAS #2",
+     "activity": "réunion évaluation DAS (cors)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240157",
+     "start": "2027-03-11T17:30",
+     "end": "2027-03-11T18:15",
+     "liste": "évaluation DAS #2",
+     "activity": "réunion évaluation DAS (violons)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240158",
+     "start": "2027-06-11T14:00",
+     "end": "2027-06-11T14:45",
+     "liste": "évaluation DAS #3",
+     "activity": "réunion évaluation DAS (cors)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240160",
+     "start": "2027-06-11T14:45",
+     "end": "2027-06-11T15:30",
+     "liste": "évaluation DAS #3",
+     "activity": "réunion évaluation DAS (violons)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr240162",
+     "start": "2027-06-11T15:30",
+     "end": "2027-06-11T16:45",
+     "liste": "évaluation DAS #3",
+     "activity": "réunion évaluation DAS (alti)",
+     "category": "autre",
+     "location": "HEM Synagogue",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-09-08T09:06:30.714Z",
    "type": "memo",
    "programs": [

@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-07T18:45:52.450Z",
- "count": 609,
+ "updatedAt": "2026-09-08T11:27:17.720Z",
+ "count": 618,
  "events": [
   {
    "uid": "osr225046",
@@ -3160,6 +3160,39 @@
    "cancelled": false
   },
   {
+   "uid": "osr240146",
+   "start": "2026-12-17T16:00",
+   "end": "2026-12-17T16:45",
+   "liste": "évaluation DAS #1",
+   "activity": "réunion évaluation DAS (violons)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240149",
+   "start": "2026-12-17T16:45",
+   "end": "2026-12-17T17:30",
+   "liste": "évaluation DAS #1",
+   "activity": "réunion évaluation DAS (alti)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240151",
+   "start": "2026-12-17T17:30",
+   "end": "2026-12-17T18:15",
+   "liste": "évaluation DAS #1",
+   "activity": "réunion évaluation DAS (cors)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133313",
    "start": "2026-12-17T19:00",
    "end": "2026-12-17T23:00",
@@ -4586,6 +4619,39 @@
    "activity": "session masterclass direction",
    "category": "repetition",
    "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240153",
+   "start": "2027-03-11T16:00",
+   "end": "2027-03-11T16:45",
+   "liste": "évaluation DAS #2",
+   "activity": "réunion évaluation DAS (alti)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240154",
+   "start": "2027-03-11T16:45",
+   "end": "2027-03-11T17:30",
+   "liste": "évaluation DAS #2",
+   "activity": "réunion évaluation DAS (cors)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240157",
+   "start": "2027-03-11T17:30",
+   "end": "2027-03-11T18:15",
+   "liste": "évaluation DAS #2",
+   "activity": "réunion évaluation DAS (violons)",
+   "category": "autre",
+   "location": "HEM Synagogue",
    "project": "",
    "cancelled": false
   },
@@ -6247,6 +6313,39 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240158",
+   "start": "2027-06-11T14:00",
+   "end": "2027-06-11T14:45",
+   "liste": "évaluation DAS #3",
+   "activity": "réunion évaluation DAS (cors)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240160",
+   "start": "2027-06-11T14:45",
+   "end": "2027-06-11T15:30",
+   "liste": "évaluation DAS #3",
+   "activity": "réunion évaluation DAS (violons)",
+   "category": "autre",
+   "location": "HEM Synagogue",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240162",
+   "start": "2027-06-11T15:30",
+   "end": "2027-06-11T16:45",
+   "liste": "évaluation DAS #3",
+   "activity": "réunion évaluation DAS (alti)",
+   "category": "autre",
+   "location": "HEM Synagogue",
    "project": "",
    "cancelled": false
   },
