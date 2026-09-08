@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-08T11:27:17.720Z",
- "count": 618,
+ "updatedAt": "2026-09-08T16:43:04.784Z",
+ "count": 619,
  "events": [
   {
    "uid": "osr225046",
@@ -2925,6 +2925,17 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr240317",
+   "start": "2026-12-07T09:30",
+   "end": "2026-12-07T19:00",
+   "liste": "Concours 1er·ère soliste des clarinettes (coordonné)",
+   "activity": "concours",
+   "category": "concours",
+   "location": "lieu à définir",
    "project": "",
    "cancelled": false
   },
