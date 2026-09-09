@@ -282,6 +282,23 @@ encore ouverte) exactement comme pour une nouvelle demande, puis poster le lien
 de cette PR. Ne repousser sur la branche existante que lorsque la PR est
 **encore ouverte**.
 
+## Retour « @claude … » sur une PR encore ouverte : ne jamais rester muet
+
+Un run déclenché par un retour sur une PR ouverte doit **toujours se terminer
+par un commentaire visible sur cette PR**, même quand la conclusion n'est pas un
+commit : « je traite ce point dans une PR séparée #N », « ce réglage ne se
+vérifie qu'après merge (cf. calendriers abonnés) », « c'est le comportement
+voulu, voici pourquoi »… Un run qui « réussit » côté Actions mais ne poste rien
+est, pour un musicien, **indiscernable d'une panne** : il ne suit pas les logs,
+il voit juste que rien ne bouge, relance sans `@claude` (donc en silence, le
+workflow ne se déclenchant qu'au `@claude`) puis finit par rouvrir une issue
+« ça ne répond plus » — un aller-retour entièrement perdu. C'est très
+exactement ce qui s'est passé sur la **PR #142** (le run de feedback a abouti
+sans laisser de commentaire ; le frère a écrit « Peux-tu répondre ? » puis
+« Bloqué ? », sans effet, avant de rouvrir la demande dans l'**issue #146
+« Pr142 qui ne répond plus »**). Règle : **poster la réponse avant de terminer
+le tour**, quelle que soit la conclusion.
+
 ## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
 
 Le jeton du bot Claude **n'a pas** la permission GitHub `workflows` : tout push
