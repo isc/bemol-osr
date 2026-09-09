@@ -7,6 +7,8 @@ import {
   eventMatchesPrefs,
   changesForProfile,
   buildNotificationPayload,
+  summarizePushResults,
+  addToTotals,
   DEFAULT_PREFS,
 } from "./src/notify.js"
 
@@ -269,4 +271,43 @@ const planningEntry = (over = {}) => ({
     fail("troncature manquante au-delà de MAX_LINES")
 }
 
-console.log("✓ notify.js OK — filtrage anti-bruit et mise en forme conformes")
+// --- summarizePushResults / addToTotals ---------------------------------------
+
+{
+  const s = summarizePushResults([
+    { kind: "sent", status: 201 },
+    { kind: "sent", status: 201 },
+    { kind: "expired", status: 410 },
+    { kind: "failed", status: 403 },
+    { kind: "failed", error: "TypeError" },
+  ])
+  if (s.attempted !== 5) fail(`attempted incorrect : ${s.attempted}`)
+  if (s.sent !== 2) fail(`sent incorrect : ${s.sent}`)
+  if (s.expired !== 1) fail(`expired incorrect : ${s.expired}`)
+  if (s.failed !== 2) fail(`failed incorrect : ${s.failed}`)
+  if (s.statuses["201"] !== 2) fail("détail des codes HTTP incorrect")
+  // Une exception sans code HTTP doit rester visible : c'est le symptôme
+  // d'une clé VAPID invalide, la panne qu'on cherche justement à détecter.
+  if (s.statuses.TypeError !== 1) fail("exception non comptée dans statuses")
+}
+
+{
+  const s = summarizePushResults([])
+  if (s.attempted !== 0 || s.sent !== 0) fail("cycle vide mal résumé")
+}
+
+{
+  const summary = summarizePushResults([
+    { kind: "sent", status: 201 },
+    { kind: "failed", status: 403 },
+  ])
+  const first = addToTotals(null, summary)
+  if (first.sent !== 1 || first.failed !== 1) fail("premier cumul incorrect")
+  if (!first.since) fail("date de début du cumul manquante")
+  const second = addToTotals(first, summary)
+  if (second.sent !== 2 || second.attempted !== 4) fail("cumul non additif")
+  if (second.since !== first.since)
+    fail("la date de début du cumul ne doit jamais être réécrite")
+}
+
+console.log("✓ notify.js OK — filtrage anti-bruit, mise en forme et compteurs")

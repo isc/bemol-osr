@@ -174,3 +174,44 @@ export function buildNotificationPayload(items) {
     url: listes.length === 1 ? `./#${listeSlug(listes[0])}` : "./",
   }
 }
+
+// --- Compteurs d'envoi -------------------------------------------------------
+//
+// Les échecs de sendPush() (endpoint refusé par Apple/Google, abonnement
+// expiré, clé VAPID invalide…) ne se voient nulle part : ils partent dans un
+// console.error que personne ne lit, et le musicien voit « Activées » sans
+// jamais rien recevoir. On agrège donc le résultat de chaque cycle dans le KV
+// (cf. runScheduled), relu par le workflow « Diagnostic notifications ».
+//
+// Ne retient QUE des comptes, jamais un endpoint ni une clé d'appareil : le
+// diagnostic les publie dans des journaux d'Actions publics.
+
+// `outcomes` : un verdict par envoi tenté — "sent" (accepté par le service
+// push), "expired" (404/410, abonnement périmé, effacé du KV) ou "failed"
+// (tout le reste : HTTP non-2xx, exception de signature…). `statuses` garde le
+// détail des codes HTTP rencontrés, seul indice utile quand ça casse.
+export function summarizePushResults(outcomes) {
+  const summary = { attempted: outcomes.length, sent: 0, expired: 0, failed: 0 }
+  const statuses = {}
+  for (const o of outcomes) {
+    summary[o.kind] = (summary[o.kind] || 0) + 1
+    const label = o.status ? String(o.status) : o.error || "exception"
+    statuses[label] = (statuses[label] || 0) + 1
+  }
+  summary.statuses = statuses
+  return summary
+}
+
+// Cumul depuis toujours, pour distinguer « ça n'a jamais marché » de « une
+// panne récente ». Les compteurs sont additionnés cycle par cycle ; le cron
+// est unique (toutes les 15 min), donc pas de concurrence à craindre.
+export function addToTotals(totals, summary) {
+  const base = totals || { attempted: 0, sent: 0, expired: 0, failed: 0 }
+  return {
+    attempted: (base.attempted || 0) + summary.attempted,
+    sent: (base.sent || 0) + summary.sent,
+    expired: (base.expired || 0) + summary.expired,
+    failed: (base.failed || 0) + summary.failed,
+    since: base.since || new Date().toISOString(),
+  }
+}
