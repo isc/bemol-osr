@@ -1,0 +1,90 @@
+name: Diagnostic notifications
+
+# Répond à deux questions qu'on ne peut pas trancher depuis l'extérieur du
+# worker (cf. issue #148 et la revue de la chaîne push) :
+#   1. les trois secrets VAPID sont-ils bien posés sur le worker ? Sans
+#      VAPID_PRIVATE_KEY ou VAPID_SUBJECT, sendPush() lève, l'erreur est
+#      avalée par son catch, et le musicien voit « Activées » sans jamais
+#      rien recevoir — panne totalement silencieuse ;
+#   2. combien d'appareils sont réellement abonnés au push ? Un profil KV
+#      n'est pas un abonné : l'app en crée un dès qu'on touche aux Réglages,
+#      avec subscription: null (abonnement ICS personnalisé seul).
+#
+# Lancement manuel uniquement (Actions → ce workflow → Run workflow), pour ne
+# pas relire le KV à chaque push.
+#
+# Confidentialité : ce workflow ne publie que des COMPTES et des NOMS de
+# secrets. Jamais le contenu d'un profil — un objet subscription contient
+# l'endpoint push de l'appareil et ses clés, et les journaux d'Actions sont
+# publics sur ce dépôt. Ne pas ajouter de `kv key get` qui afficherait un
+# profil entier.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: worker
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Installer les dépendances du worker
+        run: npm install
+
+      - name: Secrets VAPID posés sur le worker
+        run: |
+          echo "### Secrets du worker" >> "$GITHUB_STEP_SUMMARY"
+          echo '`wrangler secret list` ne montre que les NOMS, jamais les valeurs.' >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          npx wrangler secret list > secrets.json
+          for name in VAPID_PUBLIC_KEY VAPID_PRIVATE_KEY VAPID_SUBJECT; do
+            if grep -q "\"$name\"" secrets.json; then
+              echo "- ✅ \`$name\` présent" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "- ❌ \`$name\` **MANQUANT** — le push échoue en silence" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: Compter les profils et les abonnés push
+        run: |
+          npx wrangler kv key list --binding=NOTIF_PROFILES --remote --prefix=profile: > profils.json
+          # Un seul `kv key get` par clé, dont on ne garde QUE le booléen
+          # « a un abonnement » — le contenu ne sort jamais du runner.
+          profils=0
+          abonnes=0
+          for cle in $(node -e "for (const k of require('./profils.json')) console.log(k.name)"); do
+            profils=$((profils + 1))
+            valeur=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote "$cle")
+            if node -e "process.exit(JSON.parse(process.argv[1]).subscription ? 0 : 1)" "$valeur"; then
+              abonnes=$((abonnes + 1))
+            fi
+          done
+          {
+            echo ''
+            echo "### Abonnements"
+            echo "- profils enregistrés (Réglages synchronisés) : **$profils**"
+            echo "- dont abonnés aux notifications push : **$abonnes**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Curseur du cron
+        run: |
+          curseur=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote cursor 2>/dev/null || echo "(absent)")
+          {
+            echo ''
+            echo "### Curseur du cron"
+            echo "Dernière entrée de \`changes.json\` traitée : \`$curseur\`"
+            echo "S'il est absent, aucun cycle n'a encore tourné : le prochain le posera sans rien envoyer."
+          } >> "$GITHUB_STEP_SUMMARY"
