@@ -1,6 +1,81 @@
 {
  "entries": [
   {
+   "at": "2026-09-09T11:32:45.815Z",
+   "added": [
+    {
+     "uid": "osr240516",
+     "start": "2026-12-06T09:30",
+     "end": "2026-12-06T19:00",
+     "liste": "Concours 1er·ère soliste des clarinettes (coordonné)",
+     "activity": "présélection",
+     "category": "concours",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "concours d'orchestre",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr176101",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176101",
+      "start": "2026-09-18T09:00",
+      "end": "2026-09-18T11:00",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD1.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176101",
+      "start": "2026-09-18T09:00",
+      "end": "2026-09-18T11:00",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD1.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240317",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours 1er·ère soliste des clarinettes (coordonné)",
+      "activity": "concours",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours 1er·ère soliste des clarinettes (coordonné)",
+      "activity": "concours",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-09T09:12:22.282Z",
    "type": "memo",
    "programs": [
