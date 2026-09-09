@@ -46,20 +46,27 @@ jobs:
 
       - name: Secrets VAPID posés sur le worker
         run: |
-          echo "### Secrets du worker" >> "$GITHUB_STEP_SUMMARY"
-          echo '`wrangler secret list` ne montre que les NOMS, jamais les valeurs.' >> "$GITHUB_STEP_SUMMARY"
-          echo '' >> "$GITHUB_STEP_SUMMARY"
+          # Tout passe par `tee` : le résumé du run n'est lisible que dans
+          # l'interface web, alors qu'un journal se récupère en ligne de
+          # commande (`gh run view --log`). Sans danger, on n'écrit que des
+          # comptes et des noms de secrets — cf. la note de confidentialité
+          # en tête de fichier, qui reste valable.
+          exec > >(tee -a "$GITHUB_STEP_SUMMARY")
+          echo "### Secrets du worker"
+          echo '`wrangler secret list` ne montre que les NOMS, jamais les valeurs.'
+          echo ''
           npx wrangler secret list > secrets.json
           for name in VAPID_PUBLIC_KEY VAPID_PRIVATE_KEY VAPID_SUBJECT; do
             if grep -q "\"$name\"" secrets.json; then
-              echo "- ✅ \`$name\` présent" >> "$GITHUB_STEP_SUMMARY"
+              echo "- ✅ \`$name\` présent"
             else
-              echo "- ❌ \`$name\` **MANQUANT** — le push échoue en silence" >> "$GITHUB_STEP_SUMMARY"
+              echo "- ❌ \`$name\` **MANQUANT** — le push échoue en silence"
             fi
           done
 
       - name: Compter les profils et les abonnés push
         run: |
+          exec > >(tee -a "$GITHUB_STEP_SUMMARY")
           npx wrangler kv key list --binding=NOTIF_PROFILES --remote --prefix=profile: > profils.json
           # Un seul `kv key get` par clé, dont on ne garde QUE le booléen
           # « a un abonnement » — le contenu ne sort jamais du runner.
@@ -77,14 +84,15 @@ jobs:
             echo "### Abonnements"
             echo "- profils enregistrés (Réglages synchronisés) : **$profils**"
             echo "- dont abonnés aux notifications push : **$abonnes**"
-          } >> "$GITHUB_STEP_SUMMARY"
+          }
 
       - name: Curseur du cron
         run: |
+          exec > >(tee -a "$GITHUB_STEP_SUMMARY")
           curseur=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote cursor 2>/dev/null || echo "(absent)")
           {
             echo ''
             echo "### Curseur du cron"
             echo "Dernière entrée de \`changes.json\` traitée : \`$curseur\`"
             echo "S'il est absent, aucun cycle n'a encore tourné : le prochain le posera sans rien envoyer."
-          } >> "$GITHUB_STEP_SUMMARY"
+          }
