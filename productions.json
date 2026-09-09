@@ -273,9 +273,9 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Le Villi, La Tregenda (Danse des sorcières)",
-    "instrumentation": "3*.2.2.2* / 4.4*.3.1 / 1.4.1.0 / 10.8.6.4.3",
+    "instrumentation": "3*.2.2.2* / 4.4*.3.1 / 1.3.1.0 / 10.8.6.4.3",
     "remarques": "1picc, fgt3+kfgt coupé pour le didacticiel, 2cornets",
-    "percussions": "GC, cymb fr, TT, tri, cymb sus",
+    "percussions": "GC, cymb fr, TT, tri",
     "duree": "≈ 5 min"
    },
    {
@@ -562,7 +562,7 @@
     "remarques": "fl3+picc, ob3+ca, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, c.cl., TT, tri, cymb sus",
     "detail": "Un 2ème percu est nécessaire si la fin alternative est choisie.",
-    "note": "\nen attente du choix de la cheffe pour la fin alternative ou pas",
+    "note": "\nfin altermative confirmée",
     "duree": "≈ 36 min"
    }
   ],
