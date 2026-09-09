@@ -6,7 +6,11 @@ name: Diagnostic notifications
 #      VAPID_PRIVATE_KEY ou VAPID_SUBJECT, sendPush() lève, l'erreur est
 #      avalée par son catch, et le musicien voit « Activées » sans jamais
 #      rien recevoir — panne totalement silencieuse ;
-#   2. combien d'appareils sont réellement abonnés au push ? Un profil KV
+#   2. les envois aboutissent-ils ? Le worker agrège le résultat de chaque
+#      cycle dans le KV (push-stats:last / push-stats:totals, cf.
+#      recordPushStats) : sans ça, un push refusé par Apple ou Google est
+#      invisible — l'abonné voit « Activées » et ne reçoit rien ;
+#   3. combien d'appareils sont réellement abonnés au push ? Un profil KV
 #      n'est pas un abonné : l'app en crée un dès qu'on touche aux Réglages,
 #      avec subscription: null (abonnement ICS personnalisé seul).
 #
@@ -85,6 +89,46 @@ jobs:
             echo "- profils enregistrés (Réglages synchronisés) : **$profils**"
             echo "- dont abonnés aux notifications push : **$abonnes**"
           }
+
+      - name: Envois du dernier cycle et cumul
+        run: |
+          exec > >(tee -a "$GITHUB_STEP_SUMMARY")
+          dernier=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote push-stats:last 2>/dev/null || echo "")
+          cumul=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote push-stats:totals 2>/dev/null || echo "")
+          echo ""
+          echo "### Envois push"
+          # Mise en forme en JS via un heredoc plutôt qu'un `node -e '...'` :
+          # les messages contiennent des apostrophes françaises, qui
+          # refermeraient la chaîne du shell.
+          if [ -z "$dernier" ]; then
+            echo "Aucun envoi tenté depuis la mise en place des compteurs — normal tant que le planning ne bouge pas dans les listes d'un abonné."
+          else
+            node - "$dernier" <<'JS'
+          const d = JSON.parse(process.argv[2])
+          console.log(`Dernier cycle avec envoi — **${d.at}** (${d.changes} entrée(s) de changes.json) :`)
+          console.log(`- tentés : **${d.attempted}**`)
+          console.log(`- acceptés par le service push : **${d.sent}**`)
+          console.log(`- abonnements périmés (effacés du KV) : **${d.expired}**`)
+          console.log(`- en échec : **${d.failed}**`)
+          const codes = Object.entries(d.statuses || {})
+          if (codes.length)
+            console.log(`- détail : ${codes.map(([k, n]) => `\`${k}\` ×${n}`).join(", ")}`)
+          if (d.sent === 0 && d.attempted > 0) {
+            console.log("")
+            console.log("> ⚠️ Aucun envoi accepté sur ce cycle : les abonnés ne reçoivent rien.")
+          }
+          JS
+          fi
+          if [ -n "$cumul" ]; then
+            node - "$cumul" <<'JS'
+          const t = JSON.parse(process.argv[2])
+          console.log("")
+          console.log(`Cumul depuis le ${t.since} : **${t.sent}** acceptés, **${t.failed}** en échec, **${t.expired}** périmés (sur ${t.attempted} tentés).`)
+          if (t.sent === 0 && t.attempted > 0) {
+            console.log("> ⚠️ Aucun push accepté depuis le début : la chaîne est cassée, pas seulement en panne passagère.")
+          }
+          JS
+          fi
 
       - name: Curseur du cron
         run: |

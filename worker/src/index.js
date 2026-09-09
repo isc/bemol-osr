@@ -38,6 +38,8 @@ import {
   DEFAULT_PREFS,
   changesForProfile,
   buildNotificationPayload,
+  summarizePushResults,
+  addToTotals,
 } from "./notify.js"
 
 const UPSTREAM = "https://isc.github.io/bemol-osr/data/planning.ics"
@@ -397,6 +399,7 @@ async function runScheduled(env) {
     privateKey: env.VAPID_PRIVATE_KEY,
   }
 
+  const outcomes = []
   let cursorParam
   do {
     const page = await env.NOTIF_PROFILES.list({
@@ -408,14 +411,50 @@ async function runScheduled(env) {
       if (!profile?.subscription) continue
       const items = changesForProfile(fresh, profile.prefs || DEFAULT_PREFS)
       if (!items.length) continue
-      await sendPush(env, name, profile, buildNotificationPayload(items), vapid)
+      outcomes.push(
+        await sendPush(
+          env,
+          name,
+          profile,
+          buildNotificationPayload(items),
+          vapid,
+        ),
+      )
     }
     cursorParam = page.list_complete ? undefined : page.cursor
   } while (cursorParam)
 
   await env.NOTIF_PROFILES.put("cursor", fresh[fresh.length - 1].at)
+  await recordPushStats(env, outcomes, fresh.length)
 }
 
+// Trace du dernier cycle ayant réellement tenté des envois, plus un cumul
+// depuis toujours (cf. summarizePushResults). Sans ça, un push qui échoue
+// systématiquement — clé VAPID invalide, endpoint refusé — est indétectable :
+// l'abonné voit « Activées » et ne reçoit rien, la CI reste verte.
+//
+// On n'écrit rien quand aucun envoi n'a été tenté : la plupart des cycles ne
+// concernent personne, et ça écraserait la dernière trace utile.
+async function recordPushStats(env, outcomes, changeCount) {
+  if (!outcomes.length) return
+  const summary = summarizePushResults(outcomes)
+  await env.NOTIF_PROFILES.put(
+    "push-stats:last",
+    JSON.stringify({
+      at: new Date().toISOString(),
+      changes: changeCount,
+      ...summary,
+    }),
+  )
+  const totals = await env.NOTIF_PROFILES.get("push-stats:totals", "json")
+  await env.NOTIF_PROFILES.put(
+    "push-stats:totals",
+    JSON.stringify(addToTotals(totals, summary)),
+  )
+}
+
+// Renvoie le verdict de l'envoi, agrégé par recordPushStats() — jamais rien
+// d'identifiant, seulement un genre et un code HTTP.
 async function sendPush(env, key, profile, notification, vapid) {
   try {
     const message = {
@@ -424,13 +463,20 @@ async function sendPush(env, key, profile, notification, vapid) {
     }
     const payload = await buildPushPayload(message, profile.subscription, vapid)
     const res = await fetch(profile.subscription.endpoint, payload)
-    if (res.status === 404 || res.status === 410)
+    if (res.status === 404 || res.status === 410) {
       await env.NOTIF_PROFILES.put(
         key,
         JSON.stringify({ ...profile, subscription: null }),
       )
-    else if (!res.ok) console.error(`push ${key} : HTTP ${res.status}`)
+      return { kind: "expired", status: res.status }
+    }
+    if (!res.ok) {
+      console.error(`push ${key} : HTTP ${res.status}`)
+      return { kind: "failed", status: res.status }
+    }
+    return { kind: "sent", status: res.status }
   } catch (err) {
     console.error(`push ${key} en échec :`, err)
+    return { kind: "failed", error: err?.name || "exception" }
   }
 }
