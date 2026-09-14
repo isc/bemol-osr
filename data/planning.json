@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-11T16:35:08.193Z",
- "count": 620,
+ "updatedAt": "2026-09-14T12:59:56.813Z",
+ "count": 621,
  "events": [
   {
    "uid": "osr225046",
@@ -922,7 +922,7 @@
    "liste": "Titularisation MARQUEZ TERUEL",
    "activity": "séance titularisation (Luis MARQUEZ TERUEL)",
    "category": "concours",
-   "location": "Victoria Hall de Genève",
+   "location": "Victoria Hall  - foyer Bovy",
    "project": "",
    "cancelled": false
   },
@@ -1077,6 +1077,17 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr241270",
+   "start": "2026-09-30T13:00",
+   "end": "2026-09-30T14:00",
+   "liste": "Pot de départ Yan Wei Wang",
+   "activity": "pot de départ",
+   "category": "autre",
+   "location": "Victoria Hall  - foyer Bovy",
    "project": "",
    "cancelled": false
   },
@@ -2776,7 +2787,7 @@
   },
   {
    "uid": "osr178811",
-   "start": "2026-11-30T18:00",
+   "start": "2026-11-30T19:00",
    "end": "2026-11-30T22:00",
    "liste": "Concours à définir",
    "activity": "répétitions candidats (poste à définir)",
