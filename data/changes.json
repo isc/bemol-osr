@@ -1,6 +1,158 @@
 {
  "entries": [
   {
+   "at": "2026-09-15T17:06:41.502Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132751",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132751",
+      "start": "2026-09-28T10:30",
+      "end": "2026-09-28T13:00",
+      "liste": "Liste 08",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132751",
+      "start": "2026-09-28T10:00",
+      "end": "2026-09-28T12:30",
+      "liste": "Liste 08",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240516",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premir.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premir.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "UM - Salle Marie LAGGÉ",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240317",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premir.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premir.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr193689",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr193689",
+      "start": "2026-12-07T12:00",
+      "end": "2026-12-07T14:00",
+      "liste": "Conseil de Fondation Décembre 1",
+      "activity": "Séance CF",
+      "category": "autre",
+      "location": "Administration - Salle du Conseil",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr193689",
+      "start": "2026-12-08T12:00",
+      "end": "2026-12-08T14:00",
+      "liste": "Conseil de Fondation Décembre 1",
+      "activity": "Séance CF",
+      "category": "autre",
+      "location": "Administration - Salle du Conseil",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr236289",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr236289",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours Premir.ère Soliste des seconds violons",
+      "activity": "concours (Premir.ère Soliste des seconds violons)",
+      "category": "concours",
+      "location": "Les Salons",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr236289",
+      "start": "2027-02-05T10:00",
+      "end": "2027-02-05T19:30",
+      "liste": "Concours Premier.ère Soliste des seconds violons",
+      "activity": "concours (Premier.ère Soliste des seconds violons)",
+      "category": "concours",
+      "location": "Les Salons",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-15T09:36:43.475Z",
    "type": "memo",
    "programs": [
