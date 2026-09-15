@@ -1265,21 +1265,71 @@
  },
  "Liste 21": {
   "chef": "Karen KAMENSEK",
-  "effectif": "3.3.3.3 / 4.3.4.1 / 1.4.1.0 / 12.10.8.6.4 (70 musiciens)",
-  "duree": "≈ 1 h 36",
+  "effectif": "3.3.3.3 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
+  "duree": "≈ 1 h 52",
   "works": [
    {
     "oeuvre": "N.N. — Programme standard en construction",
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.4.1.0 / 12.10.8.6.4",
     "remarques": "picc, ca, cl.bs, kfgt",
     "note": "\nairs à valider dans la liste\npièces orchestre seul à ajouter\nordre à construire",
-    "duree": "≈ 30 min"
+    "duree": "≈ 20 min"
+   },
+   {
+    "oeuvre": "Giuseppe VERDI — La Forza del Destino, Ouverture",
+    "instrumentation": "2*.2.2.2 / 4.2.3.1* / 1.1.2*.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC+cym",
+    "detail": "OLIS: Edition contains at least 90 mistakes.",
+    "duree": "≈ 8 min"
    },
    {
     "oeuvre": "Francesco CILEA — Adriana Lecouvreur, air d'Adriana acte 1 \"Ecco : respiro appena ... Io son l'umile ancella\"",
     "instrumentation": "2.3*.2.2 / 4.0.0.0 / 1.0.1.0 / 12.10.8.6.4",
     "remarques": "1ca",
     "duree": "≈ 4 min"
+   },
+   {
+    "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+    "remarques": "Sans cordes",
+    "duree": "≈ 6 min"
+   },
+   {
+    "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
+    "duree": "≈ 4 min"
+   },
+   {
+    "oeuvre": "Giacomo PUCCINI — Preludio Sinfonico",
+    "instrumentation": "3*.2*.2.2 / 4.2.3.1 / 1.2.1.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr",
+    "duree": "≈ 12 min"
+   },
+   {
+    "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
+    "instrumentation": "3*.3*.3*.2 / 4.3.4*.0 / 1.1.1.0 / 12.10.8.6.4",
+    "remarques": "fl3+picc., 1ca, 1cl.bs, 1trb.bs",
+    "percussions": "GC",
+    "detail": "janv 2025 : 4e trombone joué au cimbasso",
+    "duree": "≈ 5 min"
+   },
+   {
+    "oeuvre": "Georges BIZET — Carmen, Suite N° 1, N° 1 Prélude [avec l'Aragonaise]",
+    "remarques": "Sans cordes",
+    "duree": "≈ 3 min"
+   },
+   {
+    "oeuvre": "Georges BIZET — Carmen, suite N° 2, N° 2 Habanera",
+    "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.4.0.0 / 12.10.8.6.4",
+    "percussions": "GC, cymb fr, bsq, tri",
+    "duree": "≈ 2 min"
+   },
+   {
+    "oeuvre": "Bedrich SMETANA — La Fiancée vendue, ouverture",
+    "instrumentation": "3*.2.2.2 / 4.2.3.0 / 1.0.0.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "duree": "≈ 7 min"
    },
    {
     "oeuvre": "Antonín DVOŘÁK — Rusalka, Ode à la lune pour soprano, Op.114",
@@ -1289,27 +1339,15 @@
     "duree": "≈ 7 min"
    },
    {
-    "oeuvre": "Georges BIZET — Carmen, suite N° 2, N° 2 Habanera",
-    "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.4.0.0 / 12.10.8.6.4",
-    "percussions": "GC, cymb fr, bsq, tri",
-    "duree": "≈ 2 min"
-   },
-   {
-    "oeuvre": "Pablo LUNA — El Niño Judio, air de Concha \"De España vengo\"",
-    "instrumentation": "2.1.2.1 / 2.2.3.0 / 1.2.1.0 / 12.10.8.6.4",
-    "percussions": "cast, tri",
-    "duree": "≈ 6 min"
-   },
-   {
     "oeuvre": "Nikolaï RIMSKI-KORSAKOV — La Fiancée du tsar, scène et air de Martha acte 4 \"Ach, schau mal doch\"\"",
     "instrumentation": "3*.2.2.2 / 4.0.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "remarques": "1picc",
     "duree": "≈ 5 min"
    },
    {
-    "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
-    "duree": "≈ 4 min"
+    "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
+    "remarques": "Sans cordes",
+    "duree": "≈ 7 min"
    },
    {
     "oeuvre": "Richard STRAUSS — Morgen, Lied pour soprano et orchestre op 27 n° 4",
@@ -1324,12 +1362,18 @@
     "duree": "≈ 5 min"
    },
    {
-    "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
-    "instrumentation": "3*.3*.3*.2 / 4.3.4*.0 / 1.1.1.0 / 12.10.8.6.4",
-    "remarques": "fl3+picc., 1ca, 1cl.bs, 1trb.bs",
-    "percussions": "GC",
-    "detail": "janv 2025 : 4e trombone joué au cimbasso",
-    "duree": "≈ 5 min"
+    "oeuvre": "Jules MASSENET — Le Cid, suite de ballet, N° 1 Castillane",
+    "instrumentation": "2*.2*.2.2 / 4.4*.3.1 / 1.3.1.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, t tamb, bsq, cast, c.cl., tri",
+    "detail": "Eh can be covered by either ob1 or ob2.",
+    "duree": "≈ 3 min"
+   },
+   {
+    "oeuvre": "Pablo LUNA — El Niño Judio, air de Concha \"De España vengo\"",
+    "instrumentation": "2.1.2.1 / 2.2.3.0 / 1.2.1.0 / 12.10.8.6.4",
+    "percussions": "cast, tri",
+    "duree": "≈ 6 min"
    },
    {
     "oeuvre": "Giacomo PUCCINI — Armenian Folk Song",
@@ -1341,7 +1385,6 @@
     "oeuvre": "Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\"",
     "instrumentation": "2.3*.3*.2 / 4.3.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "remarques": "1ca, 1cl.bs",
-    "note": "\nposition à définir",
     "duree": "≈ 2 min"
    }
   ],

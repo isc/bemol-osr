@@ -1,6 +1,52 @@
 {
  "entries": [
   {
+   "at": "2026-09-15T09:36:43.475Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.3.3.3 / 4.3.4.1 / 1.4.1.0 / 12.10.8.6.4 (70 musiciens)",
+       "after": "3.3.3.3 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)"
+      },
+      {
+       "field": "duree",
+       "before": "≈ 1 h 36",
+       "after": "≈ 1 h 52"
+      }
+     ],
+     "worksAdded": [
+      "Giuseppe VERDI — La Forza del Destino, Ouverture",
+      "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+      "Giacomo PUCCINI — Preludio Sinfonico",
+      "Georges BIZET — Carmen, Suite N° 1, N° 1 Prélude [avec l'Aragonaise]",
+      "Bedrich SMETANA — La Fiancée vendue, ouverture",
+      "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
+      "Jules MASSENET — Le Cid, suite de ballet, N° 1 Castillane"
+     ],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "N.N. — Programme standard en construction",
+       "fields": [
+        "duree"
+       ]
+      },
+      {
+       "oeuvre": "Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\"",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-09-14T12:59:56.813Z",
    "added": [
     {
