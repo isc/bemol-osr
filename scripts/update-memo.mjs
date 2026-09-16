@@ -257,9 +257,26 @@ function parseSection(body) {
       )
     )
       continue
-    if (/^(Solistes?|Chœur|Choeur|Récitant)[^:]{0,40} : \S/.test(line)) continue // rappels de distribution
-    if (/^[a-zàâäéèêëîïôöûüç][^:]{1,40} : \S/.test(line)) continue // "saxophone alto : Valentine MICHAUD"
-    if (/(^| - )[a-zàâäéèêëîïôöûüç][^:]{0,30} : \p{Lu}/u.test(line)) continue // fragments de distribution repliés
+    // Fragments de distribution repliés par la mise en colonnes ("saxophone
+    // alto : Valentine MICHAUD") — jamais à l'intérieur d'un champ multiligne
+    // en cours (Note, Détail…) : son texte peut légitimement contenir un « : »
+    // (ex. « extraits pour tous les concerts : mvts 1 et 7… », issue #164).
+    const inContinuableField =
+      cur &&
+      curField &&
+      ["detail", "note", "remarques", "percussions", "extra"].includes(curField)
+    if (
+      !inContinuableField &&
+      /^(Solistes?|Chœur|Choeur|Récitant)[^:]{0,40} : \S/.test(line)
+    )
+      continue // rappels de distribution
+    if (!inContinuableField && /^[a-zàâäéèêëîïôöûüç][^:]{1,40} : \S/.test(line))
+      continue // "saxophone alto : Valentine MICHAUD"
+    if (
+      !inContinuableField &&
+      /(^| - )[a-zàâäéèêëîïôöûüç][^:]{0,30} : \p{Lu}/u.test(line)
+    )
+      continue // fragments de distribution repliés
 
     // fin de la partie programme
     const eff = line.match(/^Effectif max (\d+) musiciens : (.+)$/)
@@ -660,16 +677,88 @@ function parseServiceTables(layoutText, knownListes) {
   return result
 }
 
+// n° de position ORIGINAL du mémo (celui de la colonne ŒUVRES du tableau des
+// services) → index 1-based dans prod.works, par liste. Un entracte, ou une
+// œuvre sans compositeur nommé (arrangement de musique de chambre…), consomme
+// un numéro de position sans forcément apparaître sous la forme "N Compositeur"
+// dans memo.txt (cf. parseSection) : son numéro s'y perd ou s'y confond avec du
+// bruit (numéros de page…). L'extraction `-layout` est ici plus fiable, car le
+// numéro de chaque œuvre du programme y est TOUJOURS en tout début de ligne
+// (colonne 0, alignement des continuations d'Instrumentation/Remarques/Note
+// nettement plus à droite), qu'une œuvre ait ou non un compositeur nommé.
+// Sans ce mapping, un service travaillant l'œuvre suivant un entracte se
+// retrouvait décalé (Liste 08, issue #164 : Entracte = n° 3, Bartók = n° 4
+// mais 3e œuvre de prod.works) ou, pire, une œuvre sans compositeur nommé
+// perdait carrément son association (numéro jamais vu par parseSection).
+function parseWorkNumbering(layoutText, knownListes) {
+  const rawLines = layoutText.split("\n")
+  const result = {}
+  let currentListe = null
+  let inTable = false
+  let numbers = []
+
+  const flush = () => {
+    if (currentListe && numbers.length) {
+      const map = {}
+      numbers.forEach((n, idx) => {
+        map[n] = idx + 1
+      })
+      result[currentListe] = map
+    }
+    numbers = []
+  }
+
+  for (const line of rawLines) {
+    const trimmed = line.trim()
+    if (!trimmed) continue
+    if (SERVICE_TABLE_HEADER_RE.test(line)) {
+      inTable = true
+      continue
+    }
+    const key = canonicalListeKey(trimmed, knownListes)
+    if (key) {
+      flush()
+      currentListe = key
+      inTable = false
+      continue
+    }
+    if (inTable || !currentListe) continue
+
+    // Numéro de position : chiffres en tout début de ligne (jamais une
+    // continuation, toujours indentée dans l'extraction -layout), suivis
+    // d'un espace au moins puis du reste de la ligne — un nom de
+    // compositeur, s'il y en a un, colle directement au numéro (un seul
+    // espace : "1 Benjamin BRITTEN"), seul le TITRE qui suit est séparé par
+    // la grande marge de colonne ; sans compositeur (entracte, arrangement
+    // sans compositeur nommé…), c'est le titre lui-même qui suit directement,
+    // au travers de cette même grande marge.
+    const m = line.match(/^(\d+)\s+(\S.*)$/)
+    if (!m) continue
+    const rest = m[2].trim()
+    // La ligne d'un entracte/bis porte parfois aussi sa durée en fin de ligne
+    // (colonne suivante collée faute d'autre contenu) : test par préfixe, pas
+    // par égalité stricte.
+    if (/^(Entracte|Bis)\b/i.test(rest)) continue // pas une vraie œuvre
+    numbers.push(parseInt(m[1], 10))
+  }
+  flush()
+  return result
+}
+
 // Rapproche les lignes du tableau des services des événements du planning
 // (par liste + date + horaire EXACTS) pour produire { serviceWorks: { uid:
 // [n,...] }, serviceNotes: { uid: texte } }. Un service sans correspondance
 // unique (mémo désynchro, rencontre non publiée à l'ICS…) est silencieusement
-// omis plutôt que mal associé.
-function matchServiceWorks(rows, events, workCount) {
+// omis plutôt que mal associé. `numberMap` (cf. parseWorkNumbering) traduit le
+// n° de position ORIGINAL du mémo en index 1-based dans prod.works ;
+// `workCount` filtre par sécurité tout index hors bornes (désync memo/layout).
+function matchServiceWorks(rows, events, numberMap, workCount) {
   const serviceWorks = {}
   const serviceNotes = {}
   for (const row of rows) {
-    const oeuvres = row.oeuvres.filter((n) => n <= workCount)
+    const oeuvres = row.oeuvres
+      .map((n) => numberMap[n])
+      .filter((idx) => idx >= 1 && idx <= workCount)
     if (!oeuvres.length) continue
     const candidates = events.filter(
       (e) =>
@@ -786,6 +875,7 @@ const knownListes = new Set(planningEvents.map((e) => e.liste))
 const parsed = parseMemoText(memoText, knownListes)
 
 if (layoutText) {
+  const numberMaps = parseWorkNumbering(layoutText, knownListes)
   const serviceTables = parseServiceTables(layoutText, knownListes)
   for (const [liste, rows] of Object.entries(serviceTables)) {
     const prod = parsed[liste]
@@ -794,6 +884,7 @@ if (layoutText) {
     const { serviceWorks, serviceNotes } = matchServiceWorks(
       rows,
       events,
+      numberMaps[liste] || {},
       prod.works.length,
     )
     if (Object.keys(serviceWorks).length) prod.serviceWorks = serviceWorks
