@@ -79,6 +79,21 @@ production (GitHub Pages) comme dans les previews de PR.
   workflow que la fonctionnalité dort encore — c'est un garde-fou de mise en
   route, pas l'état courant. (Vérifiable :
   `gh api repos/isc/bemol-osr/actions/variables/CLOUDFLARE_READY --jq .value`.)
+- **Notifications push : « est-ce qu'elles arrivent vraiment ? » se vérifie
+  avec le workflow `Diagnostic notifications` (`notif-diagnostic.yml`).** C'est
+  une question récurrente (cf. #141, #142) qu'on **ne peut pas** trancher depuis
+  l'app ni la CI : `sendPush()` (worker) avale les refus d'Apple/Google dans un
+  `catch`, l'abonné voit « Activées » et ne reçoit rien — panne silencieuse.
+  Depuis #150-153, chaque cycle d'envoi enregistre son verdict dans le KV
+  (`push-stats:last`, dernier cycle ; `push-stats:totals`, cumul), et le
+  workflow — **lancement manuel** (Actions → Run workflow), il lit le KV via le
+  `CLOUDFLARE_API_TOKEN` des secrets — rapporte : secrets VAPID posés, nombre
+  réel d'appareils **abonnés au push** (≠ profils KV, créés dès qu'on touche aux
+  Réglages), envois tentés/acceptés/en échec, et curseur du cron. Face à un
+  « les notifications ne marchent pas », **le lancer d'abord** plutôt que de
+  supposer. Il ne publie que des comptes (journaux Actions publics) : ne jamais
+  y ajouter un `kv key get` qui afficherait un profil entier (endpoint + clés de
+  l'appareil).
 - **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, bouton
   📅).** On ne teste pas le rendu d'un `.ics` en local ni en CI : la seule
   vérité, c'est l'agenda du frère (Apple Calendar, abonnement webcal). Les apps
