@@ -546,7 +546,12 @@ function resolveServiceDate(dateText, period) {
 
 // Relit l'extraction -layout et renvoie, par liste, les lignes du tableau des
 // services qui précisent des œuvres : [{ date (ISO), debut, fin, oeuvres
-// ([n,...], 1-indexé dans l'ordre de prod.works) }].
+// ([n,...], 1-indexé dans l'ordre de prod.works), note }]. `note` reprend tel
+// quel le contenu de la colonne NOTES du mémo (ex. « extraits ») quand cette
+// colonne tient sur la même ligne que l'horaire — une NOTES repliée sur la
+// ligne suivante par la mise en colonnes n'est, comme le reste du tableau,
+// pas recollée (issue #161 : mieux vaut une note absente qu'une note tronquée
+// ou mal rattachée).
 function parseServiceTables(layoutText, knownListes) {
   const rawLines = layoutText.split("\n")
   const result = {}
@@ -634,23 +639,35 @@ function parseServiceTables(layoutText, knownListes) {
     const isoDate = resolveServiceDate(effectiveDateText, period)
     if (!isoDate) continue
 
+    // Colonne NOTES : ce qui suit la colonne ŒUVRES sur la même ligne.
+    // Bornée en longueur — un fragment anormalement long trahit plus
+    // probablement un texte d'ACTIVITÉ mal isolé qu'une vraie note courte
+    // (« extraits »…) : on préfère alors n'en garder aucune trace.
+    const noteText = after
+      .slice(oeuvresMatch.index + oeuvresMatch[0].length)
+      .trim()
+    const note = noteText && noteText.length <= 120 ? noteText : null
+
     result[currentListe] ??= []
     result[currentListe].push({
       date: isoDate,
       debut: tm[1],
       fin: tm[2],
       oeuvres,
+      note,
     })
   }
   return result
 }
 
 // Rapproche les lignes du tableau des services des événements du planning
-// (par liste + date + horaire EXACTS) pour produire { uid: [n,...] }. Un
-// service sans correspondance unique (mémo désynchro, rencontre non publiée
-// à l'ICS…) est silencieusement omis plutôt que mal associé.
+// (par liste + date + horaire EXACTS) pour produire { serviceWorks: { uid:
+// [n,...] }, serviceNotes: { uid: texte } }. Un service sans correspondance
+// unique (mémo désynchro, rencontre non publiée à l'ICS…) est silencieusement
+// omis plutôt que mal associé.
 function matchServiceWorks(rows, events, workCount) {
   const serviceWorks = {}
+  const serviceNotes = {}
   for (const row of rows) {
     const oeuvres = row.oeuvres.filter((n) => n <= workCount)
     if (!oeuvres.length) continue
@@ -662,8 +679,9 @@ function matchServiceWorks(rows, events, workCount) {
     )
     if (candidates.length !== 1) continue
     serviceWorks[candidates[0].uid] = oeuvres
+    if (row.note) serviceNotes[candidates[0].uid] = row.note
   }
-  return serviceWorks
+  return { serviceWorks, serviceNotes }
 }
 
 // --- Diff du mémo -----------------------------------------------------------
@@ -773,8 +791,13 @@ if (layoutText) {
     const prod = parsed[liste]
     if (!prod || !prod.works || !prod.works.length) continue
     const events = planningEvents.filter((e) => e.liste === liste)
-    const serviceWorks = matchServiceWorks(rows, events, prod.works.length)
+    const { serviceWorks, serviceNotes } = matchServiceWorks(
+      rows,
+      events,
+      prod.works.length,
+    )
     if (Object.keys(serviceWorks).length) prod.serviceWorks = serviceWorks
+    if (Object.keys(serviceNotes).length) prod.serviceNotes = serviceNotes
   }
 }
 
@@ -788,7 +811,7 @@ const previous = existsSync(productionsPath)
   : {}
 const output = {
   _lisezmoi:
-    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]) et « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu). Les clés commençant par « _ » sont ignorées par l'app.",
+    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 

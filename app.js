@@ -134,7 +134,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -983,6 +983,10 @@ function scorePortalLink() {
 // prod.serviceWorks : { uid → [n,...] }, n étant l'index 1-based dans
 // prod.works). Absent si le mémo ne le précise pas pour ce service ou si le
 // rapprochement avec le planning était ambigu — pas de repli approximatif.
+// Le détail complet de chaque œuvre (instrumentation, remarques, durée…) est
+// repris via workNode() — pas seulement le titre (issue #161) — et complété,
+// si le mémo précise une remarque propre à ce service (ex. « extraits »),
+// par prod.serviceNotes[e.uid].
 function serviceWorksDetail(e) {
   const prod = state.productions[e.liste] || {}
   const indices = (prod.serviceWorks || {})[e.uid]
@@ -990,19 +994,20 @@ function serviceWorksDetail(e) {
   const works = prod.works || []
   // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
   // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
-  const titles = [...indices]
+  const list = [...indices]
     .sort((a, b) => a - b)
     .map((i) => works[i - 1])
     .filter(Boolean)
-    .map((w) => (typeof w === "string" ? w : w.oeuvre))
-  if (!titles.length) return []
+  if (!list.length) return []
+  const note = (prod.serviceNotes || {})[e.uid]
   return [
     el(
       "h3",
       { class: "detail-section" },
       "Œuvres travaillées pendant ce service",
     ),
-    el("ul", { class: "works" }, ...titles.map((t) => el("li", {}, t))),
+    el("ul", { class: "works" }, ...list.map((w) => workNode(w))),
+    note ? el("p", { class: "service-note" }, note) : null,
   ]
 }
 
