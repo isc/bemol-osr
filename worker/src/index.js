@@ -191,9 +191,13 @@ function sanitizeSubscription(s) {
 const FEEDBACK_MESSAGE_MAX = 4000
 const FEEDBACK_NAME_MAX = 200
 // Anti-rafale minimal (formulaire public, sans compte) : un envoi par IP
-// toutes les 30 s, largement suffisant pour un musicien mais pas pour un
-// script.
-const FEEDBACK_RATE_LIMIT_SECONDS = 30
+// toutes les 60 s, largement suffisant pour un musicien mais pas pour un
+// script. 60 est aussi le plancher imposé par Cloudflare KV pour
+// expirationTtl : une valeur en dessous (30 à l'origine, issue #157) faisait
+// échouer le PUT de la clé de limitation de débit avec une exception non
+// interceptée, donc un échec d'envoi 500 côté formulaire — alors même que le
+// message, écrit juste avant dans le KV, avait bien été enregistré.
+const FEEDBACK_RATE_LIMIT_SECONDS = 60
 
 export function sanitizeFeedback(body) {
   if (!body || typeof body !== "object") return null
@@ -211,7 +215,7 @@ export function sanitizeFeedback(body) {
 // invisible côté app, qu'un humain ne remplit jamais. On répond succès sans
 // rien stocker si le formulaire arrive rempli, pour ne pas indiquer à un
 // robot qu'il a été repéré.
-async function handleFeedback(request, env) {
+export async function handleFeedback(request, env) {
   if (request.method !== "POST")
     return new Response("Méthode non supportée", {
       status: 405,
