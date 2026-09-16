@@ -289,6 +289,26 @@ const planningEntry = (over = {}) => ({
   // Une exception sans code HTTP doit rester visible : c'est le symptôme
   // d'une clé VAPID invalide, la panne qu'on cherche justement à détecter.
   if (s.statuses.TypeError !== 1) fail("exception non comptée dans statuses")
+  if (s.reasons)
+    fail("aucun outcome n'a de reason ici : reasons ne devrait pas apparaître")
+}
+
+// #158 : un code HTTP seul ne dit pas pourquoi ça casse — le texte renvoyé
+// par le service push (reason) doit remonter, un seul exemple par code.
+{
+  const s = summarizePushResults([
+    { kind: "failed", status: 400, reason: "BadJwtToken" },
+    {
+      kind: "failed",
+      status: 400,
+      reason: "un autre message pour le même code",
+    },
+    { kind: "failed", status: 403 },
+  ])
+  if (s.reasons?.["400"] !== "BadJwtToken")
+    fail("reason manquante ou incorrecte pour le code 400")
+  if ("403" in (s.reasons || {}))
+    fail("un outcome sans reason ne devrait pas apparaître dans reasons")
 }
 
 {

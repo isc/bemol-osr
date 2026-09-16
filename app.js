@@ -2477,6 +2477,32 @@ function urlBase64ToUint8Array(base64String) {
   return Uint8Array.from([...raw].map((c) => c.charCodeAt(0)))
 }
 
+// Sur certaines versions de Safari/iPadOS, la Promise renvoyée par
+// Notification.requestPermission() ne se résout jamais (bug WebKit connu) :
+// le bouton « Activer » reste alors désactivé indéfiniment. L'API accepte
+// aussi, historiquement, un callback — plus fiable dans ce cas précis — donc
+// on branche les deux et on garde le premier qui répond.
+function requestNotificationPermission() {
+  return new Promise((resolve, reject) => {
+    const result = Notification.requestPermission(resolve)
+    if (result) result.then(resolve, reject)
+  })
+}
+
+const NOTIF_TIMEOUT_MS = 20000
+
+// Filet de sécurité générique : si une Promise ne se règle jamais (le même
+// bug WebKit peut aussi affecter serviceWorker.ready ou pushManager.subscribe),
+// on redonne la main au bouton plutôt que de le laisser gelé sans recours.
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("timeout")), ms),
+    ),
+  ])
+}
+
 // Résout (de façon asynchrone) le statut des notifications sur cet appareil
 // et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
 async function refreshNotifUI(statusEl, btn, dot) {
@@ -2529,7 +2555,10 @@ async function refreshNotifUI(statusEl, btn, dot) {
 async function enableNotifications(statusEl, btn, dot) {
   btn.disabled = true
   try {
-    const permission = await Notification.requestPermission()
+    const permission = await withTimeout(
+      requestNotificationPermission(),
+      NOTIF_TIMEOUT_MS,
+    )
     if (permission !== "granted") {
       statusEl.textContent =
         "Autorisation refusée : active les notifications pour ce site dans les " +
@@ -2539,11 +2568,17 @@ async function enableNotifications(statusEl, btn, dot) {
     const keyRes = await fetch(`${workerOrigin()}/vapid-public-key`)
     if (!keyRes.ok) throw new Error("clé VAPID indisponible")
     const { publicKey } = await keyRes.json()
-    const reg = await navigator.serviceWorker.ready
-    const sub = await reg.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(publicKey),
-    })
+    const reg = await withTimeout(
+      navigator.serviceWorker.ready,
+      NOTIF_TIMEOUT_MS,
+    )
+    const sub = await withTimeout(
+      reg.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array(publicKey),
+      }),
+      NOTIF_TIMEOUT_MS,
+    )
     syncProfile({ prefs: prefsPayload(), subscription: sub.toJSON() }, true)
   } catch {
     statusEl.textContent =
@@ -2556,9 +2591,12 @@ async function enableNotifications(statusEl, btn, dot) {
 async function disableNotifications(statusEl, btn, dot) {
   btn.disabled = true
   try {
-    const reg = await navigator.serviceWorker.ready
+    const reg = await withTimeout(
+      navigator.serviceWorker.ready,
+      NOTIF_TIMEOUT_MS,
+    )
     const sub = await reg.pushManager.getSubscription()
-    if (sub) await sub.unsubscribe()
+    if (sub) await withTimeout(sub.unsubscribe(), NOTIF_TIMEOUT_MS)
     syncProfile({ subscription: null }, true)
   } catch {
     // best effort : l'abonnement navigateur est de toute façon déjà annulé
