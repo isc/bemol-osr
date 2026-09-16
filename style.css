@@ -1070,6 +1070,16 @@ dialog h2 {
   white-space: pre-wrap;
 }
 
+/* Remarque du mémo propre à ce service précis (ex. « extraits »), sous les
+   œuvres travaillées pendant ce service. */
+.detail-box .service-note {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 0.85em;
+  font-style: italic;
+  white-space: pre-wrap;
+}
+
 /* Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
    le titre de la fiche (#80) : la ligne qui le contient a donc le même
    traitement d'espacement qu'un <dl> voisin, et le lien lui-même reprend le
