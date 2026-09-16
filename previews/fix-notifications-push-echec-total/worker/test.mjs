@@ -304,6 +304,8 @@ if (vapidSubject("mailto:contact@example.org") !== "mailto:contact@example.org")
 if (vapidSubject("https://bemol-osr.example") !== "https://bemol-osr.example")
   fail("vapidSubject : un sujet https: ne devrait pas être modifié")
 if (vapidSubject(undefined) !== undefined)
-  fail("vapidSubject : un sujet absent doit rester absent (pas de \"mailto:undefined\")")
+  fail(
+    'vapidSubject : un sujet absent doit rester absent (pas de "mailto:undefined")',
+  )
 
 console.log("✓ vapidSubject OK")

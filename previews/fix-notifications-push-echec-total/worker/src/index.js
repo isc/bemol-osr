@@ -494,7 +494,9 @@ async function sendPush(env, key, profile, notification, vapid) {
       try {
         reason = (await res.text()).slice(0, 300)
       } catch {}
-      console.error(`push ${key} : HTTP ${res.status}${reason ? ` — ${reason}` : ""}`)
+      console.error(
+        `push ${key} : HTTP ${res.status}${reason ? ` — ${reason}` : ""}`,
+      )
       return { kind: "failed", status: res.status, reason: reason || undefined }
     }
     return { kind: "sent", status: res.status }
