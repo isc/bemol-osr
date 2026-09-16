@@ -5,7 +5,12 @@
 import { readFileSync } from "node:fs"
 import { join, dirname } from "node:path"
 import { fileURLToPath } from "node:url"
-import { filterIcs, sanitizePrefs, sanitizeFeedback } from "./src/index.js"
+import {
+  filterIcs,
+  sanitizePrefs,
+  sanitizeFeedback,
+  handleFeedback,
+} from "./src/index.js"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 const ics = readFileSync(join(root, "data", "planning.ics"), "utf8")
@@ -237,3 +242,53 @@ if (longName.name.length !== 200)
   fail("sanitizeFeedback : un nom trop long devrait être tronqué, pas rejeté")
 
 console.log("✓ sanitizeFeedback OK")
+
+// --- handleFeedback : Cloudflare KV refuse tout expirationTtl < 60 s -------
+// (le PUT lève une exception non interceptée) : une régression ici a fait
+// échouer silencieusement TOUT envoi de retour en production (issue #157,
+// FEEDBACK_RATE_LIMIT_SECONDS valait 30). Ce mock reproduit cette contrainte
+// de Cloudflare KV pour que le test rejoue vraiment le bug.
+function makeMockKv() {
+  const store = new Map()
+  return {
+    async get(key) {
+      return store.has(key) ? store.get(key) : null
+    },
+    async put(key, value, opts) {
+      const ttl = opts?.expirationTtl
+      if (ttl !== undefined && ttl < 60)
+        throw new Error(
+          `KV PUT failed: 400 Invalid expiration_ttl of ${ttl}. Expiration TTL must be at least 60.`,
+        )
+      store.set(key, value)
+    },
+  }
+}
+
+const feedbackRequest = (body) => ({
+  method: "POST",
+  headers: { get: () => "203.0.113.1" },
+  async json() {
+    return body
+  },
+})
+
+const feedbackEnv = { NOTIF_PROFILES: makeMockKv() }
+try {
+  const feedbackRes = await handleFeedback(
+    feedbackRequest({ message: "Un souci sur la Liste 12" }),
+    feedbackEnv,
+  )
+  if (feedbackRes.status !== 200)
+    fail(
+      `handleFeedback : un message valide devrait réussir (HTTP ${feedbackRes.status}) — ` +
+        "vérifier FEEDBACK_RATE_LIMIT_SECONDS (plancher de 60 s côté Cloudflare KV)",
+    )
+} catch (err) {
+  fail(
+    `handleFeedback : ne devrait jamais lever d'exception (${err.message}) — ` +
+      "vérifier FEEDBACK_RATE_LIMIT_SECONDS (plancher de 60 s côté Cloudflare KV)",
+  )
+}
+
+console.log("✓ handleFeedback OK")
