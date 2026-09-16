@@ -10,6 +10,7 @@ import {
   sanitizePrefs,
   sanitizeFeedback,
   handleFeedback,
+  vapidSubject,
 } from "./src/index.js"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
@@ -292,3 +293,19 @@ try {
 }
 
 console.log("✓ handleFeedback OK")
+
+// #158 : le `sub` du JWT VAPID doit être un URI (mailto:/https:) pour Apple —
+// erreur de config plausible (secret posé comme simple adresse e-mail) et
+// invisible sans lire le corps de la réponse (cf. sendPush).
+if (vapidSubject("contact@example.org") !== "mailto:contact@example.org")
+  fail("vapidSubject : une adresse nue devrait être préfixée de mailto:")
+if (vapidSubject("mailto:contact@example.org") !== "mailto:contact@example.org")
+  fail("vapidSubject : un sujet déjà valide ne devrait pas être modifié")
+if (vapidSubject("https://bemol-osr.example") !== "https://bemol-osr.example")
+  fail("vapidSubject : un sujet https: ne devrait pas être modifié")
+if (vapidSubject(undefined) !== undefined)
+  fail(
+    'vapidSubject : un sujet absent doit rester absent (pas de "mailto:undefined")',
+  )
+
+console.log("✓ vapidSubject OK")

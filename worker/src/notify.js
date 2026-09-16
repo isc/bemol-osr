@@ -184,21 +184,31 @@ export function buildNotificationPayload(items) {
 // (cf. runScheduled), relu par le workflow « Diagnostic notifications ».
 //
 // Ne retient QUE des comptes, jamais un endpoint ni une clé d'appareil : le
-// diagnostic les publie dans des journaux d'Actions publics.
+// diagnostic les publie dans des journaux d'Actions publics. Seule exception :
+// `reasons`, le texte d'erreur renvoyé par le service push lui-même (Apple,
+// Google…) — un message générique du protocole ("BadJwtToken"…), jamais une
+// donnée d'appareil, mais le seul moyen de distinguer une config cassée d'un
+// incident ponctuel quand tout part en 400 (cf. issue #158).
 
 // `outcomes` : un verdict par envoi tenté — "sent" (accepté par le service
 // push), "expired" (404/410, abonnement périmé, effacé du KV) ou "failed"
 // (tout le reste : HTTP non-2xx, exception de signature…). `statuses` garde le
-// détail des codes HTTP rencontrés, seul indice utile quand ça casse.
+// détail des codes HTTP rencontrés, `reasons` un exemple de texte d'erreur par
+// code — seuls indices utiles quand ça casse.
 export function summarizePushResults(outcomes) {
   const summary = { attempted: outcomes.length, sent: 0, expired: 0, failed: 0 }
   const statuses = {}
+  const reasons = {}
   for (const o of outcomes) {
     summary[o.kind] = (summary[o.kind] || 0) + 1
     const label = o.status ? String(o.status) : o.error || "exception"
     statuses[label] = (statuses[label] || 0) + 1
+    // Un seul exemple par code suffit à diagnostiquer — pas la peine de
+    // garder un doublon par abonné concerné par la même panne.
+    if (o.reason && !reasons[label]) reasons[label] = o.reason
   }
   summary.statuses = statuses
+  if (Object.keys(reasons).length) summary.reasons = reasons
   return summary
 }
 
