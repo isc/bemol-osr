@@ -1,6 +1,70 @@
 {
  "entries": [
   {
+   "at": "2026-09-16T09:32:36.476Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+     "status": "added"
+    },
+    {
+     "liste": "Concours Premier.ère Soliste des seconds violons",
+     "status": "added"
+    },
+    {
+     "liste": "Concours Premir.ère soliste des clarinettes (coordonné)",
+     "status": "removed"
+    },
+    {
+     "liste": "Concours Premir.ère Soliste des seconds violons",
+     "status": "removed"
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)"
+     ],
+     "worksRemoved": [
+      "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 1 h 52",
+       "after": "≈ 1 h 50"
+      }
+     ],
+     "worksAdded": [
+      "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\""
+     ],
+     "worksRemoved": [
+      "Georges BIZET — Carmen, suite N° 2, N° 2 Habanera"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 34",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "John WILLIAMS — Harry Potter à l'Ecole des Sorciers en concert"
+     ],
+     "worksRemoved": [
+      "John WILLIAMS — Harry Potter and the Sorcerer's Stone, movie with live orchestra"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-15T17:06:41.502Z",
    "added": [],
    "removed": [],

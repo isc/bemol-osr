@@ -1102,7 +1102,7 @@
   "duree": "≈ 37 min",
   "works": [
    {
-    "oeuvre": "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+    "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
     "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 16*.14.12.10.8",
     "remarques": "effectif à préciser avec le recrutement de l'Orchestre du Collège en début de saison",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
@@ -1153,7 +1153,7 @@
    ]
   }
  },
- "Concours Premir.ère soliste des clarinettes (coordonné)": {
+ "Concours Premier.ère soliste des clarinettes (coordonné)": {
   "chef": "Tugan SOKHIEV",
   "works": []
  },
@@ -1266,7 +1266,7 @@
  "Liste 21": {
   "chef": "Karen KAMENSEK",
   "effectif": "3.3.3.3 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
-  "duree": "≈ 1 h 52",
+  "duree": "≈ 1 h 50",
   "works": [
    {
     "oeuvre": "N.N. — Programme standard en construction",
@@ -1320,10 +1320,8 @@
     "duree": "≈ 3 min"
    },
    {
-    "oeuvre": "Georges BIZET — Carmen, suite N° 2, N° 2 Habanera",
-    "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.4.0.0 / 12.10.8.6.4",
-    "percussions": "GC, cymb fr, bsq, tri",
-    "duree": "≈ 2 min"
+    "oeuvre": "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\"",
+    "remarques": "Sans cordes"
    },
    {
     "oeuvre": "Bedrich SMETANA — La Fiancée vendue, ouverture",
@@ -1554,7 +1552,7 @@
    }
   ]
  },
- "Concours Premir.ère Soliste des seconds violons": {
+ "Concours Premier.ère Soliste des seconds violons": {
   "chef": "Tugan SOKHIEV",
   "works": []
  },
@@ -2181,7 +2179,7 @@
   "duree": "≈ 2 h 56",
   "works": [
    {
-    "oeuvre": "John WILLIAMS — Harry Potter and the Sorcerer's Stone, movie with live orchestra",
+    "oeuvre": "John WILLIAMS — Harry Potter à l'Ecole des Sorciers en concert",
     "instrumentation": "3*.3*.3*.3* / 6.3.3*.1 / 1.5.1.3 / 16.14.12.10.8",
     "remarques": "fl1&2&3+fl.alto+picc/fl1&2+fl à bec ad.lib, ob3+ca, cl2+cl.mib, cl3+cl.bs, fgt3+kfgt, 1trb.bs",
     "percussions": "GC, belltree, cymb fr, finger cym, field dr, gong, glock, hand dr, marim., crécelle, bsq, tuned\ndr, woodblk, xyl, chimes, crot, c.cl., grelots, 3 TT, 2 tri, vibra, windchimes, marktree, 3 cymb sus, szl, encl.",
