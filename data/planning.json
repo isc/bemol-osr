@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-16T13:33:48.272Z",
- "count": 620,
+ "updatedAt": "2026-09-16T18:13:41.848Z",
+ "count": 619,
  "events": [
   {
    "uid": "osr225046",
@@ -2783,17 +2783,6 @@
    "category": "concert",
    "location": "Salle Franz Liszt - CMG",
    "project": "MDC2",
-   "cancelled": false
-  },
-  {
-   "uid": "osr223641",
-   "start": "2026-12-01T09:30",
-   "end": "2026-12-01T19:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
    "cancelled": false
   },
   {
