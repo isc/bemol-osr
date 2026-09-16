@@ -398,7 +398,7 @@ async function runScheduled(env) {
   fresh.reverse() // du plus ancien au plus récent (entries est le plus récent d'abord)
 
   const vapid = {
-    subject: env.VAPID_SUBJECT,
+    subject: vapidSubject(env.VAPID_SUBJECT),
     publicKey: env.VAPID_PUBLIC_KEY,
     privateKey: env.VAPID_PRIVATE_KEY,
   }
@@ -430,6 +430,17 @@ async function runScheduled(env) {
 
   await env.NOTIF_PROFILES.put("cursor", fresh[fresh.length - 1].at)
   await recordPushStats(env, outcomes, fresh.length)
+}
+
+// RFC 8292 §2 : le `sub` du JWT VAPID doit être un URI de contact (mailto:
+// ou https:), sans quoi Apple/Google rejettent l'envoi en 400 — une erreur de
+// configuration facile à faire (coller juste l'adresse e-mail) et impossible
+// à distinguer d'une autre cause de 400 sans lire le corps de la réponse
+// (cf. sendPush ci-dessous). On normalise donc plutôt que de partir d'une
+// hypothèse non vérifiable sur le contenu du secret.
+export function vapidSubject(subject) {
+  if (!subject || /^(mailto:|https?:)/i.test(subject)) return subject
+  return `mailto:${subject}`
 }
 
 // Trace du dernier cycle ayant réellement tenté des envois, plus un cumul
@@ -475,8 +486,16 @@ async function sendPush(env, key, profile, notification, vapid) {
       return { kind: "expired", status: res.status }
     }
     if (!res.ok) {
-      console.error(`push ${key} : HTTP ${res.status}`)
-      return { kind: "failed", status: res.status }
+      // Le corps de la réponse (texte générique du service push, jamais de
+      // donnée d'appareil) est le seul moyen de distinguer un vrai incident
+      // ponctuel d'une config cassée (VAPID invalide, sujet mal formé…) —
+      // sans lui, `400` seul ne dit pas pourquoi (cf. issue #158).
+      let reason = ""
+      try {
+        reason = (await res.text()).slice(0, 300)
+      } catch {}
+      console.error(`push ${key} : HTTP ${res.status}${reason ? ` — ${reason}` : ""}`)
+      return { kind: "failed", status: res.status, reason: reason || undefined }
     }
     return { kind: "sent", status: res.status }
   } catch (err) {
