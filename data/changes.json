@@ -1,6 +1,517 @@
 {
  "entries": [
   {
+   "at": "2026-09-17T18:19:45.685Z",
+   "added": [
+    {
+     "uid": "osr245658",
+     "start": "2026-09-17T09:30",
+     "end": "2026-09-17T15:30",
+     "liste": "audiogrammes période 2",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245661",
+     "start": "2026-10-01T09:30",
+     "end": "2026-10-01T15:30",
+     "liste": "audiogrammes période 3",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245662",
+     "start": "2026-10-22T09:30",
+     "end": "2026-10-22T15:30",
+     "liste": "audiogrammes période 3",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245664",
+     "start": "2026-10-29T09:30",
+     "end": "2026-10-29T15:30",
+     "liste": "audiogrammes période 4",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245691",
+     "start": "2026-11-02T10:00",
+     "end": "2026-11-02T19:30",
+     "liste": "Concours Violoncelle Tuttiste",
+     "activity": "2 postes - concours (Violoncelle tuttiste - 2 postes)",
+     "category": "concours",
+     "location": "Victoria Hall de Genève",
+     "project": "2 postes) -",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245663",
+     "start": "2026-11-19T09:30",
+     "end": "2026-11-19T15:30",
+     "liste": "audiogrammes période 4",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245672",
+     "start": "2026-12-03T09:30",
+     "end": "2026-12-03T15:30",
+     "liste": "audiogrammes période 5",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245671",
+     "start": "2026-12-10T09:30",
+     "end": "2026-12-10T15:30",
+     "liste": "audiogrammes période 5",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245670",
+     "start": "2026-12-17T09:30",
+     "end": "2026-12-17T15:30",
+     "liste": "audiogrammes période 5",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245674",
+     "start": "2027-01-14T09:30",
+     "end": "2027-01-14T15:30",
+     "liste": "audiogrammes période 6",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245676",
+     "start": "2027-01-21T09:30",
+     "end": "2027-01-21T15:30",
+     "liste": "audiogrammes période 7",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr245675",
+     "start": "2027-02-04T09:30",
+     "end": "2027-02-04T15:30",
+     "liste": "audiogrammes période 7",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr223649",
+     "start": "2026-10-01T09:30",
+     "end": "2026-10-01T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223643",
+     "start": "2026-10-22T09:30",
+     "end": "2026-10-22T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223651",
+     "start": "2026-10-29T09:30",
+     "end": "2026-10-29T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr133234",
+     "start": "2026-11-05T16:30",
+     "end": "2026-11-05T18:30",
+     "liste": "Accueil Berner Symphonieorchester",
+     "activity": "générale non publique",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr133235",
+     "start": "2026-11-05T19:30",
+     "end": "2026-11-05T21:30",
+     "liste": "Accueil Berner Symphonieorchester",
+     "activity": "concert",
+     "category": "concert",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229807",
+     "start": "2026-11-06T08:45",
+     "end": "2026-11-06T10:45",
+     "liste": "Liste 12",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128604",
+     "start": "2026-11-16T18:45",
+     "end": "2026-11-16T19:00",
+     "liste": "Liste 16",
+     "activity": "raccord choeur seul (sans orch,)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "MOTET",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128606",
+     "start": "2026-11-17T19:00",
+     "end": "2026-11-17T19:30",
+     "liste": "Liste 16",
+     "activity": "raccord choeur seul (sans orch.)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "MOTET",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128608",
+     "start": "2026-11-18T19:00",
+     "end": "2026-11-18T19:30",
+     "liste": "Liste 16",
+     "activity": "raccord choeur seul (sans orch.)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "MOTET",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223648",
+     "start": "2026-11-19T09:30",
+     "end": "2026-11-19T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128609",
+     "start": "2026-11-19T19:00",
+     "end": "2026-11-19T19:30",
+     "liste": "Liste 16",
+     "activity": "raccord choeur seul (sans orch.)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "MOTET",
+     "cancelled": false
+    },
+    {
+     "uid": "osr224683",
+     "start": "2026-11-21T13:00",
+     "end": "2026-11-21T23:45",
+     "liste": "Résa VH 2627",
+     "activity": "Réservation (MIGROS)",
+     "category": "resa",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": true
+    },
+    {
+     "uid": "osr223644",
+     "start": "2026-12-03T09:30",
+     "end": "2026-12-03T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223650",
+     "start": "2026-12-10T09:30",
+     "end": "2026-12-10T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223652",
+     "start": "2026-12-17T09:30",
+     "end": "2026-12-17T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223647",
+     "start": "2027-01-14T09:30",
+     "end": "2027-01-14T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223645",
+     "start": "2027-01-21T09:30",
+     "end": "2027-01-21T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr223646",
+     "start": "2027-02-04T09:30",
+     "end": "2027-02-04T15:30",
+     "liste": "audiogrammes",
+     "activity": "audiogrammes",
+     "category": "autre",
+     "location": "HUG",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr176073",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176073",
+      "start": "2026-11-06T09:00",
+      "end": "2026-11-06T11:00",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD3.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176073",
+      "start": "2026-11-06T09:00",
+      "end": "2026-11-06T11:00",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD3.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176074",
+     "fields": [
+      "start",
+      "end",
+      "location"
+     ],
+     "before": {
+      "uid": "osr176074",
+      "start": "2026-11-06T13:30",
+      "end": "2026-11-06T15:30",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD3.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176074",
+      "start": "2026-11-06T13:45",
+      "end": "2026-11-06T15:45",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD3.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196354",
+     "fields": [
+      "start",
+      "end",
+      "location"
+     ],
+     "before": {
+      "uid": "osr196354",
+      "start": "2026-11-09T09:00",
+      "end": "2026-11-09T11:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196354",
+      "start": "2026-11-09T10:00",
+      "end": "2026-11-09T12:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196355",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196355",
+      "start": "2026-11-10T09:00",
+      "end": "2026-11-10T11:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD4.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196355",
+      "start": "2026-11-10T09:00",
+      "end": "2026-11-10T11:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD4.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132888",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132888",
+      "start": "2026-11-11T19:00",
+      "end": "2026-11-11T20:00",
+      "liste": "Liste 14",
+      "activity": "concert (Finale 1)",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132888",
+      "start": "2026-11-11T19:00",
+      "end": "2026-11-11T21:00",
+      "liste": "Liste 14",
+      "activity": "concert (Finale 1)",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162177",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr162177",
+      "start": "2026-11-20T15:30",
+      "end": "2026-11-20T17:30",
+      "liste": "Concerts pour Petites Oreilles 1",
+      "activity": "répétition hors contrat",
+      "category": "repetition",
+      "location": "Institut Jaques-Dalcroze",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162177",
+      "start": "2026-11-20T15:30",
+      "end": "2026-11-20T17:00",
+      "liste": "Concerts pour Petites Oreilles 1",
+      "activity": "répétition hors contrat",
+      "category": "repetition",
+      "location": "Institut Jaques-Dalcroze",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-17T13:34:29.259Z",
    "added": [],
    "removed": [
