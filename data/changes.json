@@ -1,6 +1,148 @@
 {
  "entries": [
   {
+   "at": "2026-09-17T09:39:58.742Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
+       "fields": [
+        "note"
+       ]
+      },
+      {
+       "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 2 op. 1b",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 10",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 9 en ré mineur op. 125 'avec un chœur final sur l'Ode à la joie de Schiller'",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 11",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Marc SHAIMAN — The Addams Family in Concert",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.3.3.3 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
+       "after": "3.3.3.4 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (73 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — La Forza del Destino, Ouverture",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      },
+      {
+       "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      },
+      {
+       "oeuvre": "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\"",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      },
+      {
+       "oeuvre": "Bedrich SMETANA — La Fiancée vendue, ouverture",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 31",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 1 h 59",
+       "after": "≈ 2 h 24"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste E",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "Antonino FOGLIANI",
+       "after": "N.N."
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-16T18:13:41.848Z",
    "added": [],
    "removed": [

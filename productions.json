@@ -1,5 +1,5 @@
 {
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]) et « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu). Les clés commençant par « _ » sont ignorées par l'app.",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
  "Liste 01": {
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens)",
@@ -49,6 +49,10 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr224803": "captation audio d'archives pour la cheffe",
+   "osr224807": "-pas de captation radio"
   }
  },
  "Liste 02": {
@@ -81,6 +85,10 @@
    "osr128425": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr128421": "en cas de générale / balance incomplète",
+   "osr128425": "-réception sur invitation (25) / Genève Aéroport / 20h15-21h15"
   }
  },
  "Liste 03": {
@@ -106,6 +114,9 @@
    "osr229406": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr229406": "travail chef+Kennedy avec piano électrique"
   }
  },
  "Liste 04": {
@@ -210,6 +221,33 @@
    "osr132667": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr132647": "orchestre seul",
+   "osr132648": "orchestre seul",
+   "osr210774": "Pelléas - Golaud",
+   "osr210775": "Mélisande - Golaud",
+   "osr132650": "orchestre seul",
+   "osr132651": "Pelléas - Golaud act.III - sc.2 (4') + act.III-sc.3 (5') + act.III-sc.1 (2')",
+   "osr132652": "orchestre seul",
+   "osr132653": "Golaud - Mélisande act.I-sc.1 (13')",
+   "osr132654": "Golaud - Mélisande act.II-sc.2 (13')",
+   "osr161270": "Golaud - Arkel - Mélisande - Yniold - Berger",
+   "osr210778": "Arkel - Docteur - Golaud - Mélisande",
+   "osr132659": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
+   "osr132660": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
+   "osr132657": "Golaud - Arkel - Mélisande act.IV-sc.2 (17')",
+   "osr132658": "Golaud - Yniold act.III-sc.4 (10')",
+   "osr161271": "Geneviève - Pelléas - Mélisande",
+   "osr210779": "Pelléas - Mélisande",
+   "osr210780": "Pelléas - Mélisande",
+   "osr132661": "Geneviève - Pelléas act.I-sc.2",
+   "osr132662": "Geneviève - Mélisande - Pelléas - choeur act.I-sc.3 (7')",
+   "osr132663": "Mélisande - Pelléas act.III-sc.1 (14')",
+   "osr132664": "Pelléas / Mélisande act.II-sc.1 (10')",
+   "osr132665": "Pelléas - Mélisande act.IV-sc.4 (15')",
+   "osr132666": "Pelléas - Mélisande",
+   "osr132667": "Pelléas - Mélisande"
   }
  },
  "Cérémonie d'Accueil des Nouveaux Habitants": {
@@ -401,6 +439,19 @@
    "osr133275": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr133255": "suivi de présentation à l'OSR de la saison GT par Alain Perroux",
+   "osr133256": "sans orchestre de scène",
+   "osr133257": "sans orchestre de scène",
+   "osr133258": "sans orchestre de scène",
+   "osr133259": "uniquement pour l'orchestre de scène",
+   "osr133261": "2 orchestres",
+   "osr133262": "uniquement petit orchestre",
+   "osr133268": "ATTENTION : 19h !!",
+   "osr133269": "ATTENTION 19h !!",
+   "osr133273": "essai micros Espace 2",
+   "osr133274": "captation Espace 2"
   }
  },
  "Liste 06": {
@@ -421,6 +472,9 @@
    "osr132719": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr132719": "-Blocage salle : configuration type Chaplin - avec régie son en loge 18 et régie vidéo au"
   }
  },
  "Liste 07": {
@@ -441,6 +495,7 @@
     "instrumentation": "2*.2.2.3* / 4.2.3.1 / 1.4.1.0 / 12.10.8.6.4",
     "remarques": "fl2+picc, 1kfgt ad.lib",
     "percussions": "GC, cymb fr, c.cl., tri",
+    "note": "\nextraits pour tous les concerts : mvts 1 et 7 (dans cet ordre) - les autres mvts ne sont pas joués",
     "duree": "≈ 4 min"
    },
    {
@@ -448,6 +503,7 @@
     "instrumentation": "2*.2.2.2 / 4.2.3.1 / 1.5.1.0 / 12.10.8.6.4",
     "remarques": "fl2+picc",
     "percussions": "GC, cymb fr, glock, xyl, chimes, c.cl., tri, bsq",
+    "note": "\nextraits pour tous les concerts : mvts 2>3>6 (dans cet ordre) - les autres mvts ne sont pas joués",
     "duree": "≈ 8 min"
    }
   ],
@@ -497,6 +553,17 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132731": "avec vidéo",
+   "osr132732": "avec vidéo et présentateur",
+   "osr132733": "-plateau libéré avant 13h pour journées portes ouvertes Victoria Hall",
+   "osr132734": "avec vidéo et présentateur",
+   "osr132736": "cycle d'orientation et ESII",
+   "osr132737": "primaire",
+   "osr132738": "cycle d'orientation et ESII",
+   "osr132739": "9h15 : primaire",
+   "osr132740": "primaire"
   }
  },
  "Musique De Chambre 1": {
@@ -570,15 +637,23 @@
    "Marianne CREBASSA, mezzo-soprano"
   ],
   "serviceWorks": {
+   "osr132751": [
+    3
+   ],
+   "osr132752": [
+    3
+   ],
    "osr132753": [
-    1
+    1,
+    3
    ],
    "osr132754": [
     2
    ],
    "osr132755": [
     1,
-    2
+    2,
+    3
    ],
    "osr132756": [
     1,
@@ -590,6 +665,13 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132752": "visite de classes",
+   "osr132753": "visite de classes",
+   "osr132755": "-essai micros",
+   "osr132756": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
+   "osr132759": "Prélude Amis 19h Le Poulailler"
   }
  },
  "Liste 09": {
@@ -631,6 +713,9 @@
    "Lionel COTTET, violoncelle"
   ],
   "serviceWorks": {
+   "osr132769": [
+    4
+   ],
    "osr137820": [
     1,
     3,
@@ -640,6 +725,9 @@
     2,
     1,
     3
+   ],
+   "osr132772": [
+    4
    ],
    "osr132774": [
     1,
@@ -653,6 +741,12 @@
     3,
     4
    ]
+  },
+  "serviceNotes": {
+   "osr132769": "visite de classes",
+   "osr137820": "visite de classes",
+   "osr132774": "différé Espace 2 le 28 octobre 26",
+   "osr132776": "arrivée place Neuve estimée à 23h50"
   }
  },
  "Liste B": {
@@ -710,6 +804,12 @@
    "osr133291": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr133277": "tutti y compris 7 musiciens de la production",
+   "osr133278": "présence de 2 observateurs assis dans l'orchestre (lots Amis) : M.Hikmat Maleh (GP)",
+   "osr133281": "1h30 balance orchestre puis orchestre + cast suivi de s+o/balance",
+   "osr133282": "essai micro"
   }
  },
  "Liste 10": {
@@ -723,6 +823,7 @@
     "remarques": "ok chef - en attente confirmation HEM",
     "percussions": "GC, cymb fr, tri",
     "detail": "15.09.21GC : Trombone alto en 19-20 liste 25 + en 06-07 liste 10",
+    "note": "\nchoeur : 9.9.9.9",
     "duree": "≈ 1 h 05"
    }
   ],
@@ -761,6 +862,11 @@
    "osr132809": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr225315": "avec pianiste HEM",
+   "osr132805": "avec le choeur pour la 1ère heure",
+   "osr132808": "-réception ONU après concert sur invitation / cercles des Bains."
   }
  },
  "Liste 11": {
@@ -774,7 +880,6 @@
     "remarques": "fl3+picc, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs, S&S grand",
     "percussions": "anvil, GC, belltree, cymb fr, cymb.chin., field dr, gong, glock, marim., crécelle, c.cl.,\nslapstick, woodblk, xyl, chimes, congas, guiro, hi-hat, shaker, TT, tmplblk, tri, vibra, fouet, marktree, cabasa,\ncymb sus, boobam, szl, washboard, songbells, bsq, drumset, key tree",
     "claviers": "synthétiseur (partie exposée et délicate - OSR=clavier midi 88 touches + pedal sustain,",
-    "note": "\n1ère partie 58'\n2ème partie 44'\nlampe pupitres tutti\norchestre à plat",
     "duree": "≈ 1 h 42"
    }
   ],
@@ -785,6 +890,9 @@
    "osr132832": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr132833": "-démontage express à l'issue"
   }
  },
  "Liste 12": {
@@ -822,7 +930,15 @@
     1,
     2,
     3
+   ],
+   "osr132855": [
+    3
    ]
+  },
+  "serviceNotes": {
+   "osr132852": "Prélude Amis 19h Le Poulailler",
+   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
+   "osr132855": "-réception Mme Françoise Demole sur invit. en construction."
   }
  },
  "Accueil Berner Symphonieorchester": {
@@ -852,6 +968,9 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr133235": "démontage à l'issue"
   }
  },
  "Liste 13": {
@@ -897,6 +1016,10 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132871": "SERVICE EN PUBLIC PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes",
+   "osr132872": "SERVICE EN PUBLIC PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
   }
  },
  "Liste 14": {
@@ -1018,6 +1141,10 @@
    "osr132906": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr128610": "-pas de captation radio",
+   "osr132906": "-réception Mme Françoise Demole & Migros Genève sur invit. en construction."
   }
  },
  "Concerts pour Petites Oreilles 1": {
@@ -1094,6 +1221,11 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr132922": "-ouverture au public du podium choeur en construction",
+   "osr132923": "-ouverture au public du podium choeur en construction",
+   "osr132925": "-ouverture au public du podium choeur en construction"
   }
  },
  "Liste 18": {
@@ -1108,6 +1240,7 @@
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
     "detail": "Bugle peut être joué par trp 1, 2 ou 3",
+    "note": "\ncoupure : n°7 L'Homme entre deux âges et ses deux maîtresses",
     "duree": "≈ 37 min"
    }
   ],
@@ -1121,6 +1254,10 @@
    "osr132934": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr206164": "service payé",
+   "osr132934": "-réception Mme Françoise Demole. en construction."
   }
  },
  "Musique De Chambre 2": {
@@ -1151,6 +1288,9 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr132185": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
@@ -1235,6 +1375,10 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132947": "-ouverture au public du podium choeur en construction",
+   "osr132948": "-ouverture au public du podium choeur en construction"
   }
  },
  "Liste 20": {
@@ -1265,7 +1409,7 @@
  },
  "Liste 21": {
   "chef": "Karen KAMENSEK",
-  "effectif": "3.3.3.3 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
+  "effectif": "3.3.3.4 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (73 musiciens)",
   "duree": "≈ 1 h 50",
   "works": [
    {
@@ -1277,9 +1421,9 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — La Forza del Destino, Ouverture",
-    "instrumentation": "2*.2.2.2 / 4.2.3.1* / 1.1.2*.0 / 0.0.0.0.0",
+    "instrumentation": "2*.2.2.2 / 4.2.3.1* / 1.2.2.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
-    "percussions": "GC+cym",
+    "percussions": "GC, cymb fr",
     "detail": "OLIS: Edition contains at least 90 mistakes.",
     "duree": "≈ 8 min"
    },
@@ -1291,7 +1435,9 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+    "instrumentation": "3*.2.2.4 / 4.4*.4*.0 / 1.3.2.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, c.cl.",
     "duree": "≈ 6 min"
    },
    {
@@ -1321,11 +1467,13 @@
    },
    {
     "oeuvre": "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\"",
-    "remarques": "Sans cordes"
+    "instrumentation": "2.2.2.2 / 4.2.0.0 / 1.2.0.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "tri, bsq"
    },
    {
     "oeuvre": "Bedrich SMETANA — La Fiancée vendue, ouverture",
-    "instrumentation": "3*.2.2.2 / 4.2.3.0 / 1.0.0.0 / 0.0.0.0.0",
+    "instrumentation": "3*.2.2.2 / 4.2.3*.0 / 1.0.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "duree": "≈ 7 min"
    },
@@ -1493,6 +1641,10 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr132991": "-réception sur invitations 19h/ Mme Lescure / Stand des Amis VH",
+   "osr132992": "-Dîner après concert Fondation Arditi avec artistes sur invit. en construction."
   }
  },
  "Liste 24": {
@@ -1538,6 +1690,9 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr133007": "démontage express pour OCG"
   }
  },
  "Liste 24b": {
@@ -1666,6 +1821,10 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr133022": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
+   "osr133025": "Prélude Amis 19h Le Poulailler"
   }
  },
  "Liste 26": {
@@ -1685,7 +1844,7 @@
   "works": []
  },
  "Liste E": {
-  "chef": "Antonino FOGLIANI",
+  "chef": "N.N.",
   "effectif": "2.2.2.2 / 4.2.3.0 / 1.5.2.1 / 12.10.8.6.5 (67 musiciens)",
   "duree": "≈ 2 h 45",
   "works": [
@@ -1731,6 +1890,9 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132189": "-réception Fondation Etrillard. en construction."
   }
  },
  "Liste 27": {
@@ -1765,6 +1927,10 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr132568": "-amplitude 8h < 9 = 2 sces",
+   "osr132571": "-avec nuit et retour avant 13h = 3 sces"
   }
  },
  "Liste 27b": {
@@ -1810,6 +1976,9 @@
    "osr162242": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr162238": "horaires en construction"
   }
  },
  "Doudou Concert 3": {
@@ -1861,9 +2030,15 @@
     2,
     1
    ],
+   "osr133048": [
+    3
+   ],
    "osr133049": [
     2,
     1
+   ],
+   "osr133050": [
+    3
    ],
    "osr133052": [
     1,
@@ -1875,6 +2050,11 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr133047": "montage lourd le matin",
+   "osr133052": "-réception Mme Aline Foriel-Destezet sur invit. en construction.",
+   "osr133053": "-réception Mme Aline Foriel-Destezet sur invit. en construction."
   }
  },
  "Liste 28b": {
@@ -1963,6 +2143,11 @@
    "osr133374": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr133368": "filage",
+   "osr133372": "démontage fosse à l'issue",
+   "osr133374": "démontage fosse à l'issue"
   }
  },
  "Musique De Chambre 5": {
@@ -2049,6 +2234,10 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr133084": "Prélude Amis 19h Le Poulailler",
+   "osr133085": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur"
   }
  },
  "Concours Deuxième violon solo (coordonné)": {
@@ -2058,7 +2247,7 @@
  "Liste 31": {
   "chef": "Tugan SOKHIEV",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 (82 musiciens)",
-  "duree": "≈ 1 h 59",
+  "duree": "≈ 2 h 24",
   "works": [
    {
     "oeuvre": "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30",
@@ -2092,6 +2281,11 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr133101": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
+   "osr133102": "-réception SIG sur invit. 18h30 / foyer VH",
+   "osr133105": "-amplitude < 9h = 2 sces"
   }
  },
  "Liste 32": {
@@ -2138,13 +2332,15 @@
   ],
   "serviceWorks": {
    "osr132301": [
-    1
-   ],
-   "osr132302": [
+    1,
     4
    ],
-   "osr132303": [
+   "osr132302": [
     4,
+    3
+   ],
+   "osr132303": [
+    3,
     1
    ],
    "osr132304": [
@@ -2154,6 +2350,7 @@
    "osr132305": [
     1,
     2,
+    3,
     4
    ],
    "osr132306": [
@@ -2163,7 +2360,7 @@
     4
    ],
    "osr173588": [
-    4
+    3
    ],
    "osr132307": [
     1,
@@ -2171,6 +2368,15 @@
     3,
     4
    ]
+  },
+  "serviceNotes": {
+   "osr132301": "-D'un soir triste puis Daphnis avant la pause",
+   "osr132302": "visite de classes",
+   "osr132303": "visite de classes",
+   "osr132304": "Boulanger : dernière heure",
+   "osr132306": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
+   "osr173588": "programme masterclass validé avec le chef : Jeux",
+   "osr132307": "-réception Arab Bank sur invit. / foyer public. en construction."
   }
  },
  "Liste 34": {
@@ -2200,6 +2406,10 @@
    "osr133130": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr133129": "OPTION",
+   "osr133130": "OPTION"
   }
  },
  "Liste 35": {
@@ -2228,6 +2438,9 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr133155": "Prélude Amis 19h Le Poulailler"
   }
  },
  "Liste 36": {
@@ -2273,6 +2486,9 @@
     1,
     2
    ]
+  },
+  "serviceNotes": {
+   "osr133167": "-réception Mme Françoise Demole sur invit. en construction."
   }
  },
  "Musique De Chambre 6": {
@@ -2296,6 +2512,9 @@
    "osr132191": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr132191": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
  "Concerts pour Petites Oreilles 4": {
@@ -2428,6 +2647,9 @@
    "osr128847": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr128847": "démontage à l'issue"
   }
  },
  "Liste 41": {
@@ -2492,6 +2714,10 @@
     3,
     4
    ]
+  },
+  "serviceNotes": {
+   "osr162257": "concert confirmé",
+   "osr230030": "concert confirmé (petite formation)"
   }
  }
 }
