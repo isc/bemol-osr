@@ -1,6 +1,178 @@
 {
  "entries": [
   {
+   "at": "2026-09-17T13:34:29.259Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr169656",
+     "start": "2026-10-29T08:00",
+     "end": "2026-10-29T19:00",
+     "liste": "Liste 11",
+     "activity": "Technique (sans orchestre)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132846",
+     "start": "2026-11-03T19:30",
+     "end": "2026-11-03T22:00",
+     "liste": "Liste 12",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr176070",
+     "fields": [
+      "start",
+      "end",
+      "location"
+     ],
+     "before": {
+      "uid": "osr176070",
+      "start": "2026-10-26T13:30",
+      "end": "2026-10-26T15:30",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD2.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176070",
+      "start": "2026-10-26T13:15",
+      "end": "2026-10-26T15:15",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD2.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176068",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176068",
+      "start": "2026-10-27T09:00",
+      "end": "2026-10-27T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD2.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176068",
+      "start": "2026-10-27T09:00",
+      "end": "2026-10-27T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD2.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176069",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176069",
+      "start": "2026-10-27T13:30",
+      "end": "2026-10-27T15:30",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD2.3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176069",
+      "start": "2026-10-27T13:30",
+      "end": "2026-10-27T15:30",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD2.3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176071",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176071",
+      "start": "2026-10-28T09:00",
+      "end": "2026-10-28T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (st. A, B & P)",
+      "project": "AD2.4",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176071",
+      "start": "2026-10-28T09:00",
+      "end": "2026-10-28T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "UM - Salle Marie LAGGÉ (+ st. A, B & P)",
+      "project": "AD2.4",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132845",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132845",
+      "start": "2026-11-03T15:00",
+      "end": "2026-11-03T17:30",
+      "liste": "Liste 12",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132845",
+      "start": "2026-11-03T15:00",
+      "end": "2026-11-03T19:00",
+      "liste": "Liste 12",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-17T09:39:58.742Z",
    "type": "memo",
    "programs": [
