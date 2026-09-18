@@ -1,6 +1,636 @@
 {
  "entries": [
   {
+   "at": "2026-09-18T09:13:20.003Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Accueil Berner Symphonieorchester",
+     "status": "removed"
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 1",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Michel WESTPHAL, clarinette · Catherine PÉPIN-WESTPHAL, basson · Yin SHEN, violon · Ivy WONG, contrebasse · Didier PUNTOS, piano · Louise CALAME, récitant",
+       "after": ""
+      }
+     ],
+     "worksAdded": [
+      "Guy BOVET — "
+     ],
+     "worksRemoved": [
+      "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Clément CHARPENTIER-LEROY, cor · Giuliano SOMMERHALDER, trompette · Antoine PITTET, trompette · Alexandre FAURE, trombone · Ross KNIGHT, tuba · Thomas DIEBOLD, récitant",
+       "after": ""
+      }
+     ],
+     "worksAdded": [
+      "Pascal RENOU — "
+     ],
+     "worksRemoved": [
+      "Pascal RENOU — Pilou le plantigrade, conte musical pour quintette de cuivres"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 3",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Sarah RUMER, flûte (20 mars) · Loïc SCHNEIDER, flûte (21 mars) · Simon SOMMERHALDER, hautbois (20 mars) · Nora CISMONDI, hautbois (21 mars) · Benoît WILLMANN, clarinette (20 mars) · Camillo BATTISTELLO, clarinette (21 mars) · Luis MARQUEZ TERUEL, basson (20 mars) · Vincent GODEL, basson (21 mars) · Clément CHARPENTIER-LEROY, cor (20 et 21 mars) · Marion FONTANA, récitant (20 et 21 mars)",
+       "after": ""
+      }
+     ],
+     "worksAdded": [
+      "Serge PROKOFIEV — "
+     ],
+     "worksRemoved": [
+      "Serge PROKOFIEV — Pierre et le loup, arrangement pour quintette à vent de Joachim Linckelmann"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 4",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Guillaume JACOT, violon · Luca CASCIATO, alto · Jean-Noël GOS, guitare · Michael TSCHAMPER, percussion",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [
+      "Sans les mains, pour petit ensemble et récitant"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Doudou Concert 1",
+     "status": "removed"
+    },
+    {
+     "liste": "Doudou Concert 2",
+     "status": "removed"
+    },
+    {
+     "liste": "Doudou Concert 3",
+     "status": "removed"
+    },
+    {
+     "liste": "Liste 01",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Valentine MICHAUD, saxophone alto",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 03",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "KENNEDY, solo voice · Matti KLEIN, keyboard · Christian VON KAPHENGST, bass [guit.] · Guido JÖRIS, drums",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 04",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Bernard RICHTER, ténor (Pelléas) · Jenny DAVIET, soprano (Mélisande) · Jérôme BOUTILLIER, baryton (Golaud) · Nicolas TESTÉ, basse (Arkel) · Lucile RICHARDOT, mezzo-soprano (Geneviève) · Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold) · Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin) · Chœur du Grand Théâtre de Genève, chœur · Mark BIGGINS, chef·fe de choeur",
+       "after": "Chœur du Grand Théâtre de Genève, chœur"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 06",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Cyrille AUFORT — Laurel et Hardy",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 08",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Marianne CREBASSA, mezzo-soprano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Anu KOMSI, soprano · Lionel COTTET, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 11",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Marc SHAIMAN — The Addams Family in Concert",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 13",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "6 demi-finalistes du Concours",
+       "after": "Alejandro CANTALAPIEDRA"
+      },
+      {
+       "field": "solistes",
+       "before": "Kevin CHEN, piano · Michiaki UENO, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
+       "fields": [
+        "duree"
+       ]
+      },
+      {
+       "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
+       "fields": [
+        "duree"
+       ]
+      },
+      {
+       "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
+       "fields": [
+        "duree"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "Finaliste 1 du concours",
+       "after": "Alejandro CANTALAPIEDRA"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 2 h 17",
+       "after": "≈ 1 h 55"
+      }
+     ],
+     "worksAdded": [
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 6 Scène du balcon",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette"
+     ],
+     "worksRemoved": [
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Maria Jose SIRI, soprano (tous les concerts) · Le Motet de Genève, chœur (et tutti solistes le 19 nov.)",
+       "after": "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Joan MOMPART, récitant",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Patricia KOPATCHINSKAJA, violon",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Matt DUSK, jazz vocalist · NN1, choriste gospel soprano · NN2, choriste gospel soprano · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor",
+       "after": "NN1, choriste gospel soprano · NN2, choriste gospel soprano · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Juliana GRIGORYAN, soprano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Georges BIZET — Carmen, Suite N° 1, N° 1 Prélude [avec l'Aragonaise]",
+       "fields": [
+        "instrumentation",
+        "percussions"
+       ]
+      },
+      {
+       "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
+       "fields": [
+        "instrumentation"
+       ]
+      },
+      {
+       "oeuvre": "Jules MASSENET — Le Cid, suite de ballet, N° 1 Castillane",
+       "fields": [
+        "instrumentation",
+        "percussions",
+        "detail"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 23",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Janine JANSEN, violon",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 24",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "NN1, récitant",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 25",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Alexandra CONUNOVA, violon",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 27",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Mao FUJITA, piano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Fleur BARRON, mezzo-soprano · Andrew STAPLES, ténor · Jean-Sébastien BOU, baryton",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 29",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Lyam CHENAUX, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 30",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Michiaki UENO, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 31",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Yefim BRONFMAN, piano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 32",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Beatrice RANA, piano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 35",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Vilde FRANG, violon",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 37",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Anne-Claire REY-BELLET, récitant (récit et animation)",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 38",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Lim YUNCHAN, piano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste F",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Dimitris SKYLLAS, piano · ALKANNA GRAECA, 3 voix féminines grecques",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 1",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Simon SOMMERHALDER, hautbois · Clément CHARPENTIER-LEROY, cor · Agnès CHOPIN, cor · Yin SHEN, violon · Yuwen ZHU, violon · Marco NIRTA, alto · Gabriel ESTEBAN, violoncelle · Ivy WONG, contrebasse",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Caroline BAERISWYL, violon 1 · Yumi KUBO, violon 2 · Verena SCHWEIZER, alto · Yao JIN, violoncelle · Meglena TZANEVA DUPRAZ, piano",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 3",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Roman FILIPOV, violon 1 · Sidonie BOUGAMONT, violon 2 · Elçim ÖZDEMIR, alto · Frédéric KIRCH, alto · Lionel COTTET, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 4",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Cristian ZIMMERMAN, violon 1 · Guillaume JACOT, violon 2 · Luca CASCIATO, alto · Lucas HENRY, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 5",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Sarah RUMER, flûte · Jona VENTURI, flûte · Audrey VIGOUREUX, piano · Yumiko AWANO, violon 1 · Eleonora RYNDINA, violon 2 · Theresa HOŘEJŠÍ, alto · Léonard FREY-MAIBACH, violoncelle",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 6",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Alexandre FAURE, trombone · Matteo DE LUCA, trombone · Vincent MÉTRAILLER, trombone · Andrea BANDINI, trombone · Ross KNIGHT, tuba",
+       "after": ""
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [
+      "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams ... [saison 2627]"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-17T18:19:45.685Z",
    "added": [
     {

@@ -28,9 +28,6 @@
     "duree": "≈ 40 min"
    }
   ],
-  "solistes": [
-   "Valentine MICHAUD, saxophone alto"
-  ],
   "serviceWorks": {
    "osr225046": [
     3
@@ -104,12 +101,6 @@
     "duree": "≈ 1 h 30"
    }
   ],
-  "solistes": [
-   "KENNEDY, solo voice",
-   "Matti KLEIN, keyboard",
-   "Christian VON KAPHENGST, bass [guit.]",
-   "Guido JÖRIS, drums"
-  ],
   "serviceWorks": {
    "osr229406": [
     1
@@ -135,15 +126,7 @@
    }
   ],
   "solistes": [
-   "Bernard RICHTER, ténor (Pelléas)",
-   "Jenny DAVIET, soprano (Mélisande)",
-   "Jérôme BOUTILLIER, baryton (Golaud)",
-   "Nicolas TESTÉ, basse (Arkel)",
-   "Lucile RICHARDOT, mezzo-soprano (Geneviève)",
-   "Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold)",
-   "Edwin CROSSLEY-MERCER, basse (Un berger / Un médecin)",
-   "Chœur du Grand Théâtre de Genève, chœur",
-   "Mark BIGGINS, chef·fe de choeur"
+   "Chœur du Grand Théâtre de Genève, chœur"
   ],
   "serviceWorks": {
    "osr132647": [
@@ -461,8 +444,8 @@
   "works": [
    {
     "oeuvre": "Cyrille AUFORT — Laurel et Hardy",
-    "instrumentation": "1*.1*.1.1 / 1.1.1.0 / 1.1*.1.0 / 6.5.4.3.2",
-    "remarques": "fl+fl.al+picc, ob1+ca, le percussioniste dispose d'un moniteur vidéo pour synchroniser certains\neffets",
+    "instrumentation": "1*.1*.1.1 / 1.1.1*.0 / 1.1*.1.0 / 6.5.4.3.2",
+    "remarques": "fl+fl.al+picc, ob1+ca, trb ténor basse, le percussioniste dispose d'un moniteur vidéo pour\nsynchroniser certains effets",
     "percussions": "GC, claves, glock, marim., whistle, xyl, bongos, c.cl., tri, vibra, cloche, cymb sus, bsq,\ngrelots",
     "detail": "Musique originale (2023) pour petit orchestre pour accompagner 3 films de Laurel et Hardy :\n-Oeil pour oeil (1929) de Leo McCarey\n-Vive la liberté (1929) de Leo McCarey\n-La bataille du siècle (1927) de Clyde Bruckman",
     "duree": "≈ 1 h 05"
@@ -586,16 +569,6 @@
     "duree": "≈ 26 min"
    }
   ],
-  "solistes": [
-   "Simon SOMMERHALDER, hautbois",
-   "Clément CHARPENTIER-LEROY, cor",
-   "Agnès CHOPIN, cor",
-   "Yin SHEN, violon",
-   "Yuwen ZHU, violon",
-   "Marco NIRTA, alto",
-   "Gabriel ESTEBAN, violoncelle",
-   "Ivy WONG, contrebasse"
-  ],
   "serviceWorks": {
    "osr132183": [
     1,
@@ -632,9 +605,6 @@
     "note": "\nfin altermative confirmée",
     "duree": "≈ 36 min"
    }
-  ],
-  "solistes": [
-   "Marianne CREBASSA, mezzo-soprano"
   ],
   "serviceWorks": {
    "osr132751": [
@@ -707,10 +677,6 @@
     "detail": "remarque : 4 notes du fgt1 dans le 1er mvt sont parfois jouées à la cl.bs (cl2+cl.bs)",
     "duree": "≈ 46 min"
    }
-  ],
-  "solistes": [
-   "Anu KOMSI, soprano",
-   "Lionel COTTET, violoncelle"
   ],
   "serviceWorks": {
    "osr132769": [
@@ -876,15 +842,27 @@
   "works": [
    {
     "oeuvre": "Marc SHAIMAN — The Addams Family in Concert",
-    "instrumentation": "3*.2*.3*.2* / 4.3.3*.1 / 1.3.1.2* / 14.12.10.8.6",
-    "remarques": "fl3+picc, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs, S&S grand",
+    "instrumentation": "3*.2*.3*.2* / 4.3.3*.1 / 1.3.1.2 / 14.12.10.8.6",
+    "remarques": "fl3+picc, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs",
     "percussions": "anvil, GC, belltree, cymb fr, cymb.chin., field dr, gong, glock, marim., crécelle, c.cl.,\nslapstick, woodblk, xyl, chimes, congas, guiro, hi-hat, shaker, TT, tmplblk, tri, vibra, fouet, marktree, cabasa,\ncymb sus, boobam, szl, washboard, songbells, bsq, drumset, key tree",
     "claviers": "synthétiseur (partie exposée et délicate - OSR=clavier midi 88 touches + pedal sustain,",
     "duree": "≈ 1 h 42"
    }
   ],
   "serviceWorks": {
+   "osr132828": [
+    1
+   ],
+   "osr132830": [
+    1
+   ],
+   "osr132834": [
+    1
+   ],
    "osr132833": [
+    1
+   ],
+   "osr160676": [
     1
    ],
    "osr132832": [
@@ -892,6 +870,9 @@
    ]
   },
   "serviceNotes": {
+   "osr132828": "-limited tech",
+   "osr132830": "-limited tech",
+   "osr132834": "-full tech",
    "osr132833": "-démontage express à l'issue"
   }
  },
@@ -921,11 +902,6 @@
    }
   ],
   "serviceWorks": {
-   "osr132852": [
-    1,
-    2,
-    3
-   ],
    "osr132853": [
     1,
     2,
@@ -936,45 +912,12 @@
    ]
   },
   "serviceNotes": {
-   "osr132852": "Prélude Amis 19h Le Poulailler",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
    "osr132855": "-réception Mme Françoise Demole sur invit. en construction."
   }
  },
- "Accueil Berner Symphonieorchester": {
-  "chef": "Krzysztof URBAŃSKI",
-  "effectif": "2.2.2.2 / 4.2.3.1 / 1.0.0.0 / 14.12.10.8.6 (69 musiciens)",
-  "duree": "≈ 1 h 47",
-  "works": [
-   {
-    "oeuvre": "Johannes BRAHMS — Berner Symphonieorchester, Orchestre (sans OSR) Concerto pour piano et orchestre N° 1 en ré mineur op. 15",
-    "instrumentation": "2.2.2.2 / 4.2.0.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif Orchestre de Berne à définir",
-    "claviers": "piano",
-    "duree": "≈ 44 min"
-   },
-   {
-    "oeuvre": "Johannes BRAHMS — Symphonie N° 2 en ré majeur op. 73",
-    "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif orchestre de Berne à définir",
-    "duree": "≈ 43 min"
-   }
-  ],
-  "solistes": [
-   "Francesco PIEMONTESI, piano"
-  ],
-  "serviceWorks": {
-   "osr133235": [
-    1,
-    2
-   ]
-  },
-  "serviceNotes": {
-   "osr133235": "démontage à l'issue"
-  }
- },
  "Liste 13": {
-  "chef": "6 demi-finalistes du Concours",
+  "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.2.4 / 4.5.3.1 / 1.3.2.0 / 14.12.10.8.6 (81 musiciens)",
   "duree": "≈ 50 min",
   "works": [
@@ -985,45 +928,39 @@
     "percussions": "GC, cymb fr, glock, TT, tri",
     "claviers": "célesta (alternative au glock (percu) dans le 2ème mvt)",
     "detail": "celli divisi à 8 (4 voix doublées)",
-    "duree": "≈ 23 min"
+    "duree": "≈ 12 min"
+   },
+   {
+    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
+    "note": "\nuniquement le 1er mouvement",
+    "duree": "≈ 15 min"
    },
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
     "claviers": "piano",
     "note": "\nuniquement le 1er mouvement",
-    "duree": "≈ 15 min"
-   },
-   {
-    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "note": "\nuniquement le 1er mouvement",
-    "duree": "≈ 12 min"
+    "duree": "≈ 23 min"
    }
-  ],
-  "solistes": [
-   "Kevin CHEN, piano",
-   "Michiaki UENO, violoncelle"
   ],
   "serviceWorks": {
    "osr132871": [
     1,
-    2,
-    3
+    2
    ],
    "osr132872": [
     1,
-    2,
     3
    ]
   },
   "serviceNotes": {
-   "osr132871": "SERVICE EN PUBLIC PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes",
-   "osr132872": "SERVICE EN PUBLIC PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
+   "osr132871": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15",
+   "osr132872": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15"
   }
  },
  "Liste 14": {
-  "chef": "Finaliste 1 du concours",
+  "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.2 / 12.10.8.6.4 (70 musiciens)",
   "duree": "≈ 50 min",
   "works": [
@@ -1058,12 +995,44 @@
     "extra": "accordéon (chromatique à boutons)",
     "duree": "≈ 13 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132885": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132886": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132887": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132888": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  "serviceNotes": {
+   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes",
+   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes",
+   "osr132887": "-2 pauses de 15 minutes",
+   "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
+  }
  },
  "Liste 15": {
   "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6 (83 musiciens)",
-  "duree": "≈ 2 h 17",
+  "duree": "≈ 1 h 55",
   "works": [
    {
     "oeuvre": "Béla BARTÓK — Le Mandarin merveilleux, suite d'orchestre op. 19",
@@ -1082,24 +1051,6 @@
     "duree": "≈ 20 min"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.5.1.1 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
-    "percussions": "GC, cymb fr, field dr, glock, bsq, xyl, c.cl., tri",
-    "claviers": "piano",
-    "extra": "saxophone ténor",
-    "duree": "≈ 27 min"
-   },
-   {
-    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.3*.1 / 1.3.1.1 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
-    "percussions": "GC, cymb fr, glock, marac, c.cl., tri, bsq",
-    "claviers": "piano+célésta",
-    "extra": "saxophone ténor",
-    "duree": "≈ 30 min"
-   },
-   {
     "oeuvre": "Richard STRAUSS — Don Juan, poème symphonique op. 20",
     "instrumentation": "3*.3*.2.3* / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
     "remarques": "fl3+picc, 1ca, 1kfgt",
@@ -1113,6 +1064,59 @@
     "percussions": "GC, cymb fr, bsq, xyl, tri",
     "claviers": "célesta ad.lib+piano",
     "duree": "≈ 23 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 6 Scène du balcon",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.2*.1 / 0.2.1.1 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr",
+    "claviers": "piano",
+    "extra": "saxophone ténor",
+    "duree": "≈ 8 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.4.1.1 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, glock, xyl, c.cl., cymb sus",
+    "claviers": "piano",
+    "extra": "saxophone ténor",
+    "duree": "≈ 4 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.3.1.1 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, c.cl.",
+    "claviers": "piano",
+    "extra": "saxophone ténor",
+    "duree": "≈ 5 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "glock, tri",
+    "extra": "saxophone ténor",
+    "duree": "≈ 4 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC",
+    "claviers": "piano+célésta",
+    "extra": "saxophone ténor",
+    "duree": "≈ 8 min"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.2.1.1 / 0.0.0.0.0",
+    "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, c.cl.",
+    "claviers": "piano",
+    "extra": "saxophone ténor",
+    "duree": "≈ 6 min"
    }
   ]
  },
@@ -1131,20 +1135,40 @@
    }
   ],
   "solistes": [
-   "Maria Jose SIRI, soprano (tous les concerts)",
    "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
   ],
   "serviceWorks": {
+   "osr132902": [
+    1
+   ],
+   "osr132903": [
+    1
+   ],
+   "osr128605": [
+    1
+   ],
+   "osr132904": [
+    1
+   ],
+   "osr128607": [
+    1
+   ],
+   "osr132905": [
+    1
+   ],
    "osr128610": [
     1
    ],
-   "osr132906": [
+   "osr128611": [
     1
    ]
   },
   "serviceNotes": {
+   "osr132902": "-visite de classes",
+   "osr132904": "repérage équipe captation",
+   "osr132905": "avec caméras et prise de son",
    "osr128610": "-pas de captation radio",
-   "osr132906": "-réception Mme Françoise Demole & Migros Genève sur invit. en construction."
+   "osr128611": "mise en place des extraits et de la présentation"
   }
  },
  "Concerts pour Petites Oreilles 1": {
@@ -1152,21 +1176,16 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant",
+    "oeuvre": "Guy BOVET — ",
     "instrumentation": "0.0.1.1 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.1",
     "claviers": "piano",
     "duree": "≈ 45 min"
    }
   ],
-  "solistes": [
-   "Michel WESTPHAL, clarinette",
-   "Catherine PÉPIN-WESTPHAL, basson",
-   "Yin SHEN, violon",
-   "Ivy WONG, contrebasse",
-   "Didier PUNTOS, piano",
-   "Louise CALAME, récitant"
-  ],
   "serviceWorks": {
+   "osr162177": [
+    1
+   ],
    "osr162175": [
     1
    ],
@@ -1180,15 +1199,6 @@
     1
    ]
   }
- },
- "Doudou Concert 1": {
-  "works": [],
-  "solistes": [
-   "Yumiko AWANO, violon (21 novembre)",
-   "David VALLEZ, violon (21 novembre)",
-   "Gergana KUSHEVA, contrebasse (22 novembre)",
-   "Katrin HERDA, basson (22 novembre)"
-  ]
  },
  "Liste 17": {
   "chef": "Daniele GATTI",
@@ -1244,9 +1254,6 @@
     "duree": "≈ 37 min"
    }
   ],
-  "solistes": [
-   "Joan MOMPART, récitant"
-  ],
   "serviceWorks": {
    "osr206164": [
     1
@@ -1275,13 +1282,6 @@
     "claviers": "piano",
     "duree": "≈ 30 min"
    }
-  ],
-  "solistes": [
-   "Caroline BAERISWYL, violon 1",
-   "Yumi KUBO, violon 2",
-   "Verena SCHWEIZER, alto",
-   "Yao JIN, violoncelle",
-   "Meglena TZANEVA DUPRAZ, piano"
   ],
   "serviceWorks": {
    "osr132185": [
@@ -1361,9 +1361,6 @@
     "duree": "≈ 39 min"
    }
   ],
-  "solistes": [
-   "Patricia KOPATCHINSKAJA, violon"
-  ],
   "serviceWorks": {
    "osr132947": [
     1,
@@ -1398,7 +1395,6 @@
    }
   ],
   "solistes": [
-   "Matt DUSK, jazz vocalist",
    "NN1, choriste gospel soprano",
    "NN2, choriste gospel soprano",
    "NN3, choriste gospel alto",
@@ -1462,7 +1458,9 @@
    },
    {
     "oeuvre": "Georges BIZET — Carmen, Suite N° 1, N° 1 Prélude [avec l'Aragonaise]",
+    "instrumentation": "2*.2.2.2 / 4.2.3.0 / 1.4.1.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
+    "percussions": "GC, cymb fr, tri, bsq",
     "duree": "≈ 3 min"
    },
    {
@@ -1492,6 +1490,7 @@
    },
    {
     "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
+    "instrumentation": "2.2*.2.2 / 3.2.2.0 / 1.0.1.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "duree": "≈ 7 min"
    },
@@ -1509,10 +1508,9 @@
    },
    {
     "oeuvre": "Jules MASSENET — Le Cid, suite de ballet, N° 1 Castillane",
-    "instrumentation": "2*.2*.2.2 / 4.4*.3.1 / 1.3.1.0 / 0.0.0.0.0",
+    "instrumentation": "2.2.2.2 / 4.4*.3.1 / 1.3.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
-    "percussions": "GC, cymb fr, t tamb, bsq, cast, c.cl., tri",
-    "detail": "Eh can be covered by either ob1 or ob2.",
+    "percussions": "bsq, cast, tri",
     "duree": "≈ 3 min"
    },
    {
@@ -1533,9 +1531,6 @@
     "remarques": "1ca, 1cl.bs",
     "duree": "≈ 2 min"
    }
-  ],
-  "solistes": [
-   "Juliana GRIGORYAN, soprano"
   ]
  },
  "Concerts pour Petites Oreilles 2": {
@@ -1543,19 +1538,11 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "Pascal RENOU — Pilou le plantigrade, conte musical pour quintette de cuivres",
+    "oeuvre": "Pascal RENOU — ",
     "instrumentation": "0.0.0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "duree": "≈ 45 min"
    }
-  ],
-  "solistes": [
-   "Clément CHARPENTIER-LEROY, cor",
-   "Giuliano SOMMERHALDER, trompette",
-   "Antoine PITTET, trompette",
-   "Alexandre FAURE, trombone",
-   "Ross KNIGHT, tuba",
-   "Thomas DIEBOLD, récitant"
   ],
   "serviceWorks": {
    "osr162228": [
@@ -1575,15 +1562,6 @@
    ]
   }
  },
- "Doudou Concert 2": {
-  "works": [],
-  "solistes": [
-   "Elodie BERRY, violon (16 janvier)",
-   "Jarita NG, alto (16 janvier)",
-   "Matteo DE LUCA, trombone (17 janvier)",
-   "Vincent MÉTRAILLER, trombone (17 janvier)"
-  ]
- },
  "Musique De Chambre 3": {
   "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0 (5 musiciens)",
   "duree": "≈ 1 h 01",
@@ -1598,13 +1576,6 @@
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0",
     "duree": "≈ 26 min"
    }
-  ],
-  "solistes": [
-   "Roman FILIPOV, violon 1",
-   "Sidonie BOUGAMONT, violon 2",
-   "Elçim ÖZDEMIR, alto",
-   "Frédéric KIRCH, alto",
-   "Lionel COTTET, violoncelle"
   ]
  },
  "Liste 23": {
@@ -1628,9 +1599,6 @@
     "detail": "-ténor horn seulement dans le 1er mouvement\n-guitare et mandoline uniquement dans le 4ème mouvement",
     "duree": "≈ 1 h 17"
    }
-  ],
-  "solistes": [
-   "Janine JANSEN, violon"
   ],
   "serviceWorks": {
    "osr132991": [
@@ -1669,9 +1637,6 @@
     "note": "\ntexte original de Elisa Shua Dusapin, commande de l'OSR",
     "duree": "≈ 21 min"
    }
-  ],
-  "solistes": [
-   "NN1, récitant"
   ],
   "serviceWorks": {
    "osr133004": [
@@ -1807,9 +1772,6 @@
     "duree": "≈ 29 min"
    }
   ],
-  "solistes": [
-   "Alexandra CONUNOVA, violon"
-  ],
   "serviceWorks": {
    "osr133022": [
     1,
@@ -1878,12 +1840,6 @@
     "duree": "≈ 18 min"
    }
   ],
-  "solistes": [
-   "Cristian ZIMMERMAN, violon 1",
-   "Guillaume JACOT, violon 2",
-   "Luca CASCIATO, alto",
-   "Lucas HENRY, violoncelle"
-  ],
   "serviceWorks": {
    "osr132189": [
     1,
@@ -1915,9 +1871,6 @@
     "duree": "≈ 39 min"
    }
   ],
-  "solistes": [
-   "Mao FUJITA, piano"
-  ],
   "serviceWorks": {
    "osr132568": [
     1,
@@ -1942,23 +1895,11 @@
   "duree": "≈ 35 min",
   "works": [
    {
-    "oeuvre": "Serge PROKOFIEV — Pierre et le loup, arrangement pour quintette à vent de Joachim Linckelmann",
+    "oeuvre": "Serge PROKOFIEV — ",
     "instrumentation": "1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "duree": "≈ 35 min"
    }
-  ],
-  "solistes": [
-   "Sarah RUMER, flûte (20 mars)",
-   "Loïc SCHNEIDER, flûte (21 mars)",
-   "Simon SOMMERHALDER, hautbois (20 mars)",
-   "Nora CISMONDI, hautbois (21 mars)",
-   "Benoît WILLMANN, clarinette (20 mars)",
-   "Camillo BATTISTELLO, clarinette (21 mars)",
-   "Luis MARQUEZ TERUEL, basson (20 mars)",
-   "Vincent GODEL, basson (21 mars)",
-   "Clément CHARPENTIER-LEROY, cor (20 et 21 mars)",
-   "Marion FONTANA, récitant (20 et 21 mars)"
   ],
   "serviceWorks": {
    "osr162238": [
@@ -1980,15 +1921,6 @@
   "serviceNotes": {
    "osr162238": "horaires en construction"
   }
- },
- "Doudou Concert 3": {
-  "works": [],
-  "solistes": [
-   "Hannah FRANKE, alto (20 mars)",
-   "Katrin HERDA, basson (20 mars)",
-   "Leonid BARANOV, violon (21 mars)",
-   "Yumi KUBO, violon (21 mars)"
-  ]
  },
  "Liste 28": {
   "chef": "Daniel HARDING",
@@ -2019,11 +1951,6 @@
     "claviers": "célesta",
     "duree": "≈ 30 min"
    }
-  ],
-  "solistes": [
-   "Fleur BARRON, mezzo-soprano",
-   "Andrew STAPLES, ténor",
-   "Jean-Sébastien BOU, baryton"
   ],
   "serviceWorks": {
    "osr133047": [
@@ -2094,9 +2021,6 @@
     "percussions": "drumset",
     "duree": "≈ 2 min"
    }
-  ],
-  "solistes": [
-   "Lyam CHENAUX, violoncelle"
   ]
  },
  "Liste F": {
@@ -2113,10 +2037,6 @@
     "detail": "-cl1, trp1 et trb1 : parties importantes ('balkan style')\n-dans certaines parties les musicien·nes chantent bouche fermée\n-dans certaines parties les danseurs chantent ou crient\n-1 cymbale suspendue est jouée sur scène par les danseurs\n-1 petite grosse caisse de marching band avec harnais est joué par pianiste ou danseurs sur scène",
     "duree": "≈ 1 h 15"
    }
-  ],
-  "solistes": [
-   "Dimitris SKYLLAS, piano",
-   "ALKANNA GRAECA, 3 voix féminines grecques"
   ],
   "serviceWorks": {
    "osr133367": [
@@ -2181,15 +2101,6 @@
     "claviers": "piano",
     "duree": "≈ 14 min"
    }
-  ],
-  "solistes": [
-   "Sarah RUMER, flûte",
-   "Jona VENTURI, flûte",
-   "Audrey VIGOUREUX, piano",
-   "Yumiko AWANO, violon 1",
-   "Eleonora RYNDINA, violon 2",
-   "Theresa HOŘEJŠÍ, alto",
-   "Léonard FREY-MAIBACH, violoncelle"
   ]
  },
  "Liste 30": {
@@ -2219,9 +2130,6 @@
     "detail": "Suite assemblée par Tugan Sokhiev",
     "duree": "≈ 52 min"
    }
-  ],
-  "solistes": [
-   "Michiaki UENO, violoncelle"
   ],
   "serviceWorks": {
    "osr133084": [
@@ -2264,9 +2172,6 @@
     "percussions": "GC, cymb fr, glock, c.cl.",
     "duree": "≈ 1 h 00"
    }
-  ],
-  "solistes": [
-   "Yefim BRONFMAN, piano"
   ],
   "serviceWorks": {
    "osr133101": [
@@ -2326,9 +2231,6 @@
     "detail": "Musique de Scène : 1picc, 1cl.mib (inclus dans l'effectif) 2 pianistes",
     "duree": "≈ 18 min"
    }
-  ],
-  "solistes": [
-   "Beatrice RANA, piano"
   ],
   "serviceWorks": {
    "osr132301": [
@@ -2430,9 +2332,6 @@
     "duree": "≈ 36 min"
    }
   ],
-  "solistes": [
-   "Vilde FRANG, violon"
-  ],
   "serviceWorks": {
    "osr133155": [
     1,
@@ -2478,9 +2377,6 @@
     "duree": "≈ 21 min"
    }
   ],
-  "solistes": [
-   "Anne-Claire REY-BELLET, récitant (récit et animation)"
-  ],
   "serviceWorks": {
    "osr133167": [
     1,
@@ -2495,18 +2391,11 @@
   "effectif": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)",
   "works": [
    {
-    "oeuvre": "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams ... [saison 2627]",
+    "oeuvre": "",
     "instrumentation": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0",
     "remarques": "Sans cordes",
     "detail": "John Williams : Olympic Fanfare"
    }
-  ],
-  "solistes": [
-   "Alexandre FAURE, trombone",
-   "Matteo DE LUCA, trombone",
-   "Vincent MÉTRAILLER, trombone",
-   "Andrea BANDINI, trombone",
-   "Ross KNIGHT, tuba"
   ],
   "serviceWorks": {
    "osr132191": [
@@ -2521,17 +2410,11 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "Sans les mains, pour petit ensemble et récitant",
+    "oeuvre": "",
     "remarques": "Sans cordes",
     "detail": "effectif en construction",
     "duree": "≈ 45 min"
    }
-  ],
-  "solistes": [
-   "Guillaume JACOT, violon",
-   "Luca CASCIATO, alto",
-   "Jean-Noël GOS, guitare",
-   "Michael TSCHAMPER, percussion"
   ],
   "serviceWorks": {
    "osr162251": [
@@ -2596,9 +2479,6 @@
     "claviers": "célesta",
     "detail": "effectif en construction"
    }
-  ],
-  "solistes": [
-   "Lim YUNCHAN, piano"
   ]
  },
  "Liste G": {
