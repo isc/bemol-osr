@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-18T13:00:18.657Z",
- "count": 614,
+ "updatedAt": "2026-09-18T17:43:11.777Z",
+ "count": 616,
  "events": [
   {
    "uid": "osr225046",
@@ -1415,7 +1415,7 @@
    "start": "2026-10-12T08:00",
    "end": "2026-10-12T11:00",
    "liste": "Liste 07",
-   "activity": "technique tv (sans orch.)",
+   "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "",
@@ -1514,7 +1514,7 @@
    "start": "2026-10-15T12:00",
    "end": "2026-10-15T13:00",
    "liste": "Liste 07",
-   "activity": "technique tv (sans orch.)",
+   "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "",
@@ -1969,6 +1969,17 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr248530",
+   "start": "2026-11-01T09:30",
+   "end": "2026-11-01T14:30",
+   "liste": "Concours Violoncelle Tuttiste",
+   "activity": "2 postes - présélection",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "concours d'orchestre",
    "cancelled": false
   },
   {
@@ -5598,6 +5609,17 @@
    "activity": "concert",
    "category": "concert",
    "location": "Casino Bern (ex-Kultur-Casino Bern, Bern",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr248533",
+   "start": "2027-05-01T11:00",
+   "end": "2027-05-01T22:00",
+   "liste": "Concours à définir",
+   "activity": "concours (poste à définir)",
+   "category": "concours",
+   "location": "UM - Salle Marie LAGGÉ",
    "project": "",
    "cancelled": false
   },
