@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-17T18:19:45.685Z",
- "count": 611,
+ "updatedAt": "2026-09-18T13:00:18.657Z",
+ "count": 614,
  "events": [
   {
    "uid": "osr225046",
@@ -2005,6 +2005,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr246247",
+   "start": "2026-11-01T22:30",
+   "end": "2026-11-01T23:50",
+   "liste": "Liste 11",
+   "activity": "bus",
+   "category": "autre",
+   "location": "retour Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr245691",
    "start": "2026-11-02T10:00",
    "end": "2026-11-02T19:30",
@@ -2073,11 +2084,22 @@
   {
    "uid": "osr132852",
    "start": "2026-11-05T20:15",
-   "end": "2026-11-05T22:30",
+   "end": "2026-11-05T22:15",
    "liste": "Liste 12",
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr246249",
+   "start": "2026-11-05T22:15",
+   "end": "2026-11-05T23:30",
+   "liste": "Liste 12",
+   "activity": "bus",
+   "category": "autre",
+   "location": "retour Genève",
    "project": "",
    "cancelled": false
   },
@@ -2425,7 +2447,7 @@
   {
    "uid": "osr132906",
    "start": "2026-11-20T19:00",
-   "end": "2026-11-20T21:30",
+   "end": "2026-11-20T20:30",
    "liste": "Liste 16",
    "activity": "concert",
    "category": "concert",
@@ -2695,6 +2717,17 @@
    "category": "concert",
    "location": "Salle Franz Liszt - CMG",
    "project": "MDC2",
+   "cancelled": false
+  },
+  {
+   "uid": "osr248482",
+   "start": "2026-12-01T10:00",
+   "end": "2026-12-01T12:30",
+   "liste": "Groupe de Prévention 2026",
+   "activity": "Réunion (plénière des membres)",
+   "category": "autre",
+   "location": "UM - Salle Marie LAGGÉ",
+   "project": "",
    "cancelled": false
   },
   {

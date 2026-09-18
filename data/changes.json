@@ -1,6 +1,103 @@
 {
  "entries": [
   {
+   "at": "2026-09-18T13:00:18.657Z",
+   "added": [
+    {
+     "uid": "osr246247",
+     "start": "2026-11-01T22:30",
+     "end": "2026-11-01T23:50",
+     "liste": "Liste 11",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr246249",
+     "start": "2026-11-05T22:15",
+     "end": "2026-11-05T23:30",
+     "liste": "Liste 12",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr248482",
+     "start": "2026-12-01T10:00",
+     "end": "2026-12-01T12:30",
+     "liste": "Groupe de Prévention 2026",
+     "activity": "Réunion (plénière des membres)",
+     "category": "autre",
+     "location": "UM - Salle Marie LAGGÉ",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132852",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132852",
+      "start": "2026-11-05T20:15",
+      "end": "2026-11-05T22:30",
+      "liste": "Liste 12",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132852",
+      "start": "2026-11-05T20:15",
+      "end": "2026-11-05T22:15",
+      "liste": "Liste 12",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132906",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132906",
+      "start": "2026-11-20T19:00",
+      "end": "2026-11-20T21:30",
+      "liste": "Liste 16",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132906",
+      "start": "2026-11-20T19:00",
+      "end": "2026-11-20T20:30",
+      "liste": "Liste 16",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-18T09:13:20.003Z",
    "type": "memo",
    "programs": [
