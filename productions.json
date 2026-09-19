@@ -238,7 +238,7 @@
   "duree": "≈ 11 min",
   "works": [
    {
-    "oeuvre": "Johannes BRAHMS — ",
+    "oeuvre": "Johannes BRAHMS — Scherzo du trio pour violon, cor et piano en mi bémol majeur op. 40 - Scherzo. Allegro - Trio. Molto meno allegro",
     "instrumentation": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 1.0.0.0.0",
     "claviers": "piano",
     "duree": "≈ 6 min"
@@ -256,6 +256,11 @@
     "claviers": "piano",
     "duree": "≈ 2 min"
    }
+  ],
+  "solistes": [
+   "Elodie BERRY, violon",
+   "Jean-Pierre BERRY, cor",
+   "Deborah LEE, piano"
   ]
  },
  "Liste 05": {
@@ -462,7 +467,7 @@
  },
  "Liste 07": {
   "chef": "Martyna SZYMCZAK",
-  "effectif": "3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (68 musiciens)",
+  "effectif": "3.2.2.2 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (67 musiciens)",
   "duree": "≈ 30 min",
   "works": [
    {
@@ -475,8 +480,8 @@
    },
    {
     "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
-    "instrumentation": "2*.2.2.3* / 4.2.3.1 / 1.4.1.0 / 12.10.8.6.4",
-    "remarques": "fl2+picc, 1kfgt ad.lib",
+    "instrumentation": "2*.2.2.2* / 4.2.3.1 / 1.4.1.0 / 12.10.8.6.4",
+    "remarques": "fl2+picc, kfgt ad.lib supprimé",
     "percussions": "GC, cymb fr, c.cl., tri",
     "note": "\nextraits pour tous les concerts : mvts 1 et 7 (dans cet ordre) - les autres mvts ne sont pas joués",
     "duree": "≈ 4 min"
@@ -883,25 +888,43 @@
   "works": [
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 1 en ut majeur op. 21",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 10*.8.7.6.4",
-    "remarques": "ok chef",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 10.8.7.6.4",
     "duree": "≈ 26 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 4 en si bémol majeur op. 60",
-    "instrumentation": "1.2.2.2 / 2.2.0.0 / 1.0.0.0 / 10*.8.7.6.4",
-    "remarques": "ok chef",
+    "instrumentation": "1.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.6.5",
+    "remarques": "réduction à 10.8.7.6.4 pour la Masterclasse",
     "duree": "≈ 34 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 5 en ut mineur op. 67",
     "instrumentation": "3*.2.2.3* / 2.2.3*.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "ok chef",
+    "remarques": "réduction à 10.8.7.6.4 pour la Masterclasse",
     "detail": "picc, kfgt et trb uniquement dans le 4ème mvt",
     "duree": "≈ 31 min"
    }
   ],
   "serviceWorks": {
+   "osr132845": [
+    3,
+    2,
+    1
+   ],
+   "osr132847": [
+    3,
+    2,
+    1
+   ],
+   "osr132848": [
+    2,
+    1
+   ],
+   "osr132852": [
+    1,
+    2,
+    3
+   ],
    "osr132853": [
     1,
     2,
@@ -912,8 +935,12 @@
    ]
   },
   "serviceNotes": {
+   "osr132845": "-1 seul service 15h-19h (pause 30') compté double avec accord des Représentants",
+   "osr132847": "-4ème mouvement de la 5ème symphonie au début (picc, kfgt, trb)",
+   "osr132848": "-50 invités Amis OSR",
+   "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132855": "-réception Mme Françoise Demole sur invit. en construction."
+   "osr132855": "-régie son en loge 18"
   }
  },
  "Liste 13": {
@@ -926,23 +953,26 @@
     "instrumentation": "3*.3*.2.4* / 4.5*.3.1 / 1.3.2.0 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1kfgt, 2crt",
     "percussions": "GC, cymb fr, glock, TT, tri",
-    "claviers": "célesta (alternative au glock (percu) dans le 2ème mvt)",
     "detail": "celli divisi à 8 (4 voix doublées)",
     "duree": "≈ 12 min"
    },
    {
-    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
+    "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "note": "\nuniquement le 1er mouvement",
+    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service du matin)",
     "duree": "≈ 15 min"
    },
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "claviers": "piano",
-    "note": "\nuniquement le 1er mouvement",
+    "claviers": "piano (solo)",
+    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
     "duree": "≈ 23 min"
    }
+  ],
+  "solistes": [
+   "Michiaki UENO, violoncelle",
+   "Kevin CHEN, piano"
   ],
   "serviceWorks": {
    "osr132871": [
@@ -967,7 +997,7 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84",
     "instrumentation": "2*.2.2.2 / 4.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "remarques": "Fl2+picc",
+    "remarques": "fl2+picc",
     "duree": "≈ 9 min"
    },
    {
@@ -982,7 +1012,7 @@
     "oeuvre": "Sing-Yat CHEN — Shattered sky / Remaining land",
     "instrumentation": "3*.3*.3*.3* / 4.3.3*.1 / 1*.3.1.1 / 12.10.8.6.4",
     "remarques": "fl3+picc, 1ca, 1cl.bs, 1kfgt, 1trb.bs, timp+perc",
-    "percussions": "3 anvil, GC, cymb.chin., c.cl., 5 woodblk, bongos, marac, szl cym, TT, windchimes, glass\nwnch, 3 gong chin., japtmplblk",
+    "percussions": "3 anvil, GC, cymb.chin., c.cl., 5 woodblk, bongos, marac, szl cym, TT, windchimes, glass\nwinch, 3 gong chin., jap tmplblk",
     "claviers": "piano+célésta",
     "duree": "≈ 12 min"
    },
@@ -1062,13 +1092,13 @@
     "instrumentation": "2*.2*.2.2 / 4.2.3.1 / 1.3.1.1 / 14.12.10.8.6",
     "remarques": "fl2+picc, ob2+ca",
     "percussions": "GC, cymb fr, bsq, xyl, tri",
-    "claviers": "célesta ad.lib+piano",
+    "claviers": "piano+célésta (cel.ad lib est joué)",
     "duree": "≈ 23 min"
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 6 Scène du balcon",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.2*.1 / 0.2.1.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.2*.1 / 0.2.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
     "percussions": "GC, cymb fr",
     "claviers": "piano",
     "extra": "saxophone ténor",
@@ -1076,8 +1106,8 @@
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.4.1.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.4.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "GC, cymb fr, glock, xyl, c.cl., cymb sus",
     "claviers": "piano",
     "extra": "saxophone ténor",
@@ -1085,8 +1115,8 @@
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.3.1.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.3.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1crt",
     "percussions": "GC, c.cl.",
     "claviers": "piano",
     "extra": "saxophone ténor",
@@ -1094,16 +1124,16 @@
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
-    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "glock, tri",
     "extra": "saxophone ténor",
     "duree": "≈ 4 min"
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
-    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
     "percussions": "GC",
     "claviers": "piano+célésta",
     "extra": "saxophone ténor",
@@ -1111,8 +1141,8 @@
    },
    {
     "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette",
-    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.2.1.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.2.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "GC, cymb fr, c.cl.",
     "claviers": "piano",
     "extra": "saxophone ténor",
@@ -1126,15 +1156,16 @@
   "duree": "≈ 2 h 35",
   "works": [
    {
-    "oeuvre": "Giuseppe VERDI — Nabucco, opéra en quatre parties",
-    "instrumentation": "2*.2*.2*.2 / 4.2.3.1* / 1.3.2.0 / 10.8.6.4.3",
-    "remarques": "fl2+picc, ob2+ca, cl2+cl.mib, 1 tuba",
+    "oeuvre": "Giuseppe VERDI — Geoffroy PERRUCHOUD, présentation (concert Famille, uniquement le 20 nov.) Nabucco, opéra en quatre parties",
+    "instrumentation": "2*.2*.2*.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3",
+    "remarques": "fl2+picc, ob2+ca, cl2+cl.mib",
     "percussions": "GC, tri, cymb",
-    "detail": "MdS : banda acte I et IV (et III ?) : 0.0.3.0 / 3.3.3.1 / 3 perc (tamb, GC, cymb.) trombe interne acte III : 3\ntrp",
+    "detail": "MdS : banda acte I, III et IV : 0.0.3.0 / 3.3.3.1 / 3 perc (tamb, GC, cymb.) trombe interne acte III : 3 trp",
     "duree": "≈ 2 h 05"
    }
   ],
   "solistes": [
+   "Maria Jose SIRI, soprano",
    "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
   ],
   "serviceWorks": {
@@ -1161,14 +1192,18 @@
    ],
    "osr128611": [
     1
+   ],
+   "osr132906": [
+    1
    ]
   },
   "serviceNotes": {
    "osr132902": "-visite de classes",
-   "osr132904": "repérage équipe captation",
-   "osr132905": "avec caméras et prise de son",
-   "osr128610": "-pas de captation radio",
-   "osr128611": "mise en place des extraits et de la présentation"
+   "osr132904": "-repérage équipe captation",
+   "osr132905": "-avec caméras et prise de son",
+   "osr128610": "-avec surtitrage",
+   "osr128611": "-mise en place des extraits et de la présentation",
+   "osr132906": "-réception Mme Françoise Demole & Migros Genève sur invit. en construction."
   }
  },
  "Concerts pour Petites Oreilles 1": {
@@ -1176,11 +1211,19 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "Guy BOVET — ",
+    "oeuvre": "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant",
     "instrumentation": "0.0.1.1 / 0.0.0.0 / 0.0.0.1 / 1.0.0.0.1",
     "claviers": "piano",
     "duree": "≈ 45 min"
    }
+  ],
+  "solistes": [
+   "Michel WESTPHAL, clarinette",
+   "Catherine PÉPIN-WESTPHAL, basson",
+   "Yin SHEN, violon",
+   "Ivy WONG, contrebasse",
+   "Didier PUNTOS, piano",
+   "Louise CALAME, récitante"
   ],
   "serviceWorks": {
    "osr162177": [

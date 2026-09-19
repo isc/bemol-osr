@@ -1,6 +1,227 @@
 {
  "entries": [
   {
+   "at": "2026-09-19T08:59:45.834Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Elodie BERRY, violon · Jean-Pierre BERRY, cor · Deborah LEE, piano"
+      }
+     ],
+     "worksAdded": [
+      "Johannes BRAHMS — Scherzo du trio pour violon, cor et piano en mi bémol majeur op. 40 - Scherzo. Allegro - Trio. Molto meno allegro"
+     ],
+     "worksRemoved": [
+      "Johannes BRAHMS — "
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 1",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Michel WESTPHAL, clarinette · Catherine PÉPIN-WESTPHAL, basson · Yin SHEN, violon · Ivy WONG, contrebasse · Didier PUNTOS, piano · Louise CALAME, récitante"
+      }
+     ],
+     "worksAdded": [
+      "Guy BOVET — Le Voyage de Plume, le petit ours polaire, pour petit ensemble et récitant"
+     ],
+     "worksRemoved": [
+      "Guy BOVET — "
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.2.2.3 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (68 musiciens)",
+       "after": "3.2.2.2 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (67 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Edward ELGAR — The Wand of Youth, suite N° 1 op.1a",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 12",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 1 en ut majeur op. 21",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 4 en si bémol majeur op. 60",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 5 en ut mineur op. 67",
+       "fields": [
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 13",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Michiaki UENO, violoncelle · Kevin CHEN, piano"
+      }
+     ],
+     "worksAdded": [
+      "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129"
+     ],
+     "worksRemoved": [
+      "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129"
+     ],
+     "worksModified": [
+      {
+       "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
+       "fields": [
+        "claviers"
+       ]
+      },
+      {
+       "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
+       "fields": [
+        "claviers",
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84",
+       "fields": [
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Sing-Yat CHEN — Shattered sky / Remaining land",
+       "fields": [
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Igor STRAVINSKI — L’Oiseau de feu, deuxième suite d'orchestre (1919)",
+       "fields": [
+        "claviers"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 6 Scène du balcon",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Le Motet de Genève, chœur (et tutti solistes le 19 nov.)",
+       "after": "Maria Jose SIRI, soprano · Le Motet de Genève, chœur (et tutti solistes le 19 nov.)"
+      }
+     ],
+     "worksAdded": [
+      "Giuseppe VERDI — Geoffroy PERRUCHOUD, présentation (concert Famille, uniquement le 20 nov.) Nabucco, opéra en quatre parties"
+     ],
+     "worksRemoved": [
+      "Giuseppe VERDI — Nabucco, opéra en quatre parties"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-18T17:43:11.777Z",
    "added": [
     {
