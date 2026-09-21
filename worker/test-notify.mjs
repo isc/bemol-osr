@@ -140,6 +140,39 @@ if (
     "showNoOrchestra par défaut (affiché) : un service « sans orchestre » devrait matcher",
   )
 
+// #169/#171 : les formes reconnues côté app (technique, chœur seul, « sans
+// orch. » abrégé) doivent l'être aussi côté worker, sous peine de continuer à
+// fuiter dans l'ICS abonné et les notifications malgré le réglage désactivé.
+if (
+  eventMatchesPrefs(event({ activity: "technique tv (sans orch.)" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail(
+    "showNoOrchestra désactivé : un service technique ne devrait pas matcher",
+  )
+
+if (
+  eventMatchesPrefs(event({ activity: "musicale choeur" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail(
+    "showNoOrchestra désactivé : un service de chœur seul ne devrait pas matcher",
+  )
+
+if (
+  !eventMatchesPrefs(event({ activity: "répétition avec choeur" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail(
+    "showNoOrchestra désactivé : un service avec orchestre ET chœur devrait toujours matcher",
+  )
+
 // --- anti-bruit : planning ---------------------------------------------------
 
 const planningEntry = (over = {}) => ({

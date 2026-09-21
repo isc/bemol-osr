@@ -69,9 +69,14 @@ function activityHidden(hidden, activity) {
 
 // Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
 // worker n'a pas accès au code de la page statique (même principe que
-// activityHidden ci-dessus).
+// activityHidden ci-dessus). À garder synchronisée avec app.js (#169/#171).
 function isNoOrchestra(activity) {
-  return /sans orchestre/i.test(activity) || /générale piano/i.test(activity)
+  return (
+    /sans orch(estre|\.|,)|sans osr/i.test(activity) ||
+    /générale piano/i.test(activity) ||
+    /technique/i.test(activity) ||
+    (/choeur|chœur/i.test(activity) && !/avec/i.test(activity))
+  )
 }
 
 // Filtre le texte ICS complet selon les critères. Exporté pour les tests.
