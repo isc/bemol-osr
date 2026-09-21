@@ -122,12 +122,19 @@ if (count(byHiddenActivitiesCasse) !== expectedHiddenActivitiesCasse)
 
 // Filtre « services sans orchestre » (#146) : reprend, pour l'abonnement,
 // le réglage « Afficher les services sans orchestre » de l'app (répétitions
-// chef+soliste(s)+piano « (sans orchestre) », générales piano) — sans lui,
-// ces services (masqués dans l'agenda personnalisé de l'app) continuaient de
-// fuiter dans le calendrier ICS abonné.
+// chef+soliste(s)+piano « (sans orchestre) », générales piano, services
+// techniques, chœur seul — #169/#171) — sans lui, ces services (masqués dans
+// l'agenda personnalisé de l'app) continuaient de fuiter dans le calendrier
+// ICS abonné. La regex ci-dessous doit rester synchronisée avec
+// isNoOrchestra() de worker/src/index.js (elle-même reprise d'app.js).
 const expectedNoOrchestra = planning.events.filter(
   (e) =>
-    !/sans orchestre/i.test(e.activity) && !/générale piano/i.test(e.activity),
+    !(
+      /sans orch(estre|\.|,)|sans osr/i.test(e.activity) ||
+      /générale piano/i.test(e.activity) ||
+      /technique/i.test(e.activity) ||
+      (/choeur|chœur/i.test(e.activity) && !/avec/i.test(e.activity))
+    ),
 ).length
 const byNoOrchestra = filterIcs(ics, {
   listes: [],

@@ -22,9 +22,14 @@ export const DEFAULT_PREFS = {
 
 // Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
 // worker n'a pas accès au code de la page statique (cf. listeSlug() plus bas,
-// même principe).
+// même principe). À garder synchronisée avec app.js (#169/#171).
 function isNoOrchestra(activity) {
-  return /sans orchestre/i.test(activity) || /générale piano/i.test(activity)
+  return (
+    /sans orch(estre|\.|,)|sans osr/i.test(activity) ||
+    /générale piano/i.test(activity) ||
+    /technique/i.test(activity) ||
+    (/choeur|chœur/i.test(activity) && !/avec/i.test(activity))
+  )
 }
 
 // Un événement du planning concerne-t-il ce profil ? Mêmes règles que le
