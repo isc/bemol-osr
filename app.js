@@ -53,16 +53,29 @@ function listeColorClass(liste) {
 }
 
 // Services qui ne concernent pas les musicien·nes de l'orchestre (répétition
-// chef+soliste(s)+piano, travail technique seul…) : cette distinction traverse
-// plusieurs catégories (répétition, générale…) et n'existe pas comme catégorie
-// à part entière côté Dièse — on la repère à la mention « (sans orchestre) »
-// que Dièse ajoute elle-même au libellé de l'activité (issue #116), ou à
-// l'activité « générale piano » des productions lyriques (chef+solistes+piano,
-// sans l'orchestre — Dièse ne l'annote pas « sans orchestre » sur celle-ci,
-// issue #117).
+// chef+soliste(s)+piano, travail technique seul, chœur seul…) : cette
+// distinction traverse plusieurs catégories (répétition, générale…) et
+// n'existe pas comme catégorie à part entière côté Dièse — on la repère à
+// plusieurs indices dans le libellé de l'activité :
+// - la mention « (sans orchestre) » que Dièse ajoute elle-même (issue #116),
+//   mais aussi sous des formes abrégées non détectées jusqu'ici (« sans
+//   orch. », « sans orch, », « sans OSR » — issue #169) ;
+// - « générale piano » des productions lyriques (chef+solistes+piano, sans
+//   l'orchestre — Dièse ne l'annote pas « sans orchestre » sur celle-ci,
+//   issue #117) ;
+// - « technique » (technique RTS, technique vidéo…), toujours sans musicien
+//   d'orchestre (issue #169) ;
+// - une activité qui mentionne le chœur sans mentionner l'orchestre qui
+//   l'accompagnerait (« musicale choeur », « raccord choeur seul ») : à
+//   distinguer d'un service qui réunit orchestre et chœur, toujours formulé
+//   « (répétition/session) avec choeur(s) » (issue #169).
 function isNoOrchestra(e) {
+  const a = e.activity
   return (
-    /sans orchestre/i.test(e.activity) || /générale piano/i.test(e.activity)
+    /sans orch(estre|\.|,)|sans osr/i.test(a) ||
+    /générale piano/i.test(a) ||
+    /technique/i.test(a) ||
+    (/choeur|chœur/i.test(a) && !/avec/i.test(a))
   )
 }
 
@@ -2359,7 +2372,7 @@ function renderPrefs() {
       "label",
       { class: "prefs-cancelled" },
       noOrchestraCheckbox,
-      " Afficher les services sans orchestre (répétition chef+soliste(s)+piano, technique seule…)",
+      " Afficher les services sans orchestre (répétition chef+soliste(s)+piano, technique seule, chœur seul…)",
     ),
     el(
       "div",
