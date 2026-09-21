@@ -4,7 +4,7 @@
 // l'export brut de Dièse, chaque événement est enrichi avec les infos du « mémo
 // de production » (chef, solistes, œuvres + instrumentation, effectif, durée),
 // exactement comme la vue Grille de l'app, ainsi qu'avec les liens utiles de la
-// fiche (lieu sur Google Maps, portail partitions, série complète — issue #88).
+// fiche (portail partitions, série complète — issue #88).
 //
 // Entrées  : data/planning.json (généré par update-data.mjs)
 //            productions.json    (généré par update-memo.mjs, facultatif)
@@ -38,6 +38,23 @@ const CATEGORIES = {
   autre: "Autre",
   resa: "Résa de salles",
 }
+
+// Le mémo abrège beaucoup d'instruments avec un point interne sans espace
+// (« c.cl. » = caisse claire, « cl.bs » = clarinette basse, « fl.al » = flûte
+// alto…). Or ces points internes forment, pour peu que les deux lettres
+// suivantes soient un domaine existant (.cl Chili, .bs Bahamas, .al
+// Albanie…), un motif que les détecteurs de données d'Apple Calendar
+// reconnaissent comme une URL et affichent en couleur, cliquable — signalé
+// sur #167. Comme la liste des extensions de domaine est longue et change,
+// impossible de mettre à jour une liste noire au cas par cas : on remplace
+// systématiquement, dans ces champs d'instrumentation, le point interne entre
+// deux lettres collées (jamais entre chiffres : les notations d'effectif du
+// type « 3*.2.2.3* » n'ont aucun TLD numérique et ne risquent donc rien) par
+// un caractère visuellement identique mais distinct (U+2024 ONE DOT LEADER)
+// que les détecteurs ne reconnaissent pas. Les points de fin de phrase
+// (suivis d'un espace ou d'un saut de ligne) restent inchangés.
+const deLinkify = (s) =>
+  String(s).replace(/(?<=[a-zA-Zà-ÿÀ-Ÿ])\.(?=[a-zA-Zà-ÿÀ-Ÿ])/g, "\u2024")
 
 // Libellés du détail d'instrumentation d'une œuvre, repris tels quels du mémo
 // (mêmes intitulés que WORK_FIELDS dans app.js).
@@ -136,9 +153,9 @@ export const locationLine = (loc) => {
 
 // --- Liens (issue #88) -------------------------------------------------------
 //
-// Duplique deux petits helpers de app.js (listeSlug, mapsUrl) : ce script Node
-// ne peut pas importer app.js, qui a des effets de bord navigateur dès son
-// chargement (window.matchMedia…).
+// Duplique un petit helper de app.js (listeSlug) : ce script Node ne peut pas
+// importer app.js, qui a des effets de bord navigateur dès son chargement
+// (window.matchMedia…).
 
 // Identifiant d'URL d'une Liste (fragment de hash), ex. "Liste 04" → "liste-04".
 // Toujours ASCII (accents retirés) pour rester lisible tel quel.
@@ -156,19 +173,6 @@ function listeSlug(liste) {
 // Lien vers la fiche complète d'une Liste sur Bémol (mémo de production +
 // tous les services de la série, cf. renderListeDialog dans app.js).
 const listeUrl = (liste) => `${SITE_URL}#${listeSlug(liste)}`
-
-// Lien Google Maps du lieu, ou null si pas encore connu (placeholders "à
-// définir" utilisés par Dièse en attendant confirmation).
-function mapsUrl(loc) {
-  if (!loc || /^(lieu )?à définir/i.test(loc.trim())) return null
-  // Adresse postale quand on la connaît ; sinon, repli sur le libellé brut, en
-  // lui ajoutant la ville s'il n'en mentionne aucune (ambigu hors du contexte
-  // genevois).
-  const query = /,|genève/i.test(locationLine(loc))
-    ? locationLine(loc)
-    : `${loc}, Genève`
-  return `https://maps.google.com/?q=${encodeURIComponent(query)}`
-}
 
 // --- Description enrichie (mémo de production) ------------------------------
 
@@ -206,7 +210,7 @@ function contentLines(e, prod) {
             if (w[k])
               // Détail multi-lignes du mémo : chaque ligne reste lisible.
               lines.push({
-                text: `    ${label} : ${String(w[k]).replace(/\s*\n\s*/g, " / ")}`,
+                text: `    ${label} : ${deLinkify(String(w[k])).replace(/\s*\n\s*/g, " / ")}`,
               })
       }
     }
@@ -216,14 +220,14 @@ function contentLines(e, prod) {
       lines.push({ text: `Durée totale approximative : ${prod.duree}` })
   }
 
-  // Liens utiles (issue #88), repris de la fiche de l'app : lieu sur Google
-  // Maps, portail partitions Dièse, série complète de la Liste sur Bémol.
-  // Relégués en bas de note (issue #166) : moins consultés au quotidien que
-  // le mémo, et déjà accessibles depuis LOCATION/URL pour les apps qui les
-  // exploitent nativement.
+  // Liens utiles (issue #88), repris de la fiche de l'app : portail
+  // partitions Dièse, série complète de la Liste sur Bémol. Relégués en bas
+  // de note (issue #166) : moins consultés au quotidien que le mémo. Le lien
+  // vers le lieu, lui, a été retiré (issue #167) : LOCATION/GEO (propriétés
+  // ICS natives, cf. plus haut) donnent déjà carte et itinéraire dans l'app
+  // d'agenda, et sa répétition ici en texte + URL complète encombrait la note
+  // pour rien.
   lines.push({ text: "" }, { text: "— Liens utiles —" })
-  const maps = mapsUrl(e.location)
-  if (maps) lines.push({ icon: "📍", label: "Lieu (Google Maps)", href: maps })
   lines.push({
     icon: "🎼",
     label: "Portail partitions (Dièse)",
