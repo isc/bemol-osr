@@ -173,29 +173,18 @@ function mapsUrl(loc) {
 // --- Description enrichie (mémo de production) ------------------------------
 
 // Construit le contenu d'un événement sous forme de lignes neutres : contexte
-// du service + liens utiles + infos du mémo de production (les mêmes que le
-// détail de la vue Grille). Une ligne est soit du texte simple ({ text }),
-// soit un lien ({ icon, label, href }) — rendu ci-dessous en texte brut pour
-// DESCRIPTION.
+// du service + infos du mémo de production (les mêmes que le détail de la vue
+// Grille) + liens utiles. Le mémo passe avant les liens (issue #166) : c'est
+// l'information la plus utile à l'ouverture de la note, alors que les liens
+// s'affichent de toute façon en URL complète et en couleur (mise en forme
+// imposée par l'app d'agenda de l'abonné, hors de portée de Bémol — cf.
+// commentaire sur X-ALT-DESC plus bas). Une ligne est soit du texte simple
+// ({ text }), soit un lien ({ icon, label, href }) — rendu ci-dessous en
+// texte brut pour DESCRIPTION.
 function contentLines(e, prod) {
   const lines = []
   if (e.project) lines.push({ text: `Programme : ${e.project}` })
   if (e.cancelled) lines.push({ text: "⚠ Service ANNULÉ" })
-
-  // Liens utiles (issue #88), repris de la fiche de l'app : lieu sur Google
-  // Maps, portail partitions Dièse, série complète de la Liste sur Bémol.
-  const maps = mapsUrl(e.location)
-  if (maps) lines.push({ icon: "📍", label: "Lieu (Google Maps)", href: maps })
-  lines.push({
-    icon: "🎼",
-    label: "Portail partitions (Dièse)",
-    href: SCORE_PORTAL_URL,
-  })
-  lines.push({
-    icon: "📋",
-    label: `Série complète de ${e.liste} (Bémol)`,
-    href: listeUrl(e.liste),
-  })
 
   if (prod) {
     const solistes = (prod.solistes || []).filter(Boolean)
@@ -226,6 +215,25 @@ function contentLines(e, prod) {
     if (prod.duree)
       lines.push({ text: `Durée totale approximative : ${prod.duree}` })
   }
+
+  // Liens utiles (issue #88), repris de la fiche de l'app : lieu sur Google
+  // Maps, portail partitions Dièse, série complète de la Liste sur Bémol.
+  // Relégués en bas de note (issue #166) : moins consultés au quotidien que
+  // le mémo, et déjà accessibles depuis LOCATION/URL pour les apps qui les
+  // exploitent nativement.
+  lines.push({ text: "" }, { text: "— Liens utiles —" })
+  const maps = mapsUrl(e.location)
+  if (maps) lines.push({ icon: "📍", label: "Lieu (Google Maps)", href: maps })
+  lines.push({
+    icon: "🎼",
+    label: "Portail partitions (Dièse)",
+    href: SCORE_PORTAL_URL,
+  })
+  lines.push({
+    icon: "📋",
+    label: `Série complète de ${e.liste} (Bémol)`,
+    href: listeUrl(e.liste),
+  })
 
   lines.push(
     { text: "" },
