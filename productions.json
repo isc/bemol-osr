@@ -780,7 +780,8 @@
    "osr133277": "tutti y compris 7 musiciens de la production",
    "osr133278": "présence de 2 observateurs assis dans l'orchestre (lots Amis) : M.Hikmat Maleh (GP)",
    "osr133281": "1h30 balance orchestre puis orchestre + cast suivi de s+o/balance",
-   "osr133282": "essai micro"
+   "osr133282": "essai micro",
+   "osr133285": "ouvrage sans captation radio"
   }
  },
  "Liste 10": {
@@ -940,7 +941,7 @@
    "osr132848": "-50 invités Amis OSR",
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132855": "-régie son en loge 18"
+   "osr132855": "-podium chœur éventuellement ouvert au public"
   }
  },
  "Liste 13": {
@@ -1786,6 +1787,9 @@
    "osr133333": [
     1
    ]
+  },
+  "serviceNotes": {
+   "osr133329": "ouvrage sans captation radio"
   }
  },
  "Liste 25": {
@@ -2109,6 +2113,7 @@
   },
   "serviceNotes": {
    "osr133368": "filage",
+   "osr133370": "ouvrage sans captation radio",
    "osr133372": "démontage fosse à l'issue",
    "osr133374": "démontage fosse à l'issue"
   }
@@ -2572,6 +2577,8 @@
    ]
   },
   "serviceNotes": {
+   "osr128845": "essais micro I (RTS)",
+   "osr128846": "essais micro II (RTS)",
    "osr128847": "démontage à l'issue"
   }
  },
