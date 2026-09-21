@@ -983,10 +983,12 @@ function scorePortalLink() {
 // prod.serviceWorks : { uid → [n,...] }, n étant l'index 1-based dans
 // prod.works). Absent si le mémo ne le précise pas pour ce service ou si le
 // rapprochement avec le planning était ambigu — pas de repli approximatif.
-// Le détail complet de chaque œuvre (instrumentation, remarques, durée…) est
-// repris via workNode() — pas seulement le titre (issue #161) — et complété,
-// si le mémo précise une remarque propre à ce service (ex. « extraits »),
-// par prod.serviceNotes[e.uid].
+// Seul le titre de chaque œuvre est repris ici : le détail complet
+// (instrumentation, remarques, durée…) est déjà affiché juste en dessous par
+// « Œuvres au programme » (productionDetail) — le répéter ici via workNode()
+// (issue #161) faisait doublon et alourdissait la fiche pour rien (retour
+// PR #164, issue #168). Seule info propre à CE service et absente plus bas :
+// la remarque éventuelle du mémo (ex. « extraits »), via prod.serviceNotes[e.uid].
 function serviceWorksDetail(e) {
   const prod = state.productions[e.liste] || {}
   const indices = (prod.serviceWorks || {})[e.uid]
@@ -1006,8 +1008,17 @@ function serviceWorksDetail(e) {
       { class: "detail-section" },
       "Œuvres travaillées pendant ce service",
     ),
-    el("ul", { class: "works" }, ...list.map((w) => workNode(w))),
-    note ? el("p", { class: "service-note" }, note) : null,
+    el(
+      "ul",
+      { class: "works" },
+      ...list.map((w) => el("li", {}, typeof w === "string" ? w : w.oeuvre)),
+    ),
+    // box.replaceChildren() (appelant, showDetail()) est l'API DOM native, pas
+    // le helper el() : un `null` glissé ici, à la différence d'un enfant de
+    // el(), n'est pas filtré mais coercé en la chaîne "null" et affiché tel
+    // quel (retour #168) — d'où ce tableau de longueur variable plutôt qu'un
+    // `note ? … : null` en position fixe.
+    ...(note ? [el("p", { class: "service-note" }, note)] : []),
   ]
 }
 
