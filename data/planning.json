@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-18T17:43:11.777Z",
- "count": 616,
+ "updatedAt": "2026-09-21T19:33:09.258Z",
+ "count": 617,
  "events": [
   {
    "uid": "osr225046",
@@ -4158,6 +4158,17 @@
    "category": "concours",
    "location": "Auditorium Ansermet",
    "project": "registre des seconds violons) -",
+   "cancelled": false
+  },
+  {
+   "uid": "osr249282",
+   "start": "2027-02-16T09:30",
+   "end": "2027-02-16T19:00",
+   "liste": "Concours Alto tuttiste",
+   "activity": "concours (Alto tuttiste)",
+   "category": "concours",
+   "location": "Auditorium Ansermet",
+   "project": "",
    "cancelled": false
   },
   {
