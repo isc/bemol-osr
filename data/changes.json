@@ -1,6 +1,3626 @@
 {
  "entries": [
   {
+   "at": "2026-09-22T17:02:40.646Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr225046",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr225046",
+      "start": "2026-08-11T10:00",
+      "end": "2026-08-11T12:30",
+      "liste": "Liste 01",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr225046",
+      "start": "2026-08-11T10:00",
+      "end": "2026-08-11T12:30",
+      "liste": "Liste 01",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128422",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128422",
+      "start": "2026-08-11T14:30",
+      "end": "2026-08-11T17:00",
+      "liste": "Liste 02",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128422",
+      "start": "2026-08-11T14:30",
+      "end": "2026-08-11T17:00",
+      "liste": "Liste 02",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr224799",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr224799",
+      "start": "2026-08-12T09:15",
+      "end": "2026-08-12T09:45",
+      "liste": "Liste 01",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "OGP1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr224799",
+      "start": "2026-08-12T09:15",
+      "end": "2026-08-12T09:45",
+      "liste": "Liste 01",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "OGP1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr224800",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr224800",
+      "start": "2026-08-12T10:00",
+      "end": "2026-08-12T12:30",
+      "liste": "Liste 01",
+      "activity": "répétition avec soliste",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr224800",
+      "start": "2026-08-12T10:00",
+      "end": "2026-08-12T12:30",
+      "liste": "Liste 01",
+      "activity": "répétition avec soliste",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128423",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128423",
+      "start": "2026-08-12T19:30",
+      "end": "2026-08-12T22:00",
+      "liste": "Liste 02",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128423",
+      "start": "2026-08-12T19:30",
+      "end": "2026-08-12T22:00",
+      "liste": "Liste 02",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr229406",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr229406",
+      "start": "2026-08-13T10:00",
+      "end": "2026-08-13T11:00",
+      "liste": "Liste 03",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - Grande salle ((loge))",
+      "project": "OGP3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr229406",
+      "start": "2026-08-13T10:00",
+      "end": "2026-08-13T11:00",
+      "liste": "Liste 03",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - grande salle ((loge))",
+      "project": "OGP3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr229019",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr229019",
+      "start": "2026-08-13T11:00",
+      "end": "2026-08-13T12:30",
+      "liste": "Liste 03",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "OGP3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr229019",
+      "start": "2026-08-13T11:00",
+      "end": "2026-08-13T12:30",
+      "liste": "Liste 03",
+      "activity": "rencontre chef-soliste(s)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "OGP3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128426",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128426",
+      "start": "2026-08-13T14:30",
+      "end": "2026-08-13T17:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128426",
+      "start": "2026-08-13T14:30",
+      "end": "2026-08-13T17:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128427",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128427",
+      "start": "2026-08-13T19:30",
+      "end": "2026-08-13T22:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec soliste ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128427",
+      "start": "2026-08-13T19:30",
+      "end": "2026-08-13T22:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec soliste ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128428",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128428",
+      "start": "2026-08-14T10:30",
+      "end": "2026-08-14T13:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128428",
+      "start": "2026-08-14T10:30",
+      "end": "2026-08-14T13:00",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((voice+trio))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128429",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128429",
+      "start": "2026-08-14T14:30",
+      "end": "2026-08-14T17:30",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((filage))",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128429",
+      "start": "2026-08-14T14:30",
+      "end": "2026-08-14T17:30",
+      "liste": "Liste 03",
+      "activity": "répétition avec solistes ((filage))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133255",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133255",
+      "start": "2026-09-02T10:00",
+      "end": "2026-09-02T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133255",
+      "start": "2026-09-02T10:00",
+      "end": "2026-09-02T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr222606",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr222606",
+      "start": "2026-09-02T12:30",
+      "end": "2026-09-02T13:30",
+      "liste": "Présentation de Saison GT 2627",
+      "activity": "Présentation Saison GT",
+      "category": "autre",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr222606",
+      "start": "2026-09-02T12:30",
+      "end": "2026-09-02T13:30",
+      "liste": "Présentation de Saison GT 2627",
+      "activity": "Présentation Saison GT",
+      "category": "autre",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133256",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133256",
+      "start": "2026-09-02T19:30",
+      "end": "2026-09-02T22:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133256",
+      "start": "2026-09-02T19:30",
+      "end": "2026-09-02T22:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133257",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133257",
+      "start": "2026-09-03T10:00",
+      "end": "2026-09-03T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133257",
+      "start": "2026-09-03T10:00",
+      "end": "2026-09-03T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133258",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133258",
+      "start": "2026-09-03T14:30",
+      "end": "2026-09-03T17:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133258",
+      "start": "2026-09-03T14:30",
+      "end": "2026-09-03T17:00",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133259",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133259",
+      "start": "2026-09-04T10:00",
+      "end": "2026-09-04T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133259",
+      "start": "2026-09-04T10:00",
+      "end": "2026-09-04T12:30",
+      "liste": "Liste A",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr236839",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr236839",
+      "start": "2026-09-04T13:30",
+      "end": "2026-09-04T15:30",
+      "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+      "activity": "répétition hors contrat",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr236839",
+      "start": "2026-09-04T13:30",
+      "end": "2026-09-04T15:30",
+      "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
+      "activity": "répétition hors contrat",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132704",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132704",
+      "start": "2026-09-14T10:00",
+      "end": "2026-09-14T13:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement cordes",
+      "category": "enregistrement",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132704",
+      "start": "2026-09-14T10:00",
+      "end": "2026-09-14T13:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement cordes",
+      "category": "enregistrement",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr216144",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr216144",
+      "start": "2026-09-14T13:00",
+      "end": "2026-09-14T13:30",
+      "liste": "Liste 05",
+      "activity": "session enregistrement (piano)",
+      "category": "enregistrement",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": true
+     },
+     "after": {
+      "uid": "osr216144",
+      "start": "2026-09-14T13:00",
+      "end": "2026-09-14T13:30",
+      "liste": "Liste 05",
+      "activity": "session enregistrement (piano)",
+      "category": "enregistrement",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": true
+     }
+    },
+    {
+     "uid": "osr132706",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132706",
+      "start": "2026-09-15T10:30",
+      "end": "2026-09-15T13:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement cuivres",
+      "category": "enregistrement",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132706",
+      "start": "2026-09-15T10:30",
+      "end": "2026-09-15T13:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement cuivres",
+      "category": "enregistrement",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132705",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132705",
+      "start": "2026-09-15T14:30",
+      "end": "2026-09-15T17:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement bois",
+      "category": "enregistrement",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132705",
+      "start": "2026-09-15T14:30",
+      "end": "2026-09-15T17:00",
+      "liste": "Liste 05",
+      "activity": "session enregistrement bois",
+      "category": "enregistrement",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132707",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132707",
+      "start": "2026-09-15T19:30",
+      "end": "2026-09-15T22:30",
+      "liste": "Liste 05",
+      "activity": "session enregistrement tutti",
+      "category": "enregistrement",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132707",
+      "start": "2026-09-15T19:30",
+      "end": "2026-09-15T22:30",
+      "liste": "Liste 05",
+      "activity": "session enregistrement tutti",
+      "category": "enregistrement",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176101",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176101",
+      "start": "2026-09-18T09:00",
+      "end": "2026-09-18T11:00",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD1.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176101",
+      "start": "2026-09-18T09:00",
+      "end": "2026-09-18T11:00",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD1.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176102",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176102",
+      "start": "2026-09-18T13:45",
+      "end": "2026-09-18T15:45",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD1.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176102",
+      "start": "2026-09-18T13:45",
+      "end": "2026-09-18T15:45",
+      "liste": "Atelier Découverte 1",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD1.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132714",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132714",
+      "start": "2026-09-22T10:00",
+      "end": "2026-09-22T12:30",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132714",
+      "start": "2026-09-22T10:00",
+      "end": "2026-09-22T12:30",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132715",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132715",
+      "start": "2026-09-22T14:30",
+      "end": "2026-09-22T17:00",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132715",
+      "start": "2026-09-22T14:30",
+      "end": "2026-09-22T17:00",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr226832",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "concours",
+      "location": "ML - Grande salle (Foyer des musiciens)",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr226832",
+      "start": "2026-09-22T17:00",
+      "end": "2026-09-22T18:00",
+      "liste": "Titularisation OSÓRIO",
+      "activity": "séance titularisation (Nuno OSÓRIO)",
+      "category": "concours",
+      "location": "ML - grande salle (Foyer des musiciens)",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132716",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132716",
+      "start": "2026-09-23T11:30",
+      "end": "2026-09-23T14:00",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132716",
+      "start": "2026-09-23T10:00",
+      "end": "2026-09-23T12:30",
+      "liste": "Liste 06",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232645",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232645",
+      "start": "2026-09-23T18:00",
+      "end": "2026-09-23T21:00",
+      "liste": "Audition de cornistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232645",
+      "start": "2026-09-23T18:00",
+      "end": "2026-09-23T21:00",
+      "liste": "Audition de cornistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133277",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133277",
+      "start": "2026-10-02T14:30",
+      "end": "2026-10-02T17:30",
+      "liste": "Liste B",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133277",
+      "start": "2026-10-02T14:30",
+      "end": "2026-10-02T17:30",
+      "liste": "Liste B",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133278",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133278",
+      "start": "2026-10-02T19:30",
+      "end": "2026-10-02T22:30",
+      "liste": "Liste B",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133278",
+      "start": "2026-10-02T19:30",
+      "end": "2026-10-02T22:30",
+      "liste": "Liste B",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232647",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232647",
+      "start": "2026-10-15T14:30",
+      "end": "2026-10-15T17:30",
+      "liste": "Audition de violonistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232647",
+      "start": "2026-10-15T14:30",
+      "end": "2026-10-15T17:30",
+      "liste": "Audition de violonistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132795",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132795",
+      "start": "2026-10-16T10:00",
+      "end": "2026-10-16T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violons 1)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132795",
+      "start": "2026-10-16T10:00",
+      "end": "2026-10-16T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violons 1)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132796",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132796",
+      "start": "2026-10-17T10:00",
+      "end": "2026-10-17T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violons 2)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132796",
+      "start": "2026-10-17T10:00",
+      "end": "2026-10-17T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violons 2)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132798",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132798",
+      "start": "2026-10-17T14:00",
+      "end": "2026-10-17T16:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (altos)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132798",
+      "start": "2026-10-17T14:00",
+      "end": "2026-10-17T16:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (altos)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr233634",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr233634",
+      "start": "2026-10-17T18:30",
+      "end": "2026-10-17T21:00",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (contrebasses)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr233634",
+      "start": "2026-10-17T18:30",
+      "end": "2026-10-17T21:00",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (contrebasses)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232433",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232433",
+      "start": "2026-10-19T10:00",
+      "end": "2026-10-19T13:00",
+      "liste": "Audition de percussionistes supplémentaires",
+      "activity": "répétitions candidats",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232433",
+      "start": "2026-10-19T10:00",
+      "end": "2026-10-19T13:00",
+      "liste": "Audition de percussionistes supplémentaires",
+      "activity": "répétitions candidats",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232435",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232435",
+      "start": "2026-10-19T14:00",
+      "end": "2026-10-19T17:00",
+      "liste": "Audition de percussionistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232435",
+      "start": "2026-10-19T14:00",
+      "end": "2026-10-19T17:00",
+      "liste": "Audition de percussionistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132799",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132799",
+      "start": "2026-10-20T10:00",
+      "end": "2026-10-20T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violoncelles)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132799",
+      "start": "2026-10-20T10:00",
+      "end": "2026-10-20T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (violoncelles)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132800",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132800",
+      "start": "2026-10-20T14:30",
+      "end": "2026-10-20T17:00",
+      "liste": "Liste 10",
+      "activity": "partielle par registre (cordes)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132800",
+      "start": "2026-10-20T14:30",
+      "end": "2026-10-20T17:00",
+      "liste": "Liste 10",
+      "activity": "partielle par registre (cordes)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132801",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132801",
+      "start": "2026-10-20T19:30",
+      "end": "2026-10-20T22:00",
+      "liste": "Liste 10",
+      "activity": "partielle par registre (bois, cuivres, timbales, percussions)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132801",
+      "start": "2026-10-20T19:30",
+      "end": "2026-10-20T22:00",
+      "liste": "Liste 10",
+      "activity": "partielle par registre (bois, cuivres, timbales, percussions)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176070",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176070",
+      "start": "2026-10-26T13:15",
+      "end": "2026-10-26T15:15",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD2.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176070",
+      "start": "2026-10-26T13:15",
+      "end": "2026-10-26T15:15",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD2.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176068",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176068",
+      "start": "2026-10-27T09:00",
+      "end": "2026-10-27T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD2.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176068",
+      "start": "2026-10-27T09:00",
+      "end": "2026-10-27T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD2.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176069",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176069",
+      "start": "2026-10-27T13:30",
+      "end": "2026-10-27T15:30",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD2.3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176069",
+      "start": "2026-10-27T13:30",
+      "end": "2026-10-27T15:30",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD2.3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176071",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176071",
+      "start": "2026-10-28T09:00",
+      "end": "2026-10-28T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD2.4",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176071",
+      "start": "2026-10-28T09:00",
+      "end": "2026-10-28T11:00",
+      "liste": "Atelier Découverte 2",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD2.4",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232649",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232649",
+      "start": "2026-10-29T09:30",
+      "end": "2026-10-29T12:30",
+      "liste": "Audition d'altistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232649",
+      "start": "2026-10-29T09:30",
+      "end": "2026-10-29T12:30",
+      "liste": "Audition d'altistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232650",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232650",
+      "start": "2026-10-29T14:00",
+      "end": "2026-10-29T17:00",
+      "liste": "Audition de tubistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232650",
+      "start": "2026-10-29T14:00",
+      "end": "2026-10-29T17:00",
+      "liste": "Audition de tubistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr248530",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - présélection",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - présélection",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176073",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176073",
+      "start": "2026-11-06T09:00",
+      "end": "2026-11-06T11:00",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD3.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176073",
+      "start": "2026-11-06T09:00",
+      "end": "2026-11-06T11:00",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD3.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176074",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176074",
+      "start": "2026-11-06T13:45",
+      "end": "2026-11-06T15:45",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD3.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176074",
+      "start": "2026-11-06T13:45",
+      "end": "2026-11-06T15:45",
+      "liste": "Atelier Découverte 3",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD3.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196354",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196354",
+      "start": "2026-11-09T10:00",
+      "end": "2026-11-09T12:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196354",
+      "start": "2026-11-09T10:00",
+      "end": "2026-11-09T12:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196355",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196355",
+      "start": "2026-11-10T09:00",
+      "end": "2026-11-10T11:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (+ st. A, B & P)",
+      "project": "AD4.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196355",
+      "start": "2026-11-10T09:00",
+      "end": "2026-11-10T11:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD4.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232652",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232652",
+      "start": "2026-11-20T10:00",
+      "end": "2026-11-20T13:00",
+      "liste": "Audition de contrebassistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232652",
+      "start": "2026-11-20T10:00",
+      "end": "2026-11-20T13:00",
+      "liste": "Audition de contrebassistes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232654",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232654",
+      "start": "2026-11-20T14:00",
+      "end": "2026-11-20T17:00",
+      "liste": "Audition de hautboïstes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232654",
+      "start": "2026-11-20T14:00",
+      "end": "2026-11-20T17:00",
+      "liste": "Audition de hautboïstes supplémentaires",
+      "activity": "audition",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196349",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196349",
+      "start": "2026-11-24T09:00",
+      "end": "2026-11-24T11:00",
+      "liste": "Atelier Découverte 5",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD5.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196349",
+      "start": "2026-11-24T09:00",
+      "end": "2026-11-24T11:00",
+      "liste": "Atelier Découverte 5",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD5.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196350",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196350",
+      "start": "2026-11-24T13:30",
+      "end": "2026-11-24T15:30",
+      "liste": "Atelier Découverte 5",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD5.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196350",
+      "start": "2026-11-24T13:30",
+      "end": "2026-11-24T15:30",
+      "liste": "Atelier Découverte 5",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD5.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr248482",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr248482",
+      "start": "2026-12-01T10:00",
+      "end": "2026-12-01T12:30",
+      "liste": "Groupe de Prévention 2026",
+      "activity": "Réunion (plénière des membres)",
+      "category": "autre",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr248482",
+      "start": "2026-12-01T10:00",
+      "end": "2026-12-01T12:30",
+      "liste": "Groupe de Prévention 2026",
+      "activity": "Réunion (plénière des membres)",
+      "category": "autre",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133293",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133293",
+      "start": "2026-12-02T10:00",
+      "end": "2026-12-02T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133293",
+      "start": "2026-12-02T10:00",
+      "end": "2026-12-02T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133294",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133294",
+      "start": "2026-12-03T10:00",
+      "end": "2026-12-03T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133294",
+      "start": "2026-12-03T10:00",
+      "end": "2026-12-03T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133295",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133295",
+      "start": "2026-12-03T14:30",
+      "end": "2026-12-03T17:00",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133295",
+      "start": "2026-12-03T14:30",
+      "end": "2026-12-03T17:00",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132931",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132931",
+      "start": "2026-12-03T19:00",
+      "end": "2026-12-03T21:30",
+      "liste": "Liste 18",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132931",
+      "start": "2026-12-03T19:00",
+      "end": "2026-12-03T21:30",
+      "liste": "Liste 18",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133296",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133296",
+      "start": "2026-12-04T10:00",
+      "end": "2026-12-04T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133296",
+      "start": "2026-12-04T10:00",
+      "end": "2026-12-04T12:30",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133297",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133297",
+      "start": "2026-12-04T14:30",
+      "end": "2026-12-04T17:00",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133297",
+      "start": "2026-12-04T14:30",
+      "end": "2026-12-04T17:00",
+      "liste": "Liste C",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240516",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133001",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133001",
+      "start": "2027-01-22T14:30",
+      "end": "2027-01-22T17:00",
+      "liste": "Liste 24",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133001",
+      "start": "2027-01-22T14:30",
+      "end": "2027-01-22T17:00",
+      "liste": "Liste 24",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133317",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133317",
+      "start": "2027-01-27T10:00",
+      "end": "2027-01-27T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133317",
+      "start": "2027-01-27T10:00",
+      "end": "2027-01-27T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133318",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133318",
+      "start": "2027-01-28T10:00",
+      "end": "2027-01-28T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133318",
+      "start": "2027-01-28T10:00",
+      "end": "2027-01-28T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133319",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133319",
+      "start": "2027-01-28T14:30",
+      "end": "2027-01-28T17:00",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133319",
+      "start": "2027-01-28T14:30",
+      "end": "2027-01-28T17:00",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133320",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133320",
+      "start": "2027-01-29T10:00",
+      "end": "2027-01-29T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133320",
+      "start": "2027-01-29T10:00",
+      "end": "2027-01-29T12:30",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133321",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133321",
+      "start": "2027-01-29T14:30",
+      "end": "2027-01-29T17:00",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133321",
+      "start": "2027-01-29T14:30",
+      "end": "2027-01-29T17:00",
+      "liste": "Liste D",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232662",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr232662",
+      "start": "2027-01-31T16:00",
+      "end": "2027-01-31T22:00",
+      "liste": "Concours à définir",
+      "activity": "répétitions candidats (poste à définir)",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232662",
+      "start": "2027-01-31T16:00",
+      "end": "2027-01-31T22:00",
+      "liste": "Concours à définir",
+      "activity": "répétitions candidats (poste à définir)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176088",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176088",
+      "start": "2027-02-01T18:30",
+      "end": "2027-02-01T20:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (Fl)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176088",
+      "start": "2027-02-01T18:30",
+      "end": "2027-02-01T20:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (Fl)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176092",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176092",
+      "start": "2027-02-01T20:45",
+      "end": "2027-02-01T22:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (trb.+tub)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176092",
+      "start": "2027-02-01T20:45",
+      "end": "2027-02-01T22:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (trb.+tub)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176095",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176095",
+      "start": "2027-02-02T19:00",
+      "end": "2027-02-02T21:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (V1)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176095",
+      "start": "2027-02-02T19:00",
+      "end": "2027-02-02T21:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (V1)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176097",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176097",
+      "start": "2027-02-03T19:00",
+      "end": "2027-02-03T21:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (V2)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176097",
+      "start": "2027-02-03T19:00",
+      "end": "2027-02-03T21:30",
+      "liste": "Liste 24b",
+      "activity": "partielle (V2)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176100",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176100",
+      "start": "2027-02-04T18:30",
+      "end": "2027-02-04T21:30",
+      "liste": "Liste 24b",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176100",
+      "start": "2027-02-04T18:30",
+      "end": "2027-02-04T21:30",
+      "liste": "Liste 24b",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133339",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133339",
+      "start": "2027-02-17T10:00",
+      "end": "2027-02-17T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133339",
+      "start": "2027-02-17T10:00",
+      "end": "2027-02-17T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133340",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133340",
+      "start": "2027-02-18T10:00",
+      "end": "2027-02-18T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133340",
+      "start": "2027-02-18T10:00",
+      "end": "2027-02-18T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133341",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133341",
+      "start": "2027-02-18T14:30",
+      "end": "2027-02-18T17:00",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133341",
+      "start": "2027-02-18T14:30",
+      "end": "2027-02-18T17:00",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133342",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133342",
+      "start": "2027-02-19T10:00",
+      "end": "2027-02-19T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133342",
+      "start": "2027-02-19T10:00",
+      "end": "2027-02-19T12:30",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133343",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133343",
+      "start": "2027-02-19T14:30",
+      "end": "2027-02-19T17:00",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133343",
+      "start": "2027-02-19T14:30",
+      "end": "2027-02-19T17:00",
+      "liste": "Liste E",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162105",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr162105",
+      "start": "2027-02-22T18:30",
+      "end": "2027-02-22T21:00",
+      "liste": "Liste 26",
+      "activity": "partielle (registre cordes)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162105",
+      "start": "2027-02-22T18:30",
+      "end": "2027-02-22T21:00",
+      "liste": "Liste 26",
+      "activity": "partielle (registre cordes)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162104",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr162104",
+      "start": "2027-02-23T18:30",
+      "end": "2027-02-23T21:00",
+      "liste": "Liste 26",
+      "activity": "partielle (registre vents-percu)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162104",
+      "start": "2027-02-23T18:30",
+      "end": "2027-02-23T21:00",
+      "liste": "Liste 26",
+      "activity": "partielle (registre vents-percu)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162103",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr162103",
+      "start": "2027-02-24T18:30",
+      "end": "2027-02-24T21:30",
+      "liste": "Liste 26",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162103",
+      "start": "2027-02-24T18:30",
+      "end": "2027-02-24T21:30",
+      "liste": "Liste 26",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196360",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196360",
+      "start": "2027-03-04T09:00",
+      "end": "2027-03-04T12:00",
+      "liste": "Atelier Découverte GT",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "ADGT.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196360",
+      "start": "2027-03-04T09:00",
+      "end": "2027-03-04T12:00",
+      "liste": "Atelier Découverte GT",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "ADGT.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196361",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196361",
+      "start": "2027-03-05T09:00",
+      "end": "2027-03-05T12:00",
+      "liste": "Atelier Découverte GT",
+      "activity": "ateliers (avec mus.OSR) (OPTION)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "ADGT.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196361",
+      "start": "2027-03-05T09:00",
+      "end": "2027-03-05T12:00",
+      "liste": "Atelier Découverte GT",
+      "activity": "ateliers (avec mus.OSR) (OPTION)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "ADGT.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162117",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr162117",
+      "start": "2027-03-08T15:00",
+      "end": "2027-03-08T17:30",
+      "liste": "Liste 27",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162117",
+      "start": "2027-03-08T15:00",
+      "end": "2027-03-08T17:30",
+      "liste": "Liste 27",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132562",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132562",
+      "start": "2027-03-08T19:30",
+      "end": "2027-03-08T22:00",
+      "liste": "Liste 27",
+      "activity": "répétition privée Amis",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132562",
+      "start": "2027-03-08T19:30",
+      "end": "2027-03-08T22:00",
+      "liste": "Liste 27",
+      "activity": "répétition privée Amis",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132563",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132563",
+      "start": "2027-03-09T10:00",
+      "end": "2027-03-09T12:30",
+      "liste": "Liste 27",
+      "activity": "répétition avec soliste",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132563",
+      "start": "2027-03-09T10:00",
+      "end": "2027-03-09T12:30",
+      "liste": "Liste 27",
+      "activity": "répétition avec soliste",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr178808",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr178808",
+      "start": "2027-03-11T10:30",
+      "end": "2027-03-11T13:00",
+      "liste": "Liste 27b",
+      "activity": "session masterclass direction",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr178808",
+      "start": "2027-03-11T10:30",
+      "end": "2027-03-11T13:00",
+      "liste": "Liste 27b",
+      "activity": "session masterclass direction",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr174776",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr174776",
+      "start": "2027-03-22T18:30",
+      "end": "2027-03-22T20:30",
+      "liste": "Liste 28b",
+      "activity": "partielle bois",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr174776",
+      "start": "2027-03-22T18:30",
+      "end": "2027-03-22T20:30",
+      "liste": "Liste 28b",
+      "activity": "partielle bois",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr220678",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr220678",
+      "start": "2027-03-22T20:45",
+      "end": "2027-03-22T22:30",
+      "liste": "Liste 28b",
+      "activity": "partielle (cuivres)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr220678",
+      "start": "2027-03-22T20:45",
+      "end": "2027-03-22T22:30",
+      "liste": "Liste 28b",
+      "activity": "partielle (cuivres)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr174778",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr174778",
+      "start": "2027-03-23T18:30",
+      "end": "2027-03-23T21:30",
+      "liste": "Liste 28b",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr174778",
+      "start": "2027-03-23T18:30",
+      "end": "2027-03-23T21:30",
+      "liste": "Liste 28b",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133360",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133360",
+      "start": "2027-04-05T10:00",
+      "end": "2027-04-05T12:30",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133360",
+      "start": "2027-04-05T10:00",
+      "end": "2027-04-05T12:30",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133361",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133361",
+      "start": "2027-04-05T14:30",
+      "end": "2027-04-05T17:00",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133361",
+      "start": "2027-04-05T14:30",
+      "end": "2027-04-05T17:00",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133362",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133362",
+      "start": "2027-04-06T10:00",
+      "end": "2027-04-06T12:30",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133362",
+      "start": "2027-04-06T10:00",
+      "end": "2027-04-06T12:30",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133363",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133363",
+      "start": "2027-04-06T14:30",
+      "end": "2027-04-06T17:00",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133363",
+      "start": "2027-04-06T14:30",
+      "end": "2027-04-06T17:00",
+      "liste": "Liste F",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133061",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133061",
+      "start": "2027-04-09T10:00",
+      "end": "2027-04-09T12:30",
+      "liste": "Liste 29",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133061",
+      "start": "2027-04-09T10:00",
+      "end": "2027-04-09T12:30",
+      "liste": "Liste 29",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133062",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133062",
+      "start": "2027-04-09T14:30",
+      "end": "2027-04-09T17:00",
+      "liste": "Liste 29",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133062",
+      "start": "2027-04-09T14:30",
+      "end": "2027-04-09T17:00",
+      "liste": "Liste 29",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr239392",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr239392",
+      "start": "2027-04-24T09:30",
+      "end": "2027-04-24T19:00",
+      "liste": "Concours Deuxième violon solo (coordonné)",
+      "activity": "concours (Deuxième violon solo (coordonné))",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr239392",
+      "start": "2027-04-24T09:30",
+      "end": "2027-04-24T19:00",
+      "liste": "Concours Deuxième violon solo (coordonné)",
+      "activity": "concours (Deuxième violon solo (coordonné))",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr248533",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr248533",
+      "start": "2027-05-01T11:00",
+      "end": "2027-05-01T22:00",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr248533",
+      "start": "2027-05-01T11:00",
+      "end": "2027-05-01T22:00",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196352",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196352",
+      "start": "2027-05-03T09:00",
+      "end": "2027-05-03T11:00",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD6.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196352",
+      "start": "2027-05-03T09:00",
+      "end": "2027-05-03T11:00",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD6.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196353",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196353",
+      "start": "2027-05-03T13:30",
+      "end": "2027-05-03T15:30",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD6.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196353",
+      "start": "2027-05-03T13:30",
+      "end": "2027-05-03T15:30",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD6.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196351",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196351",
+      "start": "2027-05-04T09:00",
+      "end": "2027-05-04T11:00",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD6.3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196351",
+      "start": "2027-05-04T09:00",
+      "end": "2027-05-04T11:00",
+      "liste": "Atelier Découverte 6",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD6.3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196356",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196356",
+      "start": "2027-05-13T09:00",
+      "end": "2027-05-13T11:00",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD7.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196356",
+      "start": "2027-05-13T09:00",
+      "end": "2027-05-13T11:00",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD7.1",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196357",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196357",
+      "start": "2027-05-13T13:30",
+      "end": "2027-05-13T15:30",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD7.2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196357",
+      "start": "2027-05-13T13:30",
+      "end": "2027-05-13T15:30",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD7.2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196358",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196358",
+      "start": "2027-05-14T09:00",
+      "end": "2027-05-14T11:00",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD7.3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196358",
+      "start": "2027-05-14T09:00",
+      "end": "2027-05-14T11:00",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD7.3",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr196359",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr196359",
+      "start": "2027-05-14T13:30",
+      "end": "2027-05-14T15:30",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle (st. A, B & P)",
+      "project": "AD7.4",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196359",
+      "start": "2027-05-14T13:30",
+      "end": "2027-05-14T15:30",
+      "liste": "Atelier Découverte 7",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (st. A, B & P)",
+      "project": "AD7.4",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132643",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr132643",
+      "start": "2027-05-27T10:00",
+      "end": "2027-05-27T12:30",
+      "liste": "Liste 36",
+      "activity": "session masterclass direction",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132643",
+      "start": "2027-05-27T10:00",
+      "end": "2027-05-27T12:30",
+      "liste": "Liste 36",
+      "activity": "session masterclass direction",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133166",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133166",
+      "start": "2027-05-28T10:00",
+      "end": "2027-05-28T12:30",
+      "liste": "Liste 37",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133166",
+      "start": "2027-05-28T10:00",
+      "end": "2027-05-28T12:30",
+      "liste": "Liste 37",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133198",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133198",
+      "start": "2027-06-04T19:00",
+      "end": "2027-06-04T21:30",
+      "liste": "Liste 39",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133198",
+      "start": "2027-06-04T19:00",
+      "end": "2027-06-04T21:30",
+      "liste": "Liste 39",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133200",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133200",
+      "start": "2027-06-05T10:00",
+      "end": "2027-06-05T12:30",
+      "liste": "Liste 39",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133200",
+      "start": "2027-06-05T10:00",
+      "end": "2027-06-05T12:30",
+      "liste": "Liste 39",
+      "activity": "répétition tutti",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr176066",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr176066",
+      "start": "2027-06-08T08:00",
+      "end": "2027-06-08T16:00",
+      "liste": "Liste 40",
+      "activity": "répétition (sans OSR)",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr176066",
+      "start": "2027-06-08T08:00",
+      "end": "2027-06-08T16:00",
+      "liste": "Liste 40",
+      "activity": "répétition (sans OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133186",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133186",
+      "start": "2027-06-09T10:00",
+      "end": "2027-06-09T12:30",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133186",
+      "start": "2027-06-09T10:00",
+      "end": "2027-06-09T12:30",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133187",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133187",
+      "start": "2027-06-09T19:30",
+      "end": "2027-06-09T22:00",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133187",
+      "start": "2027-06-09T19:30",
+      "end": "2027-06-09T22:00",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133188",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133188",
+      "start": "2027-06-10T10:00",
+      "end": "2027-06-10T12:30",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133188",
+      "start": "2027-06-10T10:00",
+      "end": "2027-06-10T12:30",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133189",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133189",
+      "start": "2027-06-10T14:30",
+      "end": "2027-06-10T17:00",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133189",
+      "start": "2027-06-10T14:30",
+      "end": "2027-06-10T17:00",
+      "liste": "Liste 38",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128838",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128838",
+      "start": "2027-06-16T10:00",
+      "end": "2027-06-16T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128838",
+      "start": "2027-06-16T10:00",
+      "end": "2027-06-16T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128839",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128839",
+      "start": "2027-06-17T10:00",
+      "end": "2027-06-17T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128839",
+      "start": "2027-06-17T10:00",
+      "end": "2027-06-17T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr128840",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr128840",
+      "start": "2027-06-18T10:00",
+      "end": "2027-06-18T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr128840",
+      "start": "2027-06-18T10:00",
+      "end": "2027-06-18T13:00",
+      "liste": "Liste G",
+      "activity": "lecture",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133221",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133221",
+      "start": "2027-06-28T10:00",
+      "end": "2027-06-28T12:30",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133221",
+      "start": "2027-06-28T10:00",
+      "end": "2027-06-28T12:30",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133222",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133222",
+      "start": "2027-06-28T14:30",
+      "end": "2027-06-28T17:00",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133222",
+      "start": "2027-06-28T14:30",
+      "end": "2027-06-28T17:00",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133220",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133220",
+      "start": "2027-06-29T10:00",
+      "end": "2027-06-29T12:30",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133220",
+      "start": "2027-06-29T10:00",
+      "end": "2027-06-29T12:30",
+      "liste": "Liste 41",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133228",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133228",
+      "start": "2027-07-02T10:00",
+      "end": "2027-07-02T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133228",
+      "start": "2027-07-02T10:00",
+      "end": "2027-07-02T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133231",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133231",
+      "start": "2027-07-02T14:30",
+      "end": "2027-07-02T17:00",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133231",
+      "start": "2027-07-02T14:30",
+      "end": "2027-07-02T17:00",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133230",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133230",
+      "start": "2027-07-03T10:00",
+      "end": "2027-07-03T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133230",
+      "start": "2027-07-03T10:00",
+      "end": "2027-07-03T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133229",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr133229",
+      "start": "2027-07-03T14:30",
+      "end": "2027-07-03T17:00",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133229",
+      "start": "2027-07-03T14:30",
+      "end": "2027-07-03T17:00",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr227893",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr227893",
+      "start": "2027-07-05T10:00",
+      "end": "2027-07-05T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - Grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr227893",
+      "start": "2027-07-05T10:00",
+      "end": "2027-07-05T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-22T11:49:10.799Z",
    "added": [],
    "removed": [],

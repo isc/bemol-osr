@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-22T11:49:10.799Z",
+ "updatedAt": "2026-09-22T17:02:40.646Z",
  "count": 617,
  "events": [
   {
@@ -9,7 +9,7 @@
    "liste": "Liste 01",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -20,7 +20,7 @@
    "liste": "Liste 02",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -31,7 +31,7 @@
    "liste": "Liste 01",
    "activity": "rencontre chef-soliste(s)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "OGP1",
    "cancelled": false
   },
@@ -42,7 +42,7 @@
    "liste": "Liste 01",
    "activity": "répétition avec soliste",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -53,7 +53,7 @@
    "liste": "Liste 02",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -75,7 +75,7 @@
    "liste": "Liste 03",
    "activity": "rencontre chef-soliste(s)",
    "category": "repetition",
-   "location": "ML - Grande salle ((loge))",
+   "location": "ML - grande salle ((loge))",
    "project": "OGP3",
    "cancelled": false
   },
@@ -86,7 +86,7 @@
    "liste": "Liste 03",
    "activity": "rencontre chef-soliste(s)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "OGP3",
    "cancelled": false
   },
@@ -97,7 +97,7 @@
    "liste": "Liste 03",
    "activity": "répétition avec solistes ((voice+trio))",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -119,7 +119,7 @@
    "liste": "Liste 03",
    "activity": "répétition avec soliste ((voice+trio))",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -152,7 +152,7 @@
    "liste": "Liste 03",
    "activity": "répétition avec solistes ((voice+trio))",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -163,7 +163,7 @@
    "liste": "Liste 03",
    "activity": "répétition avec solistes ((filage))",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -515,7 +515,7 @@
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -526,7 +526,7 @@
    "liste": "Présentation de Saison GT 2627",
    "activity": "Présentation Saison GT",
    "category": "autre",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -537,7 +537,7 @@
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -548,7 +548,7 @@
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -559,7 +559,7 @@
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -570,7 +570,7 @@
    "liste": "Liste A",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -581,7 +581,7 @@
    "liste": "Cérémonie d'Accueil des Nouveaux Habitants",
    "activity": "répétition hors contrat",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -702,7 +702,7 @@
    "liste": "Liste 05",
    "activity": "session enregistrement cordes",
    "category": "enregistrement",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -713,7 +713,7 @@
    "liste": "Liste 05",
    "activity": "session enregistrement (piano)",
    "category": "enregistrement",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": true
   },
@@ -735,7 +735,7 @@
    "liste": "Liste 05",
    "activity": "session enregistrement cuivres",
    "category": "enregistrement",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -746,7 +746,7 @@
    "liste": "Liste 05",
    "activity": "session enregistrement bois",
    "category": "enregistrement",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -757,7 +757,7 @@
    "liste": "Liste 05",
    "activity": "session enregistrement tutti",
    "category": "enregistrement",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -812,7 +812,7 @@
    "liste": "Atelier Découverte 1",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD1.1",
    "cancelled": false
   },
@@ -823,7 +823,7 @@
    "liste": "Atelier Découverte 1",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD1.2",
    "cancelled": false
   },
@@ -856,7 +856,7 @@
    "liste": "Liste 06",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -867,7 +867,7 @@
    "liste": "Liste 06",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -878,7 +878,7 @@
    "liste": "Titularisation OSÓRIO",
    "activity": "séance titularisation (Nuno OSÓRIO)",
    "category": "concours",
-   "location": "ML - Grande salle (Foyer des musiciens)",
+   "location": "ML - grande salle (Foyer des musiciens)",
    "project": "",
    "cancelled": false
   },
@@ -895,8 +895,8 @@
   },
   {
    "uid": "osr132716",
-   "start": "2026-09-23T11:30",
-   "end": "2026-09-23T14:00",
+   "start": "2026-09-23T10:00",
+   "end": "2026-09-23T12:30",
    "liste": "Liste 06",
    "activity": "répétition",
    "category": "repetition",
@@ -911,7 +911,7 @@
    "liste": "Audition de cornistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1164,7 +1164,7 @@
    "liste": "Liste B",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1175,7 +1175,7 @@
    "liste": "Liste B",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1527,7 +1527,7 @@
    "liste": "Audition de violonistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1549,7 +1549,7 @@
    "liste": "Liste 10",
    "activity": "partielle par pupitre (violons 1)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1593,7 +1593,7 @@
    "liste": "Liste 10",
    "activity": "partielle par pupitre (violons 2)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1626,7 +1626,7 @@
    "liste": "Liste 10",
    "activity": "partielle par pupitre (altos)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1659,7 +1659,7 @@
    "liste": "Liste 10",
    "activity": "partielle par pupitre (contrebasses)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1670,7 +1670,7 @@
    "liste": "Audition de percussionistes supplémentaires",
    "activity": "répétitions candidats",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1681,7 +1681,7 @@
    "liste": "Audition de percussionistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1692,7 +1692,7 @@
    "liste": "Liste 10",
    "activity": "partielle par pupitre (violoncelles)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1714,7 +1714,7 @@
    "liste": "Liste 10",
    "activity": "partielle par registre (cordes)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1736,7 +1736,7 @@
    "liste": "Liste 10",
    "activity": "partielle par registre (bois, cuivres, timbales, percussions)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1857,7 +1857,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD2.1",
    "cancelled": false
   },
@@ -1868,7 +1868,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD2.2",
    "cancelled": false
   },
@@ -1879,7 +1879,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD2.3",
    "cancelled": false
   },
@@ -1890,7 +1890,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD2.4",
    "cancelled": false
   },
@@ -1901,7 +1901,7 @@
    "liste": "Audition d'altistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1923,7 +1923,7 @@
    "liste": "Audition de tubistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -1978,7 +1978,7 @@
    "liste": "Concours Violoncelle Tuttiste",
    "activity": "2 postes - présélection",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "concours d'orchestre",
    "cancelled": false
   },
@@ -2121,7 +2121,7 @@
    "liste": "Atelier Découverte 3",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD3.1",
    "cancelled": false
   },
@@ -2143,7 +2143,7 @@
    "liste": "Atelier Découverte 3",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD3.2",
    "cancelled": false
   },
@@ -2187,7 +2187,7 @@
    "liste": "Atelier Découverte 4",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD4.1",
    "cancelled": false
   },
@@ -2231,7 +2231,7 @@
    "liste": "Atelier Découverte 4",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (+ st. A, B & P)",
+   "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD4.2",
    "cancelled": false
   },
@@ -2418,7 +2418,7 @@
    "liste": "Audition de contrebassistes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2429,7 +2429,7 @@
    "liste": "Audition de hautboïstes supplémentaires",
    "activity": "audition",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2583,7 +2583,7 @@
    "liste": "Atelier Découverte 5",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD5.1",
    "cancelled": false
   },
@@ -2605,7 +2605,7 @@
    "liste": "Atelier Découverte 5",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD5.2",
    "cancelled": false
   },
@@ -2737,7 +2737,7 @@
    "liste": "Groupe de Prévention 2026",
    "activity": "Réunion (plénière des membres)",
    "category": "autre",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2748,7 +2748,7 @@
    "liste": "Liste C",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2781,7 +2781,7 @@
    "liste": "Liste C",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2792,7 +2792,7 @@
    "liste": "Liste C",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2803,7 +2803,7 @@
    "liste": "Liste 18",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2814,7 +2814,7 @@
    "liste": "Liste C",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2825,7 +2825,7 @@
    "liste": "Liste C",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -2880,7 +2880,7 @@
    "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
    "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "concours d'orchestre",
    "cancelled": false
   },
@@ -3683,7 +3683,7 @@
    "liste": "Liste 24",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3738,7 +3738,7 @@
    "liste": "Liste D",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3760,7 +3760,7 @@
    "liste": "Liste D",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3771,7 +3771,7 @@
    "liste": "Liste D",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3782,7 +3782,7 @@
    "liste": "Liste D",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3793,7 +3793,7 @@
    "liste": "Liste D",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3826,7 +3826,7 @@
    "liste": "Concours à définir",
    "activity": "répétitions candidats (poste à définir)",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3859,7 +3859,7 @@
    "liste": "Liste 24b",
    "activity": "partielle (Fl)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3903,7 +3903,7 @@
    "liste": "Liste 24b",
    "activity": "partielle (trb.+tub)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3958,7 +3958,7 @@
    "liste": "Liste 24b",
    "activity": "partielle (V1)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -3991,7 +3991,7 @@
    "liste": "Liste 24b",
    "activity": "partielle (V2)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4046,7 +4046,7 @@
    "liste": "Liste 24b",
    "activity": "répétition tutti",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4178,7 +4178,7 @@
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4189,7 +4189,7 @@
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4200,7 +4200,7 @@
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4211,7 +4211,7 @@
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4222,7 +4222,7 @@
    "liste": "Liste E",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4255,7 +4255,7 @@
    "liste": "Liste 26",
    "activity": "partielle (registre cordes)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4299,7 +4299,7 @@
    "liste": "Liste 26",
    "activity": "partielle (registre vents-percu)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4321,7 +4321,7 @@
    "liste": "Liste 26",
    "activity": "répétition tutti",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4453,7 +4453,7 @@
    "liste": "Atelier Découverte GT",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "ADGT.1",
    "cancelled": false
   },
@@ -4475,7 +4475,7 @@
    "liste": "Atelier Découverte GT",
    "activity": "ateliers (avec mus.OSR) (OPTION)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "ADGT.2",
    "cancelled": false
   },
@@ -4530,7 +4530,7 @@
    "liste": "Liste 27",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4541,7 +4541,7 @@
    "liste": "Liste 27",
    "activity": "répétition privée Amis",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4552,7 +4552,7 @@
    "liste": "Liste 27",
    "activity": "répétition avec soliste",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4596,7 +4596,7 @@
    "liste": "Liste 27b",
    "activity": "session masterclass direction",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4904,7 +4904,7 @@
    "liste": "Liste 28b",
    "activity": "partielle bois",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -4948,7 +4948,7 @@
    "liste": "Liste 28b",
    "activity": "partielle (cuivres)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5003,7 +5003,7 @@
    "liste": "Liste 28b",
    "activity": "répétition tutti",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5047,7 +5047,7 @@
    "liste": "Liste F",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5058,7 +5058,7 @@
    "liste": "Liste F",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5069,7 +5069,7 @@
    "liste": "Liste F",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5080,7 +5080,7 @@
    "liste": "Liste F",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5124,7 +5124,7 @@
    "liste": "Liste 29",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5146,7 +5146,7 @@
    "liste": "Liste 29",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5509,7 +5509,7 @@
    "liste": "Concours Deuxième violon solo (coordonné)",
    "activity": "concours (Deuxième violon solo (coordonné))",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5630,7 +5630,7 @@
    "liste": "Concours à définir",
    "activity": "concours (poste à définir)",
    "category": "concours",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -5641,7 +5641,7 @@
    "liste": "Atelier Découverte 6",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD6.1",
    "cancelled": false
   },
@@ -5652,7 +5652,7 @@
    "liste": "Atelier Découverte 6",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD6.2",
    "cancelled": false
   },
@@ -5663,7 +5663,7 @@
    "liste": "Atelier Découverte 6",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD6.3",
    "cancelled": false
   },
@@ -5740,7 +5740,7 @@
    "liste": "Atelier Découverte 7",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD7.1",
    "cancelled": false
   },
@@ -5762,7 +5762,7 @@
    "liste": "Atelier Découverte 7",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD7.2",
    "cancelled": false
   },
@@ -5784,7 +5784,7 @@
    "liste": "Atelier Découverte 7",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD7.3",
    "cancelled": false
   },
@@ -5795,7 +5795,7 @@
    "liste": "Atelier Découverte 7",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle (st. A, B & P)",
+   "location": "ML - grande salle (st. A, B & P)",
    "project": "AD7.4",
    "cancelled": false
   },
@@ -5960,7 +5960,7 @@
    "liste": "Liste 36",
    "activity": "session masterclass direction",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6015,7 +6015,7 @@
    "liste": "Liste 37",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6169,7 +6169,7 @@
    "liste": "Liste 39",
    "activity": "répétition tutti",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6180,7 +6180,7 @@
    "liste": "Liste 39",
    "activity": "répétition tutti",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6246,7 +6246,7 @@
    "liste": "Liste 40",
    "activity": "répétition (sans OSR)",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6257,7 +6257,7 @@
    "liste": "Liste 38",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6268,7 +6268,7 @@
    "liste": "Liste 38",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6279,7 +6279,7 @@
    "liste": "Liste 38",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6290,7 +6290,7 @@
    "liste": "Liste 38",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6389,7 +6389,7 @@
    "liste": "Liste G",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6411,7 +6411,7 @@
    "liste": "Liste G",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6433,7 +6433,7 @@
    "liste": "Liste G",
    "activity": "lecture",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6554,7 +6554,7 @@
    "liste": "Liste 41",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6565,7 +6565,7 @@
    "liste": "Liste 41",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6576,7 +6576,7 @@
    "liste": "Liste 41",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6642,7 +6642,7 @@
    "liste": "Liste 42",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6653,7 +6653,7 @@
    "liste": "Liste 42",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6664,7 +6664,7 @@
    "liste": "Liste 42",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6675,7 +6675,7 @@
    "liste": "Liste 42",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
@@ -6686,7 +6686,7 @@
    "liste": "Liste 42",
    "activity": "répétition",
    "category": "repetition",
-   "location": "ML - Grande salle",
+   "location": "ML - grande salle",
    "project": "",
    "cancelled": false
   },
