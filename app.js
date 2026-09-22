@@ -620,6 +620,33 @@ async function checkDataFreshness() {
   }
 }
 
+// Sur mobile, l'app reste très souvent ouverte en arrière-plan (écran
+// verrouillé, changement d'appli) sans jamais être refermée : loadData() ne
+// s'exécutant qu'au chargement initial, le planning affiché peut vieillir
+// silencieusement pendant des heures. On force donc un rechargement dès que
+// l'app repasse au premier plan, avec un délai minimal pour ne pas déclencher
+// une rafale de requêtes si l'utilisateur alterne rapidement entre applis.
+const MIN_REFRESH_INTERVAL_MS = 60_000
+let lastDataLoad = 0
+let refreshing = false
+
+async function refreshData() {
+  if (refreshing || Date.now() - lastDataLoad < MIN_REFRESH_INTERVAL_MS) return
+  refreshing = true
+  try {
+    await loadData()
+    lastDataLoad = Date.now()
+    render()
+    if (state.updatedAt)
+      document.getElementById("update-info").textContent =
+        `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
+  } catch (err) {
+    console.warn("Rafraîchissement du planning impossible :", err)
+  } finally {
+    refreshing = false
+  }
+}
+
 // --- Filtres ---------------------------------------------------------------
 
 function visibleEvents() {
@@ -3138,6 +3165,7 @@ async function init() {
     console.error(err)
     return
   }
+  lastDataLoad = Date.now()
 
   checkDataFreshness()
   observeHeaderHeight()
@@ -3213,6 +3241,13 @@ async function init() {
 }
 
 init()
+
+// Voir la définition de refreshData() : on force un rechargement des données
+// dès que l'app repasse au premier plan (écran rallumé, retour depuis une
+// autre appli…), plutôt que de dépendre d'une réouverture complète.
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") refreshData()
+})
 
 // Installation « écran d'accueil » : on intercepte l'invite native (Android /
 // Chrome) pour la déclencher depuis notre propre bouton, plus lisible.
