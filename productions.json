@@ -843,15 +843,15 @@
  },
  "Liste 11": {
   "chef": "Stefan GEIGER",
-  "effectif": "3.2.3.2 / 4.3.3.1 / 1.3.1.2 / 14.12.10.8.6 (78 musiciens)",
+  "effectif": "3.2.3.2 / 4.3.3.1 / 1.6.1.2 / 14.12.10.8.6 (81 musiciens)",
   "duree": "≈ 2 h 02",
   "works": [
    {
     "oeuvre": "Marc SHAIMAN — The Addams Family in Concert",
-    "instrumentation": "3*.2*.3*.2* / 4.3.3*.1 / 1.3.1.2 / 14.12.10.8.6",
-    "remarques": "fl3+picc, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs",
+    "instrumentation": "3*.2*.3*.2* / 4.3.3*.1 / 1.6.1.2 / 14.12.10.8.6",
+    "remarques": "fl3+picc+fl alto, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs",
     "percussions": "anvil, GC, belltree, cymb fr, cymb.chin., field dr, gong, glock, marim., crécelle, c.cl.,\nslapstick, woodblk, xyl, chimes, congas, guiro, hi-hat, shaker, TT, tmplblk, tri, vibra, fouet, marktree, cabasa,\ncymb sus, boobam, szl, washboard, songbells, bsq, drumset, key tree",
-    "claviers": "synthétiseur (partie exposée et délicate - OSR=clavier midi 88 touches + pedal sustain,",
+    "claviers": "piano (S&S grand), synthétiseur (partie exposée et délicate - OSR=clavier midi 88 touches +",
     "duree": "≈ 1 h 42"
    }
   ],
@@ -941,7 +941,7 @@
    "osr132848": "-50 invités Amis OSR",
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132855": "-podium chœur éventuellement ouvert au public"
+   "osr132855": "-podium chœur a priori fermé"
   }
  },
  "Liste 13": {
@@ -1284,19 +1284,22 @@
  },
  "Liste 18": {
   "chef": "Philippe BÉRAN",
-  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 16.14.12.10.8 (90 musiciens)",
+  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
   "duree": "≈ 37 min",
   "works": [
    {
     "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
-    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 16*.14.12.10.8",
-    "remarques": "effectif à préciser avec le recrutement de l'Orchestre du Collège en début de saison",
+    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20*.20.8.14.6",
+    "remarques": "ou 16.16.8.10.6 à confirmer",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
     "detail": "Bugle peut être joué par trp 1, 2 ou 3",
     "note": "\ncoupure : n°7 L'Homme entre deux âges et ses deux maîtresses",
     "duree": "≈ 37 min"
    }
+  ],
+  "solistes": [
+   "Joan MOMPART, récitant"
   ],
   "serviceWorks": {
    "osr206164": [
@@ -1307,8 +1310,8 @@
    ]
   },
   "serviceNotes": {
-   "osr206164": "service payé",
-   "osr132934": "-réception Mme Françoise Demole. en construction."
+   "osr206164": "service payé : 1.1.1.1 / 1.1.1.1 / 1.0.0.0 // 1.1.1.1.1",
+   "osr132934": "-à l'étude : doubler le concert avec une première séance à 9h15 sur un seul service de 3"
   }
  },
  "Musique De Chambre 2": {
@@ -1575,6 +1578,9 @@
     "remarques": "1ca, 1cl.bs",
     "duree": "≈ 2 min"
    }
+  ],
+  "solistes": [
+   "Juliana GRIGORYAN, soprano"
   ]
  },
  "Concerts pour Petites Oreilles 2": {
