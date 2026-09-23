@@ -5,10 +5,10 @@
     "geo": [46.2014, 6.14105]
   },
   {
-    "match": "^um\\b",
+    "match": "^(um|ml)\\b",
     "address": "Uni Mail, Boulevard Carl-Vogt 102, 1205 Genève",
     "geo": [46.19538, 6.14031],
-    "note": "Salle de répétition et studios de l'OSR, tous à Uni Mail : l'OSR publie l'entrée côté Carl-Vogt, pas l'adresse de façade de l'université."
+    "note": "Salle de répétition et studios de l'OSR, tous à Uni Mail : l'OSR publie l'entrée côté Carl-Vogt, pas l'adresse de façade de l'université. Dièse a renommé son préfixe \"UM\" en \"ML\" (et « Salle Marie LAGGÉ » en « Grande salle ») sans que ça change le bâtiment (retour #180) : les deux préfixes doivent matcher ici, sous peine de laisser tout Uni Mail sans LOCATION/GEO dans le calendrier abonné."
   },
   {
     "match": "^(bfm|batiment des forces motrices)",

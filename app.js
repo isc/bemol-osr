@@ -946,6 +946,17 @@ function normText(s) {
     .trim()
 }
 
+// Dièse a renommé le bâtiment d'Uni Mail : le préfixe "UM" est devenu "ML",
+// et sa salle "Salle Marie LAGGÉ" s'appelle maintenant "Grande salle" — même
+// lieu physique, seule la dénomination change (retour #180). Sans ce
+// second niveau de normalisation, ce pur changement d'étiquette apparaissait
+// à tort comme un vrai changement de lieu dans la vue Modifs.
+function canonicalLocation(s) {
+  return normText(s)
+    .replace(/^um\b/, "ml")
+    .replace(/salle marie lagge/, "grande salle")
+}
+
 // Un concours dont le poste était encore « à définir » vient d'être précisé
 // (issue #178, ex. « Concours à définir » → « Concours Premier.ère soliste
 // des clarinettes ») : le seul signal visible pour le musicien passe par ce
@@ -960,7 +971,8 @@ function isConcoursDefini(before, after) {
 // republie très souvent l'un des deux avec une simple variation de casse
 // (« ML - Grande salle » / « ML - grande salle ») ou en le vidant
 // transitoirement (« project » qui repasse à "" puis revient), sans qu'il y
-// ait de réel avenant au planning.
+// ait de réel avenant au planning. "location" passe en plus par
+// canonicalLocation pour absorber le renommage UM → ML (même lieu physique).
 function isSignificantField(field, before, after) {
   if (field === "liste") return isConcoursDefini(before, after)
   if (!SIGNIFICANT_DIFF_FIELDS.includes(field)) return false
@@ -969,8 +981,9 @@ function isSignificantField(field, before, after) {
     (!String(before || "").trim() || !String(after || "").trim())
   )
     return false
-  if (field === "location" || field === "project")
-    return normText(before) !== normText(after)
+  if (field === "location")
+    return canonicalLocation(before) !== canonicalLocation(after)
+  if (field === "project") return normText(before) !== normText(after)
   return true
 }
 
@@ -2085,6 +2098,34 @@ function memoEntryBox(entry) {
   return box
 }
 
+// Légende des couleurs de la vue Modifs (retour #180 : le code couleur par
+// type de modification n'était visible qu'à travers un simple liseré, trop
+// discret pour qu'on le remarque). Un type par couleur de fond des cases
+// .change-item ci-dessous, réutilisées telles quelles ici.
+const MODIFS_LEGEND = [
+  ["added", "Ajouté"],
+  ["removed", "Supprimé"],
+  ["modified", "Modifié"],
+  ["memo", "Mémo de production"],
+  ["concours-defini", "Concours défini"],
+]
+
+function modifsLegend() {
+  return el(
+    "div",
+    { class: "modifs-legend" },
+    ...MODIFS_LEGEND.map(([cls, label]) =>
+      el(
+        "span",
+        { class: "modifs-legend-item" },
+        el("span", { class: `modifs-legend-swatch ${cls}` }),
+        " ",
+        label,
+      ),
+    ),
+  )
+}
+
 function renderModifs(main) {
   if (!state.changes.length) {
     main.append(
@@ -2096,6 +2137,8 @@ function renderModifs(main) {
     )
     return
   }
+
+  main.append(modifsLegend())
 
   let shown = false
   for (const entry of state.changes) {
