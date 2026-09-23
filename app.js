@@ -573,8 +573,14 @@ async function loadData() {
           state.recentListes.set(prog.liste, entry.at)
       continue
     }
-    for (const e of [...entry.added, ...entry.modified.map((m) => m.after)])
+    for (const e of entry.added)
       if (!state.recentUids.has(e.uid)) state.recentUids.set(e.uid, entry.at)
+    // Seules les modifs significatives (issue #178) marquent l'événement
+    // "récent" : un simple correctif de casse du lieu, par exemple, ne doit
+    // pas allumer la pastille sur sa fiche.
+    for (const m of entry.modified)
+      if (isSignificantModification(m) && !state.recentUids.has(m.after.uid))
+        state.recentUids.set(m.after.uid, entry.at)
   }
 }
 
@@ -904,6 +910,72 @@ function fieldDiffValue(f, v) {
   return String(v || "—")
 }
 
+// Champs de planning dont un changement est assez significatif pour être
+// montré dans la vue Modifs (issue #178). "activity" et "liste" en sont
+// volontairement absents : Dièse republie très souvent l'export ICS avec de
+// simples corrections de formulation ou de typo sur ces deux champs (ex.
+// « Premir.ère » → « Premier.ère », « Audition 1 de musicien·nes » →
+// « Audition de cors supplémentaires »), sans aucun impact réel sur le
+// planning du musicien — cf. isSignificantField ci-dessous pour l'exception
+// « concours défini ».
+const SIGNIFICANT_DIFF_FIELDS = [
+  "start",
+  "end",
+  "location",
+  "project",
+  "cancelled",
+  "category",
+]
+
+// Normalisation légère (accents, casse, espaces) pour comparer deux valeurs
+// de champ texte sans être trompé par une simple variation de forme.
+function normText(s) {
+  return String(s || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+// Un concours dont le poste était encore « à définir » vient d'être précisé
+// (issue #178, ex. « Concours à définir » → « Concours Premier.ère soliste
+// des clarinettes ») : le seul signal visible pour le musicien passe par ce
+// changement du champ `liste`, qu'on tient donc pour significatif même si
+// "liste" est par ailleurs exclu de SIGNIFICANT_DIFF_FIELDS.
+function isConcoursDefini(before, after) {
+  return /à définir/i.test(before || "") && !/à définir/i.test(after || "")
+}
+
+// Un champ modifié d'un événement mérite-t-il d'apparaître dans la vue
+// Modifs ? "location"/"project" sont comparés en texte normalisé : Dièse
+// republie très souvent l'un des deux avec une simple variation de casse
+// (« ML - Grande salle » / « ML - grande salle ») ou en le vidant
+// transitoirement (« project » qui repasse à "" puis revient), sans qu'il y
+// ait de réel avenant au planning.
+function isSignificantField(field, before, after) {
+  if (field === "liste") return isConcoursDefini(before, after)
+  if (!SIGNIFICANT_DIFF_FIELDS.includes(field)) return false
+  if (
+    field === "project" &&
+    (!String(before || "").trim() || !String(after || "").trim())
+  )
+    return false
+  if (field === "location" || field === "project")
+    return normText(before) !== normText(after)
+  return true
+}
+
+// Sous-ensemble significatif des champs modifiés d'un événement (vue Modifs
+// + badge + pastille « récent »).
+function significantFields(m) {
+  return m.fields.filter((f) => isSignificantField(f, m.before[f], m.after[f]))
+}
+
+function isSignificantModification(m) {
+  return significantFields(m).length > 0
+}
+
 // Historique des changements d'un événement (issue #58), croisé par uid avec
 // le journal `data/changes.json`. Ce journal est déjà plafonné (cf.
 // MAX_CHANGE_ENTRIES côté scripts/update-data.mjs) : l'historique reste donc
@@ -919,15 +991,17 @@ function eventHistory(uid) {
 
     const m = entry.modified.find((m) => m.uid === uid)
     if (!m) continue
+    const fields = significantFields(m)
+    if (!fields.length) continue
     const diffs = []
-    if (m.fields.includes("start") || m.fields.includes("end")) {
+    if (fields.includes("start") || fields.includes("end")) {
       const sameDay = m.before.start.slice(0, 10) === m.after.start.slice(0, 10)
       const horaire = (ev) =>
         (sameDay ? "" : `${fmtDay(parseDate(ev.start))} `) +
         `${fmtTime(ev.start)}–${fmtTime(ev.end)}`
       diffs.push(`horaire ${horaire(m.before)} → ${horaire(m.after)}`)
     }
-    for (const f of m.fields.filter((f) => f !== "start" && f !== "end"))
+    for (const f of fields.filter((f) => f !== "start" && f !== "end"))
       diffs.push(
         `${FIELD_LABELS[f] || f} ${fieldDiffValue(f, m.before[f])} → ${fieldDiffValue(f, m.after[f])}`,
       )
@@ -1838,7 +1912,11 @@ function countChanges(entry) {
           : n + 1,
       0,
     )
-  return entry.added.length + entry.removed.length + entry.modified.length
+  return (
+    entry.added.length +
+    entry.removed.length +
+    entry.modified.filter(isSignificantModification).length
+  )
 }
 
 // Libellés des champs d'un programme dans le diff du mémo de production.
@@ -1850,7 +1928,17 @@ const MEMO_FIELD_LABELS = {
 }
 
 // Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
+// Ne montre que les modifs significatives (issue #178, cf. significantFields)
+// et rend `null` si le relevé, une fois filtré, n'a plus rien à montrer (ex.
+// un relevé qui ne contenait qu'une correction de casse du lieu).
 function planningEntryBox(entry) {
+  const modified = entry.modified
+    .map((m) => ({ m, fields: significantFields(m) }))
+    .filter((x) => x.fields.length)
+
+  if (!entry.added.length && !modified.length && !entry.removed.length)
+    return null
+
   const box = el("div", { class: "change-entry" })
   box.append(el("h3", {}, changeEntryHeading(entry.at)))
 
@@ -1863,13 +1951,23 @@ function planningEntryBox(entry) {
       ),
     )
 
-  for (const m of entry.modified) {
+  for (const { m, fields } of modified) {
+    // Un concours dont le poste passe de « à définir » à un poste précis
+    // (issue #178) mérite d'être bien plus visible qu'une modif ordinaire :
+    // c'est le seul avertissement dont dispose le musicien qui n'avait pas
+    // sélectionné ce concours faute de savoir de quel poste il s'agissait.
+    const concoursDefini = fields.includes("liste")
     const item = el(
       "div",
-      { class: "change-item modified", onclick: () => showDetail(m.after) },
-      `✏️ Modifié : ${changeLine(m.after)}`,
+      {
+        class: `change-item modified${concoursDefini ? " concours-defini" : ""}`,
+        onclick: () => showDetail(m.after),
+      },
+      concoursDefini
+        ? `🎯 Concours défini : ${changeLine(m.after)}`
+        : `✏️ Modifié : ${changeLine(m.after)}`,
     )
-    for (const f of m.fields) {
+    for (const f of fields) {
       item.append(
         el(
           "div",
@@ -1991,9 +2089,24 @@ function renderModifs(main) {
     return
   }
 
-  for (const entry of state.changes)
+  let shown = false
+  for (const entry of state.changes) {
+    const box =
+      entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry)
+    if (!box) continue
+    main.append(box)
+    shown = true
+  }
+
+  // Tous les relevés ne contenaient que des modifs mineures, filtrées (issue
+  // #178) : le dire plutôt que de laisser la page vide.
+  if (!shown)
     main.append(
-      entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry),
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Aucune modification importante récemment. Les corrections mineures de formulation ou de mise en forme ne sont plus affichées ici.",
+      ),
     )
 }
 
