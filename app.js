@@ -588,13 +588,21 @@ async function loadData() {
 // un incident GitHub de quelques heures ne doit pas crier au loup). En cas
 // d'échec de l'appel (hors-ligne, quota API…), on ne montre rien : ce bandeau
 // est un filet de sécurité, pas une dépendance.
+//
+// Ce endpoint est servi par un cache CDN GitHub (`Cache-Control: s-maxage=60`)
+// qui, en pratique, conserve parfois une réponse bien plus vieille que 60 s
+// pour une requête anonyme (constaté : jusqu'à ~16 jours, cf. #179) — sans
+// doute une entrée jamais invalidée sur un nœud d'edge peu sollicité. Un
+// paramètre de cache-busting force à chaque appel une réponse fraîche plutôt
+// que ce cache, pour éviter un faux bandeau « données jamais actualisées ».
 const STALE_HOURS = 26
 
 async function checkDataFreshness() {
   if (["localhost", "127.0.0.1"].includes(location.hostname)) return
   try {
     const r = await fetch(
-      "https://api.github.com/repos/isc/bemol-osr/actions/workflows/update-data.yml/runs?status=success&per_page=1",
+      `https://api.github.com/repos/isc/bemol-osr/actions/workflows/update-data.yml/runs?status=success&per_page=1&_=${Date.now()}`,
+      { cache: "no-store" },
     )
     if (!r.ok) return
     const runs = (await r.json()).workflow_runs
