@@ -831,12 +831,20 @@ table.week td.repos:not(.today) {
 }
 
 /* Légende des couleurs, sous l'en-tête de la vue Modifs (retour #180) : une
-   case par type, même couleur que le fond des .change-item ci-dessus. */
+   case par type, même couleur que le fond des .change-item ci-dessus. Sticky
+   comme .view-toolbar plus haut (retour #182 : rester visible en défilant
+   dans la liste, pas seulement en haut de page). */
 .modifs-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 16px;
   margin: 0 0 12px;
+  padding: 8px 0;
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 9;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   font-size: 0.8em;
   color: var(--text-muted);
 }
