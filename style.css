@@ -816,6 +816,18 @@ table.week td.repos:not(.today) {
   border-color: var(--purple);
 }
 
+/* Concours dont le poste passait par « à définir » et vient d'être précisé
+   (issue #178) : mise en avant volontairement plus marquée qu'une modif
+   ordinaire, seul avertissement visible pour qui n'avait pas sélectionné ce
+   concours faute de savoir de quel poste il s'agissait. */
+.change-item.concours-defini {
+  border-color: var(--gold);
+  background: var(--warn-bg);
+}
+.change-item.concours-defini .field-diff {
+  color: var(--warn-text);
+}
+
 /* Étiquette « Mémo de production » distinguant ces changements du planning */
 .change-tag {
   display: inline-block;
