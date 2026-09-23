@@ -31,7 +31,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260811T100000
 DTEND;TZID=Europe/Zurich:20260811T123000
 SUMMARY:Liste 01 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-01
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSoliste :\n• Valentine MICHAUD\, saxophone alto\nŒuvres au 
@@ -66,7 +68,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260811T143000
 DTEND;TZID=Europe/Zurich:20260811T170000
 SUMMARY:Liste 02 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-02
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Neil BRAND — The Lodger\, A story of 
@@ -93,7 +97,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260812T091500
 DTEND;TZID=Europe/Zurich:20260812T094500
 SUMMARY:Liste 01 — rencontre chef-soliste(s)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-01
 DESCRIPTION:Programme : OGP1\n\n— Mémo de production —\nDirection musi
  cale : Margaryta GRYNYVETSKA\nSoliste :\n• Valentine MICHAUD\, saxophone
@@ -128,7 +134,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260812T100000
 DTEND;TZID=Europe/Zurich:20260812T123000
 SUMMARY:Liste 01 — répétition avec soliste
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-01
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSoliste :\n• Valentine MICHAUD\, saxophone alto\nŒuvres au 
@@ -163,7 +171,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260812T193000
 DTEND;TZID=Europe/Zurich:20260812T220000
 SUMMARY:Liste 02 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-02
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Neil BRAND — The Lodger\, A story of 
@@ -226,7 +236,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260813T100000
 DTEND;TZID=Europe/Zurich:20260813T110000
 SUMMARY:Liste 03 — rencontre chef-soliste(s)
-LOCATION:ML - grande salle ((loge))
+LOCATION:ML - grande salle ((loge))\, Uni Mail\, Boulevard Carl-Vogt 102\, 
+ 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  cale : Alexandre MASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Ma
@@ -252,7 +264,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260813T110000
 DTEND;TZID=Europe/Zurich:20260813T123000
 SUMMARY:Liste 03 — rencontre chef-soliste(s)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:Programme : OGP3\n\n— Mémo de production —\nDirection musi
  cale : Alexandre MASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Ma
@@ -278,7 +292,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260813T143000
 DTEND;TZID=Europe/Zurich:20260813T170000
 SUMMARY:Liste 03 — répétition avec solistes ((voice+trio))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Alexandre M
  ASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Matti KLEIN\, keyboa
@@ -340,7 +356,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260813T193000
 DTEND;TZID=Europe/Zurich:20260813T220000
 SUMMARY:Liste 03 — répétition avec soliste ((voice+trio))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Alexandre M
  ASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Matti KLEIN\, keyboa
@@ -430,7 +448,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260814T103000
 DTEND;TZID=Europe/Zurich:20260814T130000
 SUMMARY:Liste 03 — répétition avec solistes ((voice+trio))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Alexandre M
  ASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Matti KLEIN\, keyboa
@@ -456,7 +476,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260814T143000
 DTEND;TZID=Europe/Zurich:20260814T173000
 SUMMARY:Liste 03 — répétition avec solistes ((filage))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-03
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Alexandre M
  ASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Matti KLEIN\, keyboa
@@ -1590,7 +1612,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260902T100000
 DTEND;TZID=Europe/Zurich:20260902T123000
 SUMMARY:Liste A — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-a
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  CHER\nŒuvres au programme :\n• Frank MARTIN — La Tempête\, opéra en
@@ -1626,7 +1650,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260902T123000
 DTEND;TZID=Europe/Zurich:20260902T133000
 SUMMARY:Présentation de Saison GT 2627 — Présentation Saison GT
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-presentation-de-saison-gt-2627
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
  s://osr.opas-online.com/documents.php\n📋 Série complète de Présentat
@@ -1646,7 +1672,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260902T193000
 DTEND;TZID=Europe/Zurich:20260902T220000
 SUMMARY:Liste A — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-a
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  CHER\nŒuvres au programme :\n• Frank MARTIN — La Tempête\, opéra en
@@ -1682,7 +1710,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260903T100000
 DTEND;TZID=Europe/Zurich:20260903T123000
 SUMMARY:Liste A — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-a
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  CHER\nŒuvres au programme :\n• Frank MARTIN — La Tempête\, opéra en
@@ -1718,7 +1748,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260903T143000
 DTEND;TZID=Europe/Zurich:20260903T170000
 SUMMARY:Liste A — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-a
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  CHER\nŒuvres au programme :\n• Frank MARTIN — La Tempête\, opéra en
@@ -1754,7 +1786,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260904T100000
 DTEND;TZID=Europe/Zurich:20260904T123000
 SUMMARY:Liste A — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-a
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Thierry FIS
  CHER\nŒuvres au programme :\n• Frank MARTIN — La Tempête\, opéra en
@@ -1791,7 +1825,9 @@ DTSTART;TZID=Europe/Zurich:20260904T133000
 DTEND;TZID=Europe/Zurich:20260904T153000
 SUMMARY:Cérémonie d'Accueil des Nouveaux Habitants — répétition hors 
  contrat
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-ceremonie-d-accueil-des-nouveaux
  -habitants
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -2178,7 +2214,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260914T100000
 DTEND;TZID=Europe/Zurich:20260914T130000
 SUMMARY:Liste 05 — session enregistrement cordes
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-05
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Giuseppe VERDI — Nabucco\, Ouverture 
@@ -2247,7 +2285,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260914T130000
 DTEND;TZID=Europe/Zurich:20260914T133000
 SUMMARY:ANNULÉ · Liste 05 — session enregistrement (piano)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-05
 DESCRIPTION:⚠ Service ANNULÉ\n\n— Mémo de production —\nDirection m
  usicale : Philippe BÉRAN\nŒuvres au programme :\n• Giuseppe VERDI — 
@@ -2354,7 +2394,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260915T103000
 DTEND;TZID=Europe/Zurich:20260915T130000
 SUMMARY:Liste 05 — session enregistrement cuivres
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-05
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Giuseppe VERDI — Nabucco\, Ouverture 
@@ -2423,7 +2465,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260915T143000
 DTEND;TZID=Europe/Zurich:20260915T170000
 SUMMARY:Liste 05 — session enregistrement bois
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-05
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Giuseppe VERDI — Nabucco\, Ouverture 
@@ -2492,7 +2536,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260915T193000
 DTEND;TZID=Europe/Zurich:20260915T223000
 SUMMARY:Liste 05 — session enregistrement tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-05
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• Giuseppe VERDI — Nabucco\, Ouverture 
@@ -2664,7 +2710,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260918T090000
 DTEND;TZID=Europe/Zurich:20260918T110000
 SUMMARY:Atelier Découverte 1 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-1
 DESCRIPTION:Programme : AD1.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -2684,7 +2732,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260918T134500
 DTEND;TZID=Europe/Zurich:20260918T154500
 SUMMARY:Atelier Découverte 1 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-1
 DESCRIPTION:Programme : AD1.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -2780,7 +2830,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260922T100000
 DTEND;TZID=Europe/Zurich:20260922T123000
 SUMMARY:Liste 06 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-06
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jean Deroye
  r\nŒuvres au programme :\n• Cyrille AUFORT — Laurel et Hardy (≈ 1 h
@@ -2810,7 +2862,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260922T143000
 DTEND;TZID=Europe/Zurich:20260922T170000
 SUMMARY:Liste 06 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-06
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jean Deroye
  r\nŒuvres au programme :\n• Cyrille AUFORT — Laurel et Hardy (≈ 1 h
@@ -2840,7 +2894,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260922T170000
 DTEND;TZID=Europe/Zurich:20260922T180000
 SUMMARY:Titularisation OSÓRIO — séance titularisation (Nuno OSÓRIO)
-LOCATION:ML - grande salle (Foyer des musiciens)
+LOCATION:ML - grande salle (Foyer des musiciens)\, Uni Mail\, Boulevard Car
+ l-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-titularisation-osorio
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
  s://osr.opas-online.com/documents.php\n📋 Série complète de Titularisa
@@ -2929,7 +2985,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20260923T180000
 DTEND;TZID=Europe/Zurich:20260923T210000
 SUMMARY:Audition de cornistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-cornistes-supplement
  aires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -3678,7 +3736,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261002T143000
 DTEND;TZID=Europe/Zurich:20261002T173000
 SUMMARY:Liste B — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Larry BLANK
  \nŒuvres au programme :\n• Stephen SONDHEIM — Company (≈ 2 h 20)\n 
@@ -3706,7 +3766,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261002T193000
 DTEND;TZID=Europe/Zurich:20261002T223000
 SUMMARY:Liste B — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Larry BLANK
  \nŒuvres au programme :\n• Stephen SONDHEIM — Company (≈ 2 h 20)\n 
@@ -4776,7 +4838,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261015T143000
 DTEND;TZID=Europe/Zurich:20261015T173000
 SUMMARY:Audition de violonistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-violonistes-suppleme
  ntaires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -4827,7 +4891,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (violons 1)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -4855,7 +4921,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (hautbois)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -4883,7 +4950,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (flûtes)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -4941,7 +5009,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T100000
 DTEND;TZID=Europe/Zurich:20261017T123000
 SUMMARY:Liste 10 — partielle par pupitre (violons 2)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -4969,7 +5039,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T100000
 DTEND;TZID=Europe/Zurich:20261017T123000
 SUMMARY:Liste 10 — partielle par pupitre (clarinettes)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -4997,7 +5068,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T100000
 DTEND;TZID=Europe/Zurich:20261017T123000
 SUMMARY:Liste 10 — partielle par pupitre (bassons)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5025,7 +5097,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T140000
 DTEND;TZID=Europe/Zurich:20261017T163000
 SUMMARY:Liste 10 — partielle par pupitre (altos)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5053,7 +5127,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T140000
 DTEND;TZID=Europe/Zurich:20261017T163000
 SUMMARY:Liste 10 — partielle par pupitre (trompettes)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5081,7 +5156,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T183000
 DTEND;TZID=Europe/Zurich:20261017T210000
 SUMMARY:Liste 10 — partielle par pupitre (trimbales+percussions)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5109,7 +5185,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261017T183000
 DTEND;TZID=Europe/Zurich:20261017T210000
 SUMMARY:Liste 10 — partielle par pupitre (contrebasses)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5138,7 +5216,9 @@ DTSTART;TZID=Europe/Zurich:20261019T100000
 DTEND;TZID=Europe/Zurich:20261019T130000
 SUMMARY:Audition de percussionistes supplémentaires — répétitions cand
  idats
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-percussionistes-supp
  lementaires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -5159,7 +5239,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261019T140000
 DTEND;TZID=Europe/Zurich:20261019T170000
 SUMMARY:Audition de percussionistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-percussionistes-supp
  lementaires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -5180,7 +5262,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261020T100000
 DTEND;TZID=Europe/Zurich:20261020T123000
 SUMMARY:Liste 10 — partielle par pupitre (violoncelles)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5236,7 +5320,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261020T143000
 DTEND;TZID=Europe/Zurich:20261020T170000
 SUMMARY:Liste 10 — partielle par registre (cordes)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5264,7 +5350,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261020T143000
 DTEND;TZID=Europe/Zurich:20261020T170000
 SUMMARY:Liste 10 — partielle par pupitre (trombones)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5293,7 +5380,9 @@ DTSTART;TZID=Europe/Zurich:20261020T193000
 DTEND;TZID=Europe/Zurich:20261020T220000
 SUMMARY:Liste 10 — partielle par registre (bois\, cuivres\, timbales\, pe
  rcussions)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-10
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Ton KOOPMAN
  \nSoliste :\n• Etudiant·es du Département Vocal de la HEM\, Solistes e
@@ -5613,7 +5702,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261026T131500
 DTEND;TZID=Europe/Zurich:20261026T151500
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-2
 DESCRIPTION:Programme : AD2.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -5633,7 +5724,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261027T090000
 DTEND;TZID=Europe/Zurich:20261027T110000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-2
 DESCRIPTION:Programme : AD2.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -5653,7 +5746,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261027T133000
 DTEND;TZID=Europe/Zurich:20261027T153000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-2
 DESCRIPTION:Programme : AD2.3\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -5673,7 +5768,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261028T090000
 DTEND;TZID=Europe/Zurich:20261028T110000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-2
 DESCRIPTION:Programme : AD2.4\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -5693,7 +5790,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261029T093000
 DTEND;TZID=Europe/Zurich:20261029T123000
 SUMMARY:Audition d'altistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-d-altistes-supplementai
  res
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -5735,7 +5834,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261029T140000
 DTEND;TZID=Europe/Zurich:20261029T170000
 SUMMARY:Audition de tubistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-tubistes-supplementa
  ires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -5892,7 +5993,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261101T093000
 DTEND;TZID=Europe/Zurich:20261101T143000
 SUMMARY:Concours Violoncelle Tuttiste — 2 postes - présélection
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-concours-violoncelle-tuttiste
 DESCRIPTION:Programme : concours d'orchestre\n\n— Liens utiles —\n🎼 
  Portail partitions (Dièse) : https://osr.opas-online.com/documents.php\n
@@ -6289,7 +6392,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261106T090000
 DTEND;TZID=Europe/Zurich:20261106T110000
 SUMMARY:Atelier Découverte 3 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-3
 DESCRIPTION:Programme : AD3.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -6341,7 +6446,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261106T134500
 DTEND;TZID=Europe/Zurich:20261106T154500
 SUMMARY:Atelier Découverte 3 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-3
 DESCRIPTION:Programme : AD3.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -6457,7 +6564,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261109T100000
 DTEND;TZID=Europe/Zurich:20261109T120000
 SUMMARY:Atelier Découverte 4 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-4
 DESCRIPTION:Programme : AD4.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -6571,7 +6680,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261110T090000
 DTEND;TZID=Europe/Zurich:20261110T110000
 SUMMARY:Atelier Découverte 4 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (+ st. A\, B & P)
+LOCATION:ML - grande salle (+ st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vo
+ gt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-4
 DESCRIPTION:Programme : AD4.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -7257,7 +7368,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261120T100000
 DTEND;TZID=Europe/Zurich:20261120T130000
 SUMMARY:Audition de contrebassistes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-contrebassistes-supp
  lementaires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -7278,7 +7391,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261120T140000
 DTEND;TZID=Europe/Zurich:20261120T170000
 SUMMARY:Audition de hautboïstes supplémentaires — audition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-audition-de-hautboistes-suppleme
  ntaires
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -7664,7 +7779,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261124T090000
 DTEND;TZID=Europe/Zurich:20261124T110000
 SUMMARY:Atelier Découverte 5 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-5
 DESCRIPTION:Programme : AD5.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -7713,7 +7830,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261124T133000
 DTEND;TZID=Europe/Zurich:20261124T153000
 SUMMARY:Atelier Découverte 5 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-5
 DESCRIPTION:Programme : AD5.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -8058,7 +8177,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261201T100000
 DTEND;TZID=Europe/Zurich:20261201T123000
 SUMMARY:Groupe de Prévention 2026 — Réunion (plénière des membres)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-groupe-de-prevention-2026
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
  s://osr.opas-online.com/documents.php\n📋 Série complète de Groupe de 
@@ -8077,7 +8198,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261202T100000
 DTEND;TZID=Europe/Zurich:20261202T123000
 SUMMARY:Liste C — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-c
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Marta GARDO
  LIŃSKA\nŒuvres au programme :\n• Wolfgang Amadeus MOZART — Les Noces
@@ -8154,7 +8277,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261203T100000
 DTEND;TZID=Europe/Zurich:20261203T123000
 SUMMARY:Liste C — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-c
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Marta GARDO
  LIŃSKA\nŒuvres au programme :\n• Wolfgang Amadeus MOZART — Les Noces
@@ -8179,7 +8304,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261203T143000
 DTEND;TZID=Europe/Zurich:20261203T170000
 SUMMARY:Liste C — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-c
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Marta GARDO
  LIŃSKA\nŒuvres au programme :\n• Wolfgang Amadeus MOZART — Les Noces
@@ -8204,7 +8331,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261203T190000
 DTEND;TZID=Europe/Zurich:20261203T213000
 SUMMARY:Liste 18 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-18
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nSoliste :\n• Joan MOMPART\, récitant\nŒuvres au programme :\n
@@ -8234,7 +8363,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261204T100000
 DTEND;TZID=Europe/Zurich:20261204T123000
 SUMMARY:Liste C — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-c
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Marta GARDO
  LIŃSKA\nŒuvres au programme :\n• Wolfgang Amadeus MOZART — Les Noces
@@ -8259,7 +8390,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20261204T143000
 DTEND;TZID=Europe/Zurich:20261204T170000
 SUMMARY:Liste C — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-c
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Marta GARDO
  LIŃSKA\nŒuvres au programme :\n• Wolfgang Amadeus MOZART — Les Noces
@@ -8403,7 +8536,9 @@ DTSTART;TZID=Europe/Zurich:20261206T093000
 DTEND;TZID=Europe/Zurich:20261206T190000
 SUMMARY:Concours Premier.ère soliste des clarinettes (coordonné) — pré
  sélection (Premier.ère soliste des clarinettes (coordonné))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-concours-premier-ere-soliste-des
  -clarinettes-coordonne
 DESCRIPTION:Programme : concours d'orchestre\n\n— Liens utiles —\n🎼 
@@ -10766,7 +10901,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270122T143000
 DTEND;TZID=Europe/Zurich:20270122T170000
 SUMMARY:Liste 24 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  MCZAK\nSoliste :\n• NN1\, récitant\nŒuvres au programme :\n• Anne-Cl
@@ -10929,7 +11066,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270127T100000
 DTEND;TZID=Europe/Zurich:20270127T123000
 SUMMARY:Liste D — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-d
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jader BIGNA
  MINI\nŒuvres au programme :\n• Gioacchino ROSSINI — Il Viaggio a Reim
@@ -10988,7 +11127,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270128T100000
 DTEND;TZID=Europe/Zurich:20270128T123000
 SUMMARY:Liste D — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-d
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jader BIGNA
  MINI\nŒuvres au programme :\n• Gioacchino ROSSINI — Il Viaggio a Reim
@@ -11014,7 +11155,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270128T143000
 DTEND;TZID=Europe/Zurich:20270128T170000
 SUMMARY:Liste D — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-d
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jader BIGNA
  MINI\nŒuvres au programme :\n• Gioacchino ROSSINI — Il Viaggio a Reim
@@ -11040,7 +11183,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270129T100000
 DTEND;TZID=Europe/Zurich:20270129T123000
 SUMMARY:Liste D — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-d
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jader BIGNA
  MINI\nŒuvres au programme :\n• Gioacchino ROSSINI — Il Viaggio a Reim
@@ -11066,7 +11211,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270129T143000
 DTEND;TZID=Europe/Zurich:20270129T170000
 SUMMARY:Liste D — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-d
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Jader BIGNA
  MINI\nŒuvres au programme :\n• Gioacchino ROSSINI — Il Viaggio a Reim
@@ -11149,7 +11296,9 @@ DTSTART;TZID=Europe/Zurich:20270131T160000
 DTEND;TZID=Europe/Zurich:20270131T220000
 SUMMARY:Concours à définir — répétitions candidats (poste à définir
  )
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-concours-a-definir
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
  s://osr.opas-online.com/documents.php\n📋 Série complète de Concours 
@@ -11215,7 +11364,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Fl)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11238,7 +11389,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Ob.)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11261,7 +11413,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Cl.)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11284,7 +11437,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Fgt.)
-LOCATION:ML - Studio C
+LOCATION:ML - Studio C\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11307,7 +11461,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (trb.+tub)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11330,7 +11486,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (trp.)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11353,7 +11510,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (cr.)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11376,7 +11534,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (sax.)
-LOCATION:ML - Studio C
+LOCATION:ML - Studio C\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11427,7 +11586,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270202T190000
 DTEND;TZID=Europe/Zurich:20270202T213000
 SUMMARY:Liste 24b — partielle (V1)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11450,7 +11611,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270202T190000
 DTEND;TZID=Europe/Zurich:20270202T213000
 SUMMARY:Liste 24b — partielle (Vc)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11501,7 +11663,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (V2)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11524,7 +11688,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (altos)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11547,7 +11712,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (contrebasses)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11619,7 +11785,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270204T183000
 DTEND;TZID=Europe/Zurich:20270204T213000
 SUMMARY:Liste 24b — répétition tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-24b
 DESCRIPTION:\n— Mémo de production —\nŒuvres au programme :\n• DIVE
  RS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type] (≈ 1 h 00)\n   
@@ -11911,7 +12079,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270217T100000
 DTEND;TZID=Europe/Zurich:20270217T123000
 SUMMARY:Liste E — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-e
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Antonino FO
  GLIANI\nŒuvres au programme :\n• Giacomo PUCCINI — La Fanciulla del W
@@ -11938,7 +12108,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270218T100000
 DTEND;TZID=Europe/Zurich:20270218T123000
 SUMMARY:Liste E — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-e
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Antonino FO
  GLIANI\nŒuvres au programme :\n• Giacomo PUCCINI — La Fanciulla del W
@@ -11965,7 +12137,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270218T143000
 DTEND;TZID=Europe/Zurich:20270218T170000
 SUMMARY:Liste E — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-e
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Antonino FO
  GLIANI\nŒuvres au programme :\n• Giacomo PUCCINI — La Fanciulla del W
@@ -11992,7 +12166,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270219T100000
 DTEND;TZID=Europe/Zurich:20270219T123000
 SUMMARY:Liste E — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-e
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Antonino FO
  GLIANI\nŒuvres au programme :\n• Giacomo PUCCINI — La Fanciulla del W
@@ -12019,7 +12195,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270219T143000
 DTEND;TZID=Europe/Zurich:20270219T170000
 SUMMARY:Liste E — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-e
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Antonino FO
  GLIANI\nŒuvres au programme :\n• Giacomo PUCCINI — La Fanciulla del W
@@ -12114,7 +12292,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270222T183000
 DTEND;TZID=Europe/Zurich:20270222T210000
 SUMMARY:Liste 26 — partielle (registre cordes)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-26
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -12240,7 +12420,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270223T183000
 DTEND;TZID=Europe/Zurich:20270223T210000
 SUMMARY:Liste 26 — partielle (registre vents-percu)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-26
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -12298,7 +12480,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270224T183000
 DTEND;TZID=Europe/Zurich:20270224T213000
 SUMMARY:Liste 26 — répétition tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-26
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -12660,7 +12844,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270304T090000
 DTEND;TZID=Europe/Zurich:20270304T120000
 SUMMARY:Atelier Découverte GT — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-gt
 DESCRIPTION:Programme : ADGT.1\n\n— Liens utiles —\n🎼 Portail partit
  ions (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série com
@@ -12709,7 +12895,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270305T090000
 DTEND;TZID=Europe/Zurich:20270305T120000
 SUMMARY:Atelier Découverte GT — ateliers (avec mus.OSR) (OPTION)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-gt
 DESCRIPTION:Programme : ADGT.2\n\n— Liens utiles —\n🎼 Portail partit
  ions (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série com
@@ -12851,7 +13039,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270308T150000
 DTEND;TZID=Europe/Zurich:20270308T173000
 SUMMARY:Liste 27 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-27
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Daniele GAT
  TI\nSoliste :\n• Mao FUJITA\, piano\nŒuvres au programme :\n• Ludwig 
@@ -12880,7 +13070,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270308T193000
 DTEND;TZID=Europe/Zurich:20270308T220000
 SUMMARY:Liste 27 — répétition privée Amis
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-27
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Daniele GAT
  TI\nSoliste :\n• Mao FUJITA\, piano\nŒuvres au programme :\n• Ludwig 
@@ -12909,7 +13101,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270309T100000
 DTEND;TZID=Europe/Zurich:20270309T123000
 SUMMARY:Liste 27 — répétition avec soliste
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-27
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Daniele GAT
  TI\nSoliste :\n• Mao FUJITA\, piano\nŒuvres au programme :\n• Ludwig 
@@ -13029,7 +13223,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270311T103000
 DTEND;TZID=Europe/Zurich:20270311T130000
 SUMMARY:Liste 27b — session masterclass direction
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-27b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Daniele GAT
  TI\n\n— Liens utiles —\n🎼 Portail partitions (Dièse) : https://osr
@@ -13816,7 +14012,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle bois
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -13839,7 +14037,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle (violoncelles)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -13862,7 +14061,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle (contrebasses)
-LOCATION:ML - Studio B
+LOCATION:ML - Studio B\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -13910,7 +14110,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270322T204500
 DTEND;TZID=Europe/Zurich:20270322T223000
 SUMMARY:Liste 28b — partielle (cuivres)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -13933,7 +14135,8 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270322T204500
 DTEND;TZID=Europe/Zurich:20270322T223000
 SUMMARY:Liste 28b — partielle (altos)
-LOCATION:ML - Studio P
+LOCATION:ML - Studio P\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -14070,7 +14273,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270323T183000
 DTEND;TZID=Europe/Zurich:20270323T213000
 SUMMARY:Liste 28b — répétition tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-28b
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• DIVERS COMPOSITEURS — L'OSR c'est Vou
@@ -14207,7 +14412,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270405T100000
 DTEND;TZID=Europe/Zurich:20270405T123000
 SUMMARY:Liste F — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-f
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSolistes :\n• Dimitris SKYLLAS\, piano\n• ALKANNA GRAECA\,
@@ -14240,7 +14447,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270405T143000
 DTEND;TZID=Europe/Zurich:20270405T170000
 SUMMARY:Liste F — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-f
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSolistes :\n• Dimitris SKYLLAS\, piano\n• ALKANNA GRAECA\,
@@ -14273,7 +14482,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270406T100000
 DTEND;TZID=Europe/Zurich:20270406T123000
 SUMMARY:Liste F — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-f
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSolistes :\n• Dimitris SKYLLAS\, piano\n• ALKANNA GRAECA\,
@@ -14306,7 +14517,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270406T143000
 DTEND;TZID=Europe/Zurich:20270406T170000
 SUMMARY:Liste F — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-f
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Margaryta G
  RYNYVETSKA\nSolistes :\n• Dimitris SKYLLAS\, piano\n• ALKANNA GRAECA\,
@@ -14444,7 +14657,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270409T100000
 DTEND;TZID=Europe/Zurich:20270409T123000
 SUMMARY:Liste 29 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-29
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  MCZAK\nSoliste :\n• Lyam CHENAUX\, violoncelle\nŒuvres au programme :\n
@@ -14510,7 +14725,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270409T143000
 DTEND;TZID=Europe/Zurich:20270409T170000
 SUMMARY:Liste 29 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-29
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  MCZAK\nSoliste :\n• Lyam CHENAUX\, violoncelle\nŒuvres au programme :\n
@@ -15619,7 +15836,9 @@ DTSTART;TZID=Europe/Zurich:20270424T093000
 DTEND;TZID=Europe/Zurich:20270424T190000
 SUMMARY:Concours Deuxième violon solo (coordonné) — concours (Deuxième
   violon solo (coordonné))
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-concours-deuxieme-violon-solo-co
  ordonne
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
@@ -15949,7 +16168,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270501T110000
 DTEND;TZID=Europe/Zurich:20270501T220000
 SUMMARY:Concours à définir — concours (poste à définir)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-concours-a-definir
 DESCRIPTION:\n— Liens utiles —\n🎼 Portail partitions (Dièse) : http
  s://osr.opas-online.com/documents.php\n📋 Série complète de Concours 
@@ -15968,7 +16189,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270503T090000
 DTEND;TZID=Europe/Zurich:20270503T110000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-6
 DESCRIPTION:Programme : AD6.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -15988,7 +16211,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270503T133000
 DTEND;TZID=Europe/Zurich:20270503T153000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-6
 DESCRIPTION:Programme : AD6.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16008,7 +16233,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270504T090000
 DTEND;TZID=Europe/Zurich:20270504T110000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-6
 DESCRIPTION:Programme : AD6.3\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16268,7 +16495,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270513T090000
 DTEND;TZID=Europe/Zurich:20270513T110000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-7
 DESCRIPTION:Programme : AD7.1\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16328,7 +16557,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270513T133000
 DTEND;TZID=Europe/Zurich:20270513T153000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-7
 DESCRIPTION:Programme : AD7.2\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16388,7 +16619,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270514T090000
 DTEND;TZID=Europe/Zurich:20270514T110000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-7
 DESCRIPTION:Programme : AD7.3\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16408,7 +16641,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270514T133000
 DTEND;TZID=Europe/Zurich:20270514T153000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
-LOCATION:ML - grande salle (st. A\, B & P)
+LOCATION:ML - grande salle (st. A\, B & P)\, Uni Mail\, Boulevard Carl-Vogt
+  102\, 1205 Genève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-atelier-decouverte-7
 DESCRIPTION:Programme : AD7.4\n\n— Liens utiles —\n🎼 Portail partiti
  ons (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série comp
@@ -16861,7 +17096,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270527T100000
 DTEND;TZID=Europe/Zurich:20270527T123000
 SUMMARY:Liste 36 — session masterclass direction
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-36
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : divers cand
  idats\nŒuvres au programme :\n• DIVERS COMPOSITEURS — Programme en co
@@ -16992,7 +17229,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270528T100000
 DTEND;TZID=Europe/Zurich:20270528T123000
 SUMMARY:Liste 37 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-37
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  MCZAK\nSoliste :\n• Anne-Claire REY-BELLET\, récitant (récit et animat
@@ -17363,7 +17602,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270604T190000
 DTEND;TZID=Europe/Zurich:20270604T213000
 SUMMARY:Liste 39 — répétition tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-39
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• L'OSR C'est Vous ! 2526\n    Instrument
@@ -17386,7 +17627,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270605T100000
 DTEND;TZID=Europe/Zurich:20270605T123000
 SUMMARY:Liste 39 — répétition tutti
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-39
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Philippe B
  ÉRAN\nŒuvres au programme :\n• L'OSR C'est Vous ! 2526\n    Instrument
@@ -17536,7 +17779,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270608T080000
 DTEND;TZID=Europe/Zurich:20270608T160000
 SUMMARY:Liste 40 — répétition (sans OSR)
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-40
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Martyna SZY
  MCZAK\nSolistes :\n• Marion FONTANA\, récitante\n• Choeurs des Ecoles
@@ -17567,7 +17812,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270609T100000
 DTEND;TZID=Europe/Zurich:20270609T123000
 SUMMARY:Liste 38 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-38
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nSolist
  e :\n• Lim YUNCHAN\, piano\nŒuvres au programme :\n• N.N. — Program
@@ -17592,7 +17839,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270609T193000
 DTEND;TZID=Europe/Zurich:20270609T220000
 SUMMARY:Liste 38 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-38
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nSolist
  e :\n• Lim YUNCHAN\, piano\nŒuvres au programme :\n• N.N. — Program
@@ -17617,7 +17866,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270610T100000
 DTEND;TZID=Europe/Zurich:20270610T123000
 SUMMARY:Liste 38 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-38
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nSolist
  e :\n• Lim YUNCHAN\, piano\nŒuvres au programme :\n• N.N. — Program
@@ -17642,7 +17893,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270610T143000
 DTEND;TZID=Europe/Zurich:20270610T170000
 SUMMARY:Liste 38 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-38
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nSolist
  e :\n• Lim YUNCHAN\, piano\nŒuvres au programme :\n• N.N. — Program
@@ -17859,7 +18112,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270616T100000
 DTEND;TZID=Europe/Zurich:20270616T130000
 SUMMARY:Liste G — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-g
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Guillaume T
  ourniaire\nŒuvres au programme :\n• Leonard BERNSTEIN — Candide\, op
@@ -17913,7 +18168,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270617T100000
 DTEND;TZID=Europe/Zurich:20270617T130000
 SUMMARY:Liste G — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-g
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Guillaume T
  ourniaire\nŒuvres au programme :\n• Leonard BERNSTEIN — Candide\, op
@@ -17967,7 +18224,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270618T100000
 DTEND;TZID=Europe/Zurich:20270618T130000
 SUMMARY:Liste G — lecture
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-g
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : Guillaume T
  ourniaire\nŒuvres au programme :\n• Leonard BERNSTEIN — Candide\, op
@@ -18304,7 +18563,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270628T100000
 DTEND;TZID=Europe/Zurich:20270628T123000
 SUMMARY:Liste 41 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-41
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18327,7 +18588,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270628T143000
 DTEND;TZID=Europe/Zurich:20270628T170000
 SUMMARY:Liste 41 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-41
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18350,7 +18613,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270629T100000
 DTEND;TZID=Europe/Zurich:20270629T123000
 SUMMARY:Liste 41 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-41
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18486,7 +18751,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270702T100000
 DTEND;TZID=Europe/Zurich:20270702T123000
 SUMMARY:Liste 42 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-42
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18509,7 +18776,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270702T143000
 DTEND;TZID=Europe/Zurich:20270702T170000
 SUMMARY:Liste 42 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-42
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18532,7 +18801,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270703T100000
 DTEND;TZID=Europe/Zurich:20270703T123000
 SUMMARY:Liste 42 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-42
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18555,7 +18826,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270703T143000
 DTEND;TZID=Europe/Zurich:20270703T170000
 SUMMARY:Liste 42 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-42
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
@@ -18578,7 +18851,9 @@ DTSTAMP:20260923T182557Z
 DTSTART;TZID=Europe/Zurich:20270705T100000
 DTEND;TZID=Europe/Zurich:20270705T123000
 SUMMARY:Liste 42 — répétition
-LOCATION:ML - grande salle
+LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
+ ève
+GEO:46.19538;6.14031
 URL:https://isc.github.io/bemol-osr/#liste-42
 DESCRIPTION:\n— Mémo de production —\nDirection musicale : NN1\nŒuvre
  s au programme :\n• PIÈCE(S) À DÉFINIR — en construction\n    Instr
