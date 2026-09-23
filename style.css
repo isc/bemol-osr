@@ -25,12 +25,15 @@
   --shadow: rgba(0, 0, 0, 0.3);
   --backdrop: rgba(0, 0, 0, 0.35);
   --danger: #d33;
+  --danger-soft: #fbe3e3;
   --success: #3a5;
   --success-text: #283;
+  --success-soft: #e3f3e8;
   --diff-old: #a55;
   --purple: #7a5cc0;
   --purple-soft: #efeaf9;
   --purple-text: #6a4bb0;
+  --memo-soft: #f6f2fc;
   --warn-bg: #fff3cd;
   --warn-text: #664d03;
   --warn-border: #ffe69c;
@@ -64,6 +67,7 @@
   /* Couleur indépendante des Listes, pour l'accent « modifié » de la vue
      Modifs (cf. .change-item.modified) — anciennement --cat-concert. */
   --change-modified: #f5a83a;
+  --change-modified-soft: #fdf0dc;
 
   /* Services « sans orchestre » (#116) : couleur neutre et volontairement
      distincte de la palette --liste-color-*, pour signaler d'un coup d'œil
@@ -429,12 +433,15 @@ table.week td.slot-name {
   --shadow: rgba(0, 0, 0, 0.6);
   --backdrop: rgba(0, 0, 0, 0.6);
   --danger: #e35d5d;
+  --danger-soft: #3a2020;
   --success: #4c9d6b;
   --success-text: #7fd9a0;
+  --success-soft: #1f3a28;
   --diff-old: #d98f8f;
   --purple: #9d82df;
   --purple-soft: #352d55;
   --purple-text: #c1adf0;
+  --memo-soft: #241f38;
   --warn-bg: #4a3f14;
   --warn-text: #f0d585;
   --warn-border: #6b5a1e;
@@ -455,6 +462,7 @@ table.week td.slot-name {
   --liste-color-11: #3a4560;
 
   --change-modified: #8a5a1a;
+  --change-modified-soft: #3a2f14;
 
   --no-orchestre-bg: #3a3f47;
   --no-orchestre-text: #c2c8d1;
@@ -805,15 +813,66 @@ table.week td.repos:not(.today) {
 
 .change-item.added {
   border-color: var(--success);
+  background: var(--success-soft);
 }
 .change-item.removed {
   border-color: var(--danger);
+  background: var(--danger-soft);
 }
 .change-item.modified {
   border-color: var(--change-modified);
+  background: var(--change-modified-soft);
 }
 .change-item.memo {
   border-color: var(--purple);
+  /* --memo-soft, pas --purple-soft : cette dernière est déjà prise par la
+     pastille .change-tag ci-dessous, qui doit rester visible sur ce fond. */
+  background: var(--memo-soft);
+}
+
+/* Légende des couleurs, sous l'en-tête de la vue Modifs (retour #180) : une
+   case par type, même couleur que le fond des .change-item ci-dessus. Sticky
+   comme .view-toolbar plus haut (retour #182 : rester visible en défilant
+   dans la liste, pas seulement en haut de page). */
+.modifs-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0 0 12px;
+  padding: 8px 0;
+  position: sticky;
+  top: var(--header-h, 0px);
+  z-index: 9;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
+.modifs-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.modifs-legend-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+.modifs-legend-swatch.added {
+  background: var(--success);
+}
+.modifs-legend-swatch.removed {
+  background: var(--danger);
+}
+.modifs-legend-swatch.modified {
+  background: var(--change-modified);
+}
+.modifs-legend-swatch.memo {
+  background: var(--purple);
+}
+.modifs-legend-swatch.concours-defini {
+  background: var(--gold);
 }
 
 /* Concours dont le poste passait par « à définir » et vient d'être précisé
