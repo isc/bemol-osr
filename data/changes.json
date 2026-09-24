@@ -1,6 +1,54 @@
 {
  "entries": [
   {
+   "at": "2026-09-24T09:33:27.179Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 08",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Marianne CREBASSA, mezzo-soprano"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Anu KOMSI, soprano · Lionel COTTET, violoncelle"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Patricia KOPATCHINSKAJA, violon"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-23T18:25:57.246Z",
    "added": [],
    "removed": [],
