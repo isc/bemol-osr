@@ -1,6 +1,249 @@
 {
  "entries": [
   {
+   "at": "2026-09-24T17:18:21.293Z",
+   "added": [
+    {
+     "uid": "osr251540",
+     "start": "2026-10-01T22:15",
+     "end": "2026-10-01T23:30",
+     "liste": "Liste 08",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr251627",
+     "start": "2026-10-10T22:30",
+     "end": "2026-10-10T23:59",
+     "liste": "Liste 09",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr251619",
+     "start": "2027-01-14T22:15",
+     "end": "2027-01-14T23:30",
+     "liste": "Liste 21",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr251621",
+     "start": "2027-02-25T22:15",
+     "end": "2027-02-25T23:30",
+     "liste": "Liste 25",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr251623",
+     "start": "2027-04-22T22:30",
+     "end": "2027-04-22T23:45",
+     "liste": "Liste 30",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr251625",
+     "start": "2027-05-27T21:45",
+     "end": "2027-05-27T23:00",
+     "liste": "Liste 35",
+     "activity": "bus",
+     "category": "autre",
+     "location": "retour Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132759",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132759",
+      "start": "2026-10-01T20:15",
+      "end": "2026-10-01T22:30",
+      "liste": "Liste 08",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132759",
+      "start": "2026-10-01T20:15",
+      "end": "2026-10-01T22:15",
+      "liste": "Liste 08",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132776",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132776",
+      "start": "2026-10-10T20:30",
+      "end": "2026-10-10T23:00",
+      "liste": "Liste 09",
+      "activity": "concert",
+      "category": "concert",
+      "location": "La Grange au Lac, Evian",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132776",
+      "start": "2026-10-10T20:30",
+      "end": "2026-10-10T22:30",
+      "liste": "Liste 09",
+      "activity": "concert",
+      "category": "concert",
+      "location": "La Grange au Lac, Evian",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132807",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132807",
+      "start": "2026-10-23T21:00",
+      "end": "2026-10-24T00:00",
+      "liste": "Liste 10",
+      "activity": "générale non publique",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132807",
+      "start": "2026-10-23T19:30",
+      "end": "2026-10-23T22:30",
+      "liste": "Liste 10",
+      "activity": "générale non publique",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132975",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132975",
+      "start": "2027-01-14T20:15",
+      "end": "2027-01-14T22:00",
+      "liste": "Liste 21",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132975",
+      "start": "2027-01-14T20:15",
+      "end": "2027-01-14T22:15",
+      "liste": "Liste 21",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133025",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr133025",
+      "start": "2027-02-25T20:15",
+      "end": "2027-02-25T22:30",
+      "liste": "Liste 25",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133025",
+      "start": "2027-02-25T20:15",
+      "end": "2027-02-25T22:15",
+      "liste": "Liste 25",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr133155",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr133155",
+      "start": "2027-05-27T20:15",
+      "end": "2027-05-27T22:45",
+      "liste": "Liste 35",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133155",
+      "start": "2027-05-27T20:15",
+      "end": "2027-05-27T22:00",
+      "liste": "Liste 35",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Théâtre de Beaulieu, Lausanne",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-24T11:56:24.428Z",
    "added": [],
    "removed": [],
