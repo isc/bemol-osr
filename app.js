@@ -936,7 +936,10 @@ const SIGNIFICANT_DIFF_FIELDS = [
 ]
 
 // Normalisation légère (accents, casse, espaces) pour comparer deux valeurs
-// de champ texte sans être trompé par une simple variation de forme.
+// de champ texte sans être trompé par une simple variation de forme. Dièse
+// republie parfois un nom (lieu, programme) avec un simple point, tiret ou
+// flèche ajouté devant/derrière sans changer le nom lui-même (retour sur
+// #183) : ces décorations en tête/queue sont donc retirées avant comparaison.
 function normText(s) {
   return String(s || "")
     .normalize("NFD")
@@ -944,6 +947,8 @@ function normText(s) {
     .toLowerCase()
     .replace(/\s+/g, " ")
     .trim()
+    .replace(/^[.\-–—→]+\s*/, "")
+    .replace(/\s*[.\-–—→]+$/, "")
 }
 
 // Dièse a renommé le bâtiment d'Uni Mail : le préfixe "UM" est devenu "ML",
