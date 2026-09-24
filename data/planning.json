@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-23T18:25:57.246Z",
+ "updatedAt": "2026-09-24T11:56:24.428Z",
  "count": 617,
  "events": [
   {
@@ -3063,9 +3063,9 @@
   {
    "uid": "osr229809",
    "start": "2026-12-15T17:00",
-   "end": "2026-12-15T18:30",
+   "end": "2026-12-15T23:59",
    "liste": "Liste 19",
-   "activity": "technique RTS",
+   "activity": "Technique (RTS / Ozango)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "",
