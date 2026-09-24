@@ -1919,7 +1919,13 @@ function changeEntryHeading(at) {
   return `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
 }
 
-// Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le badge.
+// Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le
+// badge. Un ajout/suppression/modif touchant un service « sans orchestre »
+// (cf. isNoOrchestra) n'est pas compté : à la différence du planning
+// lui-même (où ces services restent visibles par défaut, préférence
+// showNoOrchestra), le journal des changements les exclut systématiquement —
+// c'est le journal qui encombre, pas la présence du service au planning
+// (retour #182, ex. un service technique).
 function countChanges(entry) {
   if (entry.type === "memo")
     return entry.programs.reduce(
@@ -1934,9 +1940,11 @@ function countChanges(entry) {
       0,
     )
   return (
-    entry.added.length +
-    entry.removed.length +
-    entry.modified.filter(isSignificantModification).length
+    entry.added.filter((e) => !isNoOrchestra(e)).length +
+    entry.removed.filter((e) => !isNoOrchestra(e)).length +
+    entry.modified.filter(
+      (m) => isSignificantModification(m) && !isNoOrchestra(m.after),
+    ).length
   )
 }
 
@@ -1953,17 +1961,18 @@ const MEMO_FIELD_LABELS = {
 // et rend `null` si le relevé, une fois filtré, n'a plus rien à montrer (ex.
 // un relevé qui ne contenait qu'une correction de casse du lieu).
 function planningEntryBox(entry) {
+  const added = entry.added.filter((e) => !isNoOrchestra(e))
+  const removed = entry.removed.filter((e) => !isNoOrchestra(e))
   const modified = entry.modified
     .map((m) => ({ m, fields: significantFields(m) }))
-    .filter((x) => x.fields.length)
+    .filter((x) => x.fields.length && !isNoOrchestra(x.m.after))
 
-  if (!entry.added.length && !modified.length && !entry.removed.length)
-    return null
+  if (!added.length && !modified.length && !removed.length) return null
 
   const box = el("div", { class: "change-entry" })
   box.append(el("h3", {}, changeEntryHeading(entry.at)))
 
-  for (const e of entry.added)
+  for (const e of added)
     box.append(
       el(
         "div",
@@ -2003,7 +2012,7 @@ function planningEntryBox(entry) {
     box.append(item)
   }
 
-  for (const e of entry.removed)
+  for (const e of removed)
     box.append(
       el(
         "div",
