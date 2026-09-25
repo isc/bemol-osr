@@ -1924,31 +1924,59 @@ function changeEntryHeading(at) {
   return `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
 }
 
+// Un événement déjà terminé au moment de la consultation (fin avant
+// l'instant présent, pas au moment du relevé) : ajouté, modifié ou
+// supprimé, il n'y a plus rien à en faire une fois qu'il a eu lieu — la
+// notification n'est plus qu'un rappel inutile d'un service déjà passé
+// (retour #184, dans la continuité de #182/#183). Pour une modif, on
+// regarde l'état après changement (m.after) : c'est lui qui détermine si
+// l'événement, tel qu'il existe désormais, est passé ou non.
+function isPastEvent(e) {
+  return new Date(e.end) < new Date()
+}
+
+// Une série (liste/production) entièrement terminée : plus aucun de ses
+// événements n'est à venir. Un programme du mémo de production n'a pas
+// d'horaire propre (juste un chef, des œuvres…) — à la différence d'un
+// service du planning, seule sa série dans son ensemble peut être dite
+// passée (retour #184, suite de #185 : les changements du mémo restaient
+// affichés indéfiniment, même pour une production entièrement jouée).
+function isListeFinished(liste) {
+  return state.events.filter((e) => e.liste === liste).every(isPastEvent)
+}
+
 // Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le
 // badge. Un ajout/suppression/modif touchant un service « sans orchestre »
-// (cf. isNoOrchestra) n'est pas compté : à la différence du planning
-// lui-même (où ces services restent visibles par défaut, préférence
-// showNoOrchestra), le journal des changements les exclut systématiquement —
-// c'est le journal qui encombre, pas la présence du service au planning
-// (retour #182, ex. un service technique).
+// (cf. isNoOrchestra) ou un événement déjà passé (cf. isPastEvent) n'est pas
+// compté : à la différence du planning lui-même (où ces services restent
+// visibles par défaut, préférence showNoOrchestra), le journal des
+// changements les exclut systématiquement — c'est le journal qui encombre,
+// pas la présence du service au planning (retour #182, ex. un service
+// technique ; retour #184 pour les événements passés, et pour les
+// programmes du mémo dont la série est terminée, cf. isListeFinished).
 function countChanges(entry) {
   if (entry.type === "memo")
-    return entry.programs.reduce(
-      (n, p) =>
-        p.status === "modified"
-          ? n +
-            (p.fields ? p.fields.length : 0) +
-            (p.worksAdded ? p.worksAdded.length : 0) +
-            (p.worksRemoved ? p.worksRemoved.length : 0) +
-            (p.worksModified ? p.worksModified.length : 0)
-          : n + 1,
-      0,
-    )
+    return entry.programs
+      .filter((p) => !isListeFinished(p.liste))
+      .reduce(
+        (n, p) =>
+          p.status === "modified"
+            ? n +
+              (p.fields ? p.fields.length : 0) +
+              (p.worksAdded ? p.worksAdded.length : 0) +
+              (p.worksRemoved ? p.worksRemoved.length : 0) +
+              (p.worksModified ? p.worksModified.length : 0)
+            : n + 1,
+        0,
+      )
   return (
-    entry.added.filter((e) => !isNoOrchestra(e)).length +
-    entry.removed.filter((e) => !isNoOrchestra(e)).length +
+    entry.added.filter((e) => !isNoOrchestra(e) && !isPastEvent(e)).length +
+    entry.removed.filter((e) => !isNoOrchestra(e) && !isPastEvent(e)).length +
     entry.modified.filter(
-      (m) => isSignificantModification(m) && !isNoOrchestra(m.after),
+      (m) =>
+        isSignificantModification(m) &&
+        !isNoOrchestra(m.after) &&
+        !isPastEvent(m.after),
     ).length
   )
 }
@@ -1962,15 +1990,22 @@ const MEMO_FIELD_LABELS = {
 }
 
 // Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
-// Ne montre que les modifs significatives (issue #178, cf. significantFields)
-// et rend `null` si le relevé, une fois filtré, n'a plus rien à montrer (ex.
-// un relevé qui ne contenait qu'une correction de casse du lieu).
+// Ne montre que les modifs significatives (issue #178, cf. significantFields),
+// écarte les services sans orchestre (#183) et les événements déjà passés
+// (#184, cf. isPastEvent), et rend `null` si le relevé, une fois filtré, n'a
+// plus rien à montrer (ex. un relevé qui ne contenait qu'une correction de
+// casse du lieu).
 function planningEntryBox(entry) {
-  const added = entry.added.filter((e) => !isNoOrchestra(e))
-  const removed = entry.removed.filter((e) => !isNoOrchestra(e))
+  const added = entry.added.filter((e) => !isNoOrchestra(e) && !isPastEvent(e))
+  const removed = entry.removed.filter(
+    (e) => !isNoOrchestra(e) && !isPastEvent(e),
+  )
   const modified = entry.modified
     .map((m) => ({ m, fields: significantFields(m) }))
-    .filter((x) => x.fields.length && !isNoOrchestra(x.m.after))
+    .filter(
+      (x) =>
+        x.fields.length && !isNoOrchestra(x.m.after) && !isPastEvent(x.m.after),
+    )
 
   if (!added.length && !modified.length && !removed.length) return null
 
@@ -2104,11 +2139,16 @@ function memoProgramItem(p) {
   return item
 }
 
-// Boîte d'un relevé de changements du mémo de production.
+// Boîte d'un relevé de changements du mémo de production. Écarte les
+// programmes dont la série est entièrement terminée (#184, cf.
+// isListeFinished) et rend `null` si le relevé n'a plus rien à montrer.
 function memoEntryBox(entry) {
+  const programs = entry.programs.filter((p) => !isListeFinished(p.liste))
+  if (!programs.length) return null
+
   const box = el("div", { class: "change-entry" })
   box.append(el("h3", {}, changeEntryHeading(entry.at)))
-  for (const p of entry.programs) box.append(memoProgramItem(p))
+  for (const p of programs) box.append(memoProgramItem(p))
   return box
 }
 
@@ -2164,13 +2204,14 @@ function renderModifs(main) {
   }
 
   // Tous les relevés ne contenaient que des modifs mineures, filtrées (issue
-  // #178) : le dire plutôt que de laisser la page vide.
+  // #178), ou ne concernant que des événements déjà passés (#184) : le dire
+  // plutôt que de laisser la page vide.
   if (!shown)
     main.append(
       el(
         "p",
         { class: "empty-msg" },
-        "Aucune modification importante récemment. Les corrections mineures de formulation ou de mise en forme ne sont plus affichées ici.",
+        "Aucune modification importante récemment. Les corrections mineures de formulation ou de mise en forme, les modifications d'événements déjà passés, ainsi que les changements du mémo de production pour une série terminée, ne sont plus affichés ici.",
       ),
     )
 }
