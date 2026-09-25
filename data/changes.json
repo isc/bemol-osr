@@ -1,6 +1,222 @@
 {
  "entries": [
   {
+   "at": "2026-09-25T09:48:44.357Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 01",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Valentine MICHAUD, saxophone alto"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 03",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "KENNEDY, solo voice · Matti KLEIN, keyboard · Christian VON KAPHENGST, bass [guit.] · Guido JÖRIS, drums"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 04",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Chœur du Grand Théâtre de Genève, chœur",
+       "after": "Bernard RICHTER, ténor · Jenny DAVIET, soprano · Jérôme BOUTILLIER, baryton · Nicolas TESTÉ, basse · Lucile RICHARDOT, mezzo-soprano · Anne-Blanche TRILLAUD RUGGERI, soprano · Edwin CROSSLEY-MERCER, basse · Chœur du Grand Théâtre de Genève, chœur · Mark BIGGINS, chef·fe de choeur"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "NN1, choriste gospel soprano · NN2, choriste gospel soprano · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor",
+       "after": "NN1, choriste gospel soprano · NN2, choriste gospel soprano · Matt DUSK, jazz vocalist · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 23",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Janine JANSEN, violon"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 24",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "NN1, récitant"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 25",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Alexandra CONUNOVA, violon"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 27",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Mao FUJITA, piano"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Andrew STAPLES, ténor · Fleur BARRON, mezzo-soprano · Jean-Sébastien BOU, baryton"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 29",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Lyam CHENAUX, violoncelle"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 30",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Michiaki UENO, violoncelle"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 31",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Yefim BRONFMAN, piano"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 32",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Beatrice RANA, piano"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 35",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Vilde FRANG, violon"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 37",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Anne-Claire REY-BELLET, récitant"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-09-24T17:18:21.293Z",
    "added": [
     {
