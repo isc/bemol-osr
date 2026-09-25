@@ -1935,6 +1935,16 @@ function isPastEvent(e) {
   return new Date(e.end) < new Date()
 }
 
+// Une série (liste/production) entièrement terminée : plus aucun de ses
+// événements n'est à venir. Un programme du mémo de production n'a pas
+// d'horaire propre (juste un chef, des œuvres…) — à la différence d'un
+// service du planning, seule sa série dans son ensemble peut être dite
+// passée (retour #184, suite de #185 : les changements du mémo restaient
+// affichés indéfiniment, même pour une production entièrement jouée).
+function isListeFinished(liste) {
+  return state.events.filter((e) => e.liste === liste).every(isPastEvent)
+}
+
 // Nombre de changements « atomiques » d'un relevé (planning ou mémo), pour le
 // badge. Un ajout/suppression/modif touchant un service « sans orchestre »
 // (cf. isNoOrchestra) ou un événement déjà passé (cf. isPastEvent) n'est pas
@@ -1942,20 +1952,23 @@ function isPastEvent(e) {
 // visibles par défaut, préférence showNoOrchestra), le journal des
 // changements les exclut systématiquement — c'est le journal qui encombre,
 // pas la présence du service au planning (retour #182, ex. un service
-// technique ; retour #184 pour les événements passés).
+// technique ; retour #184 pour les événements passés, et pour les
+// programmes du mémo dont la série est terminée, cf. isListeFinished).
 function countChanges(entry) {
   if (entry.type === "memo")
-    return entry.programs.reduce(
-      (n, p) =>
-        p.status === "modified"
-          ? n +
-            (p.fields ? p.fields.length : 0) +
-            (p.worksAdded ? p.worksAdded.length : 0) +
-            (p.worksRemoved ? p.worksRemoved.length : 0) +
-            (p.worksModified ? p.worksModified.length : 0)
-          : n + 1,
-      0,
-    )
+    return entry.programs
+      .filter((p) => !isListeFinished(p.liste))
+      .reduce(
+        (n, p) =>
+          p.status === "modified"
+            ? n +
+              (p.fields ? p.fields.length : 0) +
+              (p.worksAdded ? p.worksAdded.length : 0) +
+              (p.worksRemoved ? p.worksRemoved.length : 0) +
+              (p.worksModified ? p.worksModified.length : 0)
+            : n + 1,
+        0,
+      )
   return (
     entry.added.filter((e) => !isNoOrchestra(e) && !isPastEvent(e)).length +
     entry.removed.filter((e) => !isNoOrchestra(e) && !isPastEvent(e)).length +
@@ -2126,11 +2139,16 @@ function memoProgramItem(p) {
   return item
 }
 
-// Boîte d'un relevé de changements du mémo de production.
+// Boîte d'un relevé de changements du mémo de production. Écarte les
+// programmes dont la série est entièrement terminée (#184, cf.
+// isListeFinished) et rend `null` si le relevé n'a plus rien à montrer.
 function memoEntryBox(entry) {
+  const programs = entry.programs.filter((p) => !isListeFinished(p.liste))
+  if (!programs.length) return null
+
   const box = el("div", { class: "change-entry" })
   box.append(el("h3", {}, changeEntryHeading(entry.at)))
-  for (const p of entry.programs) box.append(memoProgramItem(p))
+  for (const p of programs) box.append(memoProgramItem(p))
   return box
 }
 
@@ -2193,7 +2211,7 @@ function renderModifs(main) {
       el(
         "p",
         { class: "empty-msg" },
-        "Aucune modification importante récemment. Les corrections mineures de formulation ou de mise en forme, ainsi que les modifications d'événements déjà passés, ne sont plus affichées ici.",
+        "Aucune modification importante récemment. Les corrections mineures de formulation ou de mise en forme, les modifications d'événements déjà passés, ainsi que les changements du mémo de production pour une série terminée, ne sont plus affichés ici.",
       ),
     )
 }
