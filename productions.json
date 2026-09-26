@@ -874,8 +874,9 @@
     "oeuvre": "Marc SHAIMAN — The Addams Family in Concert",
     "instrumentation": "3*.2*.3*.2* / 4.3.3*.1 / 1.6.1.2 / 14.12.10.8.6",
     "remarques": "fl3+picc+fl alto, ob2+ca, cl3+cl.bs, fgt2+kfgt, 1trb.bs",
-    "percussions": "anvil, belltree, 3 gong, glock, marim., crécelle, c.cl., slapstick, 2 woodblk, xyl, congas,\nshaker, 4 tmplblk, 2 tri, vibra, fouet, marktree, cabasa, cymb sus, 7 boobam, songbells, bsq, drumset, key tree",
+    "percussions": "anvil, belltree, 3 gong, glock, marim., crécelle, c.cl., slapstick, finger snap, 2 woodblk, xyl,\ncongas, cast, shaker, 4 tmplblk, 2 tri, vibra, fouet, windchimes, marktree, cloche combat, claps, cabasa, cymb\nsus, 7 boobam, cloches, songbells, bsq, drumset, key tree",
     "claviers": "piano (S&S grand), synthétiseur (partie exposée et délicate - OSR=clavier midi 88 touches +",
+    "detail": "1ère partie : 58 minutes - 2ème partie : 44 minutes",
     "duree": "≈ 1 h 42"
    }
   ],
@@ -903,7 +904,8 @@
    "osr132828": "-limited tech",
    "osr132830": "-limited tech",
    "osr132834": "-full tech",
-   "osr132833": "-démontage express à l'issue"
+   "osr132833": "-démontage express à l'issue",
+   "osr160676": "-montage dès 14h"
   }
  },
  "Liste 12": {
@@ -919,13 +921,13 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 4 en si bémol majeur op. 60",
     "instrumentation": "1.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.6.5",
-    "remarques": "réduction à 10.8.7.6.4 pour la Masterclasse",
+    "remarques": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
     "duree": "≈ 34 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 5 en ut mineur op. 67",
     "instrumentation": "3*.2.2.3* / 2.2.3*.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "réduction à 10.8.7.6.4 pour la Masterclasse",
+    "remarques": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
     "detail": "picc, kfgt et trb uniquement dans le 4ème mvt",
     "duree": "≈ 31 min"
    }
@@ -960,12 +962,12 @@
    ]
   },
   "serviceNotes": {
-   "osr132845": "-1 seul service 15h-19h (pause 30') compté double avec accord des Représentants",
+   "osr132845": "-1 seul service 15h-19h (1 pause 30') compté double avec accord des Représentants",
    "osr132847": "-4ème mouvement de la 5ème symphonie au début (picc, kfgt, trb)",
-   "osr132848": "-50 invités Amis OSR",
+   "osr132848": "-foyer OSR-Bovy innaccessible (traiteur)",
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132855": "-podium chœur a priori fermé"
+   "osr132855": "-podium chœur fermé"
   }
  },
  "Liste 13": {
@@ -984,13 +986,13 @@
    {
     "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service du matin)",
+    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
     "duree": "≈ 15 min"
    },
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
-    "claviers": "piano (solo)",
+    "claviers": "piano (solo) (piano garé sur scène derrière les cordes pendant Debussy)",
     "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
     "duree": "≈ 23 min"
    }
@@ -1182,8 +1184,8 @@
   "works": [
    {
     "oeuvre": "Giuseppe VERDI — Geoffroy PERRUCHOUD, présentation (concert Famille, uniquement le 20 nov.) Nabucco, opéra en quatre parties",
-    "instrumentation": "2*.2*.2*.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3",
-    "remarques": "fl2+picc, ob2+ca, cl2+cl.mib",
+    "instrumentation": "2*.2*.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3",
+    "remarques": "fl2+picc, ob2+ca",
     "percussions": "GC, tri, cymb",
     "detail": "MdS : banda acte I, III et IV : 0.0.3.0 / 3.3.3.1 / 3 perc (tamb, GC, cymb.) trombe interne acte III : 3 trp",
     "duree": "≈ 2 h 05"
