@@ -1825,10 +1825,7 @@ function renderDocument(main) {
         el(
           "p",
           {},
-          "Grille de services de toute la saison, toujours à jour — tous les " +
-            "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
-            "sur un service pour le détail complet de sa Liste ; le PDF " +
-            "exporté ci-dessous ajoute en plus une fiche par Liste.",
+          "Saison complète, non filtrée. Clique sur un service pour le détail de sa Liste.",
         ),
         el(
           "div",
@@ -1870,22 +1867,12 @@ function renderGrilleActions() {
   return el(
     "div",
     { class: "doc-intro agenda-actions" },
-    el(
-      "p",
-      {},
-      "Uniquement les productions et types de service que tu as choisis " +
-        "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
-        "agenda personnel.",
-    ),
+    el("p", {}, "Filtré selon tes choix dans ⚙ Réglages."),
     el(
       "div",
       { class: "agenda-actions-btns" },
       el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
-      el(
-        "button",
-        { type: "button", onclick: openPrefsDialog },
-        "⚙ Réglages : choisir les productions",
-      ),
+      el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
       el(
         "button",
         {
@@ -1893,7 +1880,7 @@ function renderGrilleActions() {
           class: "doc-print-btn",
           onclick: openSubscribeDialog,
         },
-        "📅 S'abonner au calendrier",
+        "📅 S'abonner",
       ),
     ),
   )
