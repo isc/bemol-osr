@@ -3246,6 +3246,11 @@ function setView(view) {
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
   render()
+  // Repositionne sur la semaine en cours à chaque ouverture d'onglet (pas
+  // seulement au premier chargement de l'app) — demande #186 : sans ça, il
+  // fallait redéfiler manuellement après être passé par un autre onglet
+  // (ex. Modifications).
+  if (view === "grille" || view === "document") scrollToToday()
 }
 
 const VIEW_LABELS = {
@@ -3455,7 +3460,6 @@ async function init() {
 
   const storedView = localStorage.getItem("bemol-view")
   setView(storedView === "agenda" ? "grille" : storedView || "grille")
-  scrollToToday()
   syncListeFromHash()
 }
 
