@@ -3305,9 +3305,24 @@ function renderContent() {
   else renderModifs(main)
 }
 
+// Aligne la semaine courante juste sous le bandeau sticky (en-tête + sous-menu)
+// plutôt que de la centrer dans l'écran : un `block: "center"` peut, sur une
+// semaine chargée (plus haute que l'écran, cf. téléphone), centrer une case du
+// bas de la grille et laisser l'en-tête de la semaine — qui porte la date du
+// jour — caché plus haut, hors champ. Retour #186 sur la PR #187 : le service
+// du jour était bien visible, mais sans certitude sur la date exacte.
 function scrollToToday() {
   const target = document.getElementById("current-week")
-  if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
+  if (!target) return
+  const toolbar = document.querySelector(".view-toolbar")
+  const headerH =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--header-h"),
+    ) || 0
+  const stickyH =
+    headerH + (toolbar ? toolbar.getBoundingClientRect().height : 0)
+  const top = target.getBoundingClientRect().top + window.scrollY - stickyH - 8
+  window.scrollTo({ top, behavior: "smooth" })
 }
 
 // Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
