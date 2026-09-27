@@ -163,8 +163,13 @@ function loadPrefs() {
     hiddenCategories: ["resa"],
     showNoOrchestra: true,
     showCancelled: true,
-    // Repères vacances scolaires + jours fériés dans la Grille (GE et France)
-    showHolidays: true,
+    // Repères vacances scolaires + jours fériés dans la Grille : une zone
+    // (GE, VD ou France voisine) affichée si son code figure dans ce tableau
+    // — cases à cocher indépendantes et additionnables (#191). Les trois
+    // zones sont affichées par défaut. Codes en dur (et non déduits de
+    // REGIONS, cf. plus bas) car `loadPrefs()` s'exécute à l'initialisation
+    // de `state`, avant que `REGIONS` ne soit défini plus loin dans ce fichier.
+    holidayRegions: ["GE", "VD", "FR"],
     listes: [], // listes sélectionnées ; vide = toutes les listes
     // Filtre fin « type d'activité → liste » : pour un type NON masqué
     // globalement (absent de hiddenCategories), listes masquées à l'intérieur
@@ -195,6 +200,12 @@ function loadPrefs() {
     if ("hideNoOrchestra" in stored && !("showNoOrchestra" in stored))
       stored.showNoOrchestra = !stored.hideNoOrchestra
     delete stored.hideNoOrchestra
+    // Migration (#191) : la case unique « showHolidays » devient un choix par
+    // zone, additionnable (holidayRegions) — true valait « les trois zones »,
+    // false valait « aucune ».
+    if ("showHolidays" in stored && !("holidayRegions" in stored))
+      stored.holidayRegions = stored.showHolidays ? ["GE", "VD", "FR"] : []
+    delete stored.showHolidays
     return { ...defaults, ...stored }
   } catch {
     return defaults
@@ -404,8 +415,8 @@ const VACANCES_SCOLAIRES = [
   // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
-  { region: "FR", nom: "Hiver", start: "2027-02-06", end: "2027-02-21" },
-  { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
+  { region: "FR", nom: "Hiver", start: "2027-02-13", end: "2027-02-28" },
+  { region: "FR", nom: "Printemps", start: "2027-04-10", end: "2027-04-25" },
 ]
 
 // Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
@@ -1553,7 +1564,7 @@ function weekTableContext(events = visibleEvents()) {
     events,
     byDay,
     todayKey: localKey(new Date()),
-    showHolidays: state.prefs.showHolidays,
+    holidayRegions: new Set(state.prefs.holidayRegions),
     feriesMap: (state.holidays && state.holidays.feries) || new Map(),
     // Week-ends de repos officiels (repris du tableau de service, cf.
     // WEEKENDS_REPOS), repérés par la date de leur samedi. Ne se déduisent pas
@@ -1567,7 +1578,7 @@ function weekTableContext(events = visibleEvents()) {
 // créneaux), avec repères jour courant / week-end de repos / jours fériés.
 // Partagé entre la vue Grille et la vue Document (impression).
 function buildWeekTable(days, weekIndex, ctx) {
-  const { byDay, todayKey, showHolidays, feriesMap, reposSaturdays } = ctx
+  const { byDay, todayKey, holidayRegions, feriesMap, reposSaturdays } = ctx
   const hasToday = days.some((d) => localKey(d) === todayKey)
   // Week-end « repos » : week-end signalé « repos » dans le tableau de
   // service (repéré par la date de son samedi, days[5]). Les deux jours sont
@@ -1584,7 +1595,9 @@ function buildWeekTable(days, weekIndex, ctx) {
   )
   for (const d of days) {
     const key = localKey(d)
-    const feries = showHolidays ? feriesMap.get(key) || [] : []
+    const feries = (feriesMap.get(key) || []).filter((f) =>
+      holidayRegions.has(f.region),
+    )
     const isWeekend = d.getDay() === 0 || d.getDay() === 6
     // Une classe "ferie-<région>" par région fériée ce jour-là : la case
     // se colore alors du dégradé des seules régions concernées (cf.
@@ -1607,11 +1620,11 @@ function buildWeekTable(days, weekIndex, ctx) {
     headRow.append(th)
   }
   const thead = el("thead", {}, headRow)
-  if (showHolidays)
-    for (const region of REGIONS) {
-      const vacRow = vacancesRow(region, days)
-      if (vacRow) thead.append(vacRow)
-    }
+  for (const region of REGIONS) {
+    if (!holidayRegions.has(region)) continue
+    const vacRow = vacancesRow(region, days)
+    if (vacRow) thead.append(vacRow)
+  }
   table.append(thead)
 
   const tbody = el("tbody")
@@ -2528,15 +2541,29 @@ function renderPrefs() {
   })
   cancelledCheckbox.checked = state.prefs.showCancelled
 
-  const holidaysCheckbox = el("input", {
-    type: "checkbox",
-    onchange: (ev) => {
-      state.prefs.showHolidays = ev.target.checked
-      savePrefs()
-      renderContent()
-    },
+  // Une case par zone (#191) : indépendantes et additionnables, plutôt qu'un
+  // seul interrupteur global GE+VD+France voisine.
+  const holidayOptions = REGIONS.map((region) => {
+    const input = el("input", {
+      type: "checkbox",
+      onchange: (ev) => {
+        const regions = new Set(state.prefs.holidayRegions)
+        if (ev.target.checked) regions.add(region)
+        else regions.delete(region)
+        state.prefs.holidayRegions = [...regions]
+        savePrefs()
+        renderContent()
+      },
+    })
+    input.checked = state.prefs.holidayRegions.includes(region)
+    return el(
+      "label",
+      { class: "liste-option" },
+      input,
+      " ",
+      REGION_LABEL[region],
+    )
   })
-  holidaysCheckbox.checked = state.prefs.showHolidays
 
   const noOrchestraCheckbox = el("input", {
     type: "checkbox",
@@ -2607,10 +2634,14 @@ function renderPrefs() {
       " Afficher les événements annulés (barrés)",
     ),
     el(
-      "label",
-      { class: "prefs-cancelled" },
-      holidaysCheckbox,
-      " Afficher les vacances scolaires et jours fériés",
+      "div",
+      { class: "prefs-section" },
+      el(
+        "div",
+        { class: "prefs-label" },
+        "Vacances scolaires et jours fériés (vue Grille) :",
+      ),
+      el("div", { class: "liste-options" }, ...holidayOptions),
     ),
     el(
       "label",
