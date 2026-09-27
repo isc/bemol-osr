@@ -1825,10 +1825,7 @@ function renderDocument(main) {
         el(
           "p",
           {},
-          "Grille de services de toute la saison, toujours à jour — tous les " +
-            "services, indépendamment de tes filtres dans ⚙ Réglages. Clique " +
-            "sur un service pour le détail complet de sa Liste ; le PDF " +
-            "exporté ci-dessous ajoute en plus une fiche par Liste.",
+          "Saison complète, non filtrée. Clique sur un service pour le détail de sa Liste.",
         ),
         el(
           "div",
@@ -1870,22 +1867,12 @@ function renderGrilleActions() {
   return el(
     "div",
     { class: "doc-intro agenda-actions" },
-    el(
-      "p",
-      {},
-      "Uniquement les productions et types de service que tu as choisis " +
-        "dans tes Réglages, avec la possibilité de t'y abonner dans ton " +
-        "agenda personnel.",
-    ),
+    el("p", {}, "Filtré selon tes choix dans ⚙ Réglages."),
     el(
       "div",
       { class: "agenda-actions-btns" },
       el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
-      el(
-        "button",
-        { type: "button", onclick: openPrefsDialog },
-        "⚙ Réglages : choisir les productions",
-      ),
+      el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
       el(
         "button",
         {
@@ -1893,7 +1880,7 @@ function renderGrilleActions() {
           class: "doc-print-btn",
           onclick: openSubscribeDialog,
         },
-        "📅 S'abonner au calendrier",
+        "📅 S'abonner",
       ),
     ),
   )
@@ -3305,9 +3292,24 @@ function renderContent() {
   else renderModifs(main)
 }
 
+// Aligne la semaine courante juste sous le bandeau sticky (en-tête + sous-menu)
+// plutôt que de la centrer dans l'écran : un `block: "center"` peut, sur une
+// semaine chargée (plus haute que l'écran, cf. téléphone), centrer une case du
+// bas de la grille et laisser l'en-tête de la semaine — qui porte la date du
+// jour — caché plus haut, hors champ. Retour #186 sur la PR #187 : le service
+// du jour était bien visible, mais sans certitude sur la date exacte.
 function scrollToToday() {
   const target = document.getElementById("current-week")
-  if (target) target.scrollIntoView({ behavior: "smooth", block: "center" })
+  if (!target) return
+  const toolbar = document.querySelector(".view-toolbar")
+  const headerH =
+    parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue("--header-h"),
+    ) || 0
+  const stickyH =
+    headerH + (toolbar ? toolbar.getBoundingClientRect().height : 0)
+  const top = target.getBoundingClientRect().top + window.scrollY - stickyH - 8
+  window.scrollTo({ top, behavior: "smooth" })
 }
 
 // Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
