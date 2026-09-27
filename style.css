@@ -1599,13 +1599,20 @@ footer a {
      enfant flex ne rétrécit jamais sous la taille minimale de son propre
      contenu (ici, les boutons non compressibles de #view-nav), ce qui
      ferait déborder toute la ligne d'en-tête au lieu de faire défiler
-     seulement la nav. */
+     seulement la nav.
+     La nav ne réclame plus 100% de la largeur (`flex: 1 1 auto` plutôt
+     que `width: 100%`) : elle partage désormais sa ligne avec le bouton
+     💬 avis (et Installer l'app, tant que l'app n'est pas encore
+     installée) au lieu de les rejeter sur une ligne à part — c'était le
+     cas sur petit écran comme l'iPhone mini (retour #188). Elle leur
+     laisse la place en se rétrécissant et en défilant elle-même plus
+     tôt au besoin. */
   .header-controls {
     min-width: 0;
   }
 
   #view-nav {
-    width: 100%;
+    flex: 1 1 auto;
     min-width: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -1658,6 +1665,15 @@ footer a {
     font-size: 0.6em;
     padding: 2px 3px;
     line-height: 1.2;
+  }
+
+  /* Emprise réduite de la barre de recherche (retour #188), mais la taille
+     du texte reste à 16px (1rem) : en dessous, Safari iOS zoome tout
+     l'écran dès qu'on touche le champ pour taper, ce qui serait bien
+     plus gênant que les quelques pixels gagnés. On resserre donc plutôt
+     le padding. */
+  .search-input {
+    padding: 7px 12px;
   }
 }
 
