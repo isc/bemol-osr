@@ -415,8 +415,8 @@ const VACANCES_SCOLAIRES = [
   // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
-  { region: "FR", nom: "Hiver", start: "2027-02-06", end: "2027-02-21" },
-  { region: "FR", nom: "Printemps", start: "2027-04-03", end: "2027-04-18" },
+  { region: "FR", nom: "Hiver", start: "2027-02-13", end: "2027-02-28" },
+  { region: "FR", nom: "Printemps", start: "2027-04-10", end: "2027-04-25" },
 ]
 
 // Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
