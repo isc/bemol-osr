@@ -477,9 +477,13 @@ async function recordPushStats(env, outcomes, changeCount) {
 // d'identifiant, seulement un genre et un code HTTP.
 async function sendPush(env, key, profile, notification, vapid) {
   try {
+    // Surtout pas d'option `topic` : le service push d'Apple refuse tout
+    // envoi qui porte un en-tête Topic (`400 {"reason":"BadWebPushTopic"}`),
+    // ce qui a bloqué 100 % des notifications jusqu'à fin septembre 2026
+    // (Diagnostic du 28/09 : 0 accepté sur 126, cf. revue #194).
     const message = {
       data: JSON.stringify(notification),
-      options: { ttl: 3600, urgency: "normal", topic: "bemol-changes" },
+      options: { ttl: 3600, urgency: "normal" },
     }
     const payload = await buildPushPayload(message, profile.subscription, vapid)
     const res = await fetch(profile.subscription.endpoint, payload)
