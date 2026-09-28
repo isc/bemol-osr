@@ -123,6 +123,14 @@ jobs:
           const codes = Object.entries(d.statuses || {})
           if (codes.length)
             console.log(`- détail : ${codes.map(([k, n]) => `\`${k}\` ×${n}`).join(", ")}`)
+          // La raison donnée par le service push (Apple, Google…) pour chaque
+          // code, enregistrée par le worker depuis #165 : sans elle, `400 ×27`
+          // ne dit pas quoi corriger. Journaux publics : on masque par
+          // précaution toute longue chaîne opaque (jeton, identifiant).
+          const net = (r) => String(r).replace(/\s+/g, " ").replace(/`/g, "'").replace(/[A-Za-z0-9_+\/=-]{40,}/g, "[…]")
+          const reasons = Object.entries(d.reasons || {})
+          if (reasons.length)
+            console.log(`- raisons : ${reasons.map(([k, r]) => `\`${k}\` → \`${net(r)}\``).join(" · ")}`)
           if (d.sent === 0 && d.attempted > 0) {
             console.log("")
             console.log("> ⚠️ Aucun envoi accepté sur ce cycle : les abonnés ne reçoivent rien.")
