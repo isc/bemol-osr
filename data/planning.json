@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-25T18:42:58.236Z",
+ "updatedAt": "2026-09-28T14:09:02.824Z",
  "count": 623,
  "events": [
   {
@@ -3623,8 +3623,8 @@
   },
   {
    "uid": "osr132987",
-   "start": "2027-01-18T11:30",
-   "end": "2027-01-18T14:00",
+   "start": "2027-01-18T10:00",
+   "end": "2027-01-18T12:30",
    "liste": "Liste 23",
    "activity": "répétition",
    "category": "repetition",
@@ -3634,8 +3634,8 @@
   },
   {
    "uid": "osr132988",
-   "start": "2027-01-18T15:00",
-   "end": "2027-01-18T17:30",
+   "start": "2027-01-18T14:30",
+   "end": "2027-01-18T17:00",
    "liste": "Liste 23",
    "activity": "répétition",
    "category": "repetition",
