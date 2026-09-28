@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-28T14:09:02.824Z",
+ "updatedAt": "2026-09-28T20:36:26.086Z",
  "count": 623,
  "events": [
   {
@@ -1620,17 +1620,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr233622",
-   "start": "2026-10-17T10:00",
-   "end": "2026-10-17T12:30",
-   "liste": "Liste 10",
-   "activity": "partielle par pupitre (clarinettes)",
-   "category": "repetition",
-   "location": "ML - Studio P",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr233625",
    "start": "2026-10-17T10:00",
    "end": "2026-10-17T12:30",
@@ -1748,6 +1737,17 @@
    "activity": "partielle par pupitre (trombones)",
    "category": "repetition",
    "location": "ML - Studio P",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr233622",
+   "start": "2026-10-20T15:00",
+   "end": "2026-10-20T18:00",
+   "liste": "Liste 10",
+   "activity": "partielle par pupitre (clarinettes)",
+   "category": "repetition",
+   "location": "ML - Studio B",
    "project": "",
    "cancelled": false
   },

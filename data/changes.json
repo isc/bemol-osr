@@ -1,6 +1,43 @@
 {
  "entries": [
   {
+   "at": "2026-09-28T20:36:26.086Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr233622",
+     "fields": [
+      "start",
+      "end",
+      "location"
+     ],
+     "before": {
+      "uid": "osr233622",
+      "start": "2026-10-17T10:00",
+      "end": "2026-10-17T12:30",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (clarinettes)",
+      "category": "repetition",
+      "location": "ML - Studio P",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr233622",
+      "start": "2026-10-20T15:00",
+      "end": "2026-10-20T18:00",
+      "liste": "Liste 10",
+      "activity": "partielle par pupitre (clarinettes)",
+      "category": "repetition",
+      "location": "ML - Studio B",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-09-28T14:09:02.824Z",
    "added": [],
    "removed": [],
