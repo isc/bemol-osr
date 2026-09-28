@@ -219,6 +219,13 @@ l'as installée sur l'écran d'accueil ; le build de la preview prend ~1 min ».
   fichier `app.js`), pas de TypeScript.
 - Le DOM est construit via le helper `el()` de `app.js` — pas d'`innerHTML`
   avec des données du planning (risque d'injection).
+- **Hors d'`el()`, un `null` s'affiche.** `el()` filtre ses enfants `null` /
+  `undefined`, mais les API DOM natives (`replaceChildren(...)`,
+  `append(...)`) les **convertissent en texte** : un `null` passé à l'une
+  d'elles apparaît à l'écran sous la forme du mot « null » (retour #168,
+  corrigé par #170). Pour un enfant conditionnel, construire la liste avec
+  `...(cond ? [nœud] : [])` plutôt qu'un `cond ? nœud : null` en position
+  fixe — ou la filtrer avant de la passer.
 
 ## Descriptions de PR : commencer par le pourquoi
 
@@ -241,6 +248,15 @@ complément du pourquoi, pas à sa place.
 Les relecteurs sont des musiciens : une PR qui change quelque chose à l'écran
 doit **montrer le résultat en images dans sa description** (avant/après quand
 c'est pertinent), en plus du lien de preview.
+
+**Cadrer toute la fiche, pas seulement le bloc modifié.** Quand un changement
+ajoute un bloc à côté d'un bloc existant, se demander d'abord si
+l'information n'est pas **déjà affichée juste à côté**, puis capturer la fiche
+ou la vue **entière** (au besoin avec une fenêtre de capture plus haute). Les
+captures de #164, coupées juste sous le bloc ajouté (« Œuvres travaillées
+pendant ce service »), ne montraient pas qu'il répétait le détail complet
+d'« Œuvres au programme », juste en dessous : doublon repéré par le frère
+(#168), retiré par #170.
 
 1. Générer les captures : `npm install --no-save playwright` puis
    `node scripts/screenshots.mjs <dossier> <prefixe>` (sert le dépôt local et
