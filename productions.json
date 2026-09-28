@@ -623,7 +623,7 @@
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.1.2.0 / 15.13.11.9.7",
     "remarques": "fl3+picc, ob3+ca, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, c.cl., TT, tri, cymb sus",
-    "detail": "Un 2ème percu est nécessaire si la fin alternative est choisie.",
+    "detail": "Cf C. Delannoy 09.2026 : la fin alternative se joue aussi à un percu.",
     "note": "\nfin altermative confirmée",
     "duree": "≈ 36 min"
    }
@@ -1831,6 +1831,8 @@
    ]
   },
   "serviceNotes": {
+   "osr133322": "option pour amis OSR (emchères) assis dans l'orchestre x2",
+   "osr133323": "option pour amis OSR (emchères) assis dans l'orchestre x2",
    "osr133329": "ouvrage sans captation radio"
   }
  },
