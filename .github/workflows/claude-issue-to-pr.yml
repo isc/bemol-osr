@@ -68,7 +68,7 @@ jobs:
           # runs qui aboutissent tournent entre 6 et 63 tours ; 200 laisse de la
           # marge aux demandes doubles sans jamais laisser un run partir en vrille.
           claude_args: |
-            --model claude-sonnet-5-5
+            --model sonnet
             --max-turns 200
             --allowedTools "Bash"
           prompt: |

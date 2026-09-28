@@ -77,7 +77,7 @@ jobs:
           # ouvrir une nouvelle PR, il fait le même rituel complet (captures,
           # pr-assets…), donc le même plafond.
           claude_args: |
-            --model claude-sonnet-5-5
+            --model sonnet
             --max-turns 200
             --allowedTools "Bash"
           prompt: |
@@ -174,7 +174,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # --max-turns 200 : même rituel complet que claude-issue-to-pr.yml.
           claude_args: |
-            --model claude-sonnet-5-5
+            --model sonnet
             --max-turns 200
             --allowedTools "Bash"
           prompt: |
