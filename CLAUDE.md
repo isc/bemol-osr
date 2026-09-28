@@ -348,6 +348,15 @@ l'appliquer et le merger lui-même — c'est lui qui a la permission `workflows`
 main par Ivan ; idem #102). Le reste du travail (le raisonnement, les tests hors
 CI, la description) reste à la charge de Claude.
 
+**Modèles des workflows Claude : des alias, pas des identifiants figés.** Les
+workflows passent `--model sonnet` (demandes, CI, conflits) ou `--model opus`
+(revue hebdomadaire). Ces alias de Claude Code suivent automatiquement les
+nouvelles versions, dès que l'action installe un Claude Code qui les connaît
+(le modèle réellement utilisé figure dans le journal du run, ligne
+`"model": …`). Ne pas les remplacer par un identifiant complet
+(`claude-sonnet-5-5`…) sauf régression constatée avec un nouveau modèle : on
+perdrait les montées de version automatiques.
+
 ## Déploiement (pour info)
 
 - Push sur `main` → publication sur GitHub Pages

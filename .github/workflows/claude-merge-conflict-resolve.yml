@@ -55,7 +55,7 @@ jobs:
           # On n'autorise que ce robot-là, pas « * ».
           allowed_bots: "github-actions[bot]"
           claude_args: |
-            --model claude-sonnet-5
+            --model sonnet
             --max-turns 100
             --allowedTools "Bash"
           prompt: |
