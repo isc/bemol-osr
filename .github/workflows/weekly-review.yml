@@ -39,7 +39,7 @@ jobs:
           # Opus : c'est la tâche la plus ouverte du dépôt (prise de recul,
           # diagnostic de process), celle où le modèle le plus fort se justifie.
           claude_args: |
-            --model claude-opus-4-8
+            --model claude-opus-5-5
             --max-turns 100
             --allowedTools "Bash"
           prompt: |
