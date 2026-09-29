@@ -30,10 +30,8 @@ id = "550bbe6e7a3649c6b57d2fa46453e8e4"
 
 # Retours du formulaire « Donner un avis » envoyés par email (cf.
 # handleFeedback) : expéditeur sur le domaine d'Arabesque, déjà vérifié chez
-# Resend. Les destinataires et la clé d'API sont des SECRETS, le dépôt étant
-# public — à poser en type « Secret » (pas « Text », qu'un déploiement
-# effacerait) dans le tableau de bord Cloudflare, ou depuis worker/ :
-#   wrangler secret put RESEND_API_KEY   (clé Resend « Sending access »)
-#   wrangler secret put FEEDBACK_TO      (adresses séparées par des virgules)
+# Resend. Les destinataires (FEEDBACK_TO) et la clé d'API (RESEND_API_KEY)
+# sont des SECRETS du dépôt GitHub, le dépôt étant public : deploy-worker.yml
+# les recopie sur le worker à chaque déploiement.
 [vars]
 FEEDBACK_FROM = "Bémol <bemol@arabesque.app>"
