@@ -13,6 +13,13 @@ name: Déployer le worker calendrier
 # supplémentaire décrite en tête de worker/wrangler.toml — tant qu'elle n'est
 # pas faite, ce déploiement échoue (le KV référencé n'existe pas encore) sans
 # affecter la version déjà en ligne.
+#
+# Envoi des retours du formulaire par email : RESEND_API_KEY (clé Resend
+# « Sending access » limitée au domaine arabesque.app) et FEEDBACK_TO
+# (destinataires, séparés par des virgules) sont des secrets DU DÉPÔT, recopiés
+# sur le worker à chaque déploiement. Pour changer de destinataire :
+#   gh secret set FEEDBACK_TO --repo isc/bemol-osr --body "…"
+# puis relancer ce workflow (Actions → Run workflow).
 
 on:
   push:
@@ -53,3 +60,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
+          secrets: |
+            RESEND_API_KEY
+            FEEDBACK_TO
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FEEDBACK_TO: ${{ secrets.FEEDBACK_TO }}
