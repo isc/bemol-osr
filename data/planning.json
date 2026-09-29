@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-09-29T08:40:27.205Z",
- "count": 623,
+ "updatedAt": "2026-09-29T16:32:44.228Z",
+ "count": 627,
  "events": [
   {
    "uid": "osr225046",
@@ -10,7 +10,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP1",
    "cancelled": false
   },
   {
@@ -21,7 +21,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP2",
    "cancelled": false
   },
   {
@@ -43,7 +43,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP1",
    "cancelled": false
   },
   {
@@ -54,7 +54,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP2",
    "cancelled": false
   },
   {
@@ -65,7 +65,7 @@
    "activity": "générale non publique (+ balance amplification)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP1",
    "cancelled": false
   },
   {
@@ -98,7 +98,7 @@
    "activity": "répétition avec solistes ((voice+trio))",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -109,7 +109,7 @@
    "activity": "raccord (+balance)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP1",
    "cancelled": false
   },
   {
@@ -120,7 +120,7 @@
    "activity": "répétition avec soliste ((voice+trio))",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -131,7 +131,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP1",
    "cancelled": false
   },
   {
@@ -142,7 +142,7 @@
    "activity": "générale non publique (+ balance amplification)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP2",
    "cancelled": false
   },
   {
@@ -153,7 +153,7 @@
    "activity": "répétition avec solistes ((voice+trio))",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -164,7 +164,7 @@
    "activity": "répétition avec solistes ((filage))",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -175,7 +175,7 @@
    "activity": "raccord (+balance)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP2",
    "cancelled": false
   },
   {
@@ -186,7 +186,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP2",
    "cancelled": false
   },
   {
@@ -197,7 +197,7 @@
    "activity": "générale non publique (+ balance amplification)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -208,7 +208,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -219,7 +219,7 @@
    "activity": "raccord (+balance)",
    "category": "generale",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -230,7 +230,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -241,7 +241,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Genève-Plage (scène mobile)",
-   "project": "",
+   "project": "OGP3",
    "cancelled": false
   },
   {
@@ -252,7 +252,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -263,7 +263,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -274,7 +274,7 @@
    "activity": "répétition + balance",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -285,7 +285,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -296,7 +296,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -307,7 +307,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -318,7 +318,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -329,7 +329,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -340,7 +340,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -362,7 +362,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -373,7 +373,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -384,7 +384,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -395,7 +395,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -406,7 +406,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -417,7 +417,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -428,7 +428,7 @@
    "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -439,7 +439,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -450,7 +450,7 @@
    "activity": "session enregistrement (avec choeurs)",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -461,7 +461,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -472,7 +472,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -483,7 +483,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -494,7 +494,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -505,7 +505,7 @@
    "activity": "session enregistrement",
    "category": "enregistrement",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ENR1",
    "cancelled": false
   },
   {
@@ -516,7 +516,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -538,7 +538,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -549,7 +549,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -560,7 +560,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -571,7 +571,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -593,7 +593,7 @@
    "activity": "générale piano",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -604,7 +604,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -626,7 +626,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -637,7 +637,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -648,7 +648,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -659,7 +659,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -670,7 +670,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -681,7 +681,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -692,7 +692,7 @@
    "activity": "prégénérale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -703,7 +703,7 @@
    "activity": "session enregistrement cordes",
    "category": "enregistrement",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -714,7 +714,7 @@
    "activity": "session enregistrement (piano)",
    "category": "enregistrement",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": true
   },
   {
@@ -725,7 +725,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -736,7 +736,7 @@
    "activity": "session enregistrement cuivres",
    "category": "enregistrement",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -747,7 +747,7 @@
    "activity": "session enregistrement bois",
    "category": "enregistrement",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -758,7 +758,7 @@
    "activity": "session enregistrement tutti",
    "category": "enregistrement",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -791,7 +791,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -835,7 +835,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -846,7 +846,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -857,7 +857,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "H.Abo1",
    "cancelled": false
   },
   {
@@ -868,7 +868,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "H.Abo1",
    "cancelled": false
   },
   {
@@ -890,7 +890,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -901,7 +901,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo1",
    "cancelled": false
   },
   {
@@ -923,7 +923,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo1",
    "cancelled": false
   },
   {
@@ -945,7 +945,7 @@
    "activity": "cinéconcert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo1",
    "cancelled": false
   },
   {
@@ -956,7 +956,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -967,7 +967,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF1",
    "cancelled": false
   },
   {
@@ -978,7 +978,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF1",
    "cancelled": false
   },
   {
@@ -989,7 +989,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF1",
    "cancelled": false
   },
   {
@@ -1000,7 +1000,7 @@
    "activity": "sixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "La Tempête",
    "cancelled": false
   },
   {
@@ -1033,7 +1033,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1044,7 +1044,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1055,7 +1055,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1066,7 +1066,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1088,7 +1088,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1110,7 +1110,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO1",
    "cancelled": false
   },
   {
@@ -1132,7 +1132,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL1",
    "cancelled": false
   },
   {
@@ -1143,7 +1143,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL1",
    "cancelled": false
   },
   {
@@ -1154,7 +1154,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL1",
    "cancelled": false
   },
   {
@@ -1165,7 +1165,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL1",
    "cancelled": false
   },
   {
@@ -1176,7 +1176,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1187,7 +1187,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1231,7 +1231,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1242,7 +1242,7 @@
    "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1253,7 +1253,7 @@
    "activity": "scène et orchestre (+ check son / balance)",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1264,7 +1264,7 @@
    "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1275,7 +1275,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1297,7 +1297,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1308,7 +1308,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1319,7 +1319,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1330,7 +1330,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS1",
    "cancelled": false
   },
   {
@@ -1341,7 +1341,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1363,7 +1363,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1374,7 +1374,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "DPL1",
    "cancelled": false
   },
   {
@@ -1385,7 +1385,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "La Grange au Lac, Evian",
-   "project": "",
+   "project": "DPL1",
    "cancelled": false
   },
   {
@@ -1396,7 +1396,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "La Grange au Lac, Evian",
-   "project": "",
+   "project": "DPL1",
    "cancelled": false
   },
   {
@@ -1407,7 +1407,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "DPL1",
    "cancelled": false
   },
   {
@@ -1418,7 +1418,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1429,7 +1429,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1440,7 +1440,7 @@
    "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Rzn Torbey) -",
    "cancelled": false
   },
   {
@@ -1451,7 +1451,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1462,7 +1462,7 @@
    "activity": "un concert scolaire",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1473,7 +1473,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1484,7 +1484,7 @@
    "activity": "un concert scolaire",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1495,7 +1495,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1506,7 +1506,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1517,7 +1517,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1528,7 +1528,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP1",
    "cancelled": false
   },
   {
@@ -1539,7 +1539,7 @@
    "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Rzn Torbey) -",
    "cancelled": false
   },
   {
@@ -1561,7 +1561,7 @@
    "activity": "sixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1572,7 +1572,7 @@
    "activity": "partielle par pupitre (violons 1)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1583,7 +1583,7 @@
    "activity": "partielle par pupitre (hautbois)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1594,7 +1594,7 @@
    "activity": "partielle par pupitre (flûtes)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1605,7 +1605,7 @@
    "activity": "septième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Company",
    "cancelled": false
   },
   {
@@ -1616,7 +1616,7 @@
    "activity": "partielle par pupitre (violons 2)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1627,7 +1627,7 @@
    "activity": "partielle par pupitre (bassons)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1638,7 +1638,7 @@
    "activity": "partielle par pupitre (altos)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1649,7 +1649,7 @@
    "activity": "partielle par pupitre (trompettes)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1660,7 +1660,7 @@
    "activity": "partielle par pupitre (trimbales+percussions)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1671,7 +1671,7 @@
    "activity": "partielle par pupitre (contrebasses)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1704,7 +1704,7 @@
    "activity": "partielle par pupitre (violoncelles)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1726,7 +1726,7 @@
    "activity": "partielle par registre (cordes)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1737,7 +1737,7 @@
    "activity": "partielle par pupitre (trombones)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1748,7 +1748,7 @@
    "activity": "partielle par pupitre (clarinettes)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1759,7 +1759,7 @@
    "activity": "partielle par registre (bois, cuivres, timbales, percussions)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ONU, VIL",
    "cancelled": false
   },
   {
@@ -1770,7 +1770,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1792,7 +1792,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1814,7 +1814,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1825,7 +1825,7 @@
    "activity": "répétition avec choeurs",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1836,7 +1836,7 @@
    "activity": "répétition avec soliste(s) et choeurs",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1847,7 +1847,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1858,7 +1858,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ONU",
    "cancelled": false
   },
   {
@@ -1869,7 +1869,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "VIL",
    "cancelled": false
   },
   {
@@ -1957,7 +1957,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo2",
    "cancelled": false
   },
   {
@@ -1968,7 +1968,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo2",
    "cancelled": false
   },
   {
@@ -1979,7 +1979,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo2",
    "cancelled": false
   },
   {
@@ -1990,7 +1990,7 @@
    "activity": "cinéconcert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo2",
    "cancelled": false
   },
   {
@@ -2012,7 +2012,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "DPL2",
    "cancelled": false
   },
   {
@@ -2023,7 +2023,7 @@
    "activity": "raccord (+ balance)",
    "category": "generale",
    "location": "Rosey Concert Hall, Rolle",
-   "project": "",
+   "project": "DPL2",
    "cancelled": false
   },
   {
@@ -2034,7 +2034,7 @@
    "activity": "cinéconcert",
    "category": "concert",
    "location": "Rosey Concert Hall, Rolle",
-   "project": "",
+   "project": "DPL2",
    "cancelled": false
   },
   {
@@ -2045,7 +2045,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "DPL2",
    "cancelled": false
   },
   {
@@ -2067,7 +2067,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR1",
    "cancelled": false
   },
   {
@@ -2078,7 +2078,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR1",
    "cancelled": false
   },
   {
@@ -2089,7 +2089,7 @@
    "activity": "répétition privée Amis",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR1",
    "cancelled": false
   },
   {
@@ -2100,7 +2100,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR1",
    "cancelled": false
   },
   {
@@ -2111,7 +2111,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL2",
    "cancelled": false
   },
   {
@@ -2122,7 +2122,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL2",
    "cancelled": false
   },
   {
@@ -2133,7 +2133,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL2",
    "cancelled": false
   },
   {
@@ -2155,7 +2155,7 @@
    "activity": "session masterclass direction",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -2177,7 +2177,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR1",
    "cancelled": false
   },
   {
@@ -2188,7 +2188,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF2",
    "cancelled": false
   },
   {
@@ -2199,7 +2199,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF2",
    "cancelled": false
   },
   {
@@ -2232,7 +2232,7 @@
    "activity": "répétition publique (1/2 finale)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2243,7 +2243,7 @@
    "activity": "répétition publique (1/2 finale)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2265,7 +2265,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2276,7 +2276,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2287,7 +2287,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2298,7 +2298,7 @@
    "activity": "concert (Finale 1)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2309,7 +2309,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2320,7 +2320,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2331,7 +2331,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2342,7 +2342,7 @@
    "activity": "concert (Finale 2)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "CCGE",
    "cancelled": false
   },
   {
@@ -2353,7 +2353,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2364,7 +2364,7 @@
    "activity": "répétition avec choeurs",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2375,7 +2375,7 @@
    "activity": "répétition avec solistes (sans choeur)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2386,7 +2386,7 @@
    "activity": "répétition avec soliste(s) et choeurs",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2397,7 +2397,7 @@
    "activity": "répétition avec solistes (sans choeur)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2408,7 +2408,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2430,7 +2430,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "MOTET",
    "cancelled": false
   },
   {
@@ -2463,7 +2463,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Institut Jaques-Dalcroze",
-   "project": "",
+   "project": "CPO1",
    "cancelled": false
   },
   {
@@ -2474,7 +2474,7 @@
    "activity": "raccord (chœur + orch.)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF+",
    "cancelled": false
   },
   {
@@ -2485,7 +2485,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF+",
    "cancelled": false
   },
   {
@@ -2584,7 +2584,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2595,7 +2595,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2617,7 +2617,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2639,7 +2639,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2661,7 +2661,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2683,7 +2683,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO2",
    "cancelled": false
   },
   {
@@ -2694,7 +2694,7 @@
    "activity": "session masterclass direction (option 1)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -2705,7 +2705,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS3",
    "cancelled": false
   },
   {
@@ -2716,7 +2716,7 @@
    "activity": "session masterclass direction (option 2)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -2727,7 +2727,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR+",
    "cancelled": false
   },
   {
@@ -2771,7 +2771,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2804,7 +2804,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2815,7 +2815,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2826,7 +2826,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "aboF3",
    "cancelled": false
   },
   {
@@ -2837,7 +2837,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2848,7 +2848,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2859,7 +2859,7 @@
    "activity": "générale publique (hors Amis + balance)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF3",
    "cancelled": false
   },
   {
@@ -2870,7 +2870,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF3",
    "cancelled": false
   },
   {
@@ -2881,7 +2881,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2892,7 +2892,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2925,7 +2925,7 @@
    "activity": "générale piano",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2947,7 +2947,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2958,7 +2958,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2969,7 +2969,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -2980,7 +2980,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3002,7 +3002,7 @@
    "activity": "prégénérale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3013,7 +3013,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3024,7 +3024,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3035,7 +3035,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3046,7 +3046,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3057,7 +3057,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3079,7 +3079,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3090,7 +3090,7 @@
    "activity": "Technique (RTS / Ozango)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3101,7 +3101,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3112,7 +3112,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3123,7 +3123,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO3",
    "cancelled": false
   },
   {
@@ -3189,7 +3189,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3200,7 +3200,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS4",
    "cancelled": false
   },
   {
@@ -3211,7 +3211,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3222,7 +3222,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3233,7 +3233,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3244,7 +3244,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3255,7 +3255,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3277,7 +3277,7 @@
    "activity": "répétition avec soliste (Matt Dusk)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3288,7 +3288,7 @@
    "activity": "générale non publique (Matt Dusk)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3299,7 +3299,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3310,7 +3310,7 @@
    "activity": "sixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3321,7 +3321,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "NOEL",
    "cancelled": false
   },
   {
@@ -3332,7 +3332,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3343,7 +3343,7 @@
    "activity": "septième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3354,7 +3354,7 @@
    "activity": "huitième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3365,7 +3365,7 @@
    "activity": "neuvième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3376,7 +3376,7 @@
    "activity": "dixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Les Noces",
    "cancelled": false
   },
   {
@@ -3387,7 +3387,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
@@ -3398,29 +3398,29 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
    "uid": "osr132969",
-   "start": "2027-01-12T10:00",
-   "end": "2027-01-12T12:30",
+   "start": "2027-01-12T14:30",
+   "end": "2027-01-12T17:00",
    "liste": "Liste 21",
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
    "uid": "osr132970",
-   "start": "2027-01-12T14:30",
-   "end": "2027-01-12T17:00",
+   "start": "2027-01-12T19:30",
+   "end": "2027-01-12T22:00",
    "liste": "Liste 21",
    "activity": "répétition avec soliste (générale soliste)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
@@ -3431,7 +3431,7 @@
    "activity": "générale non publique (sans soliste)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
@@ -3442,7 +3442,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "AMI1",
    "cancelled": false
   },
   {
@@ -3464,7 +3464,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL3",
    "cancelled": false
   },
   {
@@ -3475,7 +3475,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL3",
    "cancelled": false
   },
   {
@@ -3486,7 +3486,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL3",
    "cancelled": false
   },
   {
@@ -3497,7 +3497,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL3",
    "cancelled": false
   },
   {
@@ -3508,7 +3508,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Auditorium Florimont, Genève",
-   "project": "",
+   "project": "CPO2",
    "cancelled": false
   },
   {
@@ -3629,7 +3629,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3640,7 +3640,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3651,7 +3651,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3662,7 +3662,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3673,7 +3673,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3684,7 +3684,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO4",
    "cancelled": false
   },
   {
@@ -3706,7 +3706,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS5",
    "cancelled": false
   },
   {
@@ -3717,7 +3717,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3728,7 +3728,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3739,7 +3739,7 @@
    "activity": "un concert scolaire",
    "category": "concert",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3750,7 +3750,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3761,7 +3761,7 @@
    "activity": "deux concerts scolaires",
    "category": "concert",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3772,7 +3772,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3783,7 +3783,7 @@
    "activity": "deux concerts scolaires (9h15 + 10h30)",
    "category": "concert",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "DIP3",
    "cancelled": false
   },
   {
@@ -3794,7 +3794,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3805,7 +3805,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3816,7 +3816,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3827,7 +3827,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3838,7 +3838,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3849,7 +3849,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3882,7 +3882,7 @@
    "activity": "générale piano",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3893,7 +3893,7 @@
    "activity": "partielle (Fl)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3904,7 +3904,7 @@
    "activity": "partielle (Ob.)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3915,7 +3915,7 @@
    "activity": "partielle (Cl.)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3926,7 +3926,7 @@
    "activity": "partielle (Fgt.)",
    "category": "repetition",
    "location": "ML - Studio C",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3937,7 +3937,7 @@
    "activity": "partielle (trb.+tub)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3948,7 +3948,7 @@
    "activity": "partielle (trp.)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3959,7 +3959,7 @@
    "activity": "partielle (cr.)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3970,7 +3970,7 @@
    "activity": "partielle (sax.)",
    "category": "repetition",
    "location": "ML - Studio C",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -3981,7 +3981,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -3992,7 +3992,7 @@
    "activity": "partielle (V1)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4003,7 +4003,7 @@
    "activity": "partielle (Vc)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4014,7 +4014,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4025,7 +4025,7 @@
    "activity": "partielle (V2)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4036,7 +4036,7 @@
    "activity": "partielle (altos)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4047,7 +4047,7 @@
    "activity": "partielle (contrebasses)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4058,7 +4058,7 @@
    "activity": "prégénérale GT",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4073,6 +4073,28 @@
    "cancelled": false
   },
   {
+   "uid": "osr252409",
+   "start": "2027-02-04T09:30",
+   "end": "2027-02-04T10:00",
+   "liste": "Doudou Concert 4",
+   "activity": "concert hors contrat",
+   "category": "concert",
+   "location": "Bibliothèque de la Cité",
+   "project": "DDC4.1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr252411",
+   "start": "2027-02-04T10:30",
+   "end": "2027-02-04T11:00",
+   "liste": "Doudou Concert 4",
+   "activity": "concert hors contrat",
+   "category": "concert",
+   "location": "Bibliothèque de la Cité",
+   "project": "DDC4.2",
+   "cancelled": false
+  },
+  {
    "uid": "osr176100",
    "start": "2027-02-04T18:30",
    "end": "2027-02-04T21:30",
@@ -4080,7 +4102,7 @@
    "activity": "répétition tutti",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4091,7 +4113,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4113,7 +4135,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4124,7 +4146,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4146,7 +4168,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4168,7 +4190,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4179,7 +4201,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Viaggio a Reims",
    "cancelled": false
   },
   {
@@ -4212,7 +4234,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4223,7 +4245,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4234,7 +4256,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4245,7 +4267,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4256,7 +4278,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4267,7 +4289,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4278,7 +4300,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4289,7 +4311,7 @@
    "activity": "partielle (registre cordes)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4300,7 +4322,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4322,7 +4344,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4333,7 +4355,7 @@
    "activity": "partielle (registre vents-percu)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4344,7 +4366,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4355,7 +4377,7 @@
    "activity": "répétition tutti",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4366,7 +4388,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO5",
    "cancelled": false
   },
   {
@@ -4377,7 +4399,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL4",
    "cancelled": false
   },
   {
@@ -4388,7 +4410,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL4",
    "cancelled": false
   },
   {
@@ -4399,7 +4421,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL4",
    "cancelled": false
   },
   {
@@ -4410,7 +4432,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL4",
    "cancelled": false
   },
   {
@@ -4421,7 +4443,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Auditorium Florimont, Genève",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4432,7 +4454,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Auditorium Florimont, Genève",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4443,7 +4465,7 @@
    "activity": "générale piano",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4454,7 +4476,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4465,7 +4487,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4476,7 +4498,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4487,7 +4509,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4509,7 +4531,7 @@
    "activity": "prégénérale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4531,7 +4553,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4564,7 +4586,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4575,7 +4597,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "aboO6",
    "cancelled": false
   },
   {
@@ -4586,7 +4608,7 @@
    "activity": "répétition privée Amis",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "aboO6",
    "cancelled": false
   },
   {
@@ -4597,7 +4619,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "aboO6",
    "cancelled": false
   },
   {
@@ -4608,7 +4630,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4619,7 +4641,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO6",
    "cancelled": false
   },
   {
@@ -4630,7 +4652,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO6",
    "cancelled": false
   },
   {
@@ -4641,7 +4663,7 @@
    "activity": "session masterclass direction",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -4685,7 +4707,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4696,7 +4718,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "DPL3",
    "cancelled": false
   },
   {
@@ -4707,7 +4729,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
-   "project": "",
+   "project": "DPL3",
    "cancelled": false
   },
   {
@@ -4718,7 +4740,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
-   "project": "",
+   "project": "DPL3",
    "cancelled": false
   },
   {
@@ -4740,7 +4762,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4751,7 +4773,7 @@
    "activity": "train",
    "category": "autre",
    "location": "Gare Cornavin",
-   "project": "",
+   "project": "DPL4",
    "cancelled": false
   },
   {
@@ -4762,7 +4784,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Stadtcasino Basel",
-   "project": "",
+   "project": "DPL4",
    "cancelled": false
   },
   {
@@ -4773,7 +4795,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Stadtcasino Basel",
-   "project": "",
+   "project": "DPL4",
    "cancelled": false
   },
   {
@@ -4784,7 +4806,7 @@
    "activity": "train",
    "category": "autre",
    "location": "lieu à définir",
-   "project": "",
+   "project": "DPL4",
    "cancelled": false
   },
   {
@@ -4795,7 +4817,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4806,7 +4828,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Ecole Internationale de Genève",
-   "project": "",
+   "project": "CPO3",
    "cancelled": false
   },
   {
@@ -4861,7 +4883,7 @@
    "activity": "sixième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Fanciulla",
    "cancelled": false
   },
   {
@@ -4916,7 +4938,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -4927,7 +4949,7 @@
    "activity": "répétition (sans solistes)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -4938,7 +4960,7 @@
    "activity": "partielle (violons 1)",
    "category": "repetition",
    "location": "Centre Saint Boniface, Salle Rosa Parks",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4949,7 +4971,7 @@
    "activity": "partielle bois",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4960,7 +4982,7 @@
    "activity": "partielle (violoncelles)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4971,7 +4993,7 @@
    "activity": "partielle (contrebasses)",
    "category": "repetition",
    "location": "ML - Studio B",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4982,7 +5004,7 @@
    "activity": "partielle (violons 2)",
    "category": "repetition",
    "location": "Centre Saint Boniface, Salle Rosa Parks",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -4993,7 +5015,7 @@
    "activity": "partielle (cuivres)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -5004,7 +5026,7 @@
    "activity": "partielle (altos)",
    "category": "repetition",
    "location": "ML - Studio P",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -5015,7 +5037,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -5037,7 +5059,7 @@
    "activity": "répétition avec solistes",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -5048,7 +5070,7 @@
    "activity": "répétition tutti",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV",
    "cancelled": false
   },
   {
@@ -5059,7 +5081,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -5070,7 +5092,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR2",
    "cancelled": false
   },
   {
@@ -5081,7 +5103,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS6",
    "cancelled": false
   },
   {
@@ -5092,7 +5114,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5103,7 +5125,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5114,7 +5136,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5125,7 +5147,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5136,7 +5158,7 @@
    "activity": "italienne (+ balance amplification)",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5147,7 +5169,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5158,7 +5180,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5169,7 +5191,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5180,7 +5202,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5191,7 +5213,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5202,7 +5224,7 @@
    "activity": "scène et orchestre",
    "category": "italienne",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5213,7 +5235,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5235,7 +5257,7 @@
    "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
    "location": "Bicubic, Romont ((FR))",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5257,7 +5279,7 @@
    "activity": "bus (Rolle)",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5268,7 +5290,7 @@
    "activity": "deux concerts scolaires (13h + 14h15)",
    "category": "concert",
    "location": "Rosey Concert Hall, Rolle ((VD))",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5279,7 +5301,7 @@
    "activity": "bus (Place Neuve)",
    "category": "autre",
    "location": "Rosey Concert Hall, Rolle",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5290,7 +5312,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5301,7 +5323,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5323,7 +5345,7 @@
    "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
    "location": "Noda  BCVs | WKB, Sion ((VS))",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5345,7 +5367,7 @@
    "activity": "troisième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5356,7 +5378,7 @@
    "activity": "train (Porrentruy)",
    "category": "autre",
    "location": "Gare Cornavin",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5367,7 +5389,7 @@
    "activity": "deux concerts scolaires (13h30 + 14h45)",
    "category": "concert",
    "location": "Eglise des Jésuites, Porrentruy ((JU))",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5378,7 +5400,7 @@
    "activity": "train (Cornavin)",
    "category": "autre",
    "location": "Eglise des Jésuites, Porrentruy",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5389,7 +5411,7 @@
    "activity": "quatrième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5422,7 +5444,7 @@
    "activity": "cinquième",
    "category": "representation",
    "location": "Bâtiment des Forces Motrices",
-   "project": "",
+   "project": "Dimmokratîa",
    "cancelled": false
   },
   {
@@ -5433,7 +5455,7 @@
    "activity": "bus (Neuchâtel)",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5444,7 +5466,7 @@
    "activity": "un concert scolaire",
    "category": "concert",
    "location": "Temple du Bas, Neuchâtel ((NE))",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5455,7 +5477,7 @@
    "activity": "bus (Place Neuve)",
    "category": "autre",
    "location": "Temple du Bas, Neuchâtel",
-   "project": "",
+   "project": "TROM",
    "cancelled": false
   },
   {
@@ -5466,7 +5488,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5477,7 +5499,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5488,7 +5510,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5499,7 +5521,7 @@
    "activity": "répétition avec soliste(s) pour les Amis",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5510,7 +5532,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5521,7 +5543,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL5",
    "cancelled": false
   },
   {
@@ -5532,7 +5554,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL5",
    "cancelled": false
   },
   {
@@ -5543,7 +5565,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL5",
    "cancelled": false
   },
   {
@@ -5554,7 +5576,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR3",
    "cancelled": false
   },
   {
@@ -5576,7 +5598,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5587,7 +5609,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5598,7 +5620,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5609,7 +5631,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5620,7 +5642,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5631,7 +5653,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO7",
    "cancelled": false
   },
   {
@@ -5642,7 +5664,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS7",
    "cancelled": false
   },
   {
@@ -5653,7 +5675,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "DPL5",
    "cancelled": false
   },
   {
@@ -5664,7 +5686,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Casino Bern (ex-Kultur-Casino Bern, Bern",
-   "project": "",
+   "project": "DPL5",
    "cancelled": false
   },
   {
@@ -5675,7 +5697,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Casino Bern (ex-Kultur-Casino Bern, Bern",
-   "project": "",
+   "project": "DPL5",
    "cancelled": false
   },
   {
@@ -5730,7 +5752,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5741,7 +5763,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5752,7 +5774,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5763,7 +5785,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5774,7 +5796,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5785,7 +5807,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboR4",
    "cancelled": false
   },
   {
@@ -5807,7 +5829,7 @@
    "activity": "session masterclass direction",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -5829,7 +5851,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboS8",
    "cancelled": false
   },
   {
@@ -5862,7 +5884,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo3",
    "cancelled": false
   },
   {
@@ -5873,7 +5895,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "H.Abo3",
    "cancelled": false
   },
   {
@@ -5888,6 +5910,28 @@
    "cancelled": false
   },
   {
+   "uid": "osr252412",
+   "start": "2027-05-20T09:30",
+   "end": "2027-05-20T10:00",
+   "liste": "Doudou Concert 5",
+   "activity": "concert hors contrat",
+   "category": "concert",
+   "location": "Bibliothèque de la Cité",
+   "project": "DDC5.1",
+   "cancelled": false
+  },
+  {
+   "uid": "osr252414",
+   "start": "2027-05-20T10:30",
+   "end": "2027-05-20T11:00",
+   "liste": "Doudou Concert 5",
+   "activity": "concert hors contrat",
+   "category": "concert",
+   "location": "Bibliothèque de la Cité",
+   "project": "DDC5.2",
+   "cancelled": false
+  },
+  {
    "uid": "osr133126",
    "start": "2027-05-20T19:30",
    "end": "2027-05-20T22:30",
@@ -5895,7 +5939,7 @@
    "activity": "répétition + balance (+ projection)",
    "category": "repetition",
    "location": "Arena de Genève",
-   "project": "",
+   "project": "H.Abo3",
    "cancelled": false
   },
   {
@@ -5906,7 +5950,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Arena de Genève",
-   "project": "",
+   "project": "H.Abo3",
    "cancelled": false
   },
   {
@@ -5917,7 +5961,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Arena de Genève",
-   "project": "",
+   "project": "H.Abo3",
    "cancelled": false
   },
   {
@@ -5928,7 +5972,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Arena de Genève",
-   "project": "",
+   "project": "H.Abo5",
    "cancelled": false
   },
   {
@@ -5939,7 +5983,7 @@
    "activity": "concert en construction",
    "category": "concert",
    "location": "Arena de Genève",
-   "project": "",
+   "project": "H.Abo4",
    "cancelled": true
   },
   {
@@ -5950,7 +5994,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -5961,7 +6005,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -5972,7 +6016,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -5983,7 +6027,7 @@
    "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -5994,7 +6038,7 @@
    "activity": "générale publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -6005,7 +6049,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboO8",
    "cancelled": false
   },
   {
@@ -6016,7 +6060,7 @@
    "activity": "session masterclass direction",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -6027,7 +6071,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "aboL6",
    "cancelled": false
   },
   {
@@ -6038,7 +6082,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL6",
    "cancelled": false
   },
   {
@@ -6049,7 +6093,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Théâtre de Beaulieu, Lausanne",
-   "project": "",
+   "project": "aboL6",
    "cancelled": false
   },
   {
@@ -6060,7 +6104,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "retour Genève",
-   "project": "",
+   "project": "aboL6",
    "cancelled": false
   },
   {
@@ -6082,7 +6126,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "aboF4",
    "cancelled": false
   },
   {
@@ -6093,7 +6137,7 @@
    "activity": "bus",
    "category": "autre",
    "location": "Place Neuve",
-   "project": "",
+   "project": "DPL6",
    "cancelled": false
   },
   {
@@ -6104,7 +6148,7 @@
    "activity": "raccord",
    "category": "generale",
    "location": "Noda  BCVs | WKB, Sion",
-   "project": "",
+   "project": "DPL6",
    "cancelled": false
   },
   {
@@ -6115,7 +6159,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Noda  BCVs | WKB, Sion",
-   "project": "",
+   "project": "DPL6",
    "cancelled": false
   },
   {
@@ -6126,7 +6170,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "aboF4",
    "cancelled": false
   },
   {
@@ -6192,7 +6236,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Théâtre de la Cité Bleue Genève",
-   "project": "",
+   "project": "CPO4",
    "cancelled": false
   },
   {
@@ -6203,7 +6247,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Théâtre de la Cité Bleue Genève",
-   "project": "",
+   "project": "CPO4",
    "cancelled": false
   },
   {
@@ -6214,7 +6258,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Théâtre de la Cité Bleue Genève",
-   "project": "",
+   "project": "CPO4",
    "cancelled": false
   },
   {
@@ -6225,7 +6269,7 @@
    "activity": "répétition hors contrat",
    "category": "repetition",
    "location": "Théâtre de la Cité Bleue Genève",
-   "project": "",
+   "project": "CPO4",
    "cancelled": false
   },
   {
@@ -6236,7 +6280,7 @@
    "activity": "répétition tutti",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV, FMUS1",
    "cancelled": false
   },
   {
@@ -6247,7 +6291,7 @@
    "activity": "répétition tutti",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "OCV, FMUS1",
    "cancelled": false
   },
   {
@@ -6313,7 +6357,7 @@
    "activity": "répétition (sans OSR)",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "FMUS2",
    "cancelled": false
   },
   {
@@ -6324,7 +6368,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6335,7 +6379,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6346,7 +6390,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6357,7 +6401,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6368,7 +6412,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6412,7 +6456,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Gala FMCIM",
    "cancelled": false
   },
   {
@@ -6434,7 +6478,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "lieu à définir",
-   "project": "",
+   "project": "FMUS2",
    "cancelled": false
   },
   {
@@ -6445,7 +6489,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "lieu à définir",
-   "project": "",
+   "project": "FMUS2",
    "cancelled": false
   },
   {
@@ -6456,7 +6500,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6467,7 +6511,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "OCV, FMUS1",
    "cancelled": false
   },
   {
@@ -6478,7 +6522,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6489,7 +6533,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "OCV, FMUS1",
    "cancelled": false
   },
   {
@@ -6500,7 +6544,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6511,7 +6555,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "FMUS2",
    "cancelled": false
   },
   {
@@ -6522,7 +6566,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "OCV, FMUS1",
    "cancelled": false
   },
   {
@@ -6533,7 +6577,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "FMUS2",
    "cancelled": false
   },
   {
@@ -6544,7 +6588,7 @@
    "activity": "lecture",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6555,7 +6599,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6566,7 +6610,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6577,7 +6621,7 @@
    "activity": "italienne",
    "category": "italienne",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6588,7 +6632,7 @@
    "activity": "générale GT",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6599,7 +6643,7 @@
    "activity": "première",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6610,7 +6654,7 @@
    "activity": "deuxième",
    "category": "representation",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "Candide",
    "cancelled": false
   },
   {
@@ -6621,7 +6665,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ETE",
    "cancelled": false
   },
   {
@@ -6632,7 +6676,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ETE",
    "cancelled": false
   },
   {
@@ -6643,7 +6687,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "ETE",
    "cancelled": false
   },
   {
@@ -6665,7 +6709,7 @@
    "activity": "balance",
    "category": "generale",
    "location": "Scène Ella Fitzgerald",
-   "project": "",
+   "project": "ETE",
    "cancelled": false
   },
   {
@@ -6676,7 +6720,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Scène Ella Fitzgerald",
-   "project": "",
+   "project": "ETE",
    "cancelled": false
   },
   {
@@ -6709,7 +6753,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6720,7 +6764,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6731,7 +6775,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6742,7 +6786,7 @@
    "activity": "répétition",
    "category": "repetition",
    "location": "ML - grande salle",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6764,7 +6808,7 @@
    "activity": "voyage",
    "category": "autre",
    "location": "à définir",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6775,7 +6819,7 @@
    "activity": "générale non publique",
    "category": "generale",
    "location": "lieu à définir",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6786,7 +6830,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Opéra Berlioz / Le Corum, Montpellier",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6797,7 +6841,7 @@
    "activity": "voyage",
    "category": "autre",
    "location": "à définir",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6830,7 +6874,7 @@
    "activity": "concert",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
-   "project": "",
+   "project": "TOUR",
    "cancelled": false
   },
   {
