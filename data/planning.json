@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-28T20:36:26.086Z",
+ "updatedAt": "2026-09-29T08:40:27.205Z",
  "count": 623,
  "events": [
   {
@@ -3406,7 +3406,7 @@
    "start": "2027-01-12T10:00",
    "end": "2027-01-12T12:30",
    "liste": "Liste 21",
-   "activity": "répétition",
+   "activity": "répétition avec soliste",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "",
@@ -3417,7 +3417,7 @@
    "start": "2027-01-12T14:30",
    "end": "2027-01-12T17:00",
    "liste": "Liste 21",
-   "activity": "répétition avec soliste",
+   "activity": "répétition avec soliste (générale soliste)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "",
@@ -3428,7 +3428,7 @@
    "start": "2027-01-13T10:00",
    "end": "2027-01-13T13:00",
    "liste": "Liste 21",
-   "activity": "générale non publique",
+   "activity": "générale non publique (sans soliste)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "",
