@@ -190,28 +190,40 @@ function contentLines(e, prod) {
   if (e.project) lines.push({ text: `Programme : ${e.project}` })
   if (e.cancelled) lines.push({ text: "⚠ Service ANNULÉ" })
 
+  const solistes = (prod?.solistes || []).filter(Boolean)
+  const works = (prod?.works || []).filter(Boolean)
+  const workTitle = (w) => (typeof w === "string" ? w : w.oeuvre)
+
+  // Œuvres jouées en tête de note (issue #198) : c'est ce que le musicien
+  // veut voir en ouvrant l'événement. Titres et durées seulement ; le détail
+  // d'instrumentation reste dans le mémo, plus bas.
+  if (works.length) {
+    if (lines.length) lines.push({ text: "" })
+    lines.push({ text: "Œuvres au programme :" })
+    for (const w of works) {
+      const dur = typeof w === "object" && w.duree ? ` (${w.duree})` : ""
+      lines.push({ text: `• ${workTitle(w)}${dur}` })
+    }
+  }
+
   if (prod) {
-    const solistes = (prod.solistes || []).filter(Boolean)
-    const works = (prod.works || []).filter(Boolean)
     lines.push({ text: "" }, { text: "— Mémo de production —" })
     if (prod.chef) lines.push({ text: `Direction musicale : ${prod.chef}` })
     if (solistes.length) {
       lines.push({ text: solistes.length > 1 ? "Solistes :" : "Soliste :" })
       for (const s of solistes) lines.push({ text: `• ${s}` })
     }
-    if (works.length) {
-      lines.push({ text: "Œuvres au programme :" })
+    if (works.some((w) => typeof w === "object")) {
+      lines.push({ text: "Instrumentation par œuvre :" })
       for (const w of works) {
-        const title = typeof w === "string" ? w : w.oeuvre
-        const dur = typeof w === "object" && w.duree ? ` (${w.duree})` : ""
-        lines.push({ text: `• ${title}${dur}` })
-        if (typeof w === "object")
-          for (const [k, label] of WORK_FIELDS)
-            if (w[k])
-              // Détail multi-lignes du mémo : chaque ligne reste lisible.
-              lines.push({
-                text: `    ${label} : ${deLinkify(String(w[k])).replace(/\s*\n\s*/g, " / ")}`,
-              })
+        if (typeof w !== "object") continue
+        lines.push({ text: `• ${workTitle(w)}` })
+        for (const [k, label] of WORK_FIELDS)
+          if (w[k])
+            // Détail multi-lignes du mémo : chaque ligne reste lisible.
+            lines.push({
+              text: `    ${label} : ${deLinkify(String(w[k])).replace(/\s*\n\s*/g, " / ")}`,
+            })
       }
     }
     if (prod.effectif)
