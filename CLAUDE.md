@@ -104,8 +104,9 @@ production (GitHub Pages) comme dans les previews de PR.
   deux secrets sont des secrets **du dépôt GitHub**, que `deploy-worker.yml`
   recopie sur le worker à chaque déploiement : pour changer de destinataire,
   `gh secret set FEEDBACK_TO`, puis relancer ce workflow. Avant cet envoi,
-  personne n'était prévenu : 15 messages ont dormi dans le KV. Le workflow `Diagnostic notifications`
-  compte les emails envoyés, en échec et non envoyés (configuration absente).
+  personne n'était prévenu : 15 messages ont dormi dans le KV. Le workflow
+  `Diagnostic notifications` compte les emails envoyés, en échec et non envoyés
+  (configuration absente).
   Pour relire le KV lui-même, ne jamais afficher un message en clair dans un
   workflow : les journaux d'Actions sont publics.
 - **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, bouton
