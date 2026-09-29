@@ -27,9 +27,11 @@
 // pliées car courtes — cf. fold() côté générateur).
 //
 // POST /feedback { message, name? } dépose un retour libre (issue #125) dans
-// le même KV, sous la clé "feedback:<horodatage>-<id>". Pas de route de
-// lecture dédiée (cf. discussion de l'issue) : relecture à la main, depuis
-// worker/ avec wrangler authentifié :
+// le même KV, sous la clé "feedback:<horodatage>-<id>", et l'envoie par email
+// (cf. sendFeedbackEmail) : sans ça, personne n'était prévenu et les messages
+// dormaient dans le KV. Pas de route de lecture dédiée (cf. discussion de
+// l'issue) : relecture du KV à la main, depuis worker/ avec wrangler
+// authentifié — jamais dans un workflow, dont les journaux sont publics :
 //   wrangler kv key list --binding=NOTIF_PROFILES --remote --prefix=feedback:
 //   wrangler kv key get  --binding=NOTIF_PROFILES --remote <clé>
 
@@ -216,6 +218,91 @@ export function sanitizeFeedback(body) {
   return { message, name }
 }
 
+// --- Envoi des retours par email (Resend) -----------------------------------
+//
+// Chaque retour enregistré part aussi par email à FEEDBACK_TO (secret : une
+// ou plusieurs adresses séparées par des virgules — jamais dans le dépôt, qui
+// est public), via l'API HTTP de Resend (secret RESEND_API_KEY), depuis
+// FEEDBACK_FROM (wrangler.toml : domaine d'Arabesque, déjà vérifié chez
+// Resend). Sans l'un des trois, rien n'est envoyé : le message reste dans le
+// KV, et le Diagnostic le signale.
+
+// Renvoie la requête à poster à Resend, ou null si l'envoi n'est pas configuré.
+export function buildFeedbackEmail({ message, name, at }, env) {
+  const to = (env.FEEDBACK_TO || "")
+    .split(",")
+    .map((adresse) => adresse.trim())
+    .filter(Boolean)
+  if (!env.RESEND_API_KEY || !env.FEEDBACK_FROM || !to.length) return null
+  const quand = new Date(at).toLocaleString("fr-CH", {
+    timeZone: "Europe/Zurich",
+    dateStyle: "full",
+    timeStyle: "short",
+  })
+  // Le nom vient d'un champ libre : aplati sur une ligne pour l'objet.
+  const auteur = name.replace(/\s+/g, " ").slice(0, 80) || "anonyme"
+  return {
+    from: env.FEEDBACK_FROM,
+    to,
+    subject: `Bémol · nouveau retour (${auteur})`,
+    text: [
+      `Nouveau message envoyé depuis le formulaire « Donner un avis » de Bémol, le ${quand}.`,
+      "",
+      `De : ${name || "anonyme (aucun nom indiqué)"}`,
+      "",
+      message,
+      "",
+      "—",
+      "Envoyé automatiquement par Bémol : ne pas répondre à cet email.",
+    ].join("\n"),
+  }
+}
+
+// Même principe que sendPush() : un verdict par envoi, jamais d'exception.
+async function sendFeedbackEmail(env, entry) {
+  const email = buildFeedbackEmail(entry, env)
+  if (!email) return { kind: "skipped" }
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(email),
+    })
+    if (res.ok) return { kind: "sent", status: res.status }
+    let reason = ""
+    try {
+      reason = (await res.text()).slice(0, 300)
+    } catch {}
+    console.error(
+      `email du retour : HTTP ${res.status}${reason ? ` — ${reason}` : ""}`,
+    )
+    return { kind: "failed", status: res.status, reason: reason || undefined }
+  } catch (err) {
+    console.error("email du retour en échec :", err)
+    return { kind: "failed", error: err?.name || "exception" }
+  }
+}
+
+// Verdict relu par le workflow « Diagnostic notifications » : une panne
+// d'envoi ne doit pas rester invisible, comme l'a été celle des
+// notifications push (#158 → #196).
+async function recordFeedbackMail(env, outcome) {
+  const at = new Date().toISOString()
+  await env.NOTIF_PROFILES.put(
+    "feedback-mail:last",
+    JSON.stringify({ at, ...outcome }),
+  )
+  const totals = (await env.NOTIF_PROFILES.get(
+    "feedback-mail:totals",
+    "json",
+  )) || { sent: 0, failed: 0, skipped: 0, since: at }
+  totals[outcome.kind] = (totals[outcome.kind] || 0) + 1
+  await env.NOTIF_PROFILES.put("feedback-mail:totals", JSON.stringify(totals))
+}
+
 // POST /feedback { message, name?, url? } — url est un piège à robots : champ
 // invisible côté app, qu'un humain ne remplit jamais. On répond succès sans
 // rien stocker si le formulaire arrive rempli, pour ne pas indiquer à un
@@ -252,9 +339,8 @@ export async function handleFeedback(request, env) {
 
   const at = new Date().toISOString()
   const key = `feedback:${at}-${crypto.randomUUID().slice(0, 8)}`
-  // TTL généreux (1 an) : filet de sécurité contre l'accumulation si personne
-  // ne relit plus jamais, pas une purge active — la relecture reste manuelle
-  // (cf. commentaire d'en-tête).
+  // TTL généreux (1 an) : filet de sécurité contre l'accumulation, pas une
+  // purge active — le KV garde une trace même si l'email se perd.
   await env.NOTIF_PROFILES.put(
     key,
     JSON.stringify({ message: clean.message, name: clean.name, at }),
@@ -263,6 +349,17 @@ export async function handleFeedback(request, env) {
   await env.NOTIF_PROFILES.put(rateKey, "1", {
     expirationTtl: FEEDBACK_RATE_LIMIT_SECONDS,
   })
+
+  // Après l'enregistrement : si l'email échoue, le message est déjà sauvé et
+  // l'échec compté pour le Diagnostic — jamais une erreur pour le musicien.
+  try {
+    await recordFeedbackMail(
+      env,
+      await sendFeedbackEmail(env, { ...clean, at }),
+    )
+  } catch (err) {
+    console.error("suivi de l'email du retour en échec :", err)
+  }
 
   return json({ ok: true })
 }

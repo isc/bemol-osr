@@ -10,6 +10,7 @@ import {
   sanitizePrefs,
   sanitizeFeedback,
   handleFeedback,
+  buildFeedbackEmail,
   vapidSubject,
 } from "./src/index.js"
 
@@ -259,8 +260,9 @@ console.log("✓ sanitizeFeedback OK")
 function makeMockKv() {
   const store = new Map()
   return {
-    async get(key) {
-      return store.has(key) ? store.get(key) : null
+    async get(key, type) {
+      const value = store.has(key) ? store.get(key) : null
+      return value !== null && type === "json" ? JSON.parse(value) : value
     },
     async put(key, value, opts) {
       const ttl = opts?.expirationTtl
@@ -300,6 +302,119 @@ try {
 }
 
 console.log("✓ handleFeedback OK")
+
+// --- Envoi des retours par email (Resend) -----------------------------------
+// Sans ça, les messages dormaient dans le KV sans que personne soit prévenu.
+
+const mailEnv = (kv) => ({
+  NOTIF_PROFILES: kv,
+  RESEND_API_KEY: "re_test",
+  FEEDBACK_FROM: "Bémol <bemol@arabesque.app>",
+  FEEDBACK_TO: " loic@example.org , ivan@example.org ",
+})
+const entree = {
+  message: "Pouvoir filtrer par pupitre",
+  name: "Marie\n(altos)",
+  at: "2026-09-29T11:05:00.000Z",
+}
+
+const mail = buildFeedbackEmail(entree, mailEnv(null))
+if (mail?.to?.join() !== "loic@example.org,ivan@example.org")
+  fail(
+    "buildFeedbackEmail : FEEDBACK_TO doit donner la liste des adresses, espaces retirés",
+  )
+if (mail.from !== "Bémol <bemol@arabesque.app>")
+  fail("buildFeedbackEmail : l'expéditeur doit venir de FEEDBACK_FROM")
+if (mail.subject !== "Bémol · nouveau retour (Marie (altos))")
+  fail(
+    `buildFeedbackEmail : objet inattendu (${mail.subject}) — nom aplati sur une ligne`,
+  )
+if (
+  !mail.text.includes("Pouvoir filtrer par pupitre") ||
+  !mail.text.includes("13:05")
+)
+  fail(
+    "buildFeedbackEmail : le texte doit contenir le message et l'heure de Genève",
+  )
+if (
+  !buildFeedbackEmail({ ...entree, name: "" }, mailEnv(null)).subject.endsWith(
+    "(anonyme)",
+  )
+)
+  fail("buildFeedbackEmail : sans nom, l'objet doit dire « anonyme »")
+for (const manquant of ["RESEND_API_KEY", "FEEDBACK_FROM", "FEEDBACK_TO"])
+  if (buildFeedbackEmail(entree, { ...mailEnv(null), [manquant]: "" }) !== null)
+    fail(`buildFeedbackEmail : sans ${manquant}, rien ne doit partir`)
+
+// handleFeedback avec un faux fetch : envoi réussi, échec, puis envoi non
+// configuré. Dans tous les cas le musicien reçoit un succès, le message est
+// dans le KV, et le verdict est compté pour le Diagnostic.
+const vraiFetch = globalThis.fetch
+const appels = []
+const retourAvecFetch = async (env, reponse) => {
+  globalThis.fetch = async (url, init) => {
+    appels.push({ url, init })
+    return reponse
+  }
+  try {
+    return await handleFeedback(feedbackRequest({ message: "Test" }), env)
+  } finally {
+    globalThis.fetch = vraiFetch
+  }
+}
+const kvMail = makeMockKv()
+const mailRes = await retourAvecFetch(
+  mailEnv(kvMail),
+  new Response('{"id":"x"}', { status: 200 }),
+)
+if (mailRes.status !== 200)
+  fail("handleFeedback : l'envoi par email ne doit pas changer la réponse")
+const appel = appels.at(-1)
+if (appel?.url !== "https://api.resend.com/emails")
+  fail("handleFeedback : l'email doit partir par l'API de Resend")
+if (appel.init.headers.authorization !== "Bearer re_test")
+  fail("handleFeedback : la clé RESEND_API_KEY doit être envoyée")
+if (JSON.parse(appel.init.body).to.length !== 2)
+  fail(
+    "handleFeedback : l'email doit partir à toutes les adresses de FEEDBACK_TO",
+  )
+let totaux = await kvMail.get("feedback-mail:totals", "json")
+if (totaux?.sent !== 1)
+  fail("handleFeedback : un envoi réussi doit être compté")
+
+// Nouvelle IP implicite : la clé anti-rafale est par IP, on vide donc le KV.
+const kvEchec = makeMockKv()
+await retourAvecFetch(
+  mailEnv(kvEchec),
+  new Response('{"message":"The arabesque.app domain is not verified"}', {
+    status: 403,
+  }),
+)
+const dernier = await kvEchec.get("feedback-mail:last", "json")
+if (
+  dernier?.kind !== "failed" ||
+  dernier.status !== 403 ||
+  !dernier.reason?.includes("not verified")
+)
+  fail(
+    "handleFeedback : un refus de Resend doit être gardé avec son code et sa raison",
+  )
+
+const kvSansConfig = makeMockKv()
+const avant = appels.length
+await retourAvecFetch(
+  { NOTIF_PROFILES: kvSansConfig },
+  new Response("", { status: 200 }),
+)
+if (appels.length !== avant)
+  fail("handleFeedback : sans configuration, aucun appel à Resend")
+totaux = await kvSansConfig.get("feedback-mail:totals", "json")
+if (totaux?.skipped !== 1)
+  fail("handleFeedback : un envoi non configuré doit être compté")
+if (!(await kvSansConfig.get("feedback-rl:203.0.113.1")))
+  fail("handleFeedback : le retour doit être enregistré même sans email")
+
+console.log("✓ envoi des retours par email OK")
 
 // #158 : le `sub` du JWT VAPID doit être un URI (mailto:/https:) pour Apple —
 // erreur de config plausible (secret posé comme simple adresse e-mail) et
