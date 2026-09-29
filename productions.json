@@ -135,13 +135,13 @@
    }
   ],
   "solistes": [
-   "Bernard RICHTER, ténor",
-   "Jenny DAVIET, soprano",
-   "Jérôme BOUTILLIER, baryton",
-   "Nicolas TESTÉ, basse",
-   "Lucile RICHARDOT, mezzo-soprano",
-   "Anne-Blanche TRILLAUD RUGGERI, soprano",
-   "Edwin CROSSLEY-MERCER, basse",
+   "Bernard RICHTER, ténor (Pelléas)",
+   "Jenny DAVIET, soprano (Mélisande)",
+   "Jérôme BOUTILLIER, baryton (Golaud)",
+   "Nicolas TESTÉ, basse (Arkel)",
+   "Lucile RICHARDOT, mezzo-soprano (Geneviève)",
+   "Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold)",
+   "Edwin CROSSLEY-MERCER, basse (Un berger / un médecin)",
    "Chœur du Grand Théâtre de Genève, chœur",
    "Mark BIGGINS, chef·fe de choeur"
   ],
@@ -655,6 +655,11 @@
     2,
     3
    ],
+   "osr132758": [
+    3,
+    2,
+    1
+   ],
    "osr132759": [
     1,
     2,
@@ -666,7 +671,7 @@
    "osr132753": "visite de classes",
    "osr132755": "-essai micros",
    "osr132756": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132759": "Prélude Amis 19h Le Poulailler"
+   "osr132759": "-Prélude Amis 19h Le Poulailler"
   }
  },
  "Liste 09": {
@@ -740,7 +745,7 @@
   "serviceNotes": {
    "osr132769": "visite de classes",
    "osr137820": "visite de classes",
-   "osr132774": "différé Espace 2 le 28 octobre 26",
+   "osr132774": "-prise de parole Présidente FOSR sur scène",
    "osr132776": "arrivée place Neuve estimée à 23h50"
   }
  },
@@ -831,6 +836,9 @@
    "Etudiant·es du Département Vocal de la HEM, chœur"
   ],
   "serviceWorks": {
+   "osr233622": [
+    1
+   ],
    "osr132802": [
     1
    ],
@@ -1486,18 +1494,10 @@
   "duree": "≈ 1 h 50",
   "works": [
    {
-    "oeuvre": "N.N. — Programme standard en construction",
-    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.4.1.0 / 12.10.8.6.4",
-    "remarques": "picc, ca, cl.bs, kfgt",
-    "note": "\nairs à valider dans la liste\npièces orchestre seul à ajouter\nordre à construire",
-    "duree": "≈ 20 min"
-   },
-   {
     "oeuvre": "Giuseppe VERDI — La Forza del Destino, Ouverture",
-    "instrumentation": "2*.2.2.2 / 4.2.3.1* / 1.2.2.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "2*.2.2.2 / 4.2.3.1* / 1.2.2.0 / 12.10.8.6.4",
+    "remarques": "1picc., cimbasso",
     "percussions": "GC, cymb fr",
-    "detail": "OLIS: Edition contains at least 90 mistakes.",
     "duree": "≈ 8 min"
    },
    {
@@ -1508,8 +1508,8 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
-    "instrumentation": "3*.2.2.4 / 4.4*.4*.0 / 1.3.2.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.2.2.4 / 4.4*.4*.0 / 1.3.2.0 / 12.10.8.6.4",
+    "remarques": "1picc, 2cornets, trb3=trb.bs, trb4=cimbasso",
     "percussions": "GC, cymb fr, c.cl.",
     "duree": "≈ 6 min"
    },
@@ -1520,36 +1520,35 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Preludio Sinfonico",
-    "instrumentation": "3*.2*.2.2 / 4.2.3.1 / 1.2.1.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.2*.2.2 / 4.2.3.1 / 1.2.1.0 / 12.10.8.6.4",
+    "remarques": "1picc, ob2+ca",
     "percussions": "GC, cymb fr",
     "duree": "≈ 12 min"
    },
    {
     "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
     "instrumentation": "3*.3*.3*.2 / 4.3.4*.0 / 1.1.1.0 / 12.10.8.6.4",
-    "remarques": "fl3+picc., 1ca, 1cl.bs, 1trb.bs",
+    "remarques": "fl3+picc., 1ca, 1cl.bs, trb3=trb.bs, trb4=cimbasso",
     "percussions": "GC",
-    "detail": "janv 2025 : 4e trombone joué au cimbasso",
     "duree": "≈ 5 min"
    },
    {
     "oeuvre": "Georges BIZET — Carmen, Suite N° 1, N° 1 Prélude [avec l'Aragonaise]",
-    "instrumentation": "2*.2.2.2 / 4.2.3.0 / 1.4.1.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "2*.2.2.2 / 4.2.3.0 / 1.4.1.0 / 12.10.8.6.4",
+    "remarques": "1picc",
     "percussions": "GC, cymb fr, tri, bsq",
     "duree": "≈ 3 min"
    },
    {
     "oeuvre": "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\"",
-    "instrumentation": "2.2.2.2 / 4.2.0.0 / 1.2.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
-    "percussions": "tri, bsq"
+    "instrumentation": "2.2.2.2 / 4.2.0.0 / 1.2.0.0 / 12.10.8.6.4",
+    "percussions": "tri, bsq",
+    "duree": "≈ 20 min"
    },
    {
     "oeuvre": "Bedrich SMETANA — La Fiancée vendue, ouverture",
-    "instrumentation": "3*.2.2.2 / 4.2.3*.0 / 1.0.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "3*.2.2.2 / 4.2.3*.0 / 1.0.0.0 / 12.10.8.6.4",
+    "remarques": "1picc, 1trb.bs",
     "duree": "≈ 7 min"
    },
    {
@@ -1560,15 +1559,15 @@
     "duree": "≈ 7 min"
    },
    {
-    "oeuvre": "Nikolaï RIMSKI-KORSAKOV — La Fiancée du tsar, scène et air de Martha acte 4 \"Ach, schau mal doch\"\"",
+    "oeuvre": "Nikolaï RIMSKI-KORSAKOV — La Fiancée du tsar, scène et air de Martha acte 4 \"Ach, schau doch da\"\"",
     "instrumentation": "3*.2.2.2 / 4.0.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "remarques": "1picc",
     "duree": "≈ 5 min"
    },
    {
     "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
-    "instrumentation": "2.2*.2.2 / 3.2.2.0 / 1.0.1.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "2.2*.2.2 / 3.2.2.0 / 1.0.1.0 / 12.10.8.6.4",
+    "remarques": "1c.a",
     "duree": "≈ 7 min"
    },
    {
@@ -1585,8 +1584,8 @@
    },
    {
     "oeuvre": "Jules MASSENET — Le Cid, suite de ballet, N° 1 Castillane",
-    "instrumentation": "2.2.2.2 / 4.4*.3.1 / 1.3.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "instrumentation": "2.2.2.2 / 4.4*.3.1 / 1.3.0.0 / 12.10.8.6.4",
+    "remarques": "2cornets",
     "percussions": "bsq, cast, tri",
     "duree": "≈ 3 min"
    },
@@ -1598,8 +1597,8 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Armenian Folk Song",
-    "instrumentation": "0*.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
-    "remarques": "en construction",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
+    "note": "\neffectif en attente de la soliste",
     "duree": "≈ 4 min"
    },
    {
@@ -1933,6 +1932,12 @@
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0",
     "duree": "≈ 18 min"
    }
+  ],
+  "solistes": [
+   "Leonid BARANOV, violon 1",
+   "Cristian ZIMMERMAN, violon 2",
+   "Jarita NG, alto",
+   "Lucas HENRY, violoncelle"
   ],
   "serviceWorks": {
    "osr132189": [
