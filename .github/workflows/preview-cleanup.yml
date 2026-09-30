@@ -9,7 +9,9 @@ permissions:
   pull-requests: write
 
 # Même groupe que deploy.yml / preview.yml / update-data.yml / update-memo.yml :
-# TOUTES les écritures sur gh-pages sont sérialisées.
+# TOUTES les écritures sur gh-pages sont sérialisées — en file (`queue: max`),
+# sans quoi ce cleanup, arrivé à la même seconde que le déploiement d'un
+# merge, l'annulait en silence quand le groupe était occupé.
 #
 # Ce cleanup a longtemps eu son propre groupe, pour qu'une fermeture de PR ne
 # supplante pas un déploiement en attente. Mais c'est précisément la
@@ -20,8 +22,10 @@ permissions:
 # index.html / app.js / style.css jusqu'au prochain push sur main, alors qu'une
 # preview périmée qui traîne un moment est bénigne : on sérialise.
 concurrency:
+  # `queue: max` : voir le commentaire dans deploy.yml.
   group: gh-pages
   cancel-in-progress: false
+  queue: max
 
 jobs:
   delete-preview:

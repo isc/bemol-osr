@@ -8,13 +8,19 @@ on:
 permissions:
   contents: write
   issues: write
+  # Relance du build Pages par l'étape d'attente.
+  pages: write
 
 concurrency:
   # Sérialise les écritures sur gh-pages entre ce déploiement, les previews de
   # PR (dépôt ET suppression) et les mises à jour de données, sinon deux jobs
-  # peuvent se marcher dessus.
+  # peuvent se marcher dessus. `queue: max` : sans lui, GitHub ne garde qu'un
+  # run en attente par groupe et annule EN SILENCE celui qui attendait dès
+  # qu'un autre arrive — un déploiement en attente disparaissait devant une
+  # preview, un nettoyage ou un cron de données (cf. CLAUDE.md, « Déploiement »).
   group: gh-pages
   cancel-in-progress: false
+  queue: max
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -23,13 +29,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # La tête de main au moment du run, pas le commit de l'événement : ni le
+      # re-run d'un ancien déploiement, ni deux runs sortis de la file dans le
+      # désordre ne peuvent remettre en ligne une version plus ancienne.
       - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Commit publié
+        run: echo "DEPLOY_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
       # Cache-busting automatique : le placeholder ?v=dev d'index.html devient
       # le SHA du commit publié → les navigateurs rechargent app.js/style.css
       # après chaque mise à jour, sans bump manuel.
       - name: Cache-busting (?v= → SHA du commit)
-        run: sed -i "s/?v=[^\"']*/?v=${GITHUB_SHA:0:12}/g" index.html
+        run: sed -i "s/?v=[^\"']*/?v=${DEPLOY_SHA:0:12}/g" index.html
 
       # Dossier de mise en scène ne contenant que ce qui doit être publié : ni
       # les fichiers de dev (.github, scripts…), ni data/ / productions.json —
@@ -56,6 +70,8 @@ jobs:
             esac
             cp -r "$f" out/
           done
+          # Témoin du commit publié, lu par l'étape d'attente.
+          echo "$DEPLOY_SHA" > out/.deploy-sha
 
       # Site statique « nobuild » : on publie le dossier de mise en scène à la
       # RACINE de la branche gh-pages. `keep_files: true` préserve `previews/`
@@ -67,7 +83,36 @@ jobs:
           publish_dir: ./out
           publish_branch: gh-pages
           keep_files: true
-          commit_message: "deploy: main @ ${{ github.sha }}"
+          commit_message: "deploy: main @ ${{ env.DEPLOY_SHA }}"
+
+      # Le push ne met pas le site en ligne : c'est pages-build-deployment (géré
+      # par GitHub), qui reste parfois figé ou échoue (cf. CLAUDE.md, 404 des
+      # previews). On attend donc que le site serve ce commit, on redemande un
+      # build Pages une fois sinon, puis on échoue — ce qui déclenche l'alerte
+      # ci-dessous : un déploiement vert veut dire « en ligne ». curl borné : un
+      # appel bloqué immobiliserait toute la file.
+      - name: Attendre que le site serve ce commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          wait_live() {
+            for i in $(seq 1 120); do
+              actual=$(curl -fsSL --max-time 10 https://isc.github.io/bemol-osr/.deploy-sha 2>/dev/null | tr -d '[:space:]' || true)
+              if [ "$actual" = "$DEPLOY_SHA" ]; then
+                echo "En ligne avec $DEPLOY_SHA après ${i}×5s"
+                return 0
+              fi
+              echo "Tentative $i/120 : '$actual' au lieu de '$DEPLOY_SHA'"
+              sleep 5
+            done
+            return 1
+          }
+          wait_live && exit 0
+          echo "::warning::Le site ne sert pas $DEPLOY_SHA après 10 min : nouvelle demande de build Pages"
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent || true
+          wait_live && exit 0
+          echo "::error::Le site ne sert toujours pas $DEPLOY_SHA : voir les runs pages-build-deployment"
+          exit 1
 
       # Un déploiement raté est un angle mort : contrairement aux crons de
       # données (dont l'app finit par afficher un bandeau « données anciennes »),
@@ -79,11 +124,9 @@ jobs:
       #
       # `failure() || cancelled()` pour la même raison qu'en #122 : un run
       # interrompu après son démarrage conclut `cancelled`, et failure() seul le
-      # raterait. (Limite assumée : un run supplanté alors qu'il était encore EN
-      # ATTENTE dans le groupe de concurrence n'exécute aucune étape — aucune
-      # alerte possible dans ce cas. C'est bénin quand c'est un autre
-      # déploiement de main qui le supplante : celui-là publie un arbre plus
-      # récent, qui contient le commit perdu.)
+      # raterait. (Un run supplanté alors qu'il était encore EN ATTENTE
+      # n'exécuterait aucune étape, donc aucune alerte : c'est ce que la file
+      # `queue: max` du groupe de concurrence empêche désormais.)
       - name: Signaler l'échec dans une issue
         if: ${{ failure() || cancelled() }}
         env:

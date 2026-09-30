@@ -23,8 +23,10 @@ permissions:
 concurrency:
   # Même groupe que deploy.yml / preview.yml / update-memo.yml : sérialise
   # toutes les écritures sur gh-pages (et évite les races entre crons).
+  # `queue: max` : voir le commentaire dans deploy.yml.
   group: gh-pages
   cancel-in-progress: false
+  queue: max
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
