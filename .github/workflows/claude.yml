@@ -45,9 +45,12 @@ jobs:
       && contains(github.event.comment.body, '@claude')
       && (github.event_name == 'pull_request_review_comment' || github.event.issue.pull_request)
     runs-on: ubuntu-latest
+    # En file : sans `queue: max`, une demande arrivée pendant qu'une autre
+    # attend l'annule en silence.
     concurrency:
       group: claude-pr-${{ github.event.issue.number || github.event.pull_request.number }}
       cancel-in-progress: false
+      queue: max
     steps:
       # Historique complet : Claude doit pouvoir basculer sur la branche de la PR
       # ou repartir de `main` selon l'état de celle-ci.
@@ -154,9 +157,12 @@ jobs:
       && github.event_name == 'issue_comment'
       && !github.event.issue.pull_request
     runs-on: ubuntu-latest
+    # En file : sans `queue: max`, une demande arrivée pendant qu'une autre
+    # attend l'annule en silence.
     concurrency:
       group: claude-issue-${{ github.event.issue.number }}
       cancel-in-progress: false
+      queue: max
     steps:
       - uses: actions/checkout@v4
 

@@ -17,9 +17,13 @@ permissions:
   id-token: write
   actions: read
 
+# En file (même groupe que le job issue-followup de claude.yml) : sans
+# `queue: max`, une demande arrivée pendant qu'une autre attend l'annule en
+# silence.
 concurrency:
   group: claude-issue-${{ github.event.issue.number }}
   cancel-in-progress: false
+  queue: max
 
 jobs:
   implement:

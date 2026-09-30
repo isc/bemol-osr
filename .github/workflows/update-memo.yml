@@ -20,8 +20,10 @@ permissions:
   issues: write
 
 concurrency:
+  # `queue: max` : voir le commentaire dans deploy.yml.
   group: gh-pages
   cancel-in-progress: false
+  queue: max
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

@@ -379,6 +379,15 @@ perdrait les montées de version automatiques.
 - Chaque PR → preview isolée déployée automatiquement, avec lien posté en
   commentaire. C'est cette preview qui sert à valider un changement avant merge.
 - Mise à jour des données : workflow cron `update-data.yml` (toutes les 2 h).
+- **Tout workflow qui écrit sur `gh-pages` rejoint le groupe de concurrence
+  `gh-pages` avec `queue: max`** (donc `cancel-in-progress: false`). Sans la
+  file, GitHub ne garde qu'un run en attente par groupe et annule l'autre en
+  silence : un déploiement de main en attente disparaissait devant une
+  preview, le nettoyage d'une PR mergée ou un cron de données, sans alerte
+  possible. La file ne garantit l'ordre qu'au mieux : le déploiement publie
+  donc la tête de main du moment, et n'est vert qu'une fois le site en train de
+  la servir (`/.deploy-sha`). Même règle pour tout groupe qui sérialise des
+  demandes distinctes (les workflows Claude par PR ou par issue).
 - **Cache-busting automatique** : dans `index.html`, `app.js` et `style.css`
   sont référencés avec un suffixe `?v=dev`. Ce `dev` est un placeholder que les
   workflows de publication remplacent par le SHA du commit — **ne jamais le
