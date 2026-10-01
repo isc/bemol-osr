@@ -806,7 +806,7 @@
    ]
   },
   "serviceNotes": {
-   "osr133277": "tutti y compris 7 musiciens de la production",
+   "osr133277": "tutti sans les 7 musiciens de la production",
    "osr133278": "présence de 2 observateurs assis dans l'orchestre (lots Amis) : M.Hikmat Maleh (GP)",
    "osr133281": "1h30 balance orchestre puis orchestre + cast suivi de s+o/balance",
    "osr133282": "essai micro",
@@ -2402,7 +2402,7 @@
   }
  },
  "Liste 34": {
-  "chef": "Ludwig Wicki",
+  "chef": "Ludwig WICKI",
   "effectif": "3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)",
   "duree": "≈ 2 h 56",
   "works": [
@@ -2594,7 +2594,7 @@
   ]
  },
  "Liste 38": {
-  "chef": "NN1",
+  "chef": "Michael SANDERLING",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)",
   "works": [
    {
