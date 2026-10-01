@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-10-01T17:03:14.932Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr240317",
+     "fields": [
+      "location"
+     ],
+     "before": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "Auditorium Ansermet",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-01T11:11:30.362Z",
    "type": "memo",
    "programs": [
