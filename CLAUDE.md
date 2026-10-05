@@ -35,8 +35,8 @@ production (GitHub Pages) comme dans les previews de PR.
   ICS (URL dans le secret Actions `ICS_URL` — **jamais en clair dans le code**,
   elle contient un jeton d'accès), le convertit en `data/planning.json` et
   journalise les différences dans `data/changes.json`.
-- Le workflow `.github/workflows/update-data.yml` l'exécute toutes les 2 h et
-  publie le résultat **directement sur la branche `gh-pages`** (jamais de push
+- Le workflow `.github/workflows/update-data.yml` l'exécute toutes les 2 h (en
+  théorie, cf. ci-dessous) et publie le résultat **directement sur la branche `gh-pages`** (jamais de push
   sur `main`). Les données vivantes n'existent que sur `gh-pages` ; les copies
   de `data/` et `productions.json` présentes sur `main` ne sont que des
   **instantanés** pour le dev local et le smoke test (les workflows de deploy
@@ -57,6 +57,23 @@ production (GitHub Pages) comme dans les previews de PR.
   `productions.json` (chef, solistes, œuvres, instrumentation par programme) à
   partir du « Mémo de Production » du mini-site Dièse — génération PDF côté
   serveur puis parsing. Workflow `update-memo.yml`, une fois par nuit.
+- **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
+  cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
+  jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
+  mémo prévu à 04:47 UTC part vers 10-11 h UTC : GitHub retarde ou saute les
+  `schedule` sans rien signaler. Tous ces runs sont verts — un compte « 38/38
+  verts » ne dit donc rien de la fraîcheur des données. Pour juger la santé du
+  pipeline, compter aussi les passages : **12 par jour attendus** pour
+  `update-data`
+  (`gh run list -w update-data.yml --created ">=AAAA-MM-JJ" --limit 200`).
+- **Données de référence saisies à la main** (`VACANCES_SCOLAIRES`,
+  `RENTREES`, `WEEKENDS_REPOS` d'`app.js`, `venues.json`) : ne jamais taper une
+  date ou une adresse de mémoire en citant une source qu'on n'a pas consultée.
+  Dans #191, les vacances d'hiver et de printemps de la zone A étaient celles
+  de la zone C, sous un commentaire « source : education.gouv.fr » ; c'est la
+  capture du frère qui l'a révélé. Si la page officielle n'est pas consultable
+  depuis le run, le dire dans la description de la PR (« dates à confirmer ») et
+  demander au frère une capture de la source plutôt que de la présumer exacte.
 - **Ne jamais éditer `data/` ni `productions.json` à la main** : ils sont
   générés (et de toute façon jamais servis depuis `main`, cf. ci-dessus). Pour
   tester en local : `node scripts/update-data.mjs export.ics` /
@@ -378,7 +395,9 @@ perdrait les montées de version automatiques.
   (<https://isc.github.io/bemol-osr/>).
 - Chaque PR → preview isolée déployée automatiquement, avec lien posté en
   commentaire. C'est cette preview qui sert à valider un changement avant merge.
-- Mise à jour des données : workflow cron `update-data.yml` (toutes les 2 h).
+- Mise à jour des données : workflow cron `update-data.yml` (toutes les 2 h en
+  théorie ; en pratique 4 à 5 fois par jour, cf. « Les crons GitHub ne sont pas
+  tenus à l'heure »).
 - **Tout workflow qui écrit sur `gh-pages` rejoint le groupe de concurrence
   `gh-pages` avec `queue: max`** (donc `cancel-in-progress: false`). Sans la
   file, GitHub ne garde qu'un run en attente par groupe et annule l'autre en
