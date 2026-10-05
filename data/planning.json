@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-01T17:03:14.932Z",
- "count": 627,
+ "updatedAt": "2026-10-05T14:55:22.449Z",
+ "count": 628,
  "events": [
   {
    "uid": "osr225046",
@@ -6523,6 +6523,17 @@
    "category": "repetition",
    "location": "ML - grande salle",
    "project": "Candide",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259164",
+   "start": "2027-06-17T14:00",
+   "end": "2027-06-17T16:00",
+   "liste": "Groupe de Prévention 2027",
+   "activity": "Réunion (plénière des membres)",
+   "category": "autre",
+   "location": "ML - grande salle",
+   "project": "",
    "cancelled": false
   },
   {
