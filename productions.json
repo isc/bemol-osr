@@ -729,7 +729,19 @@
    "osr132772": [
     4
    ],
+   "osr132773": [
+    1,
+    2,
+    3,
+    4
+   ],
    "osr132774": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr132775": [
     1,
     2,
     3,
@@ -745,7 +757,9 @@
   "serviceNotes": {
    "osr132769": "visite de classes",
    "osr137820": "visite de classes",
-   "osr132774": "-prise de parole Présidente FOSR sur scène"
+   "osr132773": "essai micros",
+   "osr132774": "-prise de parole Présidente FOSR sur scène",
+   "osr132775": "-pas de garde-robes à Evian"
   }
  },
  "Liste B": {
