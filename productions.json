@@ -681,8 +681,8 @@
   "works": [
    {
     "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
-    "instrumentation": "2*.2.2.2* / 4.2.2.1 / 1.3.1.1 / 12.10.8.6.4",
-    "remarques": "fl2+picc+fl.alto, fgt2+kfgt",
+    "instrumentation": "2*.2.2.2* / 4.2.2*.1 / 1.3.1.1 / 12.10.8.6.4",
+    "remarques": "fl2+picc+fl.alto, fgt2+kfgt, 1trb.bs",
     "percussions": "GC, glass ch, marim., tomtom, xyl, 3 crot, TT, tri, vibra, frame drum, 6 cymb susp avec\narchet",
     "claviers": "piano (orch.)",
     "duree": "≈ 12 min"
@@ -2611,7 +2611,7 @@
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)",
   "works": [
    {
-    "oeuvre": "N.N. — Programme 1 à définir",
+    "oeuvre": "N.N. — Daniel Hope, modération Programme 1 à définir",
     "instrumentation": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12*.10.8.6.4",
     "remarques": "effectif prévisionnel",
     "percussions": "3 en constr.",

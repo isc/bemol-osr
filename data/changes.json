@@ -1,6 +1,40 @@
 {
  "entries": [
   {
+   "at": "2026-10-07T11:21:43.154Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Kaija SAARIAHO — Mirage, pour soprano, violoncelle et orchestre",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 38",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "N.N. — Daniel Hope, modération Programme 1 à définir"
+     ],
+     "worksRemoved": [
+      "N.N. — Programme 1 à définir"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-10-06T15:17:04.100Z",
    "added": [
     {
