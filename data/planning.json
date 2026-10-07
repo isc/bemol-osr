@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-06T15:17:04.100Z",
- "count": 629,
+ "updatedAt": "2026-10-07T17:27:27.240Z",
+ "count": 633,
  "events": [
   {
    "uid": "osr225046",
@@ -2588,6 +2588,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr259567",
+   "start": "2026-11-23T10:00",
+   "end": "2026-11-23T13:00",
+   "liste": "Assemblée Artistique",
+   "activity": "Assemblée générale section GE",
+   "category": "autre",
+   "location": "ML - grande salle",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132917",
    "start": "2026-11-23T15:00",
    "end": "2026-11-23T17:30",
@@ -4746,11 +4757,22 @@
   {
    "uid": "osr132568",
    "start": "2027-03-12T19:30",
-   "end": "2027-03-12T22:00",
+   "end": "2027-03-12T21:15",
    "liste": "Liste 27",
    "activity": "concert",
    "category": "concert",
    "location": "Salle de Musique, La-Chaux-de-Fonds",
+   "project": "DPL3",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259568",
+   "start": "2027-03-12T21:15",
+   "end": "2027-03-12T23:30",
+   "liste": "Liste 27",
+   "activity": "bus",
+   "category": "autre",
+   "location": "retour Genève",
    "project": "DPL3",
    "cancelled": false
   },
@@ -5680,8 +5702,8 @@
   },
   {
    "uid": "osr133103",
-   "start": "2027-04-30T15:00",
-   "end": "2027-04-30T17:15",
+   "start": "2027-04-30T15:15",
+   "end": "2027-04-30T17:30",
    "liste": "Liste 31",
    "activity": "bus",
    "category": "autre",
@@ -5703,11 +5725,22 @@
   {
    "uid": "osr133105",
    "start": "2027-04-30T19:30",
-   "end": "2027-04-30T22:00",
+   "end": "2027-04-30T21:45",
    "liste": "Liste 31",
    "activity": "concert",
    "category": "concert",
    "location": "Casino Bern (ex-Kultur-Casino Bern, Bern",
+   "project": "DPL5",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259570",
+   "start": "2027-04-30T21:45",
+   "end": "2027-04-30T23:59",
+   "liste": "Liste 31",
+   "activity": "bus",
+   "category": "autre",
+   "location": "retour Genève",
    "project": "DPL5",
    "cancelled": false
   },
@@ -6165,11 +6198,22 @@
   {
    "uid": "osr133158",
    "start": "2027-05-28T19:30",
-   "end": "2027-05-28T22:00",
+   "end": "2027-05-28T21:15",
    "liste": "Liste 35",
    "activity": "concert",
    "category": "concert",
    "location": "Noda  BCVs | WKB, Sion",
+   "project": "DPL6",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259572",
+   "start": "2027-05-28T21:15",
+   "end": "2027-05-28T23:45",
+   "liste": "Liste 35",
+   "activity": "bus",
+   "category": "autre",
+   "location": "retour Genève",
    "project": "DPL6",
    "cancelled": false
   },
