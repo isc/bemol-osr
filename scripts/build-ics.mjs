@@ -194,16 +194,33 @@ function contentLines(e, prod) {
   const works = (prod?.works || []).filter(Boolean)
   const workTitle = (w) => (typeof w === "string" ? w : w.oeuvre)
 
-  // Œuvres jouées en tête de note (issue #198) : c'est ce que le musicien
-  // veut voir en ouvrant l'événement. Titres et durées seulement ; le détail
-  // d'instrumentation reste dans le mémo, plus bas.
+  // Œuvres en tête de note (issues #198, #209) : c'est ce que le musicien veut
+  // voir en ouvrant l'événement. Quand le mémo précise les œuvres travaillées
+  // à CE service (prod.serviceWorks[uid], index 1-based dans prod.works, comme
+  // serviceWorksDetail() dans app.js), on les met en premier, dans l'ordre du
+  // programme, avec la remarque éventuelle du service (« extraits »…). Sinon,
+  // ou en complément, tout le programme de la Liste. Titres et durées
+  // seulement ; le détail d'instrumentation reste dans le mémo, plus bas.
+  const workLine = (w) => {
+    const dur = typeof w === "object" && w.duree ? ` (${w.duree})` : ""
+    return { text: `• ${workTitle(w)}${dur}` }
+  }
+  const serviceIdx = prod?.serviceWorks?.[e.uid] || []
+  const serviceList = [...serviceIdx]
+    .sort((a, b) => a - b)
+    .map((i) => prod.works?.[i - 1])
+    .filter(Boolean)
+  if (serviceList.length) {
+    if (lines.length) lines.push({ text: "" })
+    lines.push({ text: "Œuvres travaillées pendant ce service :" })
+    for (const w of serviceList) lines.push(workLine(w))
+    const note = prod.serviceNotes?.[e.uid]
+    if (note) lines.push({ text: `Remarque : ${note}` })
+  }
   if (works.length) {
     if (lines.length) lines.push({ text: "" })
     lines.push({ text: "Œuvres au programme :" })
-    for (const w of works) {
-      const dur = typeof w === "object" && w.duree ? ` (${w.duree})` : ""
-      lines.push({ text: `• ${workTitle(w)}${dur}` })
-    }
+    for (const w of works) lines.push(workLine(w))
   }
 
   if (prod) {
