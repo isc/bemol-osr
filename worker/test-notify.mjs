@@ -5,12 +5,17 @@
 
 import {
   eventMatchesPrefs,
-  changesForProfile,
+  changesForProfile as changesForProfileAt,
   buildNotificationPayload,
   summarizePushResults,
   addToTotals,
   DEFAULT_PREFS,
 } from "./src/notify.js"
+
+// Les événements des tests datent du 13/08/2026 : on fixe « maintenant » avant.
+const NOW = new Date("2026-08-01T12:00:00Z")
+const changesForProfile = (entries, prefs, options = {}) =>
+  changesForProfileAt(entries, prefs, { now: NOW, ...options })
 
 const fail = (msg) => {
   console.error(`✗ ${msg}`)
@@ -247,7 +252,7 @@ const planningEntry = (over = {}) => ({
       {
         liste: "Liste 01",
         status: "modified",
-        fields: [{ field: "chef", before: "", after: "X" }],
+        fields: [{ field: "effectif", before: "", after: "X" }],
         worksAdded: [],
         worksRemoved: [],
       },
@@ -361,6 +366,91 @@ const planningEntry = (over = {}) => ({
   if (second.sent !== 2 || second.attempted !== 4) fail("cumul non additif")
   if (second.since !== first.since)
     fail("la date de début du cumul ne doit jamais être réécrite")
+}
+
+// --- issue #207 : événements passés, mémo réduit au programme/effectif ------
+
+{
+  const past = event({ start: "2026-07-01T10:00", end: "2026-07-01T12:00" })
+  const added = changesForProfile(
+    [planningEntry({ added: [past] })],
+    DEFAULT_PREFS,
+  )
+  if (added.length) fail("service passé ajouté : ne devrait pas notifier")
+  const mod = changesForProfile(
+    [
+      planningEntry({
+        modified: [
+          {
+            uid: "u1",
+            fields: ["start"],
+            before: { ...past, start: "2026-07-01T09:00" },
+            after: past,
+          },
+        ],
+      }),
+    ],
+    DEFAULT_PREFS,
+  )
+  if (mod.length) fail("service passé modifié : ne devrait pas notifier")
+}
+
+{
+  const memo = (p) => ({
+    type: "memo",
+    programs: [{ liste: "Liste 01", ...p }],
+  })
+  const n = (p, o) => changesForProfile([memo(p)], DEFAULT_PREFS, o).length
+  if (n({ status: "modified", fields: [{ field: "chef", after: "X" }] }))
+    fail("changement de chef seul : ne devrait pas notifier")
+  if (n({ status: "modified", fields: [{ field: "solistes", after: "X" }] }))
+    fail("changement de solistes seul : ne devrait pas notifier")
+  if (
+    n({
+      status: "modified",
+      worksModified: [{ oeuvre: "A", fields: ["duree"] }],
+    })
+  )
+    fail("détail d'une œuvre seul : ne devrait pas notifier")
+  if (!n({ status: "modified", worksAdded: ["A — B"] }))
+    fail("œuvre ajoutée : devrait notifier")
+  if (!n({ status: "modified", fields: [{ field: "effectif", after: "X" }] }))
+    fail("effectif : devrait notifier")
+  const planning = [event({ end: "2026-07-01T12:00" })]
+  if (n({ status: "added" }, { planning }))
+    fail("série terminée : le mémo ne devrait pas notifier")
+  if (!n({ status: "added" }, { planning: [event()] }))
+    fail("série à venir : le mémo devrait notifier")
+}
+
+{
+  const before = event({ liste: "Concours à définir", category: "concours" })
+  const after = { ...before, liste: "Concours Premier.ère soliste des cors" }
+  const entry = [
+    { at: "x", modified: [{ uid: "u1", fields: ["liste"], before, after }] },
+  ]
+  const prefs = { ...DEFAULT_PREFS, listes: ["Concours à définir"] }
+  if (changesForProfile(entry, prefs).length !== 1)
+    fail("concours défini, abonné à « à définir » : devrait notifier")
+  if (
+    changesForProfile(entry, { ...DEFAULT_PREFS, listes: ["Liste 02"] }).length
+  )
+    fail("concours défini, autre liste : ne devrait pas notifier")
+  const typo = [
+    {
+      at: "x",
+      modified: [
+        {
+          uid: "u1",
+          fields: ["liste"],
+          before: event({ liste: "Liste 01" }),
+          after: event({ liste: "Liste 1" }),
+        },
+      ],
+    },
+  ]
+  if (changesForProfile(typo, DEFAULT_PREFS).length)
+    fail("simple renommage de liste : ne devrait pas notifier")
 }
 
 console.log("✓ notify.js OK — filtrage anti-bruit, mise en forme et compteurs")

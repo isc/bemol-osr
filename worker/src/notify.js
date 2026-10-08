@@ -7,8 +7,8 @@
 // hiddenActivities).
 
 // Champs dont la modification fait rater quelque chose à un musicien :
-// horaire, lieu, annulation. Les autres changements (activité, programme…)
-// n'y sont volontairement pas notifiés (bruit).
+// horaire, lieu, annulation. Les autres changements (activité…) n'y sont
+// volontairement pas notifiés (bruit).
 const NOTABLE_FIELDS = new Set(["start", "end", "location", "cancelled"])
 
 export const DEFAULT_PREFS = {
@@ -57,24 +57,64 @@ export function eventMatchesPrefs(event, prefs) {
   return true
 }
 
+// Heure de Genève « 2026-08-13T21:15 », au format de planning.json (le worker
+// tourne en UTC, alors que start/end sont en heure locale).
+function genevaNow(now) {
+  return new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Paris" /* = Genève */,
+    dateStyle: "short",
+    timeStyle: "short",
+  })
+    .format(now)
+    .replace(" ", "T")
+}
+
+// Un service déjà terminé n'a plus rien à faire notifier (même règle que le
+// journal « Modifications » de l'app, cf. isPastEvent, retour #184 ; issue
+// #207). Pour une modif, on juge l'état après changement.
+function isPast(event, nowLocal) {
+  return event.end < nowLocal
+}
+
+// Une liste dont tous les services sont passés (le mémo n'a pas d'horaire
+// propre). Sans planning connu, on ne peut pas le dire : on notifie.
+function isListeFinished(liste, planning, nowLocal) {
+  const events = (planning || []).filter((e) => e.liste === liste)
+  return events.length > 0 && events.every((e) => isPast(e, nowLocal))
+}
+
+// Un concours dont le poste était « à définir » vient d'être précisé (même
+// règle que isConcoursDefini() d'app.js, issue #178).
+function isConcoursDefini(mod) {
+  return (
+    mod.fields.includes("liste") &&
+    /à définir/i.test(mod.before?.liste || "") &&
+    !/à définir/i.test(mod.after?.liste || "")
+  )
+}
+
 // Changements de planning notables d'une entrée de changes.json, pour un profil.
-function planningChangesFor(entry, prefs) {
+function planningChangesFor(entry, prefs, nowLocal) {
   const items = []
   for (const event of entry.added || [])
-    if (eventMatchesPrefs(event, prefs))
+    if (eventMatchesPrefs(event, prefs) && !isPast(event, nowLocal))
       items.push({
         liste: event.liste,
         text: describePlanningChange("added", event),
       })
   for (const event of entry.removed || [])
-    if (eventMatchesPrefs(event, prefs))
+    if (eventMatchesPrefs(event, prefs) && !isPast(event, nowLocal))
       items.push({
         liste: event.liste,
         text: describePlanningChange("removed", event),
       })
   for (const mod of entry.modified || []) {
-    if (!mod.fields.some((f) => NOTABLE_FIELDS.has(f))) continue
-    if (!eventMatchesPrefs(mod.after, prefs)) continue
+    const defini = isConcoursDefini(mod)
+    if (!defini && !mod.fields.some((f) => NOTABLE_FIELDS.has(f))) continue
+    // Concours défini : l'abonné a coché « Concours à définir », donc on le
+    // juge sur l'ancien état (la liste d'après n'est pas dans ses filtres).
+    if (!eventMatchesPrefs(defini ? mod.before : mod.after, prefs)) continue
+    if (isPast(mod.after, nowLocal)) continue
     items.push({
       liste: mod.after.liste,
       text: describePlanningChange(
@@ -88,13 +128,25 @@ function planningChangesFor(entry, prefs) {
   return items
 }
 
-// Changements de mémo (programme) notables pour un profil : tout changement
-// de programme compte (chef, œuvres, solistes…), filtré seulement par liste —
-// un changement de mémo n'est pas rattaché à un type d'activité.
-function memoChangesFor(entry, prefs) {
+// Changements de mémo notables pour un profil : le programme (œuvres, ou
+// programme ajouté/retiré) et l'effectif (issue #207). Chef, solistes, durée
+// et détails d'une œuvre ne notifient pas. Filtré par liste, et ignoré pour
+// une série entièrement passée.
+function isNotableProgram(p) {
+  if (p.status !== "modified") return true
+  return (
+    (p.fields || []).some((f) => f.field === "effectif") ||
+    Boolean(p.worksAdded?.length) ||
+    Boolean(p.worksRemoved?.length)
+  )
+}
+
+function memoChangesFor(entry, prefs, planning, nowLocal) {
   const listes = prefs.listes || []
   return (entry.programs || [])
     .filter((p) => !listes.length || listes.includes(p.liste))
+    .filter(isNotableProgram)
+    .filter((p) => !isListeFinished(p.liste, planning, nowLocal))
     .map((p) => ({ liste: p.liste, text: describeMemoProgram(p) }))
 }
 
@@ -113,6 +165,8 @@ function describePlanningChange(kind, event, fields, before) {
   if (kind === "removed")
     return `${event.liste} : service supprimé — ${event.activity} du ${when}`
   // modified
+  if (fields.includes("liste") && /à définir/i.test(before.liste || ""))
+    return `${event.liste} : concours défini — ${event.activity} le ${when}`
   if (fields.includes("cancelled"))
     return event.cancelled
       ? `${event.liste} : ${event.activity} du ${shortDate(before.start)} annulé`
@@ -128,8 +182,8 @@ function describeMemoProgram(p) {
   if (p.status === "added") return `${p.liste} : nouveau programme au mémo`
   if (p.status === "removed") return `${p.liste} : programme retiré du mémo`
   const bits = []
-  const chef = (p.fields || []).find((f) => f.field === "chef")
-  if (chef) bits.push(`chef : ${chef.after || "à définir"}`)
+  const effectif = (p.fields || []).find((f) => f.field === "effectif")
+  if (effectif) bits.push("effectif modifié")
   if (p.worksAdded?.length) bits.push(`+ ${p.worksAdded.join(", ")}`)
   if (p.worksRemoved?.length) bits.push(`− ${p.worksRemoved.join(", ")}`)
   if (!bits.length) bits.push("détails mis à jour")
@@ -150,12 +204,16 @@ function listeSlug(liste) {
 }
 
 // Tous les changements notables d'un lot d'entrées (déjà triées du plus
-// ancien au plus récent), pour un profil donné.
-export function changesForProfile(entries, prefs) {
+// ancien au plus récent), pour un profil donné. `options.planning` : les
+// événements de planning.json (pour reconnaître une série terminée) ;
+// `options.now` : l'instant présent (injectable pour les tests).
+export function changesForProfile(entries, prefs, options = {}) {
+  const nowLocal = genevaNow(options.now || new Date())
   const items = []
   for (const entry of entries) {
-    if (entry.type === "memo") items.push(...memoChangesFor(entry, prefs))
-    else items.push(...planningChangesFor(entry, prefs))
+    if (entry.type === "memo")
+      items.push(...memoChangesFor(entry, prefs, options.planning, nowLocal))
+    else items.push(...planningChangesFor(entry, prefs, nowLocal))
   }
   return items
 }
