@@ -1135,6 +1135,7 @@ dialog h2 {
 }
 
 .detail-box .chef,
+.detail-box .info-generale,
 .detail-box .effectif,
 .detail-box .duree {
   margin: 0;
