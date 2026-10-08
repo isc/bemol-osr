@@ -45,6 +45,7 @@ import {
 } from "./notify.js"
 
 const UPSTREAM = "https://isc.github.io/bemol-osr/data/planning.ics"
+const PLANNING_UPSTREAM = "https://isc.github.io/bemol-osr/data/planning.json"
 const CHANGES_UPSTREAM = "https://isc.github.io/bemol-osr/data/changes.json"
 
 // Durée de cache de l'ICS complet côté Cloudflare : le planning est régénéré
@@ -505,6 +506,13 @@ async function runScheduled(env) {
     privateKey: env.VAPID_PRIVATE_KEY,
   }
 
+  // Événements du planning, pour ne pas notifier une série déjà terminée.
+  // Indisponible : on notifie quand même (cf. isListeFinished).
+  const planning = await fetch(PLANNING_UPSTREAM, { cf: { cacheTtl: 0 } })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((d) => d?.events || null)
+    .catch(() => null)
+
   const outcomes = []
   let cursorParam
   do {
@@ -515,7 +523,9 @@ async function runScheduled(env) {
     for (const { name } of page.keys) {
       const profile = await env.NOTIF_PROFILES.get(name, "json")
       if (!profile?.subscription) continue
-      const items = changesForProfile(fresh, profile.prefs || DEFAULT_PREFS)
+      const items = changesForProfile(fresh, profile.prefs || DEFAULT_PREFS, {
+        planning,
+      })
       if (!items.length) continue
       outcomes.push(
         await sendPush(
