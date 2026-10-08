@@ -423,4 +423,34 @@ const planningEntry = (over = {}) => ({
     fail("série à venir : le mémo devrait notifier")
 }
 
+{
+  const before = event({ liste: "Concours à définir", category: "concours" })
+  const after = { ...before, liste: "Concours Premier.ère soliste des cors" }
+  const entry = [
+    { at: "x", modified: [{ uid: "u1", fields: ["liste"], before, after }] },
+  ]
+  const prefs = { ...DEFAULT_PREFS, listes: ["Concours à définir"] }
+  if (changesForProfile(entry, prefs).length !== 1)
+    fail("concours défini, abonné à « à définir » : devrait notifier")
+  if (
+    changesForProfile(entry, { ...DEFAULT_PREFS, listes: ["Liste 02"] }).length
+  )
+    fail("concours défini, autre liste : ne devrait pas notifier")
+  const typo = [
+    {
+      at: "x",
+      modified: [
+        {
+          uid: "u1",
+          fields: ["liste"],
+          before: event({ liste: "Liste 01" }),
+          after: event({ liste: "Liste 1" }),
+        },
+      ],
+    },
+  ]
+  if (changesForProfile(typo, DEFAULT_PREFS).length)
+    fail("simple renommage de liste : ne devrait pas notifier")
+}
+
 console.log("✓ notify.js OK — filtrage anti-bruit, mise en forme et compteurs")
