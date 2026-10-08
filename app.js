@@ -147,7 +147,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
-  productions: {}, // Liste → { chef, solistes, effectif, duree, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, info, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -1202,6 +1202,12 @@ function productionDetail(liste) {
       el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
     )
   }
+  if (prod.info) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Information générale"),
+      el("p", { class: "info-generale" }, prod.info),
+    )
+  }
   if (prod.effectif) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Effectif orchestral (max)"),
@@ -1986,6 +1992,7 @@ const MEMO_FIELD_LABELS = {
   chef: "chef",
   effectif: "effectif",
   duree: "durée",
+  info: "information générale",
   solistes: "solistes",
 }
 
