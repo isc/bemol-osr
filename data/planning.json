@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-07T17:27:27.240Z",
- "count": 633,
+ "updatedAt": "2026-10-08T13:40:58.418Z",
+ "count": 637,
  "events": [
   {
    "uid": "osr225046",
@@ -2012,7 +2012,7 @@
    "activity": "2 postes - présélection (Violoncelle tuttiste - 2 postes)",
    "category": "concours",
    "location": "ML - grande salle",
-   "project": "concours d'orchestre",
+   "project": "CONC.",
    "cancelled": false
   },
   {
@@ -2925,7 +2925,7 @@
    "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
    "category": "concours",
    "location": "ML - grande salle",
-   "project": "concours d'orchestre",
+   "project": "CONC.",
    "cancelled": false
   },
   {
@@ -2936,7 +2936,7 @@
    "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
    "category": "concours",
    "location": "Auditorium Ansermet",
-   "project": "concours d'orchestre",
+   "project": "CONC.",
    "cancelled": false
   },
   {
@@ -5602,6 +5602,28 @@
    "cancelled": false
   },
   {
+   "uid": "osr259744",
+   "start": "2027-04-23T09:30",
+   "end": "2027-04-23T12:30",
+   "liste": "Auditions DAS",
+   "activity": "audition DAS (poste à préciser)",
+   "category": "concours",
+   "location": "ML - Tous les espaces",
+   "project": "CONC.",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259742",
+   "start": "2027-04-23T18:00",
+   "end": "2027-04-23T18:30",
+   "liste": "Liste 30",
+   "activity": "raccord",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133085",
    "start": "2027-04-23T19:30",
    "end": "2027-04-23T22:00",
@@ -5687,6 +5709,28 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "aboO7",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259745",
+   "start": "2027-04-29T09:30",
+   "end": "2027-04-29T12:30",
+   "liste": "Auditions DAS",
+   "activity": "audition DAS (poste à préciser)",
+   "category": "concours",
+   "location": "ML - Tous les espaces",
+   "project": "CONC.",
+   "cancelled": false
+  },
+  {
+   "uid": "osr259746",
+   "start": "2027-04-29T14:30",
+   "end": "2027-04-29T17:30",
+   "liste": "Auditions DAS",
+   "activity": "audition DAS (poste à préciser)",
+   "category": "concours",
+   "location": "ML - Tous les espaces",
+   "project": "CONC.",
    "cancelled": false
   },
   {

@@ -1,6 +1,142 @@
 {
  "entries": [
   {
+   "at": "2026-10-08T13:40:58.418Z",
+   "added": [
+    {
+     "uid": "osr259744",
+     "start": "2027-04-23T09:30",
+     "end": "2027-04-23T12:30",
+     "liste": "Auditions DAS",
+     "activity": "audition DAS (poste à préciser)",
+     "category": "concours",
+     "location": "ML - Tous les espaces",
+     "project": "CONC.",
+     "cancelled": false
+    },
+    {
+     "uid": "osr259742",
+     "start": "2027-04-23T18:00",
+     "end": "2027-04-23T18:30",
+     "liste": "Liste 30",
+     "activity": "raccord",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr259745",
+     "start": "2027-04-29T09:30",
+     "end": "2027-04-29T12:30",
+     "liste": "Auditions DAS",
+     "activity": "audition DAS (poste à préciser)",
+     "category": "concours",
+     "location": "ML - Tous les espaces",
+     "project": "CONC.",
+     "cancelled": false
+    },
+    {
+     "uid": "osr259746",
+     "start": "2027-04-29T14:30",
+     "end": "2027-04-29T17:30",
+     "liste": "Auditions DAS",
+     "activity": "audition DAS (poste à préciser)",
+     "category": "concours",
+     "location": "ML - Tous les espaces",
+     "project": "CONC.",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr248530",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - présélection (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - présélection (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "CONC.",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240516",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240516",
+      "start": "2026-12-06T09:30",
+      "end": "2026-12-06T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "présélection (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "CONC.",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr240317",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "Auditorium Ansermet",
+      "project": "concours d'orchestre",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr240317",
+      "start": "2026-12-07T09:30",
+      "end": "2026-12-07T19:00",
+      "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+      "activity": "concours (Premier.ère soliste des clarinettes (coordonné))",
+      "category": "concours",
+      "location": "Auditorium Ansermet",
+      "project": "CONC.",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-07T17:27:27.240Z",
    "added": [
     {
