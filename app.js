@@ -3366,8 +3366,11 @@ function openSubscribeDialog() {
 // la vue. Dans l'onglet Bible, tous les services du jour (document de
 // référence, indépendant des filtres — cf. renderDocument) ; dans l'onglet
 // Agenda personnalisé, uniquement ceux qui passent les Réglages courants
-// (mêmes filtres que la vue elle-même).
+// (mêmes filtres que la vue elle-même). Le bouton ramène aussi la vue sur la
+// semaine en cours (#205), même après avoir défilé loin dans la saison : la
+// vue se repositionne derrière la popup, visible dès sa fermeture.
 function showTodayDialog() {
+  scrollToToday()
   const todayKey = localKey(new Date())
   const global = state.view === "document"
   const events = (global ? allSeasonEvents() : visibleEvents())
