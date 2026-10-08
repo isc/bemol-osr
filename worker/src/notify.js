@@ -83,6 +83,16 @@ function isListeFinished(liste, planning, nowLocal) {
   return events.length > 0 && events.every((e) => isPast(e, nowLocal))
 }
 
+// Un concours dont le poste était « à définir » vient d'être précisé (même
+// règle que isConcoursDefini() d'app.js, issue #178).
+function isConcoursDefini(mod) {
+  return (
+    mod.fields.includes("liste") &&
+    /à définir/i.test(mod.before?.liste || "") &&
+    !/à définir/i.test(mod.after?.liste || "")
+  )
+}
+
 // Changements de planning notables d'une entrée de changes.json, pour un profil.
 function planningChangesFor(entry, prefs, nowLocal) {
   const items = []
@@ -99,8 +109,11 @@ function planningChangesFor(entry, prefs, nowLocal) {
         text: describePlanningChange("removed", event),
       })
   for (const mod of entry.modified || []) {
-    if (!mod.fields.some((f) => NOTABLE_FIELDS.has(f))) continue
-    if (!eventMatchesPrefs(mod.after, prefs)) continue
+    const defini = isConcoursDefini(mod)
+    if (!defini && !mod.fields.some((f) => NOTABLE_FIELDS.has(f))) continue
+    // Concours défini : l'abonné a coché « Concours à définir », donc on le
+    // juge sur l'ancien état (la liste d'après n'est pas dans ses filtres).
+    if (!eventMatchesPrefs(defini ? mod.before : mod.after, prefs)) continue
     if (isPast(mod.after, nowLocal)) continue
     items.push({
       liste: mod.after.liste,
@@ -152,6 +165,8 @@ function describePlanningChange(kind, event, fields, before) {
   if (kind === "removed")
     return `${event.liste} : service supprimé — ${event.activity} du ${when}`
   // modified
+  if (fields.includes("liste") && /à définir/i.test(before.liste || ""))
+    return `${event.liste} : concours défini — ${event.activity} le ${when}`
   if (fields.includes("cancelled"))
     return event.cancelled
       ? `${event.liste} : ${event.activity} du ${shortDate(before.start)} annulé`
