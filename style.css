@@ -852,6 +852,20 @@ table.week td.repos:not(.today) {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 6px 10px;
+  min-height: 36px;
+  cursor: pointer;
+}
+.modifs-legend-item.active {
+  border-color: var(--text-muted);
+  background: var(--surface, rgba(128, 128, 128, 0.15));
+  color: var(--text);
+  font-weight: 600;
 }
 .modifs-legend-swatch {
   display: inline-block;
