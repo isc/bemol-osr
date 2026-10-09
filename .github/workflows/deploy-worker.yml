@@ -20,6 +20,13 @@ name: Déployer le worker calendrier
 # sur le worker à chaque déploiement. Pour changer de destinataire :
 #   gh secret set FEEDBACK_TO --repo isc/bemol-osr --body "…"
 # puis relancer ce workflow (Actions → Run workflow).
+#
+# Lancement à l'heure des crons de données (revue #203, cf.
+# dispatchWorkflows dans worker/src/index.js) : GH_DISPATCH_TOKEN, jeton
+# GitHub « fine-grained » limité à ce dépôt, permission Actions en
+# lecture/écriture seulement. Secret DU DÉPÔT lui aussi, recopié de même. Il
+# doit exister avant tout déploiement : wrangler-action échoue sur un secret
+# listé ci-dessous mais absent de l'environnement.
 
 on:
   push:
@@ -63,6 +70,8 @@ jobs:
           secrets: |
             RESEND_API_KEY
             FEEDBACK_TO
+            GH_DISPATCH_TOKEN
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           FEEDBACK_TO: ${{ secrets.FEEDBACK_TO }}
+          GH_DISPATCH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}

@@ -12,6 +12,8 @@ import {
   handleFeedback,
   buildFeedbackEmail,
   vapidSubject,
+  workflowsToDispatch,
+  dispatchWorkflows,
 } from "./src/index.js"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
@@ -431,3 +433,133 @@ if (vapidSubject(undefined) !== undefined)
   )
 
 console.log("✓ vapidSubject OK")
+
+// --- Lancement des crons de données GitHub (revue #203, point 1) -----------
+// Le `schedule` de update-data.yml ne passait que 3 ou 4 fois par jour au
+// lieu de 12 : le cron du worker les lance lui-même.
+
+const aHeure = (hhmm) => Date.parse(`2026-10-09T${hhmm}:00Z`)
+const attendus = {
+  "00:00": ["update-data.yml"],
+  "10:00": ["update-data.yml"],
+  "10:15": [],
+  "11:00": [],
+  "04:00": ["update-data.yml"],
+  "04:30": [],
+  "04:45": ["update-memo.yml"],
+  "22:00": ["update-data.yml"],
+}
+for (const [hhmm, attendu] of Object.entries(attendus))
+  if (workflowsToDispatch(aHeure(hhmm)).join() !== attendu.join())
+    fail(
+      `workflowsToDispatch ${hhmm} UTC : ${workflowsToDispatch(aHeure(hhmm))} au lieu de ${attendu}`,
+    )
+// Sur une journée de réveils toutes les 15 min : 12 planning, 1 mémo.
+const parJour = {}
+for (let t = aHeure("00:00"); t < aHeure("00:00") + 86_400_000; t += 900_000)
+  for (const w of workflowsToDispatch(t)) parJour[w] = (parJour[w] || 0) + 1
+if (parJour["update-data.yml"] !== 12 || parJour["update-memo.yml"] !== 1)
+  fail(
+    `workflowsToDispatch : ${JSON.stringify(parJour)} par jour au lieu de 12 planning + 1 mémo`,
+  )
+
+const lancements = []
+const lancerAvec = async (env, time, reponse) => {
+  globalThis.fetch = async (url, init) => {
+    lancements.push({ url, init })
+    if (reponse instanceof Error) throw reponse
+    return reponse
+  }
+  try {
+    return await dispatchWorkflows(env, time)
+  } finally {
+    globalThis.fetch = vraiFetch
+  }
+}
+
+// Sans jeton : rien n'est lancé, rien n'est écrit.
+const kvSansJeton = makeMockKv()
+const sansJeton = await lancerAvec(
+  { NOTIF_PROFILES: kvSansJeton },
+  aHeure("10:00"),
+  new Response(null, { status: 204 }),
+)
+if (sansJeton.length || lancements.length)
+  fail("dispatchWorkflows : sans GH_DISPATCH_TOKEN, aucun appel à GitHub")
+if (await kvSansJeton.get("dispatch-stats:totals"))
+  fail("dispatchWorkflows : sans jeton, rien ne doit être compté")
+
+// Hors créneau : aucun appel, aucune écriture (le KV n'est pas sollicité
+// pour rien à chaque réveil).
+const kvLancement = makeMockKv()
+const envLancement = { NOTIF_PROFILES: kvLancement, GH_DISPATCH_TOKEN: "jeton" }
+await lancerAvec(
+  envLancement,
+  aHeure("10:15"),
+  new Response(null, { status: 204 }),
+)
+if (lancements.length || (await kvLancement.get("dispatch-stats:last")))
+  fail("dispatchWorkflows : hors créneau, ni appel ni écriture")
+
+// Lancement réussi : la bonne requête, comptée.
+await lancerAvec(
+  envLancement,
+  aHeure("10:00"),
+  new Response(null, { status: 204 }),
+)
+const lancement = lancements.at(-1)
+if (
+  lancement?.url !==
+  "https://api.github.com/repos/isc/bemol-osr/actions/workflows/update-data.yml/dispatches"
+)
+  fail(`dispatchWorkflows : URL inattendue (${lancement?.url})`)
+if (lancement.init.method !== "POST")
+  fail("dispatchWorkflows : le lancement doit être un POST")
+if (lancement.init.headers.authorization !== "Bearer jeton")
+  fail("dispatchWorkflows : le jeton GH_DISPATCH_TOKEN doit être envoyé")
+if (!lancement.init.headers["user-agent"])
+  fail("dispatchWorkflows : l'API GitHub refuse une requête sans User-Agent")
+if (JSON.parse(lancement.init.body).ref !== "main")
+  fail("dispatchWorkflows : le workflow doit être lancé sur main")
+let stats = await kvLancement.get("dispatch-stats:totals", "json")
+if (stats?.sent !== 1)
+  fail("dispatchWorkflows : un lancement réussi doit être compté")
+
+// Refus de GitHub (jeton expiré…) : gardé avec son code et sa raison.
+await lancerAvec(
+  envLancement,
+  aHeure("04:45"),
+  new Response('{"message":"Bad credentials"}', { status: 401 }),
+)
+const dernierLancement = await kvLancement.get("dispatch-stats:last", "json")
+const refus = dernierLancement?.outcomes?.[0]
+if (
+  refus?.workflow !== "update-memo.yml" ||
+  refus.kind !== "failed" ||
+  refus.status !== 401 ||
+  !refus.reason?.includes("Bad credentials")
+)
+  fail(
+    "dispatchWorkflows : un refus doit être gardé avec le workflow, le code et la raison",
+  )
+stats = await kvLancement.get("dispatch-stats:totals", "json")
+if (stats.sent !== 1 || stats.failed !== 1)
+  fail("dispatchWorkflows : le cumul doit additionner réussites et échecs")
+
+// Panne réseau : un verdict, jamais d'exception (le cron des notifications
+// tourne à côté).
+try {
+  const panne = await lancerAvec(
+    envLancement,
+    aHeure("12:00"),
+    new TypeError("réseau"),
+  )
+  if (panne[0]?.kind !== "failed")
+    fail("dispatchWorkflows : une panne réseau doit donner un échec compté")
+} catch (err) {
+  fail(
+    `dispatchWorkflows : ne devrait jamais lever d'exception (${err.message})`,
+  )
+}
+
+console.log("✓ lancement des crons GitHub OK")

@@ -16,6 +16,10 @@ name: Diagnostic notifications
 #   4. les retours du formulaire « Donner un avis » partent-ils bien par
 #      email (feedback-mail:last / feedback-mail:totals, cf.
 #      recordFeedbackMail) ? Même risque de panne silencieuse.
+#   5. le worker lance-t-il bien les crons de données à l'heure
+#      (dispatch-stats:last / dispatch-stats:totals, cf. dispatchWorkflows) ?
+#      Un jeton expiré ferait retomber en silence sur les seuls `schedule` de
+#      GitHub, qui ne sont pas tenus (revue #203).
 #
 # Lancement manuel uniquement (Actions → ce workflow → Run workflow), pour ne
 # pas relire le KV à chaque push.
@@ -190,6 +194,49 @@ jobs:
             if (d.kind !== "sent") {
               console.log("")
               console.log("> ⚠️ Le dernier retour n'est pas parti par email.")
+            }
+          }
+          JS
+          fi
+
+      - name: Lancements des crons de données
+        run: |
+          exec > >(tee -a "$GITHUB_STEP_SUMMARY")
+          # Même lecture prudente qu'aux étapes précédentes (clé absente ≠ JSON).
+          lire_json() {
+            local val
+            val=$(npx wrangler kv key get --binding=NOTIF_PROFILES --remote "$1" 2>/dev/null) || return 0
+            node -e 'JSON.parse(process.argv[1])' "$val" 2>/dev/null || return 0
+            printf '%s' "$val"
+          }
+          echo ""
+          echo "### Lancement des crons de données par le worker"
+          # secrets.json : liste des NOMS de secrets, écrite par la première étape.
+          if grep -q '"GH_DISPATCH_TOKEN"' secrets.json; then
+            echo "- ✅ \`GH_DISPATCH_TOKEN\` présent"
+          else
+            echo "- ❌ \`GH_DISPATCH_TOKEN\` **MANQUANT** — seuls les \`schedule\` de GitHub (non tenus) lancent les mises à jour"
+          fi
+          cumul=$(lire_json dispatch-stats:totals)
+          if [ -z "$cumul" ]; then
+            echo ""
+            echo "Aucun lancement enregistré pour l'instant."
+          else
+            node - "$cumul" "$(lire_json dispatch-stats:last)" <<'JS'
+          const t = JSON.parse(process.argv[2])
+          const d = process.argv[3] ? JSON.parse(process.argv[3]) : null
+          // Journaux publics : on masque par précaution toute longue chaîne
+          // opaque (jeton, identifiant) d'un message d'erreur de GitHub.
+          const net = (r) => String(r).replace(/\s+/g, " ").replace(/`/g, "'").replace(/[A-Za-z0-9_+\/=-]{40,}/g, "[…]")
+          console.log("")
+          console.log(`Depuis le ${t.since} : **${t.sent || 0}** lancements acceptés par GitHub, **${t.failed || 0}** en échec (12 planning + 1 mémo attendus par jour).`)
+          if (d) {
+            const detail = (o) => [o.status && `HTTP ${o.status}`, o.error, o.reason && `\`${net(o.reason)}\``].filter(Boolean).join(" — ")
+            for (const o of d.outcomes || [])
+              console.log(`- dernier réveil (${d.at}) : \`${o.workflow}\` → **${o.kind}**${detail(o) ? ` (${detail(o)})` : ""}`)
+            if ((d.outcomes || []).some((o) => o.kind !== "sent")) {
+              console.log("")
+              console.log("> ⚠️ Le dernier lancement a échoué : jeton expiré ou révoqué ? Planning et mémo ne se mettent plus à jour qu'au rythme (irrégulier) des `schedule` de GitHub.")
             }
           }
           JS
