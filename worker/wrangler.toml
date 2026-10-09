@@ -6,9 +6,12 @@ main = "src/index.js"
 compatibility_date = "2026-07-01"
 workers_dev = true
 
-# Cron de détection des changements (cf. worker/src/notify.js) : toutes les
-# 15 min, largement suffisant vis-à-vis du cycle de 2 h de update-data.yml —
-# le curseur KV rattrape de toute façon tout ce qui a été manqué.
+# Cron toutes les 15 min, pour deux tâches (cf. scheduled() dans src/index.js) :
+# - détection des changements et notifications (cf. worker/src/notify.js) —
+#   le curseur KV rattrape de toute façon tout ce qui a été manqué ;
+# - lancement à l'heure des crons de données de GitHub (update-data.yml toutes
+#   les 2 h, update-memo.yml la nuit), dont les `schedule` ne sont pas tenus.
+#   Secret GH_DISPATCH_TOKEN, recopié depuis le dépôt par deploy-worker.yml.
 [triggers]
 crons = ["*/15 * * * *"]
 

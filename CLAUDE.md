@@ -66,6 +66,14 @@ production (GitHub Pages) comme dans les previews de PR.
   pipeline, compter aussi les passages : **12 par jour attendus** pour
   `update-data`
   (`gh run list -w update-data.yml --created ">=AAAA-MM-JJ" --limit 200`).
+  **Parade (revue #203, point 1)** : le cron du worker Cloudflare, lui
+  ponctuel, lance lui-même `update-data.yml` toutes les 2 h et
+  `update-memo.yml` à 04:45 UTC par l'API GitHub (`dispatchWorkflows` dans
+  `worker/src/index.js`, secret `GH_DISPATCH_TOKEN`). Ces passages-là ont
+  l'événement `workflow_dispatch`, pas `schedule` : les compter tous. Les
+  `schedule` restent en filet de sécurité. Un jeton expiré ou révoqué se voit
+  dans le workflow `Diagnostic notifications` (lancements réussis / en
+  échec).
 - **Données de référence saisies à la main** (`VACANCES_SCOLAIRES`,
   `RENTREES`, `WEEKENDS_REPOS` d'`app.js`, `venues.json`) : ne jamais taper une
   date ou une adresse de mémoire en citant une source qu'on n'a pas consultée.
