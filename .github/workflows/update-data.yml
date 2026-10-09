@@ -59,6 +59,9 @@ jobs:
             echo "found=false" >> "$GITHUB_OUTPUT"
             echo "gh-pages sans data/ (premier run, ou publication précédente incomplète)"
           fi
+          # Le calendrier .ics s'appuie sur le mémo de production : prendre la
+          # version vivante de gh-pages, pas l'instantané périmé de main.
+          git checkout -q FETCH_HEAD -- productions.json || echo "gh-pages sans productions.json"
 
       - name: Récupérer et convertir l'ICS
         env:
