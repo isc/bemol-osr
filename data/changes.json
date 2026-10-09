@@ -1,6 +1,752 @@
 {
  "entries": [
   {
+   "at": "2026-10-09T11:31:30.978Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Concerts pour Petites Oreilles 1",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Institut Jaques-Dalcroze : rue de la Terrassière 44"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Institut Florimont : avenue du Petit-Lancy 37 à Lancy"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 3",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Centre des Arts Ecolint : route de Chêne 62"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Concerts pour Petites Oreilles 4",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Sans les mains - Création de l'Ensemble Beta-Chronicles (de G.Jacot et JN.Gos)\nCoproduction OSR et Cité Bleue Genève\nCité Bleue : avenue de Miremont 46"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 01",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "La Plage classique"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 02",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "La Plage Cinéconcert\nAttention : même effectif le plus rigoureusement possible que Liste 11 saison 2526 (y compris mus.suppl.) afin de remonter la production en 2 services de répétition"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 03",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "La Plage Crossover\nAnnées folles - Hommage à Joséphine Baker\navec Kennedy, l'une des grandes voix du jazz-soul américain\nSet-list [titre : musique / paroles] - ordre à confirmer en répétition\narrangements originaux d'Alexandre Mastrangello commandés par l'OSR sauf Addicted to addictions / Let's Party\n-My fate is in your hands : Thomas 'Fats' Waller / Andy Razaf\n-I'm feeling like a million : Nacio Herb Brown / Arthur Freed\n-Bye bye blackbird : Ray Henderson / Mort Dixon\n-London Town : Wal-Berg / Wynne Thomas & Léo Lelièvre\n-J'attendrais : Dino Olivieri / Nino Rastelli - Louis Poterat\n-Rag-Mazurka d'après Francis Poulenc (orchestre seul)\n-Don't touch my tomatoes : Sam Manning / Sam Manning\n-Afraid to dream : Mark Gordon & Harry Revel (paroles et musique)\n-You're driving me crazy : Walter Donaldson / Walter Donaldson\n-You are my lucky star (Nacio Herb Brown / Arthur Freed)\n-J'ai deux amours : Vincent Scotto / Géo Koger & Henri Varna\n-BIS : Addicted to addictions / Let's Party : paroles & musique : Ondrej Pivec & Kennedy / arrangements : Tomas Sykora / adaptation : Alexandre Mastrangelo"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 04",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "ENREGISTREMENT DISCOGRAPHIQUE STUDIO en collaboration avec la RTS\n-conseiller artistique et distribution : Jean-Pierre Brossmann\n-label : RTS + PentaTone ou Chandos ou Sony\n-avec extension avant-scène\n-le studio d'enregistrement est installé au foyer des chœurs (foyer du bas). L'orchestre utilise le foyer du public"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 05",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "enregistrement vidéo des 4 didacticiels vidéo (bois, cuivres, cordes, tutti) pour l'OSR C'est Vous ! (Fête de la Musique) : L'Italie et la Dolce Vita"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 06",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "concert hors abonnement avec 200 places pour événement KPMG\n-avec moniteur video + time code pour chef et percussioniste dès le 2ème service\n-écran et beamer du VH\n-régie vidéo Skynight au balcon d'orgue"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "-les concerts scolaires sont 2 semaines après le concert famille avec un raccord de reprise\n-avec captation vidéo pour projection live de l'orchestre : 2 cameramen circulent dans l'orchestre\n-écran et beamer du VH\n-loge 18 pour régie son"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Pas de garde-robes à Evian"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 10",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Académie OSR-HEM (orchestre chœur et solistes)\nEffectif OSR : 1111 / 1110 / 1000 // 6.6.5.4.2\n-dispositif ONU : pupitre orateur, drapeaux...\n-loge 18 pour régie son"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 11",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Cineconcert avec orchestre amplifié (1ère partie 58' / 2ème partie 44')\n-orchestre à plat avec lampes pupitres tutti\n-grand écran 16/9 + amplification de soutien : piano, solistes des cordes, bois, quelques perc. ...) avec cluster central et retour orchestre\n-régies vidéo et son en salle + 2 beamers Skynight en sas cour 2ème galerie\n-entrée des retardataires : 9'40'' après le début"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 12",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "disposition des cordes : Maestro Gatti souhaite expérimenter avec l'OSR la disposition cordes indiquée qu'il vient de jouer avec Dresde et qu'il trouve apporter\nbeaucoup à ce répertoire. Il a de plus souhaité préserver l'effectif en réduisant les cordes pour la session Masterclasse.\n-6 étudiants HEM assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse\n-le projet de captation TV n'a finalement pas pu être confirmé"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 13",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Concours de Genève / demi-finale 3 du concours de direction (1/2 finales 1 et 2 avec les mêmes candidats les 7 et 8 novembre sans l'OSR)\nATTENTION : les 2 services de cette liste sont en public, en chemise noire et filmés/diffusés en streaming live sans aucune répétition au préalable\nLe concours de direction se déroule sur 2025 et 2026\n2025\n-printemps 25 : 24 candidats sélectionnés sur vidéo\n-1er novembre 25 : 12 candidats sélectionnés après le 1er tour avec l'orchestre de la HEM\n-3 novembre 25 : 6 demi-finalistes sélectionnés après le 2ème tour avec l'OCG\n2026\n-6 novembre 26 : arrivée des candidats - cérémonie de présentation et tirage au sort des pièces des demi-finales et de la finale\n-7 novembre 26 : demi-finale 1 avec l'OCG\n-8 novembre 26 : demi-finale 2 avec Contrechamps\n-9 novembre : demi-finale 3 avec l'OSR :\n-2 répétitions publiques de 3 heures en présence du jury pour les 6 demi-finalistes qui répètent chacun 45 minutes avec l'orchestre.\n-chacun dirige 1 mouvement de La Mer (tirage au sort du 6 novembre) et le 1er mouvement d'un des 2 concertos de Schumann avec soliste.\n-chaque demi-finaliste gère son temps librement mais commence par La Mer et fini par le concerto\n-les 6 demi-finalistes sont connus le 3 novembre 2025 et tirent au sort les pièces à choix le 6 novembre 2026\n-les 2 services sont présentés en direct, filmés et diffusés en streaming live (Medici, RTS...)\n-les 3 finalistes sont connus à l'issue des délibérations qui suivent le 2ème service (pas de proclamation publique)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Concours de Genève / Finale 1 du concours de direction et Finale du concours de de composition\n-les 3 finalistes du concours de direction sont connus après la 1/2 finale 3 du 9 novembre avec l'OSR\n-chacun répète 2 fois 50 minutes et la générale avec l'orchestre en présence du jury\n-chacun dirige l'une des 3 œuvres finalistes du concours de composition (15' env.) qu'il aura tiré au sort lors de la Cérémonie d'ouverture le 6 novembre. La durée du concert est au plus\nde 1h15 + 2 pauses de 15 minutes + les présentations\n-les 3 pièces finalistes et leur instrumentation sont connues fin mars 2025 et les partitions prêtes au plus tard fin septembre 2025 (réalisées par le Concours de Genève)\n-le jury du concours de direction (président : Bertrand de Billy) assiste aux répétitions.\n-les compositeurs finalistes assistent aux répétitions de leur pièce\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de composition (présidente : Unsuk Chin)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Centenaire du Motet le 19 novembre (production Le Motet) : opéra complet en version concert\nreprise en extraits pour FAM+ (production OSR) le 20 novembre avec le chœur et uniquement Abigaille\n-finalement sans avant-scène\n-avec régie son en loge 18 pour concert du 20 novembre\n-avec caméras en salle (4 places en 1ère galerie face-jardin)\n-avec sous-titrage le 19 novembre uniquement (écran+beamer VH)\nChoeur Le Motet : 85 env. (sans pupitre)\nDistribution : Le Motet\nAbigaille : Maria Jose SIRI\nNabucco : Nikoloz LAGVILAVA\nIsmaele : Sahy RATIA,\nFenena : Carine SÉCHAYE\nZaccaria : Rubén AMORETTI\nGran Sacerdote : Joe BERTILI\nAbdallo: Oscar ESMERODE\nAnna : Clémence TILQUIN"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 17",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "chef ok pour 15h-19h si Comité ok"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1 (hrp=coach OdCG prise en charge OSR)\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4 ou 6.6.4.4.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 ou 16.16.8.10.6 à confirmer (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct."
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV / RTS en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 1 h 50",
+       "after": "≈ 1 h 52"
+      },
+      {
+       "field": "info",
+       "before": "",
+       "after": "Concert de l'An\n-avec décoration florale\n-avec discours en scène"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Georges BIZET — Carmen, Habanera Acte I N°4, Air de Carmen \"L'amour est un oiseau rebelle...\"",
+       "fields": [
+        "duree"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 24",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "ATTENTION : au BFM dans la production GT de Theodora avec la fosse baissée (ok pour passer et stocker 2 pianos)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 24b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 26",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "L'OSR C'est Vous ! Coaching 2\n2 partielles par registre et 1 tutti\neffectif osr : 1111 / 1110 / 1000 // 1.1.1.1.1"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Coaching 3 OSR c'est vous\n1 partielle bois - 1 partielle cuivres - 1 partielle v1 - 1 partielle v2 - 1 partielle altos - 1 partielle cellos - 1 partielle cb - sans percu, ni hrp, ni claviers\n1 tutti\neffectif OSR = 1111 / 1010 / 1000 // 4.3.2.2.2 max."
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 29",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Mozart : Ouverture Noces Figaro (4’)\nC. Saint-Saens Concerto pour violoncelle et orchestre N° 1(20’)F. Mendelssohn A Midsummer Night’s Dream Scherzo (5)’Alma Deutscher (Jeune compositrice prodige britannique de 21\nans) Grinzinger Polka (2021, 2’)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 30",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "ATTENTION : Effectif Berlioz+Tchaïkovski strictement identique pour Liste 42 avec Montpellier et La Chaux de Fonds\nprojet de captation AV en construction avec RTS / Mezzo / Ozango"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 31",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "projet de captation audiovisuelle RTS / Arte (jean-PIerre Loisil)\navec cordes limitées à Berne : 14.12.10.8.6\nAttention : Casino Bern est le nouveau nom du Kultur-Casino Bern"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 34",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Harry Potter and the Sorcerer's Stone à l'Arena avec Opus One (2ème et 3ème épisodes en 2028 et 2029)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 35",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 36",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "1 service de Masterclasse de direction pour étudiants Talent Norge"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 37",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "-avec régie son en loge 18"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 38",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Gala anniversaire Fédération Mondiale des Concours Internationaux de Musique, avec le soutien du Concours de Genève\nProduction FMCIM\nChef confirmé : Michael Sanderling\nModérateur : Daniel Hope\nsolistes confirmés :anicens lauréats"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 39",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "effetif OSR : 1111 / 1110 / 1000 // 6.6.5.4.4 max."
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 40",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Concert Jeune Public / Fête de la Musique\n-effectif OSR : 1111 / 1111 / 1201 / 2.2.2.2.2\n-élèves des orchestres en classes cordes et vents du DIP : 3 classes pour N° 1 et 2 et 3 classes pour n° 3 et 4\n-120-130 choristes des écoles de musique (CPMdT, IJD et CMG) + 2 classes du DIP. Le choeur est sonorisé.\nOrdre du concert :\n-Tchouka\n-Le Petit Tailleur tableaux I à III\n-changement d'orchestres en classe\n-Le Petit Tailleur tableaux IV à VI\n-Djia"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 42",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Festival Montpellier\nGale matin sur place confirmée le 27.08.26 au téléphone (SR)\nAttention :\n-effectif Carnaval romain + Lac des Cygnes strictement identique à la Liste 30\n-effectif concerto Rachmaninov le plus possible identique à la Liste 31"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste A",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "captation vidéo en construction : Bel Air Media pour Mezzo et Opera Vision (en cours Alain Perroux)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste B",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "production Barrie KOSKY\nmusical avec sonorisation (orchestre et chanteurs)\n-A la charge du GT : 1 supplément ob1 jouant le ca, 1 tuttiste cello et 7 extra en fosse et faisant partie de la production avec leurs instruments (4 reeds, 1 batterie. 1 synthé et 1 guitare)\n-A la charge OSR : 0100 / 2320 / 1000 // 3.3.3.3.3\n-2 lectures de 3h au lieu de 3 de 2.5h (vu GT 31.10.25)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste C",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Attention : 1 seul entracte IMPERATIF\nprojet de captation vidéo Les Noces sous les Etoiles\nDurée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\nPas de demande de cors ni trompettes naturelles (vérif.27.08.26)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste D",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste E",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "-Version réduite Ettore Panizza\n-En attente de la nomination du chef suite au décès d'Antonino Fogliani le 29 août 2026"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste F",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "-1 ballet unique sans entracte\n-orchestre en fosse, piano et voix en scène (sonorisées)\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat)\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste G",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "VERSION CONCERT OU SEMI STAGE AU VH"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 1",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Ivy Wong\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "-Mention obligatoire : les partitions des oeuvres de Rita Strohl ont été éditées et mises à disposition par le Palazzetto Bru Zane - Centre de musique romantique\nfrançaise\n-Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Caroline Bariswyl\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 3",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Elçim Özdemir\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 4",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Lucas Henry\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 5",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Sarah Rumer\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 6",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Andrea Bandini\n-10h30 : ouverture des portes\n-régie SFL"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-10-08T13:40:58.418Z",
    "added": [
     {
