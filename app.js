@@ -147,6 +147,7 @@ const RECENT_DAYS = 14
 const state = {
   events: [],
   changes: [],
+  modifsFilter: null,
   productions: {}, // Liste → { chef, solistes, effectif, duree, info, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
@@ -2171,14 +2172,36 @@ const MODIFS_LEGEND = [
   ["concours-defini", "Concours défini"],
 ]
 
+// Type d'un élément .change-item, au sens de la légende ci-dessus.
+function changeItemKind(item) {
+  for (const [cls] of MODIFS_LEGEND)
+    if (cls !== "modified" && item.classList.contains(cls)) return cls
+  return "modified"
+}
+
+// Filtre de la vue Modifs (demande #213) : un clic sur un type de la légende
+// n'affiche que ce type, un second clic le désactive. Volontairement non
+// mémorisé : on retrouve toujours la liste complète en rouvrant l'onglet.
 function modifsLegend() {
   return el(
     "div",
     { class: "modifs-legend" },
     ...MODIFS_LEGEND.map(([cls, label]) =>
       el(
-        "span",
-        { class: "modifs-legend-item" },
+        "button",
+        {
+          type: "button",
+          class: `modifs-legend-item${state.modifsFilter === cls ? " active" : ""}`,
+          "aria-pressed": state.modifsFilter === cls ? "true" : "false",
+          title:
+            state.modifsFilter === cls
+              ? "Cliquer pour tout réafficher"
+              : `N'afficher que : ${label}`,
+          onclick: () => {
+            state.modifsFilter = state.modifsFilter === cls ? null : cls
+            renderContent()
+          },
+        },
         el("span", { class: `modifs-legend-swatch ${cls}` }),
         " ",
         label,
@@ -2206,6 +2229,11 @@ function renderModifs(main) {
     const box =
       entry.type === "memo" ? memoEntryBox(entry) : planningEntryBox(entry)
     if (!box) continue
+    if (state.modifsFilter) {
+      for (const item of box.querySelectorAll(".change-item"))
+        if (changeItemKind(item) !== state.modifsFilter) item.remove()
+      if (!box.querySelector(".change-item")) continue
+    }
     main.append(box)
     shown = true
   }
@@ -2213,7 +2241,15 @@ function renderModifs(main) {
   // Tous les relevés ne contenaient que des modifs mineures, filtrées (issue
   // #178), ou ne concernant que des événements déjà passés (#184) : le dire
   // plutôt que de laisser la page vide.
-  if (!shown)
+  if (!shown && state.modifsFilter)
+    main.append(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "Aucune modification de ce type récemment. Clique à nouveau sur le type choisi pour tout réafficher.",
+      ),
+    )
+  else if (!shown)
     main.append(
       el(
         "p",
@@ -3266,6 +3302,7 @@ function renderInstall() {
 
 function setView(view) {
   state.view = view
+  state.modifsFilter = null
   localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
@@ -3276,6 +3313,8 @@ function setView(view) {
   // fallait redéfiler manuellement après être passé par un autre onglet
   // (ex. Modifications).
   if (view === "grille" || view === "document") scrollToToday()
+  // Les modifications les plus récentes sont tout en haut de la liste (#213).
+  else window.scrollTo({ top: 0 })
 }
 
 const VIEW_LABELS = {
