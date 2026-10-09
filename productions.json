@@ -857,8 +857,9 @@
    "Talia OR, soprano",
    "Susanne SCHIMMACK, mezzo-soprano",
    "Anicio ZORZI GIUSTINIANI, ténor",
-   "Ivan THIRION, baryton",
-   "Etudiant·es du Département Vocal de la HEM, chœur"
+   "André MORSCH, baryton",
+   "Etudiant·es du Département Vocal de la HEM, chœur",
+   "Ivan THIRION, baryton (annulé / maladie)"
   ],
   "serviceWorks": {
    "osr233622": [
@@ -1350,18 +1351,18 @@
   }
  },
  "Liste 18": {
-  "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1 (hrp=coach OdCG prise en charge OSR)\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4 ou 6.6.4.4.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 ou 16.16.8.10.6 à confirmer (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+  "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
   "duree": "≈ 37 min",
   "works": [
    {
     "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
-    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20*.20.8.14.6",
-    "remarques": "ou 16.16.8.10.6 à confirmer",
+    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20.20.8.14.6",
+    "remarques": "fl2&3+picc-OdCG, 1ca-OSR, 1cl.bs-OdCG, bugle=orch.du collège",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
-    "detail": "Bugle peut être joué par trp 1, 2 ou 3",
+    "detail": "bugle peut être joué par trp 1, 2 ou 3",
     "note": "\ncoupure : n°7 L'Homme entre deux âges et ses deux maîtresses",
     "duree": "≈ 37 min"
    }
@@ -1378,8 +1379,8 @@
    ]
   },
   "serviceNotes": {
-   "osr206164": "service payé : 1.1.1.1 / 1.1.1.1 / 1.0.0.0 // 1.1.1.1.1",
-   "osr132934": "-à l'étude : doubler le concert avec une première séance à 9h15 sur un seul service de 3"
+   "osr206164": "service payé : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
+   "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler"
   }
  },
  "Musique De Chambre 2": {
@@ -1500,30 +1501,24 @@
   }
  },
  "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV / RTS en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
-  "chef": "NN",
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
+  "chef": "Alexandre MASTRANGELO",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
   "duree": "≈ 1 h 35",
   "works": [
    {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
+    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
     "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
     "remarques": "4 contrebasses dont 1 acoustique+électrique",
     "percussions": "perc.en construct., drumset",
     "claviers": "piano+synthétiseur",
     "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells (+scolaires)\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
     "duree": "≈ 1 h 15"
    }
   ],
   "solistes": [
-   "NN1, choriste gospel soprano",
-   "NN2, choriste gospel soprano",
-   "Matt DUSK, jazz vocalist",
-   "NN3, choriste gospel alto",
-   "NN4, choriste gospel alto",
-   "NN5, choriste gospel ténor",
-   "NN6, choriste gospel ténor"
+   "Matt DUSK, jazz vocalist"
   ]
  },
  "Liste 21": {
@@ -1875,7 +1870,7 @@
   },
   "serviceNotes": {
    "osr133322": "option pour amis OSR (emchères) assis dans l'orchestre x2",
-   "osr133323": "option pour amis OSR (emchères) assis dans l'orchestre x2",
+   "osr133323": ":M.Inaudi assis dans l'orchestre x2 pour amis OSR (enchères)",
    "osr133329": "ouvrage sans captation radio"
   }
  },

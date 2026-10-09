@@ -1,6 +1,77 @@
 {
  "entries": [
   {
+   "at": "2026-10-09T19:26:25.980Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 10",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Talia OR, soprano · Susanne SCHIMMACK, mezzo-soprano · Anicio ZORZI GIUSTINIANI, ténor · Ivan THIRION, baryton · Etudiant·es du Département Vocal de la HEM, chœur",
+       "after": "Talia OR, soprano · Susanne SCHIMMACK, mezzo-soprano · Anicio ZORZI GIUSTINIANI, ténor · André MORSCH, baryton · Etudiant·es du Département Vocal de la HEM, chœur · Ivan THIRION, baryton (annulé / maladie)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1 (hrp=coach OdCG prise en charge OSR)\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4 ou 6.6.4.4.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 ou 16.16.8.10.6 à confirmer (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+       "after": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+       "fields": [
+        "instrumentation",
+        "remarques",
+        "detail"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "NN",
+       "after": "Alexandre MASTRANGELO"
+      },
+      {
+       "field": "info",
+       "before": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV / RTS en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
+       "after": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp"
+      },
+      {
+       "field": "solistes",
+       "before": "NN1, choriste gospel soprano · NN2, choriste gospel soprano · Matt DUSK, jazz vocalist · NN3, choriste gospel alto · NN4, choriste gospel alto · NN5, choriste gospel ténor · NN6, choriste gospel ténor",
+       "after": "Matt DUSK, jazz vocalist"
+      }
+     ],
+     "worksAdded": [
+      "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk"
+     ],
+     "worksRemoved": [
+      "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-10-09T15:14:30.722Z",
    "added": [],
    "removed": [],
