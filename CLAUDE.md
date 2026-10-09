@@ -380,6 +380,21 @@ l'appliquer et le merger lui-même — c'est lui qui a la permission `workflows`
 main par Ivan ; idem #102). Le reste du travail (le raisonnement, les tests hors
 CI, la description) reste à la charge de Claude.
 
+**La logique va dans `scripts/`, le YAML ne fait qu'appeler.** Pour que la
+plupart des corrections échappent à cette restriction, un workflow ne garde que
+ce qui ne peut pas en sortir : déclencheurs, permissions, secrets, groupe de
+concurrence, publication (`peaceiris/actions-gh-pages`). Tout le reste vit dans
+un script Node versionné, que le bot corrige par une PR ordinaire. C'est le cas
+des crons de données : `update-data.yml` et `update-memo.yml` se contentent de
+lancer `node scripts/cron.mjs run|alert planning|memo`, qui récupère l'état
+servi sur `gh-pages`, régénère, détecte un changement, prépare `out/` et ouvre
+l'issue d'alerte. Avant ce découpage, une ligne manquante dans
+`update-data.yml` a privé pendant trois mois le calendrier abonné du mémo à
+jour, et le correctif, diagnostiqué en une minute sur #210, a attendu Ivan 18 h
+(#215). Face à un bug de cron, **corriger d'abord `scripts/cron.mjs`** ; ne
+recourir au diff de workflow que si le changement touche vraiment au YAML. En
+ajoutant ou modifiant un workflow, suivre le même principe.
+
 **Modèles des workflows Claude : des alias, pas des identifiants figés.** Les
 workflows passent `--model sonnet` (demandes, CI, conflits) ou `--model opus`
 (revue hebdomadaire). Ces alias de Claude Code suivent automatiquement les
