@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-08T13:40:58.418Z",
+ "updatedAt": "2026-10-09T15:14:30.722Z",
  "count": 637,
  "events": [
   {
@@ -3293,7 +3293,7 @@
   },
   {
    "uid": "osr162114",
-   "start": "2026-12-21T15:00",
+   "start": "2026-12-21T14:30",
    "end": "2026-12-21T17:30",
    "liste": "Liste 20",
    "activity": "répétition avec soliste (Matt Dusk)",
@@ -3305,7 +3305,7 @@
   {
    "uid": "osr162115",
    "start": "2026-12-21T19:30",
-   "end": "2026-12-21T22:15",
+   "end": "2026-12-21T22:30",
    "liste": "Liste 20",
    "activity": "générale non publique (Matt Dusk)",
    "category": "generale",

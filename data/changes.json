@@ -1,6 +1,69 @@
 {
  "entries": [
   {
+   "at": "2026-10-09T15:14:30.722Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr162114",
+     "fields": [
+      "start"
+     ],
+     "before": {
+      "uid": "osr162114",
+      "start": "2026-12-21T15:00",
+      "end": "2026-12-21T17:30",
+      "liste": "Liste 20",
+      "activity": "répétition avec soliste (Matt Dusk)",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162114",
+      "start": "2026-12-21T14:30",
+      "end": "2026-12-21T17:30",
+      "liste": "Liste 20",
+      "activity": "répétition avec soliste (Matt Dusk)",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162115",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr162115",
+      "start": "2026-12-21T19:30",
+      "end": "2026-12-21T22:15",
+      "liste": "Liste 20",
+      "activity": "générale non publique (Matt Dusk)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162115",
+      "start": "2026-12-21T19:30",
+      "end": "2026-12-21T22:30",
+      "liste": "Liste 20",
+      "activity": "générale non publique (Matt Dusk)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-09T11:31:30.978Z",
    "type": "memo",
    "programs": [
