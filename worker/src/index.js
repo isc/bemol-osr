@@ -474,12 +474,115 @@ export default {
     return handleIcs(request, env, url)
   },
 
-  // Cron Cloudflare (cf. wrangler.toml [triggers]) : compare la dernière
-  // entrée traitée de data/changes.json aux profils enregistrés et envoie une
-  // notification groupée (jamais de rafale) par abonné concerné.
+  // Cron Cloudflare (cf. wrangler.toml [triggers]), deux tâches
+  // indépendantes (l'échec de l'une n'empêche pas l'autre) :
+  // - compare la dernière entrée traitée de data/changes.json aux profils
+  //   enregistrés et envoie une notification groupée (jamais de rafale) par
+  //   abonné concerné ;
+  // - lance à l'heure les crons de données de GitHub (cf. dispatchWorkflows).
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(runScheduled(env))
+    ctx.waitUntil(
+      Promise.allSettled([
+        runScheduled(env),
+        dispatchWorkflows(env, event.scheduledTime),
+      ]),
+    )
   },
+}
+
+// --- Déclenchement des crons de données GitHub ------------------------------
+//
+// GitHub ne tient pas ses horaires : programmé toutes les 2 h (12 passages
+// par jour), update-data.yml ne passait plus que 3 ou 4 fois par jour début
+// octobre 2026 (6,9 h d'écart en moyenne, jusqu'à 8,8 h ; cf. revue #203).
+// Un service déplacé pouvait donc mettre 9 h à atteindre l'app, l'agenda
+// abonné et les notifications. Le cron de ce worker, lui, est ponctuel : il
+// lance donc lui-même les workflows par l'API GitHub. Les `schedule` de
+// GitHub restent en place comme filet de sécurité ; un passage en double ne
+// coûte rien (file `queue: max` du groupe gh-pages, cf. CLAUDE.md).
+//
+// Jeton : secret GH_DISPATCH_TOKEN, jeton GitHub « fine-grained » limité au
+// dépôt, avec la seule permission Actions en lecture/écriture (lancer un
+// workflow ; aucun accès au code ni aux secrets). Sans lui, rien n'est lancé.
+
+const GITHUB_REPO = "isc/bemol-osr"
+
+// Workflows à lancer pour un réveil du cron (toutes les 15 min, à :00, :15,
+// :30, :45). En heure UTC, comme les `schedule` de GitHub.
+export function workflowsToDispatch(time) {
+  const d = new Date(time)
+  const h = d.getUTCHours()
+  const m = d.getUTCMinutes()
+  const due = []
+  // Toutes les 2 h, au premier réveil de chaque heure paire.
+  if (h % 2 === 0 && m < 15) due.push("update-data.yml")
+  // Le mémo une fois par nuit, au réveil de 4 h 45 UTC (même créneau que le
+  // `schedule` de update-memo.yml) : on reste courtois avec le mini-site
+  // Dièse, qui génère le PDF côté serveur.
+  if (h === 4 && m >= 45) due.push("update-memo.yml")
+  return due
+}
+
+// Renvoie les verdicts des lancements tentés (aussi enregistrés dans le KV
+// pour le Diagnostic). Jamais d'exception : le cron des notifications tourne
+// à côté.
+export async function dispatchWorkflows(env, time) {
+  if (!env.GH_DISPATCH_TOKEN) return []
+  const outcomes = []
+  for (const workflow of workflowsToDispatch(time))
+    outcomes.push({ workflow, ...(await dispatchWorkflow(env, workflow)) })
+  if (outcomes.length) await recordDispatch(env, outcomes)
+  return outcomes
+}
+
+async function dispatchWorkflow(env, workflow) {
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/${workflow}/dispatches`,
+      {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
+          accept: "application/vnd.github+json",
+          "x-github-api-version": "2022-11-28",
+          // L'API GitHub refuse toute requête sans User-Agent.
+          "user-agent": "bemol-calendrier (worker Cloudflare)",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ ref: "main" }),
+      },
+    )
+    // Succès : 204 No Content.
+    if (res.ok) return { kind: "sent", status: res.status }
+    let reason = ""
+    try {
+      reason = (await res.text()).slice(0, 300)
+    } catch {}
+    console.error(
+      `lancement de ${workflow} : HTTP ${res.status}${reason ? ` — ${reason}` : ""}`,
+    )
+    return { kind: "failed", status: res.status, reason: reason || undefined }
+  } catch (err) {
+    console.error(`lancement de ${workflow} en échec :`, err)
+    return { kind: "failed", error: err?.name || "exception" }
+  }
+}
+
+// Verdicts relus par le workflow « Diagnostic notifications » : un jeton
+// expiré ou révoqué ne doit pas faire retomber en silence sur les seuls
+// `schedule` de GitHub.
+async function recordDispatch(env, outcomes) {
+  const at = new Date().toISOString()
+  await env.NOTIF_PROFILES.put(
+    "dispatch-stats:last",
+    JSON.stringify({ at, outcomes }),
+  )
+  const totals = (await env.NOTIF_PROFILES.get(
+    "dispatch-stats:totals",
+    "json",
+  )) || { sent: 0, failed: 0, since: at }
+  for (const { kind } of outcomes) totals[kind] = (totals[kind] || 0) + 1
+  await env.NOTIF_PROFILES.put("dispatch-stats:totals", JSON.stringify(totals))
 }
 
 async function runScheduled(env) {
