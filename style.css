@@ -863,7 +863,7 @@ table.week td.repos:not(.today) {
 }
 .modifs-legend-item.active {
   border-color: var(--text-muted);
-  background: var(--surface, rgba(128, 128, 128, 0.15));
+  background: var(--surface-alt);
   color: var(--text);
   font-weight: 600;
 }
