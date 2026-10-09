@@ -364,9 +364,12 @@ function normalizeSearch(s) {
 // • Les JOURS FÉRIÉS sont CALCULÉS (fêtes fixes + fêtes mobiles dérivées de
 //   Pâques) : fiables pour n'importe quelle saison, rien à maintenir.
 // • Les VACANCES SCOLAIRES n'obéissent à aucune règle simple : leurs dates
-//   sont SAISIES À LA MAIN ci-dessous, à revérifier/compléter chaque saison
-//   (sources : DIP Genève / ge.ch, État de Vaud / vd.ch et education.gouv.fr
-//   pour la zone A).
+//   sont SAISIES À LA MAIN ci-dessous, depuis les sources officielles :
+//   ge.ch (Genève), le calendrier .ics de vd.ch (Vaud) et, pour la zone A, le
+//   jeu de données « Calendrier scolaire » du ministère de l'Éducation
+//   nationale (data.education.gouv.fr ; la page education.gouv.fr bloque les
+//   accès automatisés). Toutes revérifiées ligne à ligne le 09/10/2026 (#203).
+//   À prolonger quand une source publie la suite.
 //
 // Une région vaut "GE" (Genève), "VD" (Vaud) ou "FR" (France voisine, zone A).
 const REGION_LABEL = {
@@ -379,16 +382,40 @@ const REGIONS = Object.keys(REGION_LABEL)
 
 // Vacances scolaires, en jours calendaires INCLUS (week-ends compris) : `start`
 // = premier jour sans école, `end` = dernier jour sans école (veille de la
-// reprise). Format "AAAA-MM-JJ". À vérifier à chaque nouvelle saison.
+// reprise). Les sources ne donnent souvent que les jours de semaine (« du lundi
+// 19 au vendredi 23 octobre ») : on y ajoute les week-ends attenants. Les ponts
+// (Ascension, Jeûne genevois) restent limités à leurs deux jours, comme dans le
+// calendrier vaudois. Format "AAAA-MM-JJ".
 const VACANCES_SCOLAIRES = [
-  // Genève — saison 2026-2027 (source : DIP / ge.ch)
+  // Genève — source : ge.ch, une page par année scolaire
+  // (www.ge.ch/vacances-scolaires-jours-feries/vacances-scolaires-2026-2027…),
+  // publiées jusqu'en 2029-2030.
   { region: "GE", nom: "Automne", start: "2026-10-17", end: "2026-10-25" },
   { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
   { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
-  { region: "GE", nom: "Pâques", start: "2027-03-27", end: "2027-04-11" },
-  // Vaud — source : calendrier officiel de l'État de Vaud (vd.ch), publié
-  // jusqu'en 2030-2031 : contrairement à GE/FR, pas besoin de le revérifier
-  // chaque saison, seulement de le prolonger quand vd.ch publie la suite.
+  { region: "GE", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
+  { region: "GE", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "GE", nom: "Jeûne", start: "2027-09-09", end: "2027-09-10" },
+  { region: "GE", nom: "Automne", start: "2027-10-23", end: "2027-10-31" },
+  { region: "GE", nom: "Fin d'année", start: "2027-12-24", end: "2028-01-09" },
+  { region: "GE", nom: "Février", start: "2028-02-19", end: "2028-02-27" },
+  { region: "GE", nom: "Pâques", start: "2028-04-13", end: "2028-04-23" },
+  { region: "GE", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "GE", nom: "Jeûne", start: "2028-09-07", end: "2028-09-08" },
+  { region: "GE", nom: "Automne", start: "2028-10-21", end: "2028-10-29" },
+  { region: "GE", nom: "Fin d'année", start: "2028-12-23", end: "2029-01-07" },
+  { region: "GE", nom: "Février", start: "2029-02-17", end: "2029-02-25" },
+  { region: "GE", nom: "Pâques", start: "2029-03-29", end: "2029-04-08" },
+  { region: "GE", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "GE", nom: "Jeûne", start: "2029-09-06", end: "2029-09-07" },
+  { region: "GE", nom: "Automne", start: "2029-10-20", end: "2029-10-28" },
+  { region: "GE", nom: "Fin d'année", start: "2029-12-22", end: "2030-01-06" },
+  { region: "GE", nom: "Février", start: "2030-02-23", end: "2030-03-03" },
+  { region: "GE", nom: "Pâques", start: "2030-04-18", end: "2030-04-28" },
+  { region: "GE", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  // Vaud — source : calendrier officiel de l'État de Vaud, fichier .ics publié
+  // sur www.vd.ch/vacances (vacances_scolaires_vd_2023_2031.ics), jusqu'en
+  // 2030-2031.
   { region: "VD", nom: "Automne", start: "2026-10-10", end: "2026-10-25" },
   { region: "VD", nom: "Hiver", start: "2026-12-24", end: "2027-01-10" },
   { region: "VD", nom: "Relâches", start: "2027-02-06", end: "2027-02-14" },
@@ -413,25 +440,36 @@ const VACANCES_SCOLAIRES = [
   { region: "VD", nom: "Hiver", start: "2030-12-21", end: "2031-01-05" },
   { region: "VD", nom: "Relâches", start: "2031-02-15", end: "2031-02-23" },
   { region: "VD", nom: "Pâques", start: "2031-04-11", end: "2031-04-27" },
-  // France voisine, zone A — saison 2026-2027 (source : education.gouv.fr)
+  { region: "VD", nom: "Ascension", start: "2031-05-22", end: "2031-05-23" },
+  // France voisine, zone A — source : data.education.gouv.fr, jeu de données
+  // « Calendrier scolaire » (académies de Lyon, Grenoble, Clermont-Ferrand),
+  // publié jusqu'en 2027-2028. Ponts de l'Ascension non saisis (cf. #203).
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
   { region: "FR", nom: "Hiver", start: "2027-02-13", end: "2027-02-28" },
   { region: "FR", nom: "Printemps", start: "2027-04-10", end: "2027-04-25" },
+  { region: "FR", nom: "Toussaint", start: "2027-10-23", end: "2027-11-07" },
+  { region: "FR", nom: "Noël", start: "2027-12-18", end: "2028-01-02" },
+  { region: "FR", nom: "Hiver", start: "2028-02-19", end: "2028-03-05" },
+  { region: "FR", nom: "Printemps", start: "2028-04-22", end: "2028-05-08" },
 ]
 
 // Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
-// jour par région, SAISI À LA MAIN comme les vacances (aucune règle simple), à
-// revérifier/compléter chaque saison (sources : DIP Genève / ge.ch, État de
-// Vaud / vd.ch et education.gouv.fr pour la zone A). Format "AAAA-MM-JJ".
+// jour par région, SAISI À LA MAIN comme les vacances (aucune règle simple),
+// mêmes sources que VACANCES_SCOLAIRES. Format "AAAA-MM-JJ".
 const RENTREES = [
   { region: "GE", date: "2026-08-17" }, // Genève — lundi 17 août 2026
+  { region: "GE", date: "2027-08-26" }, // Genève — jeudi 26 août 2027
+  { region: "GE", date: "2028-08-24" }, // Genève — jeudi 24 août 2028
+  { region: "GE", date: "2029-08-23" }, // Genève — jeudi 23 août 2029
+  { region: "GE", date: "2030-08-22" }, // Genève — jeudi 22 août 2030
   { region: "VD", date: "2026-08-17" }, // Vaud — lundi 17 août 2026
   { region: "VD", date: "2027-08-23" }, // Vaud — lundi 23 août 2027
   { region: "VD", date: "2028-08-21" }, // Vaud — lundi 21 août 2028
   { region: "VD", date: "2029-08-20" }, // Vaud — lundi 20 août 2029
   { region: "VD", date: "2030-08-26" }, // Vaud — lundi 26 août 2030
   { region: "FR", date: "2026-09-01" }, // France zone A — mardi 1er septembre 2026
+  { region: "FR", date: "2027-09-02" }, // France zone A — jeudi 2 septembre 2027
 ]
 
 // Week-ends de repos officiels de l'orchestre, repris du « tableau de service »
@@ -1429,6 +1467,7 @@ function vacancesRow(region, days) {
     while (j < days.length && !isRentree[j] && noms[j] === noms[i]) j++
     const span = j - i
     const nom = noms[i]
+    const key = localKey(days[i])
     if (nom) {
       row.append(
         el(
@@ -1439,7 +1478,7 @@ function vacancesRow(region, days) {
             {
               class: "vac-band",
               title: `Vacances scolaires · ${REGION_LABEL[region]} : ${nom}`,
-              onclick: () => showVacance(region, nom),
+              onclick: () => showVacance(region, key),
             },
             nom,
           ),
@@ -1508,12 +1547,16 @@ function showRepos(sat, sun) {
   )
 }
 
-function showVacance(region, nom) {
-  const v = VACANCES_SCOLAIRES.find((x) => x.region === region && x.nom === nom)
+// `key` : un jour ("AAAA-MM-JJ") de la période touchée. Un même nom revient
+// chaque année (« Automne »…) : c'est ce jour qui désigne la bonne période.
+function showVacance(region, key) {
+  const v = VACANCES_SCOLAIRES.find(
+    (x) => x.region === region && key >= x.start && key <= x.end,
+  )
   showHolidayDialog(
     "Vacances scolaires",
-    el("h2", {}, `${nom} — ${REGION_LABEL[region]}`),
-    v ? el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))) : null,
+    el("h2", {}, `${v.nom} — ${REGION_LABEL[region]}`),
+    el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))),
   )
 }
 
