@@ -7,8 +7,7 @@ name: Mise à jour des données ICS
 # les données vivantes n'existent que sur gh-pages ; main garde un simple
 # instantané de data/ pour le dev local et le smoke test.
 #
-# L'état précédent des données est récupéré depuis gh-pages avant de lancer le
-# script, pour que le journal des différences (changes.json) reste continu.
+# Les étapes elles-mêmes sont dans scripts/cron.mjs (cf. son en-tête).
 
 on:
   schedule:
@@ -47,65 +46,28 @@ jobs:
         with:
           node-version: 22
 
-      # Les données de référence (pour le diff) sont celles actuellement
-      # servies, pas l'instantané de main.
-      - name: Récupérer les données actuelles depuis gh-pages
-        id: current
-        run: |
-          git fetch -q origin gh-pages
-          if git checkout -q FETCH_HEAD -- data/; then
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "gh-pages sans data/ (premier run, ou publication précédente incomplète)"
-          fi
-          # Le calendrier .ics s'appuie sur le mémo de production : prendre la
-          # version vivante de gh-pages, pas l'instantané périmé de main.
-          git checkout -q FETCH_HEAD -- productions.json || echo "gh-pages sans productions.json"
-
-      - name: Récupérer et convertir l'ICS
+      # Toute la logique (récupérer l'état servi sur gh-pages, régénérer,
+      # détecter un changement, préparer out/) est dans scripts/cron.mjs : elle
+      # se corrige par une PR ordinaire, sans toucher à ce fichier.
+      - name: Régénérer le planning
+        id: run
         env:
           ICS_URL: ${{ secrets.ICS_URL }}
-        run: node scripts/update-data.mjs
+        run: node scripts/cron.mjs run planning
 
-      # Si gh-pages n'avait pas encore de data/ (cf. étape précédente), on
-      # publie toujours : comparer au `git diff` par défaut reviendrait à
-      # comparer au seul instantané de main, qui peut coïncider par hasard
-      # avec le résultat frais et laisser gh-pages sans données.
-      - name: Détecter un changement
-        id: diff
-        run: |
-          if [ "${{ steps.current.outputs.found }}" = "false" ] || ! git diff --quiet -- data/; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Aucun changement de planning."
-          fi
-
-      - name: Publier les données (gh-pages/data)
-        if: steps.diff.outputs.changed == 'true'
+      - name: Publier les données (gh-pages)
+        if: steps.run.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./data
-          destination_dir: data
+          publish_dir: ./out
           publish_branch: gh-pages
           keep_files: true
           commit_message: "data: mise à jour du planning ICS"
 
       # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
       # échoue (jeton ICS invalide, changement côté Dièse, incident GitHub…),
-      # on ouvre une issue — donc une notification. Les échecs suivants
-      # commentent la même issue tant qu'elle est ouverte ; la refermer une
-      # fois le problème réglé.
-      #
-      # Le cron tourne toutes les 2 h : une panne externe longue (cf. #98, ~24 h
-      # d'indisponibilité de l'export Dièse) produirait un commentaire toutes
-      # les 2 h alors que le diagnostic ne change plus. On espace donc les
-      # rappels : on ne reposte que si le dernier message de l'issue (son
-      # dernier commentaire, ou sa création s'il n'y en a pas encore) date de
-      # plus de MIN_HOURS_BETWEEN_COMMENTS. L'échec reste de toute façon
-      # visible dans l'onglet Actions.
+      # on ouvre une issue — donc une notification (cf. scripts/cron.mjs).
       #
       # failure() seul rate un run interrompu APRÈS son démarrage (dépassement
       # du timeout-minutes ci-dessus, annulation manuelle) : sa conclusion est
@@ -115,32 +77,4 @@ jobs:
         if: ${{ failure() || cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TITLE: "⚠️ La mise à jour automatique du planning ICS échoue"
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          MIN_HOURS_BETWEEN_COMMENTS: 6
-        run: |
-          num=$(gh issue list -R "${{ github.repository }}" --state open \
-            --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
-          if [ -n "$num" ]; then
-            # En cas de doute (API muette, date illisible), last_ts vaut 0 et on
-            # commente : rater une alerte est pire qu'un commentaire de trop.
-            last=$(gh issue view "$num" -R "${{ github.repository }}" \
-              --json comments,createdAt --jq '.comments[-1].createdAt // .createdAt' || true)
-            last_ts=$(date -u -d "${last:-@0}" +%s 2>/dev/null || echo 0)
-            elapsed_hours=$(( ($(date -u +%s) - last_ts) / 3600 ))
-            if [ "$elapsed_hours" -ge "$MIN_HOURS_BETWEEN_COMMENTS" ]; then
-              gh issue comment "$num" -R "${{ github.repository }}" \
-                --body "Nouvel échec du cron : $RUN_URL"
-            else
-              echo "Dernier message de l'issue #$num il y a $elapsed_hours h (< $MIN_HOURS_BETWEEN_COMMENTS h) : pas de nouveau commentaire."
-            fi
-          else
-            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
-              "Le robot qui actualise le planning (toutes les 2 h depuis l'export ICS de Dièse) vient d'échouer : $RUN_URL
-
-          Tant que ce problème dure, le site continue de fonctionner mais affiche des données de plus en plus anciennes (un bandeau d'avertissement apparaît dans l'app au-delà de 26 h).
-
-          Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
-
-          cc @isc"
-          fi
+        run: node scripts/cron.mjs alert planning

@@ -7,7 +7,8 @@ name: Mise à jour du mémo de production
 # update-data.yml : main ne contient que du code + un instantané des données).
 #
 # Le script journalise aussi les évolutions du mémo dans data/changes.json,
-# d'où la publication des deux fichiers.
+# d'où la publication des deux fichiers. Les étapes elles-mêmes sont dans
+# scripts/cron.mjs (cf. son en-tête).
 
 on:
   schedule:
@@ -48,47 +49,15 @@ jobs:
       - name: Installer pdftotext
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
 
-      # L'état de référence (comparaison d'idempotence + journal des modifs)
-      # est celui actuellement servi, pas l'instantané de main.
-      - name: Récupérer les données actuelles depuis gh-pages
-        id: current
-        run: |
-          git fetch -q origin gh-pages
-          if git checkout -q FETCH_HEAD -- productions.json data/; then
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "found=false" >> "$GITHUB_OUTPUT"
-            echo "gh-pages incomplet (premier run, ou publication précédente incomplète)"
-          fi
-
+      # Toute la logique (récupérer l'état servi sur gh-pages, régénérer,
+      # détecter un changement, préparer out/) est dans scripts/cron.mjs : elle
+      # se corrige par une PR ordinaire, sans toucher à ce fichier.
       - name: Régénérer productions.json
-        run: node scripts/update-memo.mjs
-
-      # Si gh-pages n'avait pas encore productions.json / data/ (cf. étape
-      # précédente), on publie toujours : comparer au `git diff` par défaut
-      # reviendrait à comparer au seul instantané de main, qui peut coïncider
-      # par hasard avec le résultat frais et laisser gh-pages sans données.
-      - name: Détecter un changement
-        id: diff
-        run: |
-          if [ "${{ steps.current.outputs.found }}" = "false" ] || ! git diff --quiet -- productions.json data/; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Mémo inchangé."
-          fi
-
-      # On publie uniquement les fichiers générés, via un dossier de mise en
-      # scène (keep_files préserve tout le reste de gh-pages).
-      - name: Préparer les fichiers à publier
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          mkdir -p out/data
-          cp productions.json out/
-          cp data/changes.json out/data/
+        id: run
+        run: node scripts/cron.mjs run memo
 
       - name: Publier le mémo (gh-pages)
-        if: steps.diff.outputs.changed == 'true'
+        if: steps.run.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -99,8 +68,7 @@ jobs:
 
       # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
       # échoue (mini-site Dièse modifié, parsing cassé…), on ouvre une issue —
-      # donc une notification. Les échecs suivants commentent la même issue
-      # tant qu'elle est ouverte ; la refermer une fois le problème réglé.
+      # donc une notification (cf. scripts/cron.mjs).
       #
       # failure() seul rate un run interrompu APRÈS son démarrage (dépassement
       # du timeout-minutes ci-dessus, annulation manuelle) : sa conclusion est
@@ -110,21 +78,4 @@ jobs:
         if: ${{ failure() || cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TITLE: "⚠️ La mise à jour automatique du mémo de production échoue"
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          num=$(gh issue list -R "${{ github.repository }}" --state open \
-            --search "\"$TITLE\" in:title" --json number --jq '.[0].number')
-          if [ -n "$num" ]; then
-            gh issue comment "$num" -R "${{ github.repository }}" \
-              --body "Nouvel échec du cron : $RUN_URL"
-          else
-            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
-              "Le robot qui actualise le mémo de production (une fois par nuit depuis le mini-site Dièse) vient d'échouer : $RUN_URL
-
-          Le site continue de fonctionner : seules les infos de production (chef, solistes, œuvres, instrumentation) cessent d'être actualisées.
-
-          Causes possibles : changement du mini-site Dièse (URL, format du PDF), garde-fou du parseur déclenché (moins de 20 fiches), incident GitHub. Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
-
-          cc @isc"
-          fi
+        run: node scripts/cron.mjs alert memo
