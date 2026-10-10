@@ -1150,6 +1150,7 @@ dialog h2 {
 
 .detail-box .chef,
 .detail-box .info-generale,
+.detail-box .contraires,
 .detail-box .effectif,
 .detail-box .duree {
   margin: 0;
@@ -2112,4 +2113,10 @@ header {
 
 footer {
   padding-bottom: calc(24px + env(safe-area-inset-bottom));
+}
+
+/* Série contraire / annuelle (info clé du mémo, issue #219). */
+.detail-box .contraires {
+  margin: 0;
+  font-weight: 600;
 }
