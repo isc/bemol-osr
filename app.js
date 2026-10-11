@@ -148,7 +148,7 @@ const state = {
   events: [],
   changes: [],
   modifsFilter: null,
-  productions: {}, // Liste → { chef, solistes, effectif, duree, info, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -1219,6 +1219,12 @@ function productionDetail(liste) {
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
   const nodes = []
+  if (prod.contraires) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Séries contraires"),
+      el("p", { class: "contraires" }, prod.contraires),
+    )
+  }
   if (prod.chef) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Direction musicale"),
@@ -2037,6 +2043,7 @@ const MEMO_FIELD_LABELS = {
   effectif: "effectif",
   duree: "durée",
   info: "information générale",
+  contraires: "séries contraires",
   solistes: "solistes",
 }
 
