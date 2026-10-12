@@ -907,7 +907,7 @@
   "serviceNotes": {
    "osr225315": "avec pianiste HEM",
    "osr132805": "avec le choeur pour la 1ère heure",
-   "osr132808": "-réception ONU après concert sur invitation / cercles des Bains."
+   "osr132808": "-blocage loge 18"
   }
  },
  "Liste 11": {
@@ -1362,7 +1362,7 @@
   }
  },
  "Liste 18": {
-  "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+  "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
   "contraires": "contraire liste C",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
@@ -1887,7 +1887,6 @@
    ]
   },
   "serviceNotes": {
-   "osr133322": "option pour amis OSR (emchères) assis dans l'orchestre x2",
    "osr133323": ":M.Inaudi assis dans l'orchestre x2 pour amis OSR (enchères)",
    "osr133329": "ouvrage sans captation radio"
   }
