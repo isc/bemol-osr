@@ -1,6 +1,460 @@
 {
  "entries": [
   {
+   "at": "2026-10-12T04:46:47.791Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 01",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "les Listes 01, 02 et 04 sont contraires à la Liste 03"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 02",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "les Listes 01, 02 et 04 sont contraires à la Liste 03"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 03",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "les Listes 01, 02 et 04 sont contraires à la Liste 03"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 04",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "les Listes 01, 02 et 04 sont contraires à la Liste 03"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 05",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "Les listes 05 et A ne sont pas contraires - 2 services max. par musicien·ne"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 06",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste A"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 07",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste B"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste B"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 10",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "10 services max par musicien·ne"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire liste C"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste C"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste C"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 24",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste D - La Liste 24 est reprise Liste 37 avec le même effectif"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 24b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire liste D - 2 services max. par musicien·ne"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 25",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire liste 26"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 26",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 25 - 2 services max. par musicien·nes"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 27b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste27"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire liste 28b"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28b",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 28"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 29",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste F"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 35",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 36 et Liste 37"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 36",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 35"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 37",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire liste 35 - la Liste 37 est reprise de la Liste 24 avec le même effectif"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 38",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 39"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 39",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G - 5 services max. par musicien·nes"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 40",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste A",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 06. Les listes 05 et A ne sont pas contraires."
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste B",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 07 et Liste 09"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste C",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 18 et Liste 19 et Liste 20"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste D",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Listes 24 et 24b"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste F",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraire Liste 29"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste G",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "contraires",
+       "before": "",
+       "after": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-10-09T19:26:25.980Z",
    "type": "memo",
    "programs": [

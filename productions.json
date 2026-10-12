@@ -1,7 +1,8 @@
 {
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
  "Liste 01": {
   "info": "La Plage classique",
+  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens)",
   "duree": "≈ 1 h 14",
@@ -58,6 +59,7 @@
  },
  "Liste 02": {
   "info": "La Plage Cinéconcert\nAttention : même effectif le plus rigoureusement possible que Liste 11 saison 2526 (y compris mus.suppl.) afin de remonter la production en 2 services de répétition",
+  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
   "chef": "Philippe BÉRAN",
   "effectif": "1.0.1.1 / 1.0.0.0 / 0.2.0.1 / 8.6.4.3.2 (30 musiciens)",
   "duree": "≈ 1 h 29",
@@ -95,6 +97,7 @@
  },
  "Liste 03": {
   "info": "La Plage Crossover\nAnnées folles - Hommage à Joséphine Baker\navec Kennedy, l'une des grandes voix du jazz-soul américain\nSet-list [titre : musique / paroles] - ordre à confirmer en répétition\narrangements originaux d'Alexandre Mastrangello commandés par l'OSR sauf Addicted to addictions / Let's Party\n-My fate is in your hands : Thomas 'Fats' Waller / Andy Razaf\n-I'm feeling like a million : Nacio Herb Brown / Arthur Freed\n-Bye bye blackbird : Ray Henderson / Mort Dixon\n-London Town : Wal-Berg / Wynne Thomas & Léo Lelièvre\n-J'attendrais : Dino Olivieri / Nino Rastelli - Louis Poterat\n-Rag-Mazurka d'après Francis Poulenc (orchestre seul)\n-Don't touch my tomatoes : Sam Manning / Sam Manning\n-Afraid to dream : Mark Gordon & Harry Revel (paroles et musique)\n-You're driving me crazy : Walter Donaldson / Walter Donaldson\n-You are my lucky star (Nacio Herb Brown / Arthur Freed)\n-J'ai deux amours : Vincent Scotto / Géo Koger & Henri Varna\n-BIS : Addicted to addictions / Let's Party : paroles & musique : Ondrej Pivec & Kennedy / arrangements : Tomas Sykora / adaptation : Alexandre Mastrangelo",
+  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
   "chef": "Alexandre MASTRANGELO",
   "effectif": "2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)",
   "duree": "≈ 1 h 30",
@@ -124,6 +127,7 @@
  },
  "Liste 04": {
   "info": "ENREGISTREMENT DISCOGRAPHIQUE STUDIO en collaboration avec la RTS\n-conseiller artistique et distribution : Jean-Pierre Brossmann\n-label : RTS + PentaTone ou Chandos ou Sony\n-avec extension avant-scène\n-le studio d'enregistrement est installé au foyer des chœurs (foyer du bas). L'orchestre utilise le foyer du public",
+  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
   "chef": "Kent NAGANO",
   "effectif": "3.3.2.3 / 4.3.3.1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)",
   "duree": "≈ 2 h 50",
@@ -286,6 +290,7 @@
  },
  "Liste 05": {
   "info": "enregistrement vidéo des 4 didacticiels vidéo (bois, cuivres, cordes, tutti) pour l'OSR C'est Vous ! (Fête de la Musique) : L'Italie et la Dolce Vita",
+  "contraires": "Les listes 05 et A ne sont pas contraires - 2 services max. par musicien·ne",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.4.3.1 / 1.4.1.1 / 10.8.6.4.3 (61 musiciens)",
   "duree": "≈ 38 min",
@@ -373,6 +378,7 @@
  },
  "Liste A": {
   "info": "captation vidéo en construction : Bel Air Media pour Mezzo et Opera Vision (en cours Alain Perroux)",
+  "contraires": "contraire Liste 06. Les listes 05 et A ne sont pas contraires.",
   "chef": "Thierry FISCHER",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)",
   "duree": "≈ 3 h 00",
@@ -467,6 +473,7 @@
  },
  "Liste 06": {
   "info": "concert hors abonnement avec 200 places pour événement KPMG\n-avec moniteur video + time code pour chef et percussioniste dès le 2ème service\n-écran et beamer du VH\n-régie vidéo Skynight au balcon d'orgue",
+  "contraires": "contraire Liste A",
   "chef": "Jean Deroyer",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.1.1.0 / 6.5.4.3.2 (30 musiciens)",
   "duree": "≈ 1 h 05",
@@ -491,6 +498,7 @@
  },
  "Liste 07": {
   "info": "-les concerts scolaires sont 2 semaines après le concert famille avec un raccord de reprise\n-avec captation vidéo pour projection live de l'orchestre : 2 cameramen circulent dans l'orchestre\n-écran et beamer du VH\n-loge 18 pour régie son",
+  "contraires": "contraire Liste B",
   "chef": "Martyna SZYMCZAK",
   "effectif": "3.2.2.2 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (67 musiciens)",
   "duree": "≈ 30 min",
@@ -685,6 +693,7 @@
  },
  "Liste 09": {
   "info": "Pas de garde-robes à Evian",
+  "contraires": "contraire Liste B",
   "chef": "Eva OLLIKAINEN",
   "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
   "duree": "≈ 1 h 45",
@@ -774,6 +783,7 @@
  },
  "Liste B": {
   "info": "production Barrie KOSKY\nmusical avec sonorisation (orchestre et chanteurs)\n-A la charge du GT : 1 supplément ob1 jouant le ca, 1 tuttiste cello et 7 extra en fosse et faisant partie de la production avec leurs instruments (4 reeds, 1 batterie. 1 synthé et 1 guitare)\n-A la charge OSR : 0100 / 2320 / 1000 // 3.3.3.3.3\n-2 lectures de 3h au lieu de 3 de 2.5h (vu GT 31.10.25)",
+  "contraires": "contraire Liste 07 et Liste 09",
   "chef": "Larry BLANK",
   "effectif": "0.1.0.0 / 2.3.2.0 / 0.1.0.0 / 3.3.3.4.3 (25 musiciens)",
   "duree": "≈ 2 h 50",
@@ -839,6 +849,7 @@
  },
  "Liste 10": {
   "info": "Académie OSR-HEM (orchestre chœur et solistes)\nEffectif OSR : 1111 / 1110 / 1000 // 6.6.5.4.2\n-dispositif ONU : pupitre orateur, drapeaux...\n-loge 18 pour régie son",
+  "contraires": "10 services max par musicien·ne",
   "chef": "Ton KOOPMAN",
   "effectif": "3.2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.12.10.8.5 (70 musiciens)",
   "duree": "≈ 1 h 05",
@@ -1352,6 +1363,7 @@
  },
  "Liste 18": {
   "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 3.3.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+  "contraires": "contraire liste C",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
   "duree": "≈ 37 min",
@@ -1416,6 +1428,7 @@
  },
  "Liste C": {
   "info": "Attention : 1 seul entracte IMPERATIF\nprojet de captation vidéo Les Noces sous les Etoiles\nDurée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\nPas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
+  "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
   "chef": "Marta GARDOLIŃSKA",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 musiciens)",
   "duree": "≈ 3 h 40",
@@ -1454,6 +1467,7 @@
  },
  "Liste 19": {
   "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct.",
+  "contraires": "contraire Liste C",
   "chef": "Pablo HERAS-CASADO",
   "effectif": "2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)",
   "duree": "≈ 1 h 54",
@@ -1502,6 +1516,7 @@
  },
  "Liste 20": {
   "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
+  "contraires": "contraire Liste C",
   "chef": "Alexandre MASTRANGELO",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
   "duree": "≈ 1 h 35",
@@ -1735,6 +1750,7 @@
  },
  "Liste 24": {
   "info": "ATTENTION : au BFM dans la production GT de Theodora avec la fosse baissée (ok pour passer et stocker 2 pianos)",
+  "contraires": "contraire Liste D - La Liste 24 est reprise Liste 37 avec le même effectif",
   "chef": "Martyna SZYMCZAK",
   "effectif": "1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3.3.2.2.2 (18 musiciens)",
   "duree": "≈ 36 min",
@@ -1784,6 +1800,7 @@
  },
  "Liste 24b": {
   "info": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1",
+  "contraires": "contraire liste D - 2 services max. par musicien·ne",
   "chef": "Philippe BÉRAN",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
   "duree": "≈ 1 h 00",
@@ -1801,6 +1818,7 @@
  },
  "Liste D": {
   "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)",
+  "contraires": "contraire Listes 24 et 24b",
   "chef": "Jader BIGNAMINI",
   "effectif": "3.2.2.2 / 4.2.3.1 / 1.4.1.1 / 11.9.7.5.4 (62 musiciens)",
   "duree": "≈ 2 h 45",
@@ -1875,6 +1893,7 @@
   }
  },
  "Liste 25": {
+  "contraires": "contraire liste 26",
   "chef": "Bertrand de BILLY",
   "effectif": "3.3.3.4 / 4.4.3.1 / 1.3.1.0 / 14.12.10.8.6 (80 musiciens)",
   "duree": "≈ 1 h 32",
@@ -1923,6 +1942,7 @@
  },
  "Liste 26": {
   "info": "L'OSR C'est Vous ! Coaching 2\n2 partielles par registre et 1 tutti\neffectif osr : 1111 / 1110 / 1000 // 1.1.1.1.1",
+  "contraires": "contraire Liste 25 - 2 services max. par musicien·nes",
   "chef": "Philippe BÉRAN",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
   "duree": "≈ 1 h 00",
@@ -2031,6 +2051,7 @@
   }
  },
  "Liste 27b": {
+  "contraires": "contraire Liste27",
   "chef": "Daniele GATTI",
   "works": []
  },
@@ -2068,6 +2089,7 @@
   }
  },
  "Liste 28": {
+  "contraires": "contraire liste 28b",
   "chef": "Daniel HARDING",
   "effectif": "3.3.3.4 / 4.5.3.1 / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)",
   "duree": "≈ 1 h 23",
@@ -2136,6 +2158,7 @@
  },
  "Liste 28b": {
   "info": "Coaching 3 OSR c'est vous\n1 partielle bois - 1 partielle cuivres - 1 partielle v1 - 1 partielle v2 - 1 partielle altos - 1 partielle cellos - 1 partielle cb - sans percu, ni hrp, ni claviers\n1 tutti\neffectif OSR = 1111 / 1010 / 1000 // 4.3.2.2.2 max.",
+  "contraires": "contraire Liste 28",
   "chef": "Philippe BÉRAN",
   "effectif": "1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.2.2.2 (20 musiciens)",
   "works": [
@@ -2147,6 +2170,7 @@
  },
  "Liste 29": {
   "info": "Mozart : Ouverture Noces Figaro (4’)\nC. Saint-Saens Concerto pour violoncelle et orchestre N° 1(20’)F. Mendelssohn A Midsummer Night’s Dream Scherzo (5)’Alma Deutscher (Jeune compositrice prodige britannique de 21\nans) Grinzinger Polka (2021, 2’)",
+  "contraires": "contraire Liste F",
   "chef": "Martyna SZYMCZAK",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.1.0.0 / 8.6.5.3.2 (38 musiciens)",
   "duree": "≈ 30 min",
@@ -2180,6 +2204,7 @@
  },
  "Liste F": {
   "info": "-1 ballet unique sans entracte\n-orchestre en fosse, piano et voix en scène (sonorisées)\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat)\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
+  "contraires": "contraire Liste 29",
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "0.3.2.2 / 4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)",
   "duree": "≈ 1 h 15",
@@ -2486,6 +2511,7 @@
  },
  "Liste 35": {
   "info": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26",
+  "contraires": "contraire Liste 36 et Liste 37",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)",
   "duree": "≈ 1 h 27",
@@ -2518,6 +2544,7 @@
  },
  "Liste 36": {
   "info": "1 service de Masterclasse de direction pour étudiants Talent Norge",
+  "contraires": "contraire Liste 35",
   "chef": "divers candidats",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.0 / 7.6.5.3.2 (51 musiciens)",
   "works": [
@@ -2531,6 +2558,7 @@
  },
  "Liste 37": {
   "info": "-avec régie son en loge 18",
+  "contraires": "contraire liste 35 - la Liste 37 est reprise de la Liste 24 avec le même effectif",
   "chef": "Martyna SZYMCZAK",
   "effectif": "1.0.1.0 / 0.0.0.0 / 0.2.0.2 / 2.2.2.2.2 (16 musiciens)",
   "duree": "≈ 36 min",
@@ -2614,6 +2642,7 @@
  },
  "Liste 39": {
   "info": "effetif OSR : 1111 / 1110 / 1000 // 6.6.5.4.4 max.",
+  "contraires": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G - 5 services max. par musicien·nes",
   "chef": "Philippe BÉRAN",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4 (33 musiciens)",
   "works": [
@@ -2625,6 +2654,7 @@
  },
  "Liste 40": {
   "info": "Concert Jeune Public / Fête de la Musique\n-effectif OSR : 1111 / 1111 / 1201 / 2.2.2.2.2\n-élèves des orchestres en classes cordes et vents du DIP : 3 classes pour N° 1 et 2 et 3 classes pour n° 3 et 4\n-120-130 choristes des écoles de musique (CPMdT, IJD et CMG) + 2 classes du DIP. Le choeur est sonorisé.\nOrdre du concert :\n-Tchouka\n-Le Petit Tailleur tableaux I à III\n-changement d'orchestres en classe\n-Le Petit Tailleur tableaux IV à VI\n-Djia",
+  "contraires": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G",
   "chef": "Martyna SZYMCZAK",
   "effectif": "1.1.1.1 / 1.1.1.1 / 1.2.0.1 / 2.2.2.2.2 (22 musiciens)",
   "duree": "≈ 24 min",
@@ -2652,6 +2682,7 @@
  },
  "Liste 38": {
   "info": "Gala anniversaire Fédération Mondiale des Concours Internationaux de Musique, avec le soutien du Concours de Genève\nProduction FMCIM\nChef confirmé : Michael Sanderling\nModérateur : Daniel Hope\nsolistes confirmés :anicens lauréats",
+  "contraires": "contraire Liste 39",
   "chef": "Michael SANDERLING",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)",
   "works": [
@@ -2667,6 +2698,7 @@
  },
  "Liste G": {
   "info": "VERSION CONCERT OU SEMI STAGE AU VH",
+  "contraires": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G",
   "chef": "Guillaume Tourniaire",
   "effectif": "2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4 (57 musiciens)",
   "duree": "≈ 3 h 00",
