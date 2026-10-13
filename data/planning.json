@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-13T16:01:53.985Z",
- "count": 640,
+ "updatedAt": "2026-10-13T16:05:52.944Z",
+ "count": 642,
  "events": [
   {
    "uid": "osr225046",
@@ -2775,6 +2775,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr261722",
+   "start": "2026-11-30T10:00",
+   "end": "2026-11-30T12:00",
+   "liste": "Liste 20",
+   "activity": "répétition chef+soliste(s)+piano ((choristes))",
+   "category": "repetition",
+   "location": "ML - grande salle",
+   "project": "NOEL",
+   "cancelled": false
+  },
+  {
    "uid": "osr248482",
    "start": "2026-12-01T10:00",
    "end": "2026-12-01T12:30",
@@ -3325,11 +3336,22 @@
    "cancelled": false
   },
   {
+   "uid": "osr261723",
+   "start": "2026-12-21T13:30",
+   "end": "2026-12-21T14:00",
+   "liste": "Liste 20",
+   "activity": "balance (soliste et choristes)",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr162114",
    "start": "2026-12-21T14:30",
    "end": "2026-12-21T17:30",
    "liste": "Liste 20",
-   "activity": "répétition avec soliste (Matt Dusk)",
+   "activity": "répétition avec solistes (Matt Dusk + sextet vocal)",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
@@ -3340,7 +3362,7 @@
    "start": "2026-12-21T19:30",
    "end": "2026-12-21T22:15",
    "liste": "Liste 20",
-   "activity": "générale non publique (Matt Dusk)",
+   "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
