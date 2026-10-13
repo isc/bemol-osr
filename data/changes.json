@@ -1,6 +1,32 @@
 {
  "entries": [
   {
+   "at": "2026-10-13T12:11:56.417Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 13",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Projet 01",
+     "status": "added"
+    }
+   ]
+  },
+  {
    "at": "2026-10-13T10:01:24.224Z",
    "added": [],
    "removed": [],

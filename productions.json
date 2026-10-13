@@ -907,7 +907,8 @@
   "serviceNotes": {
    "osr225315": "avec pianiste HEM",
    "osr132805": "avec le choeur pour la 1ère heure",
-   "osr132808": "-blocage loge 18"
+   "osr132808": "-blocage loge 18",
+   "osr132809": "Concert Relax de la Ville de Genève"
   }
  },
  "Liste 11": {
@@ -1033,7 +1034,8 @@
    },
    {
     "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 0*.0.0.0 / 12.10.8.6.4",
+    "remarques": "pas de timp. dans le 1er mvt",
     "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
     "duree": "≈ 15 min"
    },
@@ -2817,6 +2819,24 @@
   "serviceNotes": {
    "osr162257": "concert confirmé",
    "osr230030": "concert confirmé (petite formation)"
+  }
+ },
+ "Projet 01": {
+  "info": "projet musique de chambre à La Chaux de Fonds avec Nora Cismondi (Gran Partita)",
+  "effectif": "0.2.4.3 / 4.0.0.0 / 0.0.0.0 / 0.0.0.0.1 (14 musiciens)",
+  "duree": "≈ 43 min",
+  "works": [
+   {
+    "oeuvre": "Wolfgang Amadeus MOZART — Sérénade n° 10 en si bémol majeur, KV 361, dite \"Gran Partita\"",
+    "instrumentation": "0.2.4*.3* / 4.0.0.0 / 0.0.0.0 / 0.0.0.0.1*",
+    "remarques": "Sans cordes",
+    "duree": "≈ 43 min"
+   }
+  ],
+  "serviceWorks": {
+   "osr190816": [
+    1
+   ]
   }
  }
 }
