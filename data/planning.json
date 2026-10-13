@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-13T16:05:52.944Z",
- "count": 642,
+ "updatedAt": "2026-10-13T18:01:16.036Z",
+ "count": 641,
  "events": [
   {
    "uid": "osr225046",
@@ -2713,7 +2713,7 @@
    "start": "2026-11-26T10:30",
    "end": "2026-11-26T13:00",
    "liste": "Liste 17",
-   "activity": "session masterclass direction (option 1)",
+   "activity": "session masterclass direction",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "ACADchef",
@@ -2728,17 +2728,6 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "aboS3",
-   "cancelled": false
-  },
-  {
-   "uid": "osr132924",
-   "start": "2026-11-27T10:30",
-   "end": "2026-11-27T13:00",
-   "liste": "Liste 17",
-   "activity": "session masterclass direction (option 2)",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ACADchef",
    "cancelled": false
   },
   {
