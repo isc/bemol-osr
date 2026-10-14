@@ -67,10 +67,9 @@ production (GitHub Pages) comme dans les previews de PR.
     `pdftotext`, Claude n'a lu que des fragments du PDF et a demandé au frère
     des captures de chaque mémo (« je pensais que tu avais accès au mémo ? »).
   - **Avant d'ajouter un champ du mémo, passer en revue tous ceux que le
-    parseur ignore** (intitulés listés dans `parseSection` : « Information
-    générale », « Services annuels & contraires », « Tenue », « Disposition »,
-    « Set-list »…) et se demander lequel porte vraiment l'information
-    demandée. #212 n'a repris que « Information générale » alors que les
+    parseur ignore encore** : comparer les intitulés reconnus par la regex de
+    `parseSection` aux champs déjà écrits dans `productions.json` (cf. sa clé
+    `_lisezmoi`), et se demander lequel porte vraiment l'information demandée. #212 n'a repris que « Information générale » alors que les
     séries contraires, objet de la demande, sont dans « Services annuels &
     contraires », juste à côté : il a fallu une seconde issue (#219) et une
     seconde PR (#220).
