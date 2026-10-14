@@ -320,9 +320,12 @@ function parseSection(body) {
       // « Information générale » est conservée (issue #211 : « strictement
       // identique pour Liste 42 », séries qui s'excluent…) ; les autres blocs
       // restent ignorés.
+      const isTenue = line.startsWith("Tenue :")
       const infoLines = line.startsWith("Information générale")
         ? [line.replace(/^Information générale\s*:?\s*/, "")]
-        : null
+        : isTenue
+          ? [line.replace(/^Tenue\s*:\s*/, "")]
+          : null
       let j = i + 1
       while (
         j < body.length &&
@@ -338,7 +341,7 @@ function parseSection(body) {
         ?.map((l) => l.trim())
         .filter(Boolean)
         .join("\n")
-      if (info) prod.info = info
+      if (info) prod[isTenue ? "tenue" : "info"] = info
       i = j - 1
       continue
     }
@@ -801,7 +804,14 @@ function matchServiceWorks(rows, events, numberMap, workCount) {
 // dans data/changes.json, avec un type distinct des changements de planning.
 
 // Champs simples (texte) comparés tels quels.
-const MEMO_DIFF_FIELDS = ["chef", "effectif", "duree", "info", "contraires"]
+const MEMO_DIFF_FIELDS = [
+  "chef",
+  "effectif",
+  "duree",
+  "info",
+  "contraires",
+  "tenue",
+]
 // Champs d'une œuvre dont un changement compte comme « œuvre modifiée ».
 const WORK_DIFF_FIELDS = [
   "instrumentation",
@@ -924,7 +934,7 @@ const previous = existsSync(productionsPath)
   : {}
 const output = {
   _lisezmoi:
-    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
+    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
