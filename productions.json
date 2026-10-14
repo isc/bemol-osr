@@ -1431,6 +1431,28 @@
    "osr132185": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
+  "contraires": "contraire Liste C",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist"
+  ]
+ },
  "Liste C": {
   "info": "Attention : 1 seul entracte IMPERATIF\nprojet de captation vidéo Les Noces sous les Etoiles\nDurée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\nPas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
   "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
@@ -1522,28 +1544,6 @@
    "osr132947": "-ouverture au public du podium choeur en construction",
    "osr132948": "-ouverture au public du podium choeur en construction"
   }
- },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
-  "contraires": "contraire Liste C",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist"
-  ]
  },
  "Liste 21": {
   "info": "Concert de l'An\n-avec décoration florale\n-avec discours en scène",
