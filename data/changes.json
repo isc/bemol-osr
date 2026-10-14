@@ -1,6 +1,73 @@
 {
  "entries": [
   {
+   "at": "2026-10-14T04:46:48.872Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+       "after": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+       "fields": [
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
+       "after": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Musique De Chambre 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "-Mention obligatoire : les partitions des oeuvres de Rita Strohl ont été éditées et mises à disposition par le Palazzetto Bru Zane - Centre de musique romantique\nfrançaise\n-Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Caroline Bariswyl\n-10h30 : ouverture des portes\n-régie SFL",
+       "after": "-Mention obligatoire : les partitions des oeuvres de Rita Strohl ont été éditées et mises à disposition par le Palazzetto Bru Zane - Centre de musique romantique\nfrançaise\n-Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Caroline Bariswyl\n-Yuwen ZHU remplace Yumi KUBO arrêt maladie\n-10h30 : ouverture des portes\n-régie SFL"
+      },
+      {
+       "field": "solistes",
+       "before": "",
+       "after": "Caroline BAERISWYL, violon 1 · Yuwen ZHU, violon 2 · Verena SCHWEIZER, alto · Yao JIN, violoncelle · Meglena TZANEVA DUPRAZ, piano"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Rita STROHL — Quatuor pour deux violons, alto et violoncelle [1885]",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-10-13T18:01:16.036Z",
    "added": [],
    "removed": [
