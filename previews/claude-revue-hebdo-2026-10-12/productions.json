@@ -907,7 +907,8 @@
   "serviceNotes": {
    "osr225315": "avec pianiste HEM",
    "osr132805": "avec le choeur pour la 1ère heure",
-   "osr132808": "-blocage loge 18"
+   "osr132808": "-blocage loge 18",
+   "osr132809": "Concert Relax de la Ville de Genève"
   }
  },
  "Liste 11": {
@@ -1033,7 +1034,8 @@
    },
    {
     "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 0*.0.0.0 / 12.10.8.6.4",
+    "remarques": "pas de timp. dans le 1er mvt",
     "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
     "duree": "≈ 15 min"
    },
@@ -1362,7 +1364,7 @@
   }
  },
  "Liste 18": {
-  "info": "ATTENTION : étude en cours pour doubler le concert Famille à 9h15 sur un seul service de 3 heures 9h15-12h15.\navec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif OdCG : 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+  "info": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
   "contraires": "contraire liste C",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
@@ -1371,7 +1373,7 @@
    {
     "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
     "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20.20.8.14.6",
-    "remarques": "fl2&3+picc-OdCG, 1ca-OSR, 1cl.bs-OdCG, bugle=orch.du collège",
+    "remarques": "fl2&3+picc-orch.du Collège, 1ca-OSR, 1cl.bs-orch.du Collège, bugle=orch.du Collège",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
     "detail": "bugle peut être joué par trp 1, 2 ou 3",
@@ -1391,18 +1393,18 @@
    ]
   },
   "serviceNotes": {
-   "osr206164": "service payé : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
+   "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
    "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler"
   }
  },
  "Musique De Chambre 2": {
-  "info": "-Mention obligatoire : les partitions des oeuvres de Rita Strohl ont été éditées et mises à disposition par le Palazzetto Bru Zane - Centre de musique romantique\nfrançaise\n-Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Caroline Bariswyl\n-10h30 : ouverture des portes\n-régie SFL",
+  "info": "-Mention obligatoire : les partitions des oeuvres de Rita Strohl ont été éditées et mises à disposition par le Palazzetto Bru Zane - Centre de musique romantique\nfrançaise\n-Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Caroline Bariswyl\n-Yuwen ZHU remplace Yumi KUBO arrêt maladie\n-10h30 : ouverture des portes\n-régie SFL",
   "effectif": "0.0.0.0 / 0.0.0.0 / 0.0.0.1 / 1.1.1.1.0 (5 musiciens)",
   "duree": "≈ 55 min",
   "works": [
    {
     "oeuvre": "Rita STROHL — Quatuor pour deux violons, alto et violoncelle [1885]",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.0.0",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.1.1.0",
     "duree": "≈ 25 min"
    },
    {
@@ -1411,6 +1413,13 @@
     "claviers": "piano",
     "duree": "≈ 30 min"
    }
+  ],
+  "solistes": [
+   "Caroline BAERISWYL, violon 1",
+   "Yuwen ZHU, violon 2",
+   "Verena SCHWEIZER, alto",
+   "Yao JIN, violoncelle",
+   "Meglena TZANEVA DUPRAZ, piano"
   ],
   "serviceWorks": {
    "osr132185": [
@@ -1422,9 +1431,27 @@
    "osr132185": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
- "Concours Premier.ère soliste des clarinettes (coordonné)": {
-  "chef": "Tugan SOKHIEV",
-  "works": []
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
+  "contraires": "contraire Liste C",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist"
+  ]
  },
  "Liste C": {
   "info": "Attention : 1 seul entracte IMPERATIF\nprojet de captation vidéo Les Noces sous les Etoiles\nDurée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\nPas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
@@ -1464,6 +1491,10 @@
     1
    ]
   }
+ },
+ "Concours Premier.ère soliste des clarinettes (coordonné)": {
+  "chef": "Tugan SOKHIEV",
+  "works": []
  },
  "Liste 19": {
   "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct.",
@@ -1513,28 +1544,6 @@
    "osr132947": "-ouverture au public du podium choeur en construction",
    "osr132948": "-ouverture au public du podium choeur en construction"
   }
- },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction\nL'effectif indiqué est l'effectif contractuel maximum donné à l'arrangeur mais l'effectif max. titulaires peut être augmenté le cas échéant de fl3, ob3, cl3, fgt3 et hrp",
-  "contraires": "contraire Liste C",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist"
-  ]
  },
  "Liste 21": {
   "info": "Concert de l'An\n-avec décoration florale\n-avec discours en scène",
@@ -2817,6 +2826,24 @@
   "serviceNotes": {
    "osr162257": "concert confirmé",
    "osr230030": "concert confirmé (petite formation)"
+  }
+ },
+ "Projet 01": {
+  "info": "projet musique de chambre à La Chaux de Fonds avec Nora Cismondi (Gran Partita)",
+  "effectif": "0.2.4.3 / 4.0.0.0 / 0.0.0.0 / 0.0.0.0.1 (14 musiciens)",
+  "duree": "≈ 43 min",
+  "works": [
+   {
+    "oeuvre": "Wolfgang Amadeus MOZART — Sérénade n° 10 en si bémol majeur, KV 361, dite \"Gran Partita\"",
+    "instrumentation": "0.2.4*.3* / 4.0.0.0 / 0.0.0.0 / 0.0.0.0.1*",
+    "remarques": "Sans cordes",
+    "duree": "≈ 43 min"
+   }
+  ],
+  "serviceWorks": {
+   "osr190816": [
+    1
+   ]
   }
  }
 }

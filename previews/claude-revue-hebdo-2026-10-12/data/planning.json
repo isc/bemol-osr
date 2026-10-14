@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-09T15:14:30.722Z",
- "count": 637,
+ "updatedAt": "2026-10-14T16:01:17.980Z",
+ "count": 640,
  "events": [
   {
    "uid": "osr225046",
@@ -2644,8 +2644,8 @@
   },
   {
    "uid": "osr196350",
-   "start": "2026-11-24T13:30",
-   "end": "2026-11-24T15:30",
+   "start": "2026-11-24T13:00",
+   "end": "2026-11-24T15:00",
    "liste": "Atelier Découverte 5",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
@@ -2662,17 +2662,6 @@
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO2",
-   "cancelled": false
-  },
-  {
-   "uid": "osr229808",
-   "start": "2026-11-24T17:00",
-   "end": "2026-11-24T18:30",
-   "liste": "Liste 17",
-   "activity": "technique RTS",
-   "category": "generale",
-   "location": "Victoria Hall de Genève",
-   "project": "",
    "cancelled": false
   },
   {
@@ -2713,7 +2702,7 @@
    "start": "2026-11-26T10:30",
    "end": "2026-11-26T13:00",
    "liste": "Liste 17",
-   "activity": "session masterclass direction (option 1)",
+   "activity": "session masterclass direction",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "ACADchef",
@@ -2728,17 +2717,6 @@
    "category": "concert",
    "location": "Victoria Hall de Genève",
    "project": "aboS3",
-   "cancelled": false
-  },
-  {
-   "uid": "osr132924",
-   "start": "2026-11-27T10:30",
-   "end": "2026-11-27T13:00",
-   "liste": "Liste 17",
-   "activity": "session masterclass direction (option 2)",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ACADchef",
    "cancelled": false
   },
   {
@@ -2878,7 +2856,7 @@
    "start": "2026-12-04T19:00",
    "end": "2026-12-04T21:30",
    "liste": "Liste 18",
-   "activity": "générale publique (hors Amis + balance)",
+   "activity": "générale publique ((hors Amis) + balance récitant)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "aboF3",
@@ -2937,6 +2915,17 @@
    "category": "concours",
    "location": "Auditorium Ansermet",
    "project": "CONC.",
+   "cancelled": false
+  },
+  {
+   "uid": "osr261722",
+   "start": "2026-12-07T10:00",
+   "end": "2026-12-07T12:00",
+   "liste": "Liste 20",
+   "activity": "répétition chef+soliste(s)+piano ((sextet vocal sans orch.))",
+   "category": "repetition",
+   "location": "ML - grande salle",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3083,11 +3072,11 @@
    "cancelled": false
   },
   {
-   "uid": "osr219511",
+   "uid": "osr262425",
    "start": "2026-12-15T13:45",
    "end": "2026-12-15T14:15",
    "liste": "Liste 19",
-   "activity": "rencontre chef-soliste(s)",
+   "activity": "rencontre chef-soliste(s) ((sans orch.))",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO3",
@@ -3100,17 +3089,6 @@
    "liste": "Liste 19",
    "activity": "répétition avec soliste",
    "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "aboO3",
-   "cancelled": false
-  },
-  {
-   "uid": "osr229809",
-   "start": "2026-12-15T17:00",
-   "end": "2026-12-15T23:59",
-   "liste": "Liste 19",
-   "activity": "Technique (RTS / Ozango)",
-   "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "aboO3",
    "cancelled": false
@@ -3270,6 +3248,28 @@
    "cancelled": false
   },
   {
+   "uid": "osr261714",
+   "start": "2026-12-19T14:00",
+   "end": "2026-12-19T17:00",
+   "liste": "Liste 20",
+   "activity": "répétition chef+soliste(s)+piano ((sextet vocal sans orch.))",
+   "category": "repetition",
+   "location": "ML - grande salle",
+   "project": "DIP2",
+   "cancelled": false
+  },
+  {
+   "uid": "osr261715",
+   "start": "2026-12-20T14:00",
+   "end": "2026-12-20T16:00",
+   "liste": "Liste 20",
+   "activity": "répétition chef+soliste(s)+piano ((sol.+sextet sans orch.))",
+   "category": "repetition",
+   "location": "ML - grande salle",
+   "project": "DIP2",
+   "cancelled": false
+  },
+  {
    "uid": "osr133305",
    "start": "2026-12-20T15:00",
    "end": "2026-12-20T19:00",
@@ -3281,14 +3281,25 @@
    "cancelled": false
   },
   {
-   "uid": "osr229810",
-   "start": "2026-12-21T13:00",
-   "end": "2026-12-21T14:30",
+   "uid": "osr261716",
+   "start": "2026-12-20T17:00",
+   "end": "2026-12-20T19:00",
    "liste": "Liste 20",
-   "activity": "technique RTS",
+   "activity": "répétition chef+soliste(s)+piano ((sol+sextet sans orch.))",
+   "category": "repetition",
+   "location": "ML - grande salle",
+   "project": "DIP2",
+   "cancelled": false
+  },
+  {
+   "uid": "osr261723",
+   "start": "2026-12-21T13:30",
+   "end": "2026-12-21T14:00",
+   "liste": "Liste 20",
+   "activity": "balance (soliste et choristes)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "",
+   "project": "DIP2",
    "cancelled": false
   },
   {
@@ -3296,8 +3307,19 @@
    "start": "2026-12-21T14:30",
    "end": "2026-12-21T17:30",
    "liste": "Liste 20",
-   "activity": "répétition avec soliste (Matt Dusk)",
+   "activity": "répétition avec solistes (sol. + sextet vocal)",
    "category": "repetition",
+   "location": "Victoria Hall de Genève",
+   "project": "DIP2",
+   "cancelled": false
+  },
+  {
+   "uid": "osr229810",
+   "start": "2026-12-21T17:30",
+   "end": "2026-12-21T19:00",
+   "liste": "Liste 20",
+   "activity": "technique RTS",
+   "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
    "cancelled": false
@@ -3305,9 +3327,9 @@
   {
    "uid": "osr162115",
    "start": "2026-12-21T19:30",
-   "end": "2026-12-21T22:30",
+   "end": "2026-12-21T22:15",
    "liste": "Liste 20",
-   "activity": "générale non publique (Matt Dusk)",
+   "activity": "générale non publique",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
@@ -5965,6 +5987,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr262430",
+   "start": "2027-05-18T09:00",
+   "end": "2027-05-18T13:00",
+   "liste": "Assemblée Artistique",
+   "activity": "Assemblée générale section GE",
+   "category": "autre",
+   "location": "ML - grande salle",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133120",
    "start": "2027-05-18T14:00",
    "end": "2027-05-18T16:30",
@@ -7000,8 +7033,8 @@
   },
   {
    "uid": "osr190816",
-   "start": "2027-07-11T17:00",
-   "end": "2027-07-11T19:00",
+   "start": "2027-07-10T19:30",
+   "end": "2027-07-10T21:30",
    "liste": "Projet 01",
    "activity": "concert hors contrat",
    "category": "concert",

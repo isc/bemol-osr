@@ -148,7 +148,7 @@ const state = {
   events: [],
   changes: [],
   modifsFilter: null,
-  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -390,64 +390,81 @@ const VACANCES_SCOLAIRES = [
   // Genève — source : ge.ch, une page par année scolaire
   // (www.ge.ch/vacances-scolaires-jours-feries/vacances-scolaires-2026-2027…),
   // publiées jusqu'en 2029-2030.
+  // Vacances d'été : pages ge.ch ci-dessus (« du lundi 5 juillet au mercredi 25
+  // août 2027 »…), week-end précédent inclus. Été 2026 non saisi : la page
+  // 2025-2026 de ge.ch n'est plus en ligne (dates à confirmer).
   { region: "GE", nom: "Automne", start: "2026-10-17", end: "2026-10-25" },
   { region: "GE", nom: "Fin d'année", start: "2026-12-24", end: "2027-01-10" },
   { region: "GE", nom: "Février", start: "2027-02-13", end: "2027-02-21" },
   { region: "GE", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
   { region: "GE", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "GE", nom: "Été", start: "2027-07-03", end: "2027-08-25" },
   { region: "GE", nom: "Jeûne", start: "2027-09-09", end: "2027-09-10" },
   { region: "GE", nom: "Automne", start: "2027-10-23", end: "2027-10-31" },
   { region: "GE", nom: "Fin d'année", start: "2027-12-24", end: "2028-01-09" },
   { region: "GE", nom: "Février", start: "2028-02-19", end: "2028-02-27" },
   { region: "GE", nom: "Pâques", start: "2028-04-13", end: "2028-04-23" },
   { region: "GE", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "GE", nom: "Été", start: "2028-07-01", end: "2028-08-23" },
   { region: "GE", nom: "Jeûne", start: "2028-09-07", end: "2028-09-08" },
   { region: "GE", nom: "Automne", start: "2028-10-21", end: "2028-10-29" },
   { region: "GE", nom: "Fin d'année", start: "2028-12-23", end: "2029-01-07" },
   { region: "GE", nom: "Février", start: "2029-02-17", end: "2029-02-25" },
   { region: "GE", nom: "Pâques", start: "2029-03-29", end: "2029-04-08" },
   { region: "GE", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "GE", nom: "Été", start: "2029-06-30", end: "2029-08-22" },
   { region: "GE", nom: "Jeûne", start: "2029-09-06", end: "2029-09-07" },
   { region: "GE", nom: "Automne", start: "2029-10-20", end: "2029-10-28" },
   { region: "GE", nom: "Fin d'année", start: "2029-12-22", end: "2030-01-06" },
   { region: "GE", nom: "Février", start: "2030-02-23", end: "2030-03-03" },
   { region: "GE", nom: "Pâques", start: "2030-04-18", end: "2030-04-28" },
   { region: "GE", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  { region: "GE", nom: "Été", start: "2030-06-29", end: "2030-08-21" },
   // Vaud — source : calendrier officiel de l'État de Vaud, fichier .ics publié
   // sur www.vd.ch/vacances (vacances_scolaires_vd_2023_2031.ics), jusqu'en
   // 2030-2031.
+  { region: "VD", nom: "Été", start: "2026-06-27", end: "2026-08-16" },
   { region: "VD", nom: "Automne", start: "2026-10-10", end: "2026-10-25" },
   { region: "VD", nom: "Hiver", start: "2026-12-24", end: "2027-01-10" },
   { region: "VD", nom: "Relâches", start: "2027-02-06", end: "2027-02-14" },
   { region: "VD", nom: "Pâques", start: "2027-03-26", end: "2027-04-11" },
   { region: "VD", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
+  { region: "VD", nom: "Été", start: "2027-07-03", end: "2027-08-22" },
   { region: "VD", nom: "Automne", start: "2027-10-09", end: "2027-10-24" },
   { region: "VD", nom: "Hiver", start: "2027-12-24", end: "2028-01-09" },
   { region: "VD", nom: "Relâches", start: "2028-02-12", end: "2028-02-20" },
   { region: "VD", nom: "Pâques", start: "2028-04-14", end: "2028-04-30" },
   { region: "VD", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
+  { region: "VD", nom: "Été", start: "2028-07-01", end: "2028-08-20" },
   { region: "VD", nom: "Automne", start: "2028-10-14", end: "2028-10-29" },
   { region: "VD", nom: "Hiver", start: "2028-12-23", end: "2029-01-07" },
   { region: "VD", nom: "Relâches", start: "2029-02-10", end: "2029-02-18" },
   { region: "VD", nom: "Pâques", start: "2029-03-30", end: "2029-04-15" },
   { region: "VD", nom: "Ascension", start: "2029-05-10", end: "2029-05-11" },
+  { region: "VD", nom: "Été", start: "2029-06-30", end: "2029-08-19" },
   { region: "VD", nom: "Automne", start: "2029-10-13", end: "2029-10-28" },
   { region: "VD", nom: "Hiver", start: "2029-12-22", end: "2030-01-06" },
   { region: "VD", nom: "Relâches", start: "2030-02-16", end: "2030-02-24" },
   { region: "VD", nom: "Pâques", start: "2030-04-19", end: "2030-05-05" },
   { region: "VD", nom: "Ascension", start: "2030-05-30", end: "2030-05-31" },
+  { region: "VD", nom: "Été", start: "2030-07-06", end: "2030-08-25" },
   { region: "VD", nom: "Automne", start: "2030-10-12", end: "2030-10-27" },
   { region: "VD", nom: "Hiver", start: "2030-12-21", end: "2031-01-05" },
   { region: "VD", nom: "Relâches", start: "2031-02-15", end: "2031-02-23" },
   { region: "VD", nom: "Pâques", start: "2031-04-11", end: "2031-04-27" },
   { region: "VD", nom: "Ascension", start: "2031-05-22", end: "2031-05-23" },
+  { region: "VD", nom: "Été", start: "2031-07-05", end: "2031-08-24" },
   // France voisine, zone A — source : data.education.gouv.fr, jeu de données
   // « Calendrier scolaire » (académies de Lyon, Grenoble, Clermont-Ferrand),
-  // publié jusqu'en 2027-2028. Ponts de l'Ascension non saisis (cf. #203).
+  // publié jusqu'en 2027-2028 (été 2028 pas encore publié ; été 2027 confirmé par
+  // la capture education.gouv.fr du frère, fin des cours le samedi 3 juillet).
+  // Ponts de l'Ascension non saisis (cf. #203).
+  { region: "FR", nom: "Été", start: "2026-07-04", end: "2026-08-31" },
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
   { region: "FR", nom: "Hiver", start: "2027-02-13", end: "2027-02-28" },
   { region: "FR", nom: "Printemps", start: "2027-04-10", end: "2027-04-25" },
+  { region: "FR", nom: "Été", start: "2027-07-03", end: "2027-09-01" },
   { region: "FR", nom: "Toussaint", start: "2027-10-23", end: "2027-11-07" },
   { region: "FR", nom: "Noël", start: "2027-12-18", end: "2028-01-02" },
   { region: "FR", nom: "Hiver", start: "2028-02-19", end: "2028-03-05" },
@@ -1253,6 +1270,12 @@ function productionDetail(liste) {
       el("p", { class: "info-generale" }, prod.info),
     )
   }
+  if (prod.tenue) {
+    nodes.push(
+      el("h3", { class: "detail-section" }, "Tenue"),
+      el("p", { class: "tenue" }, prod.tenue),
+    )
+  }
   if (prod.effectif) {
     nodes.push(
       el("h3", { class: "detail-section" }, "Effectif orchestral (max)"),
@@ -2044,6 +2067,7 @@ const MEMO_FIELD_LABELS = {
   duree: "durée",
   info: "information générale",
   contraires: "séries contraires",
+  tenue: "tenue",
   solistes: "solistes",
 }
 
