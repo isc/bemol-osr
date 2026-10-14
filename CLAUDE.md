@@ -388,9 +388,11 @@ sans laisser de commentaire ; le frère a écrit « Peux-tu répondre ? » puis
 le tour**, quelle que soit la conclusion.
 
 **Un outil refusé ne se renvoie jamais au musicien.** Dans les workflows
-Claude, l'outil d'édition de fichiers (Edit/Write) peut être refusé en cours de
+Claude, l'outil d'édition de fichiers (Edit/Write) a été refusé en cours de
 run (« requested permissions to write … ») ; les journaux n'affichent alors
-qu'un `permission_denials_count` > 0. Bash, lui, est toujours autorisé : faire
+qu'un `permission_denials_count` > 0. Depuis le 14/10/2026, les workflows
+l'autorisent explicitement (`--allowedTools "Bash,Read,Edit,Write,MultiEdit"`),
+mais si un outil est encore refusé, Bash, lui, est toujours autorisé : faire
 la modification par Bash (`node`, `perl -pi`, `cat > fichier <<'EOF'`…) et
 continuer. Ne jamais répondre « relance-moi en autorisant les modifications » :
 le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
