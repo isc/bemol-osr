@@ -1,6 +1,270 @@
 {
  "entries": [
   {
+   "at": "2026-10-14T16:01:17.980Z",
+   "added": [
+    {
+     "uid": "osr262425",
+     "start": "2026-12-15T13:45",
+     "end": "2026-12-15T14:15",
+     "liste": "Liste 19",
+     "activity": "rencontre chef-soliste(s) ((sans orch.))",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "aboO3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr262430",
+     "start": "2027-05-18T09:00",
+     "end": "2027-05-18T13:00",
+     "liste": "Assemblée Artistique",
+     "activity": "Assemblée générale section GE",
+     "category": "autre",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr229808",
+     "start": "2026-11-24T17:00",
+     "end": "2026-11-24T18:30",
+     "liste": "Liste 17",
+     "activity": "technique RTS",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr219511",
+     "start": "2026-12-15T13:45",
+     "end": "2026-12-15T14:15",
+     "liste": "Liste 19",
+     "activity": "rencontre chef-soliste(s)",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "aboO3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr229809",
+     "start": "2026-12-15T17:00",
+     "end": "2026-12-15T23:59",
+     "liste": "Liste 19",
+     "activity": "Technique (RTS / Ozango)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "aboO3",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr261722",
+     "fields": [
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr261722",
+      "start": "2026-12-07T10:00",
+      "end": "2026-12-07T12:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sextet vocal))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "NOEL",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr261722",
+      "start": "2026-12-07T10:00",
+      "end": "2026-12-07T12:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sextet vocal sans orch.))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr261714",
+     "fields": [
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr261714",
+      "start": "2026-12-19T14:00",
+      "end": "2026-12-19T17:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sextet vocal))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "Concert de Noël",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr261714",
+      "start": "2026-12-19T14:00",
+      "end": "2026-12-19T17:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sextet vocal sans orch.))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr261715",
+     "fields": [
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr261715",
+      "start": "2026-12-20T14:00",
+      "end": "2026-12-20T16:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((M.Dusk + sextet vocal))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr261715",
+      "start": "2026-12-20T14:00",
+      "end": "2026-12-20T16:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sol.+sextet sans orch.))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr261716",
+     "fields": [
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr261716",
+      "start": "2026-12-20T17:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((M.Dusk + sextet vocal))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr261716",
+      "start": "2026-12-20T17:00",
+      "end": "2026-12-20T19:00",
+      "liste": "Liste 20",
+      "activity": "répétition chef+soliste(s)+piano ((sol+sextet sans orch.))",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr261723",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr261723",
+      "start": "2026-12-21T13:30",
+      "end": "2026-12-21T14:00",
+      "liste": "Liste 20",
+      "activity": "balance (soliste et choristes)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr261723",
+      "start": "2026-12-21T13:30",
+      "end": "2026-12-21T14:00",
+      "liste": "Liste 20",
+      "activity": "balance (soliste et choristes)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr162114",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr162114",
+      "start": "2026-12-21T14:30",
+      "end": "2026-12-21T17:30",
+      "liste": "Liste 20",
+      "activity": "répétition avec solistes (Matt Dusk + sextet vocal)",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr162114",
+      "start": "2026-12-21T14:30",
+      "end": "2026-12-21T17:30",
+      "liste": "Liste 20",
+      "activity": "répétition avec solistes (sol. + sextet vocal)",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr229810",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr229810",
+      "start": "2026-12-21T17:30",
+      "end": "2026-12-21T19:00",
+      "liste": "Liste 20",
+      "activity": "technique RTS",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr229810",
+      "start": "2026-12-21T17:30",
+      "end": "2026-12-21T19:00",
+      "liste": "Liste 20",
+      "activity": "technique RTS",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "DIP2",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-14T12:01:12.022Z",
    "added": [],
    "removed": [],
