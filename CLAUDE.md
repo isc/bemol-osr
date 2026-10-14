@@ -57,6 +57,23 @@ production (GitHub Pages) comme dans les previews de PR.
   `productions.json` (chef, solistes, œuvres, instrumentation par programme) à
   partir du « Mémo de Production » du mini-site Dièse — génération PDF côté
   serveur puis parsing. Workflow `update-memo.yml`, une fois par nuit.
+  - **Lire un mémo soi-même : installer `pdftotext`, ne jamais le demander au
+    frère.** `pdftotext` n'est pas préinstallé sur les runners des workflows
+    Claude, mais Bash y est autorisé :
+    `sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils`
+    (comme `update-memo.yml`), puis `pdftotext -layout memo.pdf -`. Le mémo
+    complet de la saison se récupère avec `node scripts/update-memo.mjs` (sans
+    committer le `productions.json` régénéré). Dans #211, faute de
+    `pdftotext`, Claude n'a lu que des fragments du PDF et a demandé au frère
+    des captures de chaque mémo (« je pensais que tu avais accès au mémo ? »).
+  - **Avant d'ajouter un champ du mémo, passer en revue tous ceux que le
+    parseur ignore encore** : comparer les intitulés reconnus par la regex de
+    `parseSection` aux champs déjà écrits dans `productions.json` (cf. sa clé
+    `_lisezmoi`), et se demander lequel porte vraiment l'information
+    demandée. #212 n'a repris que « Information générale » alors que les
+    séries contraires, objet de la demande, sont dans « Services annuels &
+    contraires », juste à côté : il a fallu une seconde issue (#219) et une
+    seconde PR (#220).
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
@@ -369,6 +386,15 @@ sans laisser de commentaire ; le frère a écrit « Peux-tu répondre ? » puis
 « Bloqué ? », sans effet, avant de rouvrir la demande dans l'**issue #146
 « Pr142 qui ne répond plus »**). Règle : **poster la réponse avant de terminer
 le tour**, quelle que soit la conclusion.
+
+**Un outil refusé ne se renvoie jamais au musicien.** Dans les workflows
+Claude, l'outil d'édition de fichiers (Edit/Write) peut être refusé en cours de
+run (« requested permissions to write … ») ; les journaux n'affichent alors
+qu'un `permission_denials_count` > 0. Bash, lui, est toujours autorisé : faire
+la modification par Bash (`node`, `perl -pi`, `cat > fichier <<'EOF'`…) et
+continuer. Ne jamais répondre « relance-moi en autorisant les modifications » :
+le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
+le run s'est arrêté sur ce message, sans rien pousser).
 
 ## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
 
