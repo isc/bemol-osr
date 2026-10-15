@@ -1,6 +1,120 @@
 {
  "entries": [
   {
+   "at": "2026-10-15T17:08:58.023Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr133228",
+     "start": "2027-07-02T10:00",
+     "end": "2027-07-02T12:30",
+     "liste": "Liste 42",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "ML - grande salle",
+     "project": "TOUR",
+     "cancelled": false
+    },
+    {
+     "uid": "osr133231",
+     "start": "2027-07-02T14:30",
+     "end": "2027-07-02T17:00",
+     "liste": "Liste 42",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "ML - grande salle",
+     "project": "TOUR",
+     "cancelled": false
+    }
+   ],
+   "modified": [
+    {
+     "uid": "osr178751",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr178751",
+      "start": "2027-07-01T14:00",
+      "end": "2027-07-01T22:00",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr178751",
+      "start": "2027-07-01T14:00",
+      "end": "2027-07-01T22:00",
+      "liste": "Concours à définir",
+      "activity": "concours (cor soliste remplaçant ?)",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr232669",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr232669",
+      "start": "2027-07-02T09:30",
+      "end": "2027-07-02T19:00",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr232669",
+      "start": "2027-07-02T09:30",
+      "end": "2027-07-02T19:00",
+      "liste": "Concours à définir",
+      "activity": "concours (cor soliste remplaçant ?)",
+      "category": "concours",
+      "location": "lieu à définir",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr227893",
+     "fields": [
+      "activity"
+     ],
+     "before": {
+      "uid": "osr227893",
+      "start": "2027-07-05T10:00",
+      "end": "2027-07-05T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr227893",
+      "start": "2027-07-05T10:00",
+      "end": "2027-07-05T12:30",
+      "liste": "Liste 42",
+      "activity": "répétition (matin à Genève ou soir à Montpellier)",
+      "category": "repetition",
+      "location": "ML - grande salle",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-15T10:01:00.576Z",
    "added": [
     {

@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-15T10:01:00.576Z",
- "count": 643,
+ "updatedAt": "2026-10-15T17:08:58.023Z",
+ "count": 641,
  "events": [
   {
    "uid": "osr225046",
@@ -6904,7 +6904,7 @@
    "start": "2027-07-01T14:00",
    "end": "2027-07-01T22:00",
    "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
+   "activity": "concours (cor soliste remplaçant ?)",
    "category": "concours",
    "location": "lieu à définir",
    "project": "",
@@ -6915,32 +6915,10 @@
    "start": "2027-07-02T09:30",
    "end": "2027-07-02T19:00",
    "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
+   "activity": "concours (cor soliste remplaçant ?)",
    "category": "concours",
    "location": "lieu à définir",
    "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr133228",
-   "start": "2027-07-02T10:00",
-   "end": "2027-07-02T12:30",
-   "liste": "Liste 42",
-   "activity": "répétition",
-   "category": "repetition",
-   "location": "ML - grande salle",
-   "project": "TOUR",
-   "cancelled": false
-  },
-  {
-   "uid": "osr133231",
-   "start": "2027-07-02T14:30",
-   "end": "2027-07-02T17:00",
-   "liste": "Liste 42",
-   "activity": "répétition",
-   "category": "repetition",
-   "location": "ML - grande salle",
-   "project": "TOUR",
    "cancelled": false
   },
   {
@@ -6970,7 +6948,7 @@
    "start": "2027-07-05T10:00",
    "end": "2027-07-05T12:30",
    "liste": "Liste 42",
-   "activity": "répétition",
+   "activity": "répétition (matin à Genève ou soir à Montpellier)",
    "category": "repetition",
    "location": "ML - grande salle",
    "project": "",
