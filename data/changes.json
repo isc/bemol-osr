@@ -1,6 +1,63 @@
 {
  "entries": [
   {
+   "at": "2026-10-15T09:26:58.540Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct.",
+       "after": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, en direct Espace 2 et Mezzo"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Igor STRAVINSKI — Pulcinella, suite pour orchestre",
+       "fields": [
+        "detail"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
+       "after": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste C",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Wolfgang Amadeus MOZART — Les Noces de Figaro, Opera buffa en 4 actes KV 492",
+       "fields": [
+        "instrumentation",
+        "note"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-10-15T04:46:27.937Z",
    "type": "memo",
    "programs": [

@@ -1400,7 +1400,7 @@
    "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au",
    "osr132921": "essai micros",
    "osr132922": "-ouverture au public du podium choeur en construction",
-   "osr132926": "-étudiants Talent Norge",
+   "osr132926": "-jeunes chefs Talent Norge",
    "osr132923": "-ouverture au public du podium choeur en construction",
    "osr132925": "-ouverture au public du podium choeur en construction"
   }
@@ -1480,9 +1480,6 @@
     1,
     2
    ]
-  },
-  "serviceNotes": {
-   "osr132185": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
@@ -1498,9 +1495,10 @@
   "works": [
    {
     "oeuvre": "Wolfgang Amadeus MOZART — Les Noces de Figaro, Opera buffa en 4 actes KV 492",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.1* / 11*.9.7.5.4",
+    "instrumentation": "2.2.2*.2 / 2.2.0.0 / 1.0.0.1* / 11*.9.7.5.4",
     "remarques": "10.8.6.4.3 en fosse + tournus",
     "claviers": "piano-forte",
+    "note": "\nl'air avec les cors de basset fait partie des coupures.",
     "duree": "≈ 3 h 10"
    }
   ],
@@ -1529,7 +1527,7 @@
   }
  },
  "Liste 19": {
-  "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct.",
+  "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, en direct Espace 2 et Mezzo",
   "contraires": "contraire Liste C",
   "tenue": "16.12-10h00 + 17.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Pablo HERAS-CASADO",
@@ -1540,7 +1538,7 @@
     "oeuvre": "Igor STRAVINSKI — Pulcinella, suite pour orchestre",
     "instrumentation": "2*.2.0.2 / 2.1.1.0 / 0.0.0.0 / 5.5.5.4.4",
     "remarques": "fl2+picc",
-    "detail": "Cordes : quintette solo + quintette d'orchestre",
+    "detail": "cordes : quintette solo + quintette d'orchestre",
     "duree": "≈ 24 min"
    },
    {
@@ -1579,7 +1577,7 @@
   }
  },
  "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
   "contraires": "contraire Liste C",
   "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Alexandre MASTRANGELO",
@@ -1616,9 +1614,6 @@
    "osr261715": [
     1
    ],
-   "osr261716": [
-    1
-   ],
    "osr162114": [
     1
    ],
@@ -1640,8 +1635,7 @@
    "osr162113": "-sans choristes ni soliste ni amplification",
    "osr128620": "-sans choristes ni soliste ni amplification",
    "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
-   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr162114": "1ère demi-heure pour la balance micros",
    "osr162115": "fin 22h15 max. pour repos nocturne",
    "osr128624": "différé Espace 2 le 23 décembre"
