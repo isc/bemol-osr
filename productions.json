@@ -1,8 +1,9 @@
 {
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
  "Liste 01": {
   "info": "La Plage classique",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
+  "tenue": "13.08-21h15 : tenue d'été OSR",
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens)",
   "duree": "≈ 1 h 14",
@@ -60,6 +61,7 @@
  "Liste 02": {
   "info": "La Plage Cinéconcert\nAttention : même effectif le plus rigoureusement possible que Liste 11 saison 2526 (y compris mus.suppl.) afin de remonter la production en 2 services de répétition",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
+  "tenue": "14.08-21h15 : tenue d'été OSR",
   "chef": "Philippe BÉRAN",
   "effectif": "1.0.1.1 / 1.0.0.0 / 0.2.0.1 / 8.6.4.3.2 (30 musiciens)",
   "duree": "≈ 1 h 29",
@@ -98,6 +100,7 @@
  "Liste 03": {
   "info": "La Plage Crossover\nAnnées folles - Hommage à Joséphine Baker\navec Kennedy, l'une des grandes voix du jazz-soul américain\nSet-list [titre : musique / paroles] - ordre à confirmer en répétition\narrangements originaux d'Alexandre Mastrangello commandés par l'OSR sauf Addicted to addictions / Let's Party\n-My fate is in your hands : Thomas 'Fats' Waller / Andy Razaf\n-I'm feeling like a million : Nacio Herb Brown / Arthur Freed\n-Bye bye blackbird : Ray Henderson / Mort Dixon\n-London Town : Wal-Berg / Wynne Thomas & Léo Lelièvre\n-J'attendrais : Dino Olivieri / Nino Rastelli - Louis Poterat\n-Rag-Mazurka d'après Francis Poulenc (orchestre seul)\n-Don't touch my tomatoes : Sam Manning / Sam Manning\n-Afraid to dream : Mark Gordon & Harry Revel (paroles et musique)\n-You're driving me crazy : Walter Donaldson / Walter Donaldson\n-You are my lucky star (Nacio Herb Brown / Arthur Freed)\n-J'ai deux amours : Vincent Scotto / Géo Koger & Henri Varna\n-BIS : Addicted to addictions / Let's Party : paroles & musique : Ondrej Pivec & Kennedy / arrangements : Tomas Sykora / adaptation : Alexandre Mastrangelo",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
+  "tenue": "15.08-21h15 : tenue d'été OSR",
   "chef": "Alexandre MASTRANGELO",
   "effectif": "2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)",
   "duree": "≈ 1 h 30",
@@ -379,6 +382,7 @@
  "Liste A": {
   "info": "captation vidéo en construction : Bel Air Media pour Mezzo et Opera Vision (en cours Alain Perroux)",
   "contraires": "contraire Liste 06. Les listes 05 et A ne sont pas contraires.",
+  "tenue": "16.09-19h30 + 18.09-19h30 + 20.09-15h00 + 22.09-19h30 + 24.09-19h30 + 26.09-19h30 : chemise noire",
   "chef": "Thierry FISCHER",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.6.2.3 / 12.10.8.7.5 (77 musiciens)",
   "duree": "≈ 3 h 00",
@@ -474,6 +478,7 @@
  "Liste 06": {
   "info": "concert hors abonnement avec 200 places pour événement KPMG\n-avec moniteur video + time code pour chef et percussioniste dès le 2ème service\n-écran et beamer du VH\n-régie vidéo Skynight au balcon d'orgue",
   "contraires": "contraire Liste A",
+  "tenue": "24.09-19h30 : chemise noire",
   "chef": "Jean Deroyer",
   "effectif": "1.1.1.1 / 1.1.1.0 / 1.1.1.0 / 6.5.4.3.2 (30 musiciens)",
   "duree": "≈ 1 h 05",
@@ -499,6 +504,7 @@
  "Liste 07": {
   "info": "-les concerts scolaires sont 2 semaines après le concert famille avec un raccord de reprise\n-avec captation vidéo pour projection live de l'orchestre : 2 cameramen circulent dans l'orchestre\n-écran et beamer du VH\n-loge 18 pour régie son",
   "contraires": "contraire Liste B",
+  "tenue": "26.09-11h00 + 12.10-14h15 + 13.10-09h15 + 13.10-14h15 + 14.10-09h15 + 15.10-09h15 : chemise noire",
   "chef": "Martyna SZYMCZAK",
   "effectif": "3.2.2.2 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4 (67 musiciens)",
   "duree": "≈ 30 min",
@@ -617,6 +623,7 @@
   }
  },
  "Liste 08": {
+  "tenue": "30.09-19h30 + 01.10-20h15 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Elim CHAN",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.4.2.1 / 15.13.11.9.7 (86 musiciens)",
   "duree": "≈ 1 h 39",
@@ -694,6 +701,7 @@
  "Liste 09": {
   "info": "Pas de garde-robes à Evian",
   "contraires": "contraire Liste B",
+  "tenue": "08.10-19h30 + 10.10-20h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Eva OLLIKAINEN",
   "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
   "duree": "≈ 1 h 45",
@@ -850,6 +858,7 @@
  "Liste 10": {
   "info": "Académie OSR-HEM (orchestre chœur et solistes)\nEffectif OSR : 1111 / 1110 / 1000 // 6.6.5.4.2\n-dispositif ONU : pupitre orateur, drapeaux...\n-loge 18 pour régie son",
   "contraires": "10 services max par musicien·ne",
+  "tenue": "24.10-19h30 : OSR : tenue de concert OSR / HEM : veste noire chemise blanche\n25.10-17h00 : OSR : chemises noires / HEM : haut noir simple (T-shirts, polos...)",
   "chef": "Ton KOOPMAN",
   "effectif": "3.2.2.3 / 4.2.3.0 / 1.3.0.0 / 12.12.10.8.5 (70 musiciens)",
   "duree": "≈ 1 h 05",
@@ -913,6 +922,7 @@
  },
  "Liste 11": {
   "info": "Cineconcert avec orchestre amplifié (1ère partie 58' / 2ème partie 44')\n-orchestre à plat avec lampes pupitres tutti\n-grand écran 16/9 + amplification de soutien : piano, solistes des cordes, bois, quelques perc. ...) avec cluster central et retour orchestre\n-régies vidéo et son en salle + 2 beamers Skynight en sas cour 2ème galerie\n-entrée des retardataires : 9'40'' après le début",
+  "tenue": "31.10-17h00 + 01.11-20h15 : chemise noire",
   "chef": "Stefan GEIGER",
   "effectif": "3.2.3.2 / 4.3.3.1 / 1.6.1.2 / 14.12.10.8.6 (81 musiciens)",
   "duree": "≈ 2 h 02",
@@ -1020,6 +1030,7 @@
  },
  "Liste 13": {
   "info": "Concours de Genève / demi-finale 3 du concours de direction (1/2 finales 1 et 2 avec les mêmes candidats les 7 et 8 novembre sans l'OSR)\nATTENTION : les 2 services de cette liste sont en public, en chemise noire et filmés/diffusés en streaming live sans aucune répétition au préalable\nLe concours de direction se déroule sur 2025 et 2026\n2025\n-printemps 25 : 24 candidats sélectionnés sur vidéo\n-1er novembre 25 : 12 candidats sélectionnés après le 1er tour avec l'orchestre de la HEM\n-3 novembre 25 : 6 demi-finalistes sélectionnés après le 2ème tour avec l'OCG\n2026\n-6 novembre 26 : arrivée des candidats - cérémonie de présentation et tirage au sort des pièces des demi-finales et de la finale\n-7 novembre 26 : demi-finale 1 avec l'OCG\n-8 novembre 26 : demi-finale 2 avec Contrechamps\n-9 novembre : demi-finale 3 avec l'OSR :\n-2 répétitions publiques de 3 heures en présence du jury pour les 6 demi-finalistes qui répètent chacun 45 minutes avec l'orchestre.\n-chacun dirige 1 mouvement de La Mer (tirage au sort du 6 novembre) et le 1er mouvement d'un des 2 concertos de Schumann avec soliste.\n-chaque demi-finaliste gère son temps librement mais commence par La Mer et fini par le concerto\n-les 6 demi-finalistes sont connus le 3 novembre 2025 et tirent au sort les pièces à choix le 6 novembre 2026\n-les 2 services sont présentés en direct, filmés et diffusés en streaming live (Medici, RTS...)\n-les 3 finalistes sont connus à l'issue des délibérations qui suivent le 2ème service (pas de proclamation publique)",
+  "tenue": "09.11-14h30 + 09.11-19h30 : chemise noire",
   "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.2.4 / 4.5.3.1 / 1.3.2.0 / 14.12.10.8.6 (81 musiciens)",
   "duree": "≈ 50 min",
@@ -1068,6 +1079,7 @@
  },
  "Liste 14": {
   "info": "Concours de Genève / Finale 1 du concours de direction et Finale du concours de de composition\n-les 3 finalistes du concours de direction sont connus après la 1/2 finale 3 du 9 novembre avec l'OSR\n-chacun répète 2 fois 50 minutes et la générale avec l'orchestre en présence du jury\n-chacun dirige l'une des 3 œuvres finalistes du concours de composition (15' env.) qu'il aura tiré au sort lors de la Cérémonie d'ouverture le 6 novembre. La durée du concert est au plus\nde 1h15 + 2 pauses de 15 minutes + les présentations\n-les 3 pièces finalistes et leur instrumentation sont connues fin mars 2025 et les partitions prêtes au plus tard fin septembre 2025 (réalisées par le Concours de Genève)\n-le jury du concours de direction (président : Bertrand de Billy) assiste aux répétitions.\n-les compositeurs finalistes assistent aux répétitions de leur pièce\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de composition (présidente : Unsuk Chin)",
+  "tenue": "11.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.2 / 12.10.8.6.4 (70 musiciens)",
   "duree": "≈ 50 min",
@@ -1139,6 +1151,7 @@
  },
  "Liste 15": {
   "info": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)",
+  "tenue": "13.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6 (83 musiciens)",
   "duree": "≈ 1 h 55",
@@ -1231,6 +1244,7 @@
  },
  "Liste 16": {
   "info": "Centenaire du Motet le 19 novembre (production Le Motet) : opéra complet en version concert\nreprise en extraits pour FAM+ (production OSR) le 20 novembre avec le chœur et uniquement Abigaille\n-finalement sans avant-scène\n-avec régie son en loge 18 pour concert du 20 novembre\n-avec caméras en salle (4 places en 1ère galerie face-jardin)\n-avec sous-titrage le 19 novembre uniquement (écran+beamer VH)\nChoeur Le Motet : 85 env. (sans pupitre)\nDistribution : Le Motet\nAbigaille : Maria Jose SIRI\nNabucco : Nikoloz LAGVILAVA\nIsmaele : Sahy RATIA,\nFenena : Carine SÉCHAYE\nZaccaria : Rubén AMORETTI\nGran Sacerdote : Joe BERTILI\nAbdallo: Oscar ESMERODE\nAnna : Clémence TILQUIN",
+  "tenue": "19.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n20.11-19h00 : chemise noire",
   "chef": "Romain MAYOR",
   "effectif": "2.2.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3 (55 musiciens)",
   "duree": "≈ 2 h 35",
@@ -1325,26 +1339,51 @@
   }
  },
  "Liste 17": {
-  "info": "chef ok pour 15h-19h si Comité ok",
+  "info": "-dispositif cordes Gatti particulier pour Beethoven\n-accord chef pour ouverture du podium choeur si nécéssaire\n-les jeunes chefs Talent Norge assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse",
+  "tenue": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)",
   "duree": "≈ 1 h 39",
   "works": [
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 2 en ré majeur op. 36",
-    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 10*.8.7.6.4",
-    "remarques": "ok chef",
+    "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.6.4",
+    "remarques": "réduction pour la Masterclasse : 10.8.7.6.4",
     "duree": "≈ 32 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 3 en mi bémol majeur op. 55, dite 'Héroïque'",
     "instrumentation": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "ok chef",
+    "remarques": "réduction pour la masterclasse : 10.8.7.6.4",
     "duree": "≈ 47 min"
    }
   ],
   "serviceWorks": {
+   "osr132917": [
+    2,
+    1
+   ],
+   "osr132918": [
+    2,
+    1
+   ],
+   "osr132919": [
+    2,
+    1
+   ],
+   "osr132920": [
+    2,
+    1
+   ],
+   "osr132921": [
+    1,
+    2
+   ],
    "osr132922": [
+    1,
+    2
+   ],
+   "osr132926": [
     1,
     2
    ],
@@ -1358,14 +1397,18 @@
    ]
   },
   "serviceNotes": {
+   "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au",
+   "osr132921": "essai micros",
    "osr132922": "-ouverture au public du podium choeur en construction",
+   "osr132926": "-étudiants Talent Norge",
    "osr132923": "-ouverture au public du podium choeur en construction",
    "osr132925": "-ouverture au public du podium choeur en construction"
   }
  },
  "Liste 18": {
-  "info": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)\n-avec régie son en loge 18",
+  "info": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)",
   "contraires": "contraire liste C",
+  "tenue": "05.12-11h00 : OSR : chemises noires / Collège : haut de couleur simple (T-shirts, polos...)",
   "chef": "Philippe BÉRAN",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
   "duree": "≈ 37 min",
@@ -1388,12 +1431,23 @@
    "osr206164": [
     1
    ],
+   "osr163275": [
+    1
+   ],
+   "osr132931": [
+    1
+   ],
+   "osr132933": [
+    1
+   ],
    "osr132934": [
     1
    ]
   },
   "serviceNotes": {
    "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
+   "osr163275": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
+   "osr132933": "générale raccourcie à 2h30",
    "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler"
   }
  },
@@ -1431,30 +1485,12 @@
    "osr132185": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
-  "contraires": "contraire Liste C",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist"
-  ]
+ "Concours Premier.ère soliste des clarinettes (coordonné)": {
+  "chef": "Tugan SOKHIEV",
+  "works": []
  },
  "Liste C": {
-  "info": "Attention : 1 seul entracte IMPERATIF\nprojet de captation vidéo Les Noces sous les Etoiles\nDurée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\nPas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
+  "info": "-projet de captation vidéo Les Noces sous les Etoiles\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
   "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
   "chef": "Marta GARDOLIŃSKA",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 musiciens)",
@@ -1492,13 +1528,10 @@
    ]
   }
  },
- "Concours Premier.ère soliste des clarinettes (coordonné)": {
-  "chef": "Tugan SOKHIEV",
-  "works": []
- },
  "Liste 19": {
   "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, possiblement en direct.",
   "contraires": "contraire Liste C",
+  "tenue": "16.12-10h00 + 17.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Pablo HERAS-CASADO",
   "effectif": "2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)",
   "duree": "≈ 1 h 54",
@@ -1507,7 +1540,7 @@
     "oeuvre": "Igor STRAVINSKI — Pulcinella, suite pour orchestre",
     "instrumentation": "2*.2.0.2 / 2.1.1.0 / 0.0.0.0 / 5.5.5.4.4",
     "remarques": "fl2+picc",
-    "detail": "Cordes : quintette solo + quintette d'orchestre Attention : 2 solistes par pupitre de cordes",
+    "detail": "Cordes : quintette solo + quintette d'orchestre",
     "duree": "≈ 24 min"
    },
    {
@@ -1520,7 +1553,7 @@
    {
     "oeuvre": "Johannes BRAHMS — Symphonie N° 4 en mi mineur op. 98",
     "instrumentation": "2*.2.2.3* / 4.2.3.0 / 1.1.0.0 / 10*.8.7.6.4",
-    "remarques": "effectif validé avec 4 HE <> liste C",
+    "remarques": "effectif validé avec 2.1.1.0.0 Hors Effectif (<> liste C)",
     "percussions": "tri",
     "duree": "≈ 39 min"
    }
@@ -1543,6 +1576,75 @@
   "serviceNotes": {
    "osr132947": "-ouverture au public du podium choeur en construction",
    "osr132948": "-ouverture au public du podium choeur en construction"
+  }
+ },
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\navec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\nprojet de captation TV en construction",
+  "contraires": "contraire Liste C",
+  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist"
+  ],
+  "serviceWorks": {
+   "osr162112": [
+    1
+   ],
+   "osr162113": [
+    1
+   ],
+   "osr128620": [
+    1
+   ],
+   "osr261714": [
+    1
+   ],
+   "osr261715": [
+    1
+   ],
+   "osr261716": [
+    1
+   ],
+   "osr162114": [
+    1
+   ],
+   "osr162115": [
+    1
+   ],
+   "osr128623": [
+    1
+   ],
+   "osr128624": [
+    1
+   ],
+   "osr128622": [
+    1
+   ]
+  },
+  "serviceNotes": {
+   "osr162112": "-sans choristes ni soliste ni amplification",
+   "osr162113": "-sans choristes ni soliste ni amplification",
+   "osr128620": "-sans choristes ni soliste ni amplification",
+   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr162114": "1ère demi-heure pour la balance micros",
+   "osr162115": "fin 22h15 max. pour repos nocturne",
+   "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
  "Liste 21": {
@@ -1718,6 +1820,7 @@
   ]
  },
  "Liste 23": {
+  "tenue": "20.01-19h30 + 21.01-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Jonathan NOTT",
   "effectif": "5.4.5.4 / 4.3.4.1 / 1.5.2.1 / 15.13.11.9.7 (94 musiciens)",
   "duree": "≈ 2 h 07",
@@ -1828,6 +1931,7 @@
  "Liste D": {
   "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)",
   "contraires": "contraire Listes 24 et 24b",
+  "tenue": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Jader BIGNAMINI",
   "effectif": "3.2.2.2 / 4.2.3.1 / 1.4.1.1 / 11.9.7.5.4 (62 musiciens)",
   "duree": "≈ 2 h 45",
@@ -2021,6 +2125,8 @@
   }
  },
  "Liste 27": {
+  "info": "Dispositif spécial cordes Gatti pour Beethoven",
+  "tenue": "10.03-19h30 + 12.03-19h30 + 15.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Daniele GATTI",
   "effectif": "3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)",
   "duree": "≈ 1 h 33",
@@ -2098,6 +2204,7 @@
  },
  "Liste 28": {
   "contraires": "contraire liste 28b",
+  "tenue": "24.03-19h30 + 25.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Daniel HARDING",
   "effectif": "3.3.3.4 / 4.5.3.1 / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)",
   "duree": "≈ 1 h 23",
@@ -2349,6 +2456,7 @@
  },
  "Liste 31": {
   "info": "projet de captation audiovisuelle RTS / Arte (jean-PIerre Loisil)\navec cordes limitées à Berne : 14.12.10.8.6\nAttention : Casino Bern est le nouveau nom du Kultur-Casino Bern",
+  "tenue": "28.04-19h30 + 29.04-19h30 + 30.04-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Tugan SOKHIEV",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 (82 musiciens)",
   "duree": "≈ 2 h 24",
@@ -2393,6 +2501,7 @@
   }
  },
  "Liste 32": {
+  "tenue": "12.05-19h30 + 13.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Alan Gilbert",
   "effectif": "4.4.4.4 / 4.4.3.1 / 1.7.2.2 / 15.13.11.9.7 (95 musiciens)",
   "duree": "≈ 1 h 38",
@@ -2485,6 +2594,7 @@
  },
  "Liste 34": {
   "info": "Harry Potter and the Sorcerer's Stone à l'Arena avec Opus One (2ème et 3ème épisodes en 2028 et 2029)",
+  "tenue": "21.05-19h30 + 22.05-14h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Ludwig WICKI",
   "effectif": "3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)",
   "duree": "≈ 2 h 56",
@@ -2520,6 +2630,7 @@
  "Liste 35": {
   "info": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26",
   "contraires": "contraire Liste 36 et Liste 37",
+  "tenue": "26.05-19h30 + 27.05-20h15 + 28.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)",
   "duree": "≈ 1 h 27",
@@ -2707,6 +2818,7 @@
  "Liste G": {
   "info": "VERSION CONCERT OU SEMI STAGE AU VH",
   "contraires": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G",
+  "tenue": "24.06-19h30 + 25.06-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Guillaume Tourniaire",
   "effectif": "2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4 (57 musiciens)",
   "duree": "≈ 3 h 00",
@@ -2760,6 +2872,7 @@
   }
  },
  "Liste 41": {
+  "tenue": "30.06-21h30 : tenue d'été OSR",
   "chef": "Tugan SOKHIEV",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.3.1.1 / 10.8.6.5.3 (57 musiciens)",
   "works": [
