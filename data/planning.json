@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-14T16:01:17.980Z",
- "count": 640,
+ "updatedAt": "2026-10-15T10:01:00.576Z",
+ "count": 643,
  "events": [
   {
    "uid": "osr225046",
@@ -2665,6 +2665,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr262474",
+   "start": "2026-11-24T17:00",
+   "end": "2026-11-24T18:30",
+   "liste": "Liste 17",
+   "activity": "technique RTS",
+   "category": "generale",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132921",
    "start": "2026-11-25T10:00",
    "end": "2026-11-25T13:00",
@@ -2874,6 +2885,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr262477",
+   "start": "2026-12-05T13:00",
+   "end": "2026-12-05T22:00",
+   "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+   "activity": "répétitions candidats",
+   "category": "concours",
+   "location": "ML - grande salle",
+   "project": "CC2, CONC.",
+   "cancelled": false
+  },
+  {
    "uid": "osr133298",
    "start": "2026-12-05T14:00",
    "end": "2026-12-05T17:00",
@@ -2904,6 +2926,17 @@
    "category": "concours",
    "location": "ML - grande salle",
    "project": "CONC.",
+   "cancelled": false
+  },
+  {
+   "uid": "osr262476",
+   "start": "2026-12-06T18:00",
+   "end": "2026-12-06T22:00",
+   "liste": "Concours Premier.ère soliste des clarinettes (coordonné)",
+   "activity": "répétitions candidats",
+   "category": "concours",
+   "location": "ML - grande salle",
+   "project": "CC2, CONC.",
    "cancelled": false
   },
   {
@@ -3263,7 +3296,7 @@
    "start": "2026-12-20T14:00",
    "end": "2026-12-20T16:00",
    "liste": "Liste 20",
-   "activity": "répétition chef+soliste(s)+piano ((sol.+sextet sans orch.))",
+   "activity": "répétition chef+soliste(s)+piano ((sextet sans orch.))",
    "category": "repetition",
    "location": "ML - grande salle",
    "project": "DIP2",
@@ -3283,7 +3316,7 @@
   {
    "uid": "osr261716",
    "start": "2026-12-20T17:00",
-   "end": "2026-12-20T19:00",
+   "end": "2026-12-20T20:00",
    "liste": "Liste 20",
    "activity": "répétition chef+soliste(s)+piano ((sol+sextet sans orch.))",
    "category": "repetition",
