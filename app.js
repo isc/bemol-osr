@@ -1975,7 +1975,7 @@ function paperButton(from) {
 
 // Calendrier simplifié à imprimer : une période de 4 semaines par page A4
 // paysage, toutes les semaines de la même hauteur, et dans chaque case
-// seulement « n° de Liste · heure · lieu » — de quoi s'en servir comme agenda
+// seulement « n° de Liste · heures · lieu » — de quoi s'en servir comme agenda
 // papier général, où l'on note au stylo ses autres rendez-vous (issue #224).
 // Ne remplace ni la Bible complète ni l'Agenda personnalisé, qui restent
 // inchangés. Les services annulés n'y figurent jamais.
@@ -1988,6 +1988,16 @@ function isoWeek(d) {
   return (
     1 + Math.round(((t - jan4) / 86400000 - 3 + ((jan4.getDay() + 6) % 7)) / 7)
   )
+}
+
+// « 10h00–13h00 » : heure de début et heure de fin (issue #226). Sans heure de
+// fin utilisable (absente, ou un autre jour), on garde le début seul.
+function paperRange(e) {
+  const h = (s) => fmtTime(s).replace(":", "h")
+  const sameDay = e.end && e.end.slice(0, 10) === e.start.slice(0, 10)
+  return sameDay && fmtTime(e.end) && e.end !== e.start
+    ? `${h(e.start)}–${h(e.end)}`
+    : h(e.start)
 }
 
 function paperCell(d, events) {
@@ -2013,7 +2023,7 @@ function paperCell(d, events) {
               "div",
               { class: `paper-evt evt ${listeColorClass(e.liste)}` },
               el("b", {}, e.liste.replace(/^Liste\s+/i, "")),
-              ` ${fmtTime(e.start).replace(":", "h")} ${shortLocation(e.location)}`,
+              ` ${paperRange(e)} ${shortLocation(e.location)}`,
             ),
           ),
       ),
