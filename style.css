@@ -1996,6 +1996,233 @@ footer a {
   }
 }
 
+/* --- Calendrier papier (#224) : une période par page A4 paysage ---
+   Pages en dimensions fixes (270 × 164 mm : A4 paysage moins de larges marges.
+   Safari/iOS ignore la marge de @page, réserve en-tête/pied d'environ 19 mm
+   en haut et 17 mm en bas : à 178 mm de haut, chaque période débordait d'un
+   filet sur une 2e feuille, soit 26 pages au lieu de 13) :
+   à l'écran elles défilent horizontalement, à l'impression chacune tient sur
+   une feuille. Toutes les semaines ont la même hauteur (1fr d'une grille de
+   hauteur fixe). */
+.paper-scroll {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.paper-page {
+  box-sizing: border-box;
+  width: 270mm;
+  height: 164mm;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+  border: 1px solid var(--border);
+  margin: 0 0 14px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.paper-title {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 2mm;
+  padding-bottom: 1mm;
+  border-bottom: 2px solid var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--serif);
+  color: var(--header-bg);
+}
+
+.paper-title small {
+  font-size: 8px;
+  font-weight: 400;
+  color: #555;
+}
+
+.paper-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 8mm repeat(7, 1fr);
+  grid-template-rows: 5mm repeat(var(--weeks), 1fr);
+  border-top: 1px solid #555;
+  border-left: 1px solid #555;
+}
+
+.paper-head,
+.paper-week,
+.paper-day {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid #555;
+  border-bottom: 1px solid #555;
+}
+
+.paper-head {
+  font-size: 8px;
+  text-align: center;
+  line-height: 5mm;
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #fff;
+  background: var(--header-bg);
+}
+
+.paper-week {
+  font-size: 8px;
+  text-align: center;
+  padding-top: 1mm;
+  font-weight: 700;
+  color: var(--header-bg);
+  background: #e9e5da;
+}
+
+.paper-day {
+  display: flex;
+  flex-direction: column;
+  font-size: 7.5px;
+  line-height: 1.25;
+}
+
+.paper-day.weekend {
+  background: #f4f2ec;
+}
+
+.paper-date {
+  flex: none;
+  padding: 0.3mm 1mm 0;
+  font-weight: 700;
+  font-size: 9px;
+  color: var(--header-bg);
+  background: #efe3c6;
+  border-bottom: 1px solid #6b6b6b;
+}
+
+.paper-day.weekend .paper-date {
+  background: #e4d2a8;
+}
+
+/* La ligne continue sous la date remplace le pointillé du 1er créneau. */
+.paper-date + .paper-slot {
+  border-top: 0;
+}
+
+/* Matin / après-midi / soir : trois cases de même hauteur, séparées d'un
+   filet gris ; la lettre en filigrane rappelle le créneau. */
+.paper-slot {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px dotted #bbb;
+  padding: 0 0.5mm;
+}
+
+.paper-slot::after {
+  content: attr(data-slot);
+  position: absolute;
+  right: 0.6mm;
+  bottom: 0;
+  font-size: 7px;
+  color: #bbb;
+}
+
+.paper-evt {
+  display: block;
+  margin: 0.2mm 0;
+  padding: 0 0.8mm;
+  border-radius: 2px;
+  border-left: 2px solid rgba(0, 0, 0, 0.45);
+  font-size: 8.5px;
+  line-height: 1.2;
+  color: #000;
+  overflow-wrap: anywhere;
+}
+
+@media print {
+  @page papier {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  .paper-page,
+  .paper-page * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .paper-page {
+    page: papier;
+    border: none;
+    margin: 0;
+    break-after: page;
+    break-inside: avoid;
+  }
+
+  .paper-page:last-child {
+    break-after: auto;
+  }
+
+  .paper-scroll {
+    overflow: visible;
+    padding: 0;
+  }
+
+  /* Pas d'en-tête de vue ni de bandeau : seules les pages comptent. */
+  body[data-view="papier"] .print-title,
+  .paper-toolbar {
+    display: none;
+  }
+}
+
+/* --- Détail des Listes : fiches seules, en colonnes --- */
+.listes-sheet {
+  column-width: 260px;
+  column-gap: 12px;
+  padding: 10px 0;
+}
+
+.listes-sheet .doc-liste-card {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.liste-dates {
+  margin: 0 0 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+@media print {
+  body[data-view="listes"] {
+    font-size: 7px;
+  }
+
+  body[data-view="listes"] .paper-toolbar {
+    display: none;
+  }
+
+  .listes-sheet {
+    column-width: 55mm;
+    column-gap: 4mm;
+    padding: 0;
+    line-height: 1.15;
+  }
+
+  .listes-sheet .doc-liste-card {
+    padding: 1mm 1.5mm;
+    margin-bottom: 2mm;
+    background: #fff;
+    color: #000;
+  }
+}
+
 /* --- Installation de l'application (PWA) --- */
 
 #install-btn {

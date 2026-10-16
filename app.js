@@ -153,6 +153,7 @@ const state = {
   updatedAt: null,
   season: null,
   view: null,
+  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
@@ -1606,6 +1607,12 @@ function slotOf(e) {
 
 const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
 
+// Calendrier papier : le matin court jusqu'à 13 h, l'après-midi jusqu'à 19 h.
+function paperSlotOf(e) {
+  const h = parseInt(fmtTime(e.start).slice(0, 2) || "0", 10)
+  return h < 13 ? 0 : h < 19 ? 1 : 2
+}
+
 // Découpage de la saison courante en périodes de 4 semaines à partir du 1er
 // lundi d'août (cf. § Vocabulaire métier de CLAUDE.md), même découpage que la
 // « Bible » papier. Partagé entre la vue Grille et la vue Document.
@@ -1936,12 +1943,279 @@ function renderDocument(main) {
             },
             "🖨️ Imprimer / exporter en PDF",
           ),
+          paperButton("document"),
+          listesButton("document"),
         ),
       ),
       el("div", { class: "search-bar doc-search-bar" }, input),
     ),
     results,
     docBody,
+  )
+}
+
+// --- Vue calendrier papier (agenda à imprimer en paysage) -------------------
+
+// Bouton d'accès au calendrier papier, depuis la Bible (saison complète) ou
+// l'Agenda personnalisé (filtré par les Réglages) : `from` est l'onglet
+// d'origine, qui fixe le contenu et où revient le bouton « Retour ».
+function paperButton(from) {
+  return el(
+    "button",
+    {
+      type: "button",
+      onclick: () => {
+        state.paperFrom = from
+        setView("papier")
+      },
+    },
+    "🗓 Calendrier papier",
+  )
+}
+
+// Calendrier simplifié à imprimer : une période de 4 semaines par page A4
+// paysage, toutes les semaines de la même hauteur, et dans chaque case
+// seulement « n° de Liste · heure · lieu » — de quoi s'en servir comme agenda
+// papier général, où l'on note au stylo ses autres rendez-vous (issue #224).
+// Ne remplace ni la Bible complète ni l'Agenda personnalisé, qui restent
+// inchangés. Les services annulés n'y figurent jamais.
+// Numéro de semaine ISO (1-53, la semaine 1 contient le premier jeudi de
+// l'année) : celui des agendas et calendriers du commerce.
+function isoWeek(d) {
+  const t = new Date(d.getFullYear(), d.getMonth(), d.getDate())
+  t.setDate(t.getDate() + 3 - ((t.getDay() + 6) % 7))
+  const jan4 = new Date(t.getFullYear(), 0, 4)
+  return (
+    1 + Math.round(((t - jan4) / 86400000 - 3 + ((jan4.getDay() + 6) % 7)) / 7)
+  )
+}
+
+function paperCell(d, events) {
+  const first = d.getDate() === 1
+  return el(
+    "div",
+    { class: "paper-day" + ([0, 6].includes(d.getDay()) ? " weekend" : "") },
+    el(
+      "div",
+      { class: "paper-date" },
+      first ? `1er ${MONTH_NAMES[d.getMonth()]}` : String(d.getDate()),
+    ),
+    // Trois cases par jour (matin, après-midi, soir) pour garder les services
+    // lisibles et laisser de la place au stylo (retour sur #225).
+    ...SLOT_NAMES.map((name, slot) =>
+      el(
+        "div",
+        { class: "paper-slot", "data-slot": name[0] },
+        ...events
+          .filter((e) => paperSlotOf(e) === slot)
+          .map((e) =>
+            el(
+              "div",
+              { class: `paper-evt evt ${listeColorClass(e.liste)}` },
+              el("b", {}, e.liste.replace(/^Liste\s+/i, "")),
+              ` ${fmtTime(e.start).replace(":", "h")} ${shortLocation(e.location)}`,
+            ),
+          ),
+      ),
+    ),
+  )
+}
+
+function renderPaper(main) {
+  const global = state.paperFrom === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents()).filter(
+    (e) => !e.cancelled,
+  )
+  const ctx = weekTableContext(events)
+  const stamp = fmtDay(new Date(), true)
+
+  main.append(
+    el(
+      "div",
+      { class: "view-toolbar paper-toolbar" },
+      el(
+        "div",
+        { class: "doc-intro" },
+        el(
+          "p",
+          {},
+          global
+            ? "Saison complète, non filtrée : une période par page, uniquement n° de Liste, heure et lieu."
+            : "Selon tes choix dans ⚙ Réglages : une période par page, uniquement n° de Liste, heure et lieu.",
+        ),
+        el(
+          "p",
+          {},
+          "À l'impression, choisis le format A4 en orientation Paysage.",
+        ),
+        el(
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: () => setView(state.paperFrom) },
+            "← Retour",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
+        ),
+      ),
+    ),
+  )
+
+  const pages = el("div", { class: "paper-pages" })
+  for (const periode of seasonPeriodes()) {
+    const grid = el(
+      "div",
+      { class: "paper-grid", style: `--weeks:${periode.weeksInPeriode}` },
+      el("div", { class: "paper-head" }, "Sem."),
+      ...[1, 2, 3, 4, 5, 6, 0].map((i) =>
+        el("div", { class: "paper-head" }, DAY_NAMES_LONG[i]),
+      ),
+    )
+    for (let w = 0; w < periode.weeksInPeriode; w++) {
+      const monday = addDays(periode.pStart, w * 7)
+      grid.append(el("div", { class: "paper-week" }, String(isoWeek(monday))))
+      for (let i = 0; i < 7; i++) {
+        const d = addDays(monday, i)
+        const dayEvents = (ctx.byDay.get(localKey(d)) || [])
+          .slice()
+          .sort((a, b) => a.start.localeCompare(b.start))
+        grid.append(paperCell(d, dayEvents))
+      }
+    }
+    pages.append(
+      el(
+        "section",
+        { class: "paper-page" },
+        el(
+          "h2",
+          { class: "paper-title" },
+          periodeTitle(periode),
+          el(
+            "small",
+            {},
+            `${seasonLabel(state.season)} · ${global ? "Bible" : "Agenda personnalisé"} · généré le ${stamp}`,
+          ),
+        ),
+        grid,
+      ),
+    )
+  }
+  main.append(el("div", { class: "paper-scroll" }, pages))
+}
+
+// --- Vue détail des Listes (document compact à imprimer) -------------------
+
+// Bouton d'accès au détail des Listes, depuis la Bible ou l'Agenda
+// personnalisé (même logique que paperButton).
+function listesButton(from) {
+  return el(
+    "button",
+    {
+      type: "button",
+      onclick: () => {
+        state.paperFrom = from
+        setView("listes")
+      },
+    },
+    "📄 Détail des Listes",
+  )
+}
+
+// Document sans planning : uniquement la fiche de chaque Liste (chef,
+// solistes, œuvres, instrumentation, séries contraires), rangée en colonnes
+// qui se remplissent l'une après l'autre pour limiter le nombre de pages
+// (retour sur #225). Comme le calendrier papier, il reprend la saison
+// complète depuis la Bible, ou les seules Listes de l'Agenda personnalisé.
+function renderListes(main) {
+  const global = state.paperFrom === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents()).filter(
+    (e) => !e.cancelled,
+  )
+  const range = new Map()
+  for (const e of events) {
+    const r = range.get(e.liste) || { first: e.start, last: e.start }
+    if (e.start < r.first) r.first = e.start
+    if (e.start > r.last) r.last = e.start
+    range.set(e.liste, r)
+  }
+  // Ordre chronologique (premier service), puis numéro de Liste à égalité.
+  const cards = [...range.keys()]
+    .sort(
+      (a, b) =>
+        range.get(a).first.localeCompare(range.get(b).first) ||
+        a.localeCompare(b, "fr", { numeric: true }),
+    )
+    .map((liste) => ({ liste, detail: productionDetail(liste) }))
+    .filter(({ detail }) => detail.length)
+
+  main.append(
+    el(
+      "div",
+      { class: "view-toolbar paper-toolbar" },
+      el(
+        "div",
+        { class: "doc-intro" },
+        el(
+          "p",
+          {},
+          global
+            ? "Saison complète, non filtrée : le détail de chaque Liste, sans le planning."
+            : "Selon tes choix dans ⚙ Réglages : le détail de chaque Liste, sans le planning.",
+        ),
+        el(
+          "p",
+          {},
+          "Les fiches suivent l’ordre chronologique de la saison et sont rangées en colonnes pour tenir sur le moins de pages possible. Seules les Listes dont le mémo de production est publié apparaissent.",
+        ),
+        el(
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: () => setView(state.paperFrom) },
+            "← Retour",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
+        ),
+      ),
+    ),
+    el(
+      "div",
+      { class: "listes-sheet" },
+      ...cards.map(({ liste, detail }) => {
+        const r = range.get(liste)
+        const from = new Date(r.first)
+        const to = new Date(r.last)
+        const dates =
+          localKey(from) === localKey(to)
+            ? fmtDay(from)
+            : `${fmtDay(from)} → ${fmtDay(to)}`
+        return el(
+          "div",
+          { class: "detail-box doc-liste-card" },
+          el("h3", { class: "doc-liste-title" }, liste),
+          el("p", { class: "liste-dates" }, dates),
+          ...detail,
+        )
+      }),
+    ),
   )
 }
 
@@ -1965,6 +2239,8 @@ function renderGrilleActions() {
       { class: "agenda-actions-btns" },
       el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
       el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
+      paperButton("grille"),
+      listesButton("grille"),
       el(
         "button",
         {
@@ -3377,7 +3653,10 @@ function renderInstall() {
 function setView(view) {
   state.view = view
   state.modifsFilter = null
-  localStorage.setItem("bemol-view", view)
+  // La vue papier est un écran d'impression, pas un onglet : on ne la
+  // rouvre pas au prochain lancement.
+  if (view !== "papier" && view !== "listes")
+    localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
@@ -3386,7 +3665,8 @@ function setView(view) {
   // seulement au premier chargement de l'app) — demande #186 : sans ça, il
   // fallait redéfiler manuellement après être passé par un autre onglet
   // (ex. Modifications).
-  if (view === "grille" || view === "document") scrollToToday()
+  if (view === "papier" || view === "listes") window.scrollTo({ top: 0 })
+  else if (view === "grille" || view === "document") scrollToToday()
   // Les modifications les plus récentes sont tout en haut de la liste (#213).
   else window.scrollTo({ top: 0 })
 }
@@ -3395,6 +3675,8 @@ const VIEW_LABELS = {
   grille: "Agenda personnalisé",
   modifs: "Modifications",
   document: "Bible",
+  papier: "Calendrier papier",
+  listes: "Détail des Listes",
 }
 
 function render() {
@@ -3440,6 +3722,8 @@ function renderContent() {
   )
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "document") renderDocument(main)
+  else if (state.view === "papier") renderPaper(main)
+  else if (state.view === "listes") renderListes(main)
   else renderModifs(main)
 }
 
