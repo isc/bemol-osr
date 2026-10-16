@@ -2099,6 +2099,12 @@ footer a {
   padding: 0.3mm 1mm 0;
   font-weight: 700;
   font-size: 9px;
+  color: var(--header-bg);
+  background: #efe3c6;
+}
+
+.paper-day.weekend .paper-date {
+  background: #e4d2a8;
 }
 
 /* Matin / après-midi / soir : trois cases de même hauteur, séparées d'un
