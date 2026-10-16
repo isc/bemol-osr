@@ -2101,10 +2101,16 @@ footer a {
   font-size: 9px;
   color: var(--header-bg);
   background: #efe3c6;
+  border-bottom: 1px solid #6b6b6b;
 }
 
 .paper-day.weekend .paper-date {
   background: #e4d2a8;
+}
+
+/* La ligne continue sous la date remplace le pointillé du 1er créneau. */
+.paper-date + .paper-slot {
+  border-top: 0;
 }
 
 /* Matin / après-midi / soir : trois cases de même hauteur, séparées d'un
