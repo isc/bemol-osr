@@ -1607,6 +1607,12 @@ function slotOf(e) {
 
 const SLOT_NAMES = ["Matin", "Ap-midi", "Soir"]
 
+// Calendrier papier : le matin court jusqu'à 13 h, l'après-midi jusqu'à 19 h.
+function paperSlotOf(e) {
+  const h = parseInt(fmtTime(e.start).slice(0, 2) || "0", 10)
+  return h < 13 ? 0 : h < 19 ? 1 : 2
+}
+
 // Découpage de la saison courante en périodes de 4 semaines à partir du 1er
 // lundi d'août (cf. § Vocabulaire métier de CLAUDE.md), même découpage que la
 // « Bible » papier. Partagé entre la vue Grille et la vue Document.
@@ -1989,7 +1995,7 @@ function paperCell(d, events) {
         "div",
         { class: "paper-slot", "data-slot": name[0] },
         ...events
-          .filter((e) => slotOf(e) === slot)
+          .filter((e) => paperSlotOf(e) === slot)
           .map((e) =>
             el(
               "div",
