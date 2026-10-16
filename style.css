@@ -1996,6 +1996,133 @@ footer a {
   }
 }
 
+/* --- Calendrier papier (#224) : une période par page A4 paysage ---
+   Pages en dimensions fixes (277 × 188 mm = A4 paysage moins 1 cm de marge) :
+   à l'écran elles défilent horizontalement, à l'impression chacune tient sur
+   une feuille. Toutes les semaines ont la même hauteur (1fr d'une grille de
+   hauteur fixe). */
+.paper-scroll {
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.paper-page {
+  box-sizing: border-box;
+  width: 277mm;
+  height: 188mm;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+  border: 1px solid var(--border);
+  margin: 0 0 14px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.paper-title {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 2mm;
+  font-size: 13px;
+  font-family: var(--serif);
+  color: #000;
+}
+
+.paper-title small {
+  font-size: 8px;
+  font-weight: 400;
+  color: #555;
+}
+
+.paper-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 8mm repeat(7, 1fr);
+  grid-template-rows: 5mm repeat(var(--weeks), 1fr);
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.paper-head,
+.paper-week,
+.paper-day {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.paper-head {
+  font-size: 8px;
+  text-align: center;
+  line-height: 5mm;
+  text-transform: capitalize;
+  background: #eee;
+}
+
+.paper-week {
+  font-size: 8px;
+  text-align: center;
+  padding-top: 1mm;
+  background: #eee;
+}
+
+.paper-day {
+  padding: 0.6mm 1mm;
+  font-size: 7.5px;
+  line-height: 1.25;
+}
+
+.paper-day.weekend {
+  background: #f3f3f3;
+}
+
+.paper-date {
+  font-weight: 700;
+  font-size: 9px;
+}
+
+.paper-evt {
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+@media print {
+  @page papier {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  .paper-page {
+    page: papier;
+    border: none;
+    margin: 0;
+    break-after: page;
+    break-inside: avoid;
+  }
+
+  .paper-page:last-child {
+    break-after: auto;
+  }
+
+  .paper-scroll {
+    overflow: visible;
+    padding: 0;
+  }
+
+  /* Pas d'en-tête de vue ni de bandeau : seules les pages comptent. */
+  body[data-view="papier"] .print-title,
+  .paper-toolbar {
+    display: none;
+  }
+}
+
 /* --- Installation de l'application (PWA) --- */
 
 #install-btn {

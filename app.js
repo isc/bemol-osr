@@ -153,6 +153,7 @@ const state = {
   updatedAt: null,
   season: null,
   view: null,
+  paperFrom: "document", // onglet d'origine du calendrier papier
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
@@ -1936,6 +1937,7 @@ function renderDocument(main) {
             },
             "🖨️ Imprimer / exporter en PDF",
           ),
+          paperButton("document"),
         ),
       ),
       el("div", { class: "search-bar doc-search-bar" }, input),
@@ -1943,6 +1945,143 @@ function renderDocument(main) {
     results,
     docBody,
   )
+}
+
+// --- Vue calendrier papier (agenda à imprimer en paysage) -------------------
+
+// Bouton d'accès au calendrier papier, depuis la Bible (saison complète) ou
+// l'Agenda personnalisé (filtré par les Réglages) : `from` est l'onglet
+// d'origine, qui fixe le contenu et où revient le bouton « Retour ».
+function paperButton(from) {
+  return el(
+    "button",
+    {
+      type: "button",
+      onclick: () => {
+        state.paperFrom = from
+        setView("papier")
+      },
+    },
+    "🗓 Calendrier papier",
+  )
+}
+
+// Calendrier simplifié à imprimer : une période de 4 semaines par page A4
+// paysage, toutes les semaines de la même hauteur, et dans chaque case
+// seulement « n° de Liste · heure · lieu » — de quoi s'en servir comme agenda
+// papier général, où l'on note au stylo ses autres rendez-vous (issue #224).
+// Ne remplace ni la Bible complète ni l'Agenda personnalisé, qui restent
+// inchangés. Les services annulés n'y figurent jamais.
+function paperCell(d, events) {
+  const first = d.getDate() === 1
+  return el(
+    "div",
+    { class: "paper-day" + ([0, 6].includes(d.getDay()) ? " weekend" : "") },
+    el(
+      "div",
+      { class: "paper-date" },
+      first ? `1er ${MONTH_NAMES[d.getMonth()]}` : String(d.getDate()),
+    ),
+    ...events.map((e) =>
+      el(
+        "div",
+        { class: "paper-evt" },
+        el("b", {}, e.liste.replace(/^Liste\s+/i, "")),
+        ` ${fmtTime(e.start).replace(":", "h")} ${shortLocation(e.location)}`,
+      ),
+    ),
+  )
+}
+
+function renderPaper(main) {
+  const global = state.paperFrom === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents()).filter(
+    (e) => !e.cancelled,
+  )
+  const ctx = weekTableContext(events)
+  const stamp = fmtDay(new Date(), true)
+
+  main.append(
+    el(
+      "div",
+      { class: "view-toolbar paper-toolbar" },
+      el(
+        "div",
+        { class: "doc-intro" },
+        el(
+          "p",
+          {},
+          global
+            ? "Saison complète, non filtrée : une période par page, uniquement n° de Liste, heure et lieu."
+            : "Selon tes choix dans ⚙ Réglages : une période par page, uniquement n° de Liste, heure et lieu.",
+        ),
+        el(
+          "p",
+          {},
+          "À l'impression, choisis le format A4 en orientation Paysage.",
+        ),
+        el(
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: () => setView(state.paperFrom) },
+            "← Retour",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
+        ),
+      ),
+    ),
+  )
+
+  const pages = el("div", { class: "paper-pages" })
+  for (const periode of seasonPeriodes()) {
+    const grid = el(
+      "div",
+      { class: "paper-grid", style: `--weeks:${periode.weeksInPeriode}` },
+      el("div", { class: "paper-head" }),
+      ...[1, 2, 3, 4, 5, 6, 0].map((i) =>
+        el("div", { class: "paper-head" }, DAY_NAMES_LONG[i]),
+      ),
+    )
+    for (let w = 0; w < periode.weeksInPeriode; w++) {
+      const monday = addDays(periode.pStart, w * 7)
+      grid.append(el("div", { class: "paper-week" }, `S${w + 1}`))
+      for (let i = 0; i < 7; i++) {
+        const d = addDays(monday, i)
+        const dayEvents = (ctx.byDay.get(localKey(d)) || [])
+          .slice()
+          .sort((a, b) => a.start.localeCompare(b.start))
+        grid.append(paperCell(d, dayEvents))
+      }
+    }
+    pages.append(
+      el(
+        "section",
+        { class: "paper-page" },
+        el(
+          "h2",
+          { class: "paper-title" },
+          periodeTitle(periode),
+          el(
+            "small",
+            {},
+            `${seasonLabel(state.season)} · ${global ? "Bible" : "Agenda personnalisé"} · généré le ${stamp}`,
+          ),
+        ),
+        grid,
+      ),
+    )
+  }
+  main.append(el("div", { class: "paper-scroll" }, pages))
 }
 
 // Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
@@ -1965,6 +2104,7 @@ function renderGrilleActions() {
       { class: "agenda-actions-btns" },
       el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
       el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
+      paperButton("grille"),
       el(
         "button",
         {
@@ -3377,7 +3517,9 @@ function renderInstall() {
 function setView(view) {
   state.view = view
   state.modifsFilter = null
-  localStorage.setItem("bemol-view", view)
+  // La vue papier est un écran d'impression, pas un onglet : on ne la
+  // rouvre pas au prochain lancement.
+  if (view !== "papier") localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
@@ -3386,7 +3528,8 @@ function setView(view) {
   // seulement au premier chargement de l'app) — demande #186 : sans ça, il
   // fallait redéfiler manuellement après être passé par un autre onglet
   // (ex. Modifications).
-  if (view === "grille" || view === "document") scrollToToday()
+  if (view === "papier") window.scrollTo({ top: 0 })
+  else if (view === "grille" || view === "document") scrollToToday()
   // Les modifications les plus récentes sont tout en haut de la liste (#213).
   else window.scrollTo({ top: 0 })
 }
@@ -3395,6 +3538,7 @@ const VIEW_LABELS = {
   grille: "Agenda personnalisé",
   modifs: "Modifications",
   document: "Bible",
+  papier: "Calendrier papier",
 }
 
 function render() {
@@ -3440,6 +3584,7 @@ function renderContent() {
   )
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "document") renderDocument(main)
+  else if (state.view === "papier") renderPaper(main)
   else renderModifs(main)
 }
 
