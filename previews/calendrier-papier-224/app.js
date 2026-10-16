@@ -2147,8 +2147,13 @@ function renderListes(main) {
     if (e.start > r.last) r.last = e.start
     range.set(e.liste, r)
   }
+  // Ordre chronologique (premier service), puis numéro de Liste à égalité.
   const cards = [...range.keys()]
-    .sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+    .sort(
+      (a, b) =>
+        range.get(a).first.localeCompare(range.get(b).first) ||
+        a.localeCompare(b, "fr", { numeric: true }),
+    )
     .map((liste) => ({ liste, detail: productionDetail(liste) }))
     .filter(({ detail }) => detail.length)
 
@@ -2169,7 +2174,7 @@ function renderListes(main) {
         el(
           "p",
           {},
-          "Les fiches sont rangées en colonnes pour tenir sur le moins de pages possible. Seules les Listes dont le mémo de production est publié apparaissent.",
+          "Les fiches suivent l’ordre chronologique de la saison et sont rangées en colonnes pour tenir sur le moins de pages possible. Seules les Listes dont le mémo de production est publié apparaissent.",
         ),
         el(
           "div",
