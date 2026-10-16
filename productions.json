@@ -1150,7 +1150,7 @@
   }
  },
  "Liste 15": {
-  "info": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)",
+  "info": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)\n-vote de l'effectif après le concert pour décerner le Prix des Musiciens de l'OSR",
   "tenue": "13.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Alejandro CANTALAPIEDRA",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6 (83 musiciens)",
@@ -1400,7 +1400,7 @@
    "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au",
    "osr132921": "essai micros",
    "osr132922": "-ouverture au public du podium choeur en construction",
-   "osr132926": "-jeunes chefs Talent Norge",
+   "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN",
    "osr132923": "-ouverture au public du podium choeur en construction",
    "osr132925": "-ouverture au public du podium choeur en construction"
   }
@@ -1485,6 +1485,75 @@
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
   "chef": "Tugan SOKHIEV",
   "works": []
+ },
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
+  "contraires": "contraire Liste C",
+  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist"
+  ],
+  "serviceWorks": {
+   "osr162112": [
+    1
+   ],
+   "osr162113": [
+    1
+   ],
+   "osr128620": [
+    1
+   ],
+   "osr261714": [
+    1
+   ],
+   "osr261715": [
+    1
+   ],
+   "osr261716": [
+    1
+   ],
+   "osr162114": [
+    1
+   ],
+   "osr162115": [
+    1
+   ],
+   "osr128623": [
+    1
+   ],
+   "osr128624": [
+    1
+   ],
+   "osr128622": [
+    1
+   ]
+  },
+  "serviceNotes": {
+   "osr162112": "-sans choristes ni soliste ni amplification",
+   "osr162113": "-sans choristes ni soliste ni amplification",
+   "osr128620": "-sans choristes ni soliste ni amplification",
+   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr162114": "1ère demi-heure pour la balance micros",
+   "osr162115": "fin 22h15 max. pour repos nocturne",
+   "osr128624": "différé Espace 2 le 23 décembre"
+  }
  },
  "Liste C": {
   "info": "-projet de captation vidéo Les Noces sous les Etoiles\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
@@ -1576,71 +1645,6 @@
    "osr132948": "-ouverture au public du podium choeur en construction"
   }
  },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
-  "contraires": "contraire Liste C",
-  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist"
-  ],
-  "serviceWorks": {
-   "osr162112": [
-    1
-   ],
-   "osr162113": [
-    1
-   ],
-   "osr128620": [
-    1
-   ],
-   "osr261714": [
-    1
-   ],
-   "osr261715": [
-    1
-   ],
-   "osr162114": [
-    1
-   ],
-   "osr162115": [
-    1
-   ],
-   "osr128623": [
-    1
-   ],
-   "osr128624": [
-    1
-   ],
-   "osr128622": [
-    1
-   ]
-  },
-  "serviceNotes": {
-   "osr162112": "-sans choristes ni soliste ni amplification",
-   "osr162113": "-sans choristes ni soliste ni amplification",
-   "osr128620": "-sans choristes ni soliste ni amplification",
-   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne",
-   "osr128624": "différé Espace 2 le 23 décembre"
-  }
- },
  "Liste 21": {
   "info": "Concert de l'An\n-avec décoration florale\n-avec discours en scène",
   "chef": "Karen KAMENSEK",
@@ -1669,7 +1673,7 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.0*",
     "duree": "≈ 4 min"
    },
    {
@@ -1720,8 +1724,8 @@
    },
    {
     "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
-    "instrumentation": "2.2*.2.2 / 3.2.2.0 / 1.0.1.0 / 12.10.8.6.4",
-    "remarques": "1c.a",
+    "instrumentation": "2.2*.2.2 / 3.2.2*.0 / 1.0.1.0 / 12.10.8.6.4",
+    "remarques": "1c.a, 1trb.bs",
     "duree": "≈ 7 min"
    },
    {
@@ -1923,7 +1927,7 @@
   "works": []
  },
  "Liste D": {
-  "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)",
+  "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe",
   "contraires": "contraire Listes 24 et 24b",
   "tenue": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Jader BIGNAMINI",
@@ -2920,6 +2924,23 @@
    "Nelson GOERNER, piano (à La Chaux de Fonds)"
   ],
   "serviceWorks": {
+   "osr133230": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr133229": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "osr227893": [
+    1,
+    2,
+    4
+   ],
    "osr162257": [
     1,
     2,
