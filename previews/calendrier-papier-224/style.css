@@ -2029,9 +2029,12 @@ footer a {
   justify-content: space-between;
   align-items: baseline;
   margin: 0 0 2mm;
+  padding-bottom: 1mm;
+  border-bottom: 2px solid var(--gold);
   font-size: 13px;
+  font-weight: 700;
   font-family: var(--serif);
-  color: #000;
+  color: var(--header-bg);
 }
 
 .paper-title small {
@@ -2046,8 +2049,8 @@ footer a {
   display: grid;
   grid-template-columns: 8mm repeat(7, 1fr);
   grid-template-rows: 5mm repeat(var(--weeks), 1fr);
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
+  border-top: 1px solid #555;
+  border-left: 1px solid #555;
 }
 
 .paper-head,
@@ -2057,8 +2060,8 @@ footer a {
   min-width: 0;
   min-height: 0;
   overflow: hidden;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-right: 1px solid #555;
+  border-bottom: 1px solid #555;
 }
 
 .paper-head {
@@ -2066,14 +2069,18 @@ footer a {
   text-align: center;
   line-height: 5mm;
   text-transform: capitalize;
-  background: #eee;
+  font-weight: 700;
+  color: #fff;
+  background: var(--header-bg);
 }
 
 .paper-week {
   font-size: 8px;
   text-align: center;
   padding-top: 1mm;
-  background: #eee;
+  font-weight: 700;
+  color: var(--header-bg);
+  background: #e9e5da;
 }
 
 .paper-day {
@@ -2084,7 +2091,7 @@ footer a {
 }
 
 .paper-day.weekend {
-  background: #f3f3f3;
+  background: #f4f2ec;
 }
 
 .paper-date {
@@ -2101,7 +2108,7 @@ footer a {
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  border-top: 1px solid #bbb;
+  border-top: 1px dotted #bbb;
   padding: 0 0.5mm;
 }
 
@@ -2119,6 +2126,7 @@ footer a {
   margin: 0.2mm 0;
   padding: 0 0.8mm;
   border-radius: 2px;
+  border-left: 2px solid rgba(0, 0, 0, 0.45);
   font-size: 8.5px;
   line-height: 1.2;
   color: #000;
