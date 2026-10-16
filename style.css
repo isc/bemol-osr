@@ -1997,8 +1997,10 @@ footer a {
 }
 
 /* --- Calendrier papier (#224) : une période par page A4 paysage ---
-   Pages en dimensions fixes (270 × 178 mm : A4 paysage moins les marges, avec de la réserve car Safari/iOS
-   débordait sur une 2e feuille) :
+   Pages en dimensions fixes (270 × 164 mm : A4 paysage moins de larges marges.
+   Safari/iOS ignore la marge de @page, réserve en-tête/pied d'environ 19 mm
+   en haut et 17 mm en bas : à 178 mm de haut, chaque période débordait d'un
+   filet sur une 2e feuille, soit 26 pages au lieu de 13) :
    à l'écran elles défilent horizontalement, à l'impression chacune tient sur
    une feuille. Toutes les semaines ont la même hauteur (1fr d'une grille de
    hauteur fixe). */
@@ -2010,7 +2012,7 @@ footer a {
 .paper-page {
   box-sizing: border-box;
   width: 270mm;
-  height: 178mm;
+  height: 164mm;
   display: flex;
   flex-direction: column;
   background: #fff;
