@@ -2169,6 +2169,48 @@ footer a {
   }
 }
 
+/* --- Détail des Listes : fiches seules, en colonnes --- */
+.listes-sheet {
+  column-width: 260px;
+  column-gap: 12px;
+  padding: 10px 0;
+}
+
+.listes-sheet .doc-liste-card {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.liste-dates {
+  margin: 0 0 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+@media print {
+  body[data-view="listes"] {
+    font-size: 7px;
+  }
+
+  body[data-view="listes"] .paper-toolbar {
+    display: none;
+  }
+
+  .listes-sheet {
+    column-width: 55mm;
+    column-gap: 4mm;
+    padding: 0;
+    line-height: 1.15;
+  }
+
+  .listes-sheet .doc-liste-card {
+    padding: 1mm 1.5mm;
+    margin-bottom: 2mm;
+    background: #fff;
+    color: #000;
+  }
+}
+
 /* --- Installation de l'application (PWA) --- */
 
 #install-btn {
