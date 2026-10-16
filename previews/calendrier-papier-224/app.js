@@ -1979,6 +1979,17 @@ function paperButton(from) {
 // papier général, où l'on note au stylo ses autres rendez-vous (issue #224).
 // Ne remplace ni la Bible complète ni l'Agenda personnalisé, qui restent
 // inchangés. Les services annulés n'y figurent jamais.
+// Numéro de semaine ISO (1-53, la semaine 1 contient le premier jeudi de
+// l'année) : celui des agendas et calendriers du commerce.
+function isoWeek(d) {
+  const t = new Date(d.getFullYear(), d.getMonth(), d.getDate())
+  t.setDate(t.getDate() + 3 - ((t.getDay() + 6) % 7))
+  const jan4 = new Date(t.getFullYear(), 0, 4)
+  return (
+    1 + Math.round(((t - jan4) / 86400000 - 3 + ((jan4.getDay() + 6) % 7)) / 7)
+  )
+}
+
 function paperCell(d, events) {
   const first = d.getDate() === 1
   return el(
@@ -2064,14 +2075,14 @@ function renderPaper(main) {
     const grid = el(
       "div",
       { class: "paper-grid", style: `--weeks:${periode.weeksInPeriode}` },
-      el("div", { class: "paper-head" }),
+      el("div", { class: "paper-head" }, "Sem."),
       ...[1, 2, 3, 4, 5, 6, 0].map((i) =>
         el("div", { class: "paper-head" }, DAY_NAMES_LONG[i]),
       ),
     )
     for (let w = 0; w < periode.weeksInPeriode; w++) {
       const monday = addDays(periode.pStart, w * 7)
-      grid.append(el("div", { class: "paper-week" }, `S${w + 1}`))
+      grid.append(el("div", { class: "paper-week" }, String(isoWeek(monday))))
       for (let i = 0; i < 7; i++) {
         const d = addDays(monday, i)
         const dayEvents = (ctx.byDay.get(localKey(d)) || [])
