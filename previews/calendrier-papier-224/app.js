@@ -153,7 +153,7 @@ const state = {
   updatedAt: null,
   season: null,
   view: null,
-  paperFrom: "document", // onglet d'origine du calendrier papier
+  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
@@ -1944,6 +1944,7 @@ function renderDocument(main) {
             "🖨️ Imprimer / exporter en PDF",
           ),
           paperButton("document"),
+          listesButton("document"),
         ),
       ),
       el("div", { class: "search-bar doc-search-bar" }, input),
@@ -2100,6 +2101,108 @@ function renderPaper(main) {
   main.append(el("div", { class: "paper-scroll" }, pages))
 }
 
+// --- Vue détail des Listes (document compact à imprimer) -------------------
+
+// Bouton d'accès au détail des Listes, depuis la Bible ou l'Agenda
+// personnalisé (même logique que paperButton).
+function listesButton(from) {
+  return el(
+    "button",
+    {
+      type: "button",
+      onclick: () => {
+        state.paperFrom = from
+        setView("listes")
+      },
+    },
+    "📄 Détail des Listes",
+  )
+}
+
+// Document sans planning : uniquement la fiche de chaque Liste (chef,
+// solistes, œuvres, instrumentation, séries contraires), rangée en colonnes
+// qui se remplissent l'une après l'autre pour limiter le nombre de pages
+// (retour sur #225). Comme le calendrier papier, il reprend la saison
+// complète depuis la Bible, ou les seules Listes de l'Agenda personnalisé.
+function renderListes(main) {
+  const global = state.paperFrom === "document"
+  const events = (global ? allSeasonEvents() : visibleEvents()).filter(
+    (e) => !e.cancelled,
+  )
+  const range = new Map()
+  for (const e of events) {
+    const r = range.get(e.liste) || { first: e.start, last: e.start }
+    if (e.start < r.first) r.first = e.start
+    if (e.start > r.last) r.last = e.start
+    range.set(e.liste, r)
+  }
+  const cards = [...range.keys()]
+    .sort((a, b) => a.localeCompare(b, "fr", { numeric: true }))
+    .map((liste) => ({ liste, detail: productionDetail(liste) }))
+    .filter(({ detail }) => detail.length)
+
+  main.append(
+    el(
+      "div",
+      { class: "view-toolbar paper-toolbar" },
+      el(
+        "div",
+        { class: "doc-intro" },
+        el(
+          "p",
+          {},
+          global
+            ? "Saison complète, non filtrée : le détail de chaque Liste, sans le planning."
+            : "Selon tes choix dans ⚙ Réglages : le détail de chaque Liste, sans le planning.",
+        ),
+        el(
+          "p",
+          {},
+          "Les fiches sont rangées en colonnes pour tenir sur le moins de pages possible. Seules les Listes dont le mémo de production est publié apparaissent.",
+        ),
+        el(
+          "div",
+          { class: "agenda-actions-btns" },
+          el(
+            "button",
+            { type: "button", onclick: () => setView(state.paperFrom) },
+            "← Retour",
+          ),
+          el(
+            "button",
+            {
+              type: "button",
+              class: "doc-print-btn",
+              onclick: () => window.print(),
+            },
+            "🖨️ Imprimer / exporter en PDF",
+          ),
+        ),
+      ),
+    ),
+    el(
+      "div",
+      { class: "listes-sheet" },
+      ...cards.map(({ liste, detail }) => {
+        const r = range.get(liste)
+        const from = new Date(r.first)
+        const to = new Date(r.last)
+        const dates =
+          localKey(from) === localKey(to)
+            ? fmtDay(from)
+            : `${fmtDay(from)} → ${fmtDay(to)}`
+        return el(
+          "div",
+          { class: "detail-box doc-liste-card" },
+          el("h3", { class: "doc-liste-title" }, liste),
+          el("p", { class: "liste-dates" }, dates),
+          ...detail,
+        )
+      }),
+    ),
+  )
+}
+
 // Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
 // « Aujourd'hui » (détail du jour en popup), Réglages (choix des
 // productions/listes) et abonnement au calendrier, directement dans
@@ -2121,6 +2224,7 @@ function renderGrilleActions() {
       el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
       el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
       paperButton("grille"),
+      listesButton("grille"),
       el(
         "button",
         {
@@ -3535,7 +3639,8 @@ function setView(view) {
   state.modifsFilter = null
   // La vue papier est un écran d'impression, pas un onglet : on ne la
   // rouvre pas au prochain lancement.
-  if (view !== "papier") localStorage.setItem("bemol-view", view)
+  if (view !== "papier" && view !== "listes")
+    localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button"))
     btn.classList.toggle("active", btn.dataset.view === view)
@@ -3544,7 +3649,7 @@ function setView(view) {
   // seulement au premier chargement de l'app) — demande #186 : sans ça, il
   // fallait redéfiler manuellement après être passé par un autre onglet
   // (ex. Modifications).
-  if (view === "papier") window.scrollTo({ top: 0 })
+  if (view === "papier" || view === "listes") window.scrollTo({ top: 0 })
   else if (view === "grille" || view === "document") scrollToToday()
   // Les modifications les plus récentes sont tout en haut de la liste (#213).
   else window.scrollTo({ top: 0 })
@@ -3555,6 +3660,7 @@ const VIEW_LABELS = {
   modifs: "Modifications",
   document: "Bible",
   papier: "Calendrier papier",
+  listes: "Détail des Listes",
 }
 
 function render() {
@@ -3601,6 +3707,7 @@ function renderContent() {
   if (state.view === "grille") renderGrille(main)
   else if (state.view === "document") renderDocument(main)
   else if (state.view === "papier") renderPaper(main)
+  else if (state.view === "listes") renderListes(main)
   else renderModifs(main)
 }
 
