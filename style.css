@@ -1997,7 +1997,8 @@ footer a {
 }
 
 /* --- Calendrier papier (#224) : une période par page A4 paysage ---
-   Pages en dimensions fixes (277 × 188 mm = A4 paysage moins 1 cm de marge) :
+   Pages en dimensions fixes (270 × 178 mm : A4 paysage moins les marges, avec de la réserve car Safari/iOS
+   débordait sur une 2e feuille) :
    à l'écran elles défilent horizontalement, à l'impression chacune tient sur
    une feuille. Toutes les semaines ont la même hauteur (1fr d'une grille de
    hauteur fixe). */
@@ -2008,8 +2009,8 @@ footer a {
 
 .paper-page {
   box-sizing: border-box;
-  width: 277mm;
-  height: 188mm;
+  width: 270mm;
+  height: 178mm;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -2074,7 +2075,8 @@ footer a {
 }
 
 .paper-day {
-  padding: 0.6mm 1mm;
+  display: flex;
+  flex-direction: column;
   font-size: 7.5px;
   line-height: 1.25;
 }
@@ -2084,12 +2086,40 @@ footer a {
 }
 
 .paper-date {
+  flex: none;
+  padding: 0.3mm 1mm 0;
   font-weight: 700;
   font-size: 9px;
 }
 
+/* Matin / après-midi / soir : trois cases de même hauteur, séparées d'un
+   filet gris ; la lettre en filigrane rappelle le créneau. */
+.paper-slot {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-top: 1px solid #bbb;
+  padding: 0 0.5mm;
+}
+
+.paper-slot::after {
+  content: attr(data-slot);
+  position: absolute;
+  right: 0.6mm;
+  bottom: 0;
+  font-size: 7px;
+  color: #bbb;
+}
+
 .paper-evt {
-  font-size: 9px;
+  display: block;
+  margin: 0.2mm 0;
+  padding: 0 0.8mm;
+  border-radius: 2px;
+  font-size: 8.5px;
+  line-height: 1.2;
+  color: #000;
   overflow-wrap: anywhere;
 }
 
@@ -2097,6 +2127,12 @@ footer a {
   @page papier {
     size: A4 landscape;
     margin: 1cm;
+  }
+
+  .paper-page,
+  .paper-page * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .paper-page {

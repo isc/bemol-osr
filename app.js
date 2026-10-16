@@ -1982,12 +1982,22 @@ function paperCell(d, events) {
       { class: "paper-date" },
       first ? `1er ${MONTH_NAMES[d.getMonth()]}` : String(d.getDate()),
     ),
-    ...events.map((e) =>
+    // Trois cases par jour (matin, après-midi, soir) pour garder les services
+    // lisibles et laisser de la place au stylo (retour sur #225).
+    ...SLOT_NAMES.map((name, slot) =>
       el(
         "div",
-        { class: "paper-evt" },
-        el("b", {}, e.liste.replace(/^Liste\s+/i, "")),
-        ` ${fmtTime(e.start).replace(":", "h")} ${shortLocation(e.location)}`,
+        { class: "paper-slot", "data-slot": name[0] },
+        ...events
+          .filter((e) => slotOf(e) === slot)
+          .map((e) =>
+            el(
+              "div",
+              { class: `paper-evt evt ${listeColorClass(e.liste)}` },
+              el("b", {}, e.liste.replace(/^Liste\s+/i, "")),
+              ` ${fmtTime(e.start).replace(":", "h")} ${shortLocation(e.location)}`,
+            ),
+          ),
       ),
     ),
   )
