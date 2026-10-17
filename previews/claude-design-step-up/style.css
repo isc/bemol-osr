@@ -9,7 +9,9 @@
   /* Or/bronze foncé pour les surfaces claires (contraste AA sur blanc) */
   --accent: #75633f;
   --bg: #f5f2ea;
-  --surface: #fff;
+  /* Blanc cassé chaud (cartes, feuilles, barre d'onglets) : un blanc pur
+     tranchait trop sur le fond ivoire. */
+  --surface: #fffdf8;
   --surface-alt: #f3f5f8;
   --surface-accent-soft: #ece5d2;
   --surface-accent-soft-2: #ddd0a8;
@@ -174,9 +176,9 @@ h1 .subtitle {
 select,
 button {
   font: inherit;
-  padding: 5px 10px;
+  padding: 7px 14px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 10px;
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
@@ -918,12 +920,12 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
-/* --- Résultats de recherche (loupe de l'en-tête, cf. openSearch) --- */
+/* --- Résultats de recherche (loupe de l'en-tête, cf. setSearch) --- */
 
 .search-group {
-  background: #fff;
-  border: 1px solid #d8dce1;
-  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   margin-bottom: 12px;
   padding: 10px 14px;
 }
@@ -954,7 +956,7 @@ table.week td.repos:not(.today) {
 
 dialog {
   border: none;
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: 0 8px 40px var(--shadow);
   padding: 18px 22px;
   max-width: min(480px, 92vw);
@@ -992,10 +994,25 @@ dialog h2 {
   margin: 0;
 }
 
+/* Croix de fermeture : rond discret, sans cadre. */
 .close-btn-top {
   flex: none;
-  padding: 3px 9px;
-  line-height: 1.4;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface-accent-soft);
+  color: var(--text-muted);
+}
+
+.close-btn-top .icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
 }
 
 /* Variante flottante du même bouton, pour les dialogues dont le titre est
@@ -1159,8 +1176,16 @@ dialog h2 {
   margin: 2px 0;
 }
 
+/* « Fermer » en bas des dialogues : large bouton doux plutôt qu'un petit
+   bouton encadré de formulaire. */
 .close-btn {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--bg);
+  font-weight: 600;
 }
 
 /* --- Dialogue d'abonnement au calendrier --- */
