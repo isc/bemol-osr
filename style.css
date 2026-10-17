@@ -9,7 +9,9 @@
   /* Or/bronze foncé pour les surfaces claires (contraste AA sur blanc) */
   --accent: #75633f;
   --bg: #f5f2ea;
-  --surface: #fff;
+  /* Blanc cassé chaud (cartes, feuilles, barre d'onglets) : un blanc pur
+     tranchait trop sur le fond ivoire. */
+  --surface: #fffdf8;
   --surface-alt: #f3f5f8;
   --surface-accent-soft: #ece5d2;
   --surface-accent-soft-2: #ddd0a8;
@@ -45,6 +47,7 @@
   --header-bg: #1d1912;
   --header-fg: #f2ecdd;
   --gold: #c8a35c;
+  --header-muted: #a89a79;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   /* Palette « code couleur par Liste » (#109) : une teinte par production,
@@ -90,6 +93,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-size: 15px;
+  /* Place pour la barre d'onglets fixée en bas (#view-nav). */
+  padding-bottom: calc(58px + env(safe-area-inset-bottom));
 }
 
 header {
@@ -137,7 +142,10 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+}
+
+.header-row h1 {
+  flex: 1;
 }
 
 h1 {
@@ -154,7 +162,7 @@ h1 .subtitle {
   font-weight: normal;
   font-style: italic;
   font-size: 0.62em;
-  color: #a89a79;
+  color: var(--header-muted);
   letter-spacing: 0.03em;
 }
 
@@ -168,47 +176,12 @@ h1 .subtitle {
 select,
 button {
   font: inherit;
-  padding: 5px 10px;
+  padding: 7px 14px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 10px;
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
-}
-
-#view-nav {
-  display: flex;
-  gap: 0;
-}
-
-#view-nav button {
-  border-radius: 0;
-  border-right-width: 0;
-  position: relative;
-}
-
-#view-nav button:first-child {
-  border-radius: 6px 0 0 6px;
-}
-
-#view-nav button:last-child {
-  border-radius: 0 6px 6px 0;
-  border-right-width: 1px;
-}
-
-/* Boutons de l'en-tête : déclinaison sombre (l'or est réservé à l'état actif) */
-.header-controls button,
-.header-controls select {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--header-fg);
-  border-color: #4d4536;
-}
-
-#view-nav button.active {
-  background: var(--gold);
-  color: var(--header-bg);
-  border-color: var(--gold);
-  font-weight: 600;
 }
 
 .badge {
@@ -219,11 +192,6 @@ button {
   padding: 1px 5px;
   margin-left: 4px;
   vertical-align: top;
-}
-
-#view-nav button.active .badge {
-  background: var(--header-bg);
-  color: var(--gold);
 }
 
 main {
@@ -732,7 +700,8 @@ table.week td.repos:not(.today) {
   top: var(--header-h, 0px);
   z-index: 9;
   background: var(--bg);
-  padding-top: 10px;
+  margin: 0 -12px 10px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -854,12 +823,13 @@ table.week td.repos:not(.today) {
    case par type, même couleur que le fond des .change-item ci-dessus. Sticky
    comme .view-toolbar plus haut (retour #182 : rester visible en défilant
    dans la liste, pas seulement en haut de page). */
+/* Pastilles de filtre, sur une ligne qui défile au besoin. */
 .modifs-legend {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  margin: 0 0 12px;
-  padding: 8px 0;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 0 -12px 12px;
+  padding: 8px 12px;
   position: sticky;
   top: var(--header-h, 0px);
   z-index: 9;
@@ -874,11 +844,12 @@ table.week td.repos:not(.today) {
   gap: 5px;
   font: inherit;
   color: inherit;
-  background: none;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  padding: 6px 10px;
-  min-height: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  min-height: 34px;
+  white-space: nowrap;
   cursor: pointer;
 }
 .modifs-legend-item.active {
@@ -949,24 +920,12 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
-/* --- Recherche (intégrée aux vues Bible et Agenda personnalisé) --- */
-
-.search-bar {
-  margin-bottom: 12px;
-}
-
-.search-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  font-size: 1rem;
-  border-radius: 8px;
-}
+/* --- Résultats de recherche (loupe de l'en-tête, cf. setSearch) --- */
 
 .search-group {
-  background: #fff;
-  border: 1px solid #d8dce1;
-  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   margin-bottom: 12px;
   padding: 10px 14px;
 }
@@ -995,9 +954,14 @@ table.week td.repos:not(.today) {
 
 /* --- Dialogues --- */
 
+/* Le dialogue prend lui-même le focus à l'ouverture (cf. init dans app.js). */
+dialog:focus {
+  outline: none;
+}
+
 dialog {
   border: none;
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: 0 8px 40px var(--shadow);
   padding: 18px 22px;
   max-width: min(480px, 92vw);
@@ -1035,10 +999,25 @@ dialog h2 {
   margin: 0;
 }
 
+/* Croix de fermeture : rond discret, sans cadre. */
 .close-btn-top {
   flex: none;
-  padding: 3px 9px;
-  line-height: 1.4;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface-accent-soft);
+  color: var(--text-muted);
+}
+
+.close-btn-top .icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
 }
 
 /* Variante flottante du même bouton, pour les dialogues dont le titre est
@@ -1056,7 +1035,6 @@ dialog h2 {
   padding: 2px 10px;
   border-radius: 10px;
   font-size: 0.8em;
-  margin-bottom: 8px;
   background: var(--surface-alt);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -1068,52 +1046,6 @@ dialog h2 {
   margin-left: 6px;
   font-size: 0.7em;
   vertical-align: middle;
-}
-
-.detail-box dl {
-  margin: 8px 0;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 4px 10px;
-}
-
-.detail-box dt {
-  color: var(--text-faint);
-  font-size: 0.85em;
-}
-
-.detail-box dd {
-  margin: 0;
-}
-
-/* Seul le nom de la salle est souligné : l'adresse, en dessous, reste sobre
-   (un soulignement porté par le lien lui-même déborderait sur elle). */
-.detail-box .location-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.detail-box .location-name {
-  text-decoration: underline dotted;
-  text-underline-offset: 2px;
-}
-
-.detail-box .location-pin {
-  font-size: 0.9em;
-}
-
-/* Adresse postale de la salle, sous son nom d'usage (venues.json). */
-.detail-box .location-address {
-  display: block;
-  font-size: 0.85em;
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .detail-box .location-link:hover {
-    color: var(--accent);
-  }
 }
 
 .detail-box .detail-section {
@@ -1190,8 +1122,8 @@ dialog h2 {
 
 /* Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
    le titre de la fiche (#80) : la ligne qui le contient a donc le même
-   traitement d'espacement qu'un <dl> voisin, et le lien lui-même reprend le
-   style « pastille » de .liste-link pour rester cohérent. */
+   traitement d'espacement que le reste de la fiche, et le lien lui-même a un
+   style « pastille ». */
 .score-portal-row {
   margin: 8px 0;
 }
@@ -1216,45 +1148,6 @@ dialog h2 {
 
 @media (hover: hover) {
   .score-portal-link:hover {
-    background: var(--accent);
-    color: #fff;
-  }
-}
-
-/* Nom de la Liste cliquable dans une fiche d'événement, ouvrant la vue par
-   Liste (programme complet de la production). Style « pastille » (plutôt
-   qu'un simple lien souligné) pour bien la distinguer du titre — qui est
-   lui-même dans la couleur d'accent — et signaler que c'est tapable même
-   sans survol (mobile). */
-.liste-link {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  border: 1.5px solid var(--accent);
-  border-radius: 999px;
-  background: #e3edf5;
-  padding: 3px 8px 3px 11px;
-  margin: 0 2px 0 0;
-  font: inherit;
-  font-size: 0.85em;
-  font-weight: 700;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.liste-link::after {
-  content: "›";
-  margin-left: 3px;
-  font-weight: 900;
-}
-
-.liste-link:active {
-  background: var(--accent);
-  color: #fff;
-}
-
-@media (hover: hover) {
-  .liste-link:hover {
     background: var(--accent);
     color: #fff;
   }
@@ -1288,8 +1181,16 @@ dialog h2 {
   margin: 2px 0;
 }
 
+/* « Fermer » en bas des dialogues : large bouton doux plutôt qu'un petit
+   bouton encadré de formulaire. */
 .close-btn {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--bg);
+  font-weight: 600;
 }
 
 /* --- Dialogue d'abonnement au calendrier --- */
@@ -1375,26 +1276,6 @@ dialog h2 {
   color: var(--text-faint);
 }
 
-#prefs-content .prefs-section {
-  padding: 5px 0;
-}
-
-#prefs-content .prefs-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-#prefs-content .prefs-cancelled {
-  display: block;
-  padding: 10px 0 5px;
-}
-
-#prefs-content .prefs-note {
-  font-size: 0.8em;
-  color: var(--text-faint);
-  margin: 6px 0 0;
-}
-
 /* Pastille indiquant si les notifications sont activées sur cet appareil,
    à côté du libellé « Notifications : » (l'énoncé du bouton seul, « Activer »
    / « Désactiver », est trop discret pour voir l'état d'un coup d'œil). */
@@ -1419,32 +1300,11 @@ dialog h2 {
   color: var(--success-text);
 }
 
-.liste-filter-actions {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.liste-filter-actions button {
-  flex: 1;
-  padding: 8px;
-}
-
 /* Bouton Tout cocher / Tout décocher mis en évidence (retour #129) quand il
    correspond à l'état courant (toutes les listes cochées, ou aucune). */
-.liste-filter-actions button.active {
-  background: var(--surface-accent-soft-2);
-  border-color: var(--accent);
-  color: var(--head-accent-text);
+.liste-filter-actions .link-btn.active {
+  background: var(--surface-accent-soft);
   font-weight: 600;
-}
-
-.liste-options {
-  max-height: 45vh;
-  overflow-y: auto;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 4px 0;
 }
 
 .liste-option {
@@ -1459,16 +1319,13 @@ dialog h2 {
   width: 18px;
   height: 18px;
   flex: none;
+  accent-color: var(--accent);
 }
 
 @media (hover: hover) {
   .liste-option:hover {
     background: var(--surface-accent-soft);
   }
-}
-
-#prefs-content .prefs-note-top {
-  margin: 0 0 8px;
 }
 
 /* Pastille de couleur d'une Liste (production) : devant son nom dans le
@@ -1482,40 +1339,52 @@ dialog h2 {
   flex: none;
   vertical-align: middle;
 }
-.liste-swatch.liste-color-0 {
+.liste-swatch.liste-color-0,
+.liste-pill.liste-color-0 {
   background: var(--liste-color-0);
 }
-.liste-swatch.liste-color-1 {
+.liste-swatch.liste-color-1,
+.liste-pill.liste-color-1 {
   background: var(--liste-color-1);
 }
-.liste-swatch.liste-color-2 {
+.liste-swatch.liste-color-2,
+.liste-pill.liste-color-2 {
   background: var(--liste-color-2);
 }
-.liste-swatch.liste-color-3 {
+.liste-swatch.liste-color-3,
+.liste-pill.liste-color-3 {
   background: var(--liste-color-3);
 }
-.liste-swatch.liste-color-4 {
+.liste-swatch.liste-color-4,
+.liste-pill.liste-color-4 {
   background: var(--liste-color-4);
 }
-.liste-swatch.liste-color-5 {
+.liste-swatch.liste-color-5,
+.liste-pill.liste-color-5 {
   background: var(--liste-color-5);
 }
-.liste-swatch.liste-color-6 {
+.liste-swatch.liste-color-6,
+.liste-pill.liste-color-6 {
   background: var(--liste-color-6);
 }
-.liste-swatch.liste-color-7 {
+.liste-swatch.liste-color-7,
+.liste-pill.liste-color-7 {
   background: var(--liste-color-7);
 }
-.liste-swatch.liste-color-8 {
+.liste-swatch.liste-color-8,
+.liste-pill.liste-color-8 {
   background: var(--liste-color-8);
 }
-.liste-swatch.liste-color-9 {
+.liste-swatch.liste-color-9,
+.liste-pill.liste-color-9 {
   background: var(--liste-color-9);
 }
-.liste-swatch.liste-color-10 {
+.liste-swatch.liste-color-10,
+.liste-pill.liste-color-10 {
   background: var(--liste-color-10);
 }
-.liste-swatch.liste-color-11 {
+.liste-swatch.liste-color-11,
+.liste-pill.liste-color-11 {
   background: var(--liste-color-11);
 }
 
@@ -1537,20 +1406,14 @@ dialog h2 {
   flex: 1;
   min-width: 0;
 }
-.activite-caret {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  margin-left: 8px;
-  border-radius: 50%;
-  background: var(--surface-accent-soft);
-  color: var(--accent);
-  font-size: 1.1em;
-  font-weight: bold;
-  line-height: 1;
+.activite-tete .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+  transition: transform 0.15s;
+}
+.activite-tete.open .icon {
+  transform: rotate(90deg);
 }
 .activite-sous-listes {
   padding: 2px 0 6px;
@@ -1564,15 +1427,12 @@ dialog h2 {
   .activite-tete:hover {
     background: var(--surface-accent-soft);
   }
-  .activite-tete:hover .activite-caret {
-    background: var(--surface-accent-soft-2);
-  }
 }
 
 /* Sous-menu « Détail par service » (#144) : dans une Liste dont certains
    services de répétition sont spécifiques à un pupitre, indenté sous la case
-   de la Liste, en plus discret que les sous-menus de genre (mêmes classes
-   .activite-tete/.activite-caret, réduites) pour marquer un niveau plus fin. */
+   de la Liste, en plus discret que les sous-menus de genre (même classe
+   .activite-tete, réduite) pour marquer un niveau plus fin. */
 .liste-detail {
   margin: 0 0 4px 30px;
 }
@@ -1581,11 +1441,7 @@ dialog h2 {
   font-size: 0.92em;
   color: var(--text-faint);
 }
-.liste-detail .activite-caret {
-  width: 22px;
-  height: 22px;
-  font-size: 1em;
-}
+
 .activite-sous-listes-niveau2 {
   margin-left: 20px;
 }
@@ -1626,37 +1482,6 @@ footer a {
 
   h1 .subtitle {
     display: none;
-  }
-
-  /* La barre de vues (Grille/Agenda personnalisé/…/Bible) ne tient plus sur
-     une seule ligne en dessous d'un certain point : on la laisse défiler
-     horizontalement plutôt que de la faire déborder ou passer à la ligne
-     (ce qui casserait les coins arrondis du premier/dernier bouton).
-     `min-width: 0` sur .header-controls est nécessaire : par défaut, un
-     enfant flex ne rétrécit jamais sous la taille minimale de son propre
-     contenu (ici, les boutons non compressibles de #view-nav), ce qui
-     ferait déborder toute la ligne d'en-tête au lieu de faire défiler
-     seulement la nav.
-     La nav ne réclame plus 100% de la largeur (`flex: 1 1 auto` plutôt
-     que `width: 100%`) : elle partage désormais sa ligne avec le bouton
-     💬 avis (et Installer l'app, tant que l'app n'est pas encore
-     installée) au lieu de les rejeter sur une ligne à part — c'était le
-     cas sur petit écran comme l'iPhone mini (retour #188). Elle leur
-     laisse la place en se rétrécissant et en défilant elle-même plus
-     tôt au besoin. */
-  .header-controls {
-    min-width: 0;
-  }
-
-  #view-nav {
-    flex: 1 1 auto;
-    min-width: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #view-nav button {
-    flex: 0 0 auto;
   }
 
   main {
@@ -1702,15 +1527,6 @@ footer a {
     font-size: 0.6em;
     padding: 2px 3px;
     line-height: 1.2;
-  }
-
-  /* Emprise réduite de la barre de recherche (retour #188), mais la taille
-     du texte reste à 16px (1rem) : en dessous, Safari iOS zoome tout
-     l'écran dès qu'on touche le champ pour taper, ce qui serait bien
-     plus gênant que les quelques pixels gagnés. On resserre donc plutôt
-     le padding. */
-  .search-input {
-    padding: 7px 12px;
   }
 }
 
@@ -1767,6 +1583,7 @@ footer a {
   /* On n'imprime que le contenu de la vue courante */
   header,
   footer,
+  #view-nav,
   dialog {
     display: none !important;
   }
@@ -1830,30 +1647,11 @@ footer a {
     cursor: default;
   }
 
-  /* Vue Document : l'aide en ligne ne sert à rien sur papier. Le bandeau
-     sticky lui-même n'a plus de raison d'être à l'impression (retour #132) :
-     display: contents laisse ses enfants (.doc-intro, .doc-search-bar, déjà
-     masqués ci-dessous) piloter leur propre affichage, sans lui ajouter une
-     boîte vide. */
-  .view-toolbar {
-    display: contents;
-  }
-
+  /* Bandeau « Aujourd'hui · période · ⋯ » et boutons d'écran des vues
+     papier : rien à faire sur papier. */
+  .view-toolbar,
   .doc-intro {
     display: none;
-  }
-
-  /* Recherche intégrée à la vue Bible (#131) : jamais imprimée, et le
-     document complet reste imprimable même quand une recherche est active à
-     l'écran (cf. renderDocument dans app.js, qui masque .doc-body via
-     [hidden] pendant une recherche). */
-  .doc-search-bar,
-  .doc-search-results {
-    display: none !important;
-  }
-
-  .doc-body[hidden] {
-    display: block !important;
   }
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
@@ -2245,16 +2043,6 @@ footer a {
 
 /* --- Installation de l'application (PWA) --- */
 
-#install-btn {
-  /* Appel à l'action : or plein sur l'en-tête sombre (comme l'onglet actif).
-     Prime sur la déclinaison sombre générique des boutons d'en-tête. */
-  background: var(--gold);
-  color: var(--header-bg);
-  border-color: var(--gold);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 #install-content .install-intro {
   margin: 0 0 14px;
   font-size: 0.9em;
@@ -2367,4 +2155,506 @@ footer {
 .detail-box .contraires {
   margin: 0;
   font-weight: 600;
+}
+
+/* --- Refonte de l'habillage (en-tête, onglets, bandeau, fiche) ---
+
+   L'en-tête tient sur une ligne (titre, loupe, avis), les onglets passent en
+   bas d'écran, à portée de pouce, et le bandeau des vues se réduit à
+   « Aujourd'hui · période · ⋯ » : la grille commence près de 200 px plus haut
+   sur un téléphone. */
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+  vertical-align: -4px;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 19px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--header-fg);
+}
+
+.icon-btn .icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Recherche ouverte : le champ prend la place du titre. */
+.search-row {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+header.searching .search-row {
+  display: flex;
+}
+
+header.searching .header-row {
+  display: none;
+}
+
+.search-row > .icon {
+  color: var(--header-muted);
+  margin-right: -36px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.search-row input {
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  /* 16px minimum : en dessous, Safari iOS zoome tout l'écran au focus. */
+  font-size: 16px;
+  padding: 8px 12px 8px 38px;
+  border-radius: 10px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--header-fg);
+}
+
+.search-row input::placeholder {
+  color: var(--header-muted);
+}
+
+.search-row button {
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  padding: 8px 2px;
+}
+
+/* Barre d'onglets en bas d'écran. */
+#view-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#view-nav button {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 0 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 11px;
+}
+
+#view-nav button .icon {
+  width: 23px;
+  height: 23px;
+}
+
+#view-nav button.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#view-nav .badge {
+  position: absolute;
+  top: 3px;
+  left: calc(50% + 6px);
+  margin: 0;
+}
+
+/* Bandeau « Aujourd'hui · période · ⋯ ». */
+.view-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.icon-pill {
+  padding: 6px 10px;
+}
+
+.period-label {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Feuille qui monte du bas : menu « ⋯ ». */
+dialog.sheet {
+  margin: auto 0 0;
+  width: 100%;
+  max-width: none;
+  border: 0;
+  border-radius: 16px 16px 0 0;
+  padding: 8px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--surface);
+  color: var(--text);
+}
+
+@media (min-width: 701px) {
+  dialog.sheet {
+    margin: auto;
+    max-width: 420px;
+    border-radius: 16px;
+  }
+}
+
+.sheet-grab {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin: 0 auto 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  font-size: 1em;
+}
+
+.menu-item:last-child {
+  border-bottom: 0;
+}
+
+.menu-item > .icon:first-child {
+  color: var(--accent);
+}
+
+.menu-item > .icon:last-child {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+}
+
+.menu-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-text small {
+  color: var(--text-faint);
+  font-size: 0.8em;
+}
+
+/* Fiche d'un service : l'essentiel d'abord, le mémo replié. */
+.detail-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-right: 44px;
+}
+
+.liste-pill {
+  border: 0;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-weight: 600;
+  color: #2a241c;
+}
+
+.recent-tag {
+  color: var(--danger);
+  font-size: 0.8em;
+}
+
+.detail-title {
+  font-family: var(--serif);
+  margin: 10px 0 2px;
+}
+
+.detail-byline {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+}
+
+.detail-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.fact small {
+  color: var(--text-muted);
+  font-size: 0.8em;
+}
+
+a.fact strong {
+  color: var(--accent);
+}
+
+.contraires-callout {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  font-weight: 600;
+}
+
+.identique-callout {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--change-modified-soft);
+  font-weight: 600;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.detail-actions .pill {
+  flex: 1;
+}
+
+.detail-project {
+  margin: 4px 0 12px;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.detail-fold {
+  border-top: 1px solid var(--border-soft);
+}
+
+.detail-fold summary {
+  padding: 12px 0;
+  font-weight: 600;
+  color: var(--head-accent-text);
+  cursor: pointer;
+}
+
+.detail-fold[open] summary {
+  padding-bottom: 6px;
+}
+
+.detail-fold > :last-child {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* --- Réglages : groupes en cartes, interrupteurs, thème segmenté --- */
+
+.prefs-group {
+  margin-bottom: 18px;
+}
+
+.prefs-group h3 {
+  margin: 0 4px 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.prefs-card {
+  background: var(--bg);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.prefs-card > * + * {
+  border-top: 1px solid var(--border-soft);
+}
+
+.prefs-row,
+.switch-row,
+.prefs-card > .activite-groupe > .activite-tete {
+  padding: 11px 14px;
+}
+
+.prefs-row {
+  margin: 0;
+}
+
+.prefs-row:has(> button[hidden]) {
+  display: none;
+}
+
+.prefs-foot {
+  margin: 6px 4px 0;
+  font-size: 0.8em;
+  color: var(--text-faint);
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.switch-row > span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.switch-row small {
+  color: var(--text-faint);
+  font-size: 0.8em;
+}
+
+/* Case à cocher dessinée en interrupteur. */
+input.switch {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  border-radius: 13px;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+input.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px var(--shadow);
+  transition: transform 0.15s;
+}
+
+input.switch:checked {
+  background: var(--accent);
+}
+
+input.switch:checked::after {
+  transform: translateX(18px);
+}
+
+.liste-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 8px 14px;
+}
+
+.prefs-summary {
+  flex: 1;
+  font-weight: 600;
+}
+
+.link-btn {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 6px 10px;
+}
+
+.notif-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notif-row .notif-dot {
+  margin: 0;
+  flex: none;
+}
+
+.notif-status {
+  font-size: 0.9em;
+}
+
+.segmented {
+  display: flex;
+  padding: 3px;
+  gap: 3px;
+}
+
+.segmented label {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented label:has(input:checked) {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 3px var(--border-soft);
 }

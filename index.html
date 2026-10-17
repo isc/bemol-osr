@@ -42,31 +42,38 @@
     <meta name="apple-mobile-web-app-title" content="Bémol" />
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 
-    <link rel="stylesheet" href="style.css?v=35b7c6298048" />
+    <link rel="stylesheet" href="style.css?v=aae6e00769a1" />
   </head>
   <body>
     <header>
       <div class="header-row">
         <h1>♭ Bémol <span class="subtitle">Planning OSR</span></h1>
         <div class="header-controls">
-          <nav id="view-nav">
-            <button data-view="grille">Agenda personnalisé</button>
-            <button data-view="document">Bible</button>
-            <button data-view="modifs">
-              Modifs<span id="modifs-badge" class="badge" hidden></span>
-            </button>
-          </nav>
-          <!-- Aujourd'hui / Réglages / Abonnement au calendrier ne vivent
-               plus dans l'en-tête : ils sont désormais dans le sous-menu de
-               chaque onglet qui en a besoin (#132 sur #131). -->
-          <button id="feedback-btn" title="Donner un avis" hidden>💬</button>
-          <!-- Pas d'émoji : ils ne se recolorent pas et se lisent mal sur
-               le bouton doré (CTA) de l'en-tête sombre. -->
-          <button id="install-btn" title="Installer l'application" hidden>
-            Installer l'app
+          <button id="search-btn" class="icon-btn" aria-label="Rechercher">
+            <svg data-icon="search"></svg>
+          </button>
+          <button
+            id="feedback-btn"
+            class="icon-btn"
+            aria-label="Donner un avis"
+            hidden
+          >
+            <svg data-icon="message"></svg>
           </button>
         </div>
       </div>
+      <!-- Recherche derrière la loupe : le champ s'ouvre à la place du titre,
+           déjà sélectionné (setSearch dans app.js). -->
+      <form id="search-row" class="search-row">
+        <svg data-icon="search"></svg>
+        <input
+          id="search-input"
+          type="search"
+          enterkeyhint="search"
+          placeholder="Œuvre, compositeur, chef, soliste, lieu…"
+        />
+        <button id="search-cancel" type="button">Annuler</button>
+      </form>
     </header>
 
     <main id="main">
@@ -81,70 +88,102 @@
       >
     </footer>
 
-    <dialog id="detail-dialog">
+    <dialog id="detail-dialog" tabindex="-1" class="sheet">
       <div id="detail-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="today-dialog">
+    <dialog id="today-dialog" tabindex="-1">
       <div id="today-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="liste-dialog">
+    <dialog id="liste-dialog" tabindex="-1">
       <div id="liste-content" class="detail-box"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="prefs-dialog">
+    <dialog id="prefs-dialog" tabindex="-1">
       <div class="dialog-head">
-        <h2>Préférences d'affichage</h2>
+        <h2>Réglages</h2>
         <form method="dialog">
-          <button class="close-btn-top" aria-label="Fermer">✕</button>
+          <button class="close-btn-top" aria-label="Fermer">
+            <svg data-icon="x"></svg>
+          </button>
         </form>
       </div>
       <div id="prefs-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="subscribe-dialog">
+    <dialog id="subscribe-dialog" tabindex="-1">
       <div class="dialog-head">
         <h2>S'abonner au calendrier</h2>
         <form method="dialog">
-          <button class="close-btn-top" aria-label="Fermer">✕</button>
+          <button class="close-btn-top" aria-label="Fermer">
+            <svg data-icon="x"></svg>
+          </button>
         </form>
       </div>
       <div id="subscribe-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="install-dialog">
+    <dialog id="install-dialog" tabindex="-1">
       <div class="dialog-head">
         <h2>Installer l'application</h2>
         <form method="dialog">
-          <button class="close-btn-top" aria-label="Fermer">✕</button>
+          <button class="close-btn-top" aria-label="Fermer">
+            <svg data-icon="x"></svg>
+          </button>
         </form>
       </div>
       <div id="install-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="feedback-dialog">
+    <!-- Menu « ⋯ » du bandeau : les actions rares, en feuille qui monte du
+         bas de l'écran (openMenu dans app.js). -->
+    <dialog id="menu-dialog" tabindex="-1" class="sheet">
+      <div id="menu-content"></div>
+    </dialog>
+
+    <dialog id="feedback-dialog" tabindex="-1">
       <div class="dialog-head">
         <h2>Donner un avis</h2>
         <form method="dialog">
-          <button class="close-btn-top" aria-label="Fermer">✕</button>
+          <button class="close-btn-top" aria-label="Fermer">
+            <svg data-icon="x"></svg>
+          </button>
         </form>
       </div>
       <div id="feedback-content"></div>
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <!-- Le suffixe ?v=35b7c6298048
+    <!-- Onglets en bas d'écran, à portée de pouce (cf. setView dans app.js).
+         Réglages n'est pas une vue : il ouvre le dialogue des préférences. -->
+    <nav id="view-nav">
+      <button data-view="grille">
+        <svg data-icon="calendar"></svg><span>Mon agenda</span>
+      </button>
+      <button data-view="document">
+        <svg data-icon="book"></svg><span>Bible</span>
+      </button>
+      <button data-view="modifs">
+        <svg data-icon="history"></svg><span>Modifs</span
+        ><span id="modifs-badge" class="badge" hidden></span>
+      </button>
+      <button id="prefs-tab">
+        <svg data-icon="sliders"></svg><span>Réglages</span>
+      </button>
+    </nav>
+
+    <!-- Le suffixe ?v=aae6e00769a1
          une mise à jour (sinon la version en cache masque les nouveautés).
          « dev » est un simple placeholder : les workflows de publication le
          remplacent automatiquement par le SHA du commit — ne jamais le
          modifier à la main. -->
-    <script src="app.js?v=35b7c6298048"></script>
+    <script src="app.js?v=aae6e00769a1"></script>
   </body>
 </html>
