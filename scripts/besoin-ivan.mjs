@@ -36,10 +36,10 @@ const comments = await gh(
   `issues/${NUMBER}/comments?per_page=100&page=${Math.max(1, Math.ceil(issue.comments / 100))}`,
 )
 const last = comments.at(-1)
-const kind = issue.pull_request ? "PR" : "issue"
+const kind = issue.pull_request ? "la PR" : "l'issue"
 
 const text = [
-  `On a besoin de toi sur la ${kind} #${NUMBER} « ${issue.title} » :`,
+  `On a besoin de toi sur ${kind} #${NUMBER} « ${issue.title} » :`,
   issue.html_url,
   "",
   last
@@ -67,4 +67,4 @@ if (!res.ok) {
   console.error(`Resend : ${res.status} ${await res.text()}`)
   process.exit(1)
 }
-console.log(`Email envoyé pour la ${kind} #${NUMBER}.`)
+console.log(`Email envoyé pour ${kind} #${NUMBER}.`)
