@@ -2484,6 +2484,86 @@ function planningEntryBox(entry) {
   return box
 }
 
+// Ancien → nouveau d'un champ du mémo. Un texte long (l'« Information
+// générale » fait souvent vingt lignes) affiché en entier deux fois, barré
+// puis en vert, est illisible : on n'y voyait pas qu'une seule ligne avait été
+// ajoutée. Au-delà de DIFF_MIN_LENGTH caractères, on compare donc mot à mot et
+// on ne montre que ce qui change, entouré de quelques mots de contexte.
+const DIFF_MIN_LENGTH = 60
+const DIFF_CONTEXT_WORDS = 5
+
+function textDiff(before, after) {
+  if (
+    !before ||
+    !after ||
+    Math.max(before.length, after.length) < DIFF_MIN_LENGTH
+  )
+    return [
+      el("span", { class: "old" }, before || "—"),
+      " → ",
+      el("span", { class: "new" }, after || "—"),
+    ]
+
+  // Mots seuls : les espaces et retours à la ligne ne comptent pas comme des
+  // changements.
+  const a = before.split(/\s+/).filter(Boolean)
+  const b = after.split(/\s+/).filter(Boolean)
+  // Plus longue sous-suite commune (table remplie depuis la fin).
+  const lcs = Array.from(
+    { length: a.length + 1 },
+    () => new Uint16Array(b.length + 1),
+  )
+  for (let i = a.length - 1; i >= 0; i--)
+    for (let j = b.length - 1; j >= 0; j--)
+      lcs[i][j] =
+        a[i] === b[j]
+          ? lcs[i + 1][j + 1] + 1
+          : Math.max(lcs[i + 1][j], lcs[i][j + 1])
+
+  // Suite de segments { op: "eq" | "del" | "ins", words }.
+  const runs = []
+  const push = (op, word) => {
+    const last = runs.at(-1)
+    if (last?.op === op) last.words.push(word)
+    else runs.push({ op, words: [word] })
+  }
+  let i = 0
+  let j = 0
+  while (i < a.length || j < b.length) {
+    if (i < a.length && j < b.length && a[i] === b[j]) {
+      push("eq", a[i++])
+      j++
+    } else if (
+      i < a.length &&
+      (j === b.length || lcs[i + 1][j] >= lcs[i][j + 1])
+    )
+      // À égalité, l'ancien texte (barré) avant le nouveau.
+      push("del", a[i++])
+    else push("ins", b[j++])
+  }
+
+  const nodes = []
+  runs.forEach(({ op, words }, k) => {
+    if (op !== "eq") {
+      nodes.push(
+        el("span", { class: op === "del" ? "old" : "new" }, words.join(" ")),
+        " ",
+      )
+      return
+    }
+    // Texte inchangé : seulement quelques mots de contexte de part et d'autre
+    // d'un changement.
+    const n = DIFF_CONTEXT_WORDS
+    const head = k > 0 ? words.slice(0, n) : []
+    const tail = k < runs.length - 1 ? words.slice(-n) : []
+    if (words.length <= head.length + tail.length)
+      nodes.push(words.join(" ") + " ")
+    else
+      nodes.push([...head, "…", ...tail].join(" ") + (tail.length ? " " : ""))
+  })
+  return nodes
+}
+
 // Un programme dans un relevé de mémo : champs modifiés (chef, effectif, durée,
 // solistes) et œuvres ajoutées / retirées / modifiées.
 function memoProgramItem(p) {
@@ -2521,9 +2601,7 @@ function memoProgramItem(p) {
         "div",
         { class: "field-diff" },
         `${MEMO_FIELD_LABELS[f.field] || f.field} : `,
-        el("span", { class: "old" }, f.before || "—"),
-        " → ",
-        el("span", { class: "new" }, f.after || "—"),
+        ...textDiff(f.before, f.after),
       ),
     )
   for (const oeuvre of p.worksAdded || [])
