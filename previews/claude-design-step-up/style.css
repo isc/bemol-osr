@@ -954,6 +954,11 @@ table.week td.repos:not(.today) {
 
 /* --- Dialogues --- */
 
+/* Le dialogue prend lui-même le focus à l'ouverture (cf. init dans app.js). */
+dialog:focus {
+  outline: none;
+}
+
 dialog {
   border: none;
   border-radius: 16px;
@@ -2462,7 +2467,7 @@ a.fact strong {
 }
 
 .detail-project {
-  margin: 8px 0 0;
+  margin: 4px 0 12px;
   color: var(--text-muted);
   font-size: 0.85em;
 }
