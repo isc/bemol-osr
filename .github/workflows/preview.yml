@@ -85,6 +85,12 @@ jobs:
           done
           echo "::warning::Preview did not become live with the expected SHA in 5 minutes — comment posted anyway"
 
+      - name: Short SHA
+        id: short
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: echo "sha=${HEAD_SHA:0:7}" >> "$GITHUB_OUTPUT"
+
       - name: Comment PR with preview link
         uses: Wandalen/wretry.action@v3.8.0
         with:
@@ -98,5 +104,5 @@ jobs:
 
               - 🎼 App : https://isc.github.io/bemol-osr/previews/${{ steps.slug.outputs.slug }}/
 
-              Commit : `${{ github.event.pull_request.head.sha }}`
+              Commit : `${{ github.event.pull_request.head.sha }}` — en bas des ⚙ Réglages, la preview doit afficher « Version ${{ steps.short.outputs.sha }} ». Sinon, ferme et rouvre l'app (ou touche « Mettre à jour » si le bandeau s'affiche).
               _La preview est mise à jour à chaque push et supprimée à la fermeture de la PR._
