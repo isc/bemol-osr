@@ -69,6 +69,10 @@ self.addEventListener("fetch", (event) => {
     return
   }
 
+  // Requête qui demande expressément le serveur (checkAppUpdate d'app.js, qui
+  // compare la version publiée à celle affichée) : on ne s'interpose pas.
+  if (req.cache === "no-cache") return
+
   if (/\.json$/.test(url.pathname)) {
     event.respondWith(dataHandler(req, url))
     return
@@ -77,11 +81,14 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(staleWhileRevalidate(req))
 })
 
-// Navigation : réseau d'abord, repli sur la page en cache.
+// Navigation : réseau d'abord, repli sur la page en cache. « no-cache » fait
+// revalider la page auprès du serveur : GitHub Pages la sert avec
+// « max-age=600 », et sans cela le cache HTTP du navigateur renvoyait jusqu'à
+// 10 minutes l'ancienne page (donc l'ancien app.js) après une mise à jour.
 async function navigationHandler(req) {
   const cache = await caches.open(CACHE)
   try {
-    const resp = await fetch(req)
+    const resp = await fetch(req, { cache: "no-cache" })
     cache.put(req, resp.clone())
     return resp
   } catch {

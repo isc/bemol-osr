@@ -259,15 +259,18 @@ pour une pagination qui « tournait en rond ») :
    les mécanismes de pagination les plus simples et éprouvés aux montages
    fragiles que WebKit gère mal.
 
-**Inviter à retester une preview : toujours rappeler le rechargement forcé.**
-Deux délais se cumulent entre le push et ce que le frère a sous les yeux : le
-build GitHub Pages de la preview (~1 min après le commentaire de Claude) et le
-cache du **service worker** de la PWA, qui sert la version précédente. S'il
-teste immédiatement, il voit l'ancienne page et conclut « rien n'a changé » — un
-aller-retour perdu à chaque fois (observé plusieurs fois dans #114). Terminer
-donc **systématiquement**, et pas seulement quand on y pense, toute invitation à
-retester par : « pense à un rechargement forcé — ou ferme et rouvre l'app si tu
-l'as installée sur l'écran d'accueil ; le build de la preview prend ~1 min ».
+**Inviter à retester une preview : donner la version à vérifier.** Entre le
+push et ce que le frère a sous les yeux, il y a le build GitHub Pages de la
+preview (~1 min après le commentaire de Claude), et une app restée ouverte en
+arrière-plan qui garde l'ancienne version. S'il teste trop tôt, il conclut
+« rien n'a changé » : un aller-retour perdu à chaque fois (une trentaine de
+commentaires de ce type, dont beaucoup dans #114). Depuis, l'app affiche sa
+version en bas des ⚙ Réglages (SHA court du commit, et le nom de la preview) et
+propose « Mettre à jour » au retour au premier plan quand une version plus
+récente est publiée. Terminer donc **systématiquement** toute invitation à
+retester par : « la preview est prête d'ici ~1 min ; en bas des ⚙ Réglages, tu
+dois voir « Version <les 7 premiers caractères du SHA poussé> ». Sinon, ferme
+et rouvre l'app. »
 
 ## Style de code
 

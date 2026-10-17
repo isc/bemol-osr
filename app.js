@@ -702,6 +702,58 @@ async function checkDataFreshness() {
   }
 }
 
+// --- Version de l'app --------------------------------------------------------
+
+// Les workflows de publication remplacent le « ?v=dev » d'index.html par le
+// SHA du commit publié : la version servie se lit donc sur l'URL de ce script.
+// Elle s'affiche en bas des Réglages, pour qu'on puisse vérifier qu'on a bien
+// sous les yeux le commit annoncé dans une PR.
+const APP_VERSION =
+  new URL(document.currentScript?.src || location.href).searchParams.get("v") ||
+  "dev"
+const PREVIEW_SLUG = location.pathname.match(/\/previews\/([^/]+)\//)?.[1]
+
+function versionLabel() {
+  return (
+    `Version ${APP_VERSION.slice(0, 7)}` +
+    (PREVIEW_SLUG ? ` · preview « ${PREVIEW_SLUG} »` : "")
+  )
+}
+
+// Une app installée sur l'écran d'accueil reste en mémoire des jours entiers :
+// au retour au premier plan, elle n'est pas rechargée et garde l'ancienne
+// version même après une mise à jour (d'où des « rien n'a changé » sur les
+// previews, cf. #114). On relit donc index.html au retour au premier plan et,
+// si son app.js porte une autre version, on propose de recharger.
+let updateBannerShown = false
+
+async function checkAppUpdate() {
+  if (APP_VERSION === "dev" || updateBannerShown) return
+  try {
+    const r = await fetch("./", { cache: "no-cache" })
+    if (!r.ok) return
+    const served = (await r.text()).match(/app\.js\?v=([^"']+)/)?.[1]
+    if (!served || served === APP_VERSION) return
+    updateBannerShown = true
+    document
+      .querySelector("header")
+      .after(
+        el(
+          "div",
+          { class: "update-banner" },
+          "Une nouvelle version de Bémol est disponible. ",
+          el(
+            "button",
+            { type: "button", onclick: () => location.reload() },
+            "Mettre à jour",
+          ),
+        ),
+      )
+  } catch {
+    // hors-ligne : on réessaiera au prochain retour au premier plan
+  }
+}
+
 // Sur mobile, l'app reste très souvent ouverte en arrière-plan (écran
 // verrouillé, changement d'appli) sans jamais être refermée : loadData() ne
 // s'exécutant qu'au chargement initial, le planning affiché peut vieillir
@@ -3064,6 +3116,7 @@ function renderPrefs() {
       { class: "prefs-note" },
       "Astuce : la légende sous le titre permet de masquer/afficher chaque catégorie d'un simple clic. Les préférences sont mémorisées sur cet appareil.",
     ),
+    el("p", { class: "prefs-note" }, versionLabel()),
   )
 }
 
@@ -3919,7 +3972,9 @@ init()
 // dès que l'app repasse au premier plan (écran rallumé, retour depuis une
 // autre appli…), plutôt que de dépendre d'une réouverture complète.
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") refreshData()
+  if (document.visibilityState !== "visible") return
+  refreshData()
+  checkAppUpdate()
 })
 
 // Installation « écran d'accueil » : on intercepte l'invite native (Android /
