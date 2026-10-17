@@ -401,6 +401,26 @@ continuer. Ne jamais répondre « relance-moi en autorisant les modifications »
 le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
 le run s'est arrêté sur ce message, sans rien pousser).
 
+## Relier les demandes entre elles, une PR par sujet
+
+Loïc ne garde pas la trace des fils : « je ne me souviens plus dans quel PR
+nous avions traité ça » (#168), « je sais que je t'ai déjà demandé ça dans une
+autre issue, mais je ne trouve plus où » (#141). C'est donc à Claude de faire
+les liens :
+
+- **Avant de traiter une demande, chercher les issues et PR passées sur le
+  même sujet** (`gh search issues --repo isc/bemol-osr --include-prs "<mots-clés>"`) et les citer dans la réponse et dans la description de
+  PR (« suite de #164, déjà abordé dans #110 »). On y retrouve aussi ce qui a
+  déjà été essayé, ou écarté, et pourquoi.
+- **Un commentaire sur une PR ouverte qui change de sujet ne s'empile pas sur
+  elle.** Un ajustement de ce que fait la PR (taille, couleur, ordre, cas
+  oublié) reste sur sa branche. Une demande nouvelle (autre écran, autre
+  document, autre fonctionnalité) part d'une **nouvelle branche depuis `main`
+  et d'une nouvelle PR**, dont on poste le lien en réponse. La PR en cours
+  reste ainsi petite et mergeable. Contre-exemple : #225 (calendrier papier),
+  où se sont ajoutés le calendrier de l'agenda personnalisé, un document du
+  détail des Listes et des retouches esthétiques, en 28 commentaires.
+
 ## Quand il faut Ivan : étiquette `besoin-ivan`
 
 Ivan a coupé ses notifications GitHub : une mention `@isc` ne le prévient
