@@ -1574,6 +1574,10 @@ footer a {
   }
 
   body {
+    /* La place réservée à l'écran à la barre d'onglets du bas n'a rien à
+       faire sur papier : sur une page pleine (calendrier papier), elle
+       débordait sur une feuille blanche de plus. */
+    padding-bottom: 0;
     background: #fff;
     font-size: 9.5px;
   }
