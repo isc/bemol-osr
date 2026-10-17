@@ -401,6 +401,25 @@ continuer. Ne jamais répondre « relance-moi en autorisant les modifications »
 le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
 le run s'est arrêté sur ce message, sans rien pousser).
 
+## Quand il faut Ivan : étiquette `besoin-ivan`
+
+Ivan a coupé ses notifications GitHub : une mention `@isc` ne le prévient
+**pas**. Dès qu'un run ne peut pas aboutir sans lui (modifier un fichier de
+`.github/workflows/`, cf. section suivante ; poser ou renouveler un secret ; un
+accès ou un réglage côté Dièse, Cloudflare, Resend ; une décision qui lui
+revient), dans cet ordre :
+
+1. poster le commentaire qui dit, en une ou deux phrases en tête, **ce
+   qu'Ivan doit faire** (le diff à appliquer, le secret à poser…) ;
+2. puis poser l'étiquette :
+   `gh issue edit <N> --add-label besoin-ivan` (ou `gh pr edit`).
+
+Le workflow `besoin-ivan.yml` lui envoie alors un email qui reprend ce
+**dernier** commentaire : d'où l'ordre. Dire aussi au musicien, dans ce
+commentaire, qu'Ivan est prévenu. Ivan retire l'étiquette une fois le point
+réglé. Avant ce mécanisme, les « je vais voir avec @isc » de Loïc (#159, #175)
+restaient sans suite tant qu'Ivan ne passait pas par hasard sur le dépôt.
+
 ## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
 
 Le jeton du bot Claude **n'a pas** la permission GitHub `workflows` : tout push
@@ -413,8 +432,9 @@ Donc, quand une demande implique de **créer ou modifier un workflow** (espacer
 les alertes d'un cron, corriger un `allowed_bots`, ajouter une notification
 d'échec…), ne pas tenter de pousser puis découvrir l'échec, ni ouvrir une PR qui
 ne partira pas. **Fournir directement le diff complet** (ou le fichier entier)
-dans le commentaire ou la description, et dire clairement à Ivan qu'il doit
-l'appliquer et le merger lui-même — c'est lui qui a la permission `workflows`
+dans le commentaire ou la description, dire clairement à Ivan qu'il doit
+l'appliquer et le merger lui-même, et poser l'étiquette `besoin-ivan` (cf.
+section précédente) — c'est lui qui a la permission `workflows`
 (cf. point 3 de la revue #100 : diff produit par Claude, PR #101 ouverte à la
 main par Ivan ; idem #102). Le reste du travail (le raisonnement, les tests hors
 CI, la description) reste à la charge de Claude.

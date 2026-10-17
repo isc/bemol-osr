@@ -1,0 +1,33 @@
+name: Besoin d'Ivan
+
+# Étiquette « besoin-ivan » posée sur une issue ou une PR → email à Ivan.
+# Toute la logique est dans scripts/besoin-ivan.mjs.
+
+on:
+  issues:
+    types: [labeled]
+  pull_request_target:
+    types: [labeled]
+
+permissions:
+  issues: read
+  pull-requests: read
+
+jobs:
+  email:
+    if: github.event.label.name == 'besoin-ivan'
+    runs-on: ubuntu-latest
+    steps:
+      # Le script vient toujours de main (jamais de la branche d'une PR, que
+      # pull_request_target exécuterait avec les secrets).
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: scripts
+      - run: node scripts/besoin-ivan.mjs
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
