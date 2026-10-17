@@ -157,8 +157,7 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
-  searchOpen: false, // recherche ouverte depuis la loupe (openSearch)
-  searchQuery: "", // texte cherché, conservé entre les rendus
+  searchOpen: false, // recherche ouverte depuis la loupe (setSearch)
 }
 
 function loadPrefs() {
@@ -991,25 +990,6 @@ function eventChip(e, { showDate = false } = {}) {
   return chip
 }
 
-// Rend le lieu cliquable (ouvre l'app de plans du téléphone) quand on a une
-// requête exploitable ; sinon affiche le texte brut du lieu tel quel.
-function locationDetail(loc) {
-  if (!loc) return "—"
-  const url = mapsUrl(loc)
-  if (!url) return loc
-  const v = venue(loc)
-  return el(
-    "a",
-    { class: "location-link", href: url, target: "_blank", rel: "noopener" },
-    el("span", { class: "location-name" }, loc),
-    " ",
-    el("span", { class: "location-pin", "aria-hidden": "true" }, "📍"),
-    // L'adresse postale, quand on la connaît : de quoi reconnaître la salle et
-    // s'y rendre sans même ouvrir le plan.
-    v ? el("span", { class: "location-address" }, v.address) : "",
-  )
-}
-
 // Compositeurs d'une Liste (« DEBUSSY, RAVEL »), tirés des œuvres du mémo
 // (« Claude DEBUSSY — Pelléas et Mélisande… ») : de quoi reconnaître le
 // programme d'un coup d'œil en tête de fiche.
@@ -1026,32 +1006,26 @@ function composers(liste) {
   return [...new Set(names)].join(", ")
 }
 
-// Sections du mémo (paires titre + contenu de productionDetail) repliées
-// derrière leur titre : la fiche montre d'abord l'essentiel du service, le
-// reste se déplie d'un tap. Les séries contraires, info clé (#219), sont déjà
-// en encadré plus haut, et le chef en tête de fiche.
-const DETAIL_OPEN_SECTIONS = ["Information générale", "Tenue"]
-const FOLD_SKIPPED_SECTIONS = ["Séries contraires", "Direction musicale"]
+// Sections du mémo repliées derrière leur titre : la fiche montre d'abord
+// l'essentiel du service, le reste se déplie d'un tap. Les séries contraires,
+// info clé (#219), sont déjà en encadré plus haut, et le chef en tête de fiche.
+const DETAIL_OPEN_SECTIONS = ["info", "tenue"]
+const DETAIL_SKIPPED_SECTIONS = ["contraires", "chef"]
 
-function foldedSections(nodes) {
-  const folded = []
-  for (let i = 0; i + 1 < nodes.length; i += 2) {
-    const title = nodes[i].textContent
-    if (FOLD_SKIPPED_SECTIONS.includes(title)) continue
-    const items = nodes[i + 1].querySelectorAll(":scope > li").length
-    folded.push(
+function foldedSections(liste) {
+  return productionSections(liste)
+    .filter(({ key }) => !DETAIL_SKIPPED_SECTIONS.includes(key))
+    .map(({ key, title, count, body }) =>
       el(
         "details",
         {
           class: "detail-fold",
-          ...(DETAIL_OPEN_SECTIONS.includes(title) ? { open: "" } : {}),
+          ...(DETAIL_OPEN_SECTIONS.includes(key) ? { open: "" } : {}),
         },
-        el("summary", {}, items > 1 ? `${title} (${items})` : title),
-        nodes[i + 1],
+        el("summary", {}, count > 1 ? `${title} (${count})` : title),
+        body,
       ),
     )
-  }
-  return folded
 }
 
 function showDetail(e) {
@@ -1137,7 +1111,7 @@ function showDetail(e) {
         "a",
         {
           class: "pill",
-          href: "https://osr.opas-online.com/documents.php",
+          href: SCORE_PORTAL_URL,
           target: "_blank",
           rel: "noopener noreferrer",
         },
@@ -1155,7 +1129,7 @@ function showDetail(e) {
       ? [el("p", { class: "detail-project" }, `Programme ${e.project}`)]
       : []),
     ...serviceWorksDetail(e),
-    ...foldedSections(productionDetail(e.liste)),
+    ...foldedSections(e.liste),
     ...historyDetail(e.uid),
   )
   dlg.showModal()
@@ -1353,6 +1327,8 @@ function workNode(w) {
 // partition précise) : Bémol est un site statique sans compte utilisateur,
 // il ne sait ni qui consulte la page ni quel instrument iel joue, et n'a pas
 // non plus accès à un système de partitions par production côté Dièse.
+const SCORE_PORTAL_URL = "https://osr.opas-online.com/documents.php"
+
 function scorePortalLink() {
   return el(
     "p",
@@ -1361,7 +1337,7 @@ function scorePortalLink() {
       "a",
       {
         class: "score-portal-link",
-        href: "https://osr.opas-online.com/documents.php",
+        href: SCORE_PORTAL_URL,
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -1415,65 +1391,46 @@ function serviceWorksDetail(e) {
 }
 
 // Infos du mémo de production (chef, solistes, œuvres avec leur détail
-// d'instrumentation, effectif, durée) pour une Liste donnée.
-function productionDetail(liste) {
+// d'instrumentation, effectif, durée) pour une Liste donnée, section par
+// section : la fiche d'un service les replie (foldedSections), les autres
+// vues les affichent à plat (productionDetail).
+function productionSections(liste) {
   const prod = state.productions[liste] || {}
   const solistes = (prod.solistes || []).filter(Boolean)
   const works = (prod.works || []).filter(Boolean)
-  const nodes = []
-  if (prod.contraires) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Séries contraires"),
-      el("p", { class: "contraires" }, prod.contraires),
-    )
-  }
-  if (prod.chef) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Direction musicale"),
-      el("p", { class: "chef" }, prod.chef),
-    )
-  }
-  if (solistes.length) {
-    nodes.push(
-      el(
-        "h3",
-        { class: "detail-section" },
-        solistes.length > 1 ? "Solistes" : "Soliste",
+  const text = (key, title, cls, value) =>
+    value && { key, title, body: el("p", { class: cls }, value) }
+  return [
+    text("contraires", "Séries contraires", "contraires", prod.contraires),
+    text("chef", "Direction musicale", "chef", prod.chef),
+    solistes.length && {
+      key: "solistes",
+      title: solistes.length > 1 ? "Solistes" : "Soliste",
+      count: solistes.length,
+      body: el(
+        "ul",
+        { class: "solistes" },
+        ...solistes.map((s) => el("li", {}, s)),
       ),
-      el("ul", { class: "solistes" }, ...solistes.map((s) => el("li", {}, s))),
-    )
-  }
-  if (works.length) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Œuvres au programme"),
-      el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
-    )
-  }
-  if (prod.info) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Information générale"),
-      el("p", { class: "info-generale" }, prod.info),
-    )
-  }
-  if (prod.tenue) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Tenue"),
-      el("p", { class: "tenue" }, prod.tenue),
-    )
-  }
-  if (prod.effectif) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Effectif orchestral (max)"),
-      el("p", { class: "effectif" }, prod.effectif),
-    )
-  }
-  if (prod.duree) {
-    nodes.push(
-      el("h3", { class: "detail-section" }, "Durée totale approximative"),
-      el("p", { class: "duree" }, prod.duree),
-    )
-  }
-  return nodes
+    },
+    works.length && {
+      key: "works",
+      title: "Œuvres au programme",
+      count: works.length,
+      body: el("ul", { class: "works" }, ...works.map((w) => workNode(w))),
+    },
+    text("info", "Information générale", "info-generale", prod.info),
+    text("tenue", "Tenue", "tenue", prod.tenue),
+    text("effectif", "Effectif orchestral (max)", "effectif", prod.effectif),
+    text("duree", "Durée totale approximative", "duree", prod.duree),
+  ].filter(Boolean)
+}
+
+function productionDetail(liste) {
+  return productionSections(liste).flatMap(({ title, body }) => [
+    el("h3", { class: "detail-section" }, title),
+    body,
+  ])
 }
 
 // --- Vue par Liste (programme complet d'une production) --------------------
@@ -1923,7 +1880,7 @@ function buildWeekTable(days, weekIndex, ctx) {
 
 // Grille de la saison filtrée par les Réglages, sous le bandeau commun
 // (viewToolbar). La recherche ne vit plus dans la vue : elle s'ouvre depuis
-// la loupe de l'en-tête (openSearch).
+// la loupe de l'en-tête (setSearch).
 function renderGrille(main) {
   const gridBody = el("div", { class: "grille-body" })
   main.append(viewToolbar("grille"), gridBody)
@@ -2037,12 +1994,6 @@ function renderPeriodePage(periode, ctx) {
 // (catégories/listes masquées, services sans orchestre…, cf. allSeasonEvents) :
 // c'est le document de référence de la saison complète, pas une vue
 // personnalisée (retour #114).
-// Intègre aussi la recherche par mots-clés (#131), reprise à l'identique
-// dans l'onglet Agenda personnalisé (retour sur #132, cf. renderGrille) :
-// dans les deux vues, la recherche porte sur la saison complète,
-// indépendamment des filtres du musicien (cf. searchResults ci-dessous).
-// Une recherche active masque la grille au profit des résultats ; imprimer
-// (@media print) affiche toujours le document complet, cf. style.css.
 function renderDocument(main) {
   const docBody = el("div", { class: "doc-body" })
   const ctx = weekTableContext(allSeasonEvents())
@@ -2342,7 +2293,8 @@ function updatePeriodLabel() {
     current = h
   }
   current ??= document.querySelector("#main .periode-title")
-  label.textContent = current ? shortPeriodTitle(current.textContent) : ""
+  const text = current ? shortPeriodTitle(current.textContent) : ""
+  if (label.textContent !== text) label.textContent = text
 }
 
 let periodLabelQueued = false
@@ -2935,31 +2887,24 @@ function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
 }
 
 // Recherche derrière la loupe de l'en-tête : le champ s'ouvre à la place du
-// titre, déjà sélectionné (focus dans le même geste que le tap, sinon iOS
+// titre (classe « searching » sur l'en-tête), déjà sélectionné (focus dans le même geste que le tap, sinon iOS
 // n'ouvre pas le clavier), et les résultats remplacent la vue en cours. Elle
 // porte sur la saison complète, quels que soient les Réglages (cf.
 // searchResults).
-function openSearch() {
-  state.searchOpen = true
-  document.querySelector(".header-row").hidden = true
-  document.getElementById("search-row").hidden = false
+function setSearch(open) {
+  state.searchOpen = open
+  document.querySelector("header").classList.toggle("searching", open)
   const input = document.getElementById("search-input")
-  input.value = state.searchQuery
-  input.focus()
-  renderContent()
-}
-
-function closeSearch() {
-  state.searchOpen = false
-  state.searchQuery = ""
-  document.querySelector(".header-row").hidden = false
-  document.getElementById("search-row").hidden = true
-  setView(state.view)
+  input.value = ""
+  if (open) {
+    input.focus()
+    renderContent()
+  }
 }
 
 function renderSearchView(main) {
   const results = el("div", { class: "search-results" })
-  renderSearchResults(results, state.searchQuery)
+  renderSearchResults(results, document.getElementById("search-input").value)
   main.append(results)
 }
 
@@ -3917,12 +3862,7 @@ function renderInstall() {
 // --- Navigation / rendu global -------------------------------------------------
 
 function setView(view) {
-  if (state.searchOpen) {
-    state.searchOpen = false
-    state.searchQuery = ""
-    document.querySelector(".header-row").hidden = false
-    document.getElementById("search-row").hidden = true
-  }
+  if (state.searchOpen) setSearch(false)
   state.view = view
   state.modifsFilter = null
   // La vue papier est un écran d'impression, pas un onglet : on ne la
@@ -4121,18 +4061,19 @@ async function init() {
     .getElementById("prefs-tab")
     .addEventListener("click", openPrefsDialog)
 
-  document.getElementById("search-btn").addEventListener("click", openSearch)
+  document
+    .getElementById("search-btn")
+    .addEventListener("click", () => setSearch(true))
   document
     .getElementById("search-cancel")
-    .addEventListener("click", closeSearch)
+    .addEventListener("click", () => setView(state.view))
   const searchInput = document.getElementById("search-input")
-  searchInput.addEventListener("input", () => {
-    state.searchQuery = searchInput.value
+  searchInput.addEventListener("input", () =>
     renderSearchResults(
       document.querySelector("#main .search-results"),
-      state.searchQuery,
-    )
-  })
+      searchInput.value,
+    ),
+  )
   // « Rechercher » du clavier : on le referme pour voir les résultats.
   document.getElementById("search-row").addEventListener("submit", (ev) => {
     ev.preventDefault()

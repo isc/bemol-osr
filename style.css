@@ -45,6 +45,7 @@
   --header-bg: #1d1912;
   --header-fg: #f2ecdd;
   --gold: #c8a35c;
+  --header-muted: #a89a79;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 
   /* Palette « code couleur par Liste » (#109) : une teinte par production,
@@ -90,6 +91,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-size: 15px;
+  /* Place pour la barre d'onglets fixée en bas (#view-nav). */
+  padding-bottom: calc(58px + env(safe-area-inset-bottom));
 }
 
 header {
@@ -137,7 +140,10 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
+}
+
+.header-row h1 {
+  flex: 1;
 }
 
 h1 {
@@ -154,7 +160,7 @@ h1 .subtitle {
   font-weight: normal;
   font-style: italic;
   font-size: 0.62em;
-  color: #a89a79;
+  color: var(--header-muted);
   letter-spacing: 0.03em;
 }
 
@@ -174,14 +180,6 @@ button {
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
-}
-
-/* Boutons de l'en-tête : déclinaison sombre (l'or est réservé à l'état actif) */
-.header-controls button,
-.header-controls select {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--header-fg);
-  border-color: #4d4536;
 }
 
 .badge {
@@ -920,19 +918,7 @@ table.week td.repos:not(.today) {
   font-weight: 600;
 }
 
-/* --- Recherche (intégrée aux vues Bible et Agenda personnalisé) --- */
-
-.search-bar {
-  margin-bottom: 12px;
-}
-
-.search-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  font-size: 1rem;
-  border-radius: 8px;
-}
+/* --- Résultats de recherche (loupe de l'en-tête, cf. openSearch) --- */
 
 .search-group {
   background: #fff;
@@ -1027,7 +1013,6 @@ dialog h2 {
   padding: 2px 10px;
   border-radius: 10px;
   font-size: 0.8em;
-  margin-bottom: 8px;
   background: var(--surface-alt);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -1039,52 +1024,6 @@ dialog h2 {
   margin-left: 6px;
   font-size: 0.7em;
   vertical-align: middle;
-}
-
-.detail-box dl {
-  margin: 8px 0;
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 4px 10px;
-}
-
-.detail-box dt {
-  color: var(--text-faint);
-  font-size: 0.85em;
-}
-
-.detail-box dd {
-  margin: 0;
-}
-
-/* Seul le nom de la salle est souligné : l'adresse, en dessous, reste sobre
-   (un soulignement porté par le lien lui-même déborderait sur elle). */
-.detail-box .location-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.detail-box .location-name {
-  text-decoration: underline dotted;
-  text-underline-offset: 2px;
-}
-
-.detail-box .location-pin {
-  font-size: 0.9em;
-}
-
-/* Adresse postale de la salle, sous son nom d'usage (venues.json). */
-.detail-box .location-address {
-  display: block;
-  font-size: 0.85em;
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .detail-box .location-link:hover {
-    color: var(--accent);
-  }
 }
 
 .detail-box .detail-section {
@@ -1161,8 +1100,8 @@ dialog h2 {
 
 /* Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
    le titre de la fiche (#80) : la ligne qui le contient a donc le même
-   traitement d'espacement qu'un <dl> voisin, et le lien lui-même reprend le
-   style « pastille » de .liste-link pour rester cohérent. */
+   traitement d'espacement que le reste de la fiche, et le lien lui-même a un
+   style « pastille ». */
 .score-portal-row {
   margin: 8px 0;
 }
@@ -1187,45 +1126,6 @@ dialog h2 {
 
 @media (hover: hover) {
   .score-portal-link:hover {
-    background: var(--accent);
-    color: #fff;
-  }
-}
-
-/* Nom de la Liste cliquable dans une fiche d'événement, ouvrant la vue par
-   Liste (programme complet de la production). Style « pastille » (plutôt
-   qu'un simple lien souligné) pour bien la distinguer du titre — qui est
-   lui-même dans la couleur d'accent — et signaler que c'est tapable même
-   sans survol (mobile). */
-.liste-link {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  border: 1.5px solid var(--accent);
-  border-radius: 999px;
-  background: #e3edf5;
-  padding: 3px 8px 3px 11px;
-  margin: 0 2px 0 0;
-  font: inherit;
-  font-size: 0.85em;
-  font-weight: 700;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.liste-link::after {
-  content: "›";
-  margin-left: 3px;
-  font-weight: 900;
-}
-
-.liste-link:active {
-  background: var(--accent);
-  color: #fff;
-}
-
-@media (hover: hover) {
-  .liste-link:hover {
     background: var(--accent);
     color: #fff;
   }
@@ -1655,15 +1555,6 @@ footer a {
     padding: 2px 3px;
     line-height: 1.2;
   }
-
-  /* Emprise réduite de la barre de recherche (retour #188), mais la taille
-     du texte reste à 16px (1rem) : en dessous, Safari iOS zoome tout
-     l'écran dès qu'on touche le champ pour taper, ce qui serait bien
-     plus gênant que les quelques pixels gagnés. On resserre donc plutôt
-     le padding. */
-  .search-input {
-    padding: 7px 12px;
-  }
 }
 
 /* --- Impression : rendu proche de l'ancienne « Bible » PDF --- */
@@ -1783,30 +1674,11 @@ footer a {
     cursor: default;
   }
 
-  /* Vue Document : l'aide en ligne ne sert à rien sur papier. Le bandeau
-     sticky lui-même n'a plus de raison d'être à l'impression (retour #132) :
-     display: contents laisse ses enfants (.doc-intro, .doc-search-bar, déjà
-     masqués ci-dessous) piloter leur propre affichage, sans lui ajouter une
-     boîte vide. */
-  .view-toolbar {
-    display: contents;
-  }
-
+  /* Bandeau « Aujourd'hui · période · ⋯ » et boutons d'écran des vues
+     papier : rien à faire sur papier. */
+  .view-toolbar,
   .doc-intro {
     display: none;
-  }
-
-  /* Recherche intégrée à la vue Bible (#131) : jamais imprimée, et le
-     document complet reste imprimable même quand une recherche est active à
-     l'écran (cf. renderDocument dans app.js, qui masque .doc-body via
-     [hidden] pendant une recherche). */
-  .doc-search-bar,
-  .doc-search-results {
-    display: none !important;
-  }
-
-  .doc-body[hidden] {
-    display: block !important;
   }
 
   /* Une période par page (retour #114 : mise en page de l'ancienne Bible
@@ -2331,14 +2203,6 @@ footer {
   vertical-align: -4px;
 }
 
-.header-row {
-  flex-wrap: nowrap;
-}
-
-.header-row h1 {
-  flex: 1;
-}
-
 .icon-btn {
   width: 38px;
   height: 38px;
@@ -2348,7 +2212,7 @@ footer {
   justify-content: center;
   border-radius: 19px;
   border: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.07);
   color: var(--header-fg);
 }
 
@@ -2359,18 +2223,21 @@ footer {
 
 /* Recherche ouverte : le champ prend la place du titre. */
 .search-row {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 8px;
 }
 
-.header-row[hidden],
-.search-row[hidden] {
+header.searching .search-row {
+  display: flex;
+}
+
+header.searching .header-row {
   display: none;
 }
 
 .search-row > .icon {
-  color: #b9a67e;
+  color: var(--header-muted);
   margin-right: -36px;
   margin-left: 10px;
   position: relative;
@@ -2390,7 +2257,7 @@ footer {
 }
 
 .search-row input::placeholder {
-  color: #a89a79;
+  color: var(--header-muted);
 }
 
 .search-row button {
@@ -2443,10 +2310,6 @@ footer {
   top: 3px;
   left: calc(50% + 6px);
   margin: 0;
-}
-
-body {
-  padding-bottom: calc(58px + env(safe-area-inset-bottom));
 }
 
 /* Bandeau « Aujourd'hui · période · ⋯ ». */
@@ -2568,10 +2431,6 @@ dialog.sheet {
   padding: 3px 12px;
   font-weight: 600;
   color: #2a241c;
-}
-
-.detail-box .detail-cat {
-  margin: 0;
 }
 
 .recent-tag {
