@@ -157,7 +157,8 @@ const state = {
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
-  searchQuery: "", // recherche courante (vues Bible et Agenda personnalisé), conservée entre les rendus
+  searchOpen: false, // recherche ouverte depuis la loupe (openSearch)
+  searchQuery: "", // texte cherché, conservé entre les rendus
 }
 
 function loadPrefs() {
@@ -906,6 +907,56 @@ function el(tag, attrs = {}, ...children) {
   return node
 }
 
+// Icônes au trait (24×24, à la manière de Tabler Icons), dessinées par CSS
+// avec currentColor : elles prennent la couleur du texte, dans les deux
+// thèmes. Chaînes fixes, jamais de données du planning.
+const ICONS = {
+  search: '<circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/>',
+  message: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+  calendar:
+    '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/>',
+  calendarPlus:
+    '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M12 14v4M10 16h4"/>',
+  book: '<path d="M5 19.5V5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2 2 2 0 0 0 2 2h12"/>',
+  history:
+    '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/>',
+  sliders:
+    '<path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/>',
+  dots: '<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',
+  printer:
+    '<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',
+  file: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/>',
+  bell: '<path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 8 2.5 8h-17S6 15 6 9"/><path d="M10 21a2 2 0 0 0 4 0"/>',
+  phone:
+    '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  chevron: '<path d="M9 6l6 6-6 6"/>',
+  music:
+    '<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h0M4.5 12h0M4.5 18h0"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+}
+
+function fillIcon(svg, name) {
+  svg.setAttribute("viewBox", "0 0 24 24")
+  svg.setAttribute("aria-hidden", "true")
+  svg.classList.add("icon")
+  svg.innerHTML = ICONS[name]
+  return svg
+}
+
+function icon(name) {
+  return fillIcon(
+    document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+    name,
+  )
+}
+
+// Icônes déclarées dans index.html (`<svg data-icon="…">`).
+function hydrateIcons() {
+  for (const svg of document.querySelectorAll("svg[data-icon]"))
+    fillIcon(svg, svg.dataset.icon)
+}
+
 // Bouton « Fermer » (✕) à placer en premier dans le contenu généré en JS
 // d'un dialogue (Détail, Liste) : flotte à droite du titre (cf. .close-btn-top-form),
 // en plus du bouton « Fermer » du bas, pour éviter de devoir tout faire
@@ -959,71 +1010,152 @@ function locationDetail(loc) {
   )
 }
 
+// Compositeurs d'une Liste (« DEBUSSY, RAVEL »), tirés des œuvres du mémo
+// (« Claude DEBUSSY — Pelléas et Mélisande… ») : de quoi reconnaître le
+// programme d'un coup d'œil en tête de fiche.
+function composers(liste) {
+  const names = ((state.productions[liste] || {}).works || [])
+    .map((w) => (typeof w === "string" ? w : w.oeuvre) || "")
+    .map((t) =>
+      t
+        .split(" — ")[0]
+        .match(/[A-ZÀ-Ý][A-ZÀ-Ý'-]{2,}/g)
+        ?.at(-1),
+    )
+    .filter(Boolean)
+  return [...new Set(names)].join(", ")
+}
+
+// Sections du mémo (paires titre + contenu de productionDetail) repliées
+// derrière leur titre : la fiche montre d'abord l'essentiel du service, le
+// reste se déplie d'un tap. Les séries contraires, info clé (#219), sont déjà
+// en encadré plus haut, et le chef en tête de fiche.
+const DETAIL_OPEN_SECTIONS = ["Information générale", "Tenue"]
+const FOLD_SKIPPED_SECTIONS = ["Séries contraires", "Direction musicale"]
+
+function foldedSections(nodes) {
+  const folded = []
+  for (let i = 0; i + 1 < nodes.length; i += 2) {
+    const title = nodes[i].textContent
+    if (FOLD_SKIPPED_SECTIONS.includes(title)) continue
+    const items = nodes[i + 1].querySelectorAll(":scope > li").length
+    folded.push(
+      el(
+        "details",
+        {
+          class: "detail-fold",
+          ...(DETAIL_OPEN_SECTIONS.includes(title) ? { open: "" } : {}),
+        },
+        el("summary", {}, items > 1 ? `${title} (${items})` : title),
+        nodes[i + 1],
+      ),
+    )
+  }
+  return folded
+}
+
 function showDetail(e) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
+  const prod = state.productions[e.liste] || {}
+  const recent = state.recentUids.get(e.uid) || state.recentListes.get(e.liste)
+  const byline = [composers(e.liste), prod.chef && `dir. ${prod.chef}`]
+    .filter(Boolean)
+    .join(" · ")
+  const mapUrl = mapsUrl(e.location)
+  const place = venue(e.location)
+
   box.replaceChildren(
     closeBtnTop(),
-    el("span", { class: "detail-cat" }, CATEGORIES[e.category]),
     el(
-      "h2",
-      {},
-      el("span", { class: `liste-swatch ${listeColorClass(e.liste)}` }),
-      " ",
+      "div",
+      { class: "detail-tags" },
       el(
         "button",
         {
-          class: "liste-link",
+          class: `liste-pill ${listeColorClass(e.liste)}`,
           title: "Voir toute la production de cette liste",
           onclick: () => showListe(e.liste),
         },
         e.liste,
       ),
-      ` — ${e.activity}${e.cancelled ? " (ANNULÉ)" : ""}`,
-      // Point rouge si le mémo de ce programme a changé récemment (cf. les
-      // événements de planning récemment modifiés).
-      state.recentListes.has(e.liste)
-        ? el(
-            "span",
-            {
-              class: "recent-dot",
-              title: "Mémo de production modifié récemment",
-            },
-            "●",
-          )
-        : null,
+      el("span", { class: "detail-cat" }, CATEGORIES[e.category]),
+      ...(recent
+        ? [
+            el(
+              "span",
+              { class: "recent-tag" },
+              `● modifié le ${fmtDateStr(recent.slice(0, 16), false)}`,
+            ),
+          ]
+        : []),
     ),
-    scorePortalLink(),
     el(
-      "dl",
-      {},
-      el("dt", {}, "Date"),
-      el("dd", {}, fmtDay(parseDate(e.start), true)),
-      el("dt", {}, "Horaire"),
-      el("dd", {}, `${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}`),
-      el("dt", {}, "Lieu"),
-      el("dd", {}, locationDetail(e.location)),
-      el("dt", {}, "Programme"),
-      el("dd", {}, e.project || "—"),
-      state.recentUids.has(e.uid) ? el("dt", {}, "Modifié") : null,
-      state.recentUids.has(e.uid)
-        ? el(
-            "dd",
-            {},
-            `récemment (${fmtDateStr(state.recentUids.get(e.uid).slice(0, 16), false)})`,
-          )
-        : null,
-      state.recentListes.has(e.liste) ? el("dt", {}, "Mémo") : null,
-      state.recentListes.has(e.liste)
-        ? el(
-            "dd",
-            {},
-            `modifié récemment (${fmtDateStr(state.recentListes.get(e.liste).slice(0, 16), false)})`,
-          )
-        : null,
+      "h2",
+      { class: "detail-title" },
+      e.activity.charAt(0).toUpperCase() + e.activity.slice(1),
+      e.cancelled ? " (annulé)" : "",
     ),
+    ...(byline ? [el("p", { class: "detail-byline" }, byline)] : []),
+    el(
+      "div",
+      { class: "detail-facts" },
+      el(
+        "div",
+        { class: "fact" },
+        el("small", {}, fmtDay(parseDate(e.start), true)),
+        el(
+          "strong",
+          {},
+          `${fmtTime(e.start)}${e.end ? " – " + fmtTime(e.end) : ""}`,
+        ),
+      ),
+      el(
+        mapUrl ? "a" : "div",
+        {
+          class: "fact",
+          ...(mapUrl
+            ? { href: mapUrl, target: "_blank", rel: "noopener" }
+            : {}),
+        },
+        el("small", {}, place ? place.address : "Lieu"),
+        el(
+          "strong",
+          {},
+          e.location || "—",
+          ...(mapUrl ? [" ", icon("pin")] : []),
+        ),
+      ),
+    ),
+    ...(prod.contraires
+      ? [el("p", { class: "contraires-callout" }, prod.contraires)]
+      : []),
+    el(
+      "div",
+      { class: "detail-actions" },
+      el(
+        "a",
+        {
+          class: "pill",
+          href: "https://osr.opas-online.com/documents.php",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+        icon("music"),
+        " Partitions",
+      ),
+      el(
+        "button",
+        { type: "button", class: "pill", onclick: () => showListe(e.liste) },
+        icon("list"),
+        " Toute la Liste",
+      ),
+    ),
+    ...(e.project && e.project !== e.liste
+      ? [el("p", { class: "detail-project" }, `Programme ${e.project}`)]
+      : []),
     ...serviceWorksDetail(e),
-    ...productionDetail(e.liste),
+    ...foldedSections(productionDetail(e.liste)),
     ...historyDetail(e.uid),
   )
   dlg.showModal()
@@ -1789,42 +1921,12 @@ function buildWeekTable(days, weekIndex, ctx) {
   return table
 }
 
-// La recherche par mots-clés (#131, cf. searchResults plus bas) est reprise
-// telle quelle de la vue Bible (retour sur #132) : mêmes résultats, non
-// filtrés par les Réglages, puisqu'une recherche active masque de toute façon
-// la grille au profit des résultats — pas de risque de retrouver un service
-// qu'on ne pourrait pas voir juste après dans cette vue.
+// Grille de la saison filtrée par les Réglages, sous le bandeau commun
+// (viewToolbar). La recherche ne vit plus dans la vue : elle s'ouvre depuis
+// la loupe de l'en-tête (openSearch).
 function renderGrille(main) {
-  const results = el("div", { class: "search-results" })
   const gridBody = el("div", { class: "grille-body" })
-
-  const input = el("input", {
-    type: "search",
-    class: "search-input",
-    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
-    oninput: (ev) => {
-      state.searchQuery = ev.target.value
-      const q = !!ev.target.value.trim()
-      gridBody.hidden = q
-      results.hidden = !q
-      renderSearchResults(results, state.searchQuery)
-    },
-  })
-  input.value = state.searchQuery
-
-  const hasQuery = !!state.searchQuery.trim()
-  gridBody.hidden = hasQuery
-  results.hidden = !hasQuery
-  renderSearchResults(results, state.searchQuery)
-
-  main.append(
-    viewToolbar(
-      renderGrilleActions(),
-      el("div", { class: "search-bar" }, input),
-    ),
-    results,
-    gridBody,
-  )
+  main.append(viewToolbar("grille"), gridBody)
 
   const ctx = weekTableContext()
 
@@ -1942,88 +2044,14 @@ function renderPeriodePage(periode, ctx) {
 // Une recherche active masque la grille au profit des résultats ; imprimer
 // (@media print) affiche toujours le document complet, cf. style.css.
 function renderDocument(main) {
-  const results = el("div", { class: "search-results doc-search-results" })
   const docBody = el("div", { class: "doc-body" })
-
-  const input = el("input", {
-    type: "search",
-    class: "search-input",
-    placeholder: "Rechercher : œuvre, compositeur, chef, soliste, lieu…",
-    oninput: (ev) => {
-      state.searchQuery = ev.target.value
-      const q = !!ev.target.value.trim()
-      docBody.hidden = q
-      results.hidden = !q
-      renderSearchResults(results, state.searchQuery)
-    },
-  })
-  input.value = state.searchQuery
-
-  const hasQuery = !!state.searchQuery.trim()
-  docBody.hidden = hasQuery
-  results.hidden = !hasQuery
-  renderSearchResults(results, state.searchQuery)
-
   const ctx = weekTableContext(allSeasonEvents())
   for (const periode of seasonPeriodes())
     docBody.append(renderPeriodePage(periode, ctx))
-
-  main.append(
-    viewToolbar(
-      el(
-        "div",
-        { class: "doc-intro" },
-        el(
-          "p",
-          {},
-          "Saison complète, non filtrée. Clique sur un service pour le détail de sa Liste.",
-        ),
-        el(
-          "div",
-          { class: "agenda-actions-btns" },
-          el(
-            "button",
-            { type: "button", onclick: showTodayDialog },
-            "Aujourd'hui",
-          ),
-          el(
-            "button",
-            {
-              type: "button",
-              class: "doc-print-btn",
-              onclick: () => window.print(),
-            },
-            "🖨️ Imprimer / exporter en PDF",
-          ),
-          paperButton("document"),
-          listesButton("document"),
-        ),
-      ),
-      el("div", { class: "search-bar doc-search-bar" }, input),
-    ),
-    results,
-    docBody,
-  )
+  main.append(viewToolbar("document"), docBody)
 }
 
 // --- Vue calendrier papier (agenda à imprimer en paysage) -------------------
-
-// Bouton d'accès au calendrier papier, depuis la Bible (saison complète) ou
-// l'Agenda personnalisé (filtré par les Réglages) : `from` est l'onglet
-// d'origine, qui fixe le contenu et où revient le bouton « Retour ».
-function paperButton(from) {
-  return el(
-    "button",
-    {
-      type: "button",
-      onclick: () => {
-        state.paperFrom = from
-        setView("papier")
-      },
-    },
-    "🗓 Calendrier papier",
-  )
-}
 
 // Calendrier simplifié à imprimer : une période de 4 semaines par page A4
 // paysage, toutes les semaines de la même hauteur, et dans chaque case
@@ -2176,22 +2204,6 @@ function renderPaper(main) {
 
 // --- Vue détail des Listes (document compact à imprimer) -------------------
 
-// Bouton d'accès au détail des Listes, depuis la Bible ou l'Agenda
-// personnalisé (même logique que paperButton).
-function listesButton(from) {
-  return el(
-    "button",
-    {
-      type: "button",
-      onclick: () => {
-        state.paperFrom = from
-        setView("listes")
-      },
-    },
-    "📄 Détail des Listes",
-  )
-}
-
 // Document sans planning : uniquement la fiche de chaque Liste (chef,
 // solistes, œuvres, instrumentation, séries contraires), rangée en colonnes
 // qui se remplissent l'une après l'autre pour limiter le nombre de pages
@@ -2281,52 +2293,145 @@ function renderListes(main) {
   )
 }
 
-// Sous-menu de la vue Agenda personnalisé (grille filtrée par les Réglages) :
-// « Aujourd'hui » (détail du jour en popup), Réglages (choix des
-// productions/listes) et abonnement au calendrier, directement dans
-// l'onglet — ces icônes vivaient dans l'en-tête, redondant maintenant que la
-// navigation ne compte plus que trois onglets (retour #132 sur #131) ; la
-// vue Bible, elle, n'a besoin que d'« Aujourd'hui » puisqu'elle n'est pas
-// filtrée (cf. renderDocument).
-// Retourne l'élément plutôt que de l'ajouter directement à main : il est
-// ensuite empaqueté avec la recherche dans le bandeau sticky commun (cf.
-// viewToolbar plus bas, retour sur #132).
-function renderGrilleActions() {
+// Bandeau sticky commun aux vues Agenda et Bible, juste sous l'en-tête
+// (`--header-h`, posée par observeHeaderHeight) : « Aujourd'hui », la période
+// affichée (mise à jour au défilement, cf. updatePeriodLabel) et « ⋯ », qui
+// range les actions rares (openMenu). Il remplace l'ancien sous-menu de
+// cinq boutons, la phrase d'introduction et le champ de recherche, qui
+// occupaient le tiers de l'écran d'un téléphone avant le premier service.
+function viewToolbar(from) {
   return el(
     "div",
-    { class: "doc-intro agenda-actions" },
-    el("p", {}, "Filtré selon tes choix dans ⚙ Réglages."),
+    { class: "view-toolbar" },
     el(
       "div",
-      { class: "agenda-actions-btns" },
-      el("button", { type: "button", onclick: showTodayDialog }, "Aujourd'hui"),
-      el("button", { type: "button", onclick: openPrefsDialog }, "⚙ Réglages"),
-      paperButton("grille"),
-      listesButton("grille"),
+      { class: "view-bar" },
+      el(
+        "button",
+        { type: "button", class: "pill", onclick: showTodayDialog },
+        "Aujourd'hui",
+      ),
+      el("span", { class: "period-label" }),
       el(
         "button",
         {
           type: "button",
-          class: "doc-print-btn",
-          onclick: openSubscribeDialog,
+          class: "pill icon-pill",
+          "aria-label": "Plus d'actions",
+          onclick: () => openMenu(from),
         },
-        "📅 S'abonner",
+        icon("dots"),
       ),
     ),
   )
 }
 
-// Bandeau sticky commun aux vues Agenda personnalisé et Bible : sous-menu
-// (Aujourd'hui/Réglages/Abonnement, ou Aujourd'hui/Imprimer) + barre de
-// recherche, regroupés pour rester visibles en tête de page pendant le
-// défilement du calendrier — jusque-là seul l'en-tête (les trois onglets)
-// restait fixe, le sous-menu et la recherche défilaient avec la grille
-// (retour #132). `--header-h`, posée par observeHeaderHeight() (cf. init()),
-// vaut la hauteur réelle de l'en-tête : variable selon l'écran et les zones
-// de sécurité iOS, le bandeau se colle donc juste en dessous, jamais dessous
-// ni par-dessus.
-function viewToolbar(...children) {
-  return el("div", { class: "view-toolbar" }, ...children)
+// « Période 4 — du 26 oct. au 22 nov. 2026 » → « Période 4 · 26 oct. – 22 nov. »
+function shortPeriodTitle(title) {
+  return title.replace(/ — du (.+) au (.+) \d{4}$/, " · $1 – $2")
+}
+
+// Période dont le titre est passé sous le bandeau : c'est celle qu'on lit.
+function updatePeriodLabel() {
+  const label = document.querySelector(".period-label")
+  if (!label) return
+  const bar = document.querySelector(".view-toolbar").getBoundingClientRect()
+  let current = null
+  for (const h of document.querySelectorAll("#main .periode-title")) {
+    if (h.getBoundingClientRect().top > bar.bottom + 40) break
+    current = h
+  }
+  current ??= document.querySelector("#main .periode-title")
+  label.textContent = current ? shortPeriodTitle(current.textContent) : ""
+}
+
+let periodLabelQueued = false
+window.addEventListener("scroll", () => {
+  if (periodLabelQueued) return
+  periodLabelQueued = true
+  requestAnimationFrame(() => {
+    periodLabelQueued = false
+    updatePeriodLabel()
+  })
+})
+
+// Menu « ⋯ » : feuille qui monte du bas de l'écran, une ligne par action.
+function menuItem(iconName, label, hint, action) {
+  return el(
+    "button",
+    {
+      type: "button",
+      class: "menu-item",
+      onclick: () => {
+        document.getElementById("menu-dialog").close()
+        action()
+      },
+    },
+    icon(iconName),
+    el(
+      "span",
+      { class: "menu-text" },
+      label,
+      hint ? el("small", {}, hint) : null,
+    ),
+    icon("chevron"),
+  )
+}
+
+function openMenu(from) {
+  const openPaper = (view) => () => {
+    state.paperFrom = from
+    setView(view)
+  }
+  const items =
+    from === "grille"
+      ? [
+          menuItem(
+            "calendarPlus",
+            "S'abonner dans mon agenda",
+            "iPhone, Google, Outlook…",
+            openSubscribeDialog,
+          ),
+          menuItem(
+            "bell",
+            "Notifications",
+            "Être prévenu des changements",
+            openPrefsDialog,
+          ),
+        ]
+      : [
+          menuItem(
+            "printer",
+            "Imprimer / exporter en PDF",
+            "Toute la saison, avec le détail des Listes",
+            () => window.print(),
+          ),
+        ]
+  items.push(
+    menuItem(
+      "calendar",
+      "Calendrier papier",
+      "Une période par page A4",
+      openPaper("papier"),
+    ),
+    menuItem(
+      "file",
+      "Détail des Listes",
+      "Programmes et effectifs, à imprimer",
+      openPaper("listes"),
+    ),
+  )
+  if (!isStandalone())
+    items.push(
+      menuItem("phone", "Installer l'app", "Sur l'écran d'accueil", () => {
+        renderInstall()
+        document.getElementById("install-dialog").showModal()
+      }),
+    )
+  document
+    .getElementById("menu-content")
+    .replaceChildren(el("div", { class: "sheet-grab" }), ...items)
+  document.getElementById("menu-dialog").showModal()
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -2827,6 +2932,35 @@ function searchGroupNode({ liste, chef, solistes, workTitles, events }) {
       ...events.map((e) => eventChip(e, { showDate: true })),
     ),
   )
+}
+
+// Recherche derrière la loupe de l'en-tête : le champ s'ouvre à la place du
+// titre, déjà sélectionné (focus dans le même geste que le tap, sinon iOS
+// n'ouvre pas le clavier), et les résultats remplacent la vue en cours. Elle
+// porte sur la saison complète, quels que soient les Réglages (cf.
+// searchResults).
+function openSearch() {
+  state.searchOpen = true
+  document.querySelector(".header-row").hidden = true
+  document.getElementById("search-row").hidden = false
+  const input = document.getElementById("search-input")
+  input.value = state.searchQuery
+  input.focus()
+  renderContent()
+}
+
+function closeSearch() {
+  state.searchOpen = false
+  state.searchQuery = ""
+  document.querySelector(".header-row").hidden = false
+  document.getElementById("search-row").hidden = true
+  setView(state.view)
+}
+
+function renderSearchView(main) {
+  const results = el("div", { class: "search-results" })
+  renderSearchResults(results, state.searchQuery)
+  main.append(results)
 }
 
 function renderSearchResults(container, query) {
@@ -3702,13 +3836,6 @@ function isIOS() {
   )
 }
 
-// Affiche le bouton « Installer » de l'en-tête, sauf si l'app est déjà lancée
-// depuis l'écran d'accueil (mode « standalone »).
-function updateInstallButton() {
-  const btn = document.getElementById("install-btn")
-  if (btn) btn.hidden = isStandalone()
-}
-
 function renderInstall() {
   const box = document.getElementById("install-content")
   const steps = isIOS()
@@ -3766,8 +3893,6 @@ function renderInstall() {
             deferredInstallPrompt = null
             document.getElementById("install-dialog").close()
             prompt.prompt()
-            await prompt.userChoice
-            updateInstallButton()
           },
         },
         "📲 Installer maintenant",
@@ -3792,6 +3917,12 @@ function renderInstall() {
 // --- Navigation / rendu global -------------------------------------------------
 
 function setView(view) {
+  if (state.searchOpen) {
+    state.searchOpen = false
+    state.searchQuery = ""
+    document.querySelector(".header-row").hidden = false
+    document.getElementById("search-row").hidden = true
+  }
   state.view = view
   state.modifsFilter = null
   // La vue papier est un écran d'impression, pas un onglet : on ne la
@@ -3799,9 +3930,10 @@ function setView(view) {
   if (view !== "papier" && view !== "listes")
     localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
-  for (const btn of document.querySelectorAll("#view-nav button"))
+  for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
     btn.classList.toggle("active", btn.dataset.view === view)
   render()
+  updatePeriodLabel()
   // Repositionne sur la semaine en cours à chaque ouverture d'onglet (pas
   // seulement au premier chargement de l'app) — demande #186 : sans ça, il
   // fallait redéfiler manuellement après être passé par un autre onglet
@@ -3861,7 +3993,8 @@ function renderContent() {
       ...(state.view === "document" ? [printGenerationNotice()] : []),
     ),
   )
-  if (state.view === "grille") renderGrille(main)
+  if (state.searchOpen) renderSearchView(main)
+  else if (state.view === "grille") renderGrille(main)
   else if (state.view === "document") renderDocument(main)
   else if (state.view === "papier") renderPaper(main)
   else if (state.view === "listes") renderListes(main)
@@ -3981,8 +4114,30 @@ async function init() {
   // Jours fériés de la saison (elle chevauche deux années civiles)
   state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
 
-  for (const btn of document.querySelectorAll("#view-nav button"))
+  hydrateIcons()
+  for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
+  document
+    .getElementById("prefs-tab")
+    .addEventListener("click", openPrefsDialog)
+
+  document.getElementById("search-btn").addEventListener("click", openSearch)
+  document
+    .getElementById("search-cancel")
+    .addEventListener("click", closeSearch)
+  const searchInput = document.getElementById("search-input")
+  searchInput.addEventListener("input", () => {
+    state.searchQuery = searchInput.value
+    renderSearchResults(
+      document.querySelector("#main .search-results"),
+      state.searchQuery,
+    )
+  })
+  // « Rechercher » du clavier : on le referme pour voir les résultats.
+  document.getElementById("search-row").addEventListener("submit", (ev) => {
+    ev.preventDefault()
+    searchInput.blur()
+  })
 
   // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
   // à viser la croix ou le bouton Fermer.
@@ -3997,12 +4152,6 @@ async function init() {
       )
         dlg.close()
     })
-
-  document.getElementById("install-btn").addEventListener("click", () => {
-    renderInstall()
-    document.getElementById("install-dialog").showModal()
-  })
-  updateInstallButton()
 
   // Masqué (attribut `hidden` posé dans le HTML) tant que le worker n'est
   // pas déployé : le formulaire n'a pas d'autre destination que lui.
@@ -4060,12 +4209,10 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("beforeinstallprompt", (ev) => {
   ev.preventDefault()
   deferredInstallPrompt = ev
-  updateInstallButton()
 })
 
 window.addEventListener("appinstalled", () => {
   deferredInstallPrompt = null
-  updateInstallButton()
 })
 
 // Service worker : rend l'app installable et consultable hors-ligne.

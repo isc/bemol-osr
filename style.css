@@ -176,39 +176,12 @@ button {
   cursor: pointer;
 }
 
-#view-nav {
-  display: flex;
-  gap: 0;
-}
-
-#view-nav button {
-  border-radius: 0;
-  border-right-width: 0;
-  position: relative;
-}
-
-#view-nav button:first-child {
-  border-radius: 6px 0 0 6px;
-}
-
-#view-nav button:last-child {
-  border-radius: 0 6px 6px 0;
-  border-right-width: 1px;
-}
-
 /* Boutons de l'en-tête : déclinaison sombre (l'or est réservé à l'état actif) */
 .header-controls button,
 .header-controls select {
   background: rgba(255, 255, 255, 0.07);
   color: var(--header-fg);
   border-color: #4d4536;
-}
-
-#view-nav button.active {
-  background: var(--gold);
-  color: var(--header-bg);
-  border-color: var(--gold);
-  font-weight: 600;
 }
 
 .badge {
@@ -219,11 +192,6 @@ button {
   padding: 1px 5px;
   margin-left: 4px;
   vertical-align: top;
-}
-
-#view-nav button.active .badge {
-  background: var(--header-bg);
-  color: var(--gold);
 }
 
 main {
@@ -732,7 +700,8 @@ table.week td.repos:not(.today) {
   top: var(--header-h, 0px);
   z-index: 9;
   background: var(--bg);
-  padding-top: 10px;
+  margin: 0 -12px 10px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -854,12 +823,13 @@ table.week td.repos:not(.today) {
    case par type, même couleur que le fond des .change-item ci-dessus. Sticky
    comme .view-toolbar plus haut (retour #182 : rester visible en défilant
    dans la liste, pas seulement en haut de page). */
+/* Pastilles de filtre, sur une ligne qui défile au besoin. */
 .modifs-legend {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  margin: 0 0 12px;
-  padding: 8px 0;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 0 -12px 12px;
+  padding: 8px 12px;
   position: sticky;
   top: var(--header-h, 0px);
   z-index: 9;
@@ -874,11 +844,12 @@ table.week td.repos:not(.today) {
   gap: 5px;
   font: inherit;
   color: inherit;
-  background: none;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  padding: 6px 10px;
-  min-height: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  min-height: 34px;
+  white-space: nowrap;
   cursor: pointer;
 }
 .modifs-legend-item.active {
@@ -1482,40 +1453,52 @@ dialog h2 {
   flex: none;
   vertical-align: middle;
 }
-.liste-swatch.liste-color-0 {
+.liste-swatch.liste-color-0,
+.liste-pill.liste-color-0 {
   background: var(--liste-color-0);
 }
-.liste-swatch.liste-color-1 {
+.liste-swatch.liste-color-1,
+.liste-pill.liste-color-1 {
   background: var(--liste-color-1);
 }
-.liste-swatch.liste-color-2 {
+.liste-swatch.liste-color-2,
+.liste-pill.liste-color-2 {
   background: var(--liste-color-2);
 }
-.liste-swatch.liste-color-3 {
+.liste-swatch.liste-color-3,
+.liste-pill.liste-color-3 {
   background: var(--liste-color-3);
 }
-.liste-swatch.liste-color-4 {
+.liste-swatch.liste-color-4,
+.liste-pill.liste-color-4 {
   background: var(--liste-color-4);
 }
-.liste-swatch.liste-color-5 {
+.liste-swatch.liste-color-5,
+.liste-pill.liste-color-5 {
   background: var(--liste-color-5);
 }
-.liste-swatch.liste-color-6 {
+.liste-swatch.liste-color-6,
+.liste-pill.liste-color-6 {
   background: var(--liste-color-6);
 }
-.liste-swatch.liste-color-7 {
+.liste-swatch.liste-color-7,
+.liste-pill.liste-color-7 {
   background: var(--liste-color-7);
 }
-.liste-swatch.liste-color-8 {
+.liste-swatch.liste-color-8,
+.liste-pill.liste-color-8 {
   background: var(--liste-color-8);
 }
-.liste-swatch.liste-color-9 {
+.liste-swatch.liste-color-9,
+.liste-pill.liste-color-9 {
   background: var(--liste-color-9);
 }
-.liste-swatch.liste-color-10 {
+.liste-swatch.liste-color-10,
+.liste-pill.liste-color-10 {
   background: var(--liste-color-10);
 }
-.liste-swatch.liste-color-11 {
+.liste-swatch.liste-color-11,
+.liste-pill.liste-color-11 {
   background: var(--liste-color-11);
 }
 
@@ -1628,37 +1611,6 @@ footer a {
     display: none;
   }
 
-  /* La barre de vues (Grille/Agenda personnalisé/…/Bible) ne tient plus sur
-     une seule ligne en dessous d'un certain point : on la laisse défiler
-     horizontalement plutôt que de la faire déborder ou passer à la ligne
-     (ce qui casserait les coins arrondis du premier/dernier bouton).
-     `min-width: 0` sur .header-controls est nécessaire : par défaut, un
-     enfant flex ne rétrécit jamais sous la taille minimale de son propre
-     contenu (ici, les boutons non compressibles de #view-nav), ce qui
-     ferait déborder toute la ligne d'en-tête au lieu de faire défiler
-     seulement la nav.
-     La nav ne réclame plus 100% de la largeur (`flex: 1 1 auto` plutôt
-     que `width: 100%`) : elle partage désormais sa ligne avec le bouton
-     💬 avis (et Installer l'app, tant que l'app n'est pas encore
-     installée) au lieu de les rejeter sur une ligne à part — c'était le
-     cas sur petit écran comme l'iPhone mini (retour #188). Elle leur
-     laisse la place en se rétrécissant et en défilant elle-même plus
-     tôt au besoin. */
-  .header-controls {
-    min-width: 0;
-  }
-
-  #view-nav {
-    flex: 1 1 auto;
-    min-width: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #view-nav button {
-    flex: 0 0 auto;
-  }
-
   main {
     padding: 8px 6px 30px;
   }
@@ -1767,6 +1719,7 @@ footer a {
   /* On n'imprime que le contenu de la vue courante */
   header,
   footer,
+  #view-nav,
   dialog {
     display: none !important;
   }
@@ -2245,16 +2198,6 @@ footer a {
 
 /* --- Installation de l'application (PWA) --- */
 
-#install-btn {
-  /* Appel à l'action : or plein sur l'en-tête sombre (comme l'onglet actif).
-     Prime sur la déclinaison sombre générique des boutons d'en-tête. */
-  background: var(--gold);
-  color: var(--header-bg);
-  border-color: var(--gold);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 #install-content .install-intro {
   margin: 0 0 14px;
   font-size: 0.9em;
@@ -2367,4 +2310,352 @@ footer {
 .detail-box .contraires {
   margin: 0;
   font-weight: 600;
+}
+
+/* --- Refonte de l'habillage (en-tête, onglets, bandeau, fiche) ---
+
+   L'en-tête tient sur une ligne (titre, loupe, avis), les onglets passent en
+   bas d'écran, à portée de pouce, et le bandeau des vues se réduit à
+   « Aujourd'hui · période · ⋯ » : la grille commence près de 200 px plus haut
+   sur un téléphone. */
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+  vertical-align: -4px;
+}
+
+.header-row {
+  flex-wrap: nowrap;
+}
+
+.header-row h1 {
+  flex: 1;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 19px;
+  border: 0;
+  background: transparent;
+  color: var(--header-fg);
+}
+
+.icon-btn .icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Recherche ouverte : le champ prend la place du titre. */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-row[hidden],
+.search-row[hidden] {
+  display: none;
+}
+
+.search-row > .icon {
+  color: #b9a67e;
+  margin-right: -36px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.search-row input {
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  /* 16px minimum : en dessous, Safari iOS zoome tout l'écran au focus. */
+  font-size: 16px;
+  padding: 8px 12px 8px 38px;
+  border-radius: 10px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--header-fg);
+}
+
+.search-row input::placeholder {
+  color: #a89a79;
+}
+
+.search-row button {
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  padding: 8px 2px;
+}
+
+/* Barre d'onglets en bas d'écran. */
+#view-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+#view-nav button {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 0 6px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 11px;
+}
+
+#view-nav button .icon {
+  width: 23px;
+  height: 23px;
+}
+
+#view-nav button.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#view-nav .badge {
+  position: absolute;
+  top: 3px;
+  left: calc(50% + 6px);
+  margin: 0;
+}
+
+body {
+  padding-bottom: calc(58px + env(safe-area-inset-bottom));
+}
+
+/* Bandeau « Aujourd'hui · période · ⋯ ». */
+.view-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.icon-pill {
+  padding: 6px 10px;
+}
+
+.period-label {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Feuille qui monte du bas : menu « ⋯ ». */
+dialog.sheet {
+  margin: auto 0 0;
+  width: 100%;
+  max-width: none;
+  border: 0;
+  border-radius: 16px 16px 0 0;
+  padding: 8px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--surface);
+  color: var(--text);
+}
+
+@media (min-width: 701px) {
+  dialog.sheet {
+    margin: auto;
+    max-width: 420px;
+    border-radius: 16px;
+  }
+}
+
+.sheet-grab {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin: 0 auto 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  font-size: 1em;
+}
+
+.menu-item:last-child {
+  border-bottom: 0;
+}
+
+.menu-item > .icon:first-child {
+  color: var(--accent);
+}
+
+.menu-item > .icon:last-child {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+}
+
+.menu-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-text small {
+  color: var(--text-faint);
+  font-size: 0.8em;
+}
+
+/* Fiche d'un service : l'essentiel d'abord, le mémo replié. */
+.detail-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-right: 44px;
+}
+
+.liste-pill {
+  border: 0;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-weight: 600;
+  color: #2a241c;
+}
+
+.detail-box .detail-cat {
+  margin: 0;
+}
+
+.recent-tag {
+  color: var(--danger);
+  font-size: 0.8em;
+}
+
+.detail-title {
+  font-family: var(--serif);
+  margin: 10px 0 2px;
+}
+
+.detail-byline {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+}
+
+.detail-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.fact small {
+  color: var(--text-muted);
+  font-size: 0.8em;
+}
+
+a.fact strong {
+  color: var(--accent);
+}
+
+.contraires-callout {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--danger-soft);
+  font-weight: 600;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.detail-actions .pill {
+  flex: 1;
+}
+
+.detail-project {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.detail-fold {
+  border-top: 1px solid var(--border-soft);
+}
+
+.detail-fold summary {
+  padding: 12px 0;
+  font-weight: 600;
+  color: var(--head-accent-text);
+  cursor: pointer;
+}
+
+.detail-fold[open] summary {
+  padding-bottom: 6px;
+}
+
+.detail-fold > :last-child {
+  margin-top: 0;
+  margin-bottom: 12px;
 }
