@@ -929,6 +929,7 @@ const ICONS = {
   phone:
     '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
   chevron: '<path d="M9 6l6 6-6 6"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>',
   music:
     '<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h0M4.5 12h0M4.5 18h0"/>',
@@ -964,7 +965,7 @@ function closeBtnTop() {
   return el(
     "form",
     { method: "dialog", class: "close-btn-top-form" },
-    el("button", { class: "close-btn-top", "aria-label": "Fermer" }, "✕"),
+    el("button", { class: "close-btn-top", "aria-label": "Fermer" }, icon("x")),
   )
 }
 
