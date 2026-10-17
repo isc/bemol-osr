@@ -1007,11 +1007,22 @@ function composers(liste) {
   return [...new Set(names)].join(", ")
 }
 
-// Sections du mémo repliées derrière leur titre : la fiche montre d'abord
-// l'essentiel du service, le reste se déplie d'un tap. Les séries contraires,
-// info clé (#219), sont déjà en encadré plus haut, et le chef en tête de fiche.
-const DETAIL_OPEN_SECTIONS = ["info", "tenue"]
+// Sections du mémo toutes repliées derrière leur titre (demande de Loïc sur
+// #235 : la fiche se lit mieux réduite aux intitulés), chacune se déplie d'un
+// tap. Les séries contraires, info clé (#219), et les effectifs identiques
+// sont déjà en encadré plus haut, et le chef en tête de fiche.
 const DETAIL_SKIPPED_SECTIONS = ["contraires", "chef"]
+
+// Lignes de l'« Information générale » qui imposent un effectif identique à
+// celui d'une autre Liste (« Effectif Berlioz+Tchaïkovski strictement
+// identique pour Liste 42… ») : remontées en encadré, comme les contraires.
+function identicalLines(info) {
+  return (info || "")
+    .split("\n")
+    .map((l) => l.replace(/^\s*(attention\s*:)?\s*-?\s*/i, "").trim())
+    .filter((l) => /identique|m[êe]me effectif/i.test(l))
+    .map((l) => l.charAt(0).toUpperCase() + l.slice(1))
+}
 
 function foldedSections(liste) {
   return productionSections(liste)
@@ -1019,10 +1030,7 @@ function foldedSections(liste) {
     .map(({ key, title, count, body }) =>
       el(
         "details",
-        {
-          class: "detail-fold",
-          ...(DETAIL_OPEN_SECTIONS.includes(key) ? { open: "" } : {}),
-        },
+        { class: "detail-fold" },
         el("summary", {}, count > 1 ? `${title} (${count})` : title),
         body,
       ),
@@ -1105,6 +1113,9 @@ function showDetail(e) {
     ...(prod.contraires
       ? [el("p", { class: "contraires-callout" }, prod.contraires)]
       : []),
+    ...identicalLines(prod.info).map((l) =>
+      el("p", { class: "identique-callout" }, l),
+    ),
     el(
       "div",
       { class: "detail-actions" },

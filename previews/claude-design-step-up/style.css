@@ -2456,6 +2456,14 @@ a.fact strong {
   font-weight: 600;
 }
 
+.identique-callout {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--change-modified-soft);
+  font-weight: 600;
+}
+
 .detail-actions {
   display: flex;
   gap: 8px;
