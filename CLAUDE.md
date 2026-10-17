@@ -455,8 +455,13 @@ recourir au diff de workflow que si le changement touche vraiment au YAML. En
 ajoutant ou modifiant un workflow, suivre le même principe.
 
 **Modèles des workflows Claude : des alias, pas des identifiants figés.** Les
-workflows passent `--model sonnet` (demandes, CI, conflits) ou `--model opus`
-(revue hebdomadaire). Ces alias de Claude Code suivent automatiquement les
+workflows passent `--model opus` (demandes : `claude.yml`,
+`claude-issue-to-pr.yml` ; revue hebdomadaire) ou `--model sonnet` (correction
+de CI, conflits de merge, tâches plus mécaniques). Les demandes sont passées
+de Sonnet à Opus le 17/10/2026 : plusieurs ratés venaient d'un manque de
+rigueur (champ du mémo oublié dans #212, dates de vacances fausses dans #191,
+PDF non lu dans #211), et Opus, plus efficace, ne consomme pas forcément plus
+de quota au final. Ces alias de Claude Code suivent automatiquement les
 nouvelles versions, dès que l'action installe un Claude Code qui les connaît
 (le modèle réellement utilisé figure dans le journal du run, ligne
 `"model": …`). Ne pas les remplacer par un identifiant complet
