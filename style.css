@@ -158,6 +158,21 @@ h1 {
   letter-spacing: 0.01em;
 }
 
+/* Badge « Preview » (previews de PR uniquement, cf. init dans app.js). */
+.preview-badge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.45em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
 h1 .subtitle {
   font-weight: normal;
   font-style: italic;
@@ -2270,7 +2285,11 @@ header.searching .header-row {
   bottom: 0;
   z-index: 10;
   display: flex;
-  background: var(--surface);
+  /* Même couleur que le fond de la page (et que le background_color du
+     manifeste) : sur Android, la bande système sous la barre d'onglets
+     prend cette couleur-là, et un blanc cassé différent juste au-dessus
+     faisait une marche visible. */
+  background: var(--bg);
   border-top: 1px solid var(--border);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -2700,4 +2719,11 @@ input.switch:checked::after {
   color: var(--text);
   font-weight: 600;
   box-shadow: 0 1px 3px var(--border-soft);
+}
+
+/* Action proposée sous un message vide (ex. « Choisir mes Listes » dans
+   la popup Aujourd'hui). */
+.empty-msg + .pill {
+  display: flex;
+  margin: 0 auto;
 }

@@ -2096,7 +2096,7 @@ function renderPaper(main) {
           {},
           global
             ? "Saison complète, non filtrée : une période par page, uniquement n° de Liste, heure et lieu."
-            : "Selon tes choix dans ⚙ Réglages : une période par page, uniquement n° de Liste, heure et lieu.",
+            : "Selon tes choix dans les Réglages : une période par page, uniquement n° de Liste, heure et lieu.",
         ),
         el(
           "p",
@@ -2208,7 +2208,7 @@ function renderListes(main) {
           {},
           global
             ? "Saison complète, non filtrée : le détail de chaque Liste, sans le planning."
-            : "Selon tes choix dans ⚙ Réglages : le détail de chaque Liste, sans le planning.",
+            : "Selon tes choix dans les Réglages : le détail de chaque Liste, sans le planning.",
         ),
         el(
           "p",
@@ -3296,7 +3296,7 @@ function workerOrigin() {
 // Jeton opaque identifiant cet appareil auprès du worker, généré une seule
 // fois et conservé en local. Sert de clé au profil stocké dans son KV (cf.
 // worker/src/index.js) : les mêmes Réglages alimentent à la fois le lien ICS
-// personnalisé ci-dessous et les notifications push (⚙ Réglages).
+// personnalisé ci-dessous et les notifications push (Réglages).
 function profileToken() {
   let token = localStorage.getItem("bemol-profile-token")
   if (!token) {
@@ -3519,7 +3519,7 @@ function renderSubscribe() {
         el(
           "p",
           { class: "subscribe-intro" },
-          "Reprend les filtres actifs dans ⚙ Réglages (listes cochées, " +
+          "Reprend les filtres actifs dans les Réglages (listes cochées, " +
             "catégories masquées" +
             (state.prefs.showCancelled ? "" : ", sans les annulés") +
             (state.prefs.showNoOrchestra
@@ -3547,7 +3547,7 @@ function renderSubscribe() {
             "p",
             { class: "subscribe-intro" },
             "Astuce : coche tes listes ou masque des catégories dans " +
-              "⚙ Réglages, et ce dialogue te proposera aussi un abonnement " +
+              "l'onglet Réglages, et ce dialogue te proposera aussi un abonnement " +
               "personnalisé ne contenant que ça.",
           ),
         ]
@@ -3613,7 +3613,7 @@ function renderSubscribe() {
       { class: "subscribe-note" },
       (personal
         ? "« Mon planning » reste lié à cet appareil : si tu vides les données du " +
-          "site ou changes de navigateur, réabonne-toi (⚙ Réglages, puis ce " +
+          "site ou changes de navigateur, réabonne-toi (onglet Réglages, puis ce " +
           "dialogue te redonnera un lien). "
         : "Le calendrier complet contient tous les services de la saison (les filtres et " +
           "catégories masquées de l'app ne s'y appliquent pas). ") +
@@ -3621,7 +3621,7 @@ function renderSubscribe() {
         "elle revérifie les mises à jour — ça peut prendre plusieurs heures, " +
         "parfois plus selon l'appareil, et Bémol ne peut pas l'accélérer. Pour " +
         "être averti·e sans délai d'un changement (horaire, lieu, annulation…), " +
-        "active plutôt les notifications, dans ⚙ Réglages.",
+        "active plutôt les notifications, dans l'onglet Réglages.",
     ),
   )
 }
@@ -3995,8 +3995,24 @@ function showTodayDialog() {
         { class: "empty-msg" },
         global
           ? "Aucun service aujourd'hui."
-          : "Aucun service aujourd'hui pour ta sélection (⚙ Réglages).",
+          : "Aucun service aujourd'hui dans tes Listes.",
       ),
+      ...(global
+        ? []
+        : [
+            el(
+              "button",
+              {
+                type: "button",
+                class: "pill",
+                onclick: () => {
+                  document.getElementById("today-dialog").close()
+                  setView("reglages")
+                },
+              },
+              "Choisir mes Listes",
+            ),
+          ]),
     )
   } else {
     children.push(
@@ -4008,13 +4024,6 @@ function showTodayDialog() {
   document.getElementById("today-dialog").showModal()
 }
 
-// Hauteur réelle de l'en-tête (variable selon l'écran et les zones de
-// sécurité iOS), posée en variable CSS --header-h : le bandeau sticky des
-// sous-menus (cf. viewToolbar) s'appuie dessus pour se coller juste en
-// dessous de l'en-tête, jamais dessous ni par-dessus (retour #132).
-// ResizeObserver plutôt qu'un calcul ponctuel : le bouton d'avis (masqué
-// tant que le worker n'est pas prêt, cf. plus bas) ou le badge Modifs
-// peuvent changer la hauteur de l'en-tête après ce premier calcul.
 // Feuilles qui montent du bas (menu « ⋯ », fiche d'un service) : on les
 // referme en les tirant vers le bas, comme le promet leur poignée. Le geste
 // ne démarre que si la feuille est déjà tout en haut de son contenu : sinon,
@@ -4069,6 +4078,13 @@ function enableSheetSwipe(dlg) {
   dlg.addEventListener("close", reset)
 }
 
+// Hauteur réelle de l'en-tête (variable selon l'écran et les zones de
+// sécurité iOS), posée en variable CSS --header-h : le bandeau sticky des
+// sous-menus (cf. viewToolbar) s'appuie dessus pour se coller juste en
+// dessous de l'en-tête, jamais dessous ni par-dessus (retour #132).
+// ResizeObserver plutôt qu'un calcul ponctuel : le bouton d'avis (masqué
+// tant que le worker n'est pas prêt, cf. plus bas) ou le badge Modifs
+// peuvent changer la hauteur de l'en-tête après ce premier calcul.
 function observeHeaderHeight() {
   const header = document.querySelector("header")
   const setHeaderHeight = () =>
@@ -4101,6 +4117,20 @@ async function init() {
   state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
 
   hydrateIcons()
+
+  // Sur une preview, un badge dans l'en-tête : sur Android, l'app installée
+  // ouvre aussi les liens de preview (même préfixe d'adresse), sans rien qui
+  // les distingue de l'app de production.
+  if (PREVIEW_SLUG)
+    document
+      .querySelector("header h1")
+      .append(
+        el(
+          "span",
+          { class: "preview-badge", title: `Preview « ${PREVIEW_SLUG} »` },
+          "Preview",
+        ),
+      )
   for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
 
