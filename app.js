@@ -1815,8 +1815,10 @@ function weekTableContext(events = visibleEvents()) {
 
 // Construit le <table class="week"> d'une semaine (grille de 7 jours × 3
 // créneaux), avec repères jour courant / week-end de repos / jours fériés.
+// L'étiquette de la semaine est son numéro ISO dans l'année (S1 à S52 ou S53),
+// comme sur le calendrier papier, et non plus son rang dans la période (#237).
 // Partagé entre la vue Grille et la vue Document (impression).
-function buildWeekTable(days, weekIndex, ctx) {
+function buildWeekTable(days, ctx) {
   const { byDay, todayKey, holidayRegions, feriesMap, reposSaturdays } = ctx
   const hasToday = days.some((d) => localKey(d) === todayKey)
   // Week-end « repos » : week-end signalé « repos » dans le tableau de
@@ -1830,7 +1832,7 @@ function buildWeekTable(days, weekIndex, ctx) {
   const headRow = el(
     "tr",
     {},
-    el("th", { class: "week-label" }, `S${weekIndex + 1}`),
+    el("th", { class: "week-label" }, `S${isoWeek(days[0])}`),
   )
   for (const d of days) {
     const key = localKey(d)
@@ -1910,7 +1912,7 @@ function renderGrille(main) {
       const monday = addDays(periode.pStart, w * 7)
       const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
       section.append(
-        el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+        el("div", { class: "week-scroll" }, buildWeekTable(days, ctx)),
       )
     }
     gridBody.append(section)
@@ -1958,7 +1960,7 @@ function renderPeriodePage(periode, ctx) {
     const monday = addDays(periode.pStart, w * 7)
     const days = Array.from({ length: 7 }, (_, i) => addDays(monday, i))
     planning.append(
-      el("div", { class: "week-scroll" }, buildWeekTable(days, w, ctx)),
+      el("div", { class: "week-scroll" }, buildWeekTable(days, ctx)),
     )
   }
 
