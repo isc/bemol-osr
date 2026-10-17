@@ -103,19 +103,6 @@
       <form method="dialog"><button class="close-btn">Fermer</button></form>
     </dialog>
 
-    <dialog id="prefs-dialog" tabindex="-1">
-      <div class="dialog-head">
-        <h2>Réglages</h2>
-        <form method="dialog">
-          <button class="close-btn-top" aria-label="Fermer">
-            <svg data-icon="x"></svg>
-          </button>
-        </form>
-      </div>
-      <div id="prefs-content"></div>
-      <form method="dialog"><button class="close-btn">Fermer</button></form>
-    </dialog>
-
     <dialog id="subscribe-dialog" tabindex="-1">
       <div class="dialog-head">
         <h2>S'abonner au calendrier</h2>
@@ -162,7 +149,7 @@
     </dialog>
 
     <!-- Onglets en bas d'écran, à portée de pouce (cf. setView dans app.js).
-         Réglages n'est pas une vue : il ouvre le dialogue des préférences. -->
+         Réglages est une page comme les autres (renderReglages). -->
     <nav id="view-nav">
       <button data-view="grille">
         <svg data-icon="calendar"></svg><span>Mon agenda</span>
@@ -174,7 +161,7 @@
         <svg data-icon="history"></svg><span>Modifs</span
         ><span id="modifs-badge" class="badge" hidden></span>
       </button>
-      <button id="prefs-tab">
+      <button data-view="reglages">
         <svg data-icon="sliders"></svg><span>Réglages</span>
       </button>
     </nav>

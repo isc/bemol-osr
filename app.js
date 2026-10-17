@@ -2362,7 +2362,10 @@ function openMenu(from) {
             "bell",
             "Notifications",
             "Être prévenu des changements",
-            openPrefsDialog,
+            () => {
+              setView("reglages")
+              document.getElementById("prefs-notifs").scrollIntoView()
+            },
           ),
         ]
       : [
@@ -2950,10 +2953,10 @@ function renderSearchResults(container, query) {
 // --- Briques des Réglages : groupes en cartes, interrupteurs, dépliants ---
 
 // Groupe de réglages : petit titre gris, carte, et une ligne d'aide dessous.
-function prefsGroup(title, rows, foot) {
+function prefsGroup(title, rows, foot, id) {
   return el(
     "section",
-    { class: "prefs-group" },
+    { class: "prefs-group", id },
     el("h3", {}, title),
     el("div", { class: "prefs-card" }, ...rows),
     foot ? el("p", { class: "prefs-foot" }, foot) : null,
@@ -2996,8 +2999,7 @@ function foldHead(label, panel) {
   return head
 }
 
-function renderPrefs() {
-  const box = document.getElementById("prefs-content")
+function renderPrefs(box) {
   const listes = listesInSeason()
 
   // Note récapitulative mise à jour en place (sans reconstruire le panneau,
@@ -3023,9 +3025,9 @@ function renderPrefs() {
     uncheckAllBtn.classList.toggle("active", state.prefs.listes.length === 0)
   }
 
-  // Coche/décoche une liste, sans doublon. On ne re-render que le contenu
-  // (agenda/grille) : le panneau des réglages reste en place, la liste ne
-  // remonte pas, on peut cocher plusieurs cases à la suite.
+  // Coche/décoche une liste, sans doublon. La page ne se reconstruit pas :
+  // les genres dépliés restent dépliés, on peut cocher plusieurs cases à la
+  // suite (l'agenda sera redessiné en revenant sur son onglet).
   const toggleListe = (liste, on) => {
     const set = new Set(state.prefs.listes)
     if (on) set.add(liste)
@@ -3034,7 +3036,6 @@ function renderPrefs() {
     savePrefs()
     updateNote()
     updateAllButtons()
-    renderContent()
   }
 
   const setAll = (all) => {
@@ -3043,7 +3044,6 @@ function renderPrefs() {
     for (const cb of checkboxes.values()) cb.checked = all
     updateNote()
     updateAllButtons()
-    renderContent()
   }
 
   // Masque/affiche un service précis d'une Liste (#144), indépendamment de
@@ -3057,7 +3057,6 @@ function renderPrefs() {
     else delete next[liste]
     state.prefs.hiddenActivities = next
     savePrefs()
-    renderContent()
   }
 
   // Case d'une liste (checkbox + pastille couleur + nom), utilisée telle
@@ -3182,7 +3181,6 @@ function renderPrefs() {
   const setPref = (key) => (value) => {
     state.prefs[key] = value
     savePrefs()
-    renderContent()
   }
 
   // Une case par zone (#191) : indépendantes et additionnables, plutôt qu'un
@@ -3262,6 +3260,7 @@ function renderPrefs() {
         el("div", { class: "prefs-row" }, notifBtn),
       ],
       "Dès qu'un service de tes Listes change d'horaire ou de lieu, est annulé, ajouté ou supprimé, ou que son programme évolue.",
+      "prefs-notifs",
     ),
     prefsGroup("Thème", [el("div", { class: "segmented" }, ...themeOptions)]),
     el(
@@ -3856,9 +3855,9 @@ function setView(view) {
   if (state.searchOpen) setSearch(false)
   state.view = view
   state.modifsFilter = null
-  // La vue papier est un écran d'impression, pas un onglet : on ne la
-  // rouvre pas au prochain lancement.
-  if (view !== "papier" && view !== "listes")
+  // Les vues papier sont des écrans d'impression, et les Réglages un détour :
+  // au prochain lancement, on rouvre l'onglet où l'on consultait le planning.
+  if (!["papier", "listes", "reglages"].includes(view))
     localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
@@ -3881,10 +3880,10 @@ const VIEW_LABELS = {
   document: "Bible",
   papier: "Calendrier papier",
   listes: "Détail des Listes",
+  reglages: "Réglages",
 }
 
 function render() {
-  renderPrefs()
   renderContent()
 }
 
@@ -3929,6 +3928,7 @@ function renderContent() {
   else if (state.view === "document") renderDocument(main)
   else if (state.view === "papier") renderPaper(main)
   else if (state.view === "listes") renderListes(main)
+  else if (state.view === "reglages") renderReglages(main)
   else renderModifs(main)
 }
 
@@ -3952,15 +3952,16 @@ function scrollToToday() {
   window.scrollTo({ top, behavior: "smooth" })
 }
 
-// Ouvre les Réglages (filtres par liste/catégorie, thème, notifications…),
-// accessible depuis le sous-menu de la vue Agenda personnalisé (#131, #132).
-function openPrefsDialog() {
+// Page des Réglages (onglet du bas) : listes suivies, affichage,
+// notifications, thème.
+function renderReglages(main) {
   // Garantit que le profil existe côté worker dès l'ouverture des Réglages
   // (dont dépendent le lien ICS personnel et les notifications push), sans
   // le resynchroniser à chaque rendu (changement de vue, etc.).
   syncProfile(undefined, true)
-  renderPrefs()
-  document.getElementById("prefs-dialog").showModal()
+  const box = el("div", { id: "prefs-content", class: "prefs-page" })
+  main.append(el("h2", { class: "page-title" }, "Réglages"), box)
+  renderPrefs(box)
 }
 
 // Ouvre l'abonnement au calendrier, accessible depuis le sous-menu de la vue
@@ -4014,6 +4015,60 @@ function showTodayDialog() {
 // ResizeObserver plutôt qu'un calcul ponctuel : le bouton d'avis (masqué
 // tant que le worker n'est pas prêt, cf. plus bas) ou le badge Modifs
 // peuvent changer la hauteur de l'en-tête après ce premier calcul.
+// Feuilles qui montent du bas (menu « ⋯ », fiche d'un service) : on les
+// referme en les tirant vers le bas, comme le promet leur poignée. Le geste
+// ne démarre que si la feuille est déjà tout en haut de son contenu : sinon,
+// tirer vers le bas fait simplement remonter ce contenu.
+const SHEET_DISMISS_PX = 80
+
+function enableSheetSwipe(dlg) {
+  let startY = null
+  let dy = 0
+  const reset = () => {
+    dlg.style.transition = ""
+    dlg.style.transform = ""
+  }
+  dlg.addEventListener(
+    "touchstart",
+    (ev) => {
+      startY = dlg.scrollTop <= 0 ? ev.touches[0].clientY : null
+      dy = 0
+    },
+    { passive: true },
+  )
+  dlg.addEventListener(
+    "touchmove",
+    (ev) => {
+      if (startY === null) return
+      dy = ev.touches[0].clientY - startY
+      // Geste vers le haut : c'est un défilement ordinaire, on s'efface.
+      if (dy < 0 && !dlg.style.transform) {
+        startY = null
+        return
+      }
+      ev.preventDefault()
+      dlg.style.transition = "none"
+      dlg.style.transform = `translateY(${Math.max(dy, 0)}px)`
+    },
+    { passive: false },
+  )
+  dlg.addEventListener("touchend", () => {
+    if (startY === null) return
+    startY = null
+    dlg.style.transition = "transform 0.2s"
+    if (dy < SHEET_DISMISS_PX) {
+      dlg.style.transform = ""
+      return
+    }
+    dlg.style.transform = "translateY(100%)"
+    setTimeout(() => {
+      dlg.close()
+      reset()
+    }, 200)
+  })
+  dlg.addEventListener("close", reset)
+}
+
 function observeHeaderHeight() {
   const header = document.querySelector("header")
   const setHeaderHeight = () =>
@@ -4048,9 +4103,6 @@ async function init() {
   hydrateIcons()
   for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
     btn.addEventListener("click", () => setView(btn.dataset.view))
-  document
-    .getElementById("prefs-tab")
-    .addEventListener("click", openPrefsDialog)
 
   document
     .getElementById("search-btn")
@@ -4081,6 +4133,9 @@ async function init() {
       dlg.focus()
     }
   }
+
+  for (const dlg of document.querySelectorAll("dialog.sheet"))
+    enableSheetSwipe(dlg)
 
   // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
   // à viser la croix ou le bouton Fermer.
