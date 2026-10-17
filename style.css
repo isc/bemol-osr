@@ -1574,6 +1574,10 @@ footer a {
   }
 
   body {
+    /* La place réservée à l'écran à la barre d'onglets du bas n'a rien à
+       faire sur papier : sur une page pleine (calendrier papier), elle
+       débordait sur une feuille blanche de plus. */
+    padding-bottom: 0;
     background: #fff;
     font-size: 9.5px;
   }
@@ -1825,13 +1829,10 @@ footer a {
 }
 
 /* --- Calendrier papier (#224) : une période par page A4 paysage ---
-   Pages en dimensions fixes (270 × 164 mm : A4 paysage moins de larges marges.
-   Safari/iOS ignore la marge de @page, réserve en-tête/pied d'environ 19 mm
-   en haut et 17 mm en bas : à 178 mm de haut, chaque période débordait d'un
-   filet sur une 2e feuille, soit 26 pages au lieu de 13) :
-   à l'écran elles défilent horizontalement, à l'impression chacune tient sur
-   une feuille. Toutes les semaines ont la même hauteur (1fr d'une grille de
-   hauteur fixe). */
+   À l'écran les pages de 270 × 164 mm défilent horizontalement ; à
+   l'impression leur hauteur occupe l'A4 paysage moins les marges de @page.
+   Toutes les semaines ont la même hauteur (1fr d'une grille de hauteur fixe).
+   Safari/iOS conserve une hauteur prudente (cf. exception plus bas). */
 .paper-scroll {
   overflow-x: auto;
   padding: 10px 0;
@@ -1987,6 +1988,8 @@ footer a {
 
   .paper-page {
     page: papier;
+    /* 210 mm (A4 paysage) − 2 × 10 mm de marge. */
+    height: 190mm;
     border: none;
     margin: 0;
     break-after: page;
@@ -1995,6 +1998,15 @@ footer a {
 
   .paper-page:last-child {
     break-after: auto;
+  }
+
+  /* Safari/iOS ignore les marges de @page et réserve plus de place aux
+     en-têtes/pieds : même 178 mm y provoquait 26 pages au lieu de 13.
+     Garder le repli existant sans réduire la hauteur sur les autres moteurs. */
+  @supports (-webkit-touch-callout: none) {
+    .paper-page {
+      height: 164mm;
+    }
   }
 
   .paper-scroll {
