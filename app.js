@@ -2934,18 +2934,67 @@ function renderSearchResults(container, query) {
 
 // --- Préférences --------------------------------------------------------------
 
+// --- Briques des Réglages : groupes en cartes, interrupteurs, dépliants ---
+
+// Groupe de réglages : petit titre gris, carte, et une ligne d'aide dessous.
+function prefsGroup(title, rows, foot) {
+  return el(
+    "section",
+    { class: "prefs-group" },
+    el("h3", {}, title),
+    el("div", { class: "prefs-card" }, ...rows),
+    foot ? el("p", { class: "prefs-foot" }, foot) : null,
+  )
+}
+
+// Option oui/non : libellé (et précision) à gauche, interrupteur à droite.
+// C'est une case à cocher stylée en interrupteur (cf. .switch).
+function switchRow(label, hint, checked, onchange) {
+  const input = el("input", {
+    type: "checkbox",
+    class: "switch",
+    onchange: (ev) => onchange(ev.target.checked),
+  })
+  input.checked = checked
+  return el(
+    "label",
+    { class: "switch-row" },
+    el("span", {}, label, hint ? el("small", {}, hint) : null),
+    input,
+  )
+}
+
+// En-tête dépliant (genre de production, détail par service) : un tap
+// déplie ou replie `panel`, le chevron pivote.
+function foldHead(label, panel) {
+  const head = el(
+    "button",
+    {
+      type: "button",
+      class: "activite-tete",
+      onclick: () => {
+        panel.hidden = !panel.hidden
+        head.classList.toggle("open", !panel.hidden)
+      },
+    },
+    el("span", { class: "activite-option" }, label),
+    icon("chevron"),
+  )
+  return head
+}
+
 function renderPrefs() {
   const box = document.getElementById("prefs-content")
   const listes = listesInSeason()
 
   // Note récapitulative mise à jour en place (sans reconstruire le panneau,
   // pour ne pas faire remonter la liste des cases au début à chaque coche).
-  const note = el("p", { class: "prefs-note" })
+  const note = el("strong", { class: "prefs-summary" })
   const updateNote = () => {
     const n = state.prefs.listes.length
     note.textContent = n
-      ? `${n} liste${n > 1 ? "s" : ""} affichée${n > 1 ? "s" : ""}. Coche les productions sur lesquelles tu joues.`
-      : "Aucune coche : toutes les listes sont affichées. Coche les productions sur lesquelles tu joues pour ne garder que celles-là."
+      ? `${n} liste${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""}`
+      : "Toutes les listes"
   }
 
   const checkboxes = new Map() // liste → <input>
@@ -3051,23 +3100,12 @@ function renderPrefs() {
         )
       }),
     )
-    const caret = el("span", { class: "activite-caret" }, "▸")
-    const tete = el(
-      "button",
-      {
-        type: "button",
-        class: "activite-tete",
-        onclick: () => {
-          const open = subList.hasAttribute("hidden")
-          if (open) subList.removeAttribute("hidden")
-          else subList.setAttribute("hidden", "")
-          caret.textContent = open ? "▾" : "▸"
-        },
-      },
-      el("span", { class: "activite-option" }, "Détail par service"),
-      caret,
+    return el(
+      "div",
+      { class: "liste-detail" },
+      foldHead("Détail par service", subList),
+      subList,
     )
-    return el("div", { class: "liste-detail" }, tete, subList)
   }
 
   // Ligne d'une liste dans le filtre : sa case, suivie (si pertinent) du
@@ -3094,107 +3132,65 @@ function renderPrefs() {
       { class: "activite-sous-listes", hidden: "" },
       ...listesDuGenre.map(listeRow),
     )
-    const caret = el("span", { class: "activite-caret" }, "▸")
-    const tete = el(
-      "button",
-      {
-        type: "button",
-        class: "activite-tete",
-        onclick: () => {
-          const open = subList.hasAttribute("hidden")
-          if (open) subList.removeAttribute("hidden")
-          else subList.setAttribute("hidden", "")
-          caret.textContent = open ? "▾" : "▸"
-        },
-      },
-      el(
-        "span",
-        { class: "activite-option" },
-        `${GENRE_LABELS[genre]} (${listesDuGenre.length})`,
-      ),
-      caret,
+    return el(
+      "div",
+      { class: "activite-groupe" },
+      foldHead(`${GENRE_LABELS[genre]} (${listesDuGenre.length})`, subList),
+      subList,
     )
-    return el("div", { class: "activite-groupe" }, tete, subList)
   })
 
   const uncheckAllBtn = el(
     "button",
-    { type: "button", onclick: () => setAll(false) },
-    "Tout décocher",
+    { type: "button", class: "link-btn", onclick: () => setAll(false) },
+    "Aucune",
   )
   const checkAllBtn = el(
     "button",
-    { type: "button", onclick: () => setAll(true) },
-    "Tout cocher",
+    { type: "button", class: "link-btn", onclick: () => setAll(true) },
+    "Toutes",
   )
 
-  const filterBox = listes.length
-    ? el(
-        "div",
-        { class: "liste-filter" },
+  const listeRows = listes.length
+    ? [
         el(
           "div",
           { class: "liste-filter-actions" },
-          uncheckAllBtn,
+          note,
           checkAllBtn,
+          uncheckAllBtn,
         ),
-        el("div", { class: "liste-options" }, ...listeGroups),
-      )
-    : el("p", { class: "prefs-note" }, "Aucune liste dans cette saison.")
+        ...listeGroups,
+      ]
+    : [el("p", { class: "prefs-row" }, "Aucune liste dans cette saison.")]
 
   if (listes.length) updateAllButtons()
 
-  const cancelledCheckbox = el("input", {
-    type: "checkbox",
-    onchange: (ev) => {
-      state.prefs.showCancelled = ev.target.checked
-      savePrefs()
-      renderContent()
-    },
-  })
-  cancelledCheckbox.checked = state.prefs.showCancelled
+  const setPref = (key) => (value) => {
+    state.prefs[key] = value
+    savePrefs()
+    renderContent()
+  }
 
   // Une case par zone (#191) : indépendantes et additionnables, plutôt qu'un
   // seul interrupteur global GE+VD+France voisine.
-  const holidayOptions = REGIONS.map((region) => {
-    const input = el("input", {
-      type: "checkbox",
-      onchange: (ev) => {
-        const regions = new Set(state.prefs.holidayRegions)
-        if (ev.target.checked) regions.add(region)
-        else regions.delete(region)
-        state.prefs.holidayRegions = [...regions]
-        savePrefs()
-        renderContent()
-      },
-    })
-    input.checked = state.prefs.holidayRegions.includes(region)
-    return el(
-      "label",
-      { class: "liste-option" },
-      input,
-      " ",
+  const holidayOptions = REGIONS.map((region) =>
+    switchRow(
       REGION_LABEL[region],
-    )
-  })
-
-  const noOrchestraCheckbox = el("input", {
-    type: "checkbox",
-    onchange: (ev) => {
-      state.prefs.showNoOrchestra = ev.target.checked
-      savePrefs()
-      renderContent()
-    },
-  })
-  noOrchestraCheckbox.checked = state.prefs.showNoOrchestra
+      null,
+      state.prefs.holidayRegions.includes(region),
+      (on) => {
+        const regions = new Set(state.prefs.holidayRegions)
+        if (on) regions.add(region)
+        else regions.delete(region)
+        setPref("holidayRegions")([...regions])
+      },
+    ),
+  )
 
   updateNote()
 
-  const themeLabels = {
-    auto: "Automatique (suit le système)",
-    light: "Clair",
-    dark: "Sombre",
-  }
+  const themeLabels = { auto: "Auto", light: "Clair", dark: "Sombre" }
   const themeOptions = Object.keys(themeLabels).map((val) => {
     const input = el("input", {
       type: "radio",
@@ -3206,75 +3202,60 @@ function renderPrefs() {
       },
     })
     input.checked = state.prefs.theme === val
-    return el("label", { class: "liste-option" }, input, " ", themeLabels[val])
+    return el("label", {}, input, themeLabels[val])
   })
 
   // --- Notifications push --------------------------------------------------
   // Statut résolu de façon asynchrone (support du navigateur, abonnement
   // existant…) : le bouton reste caché le temps de la vérification.
   const notifStatus = el(
-    "p",
-    { class: "prefs-note prefs-note-top" },
+    "span",
+    { class: "notif-status" },
     "Vérification du support de ton appareil…",
   )
   const notifDot = el("span", { class: "notif-dot" })
-  const notifBtn = el("button", { type: "button", hidden: "" }, "…")
+  const notifBtn = el(
+    "button",
+    { type: "button", class: "pill", hidden: "" },
+    "…",
+  )
   refreshNotifUI(notifStatus, notifBtn, notifDot)
 
   box.replaceChildren(
-    el(
-      "div",
-      { class: "prefs-section" },
-      el("div", { class: "prefs-label" }, "Thème de l'application :"),
-      el("div", { class: "liste-options" }, ...themeOptions),
+    prefsGroup(
+      "Mes Listes",
+      listeRows,
+      "Coche les productions sur lesquelles tu joues : elles seules restent dans Mon agenda.",
     ),
-    el(
-      "div",
-      { class: "prefs-section" },
-      el("div", { class: "prefs-label" }, "Filtrer par liste (production) :"),
-      el(
-        "p",
-        { class: "prefs-note prefs-note-top" },
-        "Déplie un genre (▸) pour cocher les productions sur lesquelles tu joues.",
+    prefsGroup("Affichage", [
+      switchRow(
+        "Services annulés",
+        "Affichés barrés",
+        state.prefs.showCancelled,
+        setPref("showCancelled"),
       ),
-      filterBox,
-      note,
-    ),
-    el(
-      "label",
-      { class: "prefs-cancelled" },
-      cancelledCheckbox,
-      " Afficher les événements annulés (barrés)",
-    ),
-    el(
-      "div",
-      { class: "prefs-section" },
-      el(
-        "div",
-        { class: "prefs-label" },
-        "Vacances scolaires et jours fériés (vue Grille) :",
+      switchRow(
+        "Services sans orchestre",
+        "Chef + solistes + piano, technique seule, chœur seul…",
+        state.prefs.showNoOrchestra,
+        setPref("showNoOrchestra"),
       ),
-      el("div", { class: "liste-options" }, ...holidayOptions),
+    ]),
+    prefsGroup("Vacances scolaires et jours fériés", holidayOptions),
+    prefsGroup(
+      "Notifications",
+      [
+        el("div", { class: "prefs-row notif-row" }, notifDot, notifStatus),
+        el("div", { class: "prefs-row" }, notifBtn),
+      ],
+      "Dès qu'un service de tes Listes change d'horaire ou de lieu, est annulé, ajouté ou supprimé, ou que son programme évolue.",
     ),
-    el(
-      "label",
-      { class: "prefs-cancelled" },
-      noOrchestraCheckbox,
-      " Afficher les services sans orchestre (répétition chef+soliste(s)+piano, technique seule, chœur seul…)",
-    ),
-    el(
-      "div",
-      { class: "prefs-section" },
-      el("div", { class: "prefs-label" }, "Notifications :", notifDot),
-      notifStatus,
-      notifBtn,
-    ),
+    prefsGroup("Thème", [el("div", { class: "segmented" }, ...themeOptions)]),
     el(
       "p",
-      { class: "prefs-note" },
-      "Astuce : la légende sous le titre permet de masquer/afficher chaque catégorie d'un simple clic. Les préférences sont mémorisées sur cet appareil.",
+      { class: "prefs-foot" },
+      `Réglages mémorisés sur cet appareil · ${versionLabel()}`,
     ),
-    el("p", { class: "prefs-note" }, versionLabel()),
   )
 }
 
@@ -3419,8 +3400,8 @@ async function refreshNotifUI(statusEl, btn, dot) {
   // au lieu du message actionnable (« installe d'abord Bémol… »).
   if (isIOS() && !isStandalone()) {
     statusEl.textContent =
-      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (bouton " +
-      "Installer) : les notifications n'y sont possibles qu'une fois l'app installée."
+      "Sur iPhone/iPad, installe d'abord Bémol sur l'écran d'accueil (menu ⋯ › " +
+      "Installer l'app) : les notifications n'y sont possibles qu'une fois l'app installée."
     btn.hidden = true
     dot.classList.remove("is-on")
     return
@@ -3445,15 +3426,11 @@ async function refreshNotifUI(statusEl, btn, dot) {
   dot.classList.toggle("is-on", !!sub)
   btn.classList.toggle("notif-btn-on", !!sub)
   if (sub) {
-    statusEl.textContent =
-      "Activées sur cet appareil : tu seras averti·e des changements dans tes listes."
+    statusEl.textContent = "Activées sur cet appareil"
     btn.textContent = "Désactiver les notifications"
     btn.onclick = () => disableNotifications(statusEl, btn, dot)
   } else {
-    statusEl.textContent =
-      "Sois averti·e (sur cet appareil) dès qu'un service de tes listes change " +
-      "d'horaire ou de lieu, est annulé, ajouté ou supprimé — ou que le programme " +
-      "d'une de tes productions évolue."
+    statusEl.textContent = "Désactivées sur cet appareil"
     btn.textContent = "Activer les notifications"
     btn.onclick = () => enableNotifications(statusEl, btn, dot)
   }
