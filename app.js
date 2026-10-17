@@ -4058,6 +4058,17 @@ async function init() {
     searchInput.blur()
   })
 
+  // À l'ouverture, le focus va au dialogue lui-même (tabindex="-1" dans
+  // index.html) plutôt qu'à son premier bouton : sinon le navigateur entoure
+  // la croix de fermeture d'un anneau bleu, comme si on l'avait visée.
+  for (const dlg of document.querySelectorAll("dialog")) {
+    const showModal = dlg.showModal.bind(dlg)
+    dlg.showModal = () => {
+      showModal()
+      dlg.focus()
+    }
+  }
+
   // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
   // à viser la croix ou le bouton Fermer.
   for (const dlg of document.querySelectorAll("dialog"))
