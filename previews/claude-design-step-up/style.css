@@ -1271,26 +1271,6 @@ dialog h2 {
   color: var(--text-faint);
 }
 
-#prefs-content .prefs-section {
-  padding: 5px 0;
-}
-
-#prefs-content .prefs-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-#prefs-content .prefs-cancelled {
-  display: block;
-  padding: 10px 0 5px;
-}
-
-#prefs-content .prefs-note {
-  font-size: 0.8em;
-  color: var(--text-faint);
-  margin: 6px 0 0;
-}
-
 /* Pastille indiquant si les notifications sont activées sur cet appareil,
    à côté du libellé « Notifications : » (l'énoncé du bouton seul, « Activer »
    / « Désactiver », est trop discret pour voir l'état d'un coup d'œil). */
@@ -1315,32 +1295,11 @@ dialog h2 {
   color: var(--success-text);
 }
 
-.liste-filter-actions {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.liste-filter-actions button {
-  flex: 1;
-  padding: 8px;
-}
-
 /* Bouton Tout cocher / Tout décocher mis en évidence (retour #129) quand il
    correspond à l'état courant (toutes les listes cochées, ou aucune). */
-.liste-filter-actions button.active {
-  background: var(--surface-accent-soft-2);
-  border-color: var(--accent);
-  color: var(--head-accent-text);
+.liste-filter-actions .link-btn.active {
+  background: var(--surface-accent-soft);
   font-weight: 600;
-}
-
-.liste-options {
-  max-height: 45vh;
-  overflow-y: auto;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 4px 0;
 }
 
 .liste-option {
@@ -1355,16 +1314,13 @@ dialog h2 {
   width: 18px;
   height: 18px;
   flex: none;
+  accent-color: var(--accent);
 }
 
 @media (hover: hover) {
   .liste-option:hover {
     background: var(--surface-accent-soft);
   }
-}
-
-#prefs-content .prefs-note-top {
-  margin: 0 0 8px;
 }
 
 /* Pastille de couleur d'une Liste (production) : devant son nom dans le
@@ -1445,20 +1401,14 @@ dialog h2 {
   flex: 1;
   min-width: 0;
 }
-.activite-caret {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  margin-left: 8px;
-  border-radius: 50%;
-  background: var(--surface-accent-soft);
-  color: var(--accent);
-  font-size: 1.1em;
-  font-weight: bold;
-  line-height: 1;
+.activite-tete .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-faint);
+  transition: transform 0.15s;
+}
+.activite-tete.open .icon {
+  transform: rotate(90deg);
 }
 .activite-sous-listes {
   padding: 2px 0 6px;
@@ -1472,15 +1422,12 @@ dialog h2 {
   .activite-tete:hover {
     background: var(--surface-accent-soft);
   }
-  .activite-tete:hover .activite-caret {
-    background: var(--surface-accent-soft-2);
-  }
 }
 
 /* Sous-menu « Détail par service » (#144) : dans une Liste dont certains
    services de répétition sont spécifiques à un pupitre, indenté sous la case
-   de la Liste, en plus discret que les sous-menus de genre (mêmes classes
-   .activite-tete/.activite-caret, réduites) pour marquer un niveau plus fin. */
+   de la Liste, en plus discret que les sous-menus de genre (même classe
+   .activite-tete, réduite) pour marquer un niveau plus fin. */
 .liste-detail {
   margin: 0 0 4px 30px;
 }
@@ -1489,11 +1436,7 @@ dialog h2 {
   font-size: 0.92em;
   color: var(--text-faint);
 }
-.liste-detail .activite-caret {
-  width: 22px;
-  height: 22px;
-  font-size: 1em;
-}
+
 .activite-sous-listes-niveau2 {
   margin-left: 20px;
 }
@@ -2542,4 +2485,163 @@ a.fact strong {
 .detail-fold > :last-child {
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+/* --- Réglages : groupes en cartes, interrupteurs, thème segmenté --- */
+
+.prefs-group {
+  margin-bottom: 18px;
+}
+
+.prefs-group h3 {
+  margin: 0 4px 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.prefs-card {
+  background: var(--bg);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.prefs-card > * + * {
+  border-top: 1px solid var(--border-soft);
+}
+
+.prefs-row,
+.switch-row,
+.prefs-card > .activite-groupe > .activite-tete {
+  padding: 11px 14px;
+}
+
+.prefs-row {
+  margin: 0;
+}
+
+.prefs-row:has(> button[hidden]) {
+  display: none;
+}
+
+.prefs-foot {
+  margin: 6px 4px 0;
+  font-size: 0.8em;
+  color: var(--text-faint);
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.switch-row > span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.switch-row small {
+  color: var(--text-faint);
+  font-size: 0.8em;
+}
+
+/* Case à cocher dessinée en interrupteur. */
+input.switch {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  border-radius: 13px;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+input.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px var(--shadow);
+  transition: transform 0.15s;
+}
+
+input.switch:checked {
+  background: var(--accent);
+}
+
+input.switch:checked::after {
+  transform: translateX(18px);
+}
+
+.liste-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 8px 14px;
+}
+
+.prefs-summary {
+  flex: 1;
+  font-weight: 600;
+}
+
+.link-btn {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 6px 10px;
+}
+
+.notif-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notif-row .notif-dot {
+  margin: 0;
+  flex: none;
+}
+
+.notif-status {
+  font-size: 0.9em;
+}
+
+.segmented {
+  display: flex;
+  padding: 3px;
+  gap: 3px;
+}
+
+.segmented label {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented label:has(input:checked) {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 3px var(--border-soft);
 }
