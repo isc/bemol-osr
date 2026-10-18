@@ -78,8 +78,7 @@ jobs:
           # pousser les ajustements, ouvrir une PR et répondre.
           # --max-turns 200 : cf. claude-issue-to-pr.yml — depuis que ce job peut
           # ouvrir une nouvelle PR, il fait le même rituel complet (captures,
-          # pr-assets, car `gh --attach` refuse le jeton de l'app…), donc le
-          # même plafond.
+          # pr-assets…), donc le même plafond.
           claude_args: |
             --model opus
             --max-turns 200

@@ -2,9 +2,8 @@
 // Vérifie que les images d'une description de PR s'affichent réellement en
 // entier sur GitHub — et les répare sinon.
 //
-// Les images de la branche pr-assets (celles des workflows Claude ; `gh
-// --attach`, utilisé en local, n'a pas ce problème, cf. CLAUDE.md), servies
-// par raw.githubusercontent.com, peuvent être servies tronquées ou périmées :
+// Les images de la branche pr-assets (cf. CLAUDE.md), servies par
+// raw.githubusercontent.com, peuvent être servies tronquées ou périmées :
 // le CDN de raw met en cache ~5 min (et ignore la query string dans sa clé —
 // impossible de le contourner par l'URL), et le cache d'images du NAVIGATEUR
 // du relecteur peut garder une version cassée bien plus longtemps (persiste

@@ -10,8 +10,7 @@
 // Prérequis : `npm install --no-save playwright` (comme le smoke test).
 //
 // Voir la section « Captures d'écran dans les PRs » de CLAUDE.md pour leur
-// intégration en description (`gh --attach` en local, branche `pr-assets`
-// dans les workflows Claude).
+// intégration en description.
 
 import { createServer } from "node:http"
 import { mkdirSync } from "node:fs"

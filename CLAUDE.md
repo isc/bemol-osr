@@ -323,9 +323,8 @@ d'« Œuvres au programme », juste en dessous : doublon repéré par le frère
    capture les vues Grille/Agenda en mobile 390px et desktop 1280px). Pour un
    « avant », lancer le script depuis `main` avant d'appliquer les changements
    (ou depuis un worktree de `main`).
-2. Les joindre à la description. **La méthode dépend du jeton de `gh`** :
-   `--attach` en session locale, la branche `pr-assets` dans les workflows
-   Claude de GitHub Actions (détail ci-dessous).
+2. Les joindre à la description, selon le jeton de `gh` : `--attach` en
+   session locale, la branche `pr-assets` dans un workflow Claude.
 
 **En session locale (`gh` connecté au compte d'Ivan) : `--attach`.** Depuis
 gh 2.100, `--attach` téléverse chaque fichier chez GitHub, comme une image
@@ -341,45 +340,45 @@ gh pr create --title "…" --body-file corps.md \
   --attach ./shots/apres-mobile-grille.png
 ```
 
-Sur une PR déjà ouverte : `gh pr edit <N> --body-file corps.md --attach …` ;
-dans un commentaire : `gh pr comment <N> --body-file … --attach …`. Une image
-que le corps ne cite pas est ajoutée à la fin, avec le texte alt donné après
-`#` (`--attach './x.png#Grille, semaine 47'`). Chaque téléversement a sa
-propre adresse, définitive : pas de numéro de PR à connaître d'avance, pas de
-branche à pousser, pas de `?v=`. Pour une nouvelle version d'une image, la
-rejoindre.
+Même option sur `gh pr edit` et `gh pr comment` ; une image que le corps ne
+cite pas est ajoutée à la fin (texte alt après `#` :
+`--attach './x.png#Grille, semaine 47'`). Chaque téléversement a sa propre
+adresse, définitive : une nouvelle version d'une image se joint à nouveau.
 
-**Dans un workflow Claude (GitHub Actions) : la branche `pr-assets`.** `gh` y
-tourne avec le jeton d'installation de l'app GitHub Claude (`ghs_…`), et
-`--attach` le refuse avant tout envoi (« unsupported authentication type ») :
-gh n'accepte que des jetons d'utilisateur (OAuth, PAT). Constaté sur #248 le
-18/10/2026, avec gh 2.102 sur le runner. Les images passent donc par la
-branche orpheline **`pr-assets`** (#69), UNIQUE et partagée, jamais mergée.
-**Ne pas créer une branche d'assets par PR**, et ne rien y supprimer (les PRs
-mergées y font toujours référence). Un dossier par PR :
+**Dans un workflow Claude (`GITHUB_ACTIONS=true`) : la branche `pr-assets`.**
+`gh` y tourne avec le jeton d'installation de l'app GitHub Claude (`ghs_…`),
+que `--attach` refuse avant tout envoi : « unsupported authentication type »
+(gh n'accepte que des jetons d'utilisateur ; constaté sur #248 le 18/10/2026,
+gh 2.102 sur le runner). Ailleurs aussi, ce message renvoie à `pr-assets`.
 
-```bash
-git fetch origin pr-assets
-git worktree add /tmp/pr-assets origin/pr-assets
-mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
-cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
-cd /tmp/pr-assets && git add -f pr/ \
-  && git commit -m "assets: captures PR #<numéro>" \
-  && git push origin HEAD:pr-assets
-```
+1. Publier les captures sur **`pr-assets`** (#69), branche orpheline UNIQUE
+   et partagée, jamais mergée. **Ne pas créer une branche d'assets par PR**,
+   et ne rien y supprimer (les PRs mergées y font toujours référence). Un
+   dossier par PR :
 
-(Ouvrir la PR d'abord pour connaître son numéro, pousser les captures, puis
-compléter la description avec `gh pr edit`.) Les référencer avec l'URL brute
-**suffixée `?v=1`** :
-`https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`.
-Puis **vérifier l'affichage réel** : `node scripts/pr-images-check.mjs
-<numéro>` (#71). Le CDN de raw (et le cache d'images des navigateurs des
-relecteurs) peut servir une version tronquée ou périmée d'une image ; le
-script compare ce qui est servi à la vraie taille du fichier (API GitHub) et
-incrémente lui-même le `?v=` dans la description en cas d'écart. À lancer
-après toute édition des images d'une description. ⚠️ Ne jamais **remplacer**
-une image existante de `pr-assets` sous le même nom : nouveau nom de fichier
-à chaque version.
+   ```bash
+   git fetch origin pr-assets
+   git worktree add /tmp/pr-assets origin/pr-assets
+   mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
+   cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
+   cd /tmp/pr-assets && git add -f pr/ \
+     && git commit -m "assets: captures PR #<numéro>" \
+     && git push origin HEAD:pr-assets
+   ```
+
+   (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
+   puis compléter la description avec `gh pr edit`.)
+
+2. Les référencer avec l'URL brute **suffixée `?v=1`** :
+   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`.
+
+3. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`
+   (#71), après toute édition des images d'une description. Le CDN de raw
+   sert parfois des images tronquées ou périmées : le script le détecte et
+   incrémente le `?v=` (détails dans son en-tête).
+
+⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même
+nom : nouveau nom de fichier à chaque version.
 
 ## Commentaires « @claude » sur une PR déjà mergée ou fermée
 
