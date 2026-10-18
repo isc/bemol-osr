@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-15T18:00:55.290Z",
+ "updatedAt": "2026-10-18T15:38:37.341Z",
  "count": 641,
  "events": [
   {
@@ -1451,7 +1451,7 @@
    "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "Rzn Torbey) -",
+   "project": "",
    "cancelled": false
   },
   {
@@ -1550,7 +1550,7 @@
    "activity": "Technique (vidéo - Rzn Torbey)",
    "category": "generale",
    "location": "Victoria Hall de Genève",
-   "project": "Rzn Torbey) -",
+   "project": "",
    "cancelled": false
   },
   {
@@ -2008,8 +2008,8 @@
    "uid": "osr248530",
    "start": "2026-11-01T09:30",
    "end": "2026-11-01T14:30",
-   "liste": "Concours Violoncelle Tuttiste",
-   "activity": "2 postes - présélection (Violoncelle tuttiste - 2 postes)",
+   "liste": "Concours Violoncelle Tuttiste - 2 postes",
+   "activity": "présélection (Violoncelle tuttiste - 2 postes)",
    "category": "concours",
    "location": "ML - grande salle",
    "project": "CONC.",
@@ -2063,11 +2063,11 @@
    "uid": "osr245691",
    "start": "2026-11-02T10:00",
    "end": "2026-11-02T19:30",
-   "liste": "Concours Violoncelle Tuttiste",
-   "activity": "2 postes - concours (Violoncelle tuttiste - 2 postes)",
+   "liste": "Concours Violoncelle Tuttiste - 2 postes",
+   "activity": "concours (Violoncelle tuttiste - 2 postes)",
    "category": "concours",
    "location": "Victoria Hall de Genève",
-   "project": "2 postes) -",
+   "project": "",
    "cancelled": false
   },
   {
@@ -4285,11 +4285,11 @@
    "uid": "osr239389",
    "start": "2027-02-15T09:30",
    "end": "2027-02-15T19:00",
-   "liste": "Concours Violon tuttiste",
-   "activity": "registre des seconds violons - concours ( Violon tuttiste - registre des seconds violons)",
+   "liste": "Concours Violon tuttiste - registre des seconds violons",
+   "activity": "concours ( Violon tuttiste - registre des seconds violons)",
    "category": "concours",
    "location": "Auditorium Ansermet",
-   "project": "registre des seconds violons) -",
+   "project": "",
    "cancelled": false
   },
   {

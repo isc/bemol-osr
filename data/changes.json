@@ -1,6 +1,158 @@
 {
  "entries": [
   {
+   "at": "2026-10-18T15:38:37.341Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr236835",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr236835",
+      "start": "2026-10-12T08:00",
+      "end": "2026-10-12T11:00",
+      "liste": "Liste 07",
+      "activity": "Technique (vidéo - Rzn Torbey)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "Rzn Torbey) -",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr236835",
+      "start": "2026-10-12T08:00",
+      "end": "2026-10-12T11:00",
+      "liste": "Liste 07",
+      "activity": "Technique (vidéo - Rzn Torbey)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr236836",
+     "fields": [
+      "project"
+     ],
+     "before": {
+      "uid": "osr236836",
+      "start": "2026-10-15T12:00",
+      "end": "2026-10-15T13:00",
+      "liste": "Liste 07",
+      "activity": "Technique (vidéo - Rzn Torbey)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "Rzn Torbey) -",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr236836",
+      "start": "2026-10-15T12:00",
+      "end": "2026-10-15T13:00",
+      "liste": "Liste 07",
+      "activity": "Technique (vidéo - Rzn Torbey)",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr248530",
+     "fields": [
+      "liste",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - présélection (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "CONC.",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr248530",
+      "start": "2026-11-01T09:30",
+      "end": "2026-11-01T14:30",
+      "liste": "Concours Violoncelle Tuttiste - 2 postes",
+      "activity": "présélection (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "ML - grande salle",
+      "project": "CONC.",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr245691",
+     "fields": [
+      "liste",
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr245691",
+      "start": "2026-11-02T10:00",
+      "end": "2026-11-02T19:30",
+      "liste": "Concours Violoncelle Tuttiste",
+      "activity": "2 postes - concours (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "Victoria Hall de Genève",
+      "project": "2 postes) -",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr245691",
+      "start": "2026-11-02T10:00",
+      "end": "2026-11-02T19:30",
+      "liste": "Concours Violoncelle Tuttiste - 2 postes",
+      "activity": "concours (Violoncelle tuttiste - 2 postes)",
+      "category": "concours",
+      "location": "Victoria Hall de Genève",
+      "project": "",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr239389",
+     "fields": [
+      "liste",
+      "activity",
+      "project"
+     ],
+     "before": {
+      "uid": "osr239389",
+      "start": "2027-02-15T09:30",
+      "end": "2027-02-15T19:00",
+      "liste": "Concours Violon tuttiste",
+      "activity": "registre des seconds violons - concours ( Violon tuttiste - registre des seconds violons)",
+      "category": "concours",
+      "location": "Auditorium Ansermet",
+      "project": "registre des seconds violons) -",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr239389",
+      "start": "2027-02-15T09:30",
+      "end": "2027-02-15T19:00",
+      "liste": "Concours Violon tuttiste - registre des seconds violons",
+      "activity": "concours ( Violon tuttiste - registre des seconds violons)",
+      "category": "concours",
+      "location": "Auditorium Ansermet",
+      "project": "",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-16T04:46:35.546Z",
    "type": "memo",
    "programs": [
