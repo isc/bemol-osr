@@ -76,13 +76,16 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Tout Bash autorisé (runner jetable et isolé) pour que Claude puisse
           # pousser les ajustements, ouvrir une PR et répondre.
+          # Skill et Agent : `/simplify` avant d'ouvrir une PR (section « Avant
+          # d'ouvrir une PR » de CLAUDE.md) charge un skill qui lance des
+          # sous-agents de relecture.
           # --max-turns 200 : cf. claude-issue-to-pr.yml — depuis que ce job peut
           # ouvrir une nouvelle PR, il fait le même rituel complet (captures,
           # pr-assets…), donc le même plafond.
           claude_args: |
             --model opus
             --max-turns 200
-            --allowedTools "Bash,Read,Edit,Write,MultiEdit"
+            --allowedTools "Bash,Read,Edit,Write,MultiEdit,Skill,Agent"
           prompt: |
             Tu es déclenché par un commentaire de
             @${{ github.event.comment.user.login }} mentionnant @claude sur la
@@ -104,7 +107,9 @@ jobs:
                - PR encore OUVERTE → applique les ajustements demandés sur SA
                  branche : `gh pr checkout ${{ github.event.issue.number || github.event.pull_request.number }}`,
                  implémente en respectant SCRUPULEUSEMENT les conventions de
-                 CLAUDE.md, commit, puis pousse sur cette même branche. La
+                 CLAUDE.md, commit, lance `/simplify` si l'ajustement est
+                 conséquent (section « Avant d'ouvrir une PR » de CLAUDE.md),
+                 puis pousse sur cette même branche. La
                  preview de la PR est redéployée automatiquement.
 
                - PR déjà MERGÉE ou FERMÉE → sa branche n'est plus déployée :
@@ -112,8 +117,10 @@ jobs:
                  production. Ne te contente donc JAMAIS d'un commit sur une
                  branche jetable assorti d'un lien « Create PR » : le demandeur
                  est un musicien, il ne le cliquera pas. Crée une NOUVELLE
-                 branche à partir de `main` à jour, implémente, et ouvre une
-                 NOUVELLE pull request vers `main` avec `gh pr create` :
+                 branche à partir de `main` à jour, implémente, lance
+                 `/simplify` (section « Avant d'ouvrir une PR » de CLAUDE.md),
+                 et ouvre une NOUVELLE pull request vers `main` avec
+                 `gh pr create` :
                  description structurée selon la section « Descriptions de PR »
                  de CLAUDE.md — le pourquoi d'abord (reprends le retour de
                  @${{ github.event.comment.user.login }} et le contexte de la PR
@@ -178,11 +185,12 @@ jobs:
         id: claude
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # --max-turns 200 : même rituel complet que claude-issue-to-pr.yml.
+          # --max-turns 200 : même rituel complet que claude-issue-to-pr.yml,
+          # et mêmes outils (Skill et Agent pour `/simplify`).
           claude_args: |
             --model opus
             --max-turns 200
-            --allowedTools "Bash,Read,Edit,Write,MultiEdit"
+            --allowedTools "Bash,Read,Edit,Write,MultiEdit,Skill,Agent"
           prompt: |
             Tu es déclenché par un nouveau commentaire de
             @${{ github.event.comment.user.login }} sur l'issue
@@ -200,7 +208,8 @@ jobs:
             2. Selon la nature de la demande :
                - Évolution ou correction → implémente en respectant
                  SCRUPULEUSEMENT les conventions de CLAUDE.md, crée une branche,
-                 ouvre une PR vers `main` avec un titre clair et une description
+                 lance `/simplify` (section « Avant d'ouvrir une PR » de
+                 CLAUDE.md), ouvre une PR vers `main` avec un titre clair et une description
                  structurée selon la section « Descriptions de PR » de CLAUDE.md
                  (pourquoi d'abord — reprendre la motivation de l'issue —, puis
                  quoi, puis comment vérifier ; captures si changement visible)
