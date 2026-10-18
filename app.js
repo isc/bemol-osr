@@ -79,15 +79,13 @@ function isNoOrchestra(e) {
   )
 }
 
-// Abréviations de lieux, du plus spécifique au plus générique
+// Abréviations de lieux, du plus spécifique au plus générique. Comparées en
+// forme canonique (cf. canonicalLocation) : « UM - Salle Marie LAGGÉ » couvre
+// aussi « ML - grande salle (st. A, B & P) », nouveau nom Dièse de la salle.
 const LOCATION_SHORT = [
   ["Victoria Hall", "VH"],
   ["UM - Salle Marie LAGGÉ", "UM-ML"],
   ["UM - Studio", "UM-St."],
-  // Nouveaux noms Dièse d'Uni Mail (cf. canonicalLocation) : « ML - grande
-  // salle (st. A, B & P) », « ML - Studio P »…
-  ["ML - grande salle", "UM-ML"],
-  ["ML - Studio", "UM-St."],
   ["ML - Tous les espaces", "UM"],
   ["Grand Théâtre - fosse", "GTG fosse"],
   ["Grand Théâtre de Genève", "GTG"],
@@ -157,6 +155,7 @@ const state = {
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
+  seasonListes: new Set(), // noms des Listes de la saison (cf. loadData)
   view: null,
   paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
   recentUids: new Map(), // uid → date du dernier changement récent
@@ -219,8 +218,12 @@ function loadPrefs() {
   }
 }
 
-function savePrefs() {
+function storePrefs() {
   localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
+}
+
+function savePrefs() {
+  storePrefs()
   syncProfile()
 }
 
@@ -249,8 +252,10 @@ prefersDarkMedia.addEventListener("change", () => {
 
 // --- Utilitaires dates -----------------------------------------------------
 
-// Les dates du JSON sont des chaînes locales "2026-08-13T21:15"
-const parseDate = (s) => new Date(s)
+// Les dates du JSON sont des chaînes locales "2026-08-13T21:15". Un jour seul
+// ("2026-10-17", vacances scolaires) se lirait à minuit UTC, donc la veille à
+// l'ouest de Greenwich : on le prend à minuit local.
+const parseDate = (s) => new Date(s.length === 10 ? `${s}T00:00` : s)
 
 function localKey(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
@@ -315,10 +320,16 @@ function fmtDateStr(s, withTime = true) {
   return withTime && s.includes("T") ? `${base} ${fmtTime(s)}` : base
 }
 
+const LOCATION_SHORT_KEYS = LOCATION_SHORT.map(([full, short]) => [
+  canonicalLocation(full),
+  short,
+])
+
 function shortLocation(loc) {
   if (!loc) return ""
-  for (const [full, short] of LOCATION_SHORT)
-    if (loc.includes(full)) return short
+  const key = canonicalLocation(loc)
+  for (const [full, short] of LOCATION_SHORT_KEYS)
+    if (key.includes(full)) return short
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
@@ -657,6 +668,7 @@ async function loadData() {
   state.season = seasonsInData()[0]
   // Jours fériés de la saison (elle chevauche deux années civiles)
   state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
+  state.seasonListes = new Set(listesInSeason())
   migrateListes()
 
   // Marques « récent » recalculées de zéro : au retour au premier plan
@@ -796,6 +808,7 @@ async function checkAppUpdate() {
 const MIN_REFRESH_INTERVAL_MS = 60_000
 let lastDataLoad = 0
 let refreshing = false
+let initialized = false // init() allée jusqu'au bout (onglets branchés…)
 
 async function refreshData() {
   if (refreshing || Date.now() - lastDataLoad < MIN_REFRESH_INTERVAL_MS) return
@@ -803,7 +816,7 @@ async function refreshData() {
   try {
     // Premier chargement raté (hors-ligne au lancement) : init() s'était
     // arrêté avant de brancher les onglets, on la relance en entier.
-    if (state.season == null) return await init()
+    if (!initialized) return await init()
     await loadData()
     lastDataLoad = Date.now()
     render()
@@ -833,7 +846,7 @@ function showUpdateInfo() {
 // une Liste ajoutée ensuite resterait masquée.
 function migrateListes() {
   const p = state.prefs
-  const known = new Set(listesInSeason())
+  const known = state.seasonListes
   if (!known.size) return
   const renamed = new Map() // ancien nom → nouveau (relevé le plus récent)
   for (const entry of state.changes)
@@ -852,22 +865,28 @@ function migrateListes() {
   const newSeason = p.listesSeason != null && p.listesSeason !== state.season
   let listes = newSeason ? [] : [...new Set(p.listes.map(follow))]
   if ([...known].every((l) => listes.includes(l))) listes = []
-  const changed = newSeason || listes.join("\n") !== p.listes.join("\n")
+  // Services masqués d'une Liste (#144), rangés eux aussi par nom.
+  const hiddenActivities = newSeason
+    ? {}
+    : Object.fromEntries(
+        Object.entries(p.hiddenActivities).map(([l, a]) => [follow(l), a]),
+      )
+  const changed =
+    JSON.stringify([listes, hiddenActivities]) !==
+    JSON.stringify([p.listes, p.hiddenActivities])
   if (!changed && p.listesSeason === state.season) return
-  p.listes = listes
-  if (newSeason) p.hiddenActivities = {}
-  p.listesSeason = state.season
+  Object.assign(p, { listes, hiddenActivities, listesSeason: state.season })
+  // Le seul tampon de saison ne concerne pas le worker.
   if (changed) savePrefs()
-  else localStorage.setItem("bemol-prefs", JSON.stringify(p))
+  else storePrefs()
 }
 
-// Listes cochées présentes dans la saison. Un nom disparu ne compte pas, sans
-// quoi l'agenda se viderait (« 1 liste cochée », aucune case cochée). Il reste
-// enregistré : si la Liste revient (export Dièse incomplet), elle est de
-// nouveau cochée.
+// Listes cochées présentes dans la saison, pour l'agenda comme pour le worker.
+// Un nom disparu ne compte pas, sans quoi l'agenda se viderait (« 1 liste
+// cochée », aucune case cochée). Il reste enregistré : si la Liste revient
+// (export Dièse incomplet), elle est de nouveau cochée.
 function selectedListes() {
-  const known = new Set(listesInSeason())
-  return state.prefs.listes.filter((l) => known.has(l))
+  return state.prefs.listes.filter((l) => state.seasonListes.has(l))
 }
 
 function visibleEvents() {
@@ -1837,13 +1856,7 @@ function showVacance(region, key) {
   showHolidayDialog(
     "Vacances scolaires",
     el("h2", {}, `${v.nom} — ${REGION_LABEL[region]}`),
-    // « T00:00 » : sans heure, la date se lirait à minuit UTC, donc la veille
-    // à l'ouest de Greenwich.
-    el(
-      "p",
-      {},
-      fmtDateRange(parseDate(`${v.start}T00:00`), parseDate(`${v.end}T00:00`)),
-    ),
+    el("p", {}, fmtDateRange(parseDate(v.start), parseDate(v.end))),
   )
 }
 
@@ -2592,8 +2605,7 @@ const MEMO_FIELD_LABELS = {
 // avec une mention s'il a été supprimé depuis.
 function showChangedEvent(e) {
   const current = state.events.find((x) => x.uid === e.uid)
-  if (current) showDetail(current)
-  else showDetail(e, { gone: true })
+  showDetail(current || e, { gone: !current })
 }
 
 // Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
@@ -2623,7 +2635,11 @@ function planningEntryBox(entry) {
     box.append(
       el(
         "div",
-        { class: "change-item added", onclick: () => showChangedEvent(e) },
+        {
+          class: "change-item added",
+          "data-kind": "added",
+          onclick: () => showChangedEvent(e),
+        },
         `➕ Ajouté : ${changeLine(e)}`,
       ),
     )
@@ -2638,6 +2654,7 @@ function planningEntryBox(entry) {
       "div",
       {
         class: `change-item modified${concoursDefini ? " concours-defini" : ""}`,
+        "data-kind": concoursDefini ? "concours-defini" : "modified",
         onclick: () => showChangedEvent(m.after),
       },
       concoursDefini
@@ -2663,7 +2680,7 @@ function planningEntryBox(entry) {
     box.append(
       el(
         "div",
-        { class: "change-item removed" },
+        { class: "change-item removed", "data-kind": "removed" },
         `➖ Supprimé : ${changeLine(e)}`,
       ),
     )
@@ -2760,6 +2777,7 @@ function memoProgramItem(p) {
       "div",
       {
         class: "change-item memo added",
+        "data-kind": "memo",
         onclick: () => showListe(p.liste),
       },
       tag,
@@ -2770,6 +2788,7 @@ function memoProgramItem(p) {
       "div",
       {
         class: "change-item memo removed",
+        "data-kind": "memo",
         onclick: () => showListe(p.liste),
       },
       tag,
@@ -2778,7 +2797,11 @@ function memoProgramItem(p) {
 
   const item = el(
     "div",
-    { class: "change-item memo modified", onclick: () => showListe(p.liste) },
+    {
+      class: "change-item memo modified",
+      "data-kind": "memo",
+      onclick: () => showListe(p.liste),
+    },
     tag,
     ` ${p.liste}`,
   )
@@ -2849,18 +2872,6 @@ const MODIFS_LEGEND = [
   ["concours-defini", "Concours défini"],
 ]
 
-// Type d'un élément .change-item, au sens de la légende ci-dessus. Mémo et
-// concours défini d'abord : un programme ajouté au mémo porte aussi la classe
-// « added », mais il est en couleur Mémo.
-const CHANGE_KIND_PRIORITY = ["memo", "concours-defini", "added", "removed"]
-
-function changeItemKind(item) {
-  return (
-    CHANGE_KIND_PRIORITY.find((cls) => item.classList.contains(cls)) ||
-    "modified"
-  )
-}
-
 // Filtre de la vue Modifs (demande #213) : un clic sur un type de la légende
 // n'affiche que ce type, un second clic le désactive. Volontairement non
 // mémorisé : on retrouve toujours la liste complète en rouvrant l'onglet.
@@ -2913,7 +2924,9 @@ function renderModifs(main) {
     if (!box) continue
     if (state.modifsFilter) {
       for (const item of box.querySelectorAll(".change-item"))
-        if (changeItemKind(item) !== state.modifsFilter) item.remove()
+        // Type au sens de la légende, posé à la construction : un programme
+        // ajouté au mémo a aussi la classe « added », mais compte en Mémo.
+        if (item.dataset.kind !== state.modifsFilter) item.remove()
       if (!box.querySelector(".change-item")) continue
     }
     main.append(box)
@@ -3123,19 +3136,17 @@ function renderPrefs(box) {
   // Note récapitulative mise à jour en place (sans reconstruire le panneau,
   // pour ne pas faire remonter la liste des cases au début à chaque coche).
   const note = el("strong", { class: "prefs-summary" })
-  const updateNote = () => {
+  // « Tout afficher » se met en évidence (retour #129) quand aucune Liste
+  // n'est cochée, c'est-à-dire quand l'agenda les montre toutes.
+  const updateSummary = () => {
     const n = selectedListes().length
     note.textContent = n
       ? `${n} liste${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""}`
       : "Toutes les listes"
+    showAllBtn.classList.toggle("active", !n)
   }
 
   const checkboxes = new Map() // liste → <input>
-
-  // « Tout afficher » se met en évidence (retour #129) quand aucune Liste
-  // n'est cochée, c'est-à-dire quand l'agenda les montre toutes.
-  const updateAllButton = () =>
-    showAllBtn.classList.toggle("active", !selectedListes().length)
 
   // Coche/décoche une liste, sans doublon. La page ne se reconstruit pas :
   // les genres dépliés restent dépliés, on peut cocher plusieurs cases à la
@@ -3146,8 +3157,7 @@ function renderPrefs(box) {
     else set.delete(liste)
     state.prefs.listes = [...set]
     savePrefs()
-    updateNote()
-    updateAllButton()
+    updateSummary()
   }
 
   // Aucune case cochée = toutes les Listes. Cocher toutes les cases figeait
@@ -3157,8 +3167,7 @@ function renderPrefs(box) {
     state.prefs.listes = []
     savePrefs()
     for (const cb of checkboxes.values()) cb.checked = false
-    updateNote()
-    updateAllButton()
+    updateSummary()
   }
 
   // Masque/affiche un service précis d'une Liste (#144), indépendamment de
@@ -3280,8 +3289,6 @@ function renderPrefs(box) {
       ]
     : [el("p", { class: "prefs-row" }, "Aucune liste dans cette saison.")]
 
-  if (listes.length) updateAllButton()
-
   const setPref = (key) => (value) => {
     state.prefs[key] = value
     savePrefs()
@@ -3303,7 +3310,7 @@ function renderPrefs(box) {
     ),
   )
 
-  updateNote()
+  updateSummary()
 
   const themeLabels = { auto: "Auto", light: "Clair", dark: "Sombre" }
   const themeOptions = Object.keys(themeLabels).map((val) => {
@@ -3414,7 +3421,6 @@ function profileToken() {
 // des notifications) — le thème et l'affichage des vacances n'en font pas partie.
 function prefsPayload() {
   const {
-    listes,
     hiddenCategories,
     hiddenCatListes,
     hiddenActivities,
@@ -3422,7 +3428,7 @@ function prefsPayload() {
     showNoOrchestra,
   } = state.prefs
   return {
-    listes,
+    listes: selectedListes(),
     hiddenCategories,
     hiddenCatListes,
     hiddenActivities,
@@ -3459,7 +3465,7 @@ function personalSubscribeUrls() {
   if (!PERSONAL_CALENDAR_URL) return null
   const p = state.prefs
   const hasFilter =
-    p.listes.length ||
+    selectedListes().length ||
     p.hiddenCategories.length ||
     Object.keys(p.hiddenCatListes).length ||
     Object.keys(p.hiddenActivities).length ||
@@ -3965,14 +3971,16 @@ function renderInstall() {
 
 // --- Navigation / rendu global -------------------------------------------------
 
+// Onglets rouverts au lancement suivant. Les vues papier sont des écrans
+// d'impression, et les Réglages un détour : on rouvre plutôt l'onglet où l'on
+// consultait le planning.
+const PERSISTED_VIEWS = ["grille", "document", "modifs"]
+
 function setView(view) {
   if (state.searchOpen) setSearch(false)
   state.view = view
   state.modifsFilter = null
-  // Les vues papier sont des écrans d'impression, et les Réglages un détour :
-  // au prochain lancement, on rouvre l'onglet où l'on consultait le planning.
-  if (!["papier", "listes", "reglages"].includes(view))
-    localStorage.setItem("bemol-view", view)
+  if (PERSISTED_VIEWS.includes(view)) localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
   if (view === "modifs") document.getElementById("modifs-badge").hidden = true
   for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
@@ -4281,8 +4289,8 @@ async function init() {
   // un clic en (0, 0) sur le bouton d'envoi, qui ne doit rien fermer.
   for (const dlg of document.querySelectorAll("dialog"))
     dlg.addEventListener("click", (e) => {
-      const r = dlg.getBoundingClientRect()
       if (e.target !== dlg) return
+      const r = dlg.getBoundingClientRect()
       if (
         e.clientX < r.left ||
         e.clientX > r.right ||
@@ -4327,14 +4335,10 @@ async function init() {
 
   showUpdateInfo()
 
-  // Vue du dernier lancement, si c'est un onglet (« agenda » : ancien nom de
-  // « grille »).
+  // Vue du dernier lancement (une valeur inconnue, comme « agenda », ancien nom
+  // de « grille », ramène à l'agenda).
   const storedView = localStorage.getItem("bemol-view")
-  setView(
-    ["grille", "document", "modifs"].includes(storedView)
-      ? storedView
-      : "grille",
-  )
+  setView(PERSISTED_VIEWS.includes(storedView) ? storedView : "grille")
   syncListeFromHash()
 }
 
