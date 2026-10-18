@@ -115,17 +115,29 @@ function categorize(liste, activity) {
   return "autre"
 }
 
+// Coupe « a - b » au dernier « - » hors parenthèses → [a, b] (b vide sans
+// séparateur). Dièse n'échappe pas les « - » de ses champs : celui de
+// « Technique (vidéo - Rzn Torbey) » n'est pas un séparateur.
+function splitLastDash(s) {
+  const masked = s.replace(/\([^()]*\)/g, (m) => "_".repeat(m.length))
+  const i = masked.lastIndexOf(" - ")
+  return i === -1
+    ? [s.trim(), ""]
+    : [s.slice(0, i).trim(), s.slice(i + 3).trim()]
+}
+
 function normalize(v) {
+  // SUMMARY : « <liste> - <activité> ». Le nom de liste peut contenir un « - »
+  // (« Concours Violoncelle Tuttiste - 2 postes »), l'activité seulement entre
+  // parenthèses : on coupe au dernier « - » hors parenthèses.
   const summary = unescapeText(v.SUMMARY).trim()
-  const sep = summary.indexOf(" - ")
-  const liste = sep === -1 ? summary : summary.slice(0, sep).trim()
-  const activity = sep === -1 ? "" : summary.slice(sep + 3).trim()
+  const [liste, activity] = splitLastDash(summary)
 
   // DESCRIPTION type : " - - - \n\n<activité abrégée> - <projet>\n\n&nbsp"
-  // → on extrait le « projet » (Carmen, aboO2, DPL…) après le dernier « - ».
-  const middle = (unescapeText(v.DESCRIPTION).split("\n\n")[1] || "").trim()
-  const cut = middle.lastIndexOf(" - ")
-  const project = (cut === -1 ? "" : middle.slice(cut + 3))
+  // → on extrait le « projet » (Carmen, aboO2, DPL…) après le dernier « - »
+  // hors parenthèses. Pas de trim avant : un projet vide laisse un « - » final.
+  const middle = unescapeText(v.DESCRIPTION).split("\n\n")[1] || ""
+  const project = splitLastDash(middle)[1]
     .replace(/&nbsp;?/g, "")
     .trim()
 
