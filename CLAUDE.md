@@ -17,9 +17,12 @@ production (GitHub Pages) comme dans les previews de PR.
   Pas de framework, pas de bundler, pas de CDN, pas de dépendance externe.
 - **PWA (installable + hors-ligne).** `sw.js` sert la page en _réseau d'abord_
   (une nouvelle version d'`index.html` est prise dès qu'on est en ligne) et met
-  en cache les ressources versionnées par `?v=`. Si tu ajoutes un fichier
-  chargé au premier lancement hors-ligne, pense à l'ajouter à la liste
-  `PRECACHE` de `sw.js`.
+  en cache les ressources versionnées par `?v=` (une seule version par
+  fichier). Il ne met en cache qu'une réponse valide : une 404 passagère d'un
+  build Pages bloqué ne doit jamais remplacer la page. À la première visite, la
+  page lui envoie ce qu'elle a chargé sans lui (message `cache-urls`) : tout
+  fichier chargé au démarrage est donc couvert. Un fichier qui ne l'est pas
+  (chargé plus tard, mais nécessaire hors-ligne) va dans la liste `PRECACHE`.
 - **Chemins relatifs uniquement.** Jamais de chemin commençant par `/`.
   C'est critique : le site est servi sous un sous-dossier (`/bemol-osr/`, et
   `/bemol-osr/previews/<branche>/` pour les previews de PR).
