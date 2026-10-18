@@ -22,13 +22,15 @@ export const DEFAULT_PREFS = {
 
 // Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
 // worker n'a pas accès au code de la page statique (cf. listeSlug() plus bas,
-// même principe). À garder synchronisée avec app.js (#169/#171).
-function isNoOrchestra(activity) {
+// même principe). Partagée avec le filtre de l'abonnement ICS (index.js).
+// worker/test.mjs vérifie qu'elle classe chaque service du planning comme
+// celle d'app.js (#169/#171).
+export function isNoOrchestra(activity) {
   return (
     /sans orch(estre|\.|,)|sans osr/i.test(activity) ||
     /générale piano/i.test(activity) ||
     /technique/i.test(activity) ||
-    (/choeur|chœur/i.test(activity) && !/avec/i.test(activity))
+    (/choeur|chœur/i.test(activity) && !/avec|orch/i.test(activity))
   )
 }
 

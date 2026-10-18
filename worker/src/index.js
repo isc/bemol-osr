@@ -22,9 +22,10 @@
 //                                            concours, autre, resa)
 //   annules=0                                exclure les services annulés
 //
-// Le filtrage s'appuie sur les propriétés X-BEMOL-LISTE / X-BEMOL-CAT que
-// scripts/build-ics.mjs écrit dans chaque VEVENT (valeurs brutes, jamais
-// pliées car courtes — cf. fold() côté générateur).
+// Le filtrage s'appuie sur les propriétés X-BEMOL-LISTE / X-BEMOL-CAT /
+// X-BEMOL-ACTIVITY que scripts/build-ics.mjs écrit dans chaque VEVENT, comme
+// toute propriété : texte échappé (escapeText) et plié à 75 octets (fold) —
+// cf. prop().
 //
 // POST /feedback { message, name? } dépose un retour libre (issue #125) dans
 // le même KV, sous la clé "feedback:<horodatage>-<id>", et l'envoie par email
@@ -38,6 +39,7 @@
 import { buildPushPayload } from "@block65/webcrypto-web-push"
 import {
   DEFAULT_PREFS,
+  eventMatchesPrefs,
   changesForProfile,
   buildNotificationPayload,
   summarizePushResults,
@@ -54,32 +56,25 @@ const CACHE_SECONDS = 600
 
 const CORS_HEADERS = { "access-control-allow-origin": "*" }
 
-// Valeur d'une propriété X- dans un bloc VEVENT (non pliée, cf. en-tête).
-function prop(block, name) {
-  const m = block.match(new RegExp(`^${name}:(.*)$`, "m"))
-  return m ? m[1].replace(/\r$/, "") : ""
-}
+// Valeur texte d'une propriété X-BEMOL-* d'un bloc VEVENT. build-ics.mjs
+// l'écrit comme toute propriété : échappée (« bois\, cuivres ») et pliée à
+// 75 octets (lignes de continuation qui commencent par une espace, RFC 5545
+// §3.1). Lus tels quels, plusieurs libellés de service (« …percus / sions) »)
+// ne correspondaient plus et échappaient à hiddenActivities et
+// showNoOrchestra : on capture donc la valeur avec ses continuations, on la
+// déplie et on la déséchappe (§3.3.11).
+const propRe = (name) => new RegExp(`^${name}:(.*(?:\\r?\\n[ \\t].*)*)`, "m")
+const LISTE_RE = propRe("X-BEMOL-LISTE")
+const CAT_RE = propRe("X-BEMOL-CAT")
+const ACTIVITY_RE = propRe("X-BEMOL-ACTIVITY")
 
-// Un libellé `activity` est-il dans une liste de libellés masqués ? Comparaison
-// insensible à la casse/espaces, comme côté app (cf. isActivityHidden
-// d'app.js) : Dièse laisse passer des variantes de casse pour un même service
-// (« (sans OSR) » / « (Sans OSR) »).
-function activityHidden(hidden, activity) {
-  if (!hidden || !hidden.length) return false
-  const key = activity.trim().toLowerCase()
-  return hidden.some((h) => h.trim().toLowerCase() === key)
-}
-
-// Reprise de isNoOrchestra() (app.js) : même détection, dupliquée ici car le
-// worker n'a pas accès au code de la page statique (même principe que
-// activityHidden ci-dessus). À garder synchronisée avec app.js (#169/#171).
-function isNoOrchestra(activity) {
-  return (
-    /sans orch(estre|\.|,)|sans osr/i.test(activity) ||
-    /générale piano/i.test(activity) ||
-    /technique/i.test(activity) ||
-    (/choeur|chœur/i.test(activity) && !/avec/i.test(activity))
-  )
+function prop(block, re) {
+  const m = block.match(re)
+  if (!m) return ""
+  return m[1]
+    .replace(/\r?\n[ \t]/g, "")
+    .replace(/\r$/, "")
+    .replace(/\\([\\;,nN])/g, (_, c) => (c === "n" || c === "N" ? "\n" : c))
 }
 
 // Filtre le texte ICS complet selon les critères. Exporté pour les tests.
@@ -91,7 +86,9 @@ function isNoOrchestra(activity) {
 // même principe, même limite (profil KV seulement). showNoOrchestra (#146)
 // reprend côté abonnement le réglage « Afficher les services sans orchestre »
 // de l'app — sans lui, ces services (masqués dans l'agenda personnalisé de
-// l'app) continuaient de fuiter dans le calendrier ICS abonné.
+// l'app) continuaient de fuiter dans le calendrier ICS abonné. Les règles
+// sont celles des notifications (eventMatchesPrefs) ; seuls les annulés sont
+// traités à part, une annulation devant toujours être notifiée.
 export function filterIcs(
   text,
   {
@@ -113,20 +110,30 @@ export function filterIcs(
   )
     return text
 
+  const prefs = {
+    listes,
+    hiddenCategories: sans,
+    hiddenCatListes: sansListes,
+    hiddenActivities,
+    showNoOrchestra,
+  }
   const events = text.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT\r?\n/g) || []
-  const header = text.slice(0, text.indexOf("BEGIN:VEVENT"))
-  const kept = events.filter((block) => {
-    const liste = prop(block, "X-BEMOL-LISTE")
-    const cat = prop(block, "X-BEMOL-CAT")
-    const activity = prop(block, "X-BEMOL-ACTIVITY")
-    if (listes.length && !listes.includes(liste)) return false
-    if (sans.includes(cat)) return false
-    if ((sansListes[cat] || []).includes(liste)) return false
-    if (activityHidden(hiddenActivities[liste], activity)) return false
-    if (!showNoOrchestra && isNoOrchestra(activity)) return false
-    if (!annules && /^STATUS:CANCELLED\r?$/m.test(block)) return false
-    return true
-  })
+  // En-tête : tout ce qui précède le premier VEVENT — ou, s'il n'y en a
+  // aucun, la fin du calendrier (sinon indexOf = -1 tronquait le texte).
+  const cut = text.search(/^(BEGIN:VEVENT|END:VCALENDAR)/m)
+  const header = cut === -1 ? text : text.slice(0, cut)
+  const kept = events.filter(
+    (block) =>
+      eventMatchesPrefs(
+        {
+          liste: prop(block, LISTE_RE),
+          category: prop(block, CAT_RE),
+          activity: prop(block, ACTIVITY_RE),
+        },
+        prefs,
+      ) &&
+      (annules || !/^STATUS:CANCELLED\r?$/m.test(block)),
+  )
 
   // Nom distinct dans l'app d'agenda, pour ne pas confondre avec l'abonnement
   // complet si on a les deux.
@@ -154,17 +161,31 @@ function json(body, status = 200) {
 // Un jeton de profil est un UUID généré côté app (crypto.randomUUID()).
 const TOKEN_RE = /^[A-Za-z0-9_-]{16,64}$/
 
+const isObject = (v) => Boolean(v) && typeof v === "object"
+
 const arrayOfStrings = (v) =>
   Array.isArray(v) ? v.filter((x) => typeof x === "string") : []
 
+// Corps JSON d'une requête s'il s'agit d'un objet, null sinon. `null`, une
+// chaîne ou un nombre sont du JSON valide, mais faisaient lever une
+// TypeError plus loin (500, sans en-tête CORS).
+async function readJsonObject(request) {
+  try {
+    const body = await request.json()
+    return isObject(body) ? body : null
+  } catch {
+    return null
+  }
+}
+
 export function sanitizePrefs(p) {
-  if (!p || typeof p !== "object") return DEFAULT_PREFS
+  if (!isObject(p)) return DEFAULT_PREFS
   const hiddenCatListes = {}
-  if (p.hiddenCatListes && typeof p.hiddenCatListes === "object")
+  if (isObject(p.hiddenCatListes))
     for (const [cat, listes] of Object.entries(p.hiddenCatListes))
       hiddenCatListes[cat] = arrayOfStrings(listes)
   const hiddenActivities = {}
-  if (p.hiddenActivities && typeof p.hiddenActivities === "object")
+  if (isObject(p.hiddenActivities))
     for (const [liste, activities] of Object.entries(p.hiddenActivities))
       hiddenActivities[liste] = arrayOfStrings(activities)
   return {
@@ -206,9 +227,26 @@ const FEEDBACK_NAME_MAX = 200
 // interceptée, donc un échec d'envoi 500 côté formulaire — alors même que le
 // message, écrit juste avant dans le KV, avait bien été enregistré.
 const FEEDBACK_RATE_LIMIT_SECONDS = 60
+// Plafond global, toutes adresses confondues : chaque message part par email
+// (FEEDBACK_TO), et une rafale venue de nombreuses adresses passerait la
+// limite par adresse. Une vingtaine par heure laisse une large marge (une
+// quinzaine de messages en tout les premiers mois).
+const FEEDBACK_HOURLY_MAX = 20
+
+// Clé de la limite par adresse. En IPv6, un seul abonnement reçoit en général
+// tout un préfixe /64 (2^64 adresses) : limiter l'adresse exacte ne retenait
+// personne. On limite donc le /64, et l'adresse exacte en IPv4.
+export function rateLimitKey(ip) {
+  if (!ip.includes(":")) return ip
+  const [head, tail = ""] = ip.toLowerCase().split("::")
+  const left = head ? head.split(":") : []
+  const right = tail ? tail.split(":") : []
+  const zeros = Array(Math.max(0, 8 - left.length - right.length)).fill("0")
+  return `${[...left, ...zeros, ...right].slice(0, 4).join(":")}::/64`
+}
 
 export function sanitizeFeedback(body) {
-  if (!body || typeof body !== "object") return null
+  if (!isObject(body)) return null
   if (typeof body.message !== "string") return null
   const message = body.message.trim()
   if (!message || message.length > FEEDBACK_MESSAGE_MAX) return null
@@ -315,12 +353,8 @@ export async function handleFeedback(request, env) {
       headers: CORS_HEADERS,
     })
 
-  let body
-  try {
-    body = await request.json()
-  } catch {
-    return json({ error: "JSON invalide" }, 400)
-  }
+  const body = await readJsonObject(request)
+  if (!body) return json({ error: "JSON invalide" }, 400)
 
   if (typeof body.url === "string" && body.url.trim()) return json({ ok: true })
 
@@ -328,7 +362,7 @@ export async function handleFeedback(request, env) {
   if (!clean) return json({ error: "message manquant, vide ou trop long" }, 400)
 
   const ip = request.headers.get("cf-connecting-ip") || "inconnue"
-  const rateKey = `feedback-rl:${ip}`
+  const rateKey = `feedback-rl:${rateLimitKey(ip)}`
   if (await env.NOTIF_PROFILES.get(rateKey))
     return json(
       {
@@ -339,6 +373,17 @@ export async function handleFeedback(request, env) {
     )
 
   const at = new Date().toISOString()
+  const hourKey = `feedback-rl:heure:${at.slice(0, 13)}`
+  const thisHour = Number(await env.NOTIF_PROFILES.get(hourKey)) || 0
+  if (thisHour >= FEEDBACK_HOURLY_MAX)
+    return json(
+      {
+        error:
+          "beaucoup de messages reçus en ce moment, réessaie dans une heure",
+      },
+      429,
+    )
+
   const key = `feedback:${at}-${crypto.randomUUID().slice(0, 8)}`
   // TTL généreux (1 an) : filet de sécurité contre l'accumulation, pas une
   // purge active — le KV garde une trace même si l'email se perd.
@@ -349,6 +394,9 @@ export async function handleFeedback(request, env) {
   )
   await env.NOTIF_PROFILES.put(rateKey, "1", {
     expirationTtl: FEEDBACK_RATE_LIMIT_SECONDS,
+  })
+  await env.NOTIF_PROFILES.put(hourKey, String(thisHour + 1), {
+    expirationTtl: 2 * 3600,
   })
 
   // Après l'enregistrement : si l'email échoue, le message est déjà sauvé et
@@ -376,16 +424,12 @@ async function handleProfile(request, env, token) {
       headers: CORS_HEADERS,
     })
 
-  let body
-  try {
-    body = await request.json()
-  } catch {
-    return json({ error: "JSON invalide" }, 400)
-  }
+  const body = await readJsonObject(request)
+  if (!body) return json({ error: "JSON invalide" }, 400)
 
   const key = `profile:${token}`
   const existing = (await env.NOTIF_PROFILES.get(key, "json")) || {}
-  const next = {
+  await putProfile(env, key, {
     prefs:
       "prefs" in body
         ? sanitizePrefs(body.prefs)
@@ -395,21 +439,49 @@ async function handleProfile(request, env, token) {
         ? sanitizeSubscription(body.subscription)
         : (existing.subscription ?? null),
     updatedAt: new Date().toISOString(),
-  }
-  // TTL généreux (200 j, bien au-delà d'une saison) plutôt que permanent : un
-  // appareil qui resynchronise régulièrement ne l'atteint jamais, un appareil
-  // abandonné finit par disparaître du KV au lieu de s'y accumuler sans fin.
-  await env.NOTIF_PROFILES.put(key, JSON.stringify(next), {
-    expirationTtl: 60 * 60 * 24 * 200,
   })
   return json({ ok: true })
 }
 
-async function handleIcs(request, env, url) {
+// TTL généreux (200 j, bien au-delà d'une saison) plutôt que permanent : un
+// appareil abandonné finit par disparaître du KV au lieu de s'y accumuler
+// sans fin. Tout PUT doit le reposer : sans expirationTtl, Cloudflare rend
+// la clé permanente.
+export const PROFILE_TTL_SECONDS = 60 * 60 * 24 * 200
+
+function putProfile(env, key, profile) {
+  return env.NOTIF_PROFILES.put(key, JSON.stringify(profile), {
+    expirationTtl: PROFILE_TTL_SECONDS,
+  })
+}
+
+// Un profil encore servi (calendrier lu par un agenda abonné, notification
+// acceptée) est vivant, même si l'app n'est plus rouverte : on repousse son
+// expiration, au plus une fois par mois. Sans ça, il expirait au bout de
+// 200 j sans visite des Réglages : l'agenda abonné revenait au calendrier
+// complet et les notifications cessaient, l'app affichant « Activées ».
+const PROFILE_REFRESH_MS = 30 * 24 * 3600 * 1000
+
+async function touchProfile(env, key, profile) {
+  const age = Date.now() - Date.parse(profile.updatedAt)
+  if (age < PROFILE_REFRESH_MS) return // NaN (pas de date) : à reposer
+  try {
+    await putProfile(env, key, {
+      ...profile,
+      updatedAt: new Date().toISOString(),
+    })
+  } catch (err) {
+    console.error("TTL du profil non reposé :", err)
+  }
+}
+
+async function handleIcs(request, env, url, ctx) {
   const token = url.searchParams.get("profile")
   let opts
   if (token) {
-    const stored = await env.NOTIF_PROFILES.get(`profile:${token}`, "json")
+    const key = `profile:${token}`
+    const stored = await env.NOTIF_PROFILES.get(key, "json")
+    if (stored) ctx.waitUntil(touchProfile(env, key, stored))
     const prefs = stored?.prefs || DEFAULT_PREFS
     opts = {
       listes: prefs.listes,
@@ -446,7 +518,7 @@ async function handleIcs(request, env, url) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url)
 
     if (request.method === "OPTIONS")
@@ -471,7 +543,7 @@ export default {
     if (url.pathname === "/feedback") return handleFeedback(request, env)
 
     // Tout le reste (dont /planning.ics) : calendrier filtré, comme avant.
-    return handleIcs(request, env, url)
+    return handleIcs(request, env, url, ctx)
   },
 
   // Cron Cloudflare (cf. wrangler.toml [triggers]), deux tâches
@@ -585,7 +657,7 @@ async function recordDispatch(env, outcomes) {
   await env.NOTIF_PROFILES.put("dispatch-stats:totals", JSON.stringify(totals))
 }
 
-async function runScheduled(env) {
+export async function runScheduled(env) {
   const res = await fetch(CHANGES_UPSTREAM, { cf: { cacheTtl: 0 } })
   if (!res.ok) return
   const data = await res.json()
@@ -616,35 +688,62 @@ async function runScheduled(env) {
     .then((d) => d?.events || null)
     .catch(() => null)
 
+  // Curseur avancé AVANT les envois : un cycle interrompu en route (KV en
+  // panne, worker arrêté) fait au pire manquer cette notification aux
+  // abonnés restants. Écrit après la boucle, il la faisait renvoyer toutes
+  // les 15 min à ceux déjà servis.
+  await env.NOTIF_PROFILES.put("cursor", fresh[fresh.length - 1].at)
+
   const outcomes = []
-  let cursorParam
-  do {
-    const page = await env.NOTIF_PROFILES.list({
-      prefix: "profile:",
-      cursor: cursorParam,
-    })
-    for (const { name } of page.keys) {
-      const profile = await env.NOTIF_PROFILES.get(name, "json")
-      if (!profile?.subscription) continue
-      const items = changesForProfile(fresh, profile.prefs || DEFAULT_PREFS, {
-        planning,
+  const retries = []
+  try {
+    let cursorParam
+    do {
+      const page = await env.NOTIF_PROFILES.list({
+        prefix: "profile:",
+        cursor: cursorParam,
       })
-      if (!items.length) continue
-      outcomes.push(
-        await sendPush(
+      for (const { name } of page.keys) {
+        // Un profil illisible (lecture KV en échec, données corrompues) ne
+        // prive pas les suivants de leur notification.
+        const outcome = await notifyProfile(
           env,
           name,
-          profile,
-          buildNotificationPayload(items),
+          fresh,
+          planning,
           vapid,
-        ),
-      )
-    }
-    cursorParam = page.list_complete ? undefined : page.cursor
-  } while (cursorParam)
+        ).catch((err) => {
+          console.error(`profil ${name} :`, err)
+          return { kind: "failed", error: err?.name || "exception" }
+        })
+        if (outcome?.retry) retries.push(outcome)
+        else if (outcome) outcomes.push(outcome)
+      }
+      cursorParam = page.list_complete ? undefined : page.cursor
+    } while (cursorParam)
 
-  await env.NOTIF_PROFILES.put("cursor", fresh[fresh.length - 1].at)
-  await recordPushStats(env, outcomes, fresh.length)
+    // Refus passagers (cf. sendPush) : une seule attente pour tout le cycle,
+    // la plus longue demandée, puis une seconde et dernière tentative.
+    if (retries.length) {
+      const waitMs = Math.max(...retries.map((r) => r.waitMs))
+      await new Promise((resolve) => setTimeout(resolve, waitMs))
+      for (const { retry } of retries) outcomes.push(await retry())
+    }
+  } finally {
+    await recordPushStats(env, outcomes, fresh.length)
+  }
+}
+
+// Notifie un abonné des changements qui le concernent ; null s'il n'y a
+// rien à lui envoyer.
+async function notifyProfile(env, name, fresh, planning, vapid) {
+  const profile = await env.NOTIF_PROFILES.get(name, "json")
+  if (!profile?.subscription) return null
+  const items = changesForProfile(fresh, profile.prefs || DEFAULT_PREFS, {
+    planning,
+  })
+  if (!items.length) return null
+  return sendPush(env, name, profile, buildNotificationPayload(items), vapid)
 }
 
 // RFC 8292 §2 : le `sub` du JWT VAPID doit être un URI de contact (mailto:
@@ -683,25 +782,46 @@ async function recordPushStats(env, outcomes, changeCount) {
   )
 }
 
+const PUSH_TTL_SECONDS = 24 * 3600
+
 // Renvoie le verdict de l'envoi, agrégé par recordPushStats() — jamais rien
-// d'identifiant, seulement un genre et un code HTTP.
-async function sendPush(env, key, profile, notification, vapid) {
+// d'identifiant, seulement un genre et un code HTTP. Ou, pour un refus
+// passager, de quoi retenter l'envoi en fin de cycle (cf. runScheduled).
+async function sendPush(
+  env,
+  key,
+  profile,
+  notification,
+  vapid,
+  canRetry = true,
+) {
   try {
     // Surtout pas d'option `topic` : le service push d'Apple refuse tout
     // envoi qui porte un en-tête Topic (`400 {"reason":"BadWebPushTopic"}`),
     // ce qui a bloqué 100 % des notifications jusqu'à fin septembre 2026
     // (Diagnostic du 28/09 : 0 accepté sur 126, cf. revue #194).
+    // TTL d'un jour : le service push garde la notification tant que le
+    // téléphone est injoignable. Une heure ne couvrait pas un téléphone
+    // éteint pendant un concert ou un service de 2 h 30.
     const message = {
       data: JSON.stringify(notification),
-      options: { ttl: 3600, urgency: "normal" },
+      options: { ttl: PUSH_TTL_SECONDS, urgency: "normal" },
     }
     const payload = await buildPushPayload(message, profile.subscription, vapid)
     const res = await fetch(profile.subscription.endpoint, payload)
+    // Refus passager (429 trop de requêtes, 5xx panne du service push) :
+    // retenté une fois, sans quoi la notification était perdue. Délai : le
+    // Retry-After demandé, plafonné à 3 s pour ne pas bloquer le cron, 1 s
+    // à défaut.
+    if (canRetry && (res.status === 429 || res.status >= 500)) {
+      const seconds = parseFloat(res.headers.get("retry-after"))
+      return {
+        waitMs: seconds >= 0 ? Math.min(seconds, 3) * 1000 : 1000,
+        retry: () => sendPush(env, key, profile, notification, vapid, false),
+      }
+    }
     if (res.status === 404 || res.status === 410) {
-      await env.NOTIF_PROFILES.put(
-        key,
-        JSON.stringify({ ...profile, subscription: null }),
-      )
+      await putProfile(env, key, { ...profile, subscription: null })
       return { kind: "expired", status: res.status }
     }
     if (!res.ok) {
@@ -718,6 +838,7 @@ async function sendPush(env, key, profile, notification, vapid) {
       )
       return { kind: "failed", status: res.status, reason: reason || undefined }
     }
+    await touchProfile(env, key, profile)
     return { kind: "sent", status: res.status }
   } catch (err) {
     console.error(`push ${key} en échec :`, err)

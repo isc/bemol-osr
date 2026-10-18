@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 // Test du filtre du worker sur le vrai calendrier généré (data/planning.ics).
-// Usage : node worker/test.mjs — échoue (exit 1) à la moindre incohérence.
+// Usage : node worker/test.mjs [dossier data] — échoue (exit 1) à la moindre
+// incohérence. Par défaut, l'instantané de data/ sur main ; pour rejouer sur
+// les données vivantes, extraire celles de gh-pages et passer leur dossier :
+//   git fetch origin gh-pages
+//   git archive origin/gh-pages data | tar -x -C /tmp/ghp
+//   node worker/test.mjs /tmp/ghp/data
 
 import { readFileSync } from "node:fs"
 import { join, dirname } from "node:path"
@@ -14,12 +19,19 @@ import {
   vapidSubject,
   workflowsToDispatch,
   dispatchWorkflows,
+  rateLimitKey,
+  runScheduled,
+  PROFILE_TTL_SECONDS,
 } from "./src/index.js"
+import worker from "./src/index.js"
+import { isNoOrchestra } from "./src/notify.js"
+import { escapeText, fold } from "../scripts/build-ics.mjs"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
-const ics = readFileSync(join(root, "data", "planning.ics"), "utf8")
+const dataDir = process.argv[2] || join(root, "data")
+const ics = readFileSync(join(dataDir, "planning.ics"), "utf8")
 const planning = JSON.parse(
-  readFileSync(join(root, "data", "planning.json"), "utf8"),
+  readFileSync(join(dataDir, "planning.json"), "utf8"),
 )
 
 const count = (s) => (s.match(/BEGIN:VEVENT/g) || []).length
@@ -128,16 +140,21 @@ if (count(byHiddenActivitiesCasse) !== expectedHiddenActivitiesCasse)
 // chef+soliste(s)+piano « (sans orchestre) », générales piano, services
 // techniques, chœur seul — #169/#171) — sans lui, ces services (masqués dans
 // l'agenda personnalisé de l'app) continuaient de fuiter dans le calendrier
-// ICS abonné. La regex ci-dessous doit rester synchronisée avec
-// isNoOrchestra() de worker/src/index.js (elle-même reprise d'app.js).
+// ICS abonné.
+//
+// La détection est dupliquée entre app.js et le worker : on rejoue celle
+// d'app.js, extraite de son source, sur chaque service du planning.
+const appSource = readFileSync(join(root, "app.js"), "utf8")
+const appIsNoOrchestra = new Function(
+  `${appSource.match(/^function isNoOrchestra\(e\) \{[\s\S]*?^\}/m)[0]}
+  return isNoOrchestra`,
+)()
+for (const e of planning.events)
+  if (appIsNoOrchestra(e) !== isNoOrchestra(e.activity))
+    fail(`isNoOrchestra : app.js et le worker divergent sur « ${e.activity} »`)
+
 const expectedNoOrchestra = planning.events.filter(
-  (e) =>
-    !(
-      /sans orch(estre|\.|,)|sans osr/i.test(e.activity) ||
-      /générale piano/i.test(e.activity) ||
-      /technique/i.test(e.activity) ||
-      (/choeur|chœur/i.test(e.activity) && !/avec/i.test(e.activity))
-    ),
+  (e) => !isNoOrchestra(e.activity),
 ).length
 const byNoOrchestra = filterIcs(ics, {
   listes: [],
@@ -153,6 +170,85 @@ if (count(byNoOrchestra) === total)
   fail(
     "filtre showNoOrchestra : le jeu de données de test devrait contenir au moins un service sans orchestre",
   )
+
+// Aucune fuite : chaque service doit pouvoir être masqué par son libellé,
+// même plié et échappé par build-ics.mjs (cf. prop() du worker).
+const toutMasquer = {}
+for (const e of planning.events)
+  (toutMasquer[e.liste] ||= []).push(e.activity.toUpperCase())
+const rienNeFuit = filterIcs(ics, { hiddenActivities: toutMasquer })
+if (count(rienNeFuit) !== 0)
+  fail(
+    `hiddenActivities : ${count(rienNeFuit)} service(s) non masqué(s) alors que tous leurs libellés le sont — ` +
+      rienNeFuit.match(/^SUMMARY:.*$/m)?.[0],
+  )
+
+// Même chose sur des VEVENT écrits par l'encodeur de build-ics.mjs, pour ne
+// pas dépendre de l'instantané de data/ : libellés réels de gh-pages pliés
+// et échappés, et un nom de liste assez long pour l'être aussi.
+const enTete =
+  "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:OSR — Planning (Bémol)\r\n"
+const vevent = (uid, liste, activity) =>
+  [
+    "BEGIN:VEVENT",
+    `UID:${uid}@bemol-osr`,
+    `X-BEMOL-LISTE:${escapeText(liste)}`,
+    "X-BEMOL-CAT:repetition",
+    `X-BEMOL-ACTIVITY:${escapeText(activity)}`,
+    "STATUS:CONFIRMED",
+    "END:VEVENT",
+    "",
+  ]
+    .map(fold)
+    .join("\r\n")
+const longueListe =
+  "Concours, violon tuttiste - registre des seconds violons (2 postes)"
+const plie = [
+  enTete,
+  vevent(
+    "plie",
+    "Liste 10",
+    "partielle par registre (bois, cuivres, timbales, percussions)",
+  ),
+  vevent(
+    "sans-orch",
+    "Liste 20",
+    "répétition chef+soliste(s)+piano ((sextet vocal sans orch.))",
+  ),
+  vevent("garde", "Liste 10", "tutti"),
+  vevent("longue", longueListe, "tutti"),
+  "END:VCALENDAR\r\n",
+].join("")
+if ((plie.match(/\r\n /g) || []).length < 3)
+  fail("jeu de test : les lignes X-BEMOL-* devraient être pliées")
+const sansPlie = filterIcs(plie, {
+  hiddenActivities: {
+    "Liste 10": [
+      "partielle par registre (bois, cuivres, timbales, percussions)",
+    ],
+  },
+  showNoOrchestra: false,
+})
+if (
+  /UID:(plie|sans-orch)@/.test(sansPlie) ||
+  !/UID:garde@/.test(sansPlie) ||
+  !/UID:longue@/.test(sansPlie)
+)
+  fail(
+    "ligne X-BEMOL-ACTIVITY pliée et échappée : le service devrait être masqué, et seulement lui",
+  )
+if (!/UID:longue@/.test(filterIcs(plie, { listes: [longueListe] })))
+  fail("ligne X-BEMOL-LISTE pliée et échappée : la liste devrait être reconnue")
+
+// Calendrier sans aucun service (début de saison, panne en amont…) : la
+// sortie reste un VCALENDAR valide, au lieu d'un texte tronqué.
+const vide = filterIcs(`${enTete}END:VCALENDAR\r\n`, { annules: false })
+if (
+  !vide.startsWith("BEGIN:VCALENDAR") ||
+  (vide.match(/END:VCALENDAR/g) || []).length !== 1 ||
+  !vide.endsWith("END:VCALENDAR\r\n")
+)
+  fail(`calendrier sans VEVENT : sortie invalide (${JSON.stringify(vide)})`)
 
 // sanitizePrefs ne doit jamais laisser passer autre chose que des tableaux de
 // chaînes / un objet de tableaux — entrée du KV, donc pas de confiance.
@@ -259,10 +355,17 @@ console.log("✓ sanitizeFeedback OK")
 // échouer silencieusement TOUT envoi de retour en production (issue #157,
 // FEEDBACK_RATE_LIMIT_SECONDS valait 30). Ce mock reproduit cette contrainte
 // de Cloudflare KV pour que le test rejoue vraiment le bug.
-function makeMockKv() {
-  const store = new Map()
+// `ttls` garde l'expirationTtl de chaque écriture (undefined = clé
+// permanente) ; une clé de `failing` fait échouer sa lecture.
+function makeMockKv(initial = {}) {
+  const store = new Map(Object.entries(initial))
+  const ttls = new Map()
+  const failing = new Set()
   return {
+    ttls,
+    failing,
     async get(key, type) {
+      if (failing.has(key)) throw new Error(`KV GET ${key} failed`)
       const value = store.has(key) ? store.get(key) : null
       return value !== null && type === "json" ? JSON.parse(value) : value
     },
@@ -273,13 +376,18 @@ function makeMockKv() {
           `KV PUT failed: 400 Invalid expiration_ttl of ${ttl}. Expiration TTL must be at least 60.`,
         )
       store.set(key, value)
+      ttls.set(key, ttl)
+    },
+    async list({ prefix }) {
+      const keys = [...store.keys()].filter((k) => k.startsWith(prefix))
+      return { keys: keys.map((name) => ({ name })), list_complete: true }
     },
   }
 }
 
-const feedbackRequest = (body) => ({
+const feedbackRequest = (body, ip = "203.0.113.1") => ({
   method: "POST",
-  headers: { get: () => "203.0.113.1" },
+  headers: { get: () => ip },
   async json() {
     return body
   },
@@ -353,17 +461,23 @@ for (const manquant of ["RESEND_API_KEY", "FEEDBACK_FROM", "FEEDBACK_TO"])
 // dans le KV, et le verdict est compté pour le Diagnostic.
 const vraiFetch = globalThis.fetch
 const appels = []
-const retourAvecFetch = async (env, reponse) => {
-  globalThis.fetch = async (url, init) => {
-    appels.push({ url, init })
-    return reponse
-  }
+// Exécute fn avec un faux fetch, toujours rétabli ensuite.
+const avecFetch = async (mock, fn) => {
+  globalThis.fetch = mock
   try {
-    return await handleFeedback(feedbackRequest({ message: "Test" }), env)
+    return await fn()
   } finally {
     globalThis.fetch = vraiFetch
   }
 }
+const retourAvecFetch = (env, reponse) =>
+  avecFetch(
+    async (url, init) => {
+      appels.push({ url, init })
+      return reponse
+    },
+    () => handleFeedback(feedbackRequest({ message: "Test" }), env),
+  )
 const kvMail = makeMockKv()
 const mailRes = await retourAvecFetch(
   mailEnv(kvMail),
@@ -464,18 +578,15 @@ if (parJour["update-data.yml"] !== 12 || parJour["update-memo.yml"] !== 1)
   )
 
 const lancements = []
-const lancerAvec = async (env, time, reponse) => {
-  globalThis.fetch = async (url, init) => {
-    lancements.push({ url, init })
-    if (reponse instanceof Error) throw reponse
-    return reponse
-  }
-  try {
-    return await dispatchWorkflows(env, time)
-  } finally {
-    globalThis.fetch = vraiFetch
-  }
-}
+const lancerAvec = (env, time, reponse) =>
+  avecFetch(
+    async (url, init) => {
+      lancements.push({ url, init })
+      if (reponse instanceof Error) throw reponse
+      return reponse
+    },
+    () => dispatchWorkflows(env, time),
+  )
 
 // Sans jeton : rien n'est lancé, rien n'est écrit.
 const kvSansJeton = makeMockKv()
@@ -563,3 +674,225 @@ try {
 }
 
 console.log("✓ lancement des crons GitHub OK")
+
+// --- Robustesse des routes (cf. readJsonObject) ----------------------------
+
+const PROFILE_URL = "https://worker.example/profile/abcdefghijklmnop1234"
+for (const corps of ["null", '"texte"', "42"]) {
+  const kv = makeMockKv()
+  for (const [url, method] of [
+    ["https://worker.example/feedback", "POST"],
+    [PROFILE_URL, "PUT"],
+  ]) {
+    const res = await worker.fetch(
+      new Request(url, { method, body: corps }),
+      { NOTIF_PROFILES: kv },
+      {},
+    )
+    if (res.status !== 400 || !res.headers.get("access-control-allow-origin"))
+      fail(
+        `${method} ${new URL(url).pathname} avec ${corps} : HTTP ${res.status} au lieu de 400 avec CORS`,
+      )
+  }
+}
+
+// Anti-rafale (cf. rateLimitKey) : en IPv6, tout le /64 compte pour une
+// seule adresse ; et au plus FEEDBACK_HOURLY_MAX messages par heure.
+for (const [ip, attendu] of [
+  ["203.0.113.1", "203.0.113.1"],
+  ["2001:db8:1:2:3:4:5:6", "2001:db8:1:2::/64"],
+  ["2001:DB8:1:2::9", "2001:db8:1:2::/64"],
+  ["2001:db8::1", "2001:db8:0:0::/64"],
+  ["::1", "0:0:0:0::/64"],
+])
+  if (rateLimitKey(ip) !== attendu)
+    fail(`rateLimitKey(${ip}) : ${rateLimitKey(ip)} au lieu de ${attendu}`)
+
+const statut = async (kv, ip) =>
+  (
+    await handleFeedback(feedbackRequest({ message: "Test" }, ip), {
+      NOTIF_PROFILES: kv,
+    })
+  ).status
+const kvRafale = makeMockKv()
+if ((await statut(kvRafale, "2001:db8:1:2::1")) !== 200)
+  fail("handleFeedback : le premier message d'une adresse IPv6 doit passer")
+if ((await statut(kvRafale, "2001:db8:1:2::2")) !== 429)
+  fail("handleFeedback : une autre adresse du même /64 doit être limitée")
+
+const kvPlafond = makeMockKv()
+const statuts = []
+for (let i = 1; i <= 21; i++)
+  statuts.push(await statut(kvPlafond, `198.51.100.${i}`))
+if (statuts.slice(0, 20).some((s) => s !== 200) || statuts[20] !== 429)
+  fail(
+    `handleFeedback : 20 messages par heure toutes adresses confondues, puis 429 (${statuts})`,
+  )
+
+console.log("✓ robustesse des routes et anti-rafale OK")
+
+// --- TTL des profils (cf. touchProfile) --------------------------------------
+
+const jours = (n) => new Date(Date.now() - n * 86_400_000).toISOString()
+const profilAvec = (updatedAt) =>
+  JSON.stringify({
+    prefs: { listes: ["Liste 01"] },
+    subscription: null,
+    updatedAt,
+  })
+const icsAvec = async (kv, token) => {
+  const enAttente = []
+  const res = await avecFetch(
+    async () => new Response(ics, { status: 200 }),
+    () =>
+      worker.fetch(
+        new Request(`https://worker.example/planning.ics?profile=${token}`),
+        { NOTIF_PROFILES: kv },
+        { waitUntil: (p) => enAttente.push(p) },
+      ),
+  )
+  await Promise.all(enAttente)
+  return res
+}
+const kvTtl = makeMockKv({
+  "profile:ancien": profilAvec(jours(40)),
+  "profile:recent": profilAvec(jours(2)),
+})
+const resIcs = await icsAvec(kvTtl, "ancien")
+if (
+  count(await resIcs.text()) !==
+  planning.events.filter((e) => e.liste === "Liste 01").length
+)
+  fail("handleIcs : le profil doit toujours filtrer le calendrier")
+if (kvTtl.ttls.get("profile:ancien") !== PROFILE_TTL_SECONDS)
+  fail("handleIcs : un profil vieux de plus de 30 j doit voir son TTL reposé")
+const relu = await kvTtl.get("profile:ancien", "json")
+if (
+  relu.prefs.listes[0] !== "Liste 01" ||
+  Date.now() - Date.parse(relu.updatedAt) > 60_000
+)
+  fail(
+    "handleIcs : le profil reposé doit garder ses Réglages, daté de maintenant",
+  )
+await icsAvec(kvTtl, "recent")
+if (kvTtl.ttls.has("profile:recent"))
+  fail("handleIcs : un profil récent ne doit pas être réécrit à chaque lecture")
+
+console.log("✓ TTL des profils OK")
+
+// --- Cron des notifications push (cf. runScheduled, sendPush) ----------------
+
+const b64url = (bytes) => Buffer.from(bytes).toString("base64url")
+const vapidKeys = await crypto.subtle.generateKey(
+  { name: "ECDSA", namedCurve: "P-256" },
+  true,
+  ["sign"],
+)
+const profil = async (endpoint) => {
+  const keys = await crypto.subtle.generateKey(
+    { name: "ECDH", namedCurve: "P-256" },
+    true,
+    ["deriveBits"],
+  )
+  const subscription = {
+    endpoint,
+    keys: {
+      p256dh: b64url(await crypto.subtle.exportKey("raw", keys.publicKey)),
+      auth: b64url(crypto.getRandomValues(new Uint8Array(16))),
+    },
+  }
+  return JSON.stringify({ prefs: {}, subscription })
+}
+
+const kvPush = makeMockKv({
+  cursor: "2099-01-01T00:00:00.000Z",
+  "profile:a": await profil("https://push.example/a"),
+  "profile:b": await profil("https://push.example/b"),
+  "profile:c": await profil("https://push.example/c"),
+  "profile:d": await profil("https://push.example/d"),
+})
+kvPush.failing.add("profile:b")
+const envPush = {
+  NOTIF_PROFILES: kvPush,
+  VAPID_SUBJECT: "contact@example.org",
+  VAPID_PUBLIC_KEY: b64url(
+    await crypto.subtle.exportKey("raw", vapidKeys.publicKey),
+  ),
+  VAPID_PRIVATE_KEY: (
+    await crypto.subtle.exportKey("jwk", vapidKeys.privateKey)
+  ).d,
+}
+const nouveau = {
+  uid: "n1",
+  start: "2099-03-01T20:00",
+  end: "2099-03-01T22:00",
+  liste: "Liste 01",
+  activity: "concert",
+  category: "concert",
+  location: "Victoria Hall",
+  cancelled: false,
+}
+const changes = {
+  entries: [
+    {
+      at: "2099-01-02T00:00:00.000Z",
+      added: [nouveau],
+      removed: [],
+      modified: [],
+    },
+  ],
+}
+// Réponses successives de chaque service push (la dernière se répète).
+const reponsesPush = { a: [201], c: [503, 201], d: [410] }
+const envois = []
+const cycle = () =>
+  avecFetch(
+    async (url, init) => {
+      if (url.endsWith("/changes.json")) return Response.json(changes)
+      if (url.endsWith("/planning.json"))
+        return Response.json({ events: [nouveau] })
+      const id = url.split("/").at(-1)
+      envois.push({ id, ttl: init.headers.ttl })
+      const file = reponsesPush[id]
+      const status = file.length > 1 ? file.shift() : file[0]
+      return new Response(null, {
+        status,
+        headers: status === 503 ? { "retry-after": "0" } : {},
+      })
+    },
+    () => runScheduled(envPush),
+  )
+await cycle()
+const parAbonne = (id) => envois.filter((e) => e.id === id).length
+if (parAbonne("a") !== 1 || parAbonne("d") !== 1)
+  fail(`cron push : un envoi par abonné attendu (${JSON.stringify(envois)})`)
+if (parAbonne("c") !== 2) fail("cron push : un 503 doit être retenté une fois")
+if (envois.some((e) => e.ttl !== "86400"))
+  fail("cron push : la notification doit rester valable 24 h (TTL)")
+if ((await kvPush.get("cursor")) !== "2099-01-02T00:00:00.000Z")
+  fail("cron push : le curseur doit avancer malgré un profil illisible")
+const statsPush = await kvPush.get("push-stats:last", "json")
+if (
+  statsPush?.attempted !== 4 ||
+  statsPush.sent !== 2 ||
+  statsPush.expired !== 1 ||
+  statsPush.failed !== 1
+)
+  fail(`cron push : verdicts inattendus (${JSON.stringify(statsPush)})`)
+const purge = await kvPush.get("profile:d", "json")
+if (
+  purge.subscription !== null ||
+  kvPush.ttls.get("profile:d") !== PROFILE_TTL_SECONDS
+)
+  fail("cron push : l'abonnement expiré doit être effacé, TTL du profil gardé")
+if (kvPush.ttls.get("profile:a") !== PROFILE_TTL_SECONDS)
+  fail("cron push : une notification acceptée doit reposer le TTL du profil")
+
+// Cycle suivant, sans nouveau changement : aucune notification fantôme.
+kvPush.failing.clear()
+const avantFantome = envois.length
+await cycle()
+if (envois.length !== avantFantome)
+  fail("cron push : un changement déjà traité ne doit jamais être renvoyé")
+
+console.log("✓ cron des notifications push OK")

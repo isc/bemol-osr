@@ -178,6 +178,18 @@ if (
     "showNoOrchestra désactivé : un service avec orchestre ET chœur devrait toujours matcher",
   )
 
+// Liste 16, 20/11/2026 : « raccord (chœur + orch.) » réunit les deux, sans
+// le mot « avec » : il était masqué comme un chœur seul (retour du 18/10).
+if (
+  !eventMatchesPrefs(event({ activity: "raccord (chœur + orch.)" }), {
+    ...DEFAULT_PREFS,
+    showNoOrchestra: false,
+  })
+)
+  fail(
+    "showNoOrchestra désactivé : « raccord (chœur + orch.) » réunit orchestre et chœur, il devrait matcher",
+  )
+
 // --- anti-bruit : planning ---------------------------------------------------
 
 const planningEntry = (over = {}) => ({
