@@ -14,7 +14,12 @@
 //   - Ressources statiques (app.js, style.css, icônes, manifeste) → cache
 //     immédiat puis rafraîchissement en tâche de fond. Ces fichiers sont
 //     versionnés par « ?v=… » dans index.html : un changement de version = une
-//     nouvelle URL = un nouveau téléchargement automatique.
+//     nouvelle URL = un nouveau téléchargement automatique. Le cache ne garde
+//     que la dernière version de chaque fichier.
+//
+// Seule une réponse valide (200) entre en cache : pendant un build GitHub
+// Pages bloqué, la page répond 404 un moment, et cette 404 remplaçait la page
+// en cache, que l'app installée affichait ensuite même hors-ligne.
 //
 // Incrémenter CACHE_VERSION pour purger entièrement les caches d'une ancienne
 // version (rarement nécessaire, le versionnage par URL suffit en général).
@@ -23,8 +28,9 @@ const CACHE_VERSION = "v1"
 const CACHE = `bemol-${CACHE_VERSION}`
 
 // Fichiers pré-chargés dès l'installation pour un premier lancement hors-ligne.
-// app.js / style.css sont mis en cache au premier passage en ligne (leur URL
-// porte un ?v=… qu'on ne veut pas figer ici).
+// app.js / style.css (dont l'URL porte un ?v=… qu'on ne veut pas figer ici) et
+// les données, déjà chargés par la page à sa première visite, sont mis en
+// cache à sa demande (message « cache-urls », cf. app.js).
 const PRECACHE = [
   "./",
   "./index.html",
@@ -73,48 +79,61 @@ self.addEventListener("fetch", (event) => {
   // compare la version publiée à celle affichée) : on ne s'interpose pas.
   if (req.cache === "no-cache") return
 
-  if (/\.json$/.test(url.pathname)) {
-    event.respondWith(dataHandler(req, url))
+  if (isData(url)) {
+    event.respondWith(networkFirst(req, cacheKey(url)))
     return
   }
 
   event.respondWith(staleWhileRevalidate(req))
 })
 
+const isData = (url) => /\.json$/.test(url.pathname)
+
+// Clé de cache d'une URL. Les données sont rangées sans query string, pour ne
+// pas multiplier les copies à cause du « ?t=… » anti-cache d'app.js.
+function cacheKey(url) {
+  return isData(url) ? url.origin + url.pathname : url.href
+}
+
+// Met une réponse en cache sous `key`. Pour un fichier versionné (« ?v=… »
+// d'app.js et de style.css, changé à chaque déploiement), on retire les autres
+// versions : le cache gagnait sinon ~220 Ko par déploiement.
+async function cachePut(cache, key, resp) {
+  if (new URL(key, self.location.href).searchParams.has("v"))
+    await cache.delete(key, { ignoreSearch: true })
+  return cache.put(key, resp)
+}
+
 // Navigation : réseau d'abord, repli sur la page en cache. « no-cache » fait
 // revalider la page auprès du serveur : GitHub Pages la sert avec
 // « max-age=600 », et sans cela le cache HTTP du navigateur renvoyait jusqu'à
 // 10 minutes l'ancienne page (donc l'ancien app.js) après une mise à jour.
-async function navigationHandler(req) {
-  const cache = await caches.open(CACHE)
-  try {
-    const resp = await fetch(req, { cache: "no-cache" })
-    cache.put(req, resp.clone())
-    return resp
-  } catch {
-    return (
-      (await cache.match(req)) ||
-      (await cache.match("./index.html")) ||
-      (await cache.match("./")) ||
-      Response.error()
-    )
-  }
+function navigationHandler(req) {
+  return networkFirst(req, req.url, ["./index.html", "./"], {
+    cache: "no-cache",
+  })
 }
 
-// Données : réseau d'abord, repli sur la dernière copie. Clé normalisée sans
-// query string pour ne pas multiplier les copies à cause du « ?t=… ».
-async function dataHandler(req, url) {
+// Réseau d'abord : une réponse valide est mise en cache et servie ; sinon
+// (hors-ligne, ou 404/5xx), la dernière copie valide (sous `key`, puis sous
+// `fallbackKeys`), et l'erreur du serveur seulement en dernier recours.
+async function networkFirst(req, key, fallbackKeys = [], init) {
   const cache = await caches.open(CACHE)
-  const key = url.origin + url.pathname
+  let resp
   try {
-    const resp = await fetch(req)
-    if (resp.ok) cache.put(key, resp.clone())
-    return resp
+    resp = await fetch(req, init)
+    if (resp.ok) {
+      cachePut(cache, key, resp.clone())
+      return resp
+    }
   } catch {
-    const cached = await cache.match(key)
-    if (cached) return cached
-    return Response.error()
+    // hors-ligne : repli ci-dessous
   }
+  for (const k of [key, ...fallbackKeys]) {
+    const cached = await cache.match(k)
+    if (cached) return cached
+  }
+  return resp || Response.error()
 }
 
 // Ressources statiques : on sert le cache tout de suite et on rafraîchit après.
@@ -123,11 +142,38 @@ async function staleWhileRevalidate(req) {
   const cached = await cache.match(req)
   const network = fetch(req)
     .then((resp) => {
-      if (resp.ok) cache.put(req, resp.clone())
+      if (resp.ok) cachePut(cache, req.url, resp.clone())
       return resp
     })
     .catch(() => cached)
   return cached || network
+}
+
+// Première visite : la page s'est chargée avant que le service worker ne la
+// contrôle, donc sans rien mettre en cache hormis PRECACHE. Le premier
+// lancement hors-ligne restait blanc (ni app.js?v=…, ni style.css, ni
+// données). La page envoie donc les adresses de ce qu'elle a chargé, que l'on
+// range comme si on les avait servies ; le cache HTTP du navigateur les fournit
+// sans second téléchargement.
+self.addEventListener("message", (event) => {
+  if (event.data?.type !== "cache-urls") return
+  event.waitUntil(cacheUrls(event.data.urls))
+})
+
+async function cacheUrls(urls) {
+  const cache = await caches.open(CACHE)
+  await Promise.all(
+    urls.map(async (u) => {
+      const url = new URL(u)
+      if (!url.href.startsWith(self.registration.scope)) return
+      try {
+        const resp = await fetch(url)
+        if (resp.ok) await cachePut(cache, cacheKey(url), resp)
+      } catch {
+        // hors-ligne entre-temps : ce sera pour le prochain passage
+      }
+    }),
+  )
 }
 
 // --- Notifications push ------------------------------------------------------
@@ -155,21 +201,23 @@ self.addEventListener("push", (event) => {
 })
 
 // Un clic ramène sur un onglet déjà ouvert de l'app (et le navigue vers le
-// lien profond) plutôt que d'en ouvrir un nouveau à chaque fois.
+// lien profond) plutôt que d'en ouvrir un nouveau à chaque fois. Seulement un
+// onglet que ce service worker contrôle : isc.github.io sert aussi d'autres
+// apps et les previews, et navigate() refuse leurs onglets (rien ne s'ouvrait
+// alors). À défaut, on en ouvre un nouveau.
 self.addEventListener("notificationclick", (event) => {
   event.notification.close()
   const url = new URL(event.notification.data?.url || "./", self.location.href)
     .href
   event.waitUntil(
     (async () => {
-      const clientsList = await self.clients.matchAll({
-        type: "window",
-        includeUncontrolled: true,
-      })
-      for (const client of clientsList) {
-        if (new URL(client.url).origin !== new URL(url).origin) continue
-        await client.navigate(url)
-        return client.focus()
+      for (const client of await self.clients.matchAll({ type: "window" })) {
+        try {
+          await client.navigate(url)
+          return client.focus()
+        } catch {
+          // onglet en train de se fermer… : au suivant
+        }
       }
       return self.clients.openWindow(url)
     })(),
