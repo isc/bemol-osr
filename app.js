@@ -151,7 +151,7 @@ const state = {
   events: [],
   changes: [],
   modifsFilter: null,
-  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -1297,6 +1297,7 @@ function historyDetail(uid) {
 const WORK_FIELDS = [
   ["instrumentation", "Instrumentation"],
   ["remarques", "Remarques"],
+  ["remarquesCordes", "Remarques cordes"],
   ["percussions", "Percussions"],
   ["claviers", "Claviers"],
   ["extra", "Extra"],
