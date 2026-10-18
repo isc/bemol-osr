@@ -81,7 +81,7 @@ const SCORE_PORTAL_URL = "https://osr.opas-online.com/documents.php"
 // --- Formatage ICS ----------------------------------------------------------
 
 // Échappe une valeur texte pour une propriété ICS (RFC 5545 §3.3.11).
-const escapeText = (s) =>
+export const escapeText = (s) =>
   String(s ?? "")
     .replace(/\\/g, "\\\\")
     .replace(/;/g, "\\;")
@@ -90,7 +90,7 @@ const escapeText = (s) =>
 
 // Plie une ligne de contenu à 75 octets (RFC 5545 §3.1), sans couper un
 // caractère UTF-8 multi-octets : les lignes suivantes commencent par une espace.
-function fold(line) {
+export function fold(line) {
   const bytes = Buffer.from(line, "utf8")
   if (bytes.length <= 75) return line
   const out = []

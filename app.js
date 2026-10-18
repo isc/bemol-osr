@@ -67,15 +67,18 @@ function listeColorClass(liste) {
 //   d'orchestre (issue #169) ;
 // - une activité qui mentionne le chœur sans mentionner l'orchestre qui
 //   l'accompagnerait (« musicale choeur », « raccord choeur seul ») : à
-//   distinguer d'un service qui réunit orchestre et chœur, toujours formulé
-//   « (répétition/session) avec choeur(s) » (issue #169).
+//   distinguer d'un service qui réunit orchestre et chœur, formulé
+//   « (répétition/session) avec choeur(s) » (issue #169) ou
+//   « raccord (chœur + orch.) ».
+// Reprise par le worker (worker/src/notify.js) ; worker/test.mjs vérifie que
+// les deux classent pareil chaque service du planning.
 function isNoOrchestra(e) {
   const a = e.activity
   return (
     /sans orch(estre|\.|,)|sans osr/i.test(a) ||
     /générale piano/i.test(a) ||
     /technique/i.test(a) ||
-    (/choeur|chœur/i.test(a) && !/avec/i.test(a))
+    (/choeur|chœur/i.test(a) && !/avec|orch/i.test(a))
   )
 }
 
@@ -3336,15 +3339,51 @@ let syncProfileTimer = null
 // lien/l'état affiché dépend de ce profil).
 function syncProfile(body = { prefs: prefsPayload() }, immediate = false) {
   if (!workerOrigin()) return
-  const send = () =>
-    fetch(`${workerOrigin()}/profile/${profileToken()}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(body),
-    }).catch(() => {})
+  const send = () => putProfile(JSON.stringify(body))
   clearTimeout(syncProfileTimer)
   if (immediate) send()
   else syncProfileTimer = setTimeout(send, 800)
+}
+
+// PUT du profil au worker ; résout à true s'il l'a accepté, jamais d'erreur.
+function putProfile(json) {
+  return fetch(`${workerOrigin()}/profile/${profileToken()}`, {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: json,
+  }).then(
+    (res) => res.ok,
+    () => false,
+  )
+}
+
+// Au lancement, renvoie au worker le profil complet de cet appareil
+// (Réglages et abonnement push actuel) s'il a changé depuis le dernier envoi
+// réussi, et sinon une fois par mois pour reposer son TTL (cf. touchProfile
+// du worker). Sans ça, un PUT d'activation perdu (réseau) n'était jamais
+// renvoyé, et un profil expiré ne retrouvait jamais son abonnement push.
+async function syncProfileAtLaunch() {
+  if (!workerOrigin() || !localStorage.getItem("bemol-profile-token")) return
+  const body = { prefs: prefsPayload() }
+  try {
+    const reg = await navigator.serviceWorker?.getRegistration()
+    const sub = await reg?.pushManager?.getSubscription()
+    if (sub) body.subscription = sub.toJSON()
+  } catch {
+    // pas de service worker ou de push : on envoie les seuls Réglages
+  }
+  const json = JSON.stringify(body)
+  let last = null
+  try {
+    last = JSON.parse(localStorage.getItem("bemol-profile-sync"))
+  } catch {}
+  if (last?.json === json && Date.now() - last.at < 30 * 24 * 3600 * 1000)
+    return
+  if (await putProfile(json))
+    localStorage.setItem(
+      "bemol-profile-sync",
+      JSON.stringify({ at: Date.now(), json }),
+    )
 }
 
 // URL d'abonnement personnalisée qui suit les Réglages actuels dans la durée
@@ -4219,6 +4258,7 @@ async function init() {
   const storedView = localStorage.getItem("bemol-view")
   setView(storedView === "agenda" ? "grille" : storedView || "grille")
   syncListeFromHash()
+  syncProfileAtLaunch()
 }
 
 init()
