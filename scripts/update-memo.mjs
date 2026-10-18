@@ -22,6 +22,7 @@
 
 import { readFileSync, writeFileSync, existsSync, mkdtempSync } from "node:fs"
 import { execFileSync } from "node:child_process"
+import { createHash } from "node:crypto"
 import { tmpdir } from "node:os"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -35,13 +36,18 @@ const changesPath = join(root, "data", "changes.json")
 // les changements de planning et de mémo, tous soumis à la même limite.
 const MAX_CHANGE_ENTRIES = 300
 
-// Version du parseur, écrite dans productions.json (`_version`). À incrémenter
-// à chaque correction du parseur qui change ce qu'il lit d'un même mémo : le
-// premier passage avec la nouvelle version réécrit productions.json SANS
-// journaliser l'écart dans changes.json. Sinon, chaque correction partait en
-// rafale de notifications « programme modifié » (œuvres renommées vues comme
-// retirées puis ajoutées) alors que le mémo, lui, n'avait pas bougé.
-const PARSER_VERSION = 2
+// Empreinte du parseur (ce script), écrite dans productions.json (`_parseur`).
+// Le premier passage d'un script modifié réécrit productions.json SANS
+// journaliser l'écart dans changes.json : une correction du parseur change ce
+// qu'il lit d'un même mémo (œuvres renommées vues comme retirées puis
+// ajoutées), et partait sinon en rafale de notifications « programme modifié »
+// alors que le mémo, lui, n'avait pas bougé. Une empreinte plutôt qu'un numéro
+// de version à incrémenter : rien à oublier. Revers : un vrai changement du
+// mémo survenu la même nuit n'est pas notifié (il est bien affiché).
+const PARSER_HASH = createHash("sha1")
+  .update(readFileSync(fileURLToPath(import.meta.url)))
+  .digest("hex")
+  .slice(0, 12)
 
 const CHDOC = "https://chdocuments.diesesoftware.com"
 const OSR = "https://osr.diesesoftware.com"
@@ -439,7 +445,9 @@ function parseSection(body, numbers) {
     if (
       sol &&
       (NAME_LIKE(sol[1]) ||
-        (/^\p{Ll}+$/u.test(sol[2]) && ROLE_WORDS.test(sol[2])))
+        (!inContinuableField &&
+          /^\p{Ll}+$/u.test(sol[2]) &&
+          ROLE_WORDS.test(sol[2])))
     ) {
       // lignes de production (mise en scène, texte, vidéo…) : ni soliste ni titre
       if (NONSOLIST_ROLES.test(sol[2])) continue
@@ -806,9 +814,7 @@ function parseWorkNumbering(layoutText, knownListes) {
     // la grande marge de colonne ; sans compositeur (entracte, arrangement
     // sans compositeur nommé…), c'est le titre lui-même qui suit directement,
     // au travers de cette même grande marge.
-    // Un saut de page (\f) peut précéder le numéro en tête de la première
-    // ligne d'une page (Liste 21 : « \f14 Richard STRAUSS »).
-    const m = line.match(/^\f?(\d+)\s+\S/)
+    const m = line.match(/^(\d+)\s+\S/)
     if (m) pending = parseInt(m[1], 10)
   }
   flush()
@@ -938,18 +944,27 @@ const textArg = process.argv[2]
 // tableau des services (issue #110) reste vide et les compositeurs sont
 // appariés aux œuvres dans l'ordre du document (cf. parseSection).
 const layoutArg = process.argv[3]
-const { text: memoText, layoutText } = textArg
+const { text: memoText, layoutText: rawLayoutText } = textArg
   ? {
       text: readFileSync(textArg, "utf8"),
       layoutText: layoutArg ? readFileSync(layoutArg, "utf8") : null,
     }
   : await generateMemoPdfText()
+// Le saut de page (\f) collé en tête de la première ligne de chaque page fait
+// rater les regex ancrées en début de ligne (Liste 21 : « \f14 Richard
+// STRAUSS », n° d'œuvre manqué) : retiré une fois pour toutes.
+const layoutText = rawLayoutText?.replaceAll("\f", "")
 
 const planningEvents = JSON.parse(readFileSync(planningPath, "utf8")).events
 const knownListes = new Set(planningEvents.map((e) => e.liste))
 
 const numbering = layoutText ? parseWorkNumbering(layoutText, knownListes) : {}
 const parsed = parseMemoText(memoText, knownListes, numbering)
+for (const [liste, prod] of Object.entries(parsed))
+  if (numbering[liste] && !workPositions(numbering[liste], prod.works.length))
+    console.warn(
+      `${liste} : numérotation -layout incohérente avec les ${prod.works.length} œuvres lues — compositeurs appariés dans l'ordre, pas d'œuvres par service.`,
+    )
 
 if (layoutText) {
   const serviceTables = parseServiceTables(layoutText, knownListes)
@@ -977,8 +992,8 @@ const previous = existsSync(productionsPath)
   ? JSON.parse(readFileSync(productionsPath, "utf8"))
   : {}
 const output = {
-  _version: PARSER_VERSION,
-  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _version » : version du parseur, cf. PARSER_VERSION dans le script).`,
+  _parseur: PARSER_HASH,
+  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).`,
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
@@ -1003,12 +1018,12 @@ console.log(
 // Journalise les évolutions du mémo dans data/changes.json (type « memo »,
 // distinct des changements de planning), sauf à l'initialisation (aucune
 // version précédente réelle : tout apparaîtrait comme « ajouté ») et au
-// premier passage d'une nouvelle version du parseur (cf. PARSER_VERSION).
+// premier passage d'une nouvelle version du parseur (cf. PARSER_HASH).
 const hadPrevious = Object.keys(previous).some((k) => !k.startsWith("_"))
-const sameParser = previous._version === PARSER_VERSION
+const sameParser = previous._parseur === PARSER_HASH
 if (hadPrevious && !sameParser)
   console.log(
-    `Parseur passé de la version ${previous._version ?? 1} à ${PARSER_VERSION} : écart non journalisé.`,
+    `Parseur modifié (${previous._parseur ?? "sans empreinte"} → ${PARSER_HASH}) : écart non journalisé.`,
   )
 if (hadPrevious && sameParser) {
   const programs = diffMemo(previous, output)
