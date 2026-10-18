@@ -846,11 +846,13 @@ table.week td.repos:not(.today) {
    case par type, même couleur que le fond des .change-item ci-dessus. Sticky
    comme .view-toolbar plus haut (retour #182 : rester visible en défilant
    dans la liste, pas seulement en haut de page). */
-/* Pastilles de filtre, sur une ligne qui défile au besoin. */
+/* Pastilles de filtre, renvoyées à la ligne au besoin (#252) : toutes
+   visibles d'un coup d'œil, plutôt qu'une ligne qu'il fallait faire défiler
+   vers la droite pour découvrir les dernières. */
 .modifs-legend {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  overflow-x: auto;
   margin: calc(-1 * var(--main-pad-top)) calc(-1 * var(--main-pad-x)) 12px;
   padding: 8px 12px;
   position: sticky;
