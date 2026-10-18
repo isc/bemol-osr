@@ -9,8 +9,8 @@
 //          (par défaut : ./screenshots, « app »)
 // Prérequis : `npm install --no-save playwright` (comme le smoke test).
 //
-// Voir la section « Captures d'écran dans les PRs » de CLAUDE.md pour la
-// publication sur la branche `pr-assets` et l'intégration en description.
+// Voir la section « Captures d'écran dans les PRs » de CLAUDE.md pour leur
+// intégration en description.
 
 import { createServer } from "node:http"
 import { mkdirSync } from "node:fs"
