@@ -66,7 +66,8 @@ jobs:
           #
           # --max-turns : c'est le job le plus lourd du dépôt (implémenter, puis
           # tout le rituel de CLAUDE.md — captures Playwright, worktree
-          # pr-assets, pr-images-check —, puis PR, puis commentaire). Le run de
+          # pr-assets, pr-images-check —, puis PR, puis commentaire ; `gh
+          # --attach` refuse le jeton de l'app, cf. CLAUDE.md). Le run de
           # l'issue #83 a atteint le plafond de 100 tours APRÈS avoir créé la PR
           # #84 mais AVANT d'en poster le lien sur l'issue : run rouge et
           # demandeur laissé sans réponse, alors que le travail était fait. Les
