@@ -4221,7 +4221,7 @@ async function init() {
   syncListeFromHash()
 }
 
-init()
+const appStarted = init()
 
 // Voir la définition de refreshData() : on force un rechargement des données
 // dès que l'app repasse au premier plan (écran rallumé, retour depuis une
@@ -4246,8 +4246,24 @@ window.addEventListener("appinstalled", () => {
 // Service worker : rend l'app installable et consultable hors-ligne.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
+    // Première visite : la page s'est chargée sans lui, donc rien de ce
+    // qu'elle a chargé (app.js?v=…, style.css, données) n'est en cache. Une
+    // fois les données arrivées, on lui en envoie les adresses, pour qu'un
+    // premier lancement hors-ligne ne soit pas une page blanche (cf.
+    // « cache-urls » dans sw.js).
+    const firstVisit = !navigator.serviceWorker.controller
     navigator.serviceWorker.register("sw.js").catch((err) => {
       console.warn("Service worker non enregistré :", err)
     })
+    if (firstVisit)
+      Promise.all([navigator.serviceWorker.ready, appStarted]).then(([reg]) =>
+        reg.active?.postMessage({
+          type: "cache-urls",
+          urls: performance
+            .getEntriesByType("resource")
+            .map((r) => r.name)
+            .filter((u) => u.startsWith(location.origin)),
+        }),
+      )
   })
 }
