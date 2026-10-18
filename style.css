@@ -2492,20 +2492,28 @@ a.fact strong {
   color: var(--accent);
 }
 
-.contraires-callout {
+.contraires-callout,
+.identique-callout,
+.detail-gone {
   margin: 0 0 12px;
   padding: 8px 12px;
   border-radius: 10px;
-  background: var(--danger-soft);
   font-weight: 600;
 }
 
+.contraires-callout {
+  background: var(--danger-soft);
+}
+
 .identique-callout {
-  margin: 0 0 12px;
-  padding: 8px 12px;
-  border-radius: 10px;
   background: var(--change-modified-soft);
-  font-weight: 600;
+}
+
+/* Service ouvert depuis la vue Modifs, supprimé du planning depuis le relevé :
+   cerné plutôt que surligné, pour ne pas le confondre avec les contraires. */
+.detail-gone {
+  border: 1px solid var(--danger);
+  color: var(--danger);
 }
 
 .detail-actions {

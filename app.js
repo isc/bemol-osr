@@ -82,11 +82,14 @@ function isNoOrchestra(e) {
   )
 }
 
-// Abréviations de lieux, du plus spécifique au plus générique
+// Abréviations de lieux, du plus spécifique au plus générique. Comparées en
+// forme canonique (cf. canonicalLocation) : « UM - Salle Marie LAGGÉ » couvre
+// aussi « ML - grande salle (st. A, B & P) », nouveau nom Dièse de la salle.
 const LOCATION_SHORT = [
   ["Victoria Hall", "VH"],
   ["UM - Salle Marie LAGGÉ", "UM-ML"],
   ["UM - Studio", "UM-St."],
+  ["ML - Tous les espaces", "UM"],
   ["Grand Théâtre - fosse", "GTG fosse"],
   ["Grand Théâtre de Genève", "GTG"],
   ["Grand Théâtre", "GTG"],
@@ -155,6 +158,7 @@ const state = {
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
+  seasonListes: new Set(), // noms des Listes de la saison (cf. loadData)
   view: null,
   paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
   recentUids: new Map(), // uid → date du dernier changement récent
@@ -217,16 +221,21 @@ function loadPrefs() {
   }
 }
 
-function savePrefs() {
+function storePrefs() {
   localStorage.setItem("bemol-prefs", JSON.stringify(state.prefs))
+}
+
+function savePrefs() {
+  storePrefs()
   syncProfile()
 }
 
 // --- Mode sombre -------------------------------------------------------------
 // "auto" suit la préférence système ; sinon la préférence utilisateur force le
 // thème. Les couleurs réelles sont définies en CSS (variables, cf. style.css) ;
-// ici on ne fait que poser l'attribut data-theme et assortir la couleur de la
-// barre d'état PWA (meta theme-color), qui elle ne peut pas être pilotée en CSS.
+// ici on ne fait que poser l'attribut data-theme. La barre d'état PWA (meta
+// theme-color d'index.html) reste à la couleur de l'en-tête, invariante par
+// thème.
 const prefersDarkMedia = window.matchMedia("(prefers-color-scheme: dark)")
 
 function isDarkTheme() {
@@ -236,10 +245,7 @@ function isDarkTheme() {
 }
 
 function applyTheme() {
-  const dark = isDarkTheme()
-  document.documentElement.dataset.theme = dark ? "dark" : "light"
-  const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute("content", dark ? "#1e2328" : "#2c5f8a")
+  document.documentElement.dataset.theme = isDarkTheme() ? "dark" : "light"
 }
 
 applyTheme()
@@ -249,8 +255,10 @@ prefersDarkMedia.addEventListener("change", () => {
 
 // --- Utilitaires dates -----------------------------------------------------
 
-// Les dates du JSON sont des chaînes locales "2026-08-13T21:15"
-const parseDate = (s) => new Date(s)
+// Les dates du JSON sont des chaînes locales "2026-08-13T21:15". Un jour seul
+// ("2026-10-17", vacances scolaires) se lirait à minuit UTC, donc la veille à
+// l'ouest de Greenwich : on le prend à minuit local.
+const parseDate = (s) => new Date(s.length === 10 ? `${s}T00:00` : s)
 
 function localKey(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`
@@ -296,16 +304,51 @@ function fmtTime(s) {
   return s && s.includes("T") ? s.slice(11) : ""
 }
 
+// « 20:05 » : heure locale d'une Date.
+function fmtClock(d) {
+  return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
+}
+
+// Instant UTC (« 2026-10-15T18:00:55Z » : updatedAt, date d'un relevé) en
+// date et heure locales. Le couper à 16 caractères en retirerait le Z : l'heure
+// UTC se lirait alors comme une heure de Genève (deux heures de moins l'été).
+function fmtInstant(iso, withTime = true) {
+  const d = new Date(iso)
+  return withTime ? `${fmtDay(d, true)} ${fmtClock(d)}` : fmtDay(d, true)
+}
+
 function fmtDateStr(s, withTime = true) {
   const d = parseDate(s)
   const base = fmtDay(d, true)
   return withTime && s.includes("T") ? `${base} ${fmtTime(s)}` : base
 }
 
+const LOCATION_SHORT_KEYS = LOCATION_SHORT.map(([full, short]) => [
+  canonicalLocation(full),
+  short,
+])
+
+// Les studios d'Uni Mail gardent leur lettre (« UM-St. B »), et la grande
+// salle les studios qui lui sont adjoints (« UM-ML +St. ABP ») : sur une même
+// Liste, les partielles se répartissent entre studios (retour sur #247).
+function uniMailStudios(key) {
+  const studio = key.match(/^ml - studio ([a-z])\b/)
+  if (studio) return `UM-St. ${studio[1].toUpperCase()}`
+  const extra = key.match(
+    /^ml - grande salle \(\+? ?(?:st\.|studios) ([a-z, &]+)\)/,
+  )
+  if (extra)
+    return `UM-ML +St. ${extra[1].replace(/[^a-z]/g, "").toUpperCase()}`
+  return null
+}
+
 function shortLocation(loc) {
   if (!loc) return ""
-  for (const [full, short] of LOCATION_SHORT)
-    if (loc.includes(full)) return short
+  const key = canonicalLocation(loc)
+  const studios = uniMailStudios(key)
+  if (studios) return studios
+  for (const [full, short] of LOCATION_SHORT_KEYS)
+    if (key.includes(full)) return short
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
 }
 
@@ -348,13 +391,18 @@ function shortListe(liste) {
 }
 
 // Normalise une chaîne pour la recherche : insensible à la casse et aux
-// accents (« dvorak » retrouve « Dvořák »).
+// accents (« dvorak » retrouve « Dvořák »), aux ligatures (« choeur »
+// retrouve « Chœur ») et à la forme de l'apostrophe (le mémo écrit « Les
+// Nuits d’été », un clavier tape « d'été »).
 function normalizeSearch(s) {
   return (s || "")
     .toString()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
+    .replace(/[’‘]/g, "'")
+    .replace(/œ/g, "oe")
+    .replace(/æ/g, "ae")
     .trim()
 }
 
@@ -633,7 +681,20 @@ async function loadData() {
   state.changes = changes.entries || []
   state.productions = productions || {}
   state.venues = venues || []
+  // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
+  // on l'adopte directement, sans sélecteur. Recalculée à chaque rechargement,
+  // pour l'app restée ouverte pendant la bascule d'août.
+  state.season = seasonsInData()[0]
+  // Jours fériés de la saison (elle chevauche deux années civiles)
+  state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
+  state.seasonListes = new Set(listesInSeason())
+  migrateListes()
 
+  // Marques « récent » recalculées de zéro : au retour au premier plan
+  // (refreshData), celles d'avant auraient gardé leur date et ne vieilliraient
+  // jamais.
+  state.recentUids.clear()
+  state.recentListes.clear()
   const cutoff = Date.now() - RECENT_DAYS * 86400e3
   for (const entry of state.changes) {
     if (new Date(entry.at).getTime() < cutoff) continue
@@ -766,17 +827,20 @@ async function checkAppUpdate() {
 const MIN_REFRESH_INTERVAL_MS = 60_000
 let lastDataLoad = 0
 let refreshing = false
+let initialized = false // init() allée jusqu'au bout (onglets branchés…)
 
 async function refreshData() {
   if (refreshing || Date.now() - lastDataLoad < MIN_REFRESH_INTERVAL_MS) return
   refreshing = true
   try {
+    // Premier chargement raté (hors-ligne au lancement) : init() s'était
+    // arrêté avant de brancher les onglets, on la relance en entier.
+    if (!initialized) return await init()
     await loadData()
     lastDataLoad = Date.now()
     render()
-    if (state.updatedAt)
-      document.getElementById("update-info").textContent =
-        `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
+    updatePeriodLabel()
+    showUpdateInfo()
   } catch (err) {
     console.warn("Rafraîchissement du planning impossible :", err)
   } finally {
@@ -784,10 +848,69 @@ async function refreshData() {
   }
 }
 
+function showUpdateInfo() {
+  if (state.updatedAt)
+    document.getElementById("update-info").textContent =
+      `Dernière évolution des données : ${fmtInstant(state.updatedAt)} · ${state.events.length} événements`
+}
+
 // --- Filtres ---------------------------------------------------------------
+
+// Le filtre « Mes Listes » retient des NOMS de Listes. Dièse en renomme
+// (14 renommages en août-septembre 2026 : « Concours Premir.ère… » devenu
+// « Premier.ère… »), et d'une saison à l'autre « Liste 04 » désigne une autre
+// production. Au chargement, on suit donc les renommages du journal et, à la
+// bascule de saison, on repart de zéro (toutes les Listes). Une sélection de
+// toutes les Listes (ancien bouton « Toutes ») revient aussi à zéro : sinon,
+// une Liste ajoutée ensuite resterait masquée.
+function migrateListes() {
+  const p = state.prefs
+  const known = state.seasonListes
+  if (!known.size) return
+  const renamed = new Map() // ancien nom → nouveau (relevé le plus récent)
+  for (const entry of state.changes)
+    if (entry.type !== "memo")
+      for (const { before, after } of entry.modified)
+        if (before.liste !== after.liste && !renamed.has(before.liste))
+          renamed.set(before.liste, after.liste)
+  const follow = (liste) => {
+    const seen = new Set()
+    while (!known.has(liste) && renamed.has(liste) && !seen.has(liste)) {
+      seen.add(liste)
+      liste = renamed.get(liste)
+    }
+    return liste
+  }
+  const newSeason = p.listesSeason != null && p.listesSeason !== state.season
+  let listes = newSeason ? [] : [...new Set(p.listes.map(follow))]
+  if ([...known].every((l) => listes.includes(l))) listes = []
+  // Services masqués d'une Liste (#144), rangés eux aussi par nom.
+  const hiddenActivities = newSeason
+    ? {}
+    : Object.fromEntries(
+        Object.entries(p.hiddenActivities).map(([l, a]) => [follow(l), a]),
+      )
+  const changed =
+    JSON.stringify([listes, hiddenActivities]) !==
+    JSON.stringify([p.listes, p.hiddenActivities])
+  if (!changed && p.listesSeason === state.season) return
+  Object.assign(p, { listes, hiddenActivities, listesSeason: state.season })
+  // Le seul tampon de saison ne concerne pas le worker.
+  if (changed) savePrefs()
+  else storePrefs()
+}
+
+// Listes cochées présentes dans la saison, pour l'agenda comme pour le worker.
+// Un nom disparu ne compte pas, sans quoi l'agenda se viderait (« 1 liste
+// cochée », aucune case cochée). Il reste enregistré : si la Liste revient
+// (export Dièse incomplet), elle est de nouveau cochée.
+function selectedListes() {
+  return state.prefs.listes.filter((l) => state.seasonListes.has(l))
+}
 
 function visibleEvents() {
   const p = state.prefs
+  const listes = selectedListes()
   return state.events.filter(
     (e) =>
       !p.hiddenCategories.includes(e.category) &&
@@ -795,7 +918,7 @@ function visibleEvents() {
       !isActivityHidden(p.hiddenActivities[e.liste], e.activity) &&
       (p.showNoOrchestra || !isNoOrchestra(e)) &&
       (p.showCancelled || !e.cancelled) &&
-      (!p.listes.length || p.listes.includes(e.liste)) &&
+      (!listes.length || listes.includes(e.liste)) &&
       seasonYear(parseDate(e.start)) === state.season,
   )
 }
@@ -996,16 +1119,15 @@ function eventChip(e, { showDate = false } = {}) {
 
 // Compositeurs d'une Liste (« DEBUSSY, RAVEL »), tirés des œuvres du mémo
 // (« Claude DEBUSSY — Pelléas et Mélisande… ») : de quoi reconnaître le
-// programme d'un coup d'œil en tête de fiche.
+// programme d'un coup d'œil en tête de fiche. Majuscules de tout l'Unicode
+// (« DVOŘÁK », pas « DVO ») ; un intitulé tout en capitales (« [DIVERS
+// COMPOSITEURS] », « PIÈCE(S) À DÉFINIR ») n'est pas un nom de compositeur.
 function composers(liste) {
   const names = ((state.productions[liste] || {}).works || [])
     .map((w) => (typeof w === "string" ? w : w.oeuvre) || "")
-    .map((t) =>
-      t
-        .split(" — ")[0]
-        .match(/[A-ZÀ-Ý][A-ZÀ-Ý'-]{2,}/g)
-        ?.at(-1),
-    )
+    .map((t) => t.split(" — ")[0])
+    .filter((head) => /\p{Ll}/u.test(head))
+    .map((head) => head.match(/\p{Lu}[\p{Lu}'’-]{2,}/gu)?.at(-1))
     .filter(Boolean)
   return [...new Set(names)].join(", ")
 }
@@ -1040,7 +1162,9 @@ function foldedSections(liste) {
     )
 }
 
-function showDetail(e) {
+// `gone` : service ouvert depuis un relevé de la vue Modifs, qui n'existe plus
+// au planning (cf. showChangedEvent).
+function showDetail(e, { gone = false } = {}) {
   const dlg = document.getElementById("detail-dialog")
   const box = document.getElementById("detail-content")
   const prod = state.productions[e.liste] || {}
@@ -1071,7 +1195,7 @@ function showDetail(e) {
             el(
               "span",
               { class: "recent-tag" },
-              `● modifié le ${fmtDateStr(recent.slice(0, 16), false)}`,
+              `● modifié le ${fmtInstant(recent, false)}`,
             ),
           ]
         : []),
@@ -1082,6 +1206,15 @@ function showDetail(e) {
       e.activity.charAt(0).toUpperCase() + e.activity.slice(1),
       e.cancelled ? " (annulé)" : "",
     ),
+    ...(gone
+      ? [
+          el(
+            "p",
+            { class: "detail-gone" },
+            "Ce service a été supprimé du planning depuis ce relevé.",
+          ),
+        ]
+      : []),
     ...(byline ? [el("p", { class: "detail-byline" }, byline)] : []),
     el(
       "div",
@@ -2416,7 +2549,7 @@ function changeLine(e) {
 // En-tête d'un relevé (date + heure), commun aux changements de planning et de mémo.
 function changeEntryHeading(at) {
   const d = new Date(at)
-  return `Relevé du ${fmtDay(d, true)} à ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`
+  return `Relevé du ${fmtDay(d, true)} à ${fmtClock(d)}`
 }
 
 // Un événement déjà terminé au moment de la consultation (fin avant
@@ -2487,6 +2620,14 @@ const MEMO_FIELD_LABELS = {
   solistes: "solistes",
 }
 
+// Un relevé garde l'événement tel qu'il était à ce moment-là : la fiche montre
+// le service tel qu'il est aujourd'hui (horaire, lieu…), ou cet instantané
+// avec une mention s'il a été supprimé depuis.
+function showChangedEvent(e) {
+  const current = state.events.find((x) => x.uid === e.uid)
+  showDetail(current || e, { gone: !current })
+}
+
 // Boîte d'un relevé de changements de planning (ajouts / modifs / suppressions).
 // Ne montre que les modifs significatives (issue #178, cf. significantFields),
 // écarte les services sans orchestre (#183) et les événements déjà passés
@@ -2514,7 +2655,11 @@ function planningEntryBox(entry) {
     box.append(
       el(
         "div",
-        { class: "change-item added", onclick: () => showDetail(e) },
+        {
+          class: "change-item added",
+          "data-kind": "added",
+          onclick: () => showChangedEvent(e),
+        },
         `➕ Ajouté : ${changeLine(e)}`,
       ),
     )
@@ -2529,7 +2674,8 @@ function planningEntryBox(entry) {
       "div",
       {
         class: `change-item modified${concoursDefini ? " concours-defini" : ""}`,
-        onclick: () => showDetail(m.after),
+        "data-kind": concoursDefini ? "concours-defini" : "modified",
+        onclick: () => showChangedEvent(m.after),
       },
       concoursDefini
         ? `🎯 Concours défini : ${changeLine(m.after)}`
@@ -2554,7 +2700,7 @@ function planningEntryBox(entry) {
     box.append(
       el(
         "div",
-        { class: "change-item removed" },
+        { class: "change-item removed", "data-kind": "removed" },
         `➖ Supprimé : ${changeLine(e)}`,
       ),
     )
@@ -2651,6 +2797,7 @@ function memoProgramItem(p) {
       "div",
       {
         class: "change-item memo added",
+        "data-kind": "memo",
         onclick: () => showListe(p.liste),
       },
       tag,
@@ -2661,6 +2808,7 @@ function memoProgramItem(p) {
       "div",
       {
         class: "change-item memo removed",
+        "data-kind": "memo",
         onclick: () => showListe(p.liste),
       },
       tag,
@@ -2669,7 +2817,11 @@ function memoProgramItem(p) {
 
   const item = el(
     "div",
-    { class: "change-item memo modified", onclick: () => showListe(p.liste) },
+    {
+      class: "change-item memo modified",
+      "data-kind": "memo",
+      onclick: () => showListe(p.liste),
+    },
     tag,
     ` ${p.liste}`,
   )
@@ -2740,13 +2892,6 @@ const MODIFS_LEGEND = [
   ["concours-defini", "Concours défini"],
 ]
 
-// Type d'un élément .change-item, au sens de la légende ci-dessus.
-function changeItemKind(item) {
-  for (const [cls] of MODIFS_LEGEND)
-    if (cls !== "modified" && item.classList.contains(cls)) return cls
-  return "modified"
-}
-
 // Filtre de la vue Modifs (demande #213) : un clic sur un type de la légende
 // n'affiche que ce type, un second clic le désactive. Volontairement non
 // mémorisé : on retrouve toujours la liste complète en rouvrant l'onglet.
@@ -2799,7 +2944,9 @@ function renderModifs(main) {
     if (!box) continue
     if (state.modifsFilter) {
       for (const item of box.querySelectorAll(".change-item"))
-        if (changeItemKind(item) !== state.modifsFilter) item.remove()
+        // Type au sens de la légende, posé à la construction : un programme
+        // ajouté au mémo a aussi la classe « added », mais compte en Mémo.
+        if (item.dataset.kind !== state.modifsFilter) item.remove()
       if (!box.querySelector(".change-item")) continue
     }
     main.append(box)
@@ -3009,25 +3156,17 @@ function renderPrefs(box) {
   // Note récapitulative mise à jour en place (sans reconstruire le panneau,
   // pour ne pas faire remonter la liste des cases au début à chaque coche).
   const note = el("strong", { class: "prefs-summary" })
-  const updateNote = () => {
-    const n = state.prefs.listes.length
+  // « Tout afficher » se met en évidence (retour #129) quand aucune Liste
+  // n'est cochée, c'est-à-dire quand l'agenda les montre toutes.
+  const updateSummary = () => {
+    const n = selectedListes().length
     note.textContent = n
       ? `${n} liste${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""}`
       : "Toutes les listes"
+    showAllBtn.classList.toggle("active", !n)
   }
 
   const checkboxes = new Map() // liste → <input>
-
-  // Les boutons Tout cocher / Tout décocher se mettent en évidence (retour
-  // #129) quand ils correspondent à l'état courant, pour qu'on voie d'un
-  // coup d'œil si on a déjà tout coché ou tout décoché.
-  const updateAllButtons = () => {
-    checkAllBtn.classList.toggle(
-      "active",
-      state.prefs.listes.length === listes.length,
-    )
-    uncheckAllBtn.classList.toggle("active", state.prefs.listes.length === 0)
-  }
 
   // Coche/décoche une liste, sans doublon. La page ne se reconstruit pas :
   // les genres dépliés restent dépliés, on peut cocher plusieurs cases à la
@@ -3038,16 +3177,17 @@ function renderPrefs(box) {
     else set.delete(liste)
     state.prefs.listes = [...set]
     savePrefs()
-    updateNote()
-    updateAllButtons()
+    updateSummary()
   }
 
-  const setAll = (all) => {
-    state.prefs.listes = all ? [...listes] : []
+  // Aucune case cochée = toutes les Listes. Cocher toutes les cases figeait
+  // au contraire la sélection : une Liste ajoutée ensuite au planning restait
+  // masquée.
+  const showAll = () => {
+    state.prefs.listes = []
     savePrefs()
-    for (const cb of checkboxes.values()) cb.checked = all
-    updateNote()
-    updateAllButtons()
+    for (const cb of checkboxes.values()) cb.checked = false
+    updateSummary()
   }
 
   // Masque/affiche un service précis d'une Liste (#144), indépendamment de
@@ -3156,31 +3296,18 @@ function renderPrefs(box) {
     )
   })
 
-  const uncheckAllBtn = el(
+  const showAllBtn = el(
     "button",
-    { type: "button", class: "link-btn", onclick: () => setAll(false) },
-    "Aucune",
-  )
-  const checkAllBtn = el(
-    "button",
-    { type: "button", class: "link-btn", onclick: () => setAll(true) },
-    "Toutes",
+    { type: "button", class: "link-btn", onclick: showAll },
+    "Tout afficher",
   )
 
   const listeRows = listes.length
     ? [
-        el(
-          "div",
-          { class: "liste-filter-actions" },
-          note,
-          checkAllBtn,
-          uncheckAllBtn,
-        ),
+        el("div", { class: "liste-filter-actions" }, note, showAllBtn),
         ...listeGroups,
       ]
     : [el("p", { class: "prefs-row" }, "Aucune liste dans cette saison.")]
-
-  if (listes.length) updateAllButtons()
 
   const setPref = (key) => (value) => {
     state.prefs[key] = value
@@ -3203,7 +3330,7 @@ function renderPrefs(box) {
     ),
   )
 
-  updateNote()
+  updateSummary()
 
   const themeLabels = { auto: "Auto", light: "Clair", dark: "Sombre" }
   const themeOptions = Object.keys(themeLabels).map((val) => {
@@ -3314,7 +3441,6 @@ function profileToken() {
 // des notifications) — le thème et l'affichage des vacances n'en font pas partie.
 function prefsPayload() {
   const {
-    listes,
     hiddenCategories,
     hiddenCatListes,
     hiddenActivities,
@@ -3322,7 +3448,7 @@ function prefsPayload() {
     showNoOrchestra,
   } = state.prefs
   return {
-    listes,
+    listes: selectedListes(),
     hiddenCategories,
     hiddenCatListes,
     hiddenActivities,
@@ -3395,7 +3521,7 @@ function personalSubscribeUrls() {
   if (!PERSONAL_CALENDAR_URL) return null
   const p = state.prefs
   const hasFilter =
-    p.listes.length ||
+    selectedListes().length ||
     p.hiddenCategories.length ||
     Object.keys(p.hiddenCatListes).length ||
     Object.keys(p.hiddenActivities).length ||
@@ -3445,7 +3571,8 @@ function withTimeout(promise, ms) {
 
 // Résout (de façon asynchrone) le statut des notifications sur cet appareil
 // et met à jour le bouton en place, sans reconstruire le panneau des Réglages.
-async function refreshNotifUI(statusEl, btn, dot) {
+// `message` (échec d'une activation) remplace le statut, qui l'effacerait.
+async function refreshNotifUI(statusEl, btn, dot, message) {
   // Sur iOS/iPadOS, PushManager n'existe pas du tout hors mode standalone :
   // ce test doit donc passer avant le test générique ci-dessous, sans quoi
   // les utilisateurs iPhone/iPad non installés voient le message générique
@@ -3481,24 +3608,34 @@ async function refreshNotifUI(statusEl, btn, dot) {
     statusEl.textContent = "Activées sur cet appareil"
     btn.textContent = "Désactiver les notifications"
     btn.onclick = () => disableNotifications(statusEl, btn, dot)
+  } else if (window.Notification?.permission === "denied") {
+    // Le navigateur ne redemande plus : le bouton n'y pourrait rien.
+    statusEl.textContent =
+      "Bloquées par le navigateur : autorise les notifications pour ce site " +
+      "dans ses réglages, puis reviens ici."
+    btn.hidden = true
   } else {
     statusEl.textContent = "Désactivées sur cet appareil"
     btn.textContent = "Activer les notifications"
     btn.onclick = () => enableNotifications(statusEl, btn, dot)
   }
+  if (message) statusEl.textContent = message
 }
 
 async function enableNotifications(statusEl, btn, dot) {
   btn.disabled = true
+  let message
   try {
     const permission = await withTimeout(
       requestNotificationPermission(),
       NOTIF_TIMEOUT_MS,
     )
+    // Refus définitif : refreshNotifUI() l'explique. Ici, la demande a
+    // seulement été écartée, elle pourra être refaite.
     if (permission !== "granted") {
-      statusEl.textContent =
-        "Autorisation refusée : active les notifications pour ce site dans les " +
-        "réglages du navigateur si tu changes d'avis."
+      if (permission !== "denied")
+        message =
+          "Autorisation non accordée : réessaie en acceptant la demande."
       return
     }
     const keyRes = await fetch(`${workerOrigin()}/vapid-public-key`)
@@ -3517,10 +3654,9 @@ async function enableNotifications(statusEl, btn, dot) {
     )
     syncProfile({ prefs: prefsPayload(), subscription: sub.toJSON() }, true)
   } catch {
-    statusEl.textContent =
-      "Échec de l'activation des notifications. Réessaie plus tard."
+    message = "Échec de l'activation des notifications. Réessaie plus tard."
   } finally {
-    refreshNotifUI(statusEl, btn, dot)
+    refreshNotifUI(statusEl, btn, dot, message)
   }
 }
 
@@ -3891,15 +4027,18 @@ function renderInstall() {
 
 // --- Navigation / rendu global -------------------------------------------------
 
+// Onglets rouverts au lancement suivant. Les vues papier sont des écrans
+// d'impression, et les Réglages un détour : on rouvre plutôt l'onglet où l'on
+// consultait le planning.
+const PERSISTED_VIEWS = ["grille", "document", "modifs"]
+
 function setView(view) {
   if (state.searchOpen) setSearch(false)
   state.view = view
   state.modifsFilter = null
-  // Les vues papier sont des écrans d'impression, et les Réglages un détour :
-  // au prochain lancement, on rouvre l'onglet où l'on consultait le planning.
-  if (!["papier", "listes", "reglages"].includes(view))
-    localStorage.setItem("bemol-view", view)
+  if (PERSISTED_VIEWS.includes(view)) localStorage.setItem("bemol-view", view)
   document.body.dataset.view = view
+  if (view === "modifs") document.getElementById("modifs-badge").hidden = true
   for (const btn of document.querySelectorAll("#view-nav button[data-view]"))
     btn.classList.toggle("active", btn.dataset.view === view)
   render()
@@ -3934,7 +4073,7 @@ function render() {
 // ce rappel ; les autres vues s'impriment plutôt pour un usage immédiat.
 function printGenerationNotice() {
   const now = new Date()
-  const stamp = `${fmtDay(now, true, true)} à ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`
+  const stamp = `${fmtDay(now, true, true)} à ${fmtClock(now)}`
   return el(
     "p",
     { class: "print-disclaimer" },
@@ -4146,16 +4285,10 @@ async function init() {
     return
   }
   lastDataLoad = Date.now()
+  initialized = true
 
   checkDataFreshness()
   observeHeaderHeight()
-
-  // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
-  // on l'adopte directement, sans sélecteur.
-  state.season = seasonsInData()[0]
-  // Jours fériés de la saison (elle chevauche deux années civiles)
-  state.holidays = { feries: buildFeries([state.season, state.season + 1]) }
-
   hydrateIcons()
 
   // Sur une preview, un badge dans l'en-tête : sur Android, l'app installée
@@ -4208,9 +4341,12 @@ async function init() {
     enableSheetSwipe(dlg)
 
   // Clic en dehors du contenu (sur le fond) : ferme le dialogue, sans avoir
-  // à viser la croix ou le bouton Fermer.
+  // à viser la croix ou le bouton Fermer. Le fond renvoie le clic au dialogue
+  // lui-même ; Entrée dans un champ (« Donner un avis ») simule au contraire
+  // un clic en (0, 0) sur le bouton d'envoi, qui ne doit rien fermer.
   for (const dlg of document.querySelectorAll("dialog"))
     dlg.addEventListener("click", (e) => {
+      if (e.target !== dlg) return
       const r = dlg.getBoundingClientRect()
       if (
         e.clientX < r.left ||
@@ -4241,23 +4377,25 @@ async function init() {
   })
   window.addEventListener("hashchange", syncListeFromHash)
 
-  // Badge « modifs » : nombre de changements depuis la dernière visite
+  // Badge « modifs » : nombre de changements depuis la dernière visite (rien
+  // à la toute première : tout le journal serait « nouveau »).
   const lastVisit = localStorage.getItem("bemol-last-visit")
-  const newChanges = state.changes.filter((c) => !lastVisit || c.at > lastVisit)
+  const count = lastVisit
+    ? state.changes
+        .filter((c) => c.at > lastVisit)
+        .reduce((n, c) => n + countChanges(c), 0)
+    : 0
   const badge = document.getElementById("modifs-badge")
-  if (newChanges.length) {
-    const count = newChanges.reduce((n, c) => n + countChanges(c), 0)
-    badge.textContent = count
-    badge.hidden = false
-  }
+  badge.textContent = count
+  badge.hidden = !count
   localStorage.setItem("bemol-last-visit", new Date().toISOString())
 
-  if (state.updatedAt)
-    document.getElementById("update-info").textContent =
-      `Dernière évolution des données : ${fmtDateStr(state.updatedAt.slice(0, 16))} · ${state.events.length} événements`
+  showUpdateInfo()
 
+  // Vue du dernier lancement (une valeur inconnue, comme « agenda », ancien nom
+  // de « grille », ramène à l'agenda).
   const storedView = localStorage.getItem("bemol-view")
-  setView(storedView === "agenda" ? "grille" : storedView || "grille")
+  setView(PERSISTED_VIEWS.includes(storedView) ? storedView : "grille")
   syncListeFromHash()
   syncProfileAtLaunch()
 }
