@@ -323,38 +323,32 @@ d'« Œuvres au programme », juste en dessous : doublon repéré par le frère
    capture les vues Grille/Agenda en mobile 390px et desktop 1280px). Pour un
    « avant », lancer le script depuis `main` avant d'appliquer les changements
    (ou depuis un worktree de `main`).
-2. Les publier sur la branche **`pr-assets`** — une branche orpheline UNIQUE
-   et partagée, réservée aux images des descriptions de PR, jamais mergée.
-   **Ne pas créer une branche d'assets par PR**, et ne rien y supprimer (les
-   PRs mergées y font toujours référence). Un dossier par PR :
+2. Les joindre avec **`--attach`** de `gh` (≥ 2.100) : chaque fichier est
+   téléversé chez GitHub, comme une image glissée dans l'éditeur web, et la
+   référence relative qui le cite dans le corps est réécrite vers l'adresse
+   hébergée. Écrire `![texte alt](./shots/apres-mobile-grille.png)` à l'endroit
+   voulu (tableau avant/après…) et passer le même chemin à `--attach` :
 
    ```bash
-   git fetch origin pr-assets
-   git worktree add /tmp/pr-assets origin/pr-assets
-   mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
-   cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
-   cd /tmp/pr-assets && git add -f pr/ \
-     && git commit -m "assets: captures PR #<numéro>" \
-     && git push origin HEAD:pr-assets
+   gh pr create --title "…" --body-file corps.md \
+     --attach ./shots/avant-mobile-grille.png \
+     --attach ./shots/apres-mobile-grille.png
    ```
 
-   (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
-   puis compléter la description avec `gh pr edit`.)
+   Sur une PR déjà ouverte : `gh pr edit <N> --body-file corps.md --attach …`
+   (sans `--body-file`, l'image s'ajoute à la fin de la description) ; dans
+   un commentaire : `gh pr comment <N> --body-file … --attach …`. Une image
+   absente du corps est ajoutée à la fin, avec le texte alt donné après `#`
+   (`--attach './x.png#Grille, semaine 47'`).
 
-3. Les référencer dans la description avec l'URL brute **suffixée `?v=1`** :
-   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`
-   — par exemple dans un tableau avant/après.
+   Chaque téléversement a sa propre adresse, définitive : pas de numéro de PR
+   à connaître d'avance, pas de branche à pousser, pas de `?v=` ni de cache à
+   contourner. Pour une nouvelle version d'une image, la rejoindre.
 
-4. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`.
-   Le CDN de raw (et le cache d'images des navigateurs des relecteurs) peut
-   servir une version tronquée ou périmée d'une image ; le script compare ce
-   qui est servi à la vraie taille du fichier (API GitHub) et incrémente
-   lui-même le `?v=` dans la description en cas d'écart. À lancer après toute
-   édition des images d'une description.
-
-⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même nom
-sans relancer le script du point 4 (les caches continueraient de servir
-l'ancienne) — ou plus simple : nouveau nom de fichier à chaque version.
+Jusqu'au 18/10/2026, les images passaient par la branche orpheline
+**`pr-assets`**, servie par raw.githubusercontent.com (#69), dont le CDN
+servait parfois des images tronquées (`scripts/pr-images-check.mjs`, #71). Ne
+rien y supprimer : les PRs déjà mergées y font toujours référence.
 
 ## Commentaires « @claude » sur une PR déjà mergée ou fermée
 
