@@ -354,23 +354,18 @@ gh 2.102 sur le runner). Ailleurs aussi, ce message renvoie à `pr-assets`.
 1. Publier les captures sur **`pr-assets`** (#69), branche orpheline UNIQUE
    et partagée, jamais mergée. **Ne pas créer une branche d'assets par PR**,
    et ne rien y supprimer (les PRs mergées y font toujours référence). Un
-   dossier par PR :
+   dossier par PR, en un seul appel (fetch, worktree temporaire, copie dans
+   `pr/<numéro>/`, commit, push, nettoyage) :
 
    ```bash
-   git fetch origin pr-assets
-   git worktree add /tmp/pr-assets origin/pr-assets
-   mkdir -p /tmp/pr-assets/pr/<numéro-de-PR>
-   cp <captures>.png /tmp/pr-assets/pr/<numéro-de-PR>/
-   cd /tmp/pr-assets && git add -f pr/ \
-     && git commit -m "assets: captures PR #<numéro>" \
-     && git push origin HEAD:pr-assets
+   node scripts/pr-assets-push.mjs <numéro-de-PR> shots/*.png
    ```
 
    (Ouvrir la PR d'abord pour connaître son numéro, pousser les captures,
    puis compléter la description avec `gh pr edit`.)
 
-2. Les référencer avec l'URL brute **suffixée `?v=1`** :
-   `https://raw.githubusercontent.com/isc/bemol-osr/pr-assets/pr/<numéro>/<nom>.png?v=1`.
+2. Les référencer avec les URL brutes **suffixées `?v=1`** que le script
+   affiche, une par capture.
 
 3. **Vérifier l'affichage réel** : `node scripts/pr-images-check.mjs <numéro>`
    (#71), après toute édition des images d'une description. Le CDN de raw
@@ -378,7 +373,7 @@ gh 2.102 sur le runner). Ailleurs aussi, ce message renvoie à `pr-assets`.
    incrémente le `?v=` (détails dans son en-tête).
 
 ⚠️ Ne jamais **remplacer** une image existante de `pr-assets` sous le même
-nom : nouveau nom de fichier à chaque version.
+nom : nouveau nom de fichier à chaque version (le script refuse d'écraser).
 
 ## Commentaires « @claude » sur une PR déjà mergée ou fermée
 
