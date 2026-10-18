@@ -1,5 +1,6 @@
 {
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
+ "_parseur": "af21df5c8f8f",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
  "Liste 01": {
   "info": "La Plage classique",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
@@ -141,7 +142,7 @@
     "remarques": "fl3+picc, 1ca",
     "percussions": "cymb fr, glock, cloche (sol) (tubul.), tri, cymb sus",
     "detail": "Acte 5 chiffre 36 : cloche sur le théâtre (le 2ème percu peut être supprimé si la cloche est jouée depuis\nla fosse, éventuellement aussi si la cloche est jouée dans la coulisse)",
-    "note": "\n-1 seul percu nécéssaire pour un enregistrement studio (orchestre + cloche de coulisse)\n-choeur : 0.8.8.8",
+    "note": "-1 seul percu nécéssaire pour un enregistrement studio (orchestre + cloche de coulisse)\n-choeur : 0.8.8.8",
     "duree": "≈ 2 h 50"
    }
   ],
@@ -280,7 +281,7 @@
    {
     "oeuvre": "Franz SCHUBERT — La Truite, op. 32 D 550, arrangement pour cor et piano",
     "instrumentation": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "claviers": "piano",
     "duree": "≈ 2 min"
    }
@@ -303,7 +304,7 @@
     "instrumentation": "2*.2.2.2 / 4.2.3.1 / 1.3.0.0 / 10.8.6.4.3",
     "remarques": "fl2+picc",
     "percussions": "GC, cymb fr, c.cl.",
-    "note": "\ncoupure de la mesure 24 jusqu'à la mesure 108",
+    "note": "coupure de la mesure 24 jusqu'à la mesure 108",
     "duree": "≈ 4 min"
    },
    {
@@ -321,10 +322,10 @@
    },
    {
     "oeuvre": "Domenico MODUGNO — Volare, pour orchestre d'harmonie",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "percussions": "0 bongos (coupé pour le didacticiel), 0 cast (coupé pour le didacticiel)",
     "extra": "0 saxophone alto (coupé pour le didacticiel), 0 saxophone baryton (coupé pour le didacticiel), 0\nsaxophone ténor (coupé pour le didacticiel), 0 guitare basse (coupé pour le didacticiel)",
-    "note": "\n-COUPÉ POUR LE DIDACTICIEL\n-arrangement original : 1.1.5*.1 / 3.4.3.3* / 0.3.0.0 / 3 sax / guitare basse // sans cordes",
+    "note": "-COUPÉ POUR LE DIDACTICIEL\n-arrangement original : 1.1.5*.1 / 3.4.3.3* / 0.3.0.0 / 3 sax / guitare basse // sans cordes",
     "duree": "≈ 4 min"
    },
    {
@@ -341,7 +342,7 @@
     "percussions": "batterie, marac, vibra, cymb sus",
     "claviers": "piano",
     "extra": "0 guitare (coupé pour le didacticiel), 0 saxophone soprano (coupé pour le didacticiel)",
-    "note": "\n1ère moitié de la suite",
+    "note": "1ère moitié de la suite",
     "duree": "≈ 4 min"
    },
    {
@@ -365,7 +366,7 @@
     "instrumentation": "2*.2.2.2 / 4.4.3.1 / 1.2.1.0 / 10.8.6.4.3",
     "remarques": "1picc",
     "percussions": "cymb, cymb sus, bsq",
-    "note": "\nchanté par le public",
+    "note": "chanté par le public",
     "duree": "≈ 3 min"
    },
    {
@@ -377,7 +378,57 @@
     "extra": "0 saxophone alto (coupé pour le didacticiel), 0 saxophone ténor (coupé pour le didacticiel)",
     "duree": "≈ 4 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr132704": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr132706": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr132705": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr132707": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  "serviceNotes": {
+   "osr132704": "installation dispositif captation Mathys Billoud entre 8h et 10h",
+   "osr132707": "démontage dispositif captation à l'issue"
+  }
  },
  "Liste A": {
   "info": "captation vidéo en construction : Bel Air Media pour Mezzo et Opera Vision (en cours Alain Perroux)",
@@ -390,12 +441,13 @@
    {
     "oeuvre": "Frank MARTIN — La Tempête, opéra en trois actes et un épilogue",
     "instrumentation": "3*.3*.3*.3* / 4*.3*.3.1 / 1*.6.2*.3* / 12*.10.8.7.5",
-    "remarques": "10.8.6.5.3 en fosse + 1.1.1.1.1 pour le tournus + 1.1.1.1.1 en coulisse",
+    "remarques": "fl2&fl3+picc en fosse dont 1 fl+picc monte en coulisse, 1ca, cl2+mib, 1cl.bs, 1kfgt, 4 cors en fosse\ndont 2 montent en coulisse, 3 trp en fosse dont 1 monte 1 en coulisse, timp. : 1 seul jeu de 4 instruments joué\npar le timbalier et 1 des percu, 1 hrp en fosse + 1 en coulisse, 1 pno et 1 cél en fosse + 1 clavc en coulisse",
+    "remarquesCordes": "10.8.6.5.3 en fosse + 1.1.1.1.1 pour le tournus + 1.1.1.1.1 en coulisse",
     "percussions": "GC, cymb fr, glock, plaque tonnerre (en coulisse), mach.à vent (coupée en fosse et\nremplacée soit par un effet-son soit en coulisse), xyl (dans un sas d'entrée de fosse), c.cl., TT, tri, vibra, cymb\nsus, c.roul., cloche (fa#)",
     "claviers": "célesta (dans un sas d'entrée de fosse), clavecin (en coulisse), piano (bon piano droit en fosse)",
     "extra": "saxophone ténor",
     "detail": "deux orchestres :\n-1 orchestre en fosse : 3333 / 4331 / 1412 // 10.8.6.5.3\n-1 orchestre derrière le décor : 1000 / 2100 / 0111 // 1.1.1.1.1",
-    "note": "\nle petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
+    "note": "le petit orchestre de scène (dirigé) est isolé acoustiquement au lointain derrière le décor (avec le choeur et 1\ncomédien) et sonorisé afin que le public le perçoive derrière lui. Il joue du début à la fin.",
     "duree": "≈ 2 h 30"
    }
   ],
@@ -475,6 +527,10 @@
    "osr133274": "captation Espace 2"
   }
  },
+ "audiogrammes période 2": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
+ },
  "Liste 06": {
   "info": "concert hors abonnement avec 200 places pour événement KPMG\n-avec moniteur video + time code pour chef et percussioniste dès le 2ème service\n-écran et beamer du VH\n-régie vidéo Skynight au balcon d'orgue",
   "contraires": "contraire Liste A",
@@ -514,7 +570,7 @@
     "instrumentation": "3*.2.2.2 / 4.2.3.1 / 1.6.1.0 / 12.10.8.6.4",
     "remarques": "1picc",
     "percussions": "GC, cymb fr, blck.chin., gong, bsq, xyl, cast, c.cl., tri, fouet",
-    "note": "\ntoujours suivre option 1 'avec le texte' dans les partitions",
+    "note": "toujours suivre option 1 'avec le texte' dans les partitions",
     "duree": "≈ 18 min"
    },
    {
@@ -522,7 +578,7 @@
     "instrumentation": "2*.2.2.2* / 4.2.3.1 / 1.4.1.0 / 12.10.8.6.4",
     "remarques": "fl2+picc, kfgt ad.lib supprimé",
     "percussions": "GC, cymb fr, c.cl., tri",
-    "note": "\nextraits pour tous les concerts : mvts 1 et 7 (dans cet ordre) - les autres mvts ne sont pas joués",
+    "note": "extraits pour tous les concerts : mvts 1 et 7 (dans cet ordre) - les autres mvts ne sont pas joués",
     "duree": "≈ 4 min"
    },
    {
@@ -530,7 +586,7 @@
     "instrumentation": "2*.2.2.2 / 4.2.3.1 / 1.5.1.0 / 12.10.8.6.4",
     "remarques": "fl2+picc",
     "percussions": "GC, cymb fr, glock, xyl, chimes, c.cl., tri, bsq",
-    "note": "\nextraits pour tous les concerts : mvts 2>3>6 (dans cet ordre) - les autres mvts ne sont pas joués",
+    "note": "extraits pour tous les concerts : mvts 2>3>6 (dans cet ordre) - les autres mvts ne sont pas joués",
     "duree": "≈ 8 min"
    }
   ],
@@ -634,7 +690,7 @@
     "remarques": "1cl.bs",
     "percussions": "marim., TT, vibra, 2 cymb sus",
     "claviers": "piano (orch.)",
-    "note": "\n1ère suisse",
+    "note": "1ère suisse",
     "duree": "≈ 12 min"
    },
    {
@@ -648,7 +704,7 @@
     "remarques": "fl3+picc, ob3+ca, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, c.cl., TT, tri, cymb sus",
     "detail": "Cf C. Delannoy 09.2026 : la fin alternative se joue aussi à un percu.",
-    "note": "\nfin altermative confirmée",
+    "note": "fin altermative confirmée",
     "duree": "≈ 36 min"
    }
   ],
@@ -697,6 +753,10 @@
    "osr132756": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
    "osr132759": "-Prélude Amis 19h Le Poulailler"
   }
+ },
+ "audiogrammes période 3": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
  },
  "Liste 09": {
   "info": "Pas de garde-robes à Evian",
@@ -799,7 +859,8 @@
    {
     "oeuvre": "Stephen SONDHEIM — Company",
     "instrumentation": "0.1*.0.0 / 2.3.2*.0 / 0.1*.0.0 / 3*.3.3.4.3",
-    "remarques": "partitions pour violins A + violins B + violins C sans alti, joué pour cette production avec V1",
+    "remarques": "ob+ca, 2trb.tén., 1 perc.+timp.",
+    "remarquesCordes": "partitions pour violins A + violins B + violins C sans alti, joué pour cette production avec V1\n+ V2 + Al (nouvelles partitions / GT) - production SANS tournus (effectifs trop petits)",
     "percussions": "glock, vibrslp, afouché, timp., scraper, woodblk, xyl, chimes, cast, pol whstle, tmplblk, tri,\nvibra, cabasa, bsq, ratch",
     "extra": "guitare (de la prod.), claviériste (de la prod.), drum set (de la prod.), 4 reeds (de la prod.)",
     "detail": "musiciens de la production hors OSR : 4 reeds (polyinstrumentistes sax/bois), 1 batterie, 1 synthéthiseur,\n1 guitare",
@@ -866,10 +927,11 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 9 en ré mineur op. 125 'avec un chœur final sur l'Ode à la joie de Schiller'",
     "instrumentation": "3*.2.2.3* / 4.2.3*.0 / 1.3.0.0 / 12*.12.10.8.5",
-    "remarques": "ok chef - en attente confirmation HEM",
+    "remarques": "1picc, 1kfgt, 1trb.alto",
+    "remarquesCordes": "ok chef - en attente confirmation HEM",
     "percussions": "GC, cymb fr, tri",
     "detail": "15.09.21GC : Trombone alto en 19-20 liste 25 + en 06-07 liste 10",
-    "note": "\nchoeur : 9.9.9.9",
+    "note": "choeur : 9.9.9.9",
     "duree": "≈ 1 h 05"
    }
   ],
@@ -919,6 +981,10 @@
    "osr132808": "-blocage loge 18",
    "osr132809": "Concert Relax de la Ville de Genève"
   }
+ },
+ "audiogrammes période 4": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
  },
  "Liste 11": {
   "info": "Cineconcert avec orchestre amplifié (1ère partie 58' / 2ème partie 44')\n-orchestre à plat avec lampes pupitres tutti\n-grand écran 16/9 + amplification de soutien : piano, solistes des cordes, bois, quelques perc. ...) avec cluster central et retour orchestre\n-régies vidéo et son en salle + 2 beamers Skynight en sas cour 2ème galerie\n-entrée des retardataires : 9'40'' après le début",
@@ -979,13 +1045,14 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 4 en si bémol majeur op. 60",
     "instrumentation": "1.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.6.5",
-    "remarques": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
+    "remarquesCordes": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
     "duree": "≈ 34 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 5 en ut mineur op. 67",
     "instrumentation": "3*.2.2.3* / 2.2.3*.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
+    "remarques": "1picc, 1kfgt, trb alto, trb ténor, trb bs",
+    "remarquesCordes": "réduction à 10.8.7.6.4 pour la session de Masterclasse",
     "detail": "picc, kfgt et trb uniquement dans le 4ème mvt",
     "duree": "≈ 31 min"
    }
@@ -1041,20 +1108,21 @@
     "remarques": "1picc, 1ca, 1kfgt, 2crt",
     "percussions": "GC, cymb fr, glock, TT, tri",
     "detail": "celli divisi à 8 (4 voix doublées)",
+    "note": "Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la\njournée.",
     "duree": "≈ 12 min"
    },
    {
-    "oeuvre": "Robert SCHUMANN — Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la journée. Concerto pour violoncelle et orchestre en la mineur op. 129",
+    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 0*.0.0.0 / 12.10.8.6.4",
     "remarques": "pas de timp. dans le 1er mvt",
-    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
+    "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
     "duree": "≈ 15 min"
    },
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
     "claviers": "piano (solo) (piano garé sur scène derrière les cordes pendant Debussy)",
-    "note": "\nuniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
+    "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
     "duree": "≈ 23 min"
    }
   ],
@@ -1093,7 +1161,8 @@
    {
     "oeuvre": "Rafael MARINO-ARCARO — Invention in langage of child, for orchestra op.22",
     "instrumentation": "3*.3*.3*.3* / 4.3*.3*.1 / 1.2.1.1 / 12.10.8.6.4*",
-    "remarques": "2 contrebasses à 5 cordes",
+    "remarques": "fl2+fl alto, fl3+picc, ob3+ca, cl3+cl.bs, fgt3+kfgt, trp1&2+trp.picc ad.lib, 1trb.bs",
+    "remarquesCordes": "2 contrebasses à 5 cordes",
     "percussions": "GC, cymb.chin., glock, marim., tomtom, crot, szl cym, vibra+bow, marktree, gong chin.,\ncymb sus, frame drum, cl.tub.",
     "claviers": "piano+célésta",
     "duree": "≈ 16 min"
@@ -1109,10 +1178,12 @@
    {
     "oeuvre": "Hanurij LEE — Stuff #1, for large orchestra",
     "instrumentation": "3*.3*.3*.3* / 4*.3*.3*.1* / 1*.3.1*.2 / 12.10.8.6.4*",
-    "remarques": "4 contrebasses à 5 cordes",
+    "remarques": "fl1+fl.à coulisse, fl2+fl alto, fl3+picc+fl.bs, , ob1à3 avec flexatones, cl3+cl.bs, fgt3+kfgt, les 4cors\navec embouchure supp., les 3trp avec embouchure supp., 1trb.bs, les 3trbones avec embouchure supp. et\nceramic ocarinas, tuba avec embouchure supp., timp+percu (vibraslap, crécelle, flexatone, fouet, whirly tube +\nkalimba 34 touches posé sur une des timbales), hrp 1/4 ton",
+    "remarquesCordes": "4 contrebasses à 5 cordes",
     "percussions": "7 cowbells, GC, bd/ped, marim., crécelle, rototom, 3 tomtom, vibrslp, 5 woodblk, 2\nbongos, 2 congas, 6 crot, flex, guiro, TT, vibra, fouet, 7 boobam, 2 steel-string acoustic guitar, whirly tube",
     "claviers": "piano (joué avec plectre et carte de crédit), synthétiseur (88-Microtonal (11tet) with Clustrator",
     "extra": "accordéon (chromatique à boutons)",
+    "note": "Après étude des pupitres :\n-1timp + 3 percu : confirmé avec le pupitre\n-le timbalier joue aussi la percu : confirmé avec le pupitre\n-la flûte 1 joue aussi la flûte à coulisse : confirmé avec le pupitre\n-les 3 hautbois jouent aussi les flexatones : confirmé avec le pupitre\n-les 3 trombones jouent aussi les ocarinas : confirmé avec le pupitre",
     "duree": "≈ 13 min"
    }
   ],
@@ -1240,7 +1311,63 @@
     "extra": "saxophone ténor",
     "duree": "≈ 6 min"
    }
-  ]
+  ],
+  "serviceWorks": {
+   "osr131104": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr131105": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr131106": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "osr131107": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  "serviceNotes": {
+   "osr131104": "50' par finaliste et 2 pauses de 15 minutes",
+   "osr131105": "50' par finaliste et 2 pauses de 15 minutes",
+   "osr131106": "50' max par candidat et 2 pauses de 15 minutes",
+   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
+  }
  },
  "Liste 16": {
   "info": "Centenaire du Motet le 19 novembre (production Le Motet) : opéra complet en version concert\nreprise en extraits pour FAM+ (production OSR) le 20 novembre avec le chœur et uniquement Abigaille\n-finalement sans avant-scène\n-avec régie son en loge 18 pour concert du 20 novembre\n-avec caméras en salle (4 places en 1ère galerie face-jardin)\n-avec sous-titrage le 19 novembre uniquement (écran+beamer VH)\nChoeur Le Motet : 85 env. (sans pupitre)\nDistribution : Le Motet\nAbigaille : Maria Jose SIRI\nNabucco : Nikoloz LAGVILAVA\nIsmaele : Sahy RATIA,\nFenena : Carine SÉCHAYE\nZaccaria : Rubén AMORETTI\nGran Sacerdote : Joe BERTILI\nAbdallo: Oscar ESMERODE\nAnna : Clémence TILQUIN",
@@ -1250,11 +1377,12 @@
   "duree": "≈ 2 h 35",
   "works": [
    {
-    "oeuvre": "Giuseppe VERDI — Geoffroy PERRUCHOUD, présentation (concert Famille, uniquement le 20 nov.) Nabucco, opéra en quatre parties",
+    "oeuvre": "Giuseppe VERDI — Nabucco, opéra en quatre parties",
     "instrumentation": "2*.2*.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3",
     "remarques": "fl2+picc, ob2+ca",
     "percussions": "GC, tri, cymb",
     "detail": "MdS : banda acte I, III et IV : 0.0.3.0 / 3.3.3.1 / 3 perc (tamb, GC, cymb.) trombe interne acte III : 3 trp",
+    "note": "Choeur : 85 (sans pupitre)",
     "duree": "≈ 2 h 05"
    }
   ],
@@ -1348,13 +1476,13 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 2 en ré majeur op. 36",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.6.4",
-    "remarques": "réduction pour la Masterclasse : 10.8.7.6.4",
+    "remarquesCordes": "réduction pour la Masterclasse : 10.8.7.6.4",
     "duree": "≈ 32 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 3 en mi bémol majeur op. 55, dite 'Héroïque'",
     "instrumentation": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "réduction pour la masterclasse : 10.8.7.6.4",
+    "remarquesCordes": "réduction pour la masterclasse : 10.8.7.6.4",
     "duree": "≈ 47 min"
    }
   ],
@@ -1414,18 +1542,19 @@
   "duree": "≈ 37 min",
   "works": [
    {
-    "oeuvre": "Vladimir COSMA — Orchestre du Collège de Genève et OSR, orchestre 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+    "oeuvre": "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
     "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20.20.8.14.6",
     "remarques": "fl2&3+picc-orch.du Collège, 1ca-OSR, 1cl.bs-orch.du Collège, bugle=orch.du Collège",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
     "detail": "bugle peut être joué par trp 1, 2 ou 3",
-    "note": "\ncoupure : n°7 L'Homme entre deux âges et ses deux maîtresses",
+    "note": "coupure : n°7 L'Homme entre deux âges et ses deux maîtresses",
     "duree": "≈ 37 min"
    }
   ],
   "solistes": [
-   "Joan MOMPART, récitant"
+   "Joan MOMPART, récitant",
+   "Orchestre du Collège de Genève et OSR, orchestre"
   ],
   "serviceWorks": {
    "osr206164": [
@@ -1482,6 +1611,10 @@
    ]
   }
  },
+ "audiogrammes période 5": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
+ },
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
   "chef": "Tugan SOKHIEV",
   "works": []
@@ -1495,9 +1628,10 @@
   "duree": "≈ 1 h 35",
   "works": [
    {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Sylvie KLIJN, choriste ([leader]) NN2, choriste NN3, choriste NN4, choriste NN5, choriste NN6, choriste Christmas Songs Matt Dusk",
+    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
     "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "4 contrebasses dont 1 acoustique+électrique",
+    "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
+    "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
     "percussions": "perc.en construct., drumset",
     "claviers": "piano+synthétiseur",
     "extra": "saxophone alto, saxophone baryton, saxophone ténor",
@@ -1506,7 +1640,13 @@
    }
   ],
   "solistes": [
-   "Matt DUSK, jazz vocalist"
+   "Matt DUSK, jazz vocalist",
+   "Sylvie KLIJN, choriste ([leader])",
+   "NN2, choriste",
+   "NN3, choriste",
+   "NN4, choriste",
+   "NN5, choriste",
+   "NN6, choriste"
   ],
   "serviceWorks": {
    "osr162112": [
@@ -1565,9 +1705,10 @@
    {
     "oeuvre": "Wolfgang Amadeus MOZART — Les Noces de Figaro, Opera buffa en 4 actes KV 492",
     "instrumentation": "2.2.2*.2 / 2.2.0.0 / 1.0.0.1* / 11*.9.7.5.4",
-    "remarques": "10.8.6.4.3 en fosse + tournus",
+    "remarques": "pas de cors de basset (air coupé), continuo",
+    "remarquesCordes": "10.8.6.4.3 en fosse + tournus",
     "claviers": "piano-forte",
-    "note": "\nl'air avec les cors de basset fait partie des coupures.",
+    "note": "l'air avec les cors de basset fait partie des coupures.",
     "duree": "≈ 3 h 10"
    }
   ],
@@ -1613,14 +1754,16 @@
    {
     "oeuvre": "Dimitri CHOSTAKOVITCH — Concerto pour violon et orchestre N° 2 en ut dièse mineur op. 129",
     "instrumentation": "2*.2.2.3* / 4.0.0.0 / 1.1.0.0 / 8*.7.6.6.5",
-    "remarques": "effectif donné par le compositeur, à confirmer",
+    "remarques": "1picc., 1kfgt",
+    "remarquesCordes": "effectif donné par le compositeur, à confirmer",
     "percussions": "tomtom",
     "duree": "≈ 31 min"
    },
    {
     "oeuvre": "Johannes BRAHMS — Symphonie N° 4 en mi mineur op. 98",
     "instrumentation": "2*.2.2.3* / 4.2.3.0 / 1.1.0.0 / 10*.8.7.6.4",
-    "remarques": "effectif validé avec 2.1.1.0.0 Hors Effectif (<> liste C)",
+    "remarques": "fl2+picc, 1kfgt",
+    "remarquesCordes": "effectif validé avec 2.1.1.0.0 Hors Effectif (<> liste C)",
     "percussions": "tri",
     "duree": "≈ 39 min"
    }
@@ -1754,13 +1897,13 @@
     "duree": "≈ 6 min"
    },
    {
-    "oeuvre": "Giacomo PUCCINI — Armenian Folk Song",
+    "oeuvre": "Armenian Folk Song",
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
-    "note": "\neffectif en attente de la soliste",
+    "note": "effectif en attente de la soliste",
     "duree": "≈ 4 min"
    },
    {
-    "oeuvre": "Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\"",
+    "oeuvre": "Giacomo PUCCINI — Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\"",
     "instrumentation": "2.3*.3*.2 / 4.3.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "remarques": "1ca, 1cl.bs",
     "duree": "≈ 2 min"
@@ -1768,7 +1911,120 @@
   ],
   "solistes": [
    "Juliana GRIGORYAN, soprano"
-  ]
+  ],
+  "serviceWorks": {
+   "osr132967": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "osr132968": [
+    2,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    16,
+    17,
+    18
+   ],
+   "osr132969": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    18
+   ],
+   "osr132970": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    18
+   ],
+   "osr132972": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "osr132975": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  },
+  "serviceNotes": {
+   "osr132967": "-tutti pour possiblement tout le programme",
+   "osr132968": "-sans Forza, Ballibili, Castillane, Prélude Carmen ni Meine",
+   "osr132969": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
+   "osr132970": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
+   "osr132972": "-Prélude Amis 18h30",
+   "osr132975": "-Prélude Amis 19h Le Poulailler"
+  }
+ },
+ "audiogrammes période 6": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
  },
  "Concerts pour Petites Oreilles 2": {
   "info": "Institut Florimont : avenue du Petit-Lancy 37 à Lancy",
@@ -1776,9 +2032,9 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "Pascal RENOU — ",
+    "oeuvre": "Pascal RENOU — Pilou le plantigrade, conte musical pour quintette de cuivres",
     "instrumentation": "0.0.0.0 / 1.2.1.1 / 0.0.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "duree": "≈ 45 min"
    }
   ],
@@ -1828,6 +2084,7 @@
     "instrumentation": "2.2.2.2 / 4.2.2.1 / 1.3.1.1 / 15.13.11.9.7",
     "claviers": "piano+célésta",
     "detail": "Mention obligatoire : Sonnenring est une comnmande de l'Orchestre de la Suisse Romande et du",
+    "note": "Première suisse OSR le 20 janvier 2027",
     "duree": "≈ 30 min"
    },
    {
@@ -1858,6 +2115,10 @@
    "osr132992": "-Dîner après concert Fondation Arditi avec artistes sur invit. en construction."
   }
  },
+ "audiogrammes période 7": {
+  "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
+  "works": []
+ },
  "Liste 24": {
   "info": "ATTENTION : au BFM dans la production GT de Theodora avec la fosse baissée (ok pour passer et stocker 2 pianos)",
   "contraires": "contraire Liste D - La Liste 24 est reprise Liste 37 avec le même effectif",
@@ -1868,7 +2129,8 @@
    {
     "oeuvre": "Anne-Claire REY-BELLET — Zélie-Chansons animalières",
     "instrumentation": "1*.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3*.3.2.2.2",
-    "remarques": "confirmé le 11.06.26 avec le PP avec 3 V1 et 3 V2",
+    "remarques": "fl+picc",
+    "remarquesCordes": "confirmé le 11.06.26 avec le PP avec 3 V1 et 3 V2",
     "percussions": "glock, xyl",
     "claviers": "2 piano",
     "duree": "≈ 15 min"
@@ -1876,10 +2138,11 @@
    {
     "oeuvre": "Camille SAINT-SAËNS — Le Carnaval des animaux, grande fantaisie zoologique",
     "instrumentation": "1*.0.1.0 / 0.0.0.0 / 0.2.0.2 / 3*.3.2.2.2",
-    "remarques": "3.3.2.2.2 ou 2.2.2.2.2 à confirmer avec la cheffe",
+    "remarques": "fl+picc",
+    "remarquesCordes": "3.3.2.2.2 ou 2.2.2.2.2 à confirmer avec la cheffe",
     "percussions": "glock (à défaut du glass harmonica), xyl",
     "claviers": "2 piano",
-    "note": "\ntexte original de Elisa Shua Dusapin, commande de l'OSR",
+    "note": "texte original de Elisa Shua Dusapin, commande de l'OSR",
     "duree": "≈ 21 min"
    }
   ],
@@ -1918,9 +2181,14 @@
    {
     "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
     "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
     "duree": "≈ 1 h 00"
    }
   ]
+ },
+ "Doudou Concert 4": {
+  "info": "4ème série ajoutée en cours de saison",
+  "works": []
  },
  "Concours Premier.ère Soliste des seconds violons": {
   "chef": "Tugan SOKHIEV",
@@ -1937,7 +2205,8 @@
    {
     "oeuvre": "Gioacchino ROSSINI — Il Viaggio a Reims, opéra en un acte",
     "instrumentation": "3*.2.2.2 / 4.2.3.1* / 1.4.1.1 / 11*.9.7.5.4",
-    "remarques": "10.8.6.4.3 en fosse + tournus",
+    "remarques": "1picc, serpente à préciser avec le chef : tuba, petit tuba ou cimbasso...?",
+    "remarquesCordes": "10.8.6.4.3 en fosse + tournus",
     "percussions": "campanelli, GC, tri, cymb",
     "claviers": "piano-forte",
     "detail": "fl3, percu4 et tuba uniquement dans le n° 9",
@@ -2011,7 +2280,8 @@
    {
     "oeuvre": "Cécile CHAMINADE — Callirhoë, suite d'orchestre op. 37",
     "instrumentation": "3*.2.2.4 / 4.4*.3.1 / 1.3.1.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarques": "1picc, 2cornets",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, cymb fr, tri",
     "detail": "Fgt3-4 et 3e percu seulement dans N°4",
     "duree": "≈ 14 min"
@@ -2019,13 +2289,15 @@
    {
     "oeuvre": "Camille SAINT-SAËNS — Concerto pour violon et orchestre N° 3 en si mineur op. 61",
     "instrumentation": "2*.2.2.2 / 2.2.3.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarques": "fl2+picc",
+    "remarquesCordes": "effectif prévisionnel",
     "duree": "≈ 29 min"
    },
    {
     "oeuvre": "Josef SUK — Pohádka, op. 16",
     "instrumentation": "3*.3*.3*.2 / 4.2.3.1 / 1.3.1.0 / 13*.11.9.7.5",
-    "remarques": "effectif prévisionnel",
+    "remarques": "picc, ca, cl.bs.",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, cymb fr, TT, tri, cymb sus",
     "duree": "≈ 29 min"
    }
@@ -2060,6 +2332,7 @@
    {
     "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
     "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
     "duree": "≈ 1 h 00"
    }
   ]
@@ -2077,9 +2350,11 @@
    {
     "oeuvre": "Giacomo PUCCINI — La Fanciulla del West, opéra en trois actes [réduction Ettore Panizza]",
     "instrumentation": "2*.2*.2*.2* / 4.2.3*.0 / 1.5*.2*.1 / 12*.10.8.6.5",
-    "remarques": "11.9.7.5.4 en fosse + tournus",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1trb.bs, percu5 en coulisse, hrp2 en coulisse",
+    "remarquesCordes": "11.9.7.5.4 en fosse + tournus",
     "percussions": "GC, cymb fr, glock, fonica (vibra) (coulisse), mach.à vent (coulisse), TT, tri, cl.tub. (coulisse),\ntambour",
     "claviers": "célesta",
+    "note": "A définir : « fischio » (sifflements enregistrés ?),",
     "duree": "≈ 2 h 15"
    }
   ]
@@ -2132,14 +2407,15 @@
    {
     "oeuvre": "Ludwig van BEETHOVEN — Concerto pour piano et orchestre N° 4 en sol majeur op. 58",
     "instrumentation": "1.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.7.5",
-    "remarques": "ok chef",
+    "remarquesCordes": "ok chef",
     "claviers": "piano (solo)",
     "duree": "≈ 34 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 6 en fa majeur op. 68, dite 'Pastorale'",
     "instrumentation": "3*.2.2.2 / 2.2.2*.0 / 1.0.0.0 / 12*.10.8.7.5",
-    "remarques": "ok chef",
+    "remarques": "1picc, 1trb.alto, 1trb.ténor",
+    "remarquesCordes": "ok chef",
     "detail": "piccolo et trombones uniquement dans les 2 derniers mouvements",
     "duree": "≈ 39 min"
    }
@@ -2173,9 +2449,9 @@
   "duree": "≈ 35 min",
   "works": [
    {
-    "oeuvre": "Serge PROKOFIEV — ",
+    "oeuvre": "Serge PROKOFIEV — Pierre et le loup, arrangement pour quintette à vent de Joachim Linckelmann",
     "instrumentation": "1.1.1.1 / 1.0.0.0 / 0.0.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "duree": "≈ 35 min"
    }
   ],
@@ -2210,14 +2486,16 @@
    {
     "oeuvre": "Claude DEBUSSY — Prélude à l’après-midi d’un faune (d'après un poème de Mallarmé)",
     "instrumentation": "3.3*.2.2 / 4.0.0.0 / 0.2.2.0 / 15*.13.11.9.7",
-    "remarques": "vu chef 04.06.26",
+    "remarques": "1ca",
+    "remarquesCordes": "vu chef 04.06.26",
     "percussions": "2 crot",
     "duree": "≈ 10 min"
    },
    {
     "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
     "instrumentation": "3*.3*.2.4* / 4.5*.3.1 / 1.3.2.0 / 15*.13.11.9.7",
-    "remarques": "vu chef 4.06.26",
+    "remarques": "1picc, 1ca, 1kfgt, 2crt",
+    "remarquesCordes": "vu chef 4.06.26",
     "percussions": "GC, cymb fr, glock, TT, tri",
     "claviers": "célesta (alternative au glock (percu) / 2ème mvt)",
     "detail": "celli divisi à 8 (4 voix doublées)",
@@ -2226,9 +2504,11 @@
    {
     "oeuvre": "Lili BOULANGER — Faust et Hélène, épisode lyrique d’après le second Faust de Goethe, pour soli et orchestre",
     "instrumentation": "3*.3*.3*.3* / 4.5*.3.1 / 1.2.2.1 / 15*.13.11.9.7",
-    "remarques": "vu chef 04.06.26",
+    "remarques": "fl3+picc, 1ca, 1cl.bs, 1kfgt, 2cornets",
+    "remarquesCordes": "vu chef 04.06.26",
     "percussions": "GC, cymb fr, tri, cymb sus",
     "claviers": "célesta",
+    "note": "La partie de sarrusophone est jouée au contrebasson.",
     "duree": "≈ 30 min"
    }
   ],
@@ -2277,7 +2557,8 @@
   "works": [
    {
     "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
-    "instrumentation": "1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.2.2.2"
+    "instrumentation": "1.1.1.1 / 1.0.1.0 / 1.0.0.0 / 4.3.2.2.2",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer"
    }
   ]
  },
@@ -2325,7 +2606,8 @@
    {
     "oeuvre": "Dimitris SKYLLAS — Dimmokratîa",
     "instrumentation": "0.3*.2*.2* / 4.3.3*.1 / 1.3.1.0 / 11*.9.7.5.5",
-    "remarques": "y compris le tournus",
+    "remarques": "1ca, cl2+cl.bs, fgt2+kfgt, 2 trb.t + 1 trb.bs",
+    "remarquesCordes": "y compris le tournus",
     "percussions": "GC, cymb fr, 3 c.cl., tamtam, cymb sus, bsq, cl.tub., 2 grelots",
     "claviers": "piano (solo joué en scène par le compositeur (non concertant))",
     "detail": "-cl1, trp1 et trb1 : parties importantes ('balkan style')\n-dans certaines parties les musicien·nes chantent bouche fermée\n-dans certaines parties les danseurs chantent ou crient\n-1 cymbale suspendue est jouée sur scène par les danseurs\n-1 petite grosse caisse de marching band avec harnais est joué par pianiste ou danseurs sur scène",
@@ -2408,21 +2690,24 @@
    {
     "oeuvre": "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
     "instrumentation": "2*.2*.2.4 / 4.4*.3.0 / 1.4.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarques": "fl2+picc, ob2+ca, 2crt",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "cymb fr, 2 bsq, tri",
     "duree": "≈ 8 min"
    },
    {
     "oeuvre": "Antonín DVOŘÁK — Concerto pour violoncelle et orchestre en si mineur op. 104",
     "instrumentation": "2*.2.2.2 / 3.2.3.1 / 1.1.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarques": "fl2+picc",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "tri",
     "duree": "≈ 40 min"
    },
    {
     "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
     "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 15*.13.11.9.7",
-    "remarques": "ok Sokhiev (par SR) le 11.08.26",
+    "remarques": "1picc, 2cornets",
+    "remarquesCordes": "ok Sokhiev (par SR) le 11.08.26",
     "percussions": "GC, cymb fr, glock, tamb.mil, bsq, cast, TT, tri",
     "detail": "Suite assemblée par Tugan Sokhiev",
     "duree": "≈ 52 min"
@@ -2462,7 +2747,7 @@
    {
     "oeuvre": "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30",
     "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.2.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, cymb fr, c.cl.",
     "claviers": "piano",
     "duree": "≈ 39 min"
@@ -2470,7 +2755,8 @@
    {
     "oeuvre": "Sergeï RACHMANINOFF — Symphonie N° 2 en mi mineur op. 27",
     "instrumentation": "3*.3*.3*.2 / 4.3.3.1 / 1.4.0.0 / 15*.13.11.9.7",
-    "remarques": "effectif prévisionnel",
+    "remarques": "fl3+picc, ob3+ca, 1cl.bs",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, cymb fr, glock, c.cl.",
     "duree": "≈ 1 h 00"
    }
@@ -2507,7 +2793,8 @@
    {
     "oeuvre": "Lili BOULANGER — D'un soir triste, pour orchestre",
     "instrumentation": "2.3*.3*.3* / 4.3.3.1 / 1.2.1.1 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarques": "1c.a, 1cl.bs, 1sarrusophone",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, tri, cymb sus",
     "claviers": "célesta",
     "duree": "≈ 12 min"
@@ -2515,14 +2802,15 @@
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 14*.12.10.8.6",
-    "remarques": "effectif prévisionnel",
+    "remarquesCordes": "effectif prévisionnel",
     "claviers": "piano",
     "duree": "≈ 31 min"
    },
    {
     "oeuvre": "Claude DEBUSSY — Jeux, poème dansé",
     "instrumentation": "4*.4*.4*.4* / 4.4.3.1 / 1.3.2.1 / 15*.13.11.9.7",
-    "remarques": "effectif prévisionnel",
+    "remarques": "2picc, 1ca, 1cl.bs, 1kfgt",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "cymb fr, bsq, xyl, tri, cymb sus",
     "claviers": "célesta",
     "detail": "sarrusophone=kfgt",
@@ -2531,7 +2819,8 @@
    {
     "oeuvre": "Maurice RAVEL — Daphnis et Chloé, suite N° 2",
     "instrumentation": "4*.3*.4*.4* / 4.4.3.1 / 1.7.2.2 / 15*.13.11.9.7",
-    "remarques": "effectif prévisionnel",
+    "remarques": "fl2+picc; 1picc; 1fl.alto, 1ca, 1cl.mib; 1cl.bs, 1kfgt",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "GC, cymb fr, tamb.mil, bsq, cast, c.cl., tri, cymb sus",
     "claviers": "célesta, Glockenspiel à clavier",
     "detail": "Musique de Scène : 1picc, 1cl.mib (inclus dans l'effectif) 2 pianistes",
@@ -2625,6 +2914,10 @@
    "osr133130": "OPTION"
   }
  },
+ "Doudou Concert 5": {
+  "info": "5ème série ajoutée en cours de saison",
+  "works": []
+ },
  "Liste 35": {
   "info": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26",
   "contraires": "contraire Liste 36 et Liste 37",
@@ -2636,13 +2929,13 @@
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour violon et orchestre en ré mineur",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.7.5",
-    "remarques": "ok chef",
+    "remarquesCordes": "ok chef",
     "duree": "≈ 31 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Symphonie N° 7 en la majeur op. 92",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12*.10.8.7.5",
-    "remarques": "ok chef",
+    "remarquesCordes": "ok chef",
     "duree": "≈ 36 min"
    }
   ],
@@ -2694,7 +2987,7 @@
     "remarques": "fl+picc",
     "percussions": "glock (à défaut du glass harmonica), xyl",
     "claviers": "2 piano",
-    "note": "\ntexte original de Elisa Shua Dusapin, commande de l'OSR\nglassharmonica = glockenspiel",
+    "note": "texte original de Elisa Shua Dusapin, commande de l'OSR\nglassharmonica = glockenspiel",
     "duree": "≈ 21 min"
    }
   ],
@@ -2716,9 +3009,9 @@
   "effectif": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0 (5 musiciens)",
   "works": [
    {
-    "oeuvre": "",
+    "oeuvre": "Quintette de cuivres en liberté : transcriptions de Leonard Bernstein, Dimitri Chostakovitch, Øystein Baadsvik, Giuseppe Verdi, John Williams ... [saison 2627]",
     "instrumentation": "0.0.0.0 / 0.0.4.1 / 0.0.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "detail": "John Williams : Olympic Fanfare"
    }
   ],
@@ -2736,8 +3029,8 @@
   "duree": "≈ 45 min",
   "works": [
    {
-    "oeuvre": "",
-    "remarques": "Sans cordes",
+    "oeuvre": "Sans les mains, pour petit ensemble et récitant",
+    "remarquesCordes": "Sans cordes",
     "detail": "effectif en construction",
     "duree": "≈ 45 min"
    }
@@ -2765,7 +3058,8 @@
   "works": [
    {
     "oeuvre": "L'OSR C'est Vous ! 2526",
-    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4"
+    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer"
    }
   ]
  },
@@ -2779,7 +3073,7 @@
    {
     "oeuvre": "Etienne PERRUCHON — Tchikidan",
     "instrumentation": "1.1.1.1 / 1.1.1.1 / 1.1.0.0 / 2.2.2.2.2",
-    "note": "\n2 extraits : Tchouka et Djia",
+    "note": "2 extraits : Tchouka et Djia",
     "duree": "≈ 6 min"
    },
    {
@@ -2804,13 +3098,16 @@
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12.10.8.6.4 (69 musiciens)",
   "works": [
    {
-    "oeuvre": "N.N. — Daniel Hope, modération Programme 1 à définir",
+    "oeuvre": "N.N. — Programme 1 à définir",
     "instrumentation": "3.3.3.3 / 4.3.3.1 / 1.3.1.1 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel",
+    "remarquesCordes": "effectif prévisionnel",
     "percussions": "3 en constr.",
     "claviers": "célesta",
     "detail": "effectif en construction"
    }
+  ],
+  "solistes": [
+   "Daniel Hope, modération"
   ]
  },
  "Liste G": {
@@ -2824,7 +3121,8 @@
    {
     "oeuvre": "Leonard BERNSTEIN — Candide, opéra comique en 2 actes",
     "instrumentation": "2*.1*.2*.1 / 2.2*.2.1 / 1.2.1.0 / 12*.10.8.6.4",
-    "remarques": "effectif prévisionnel comprenant le tournus à valider GT",
+    "remarques": "fl2+picc, 1ca, 1cl.mib, 1cl.bs, trp1+ct",
+    "remarquesCordes": "effectif prévisionnel comprenant le tournus à valider GT",
     "percussions": "GC, cl.vache, gong, glock, calebasse (gourd), hand dr, crécelle, steeldrum, t tamb, bsq,\nwoodblk, xyl, bongos, chimes, cast, marac, c.cl., tri, vibra, fouet, cymb, cymb sus, tambour",
     "claviers": "piano, Glass Harmonica",
     "extra": "saxophone soprano (ad.lib à confirmer)",
@@ -2877,7 +3175,8 @@
    {
     "oeuvre": "PIÈCE(S) À DÉFINIR — en construction",
     "instrumentation": "2*.2.2.2 / 4.3.3.1 / 1.3.1.1* / 10*.8.6.5.3",
-    "remarques": "effectif prévisionnel"
+    "remarques": "effectif prévisionnel, piano",
+    "remarquesCordes": "effectif prévisionnel"
    }
   ]
  },
@@ -2890,21 +3189,22 @@
    {
     "oeuvre": "Hector BERLIOZ — Carnaval romain, ouverture caractéristique op. 9",
     "instrumentation": "2*.2*.2.4 / 4.4*.3.0 / 1.4.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarques": "fl2+picc, ob2+ca, 2crt",
+    "remarquesCordes": "Sans cordes",
     "percussions": "cymb fr, 2 bsq, tri",
     "duree": "≈ 8 min"
    },
    {
     "oeuvre": "Ludwig van BEETHOVEN — Concerto pour piano et orchestre N° 5 en mi bémol majeur op. 73, dit \"L'Empereur\"",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "claviers": "piano",
     "duree": "≈ 38 min"
    },
    {
     "oeuvre": "Sergeï RACHMANINOFF — Concerto pour piano et orchestre N° 3 en ré mineur op. 30",
     "instrumentation": "2.2.2.2 / 4.2.3.1 / 1.2.0.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarquesCordes": "Sans cordes",
     "percussions": "GC, cymb fr, c.cl.",
     "claviers": "piano",
     "duree": "≈ 39 min"
@@ -2912,10 +3212,11 @@
    {
     "oeuvre": "Piotr Ilyitch TCHAÏKOVSKI — Le Lac des cygnes, suite (assemblée par Tugan Sokhiev)",
     "instrumentation": "3*.2.2.2 / 4.4*.3.1 / 1.4.1.0 / 0.0.0.0.0",
-    "remarques": "Sans cordes",
+    "remarques": "1picc, 2cornets",
+    "remarquesCordes": "Sans cordes",
     "percussions": "GC, cymb fr, glock, tamb.mil, bsq, cast, TT, tri",
     "detail": "Suite assemblée par Tugan Sokhiev",
-    "note": "\nsokhiev ok avec 15.13.11.9.7 le 11.08.26",
+    "note": "sokhiev ok avec 15.13.11.9.7 le 11.08.26",
     "duree": "≈ 52 min"
    }
   ],
@@ -2964,7 +3265,8 @@
    {
     "oeuvre": "Wolfgang Amadeus MOZART — Sérénade n° 10 en si bémol majeur, KV 361, dite \"Gran Partita\"",
     "instrumentation": "0.2.4*.3* / 4.0.0.0 / 0.0.0.0 / 0.0.0.0.1*",
-    "remarques": "Sans cordes",
+    "remarques": "2 cor de basset, 1kfgt ad.lib (ou contrebasse)",
+    "remarquesCordes": "Sans cordes",
     "duree": "≈ 43 min"
    }
   ],
