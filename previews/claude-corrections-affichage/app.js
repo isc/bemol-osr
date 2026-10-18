@@ -67,15 +67,18 @@ function listeColorClass(liste) {
 //   d'orchestre (issue #169) ;
 // - une activité qui mentionne le chœur sans mentionner l'orchestre qui
 //   l'accompagnerait (« musicale choeur », « raccord choeur seul ») : à
-//   distinguer d'un service qui réunit orchestre et chœur, toujours formulé
-//   « (répétition/session) avec choeur(s) » (issue #169).
+//   distinguer d'un service qui réunit orchestre et chœur, formulé
+//   « (répétition/session) avec choeur(s) » (issue #169) ou
+//   « raccord (chœur + orch.) ».
+// Reprise par le worker (worker/src/notify.js) ; worker/test.mjs vérifie que
+// les deux classent pareil chaque service du planning.
 function isNoOrchestra(e) {
   const a = e.activity
   return (
     /sans orch(estre|\.|,)|sans osr/i.test(a) ||
     /générale piano/i.test(a) ||
     /technique/i.test(a) ||
-    (/choeur|chœur/i.test(a) && !/avec/i.test(a))
+    (/choeur|chœur/i.test(a) && !/avec|orch/i.test(a))
   )
 }
 
@@ -151,7 +154,7 @@ const state = {
   events: [],
   changes: [],
   modifsFilter: null,
-  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
+  productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
   updatedAt: null,
   season: null,
@@ -325,9 +328,25 @@ const LOCATION_SHORT_KEYS = LOCATION_SHORT.map(([full, short]) => [
   short,
 ])
 
+// Les studios d'Uni Mail gardent leur lettre (« UM-St. B »), et la grande
+// salle les studios qui lui sont adjoints (« UM-ML +St. ABP ») : sur une même
+// Liste, les partielles se répartissent entre studios (retour sur #247).
+function uniMailStudios(key) {
+  const studio = key.match(/^ml - studio ([a-z])\b/)
+  if (studio) return `UM-St. ${studio[1].toUpperCase()}`
+  const extra = key.match(
+    /^ml - grande salle \(\+? ?(?:st\.|studios) ([a-z, &]+)\)/,
+  )
+  if (extra)
+    return `UM-ML +St. ${extra[1].replace(/[^a-z]/g, "").toUpperCase()}`
+  return null
+}
+
 function shortLocation(loc) {
   if (!loc) return ""
   const key = canonicalLocation(loc)
+  const studios = uniMailStudios(key)
+  if (studios) return studios
   for (const [full, short] of LOCATION_SHORT_KEYS)
     if (key.includes(full)) return short
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
@@ -1411,6 +1430,7 @@ function historyDetail(uid) {
 const WORK_FIELDS = [
   ["instrumentation", "Instrumentation"],
   ["remarques", "Remarques"],
+  ["remarquesCordes", "Remarques cordes"],
   ["percussions", "Percussions"],
   ["claviers", "Claviers"],
   ["extra", "Extra"],
@@ -3446,15 +3466,51 @@ let syncProfileTimer = null
 // lien/l'état affiché dépend de ce profil).
 function syncProfile(body = { prefs: prefsPayload() }, immediate = false) {
   if (!workerOrigin()) return
-  const send = () =>
-    fetch(`${workerOrigin()}/profile/${profileToken()}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(body),
-    }).catch(() => {})
+  const send = () => putProfile(JSON.stringify(body))
   clearTimeout(syncProfileTimer)
   if (immediate) send()
   else syncProfileTimer = setTimeout(send, 800)
+}
+
+// PUT du profil au worker ; résout à true s'il l'a accepté, jamais d'erreur.
+function putProfile(json) {
+  return fetch(`${workerOrigin()}/profile/${profileToken()}`, {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: json,
+  }).then(
+    (res) => res.ok,
+    () => false,
+  )
+}
+
+// Au lancement, renvoie au worker le profil complet de cet appareil
+// (Réglages et abonnement push actuel) s'il a changé depuis le dernier envoi
+// réussi, et sinon une fois par mois pour reposer son TTL (cf. touchProfile
+// du worker). Sans ça, un PUT d'activation perdu (réseau) n'était jamais
+// renvoyé, et un profil expiré ne retrouvait jamais son abonnement push.
+async function syncProfileAtLaunch() {
+  if (!workerOrigin() || !localStorage.getItem("bemol-profile-token")) return
+  const body = { prefs: prefsPayload() }
+  try {
+    const reg = await navigator.serviceWorker?.getRegistration()
+    const sub = await reg?.pushManager?.getSubscription()
+    if (sub) body.subscription = sub.toJSON()
+  } catch {
+    // pas de service worker ou de push : on envoie les seuls Réglages
+  }
+  const json = JSON.stringify(body)
+  let last = null
+  try {
+    last = JSON.parse(localStorage.getItem("bemol-profile-sync"))
+  } catch {}
+  if (last?.json === json && Date.now() - last.at < 30 * 24 * 3600 * 1000)
+    return
+  if (await putProfile(json))
+    localStorage.setItem(
+      "bemol-profile-sync",
+      JSON.stringify({ at: Date.now(), json }),
+    )
 }
 
 // URL d'abonnement personnalisée qui suit les Réglages actuels dans la durée
@@ -4341,9 +4397,10 @@ async function init() {
   const storedView = localStorage.getItem("bemol-view")
   setView(PERSISTED_VIEWS.includes(storedView) ? storedView : "grille")
   syncListeFromHash()
+  syncProfileAtLaunch()
 }
 
-init()
+const appStarted = init()
 
 // Voir la définition de refreshData() : on force un rechargement des données
 // dès que l'app repasse au premier plan (écran rallumé, retour depuis une
@@ -4368,8 +4425,19 @@ window.addEventListener("appinstalled", () => {
 // Service worker : rend l'app installable et consultable hors-ligne.
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
+    // Première visite : une fois les données arrivées, on lui envoie les
+    // adresses de ce que la page a chargé sans lui (cf. « cache-urls » dans
+    // sw.js), pour qu'un premier lancement hors-ligne ne soit pas blanc.
+    const firstVisit = !navigator.serviceWorker.controller
     navigator.serviceWorker.register("sw.js").catch((err) => {
       console.warn("Service worker non enregistré :", err)
     })
+    if (firstVisit)
+      Promise.all([navigator.serviceWorker.ready, appStarted]).then(([reg]) =>
+        reg.active.postMessage({
+          type: "cache-urls",
+          urls: performance.getEntriesByType("resource").map((r) => r.name),
+        }),
+      )
   })
 }
