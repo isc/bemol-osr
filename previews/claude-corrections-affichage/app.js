@@ -4229,6 +4229,7 @@ async function init() {
     return
   }
   lastDataLoad = Date.now()
+  initialized = true
 
   checkDataFreshness()
   observeHeaderHeight()
