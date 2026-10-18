@@ -47,6 +47,17 @@ jobs:
       - name: Test du worker calendrier
         run: node worker/test.mjs
 
+      # Les données de main ne sont qu'un instantané : des libellés pliés sur
+      # deux lignes dans le planning.ics vivant ont fait fuir des services
+      # masqués dans l'agenda abonné, sans que l'étape précédente le voie
+      # (#244). On rejoue donc aussi les tests sur les données de gh-pages.
+      - name: Test du worker sur les données vivantes (gh-pages)
+        run: |
+          git fetch --depth=1 origin gh-pages
+          mkdir -p "$RUNNER_TEMP/ghp"
+          git archive FETCH_HEAD data | tar -x -C "$RUNNER_TEMP/ghp"
+          node worker/test.mjs "$RUNNER_TEMP/ghp/data"
+
       - name: Test du filtrage anti-bruit des notifications
         run: node worker/test-notify.mjs
 
