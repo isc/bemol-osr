@@ -63,6 +63,9 @@ jobs:
           # revue du 12/10/2026) : on l'autorise explicitement, ainsi que tout
           # Bash (le runner est jetable et isolé) pour que Claude puisse pousser
           # sa branche, créer la PR, commenter l'issue et tester librement.
+          # Skill et Agent : `/simplify` avant d'ouvrir une PR (section « Avant
+          # d'ouvrir une PR » de CLAUDE.md) charge un skill qui lance des
+          # sous-agents de relecture.
           #
           # --max-turns : c'est le job le plus lourd du dépôt (implémenter, puis
           # tout le rituel de CLAUDE.md — captures Playwright, pr-assets-push,
@@ -75,7 +78,7 @@ jobs:
           claude_args: |
             --model opus
             --max-turns 200
-            --allowedTools "Bash,Read,Edit,Write,MultiEdit"
+            --allowedTools "Bash,Read,Edit,Write,MultiEdit,Skill,Agent"
           prompt: |
             Tu es déclenché par la création de l'issue #${{ github.event.issue.number }}
             dans le dépôt ${{ github.repository }}.
@@ -92,6 +95,8 @@ jobs:
                chemins relatifs uniquement, interface en français,
                mobile-friendly, ne jamais éditer les fichiers de data/ à la
                main).
+               Avant d'ouvrir la PR, lance `/simplify` sur ton diff (section
+               « Avant d'ouvrir une PR : /simplify » de CLAUDE.md).
             2. Crée une nouvelle branche et ouvre une pull request vers `main`
                avec ton implémentation. Titre clair ; description structurée
                selon la section « Descriptions de PR » de CLAUDE.md — elle
