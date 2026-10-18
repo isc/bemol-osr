@@ -2500,6 +2500,16 @@ a.fact strong {
   font-weight: 600;
 }
 
+/* Service ouvert depuis la vue Modifs, supprimé du planning depuis le relevé. */
+.detail-gone {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--danger);
+  border-radius: 10px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
 .identique-callout {
   margin: 0 0 12px;
   padding: 8px 12px;
