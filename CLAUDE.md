@@ -290,6 +290,29 @@ et rouvre l'app. »
   `...(cond ? [nœud] : [])` plutôt qu'un `cond ? nœud : null` en position
   fixe — ou la filtrer avant de la passer.
 
+## Avant d'ouvrir une PR : `/simplify`
+
+Bémol grandit par petites demandes successives, chacune écrite sans recul sur
+l'ensemble. La chasse aux bugs du 18/10/2026 a trouvé en une matinée des
+listes de champs recopiées à la main qui avaient divergé (« Remarques
+cordes » rangées dans `remarques`, #245), deux règles différentes pour un même
+découpage (#246), des commentaires qui décrivaient l'ancien comportement. Pour
+que chaque demande laisse le code un peu plus propre :
+
+- **Avant d'ouvrir une PR, et avant de pousser un ajustement conséquent sur
+  une PR ouverte, lancer `/simplify`** (outil Skill) sur le diff de la
+  branche. Il relit le changement sous quatre angles (réutilisation de
+  l'existant, simplification, efficacité, correctif à la bonne profondeur)
+  puis applique les corrections. Ne garder que celles qui ne changent pas le
+  comportement voulu. Un ajustement minime (une couleur, un libellé) s'en
+  passe.
+- **Revalider après** : relancer les tests et rejouer ce qui a servi à valider
+  la PR (captures, comparaison avant/après de `productions.json`…), puis
+  pousser.
+- Si l'outil Skill ou Agent est refusé dans un run, faire soi-même la même
+  relecture du diff sous ces quatre angles, sans rien demander au musicien
+  (cf. « Un outil refusé ne se renvoie jamais au musicien »).
+
 ## Descriptions de PR : commencer par le pourquoi
 
 Une PR se relit **sans l'issue sous les yeux** (et c'est elle qui reste dans
