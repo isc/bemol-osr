@@ -325,9 +325,25 @@ const LOCATION_SHORT_KEYS = LOCATION_SHORT.map(([full, short]) => [
   short,
 ])
 
+// Les studios d'Uni Mail gardent leur lettre (« UM-St. B »), et la grande
+// salle les studios qui lui sont adjoints (« UM-ML +St. ABP ») : sur une même
+// Liste, les partielles se répartissent entre studios (retour sur #247).
+function uniMailStudios(key) {
+  const studio = key.match(/^ml - studio ([a-z])\b/)
+  if (studio) return `UM-St. ${studio[1].toUpperCase()}`
+  const extra = key.match(
+    /^ml - grande salle \(\+? ?(?:st\.|studios) ([a-z, &]+)\)/,
+  )
+  if (extra)
+    return `UM-ML +St. ${extra[1].replace(/[^a-z]/g, "").toUpperCase()}`
+  return null
+}
+
 function shortLocation(loc) {
   if (!loc) return ""
   const key = canonicalLocation(loc)
+  const studios = uniMailStudios(key)
+  if (studios) return studios
   for (const [full, short] of LOCATION_SHORT_KEYS)
     if (key.includes(full)) return short
   return loc.length > 18 ? loc.slice(0, 16) + "…" : loc
