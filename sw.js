@@ -79,7 +79,7 @@ self.addEventListener("fetch", (event) => {
   // compare la version publiée à celle affichée) : on ne s'interpose pas.
   if (req.cache === "no-cache") return
 
-  if (/\.json$/.test(url.pathname)) {
+  if (isData(url)) {
     event.respondWith(networkFirst(req, cacheKey(url)))
     return
   }
@@ -87,22 +87,20 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(staleWhileRevalidate(req))
 })
 
+const isData = (url) => /\.json$/.test(url.pathname)
+
 // Clé de cache d'une URL. Les données sont rangées sans query string, pour ne
 // pas multiplier les copies à cause du « ?t=… » anti-cache d'app.js.
 function cacheKey(url) {
-  return /\.json$/.test(url.pathname) ? url.origin + url.pathname : url.href
+  return isData(url) ? url.origin + url.pathname : url.href
 }
 
 // Met une réponse en cache sous `key`. Pour un fichier versionné (« ?v=… »
 // d'app.js et de style.css, changé à chaque déploiement), on retire les autres
 // versions : le cache gagnait sinon ~220 Ko par déploiement.
 async function cachePut(cache, key, resp) {
-  const url = new URL(key, self.location.href)
-  if (url.searchParams.has("v"))
-    for (const old of await cache.keys()) {
-      const o = new URL(old.url)
-      if (o.pathname === url.pathname && o.href !== url.href) cache.delete(old)
-    }
+  if (new URL(key, self.location.href).searchParams.has("v"))
+    await cache.delete(key, { ignoreSearch: true })
   return cache.put(key, resp)
 }
 
@@ -204,27 +202,21 @@ self.addEventListener("push", (event) => {
 
 // Un clic ramène sur un onglet déjà ouvert de l'app (et le navigue vers le
 // lien profond) plutôt que d'en ouvrir un nouveau à chaque fois. Seulement un
-// onglet de l'app elle-même : isc.github.io sert aussi d'autres apps et les
-// previews, et navigate() refuse un onglet qu'un autre service worker contrôle
-// (rien ne s'ouvrait alors). On essaie donc les onglets un à un, puis on en
-// ouvre un nouveau.
+// onglet que ce service worker contrôle : isc.github.io sert aussi d'autres
+// apps et les previews, et navigate() refuse leurs onglets (rien ne s'ouvrait
+// alors). À défaut, on en ouvre un nouveau.
 self.addEventListener("notificationclick", (event) => {
   event.notification.close()
   const url = new URL(event.notification.data?.url || "./", self.location.href)
     .href
   event.waitUntil(
     (async () => {
-      const clientsList = await self.clients.matchAll({
-        type: "window",
-        includeUncontrolled: true,
-      })
-      for (const client of clientsList) {
-        if (!client.url.startsWith(self.registration.scope)) continue
+      for (const client of await self.clients.matchAll({ type: "window" })) {
         try {
           await client.navigate(url)
           return client.focus()
         } catch {
-          // onglet d'une preview, ou pas encore contrôlé : au suivant
+          // onglet en train de se fermer… : au suivant
         }
       }
       return self.clients.openWindow(url)
