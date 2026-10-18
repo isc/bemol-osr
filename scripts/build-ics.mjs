@@ -61,6 +61,7 @@ const deLinkify = (s) =>
 const WORK_FIELDS = [
   ["instrumentation", "Instrumentation"],
   ["remarques", "Remarques"],
+  ["remarquesCordes", "Remarques cordes"],
   ["percussions", "Percussions"],
   ["claviers", "Claviers"],
   ["extra", "Extra"],

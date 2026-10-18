@@ -12,7 +12,11 @@
 //
 // Usage :
 //   node scripts/update-memo.mjs                (production / CI, nécessite pdftotext)
-//   node scripts/update-memo.mjs chemin.txt     (test local sur un texte déjà extrait)
+//   node scripts/update-memo.mjs chemin.txt [chemin-layout.txt]
+//                                               (test local sur un texte déjà extrait ;
+//                                               avec l'extraction -layout, aussi les
+//                                               œuvres par service et l'appariement
+//                                               des compositeurs par n° de position)
 //
 // Le fichier n'est réécrit que si le contenu a changé.
 
@@ -30,6 +34,14 @@ const changesPath = join(root, "data", "changes.json")
 // Plafond partagé avec update-data.mjs : le journal data/changes.json mélange
 // les changements de planning et de mémo, tous soumis à la même limite.
 const MAX_CHANGE_ENTRIES = 300
+
+// Version du parseur, écrite dans productions.json (`_version`). À incrémenter
+// à chaque correction du parseur qui change ce qu'il lit d'un même mémo : le
+// premier passage avec la nouvelle version réécrit productions.json SANS
+// journaliser l'écart dans changes.json. Sinon, chaque correction partait en
+// rafale de notifications « programme modifié » (œuvres renommées vues comme
+// retirées puis ajoutées) alors que le mémo, lui, n'avait pas bougé.
+const PARSER_VERSION = 2
 
 const CHDOC = "https://chdocuments.diesesoftware.com"
 const OSR = "https://osr.diesesoftware.com"
@@ -153,7 +165,7 @@ const WORK_BOUNDARY = "Instrumentation (hors extra) :"
 const FIELD_LABELS = [
   [WORK_BOUNDARY, "instrumentation"],
   ["Remarques :", "remarques"],
-  ["Remarques cordes :", "remarques"],
+  ["Remarques cordes :", "remarquesCordes"],
   ["Percussions (detail) :", "percussions"],
   ["Percussions (détail) :", "percussions"],
   ["Claviers (detail) :", "claviers"],
@@ -162,10 +174,34 @@ const FIELD_LABELS = [
   ["Détail :", "detail"],
   ["Note :", "note"],
 ]
+// Champs qui peuvent courir sur plusieurs lignes (lignes de continuation).
+const MULTILINE_FIELDS = [
+  "detail",
+  "note",
+  "remarques",
+  "remarquesCordes",
+  "percussions",
+  "extra",
+]
+// Champs d'une œuvre conservés dans productions.json (et comparés par le
+// journal du mémo, cf. diffProgram).
+const WORK_FIELDS = [
+  "instrumentation",
+  "remarques",
+  "remarquesCordes",
+  "percussions",
+  "claviers",
+  "extra",
+  "detail",
+  "note",
+  "duree",
+]
 
-// Rôles reconnus dans la distribution ("Prénom NOM, rôle")
+// Rôles reconnus dans la distribution ("Prénom NOM, rôle"). « orchestre »
+// seulement en tête du rôle (« Orchestre du Collège de Genève et OSR,
+// orchestre »), jamais un « pour orchestre » de titre.
 const ROLE_WORDS =
-  /soprano|mezzo|contralto|ténor|tenor|baryton|basse|récitant|violon|alto\b|violoncelle|contrebasse|flûte|hautbois|clarinette|basson|\bcor\b|trompette|trombone|tuba|harpe|piano|percussion|orgue|saxophone|chœur|choeur|clavecin|guitare|accordéon|voice|voix|vocalist|keyboard|bass|drums|chant|comédien|narrat|solo|direction/i
+  /soprano|mezzo|contralto|ténor|tenor|baryton|basse|récitant|violon|alto\b|violoncelle|contrebasse|flûte|hautbois|clarinette|basson|\bcor\b|trompette|trombone|tuba|harpe|piano|percussion|orgue|saxophone|chœur|choeur|clavecin|guitare|accordéon|voice|voix|vocalist|keyboard|bass|drums|chant|comédien|narrat|solo|direction|choriste|modération|^orchestre\b/i
 // Rôles techniques exclus de la liste des solistes (conventions du fichier existant)
 const TECH_ROLES =
   /chef·?fe de chant|conseiller artistique|ingénieur du son|direction artistique|assistant·?e?$/i
@@ -219,7 +255,9 @@ function parseComposerRun(line) {
   return valid ? out : null
 }
 
-function parseSection(body) {
+// `numbers` : n° de position des œuvres de la fiche lus dans l'extraction
+// -layout (cf. parseWorkNumbering), absent en test local sans -layout.
+function parseSection(body, numbers) {
   const prod = {}
   const composerByNum = new Map() // n° de position programme → compositeur
   const works = []
@@ -261,10 +299,7 @@ function parseSection(body) {
     // alto : Valentine MICHAUD") — jamais à l'intérieur d'un champ multiligne
     // en cours (Note, Détail…) : son texte peut légitimement contenir un « : »
     // (ex. « extraits pour tous les concerts : mvts 1 et 7… », issue #164).
-    const inContinuableField =
-      cur &&
-      curField &&
-      ["detail", "note", "remarques", "percussions", "extra"].includes(curField)
+    const inContinuableField = cur && MULTILINE_FIELDS.includes(curField)
     if (
       !inContinuableField &&
       /^(Solistes?|Chœur|Choeur|Récitant)[^:]{0,40} : \S/.test(line)
@@ -309,13 +344,18 @@ function parseSection(body) {
       continue
     }
 
+    // « Services : 8 », « Services annuels : 0 » : une seule ligne. Leur
+    // appliquer la lecture des continuations ci-dessous avalait le titre qui
+    // suit (Concerts pour Petites Oreilles 2 : « Pascal RENOU — » sans « Pilou
+    // le plantigrade »).
+    if (/^Services( annuels)? :/.test(line)) {
+      curField = null
+      continue
+    }
+
     // blocs d'information générale (avec leurs lignes de continuation, jusqu'à
     // une ligne vide ou une ligne clairement structurée)
-    if (
-      /^(Information générale|Services annuels|Services :|Tenue :|Disposition|Set-list)/.test(
-        line,
-      )
-    ) {
+    if (/^(Information générale|Tenue :|Disposition|Set-list)/.test(line)) {
       curField = null
       // « Information générale » est conservée (issue #211 : « strictement
       // identique pour Liste 42 », séries qui s'excluent…) ; les autres blocs
@@ -399,9 +439,18 @@ function parseSection(body) {
       continue
     }
 
-    // distribution : "Prénom NOM, rôle" (le rôle appartient au vocabulaire musical)
-    const sol = line.match(/^([^:]{2,60}), ([^:]{2,80})$/)
-    if (sol && NAME_LIKE(sol[1])) {
+    // distribution : "Prénom NOM, rôle" (le rôle appartient au vocabulaire
+    // musical). Le nom s'arrête à la PREMIÈRE virgule : « Geoffroy
+    // PERRUCHOUD, présentation (concert Famille, uniquement le 20 nov.) ». Un
+    // nom sans capitales (« Daniel Hope, modération ») est admis quand le rôle
+    // tient en un seul mot du vocabulaire, jamais dans un titre (« Colonial
+    // Dance, pour orchestre »).
+    const sol = line.match(/^([^:]{2,60}?), ([^:]{2,80})$/)
+    if (
+      sol &&
+      (NAME_LIKE(sol[1]) ||
+        (/^\p{Ll}+$/u.test(sol[2]) && ROLE_WORDS.test(sol[2])))
+    ) {
       // lignes de production (mise en scène, texte, vidéo…) : ni soliste ni titre
       if (NONSOLIST_ROLES.test(sol[2])) continue
       if (ROLE_WORDS.test(sol[2]) && !TECH_ROLES.test(sol[2])) {
@@ -413,16 +462,17 @@ function parseSection(body) {
 
     // continuation d'un champ multiligne (jamais une ligne qui ressemble à un
     // titre : les continuations commencent par un tiret, une minuscule, etc.)
-    if (
-      cur &&
-      curField &&
-      ["detail", "note", "remarques", "percussions", "extra"].includes(
-        curField,
-      ) &&
-      /^[-•(/a-zàâäéèêëîïôöûüç0-9«"']/.test(line)
-    ) {
-      cur[curField] += "\n" + line
-      continue
+    if (inContinuableField) {
+      // Un champ resté vide sur sa ligne (« Note : » seul) prend la ligne
+      // suivante quelle que soit sa casse (« Chaque candidat répète… »).
+      if (!cur[curField]) {
+        cur[curField] = line
+        continue
+      }
+      if (/^[-+•(/a-zàâäéèêëîïôöûüç0-9«"']/.test(line)) {
+        cur[curField] += "\n" + line
+        continue
+      }
     }
 
     // sinon : texte libre → titre de la prochaine œuvre (ou programme MDC).
@@ -437,28 +487,24 @@ function parseSection(body) {
   if (!works.length && titleBuffer.length)
     works.push({ titre: titleBuffer.join(" ").trim() })
 
-  // Compositeurs triés par n° de position programme (les entractes portent un
-  // n° nu sans nom → absents de la Map, donc pas de décalage) puis appariés aux
-  // œuvres dans l'ordre du document.
+  // Compositeurs appariés aux œuvres par n° de position programme. memo.txt
+  // perd le n° d'une œuvre sans compositeur nommé (bis, arrangement…) :
+  // apparier dans l'ordre décalait alors toutes les suivantes (Liste 21 :
+  // « Giacomo PUCCINI — Armenian Folk Song », bis sans compositeur). Le n°
+  // de chaque œuvre vient donc de l'extraction -layout ; à défaut (test local,
+  // table incohérente), appariement dans l'ordre du document (les entractes
+  // portent un n° nu sans nom → absents de la Map, donc pas de décalage).
+  const positions = workPositions(numbers, works.length)
   const composersByOrder = [...composerByNum.entries()]
     .sort((a, b) => a[0] - b[0])
     .map((e) => e[1])
   prod.works = works.map((w, idx) => {
     const out = {}
-    out.oeuvre = composersByOrder[idx]
-      ? `${composersByOrder[idx]} — ${w.titre}`
-      : w.titre
-    for (const f of [
-      "instrumentation",
-      "remarques",
-      "percussions",
-      "claviers",
-      "extra",
-      "detail",
-      "note",
-      "duree",
-    ])
-      if (w[f]) out[f] = w[f]
+    const composer = positions
+      ? composerByNum.get(positions[idx])
+      : composersByOrder[idx]
+    out.oeuvre = composer ? `${composer} — ${w.titre}` : w.titre
+    for (const f of WORK_FIELDS) if (w[f]) out[f] = w[f]
     return out
   })
   if (solistes.length) prod.solistes = solistes
@@ -479,7 +525,7 @@ function canonicalListeKey(line, knownListes) {
   return null
 }
 
-function parseMemoText(text, knownListes) {
+function parseMemoText(text, knownListes, numbering = {}) {
   const canonicalKey = (line) => canonicalListeKey(line, knownListes)
 
   const lines = text.split("\n").map((l) => l.trim())
@@ -500,12 +546,20 @@ function parseMemoText(text, knownListes) {
   for (let s = 0; s < sections.length; s++) {
     const end =
       s + 1 < sections.length ? sections[s + 1].start - 3 : lines.length
-    const prod = parseSection(lines.slice(sections[s].start, end))
+    const prod = parseSection(
+      lines.slice(sections[s].start, end),
+      numbering[sections[s].key],
+    )
+    // Une fiche sans œuvre peut ne porter qu'une information (audiogrammes,
+    // Doudou Concert) : elle compte aussi.
     const hasContent =
       prod.chef ||
       prod.effectif ||
-      (prod.works && prod.works.length) ||
-      (prod.solistes && prod.solistes.length)
+      prod.info ||
+      prod.contraires ||
+      prod.tenue ||
+      prod.works?.length ||
+      prod.solistes?.length
     if (!hasContent) continue
     if (result[sections[s].key]) continue
     result[sections[s].key] = prod
@@ -664,12 +718,16 @@ function parseServiceTables(layoutText, knownListes) {
     const effectiveDateText = dateText || dateCarry
     if (!effectiveDateText) continue
 
-    // Colonne ŒUVRES : un ou plusieurs chiffres séparés par des tirets,
-    // isolés par au moins deux espaces (la marge de colonne) — jamais un
-    // fragment de mot du LIEU/ACTIVITÉ/NOTES environnant.
+    // Colonne ŒUVRES : un ou plusieurs numéros (jusqu'à 2 chiffres : « 2-4-
+    // 6-8-11-12 ») séparés par des tirets sans espace (« 4-2-1   -1 seul
+    // service » : le « -1 » est la note), précédés d'au moins deux espaces
+    // (la marge de colonne) — jamais un fragment de mot du LIEU/ACTIVITÉ/NOTES
+    // environnant. Une liste trop longue pour sa colonne n'est séparée des
+    // NOTES que par un espace (« …-18-19 -tutti », « …-9-10 démontage… ») ;
+    // un numéro seul, lui, doit être suivi de la marge.
     const after = line.slice(tm.index + tm[0].length)
     const oeuvresMatch = after.match(
-      /(?:^|\s{2,})(\d(?:\s*-\s*\d)*)(?:\s{2,}|$)/,
+      /(?:^|\s{2,})(\d{1,2}(?:-\d{1,2})+(?=\s|$)|\d{1,2}(?=\s{2,}|$))/,
     )
     if (!oeuvresMatch) continue
     const oeuvres = oeuvresMatch[1]
@@ -703,7 +761,7 @@ function parseServiceTables(layoutText, knownListes) {
 }
 
 // n° de position ORIGINAL du mémo (celui de la colonne ŒUVRES du tableau des
-// services) → index 1-based dans prod.works, par liste. Un entracte, ou une
+// services) de chaque œuvre de prod.works, dans l'ordre, par liste. Un entracte, ou une
 // œuvre sans compositeur nommé (arrangement de musique de chambre…), consomme
 // un numéro de position sans forcément apparaître sous la forme "N Compositeur"
 // dans memo.txt (cf. parseSection) : son numéro s'y perd ou s'y confond avec du
@@ -715,25 +773,28 @@ function parseServiceTables(layoutText, knownListes) {
 // retrouvait décalé (Liste 08, issue #164 : Entracte = n° 3, Bartók = n° 4
 // mais 3e œuvre de prod.works) ou, pire, une œuvre sans compositeur nommé
 // perdait carrément son association (numéro jamais vu par parseSection).
+// Comme dans parseSection, une œuvre est un numéro suivi d'une ligne
+// « Instrumentation (hors extra) : » : un entracte (« 2 avec 1 entracte »,
+// « 2 nombre et positions à définir ») ou une ligne d'information numérotée
+// (« 2 partielles par registre et 1 tutti ») n'en a pas.
 function parseWorkNumbering(layoutText, knownListes) {
   const rawLines = layoutText.split("\n")
   const result = {}
   let currentListe = null
   let inTable = false
   let numbers = []
+  let pending = null // dernier numéro vu, en attente de son Instrumentation
 
   const flush = () => {
-    if (currentListe && numbers.length) {
-      const map = {}
-      numbers.forEach((n, idx) => {
-        map[n] = idx + 1
-      })
-      result[currentListe] = map
-    }
+    if (currentListe && numbers.length) result[currentListe] = numbers
     numbers = []
+    pending = null
   }
 
-  for (const line of rawLines) {
+  for (const rawLine of rawLines) {
+    // Saut de page (\f) collé en tête de la première ligne d'une page
+    // (Liste 21 : « \f14 Richard STRAUSS », numéro manqué jusqu'ici).
+    const line = rawLine.replace(/^\f/, "")
     const trimmed = line.trim()
     if (!trimmed) continue
     if (SERVICE_TABLE_HEADER_RE.test(line)) {
@@ -749,6 +810,13 @@ function parseWorkNumbering(layoutText, knownListes) {
     }
     if (inTable || !currentListe) continue
 
+    // (« Bis » peut précéder l'Instrumentation sur sa ligne, en colonne 0)
+    if (pending !== null && line.includes(WORK_BOUNDARY)) {
+      numbers.push(pending)
+      pending = null
+      continue
+    }
+
     // Numéro de position : chiffres en tout début de ligne (jamais une
     // continuation, toujours indentée dans l'extraction -layout), suivis
     // d'un espace au moins puis du reste de la ligne — un nom de
@@ -757,39 +825,41 @@ function parseWorkNumbering(layoutText, knownListes) {
     // la grande marge de colonne ; sans compositeur (entracte, arrangement
     // sans compositeur nommé…), c'est le titre lui-même qui suit directement,
     // au travers de cette même grande marge.
-    const m = line.match(/^(\d+)\s+(\S.*)$/)
-    if (!m) continue
-    const rest = m[2].trim()
-    // La ligne d'un entracte/bis porte parfois aussi sa durée en fin de ligne
-    // (colonne suivante collée faute d'autre contenu) : test par préfixe, pas
-    // par égalité stricte.
-    if (/^(Entracte|Bis)\b/i.test(rest)) continue // pas une vraie œuvre
-    numbers.push(parseInt(m[1], 10))
+    const m = line.match(/^(\d+)\s+\S/)
+    if (m) pending = parseInt(m[1], 10)
   }
   flush()
   return result
+}
+
+// Numérotation retenue seulement si elle est cohérente avec les œuvres lues
+// dans memo.txt : autant de numéros que d'œuvres, strictement croissants. Une
+// œuvre manquée d'un côté ou de l'autre la rend inutilisable : mieux vaut
+// alors aucune œuvre par service qu'une œuvre décalée.
+function workPositions(numbers, workCount) {
+  if (!numbers || numbers.length !== workCount) return null
+  return numbers.every((n, i) => i === 0 || n > numbers[i - 1]) ? numbers : null
 }
 
 // Rapproche les lignes du tableau des services des événements du planning
 // (par liste + date + horaire EXACTS) pour produire { serviceWorks: { uid:
 // [n,...] }, serviceNotes: { uid: texte } }. Un service sans correspondance
 // unique (mémo désynchro, rencontre non publiée à l'ICS…) est silencieusement
-// omis plutôt que mal associé. `numberMap` (cf. parseWorkNumbering) traduit le
-// n° de position ORIGINAL du mémo en index 1-based dans prod.works ;
-// `workCount` filtre par sécurité tout index hors bornes (désync memo/layout).
-function matchServiceWorks(rows, events, numberMap, workCount) {
+// omis plutôt que mal associé. `positions` (cf. workPositions) traduit le n°
+// de position ORIGINAL du mémo en index 1-based dans prod.works.
+function matchServiceWorks(rows, events, positions) {
   const serviceWorks = {}
   const serviceNotes = {}
   for (const row of rows) {
     const oeuvres = row.oeuvres
-      .map((n) => numberMap[n])
-      .filter((idx) => idx >= 1 && idx <= workCount)
+      .map((n) => positions.indexOf(n) + 1)
+      .filter((idx) => idx >= 1)
     if (!oeuvres.length) continue
     const candidates = events.filter(
       (e) =>
         e.start.slice(0, 10) === row.date &&
         e.start.slice(11) === row.debut &&
-        e.end.slice(11) === row.fin,
+        e.end?.slice(11) === row.fin,
     )
     if (candidates.length !== 1) continue
     serviceWorks[candidates[0].uid] = oeuvres
@@ -811,17 +881,6 @@ const MEMO_DIFF_FIELDS = [
   "info",
   "contraires",
   "tenue",
-]
-// Champs d'une œuvre dont un changement compte comme « œuvre modifiée ».
-const WORK_DIFF_FIELDS = [
-  "instrumentation",
-  "remarques",
-  "percussions",
-  "claviers",
-  "extra",
-  "detail",
-  "note",
-  "duree",
 ]
 
 // Œuvres d'un programme indexées par leur libellé « Compositeur — Titre »
@@ -854,9 +913,7 @@ function diffProgram(before, after) {
   for (const [oeuvre, w] of newWorks) {
     const prev = oldWorks.get(oeuvre)
     if (!prev) continue
-    const changed = WORK_DIFF_FIELDS.filter(
-      (k) => (prev[k] || "") !== (w[k] || ""),
-    )
+    const changed = WORK_FIELDS.filter((k) => (prev[k] || "") !== (w[k] || ""))
     if (changed.length) worksModified.push({ oeuvre, fields: changed })
   }
 
@@ -897,27 +954,31 @@ const textArg = process.argv[2]
 // En test local (fichier texte déjà extrait), pas de pendant `-layout` : le
 // tableau des services (issue #110) reste simplement vide, tout le reste du
 // parseur fonctionne à l'identique.
+const layoutArg = process.argv[3]
 const { text: memoText, layoutText } = textArg
-  ? { text: readFileSync(textArg, "utf8"), layoutText: null }
+  ? {
+      text: readFileSync(textArg, "utf8"),
+      layoutText: layoutArg ? readFileSync(layoutArg, "utf8") : null,
+    }
   : await generateMemoPdfText()
 
 const planningEvents = JSON.parse(readFileSync(planningPath, "utf8")).events
 const knownListes = new Set(planningEvents.map((e) => e.liste))
 
-const parsed = parseMemoText(memoText, knownListes)
+const numbering = layoutText ? parseWorkNumbering(layoutText, knownListes) : {}
+const parsed = parseMemoText(memoText, knownListes, numbering)
 
 if (layoutText) {
-  const numberMaps = parseWorkNumbering(layoutText, knownListes)
   const serviceTables = parseServiceTables(layoutText, knownListes)
   for (const [liste, rows] of Object.entries(serviceTables)) {
     const prod = parsed[liste]
-    if (!prod || !prod.works || !prod.works.length) continue
+    const positions = workPositions(numbering[liste], prod?.works?.length)
+    if (!positions) continue
     const events = planningEvents.filter((e) => e.liste === liste)
     const { serviceWorks, serviceNotes } = matchServiceWorks(
       rows,
       events,
-      numberMaps[liste] || {},
-      prod.works.length,
+      positions,
     )
     if (Object.keys(serviceWorks).length) prod.serviceWorks = serviceWorks
     if (Object.keys(serviceNotes).length) prod.serviceNotes = serviceNotes
@@ -933,8 +994,9 @@ const previous = existsSync(productionsPath)
   ? JSON.parse(readFileSync(productionsPath, "utf8"))
   : {}
 const output = {
+  _version: PARSER_VERSION,
   _lisezmoi:
-    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app.",
+    "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _version » : version du parseur, cf. PARSER_VERSION dans le script).",
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
@@ -958,9 +1020,15 @@ console.log(
 
 // Journalise les évolutions du mémo dans data/changes.json (type « memo »,
 // distinct des changements de planning), sauf à l'initialisation (aucune
-// version précédente réelle : tout apparaîtrait comme « ajouté »).
+// version précédente réelle : tout apparaîtrait comme « ajouté ») et au
+// premier passage d'une nouvelle version du parseur (cf. PARSER_VERSION).
 const hadPrevious = Object.keys(previous).some((k) => !k.startsWith("_"))
-if (hadPrevious) {
+const sameParser = previous._version === PARSER_VERSION
+if (hadPrevious && !sameParser)
+  console.log(
+    `Parseur passé de la version ${previous._version ?? 1} à ${PARSER_VERSION} : écart non journalisé.`,
+  )
+if (hadPrevious && sameParser) {
   const programs = diffMemo(previous, output)
   if (programs.length) {
     const changes = existsSync(changesPath)
