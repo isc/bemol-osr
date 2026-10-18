@@ -115,16 +115,29 @@ function categorize(liste, activity) {
   return "autre"
 }
 
+// Masque le contenu des parenthèses (à longueur égale), pour qu'une recherche
+// de séparateur « - » n'y regarde pas.
+const maskParens = (s) => s.replace(/\([^()]*\)/g, (m) => "_".repeat(m.length))
+
 function normalize(v) {
+  // SUMMARY : « <liste> - <activité> ». Le nom de liste peut contenir un « - »
+  // (« Concours Violoncelle Tuttiste - 2 postes »), l'activité seulement entre
+  // parenthèses (« présélection (Violoncelle tuttiste - 2 postes) ») : on
+  // coupe au dernier « - » hors parenthèses. Couper au premier donnait la
+  // liste « Concours Violoncelle Tuttiste », sans sa fiche du mémo (« … - 2
+  // postes »), et aurait fondu deux concours distincts du même instrument.
   const summary = unescapeText(v.SUMMARY).trim()
-  const sep = summary.indexOf(" - ")
+  const sep = maskParens(summary).lastIndexOf(" - ")
   const liste = sep === -1 ? summary : summary.slice(0, sep).trim()
   const activity = sep === -1 ? "" : summary.slice(sep + 3).trim()
 
   // DESCRIPTION type : " - - - \n\n<activité abrégée> - <projet>\n\n&nbsp"
   // → on extrait le « projet » (Carmen, aboO2, DPL…) après le dernier « - ».
-  const middle = (unescapeText(v.DESCRIPTION).split("\n\n")[1] || "").trim()
-  const cut = middle.lastIndexOf(" - ")
+  // Projet vide, la description finit par ce « - » (« Technique (vidéo - Rzn
+  // Torbey) - ») : le dernier « - » serait sinon celui des parenthèses, d'où
+  // « Programme : Rzn Torbey) - » dans le calendrier abonné.
+  const middle = unescapeText(v.DESCRIPTION).split("\n\n")[1] || ""
+  const cut = /\s-\s*$/.test(middle) ? -1 : middle.lastIndexOf(" - ")
   const project = (cut === -1 ? "" : middle.slice(cut + 3))
     .replace(/&nbsp;?/g, "")
     .trim()
