@@ -21,6 +21,8 @@ env:
 
 jobs:
   build-and-deploy:
+    # Une PR venue d'un fork n'a pas le droit d'écrire sur gh-pages (#236).
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -104,5 +106,5 @@ jobs:
 
               - 🎼 App : https://isc.github.io/bemol-osr/previews/${{ steps.slug.outputs.slug }}/
 
-              Commit : `${{ github.event.pull_request.head.sha }}` — en bas des ⚙ Réglages, la preview doit afficher « Version ${{ steps.short.outputs.sha }} ». Sinon, ferme et rouvre l'app (ou touche « Mettre à jour » si le bandeau s'affiche).
+              Commit : `${{ github.event.pull_request.head.sha }}` — en bas de l'onglet Réglages, la preview doit afficher « Version ${{ steps.short.outputs.sha }} ». Sinon, ferme et rouvre l'app (ou touche « Mettre à jour » si le bandeau s'affiche).
               _La preview est mise à jour à chaque push et supprimée à la fermeture de la PR._
