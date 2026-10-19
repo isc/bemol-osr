@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T10:00:50.402Z",
+ "updatedAt": "2026-10-19T12:00:52.660Z",
  "count": 641,
  "events": [
   {
@@ -1890,7 +1890,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - grande salle (+ studios A, B & P)",
+   "location": "ML - grande salle (+ studios B, C & P)",
    "project": "AD2.1",
    "cancelled": false
   },
@@ -1901,7 +1901,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - grande salle (+ studios A, B & P)",
+   "location": "ML - grande salle (+ studios B, C & P)",
    "project": "AD2.2",
    "cancelled": false
   },
@@ -1912,7 +1912,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - grande salle (+ studios A, B & P)",
+   "location": "ML - grande salle (+ studios B, C & P)",
    "project": "AD2.3",
    "cancelled": false
   },
@@ -1923,7 +1923,7 @@
    "liste": "Atelier Découverte 2",
    "activity": "ateliers (avec mus.OSR)",
    "category": "repetition",
-   "location": "ML - grande salle (+ studios A, B & P)",
+   "location": "ML - grande salle (+ studios B, C & P)",
    "project": "AD2.4",
    "cancelled": false
   },
