@@ -29,8 +29,17 @@ production (GitHub Pages) comme dans les previews de PR.
 - **Interface 100 % en français.** Les utilisateurs sont des musiciens
   d'orchestre, pas des développeurs.
 - **Mobile-friendly** : l'app est consultée surtout sur téléphone. Grandes
-  cibles tactiles, la vue Agenda est la vue par défaut sur petit écran, les
+  cibles tactiles, onglets dans une barre en bas d'écran, les
   effets de survol restent dans `@media (hover: hover) { … }`.
+- **Nommer les écrans comme l'app les affiche** (barre d'onglets du bas
+  depuis l'habillage #235) : « **Mon agenda** » (vue `grille` dans le code,
+  filtrée par les Réglages, onglet par défaut), « **Bible** » (vue
+  `document`, saison complète), « **Modifs** », « **Réglages** » (une page,
+  plus de roue ⚙). Le menu **⋯** du bandeau donne « S'abonner dans mon
+  agenda », « Notifications », « Imprimer / exporter en PDF » (Bible),
+  « Calendrier papier » et « Détail des Listes ». Dans les réponses au
+  musicien, ce sont ces libellés qu'il voit à l'écran, pas les noms internes
+  ni les anciens (« Agenda personnalisé », « bouton 📅 », « ⚙ Réglages »).
 
 ## Pipeline de données (à ne pas casser)
 
@@ -154,8 +163,8 @@ production (GitHub Pages) comme dans les previews de PR.
   (configuration absente).
   Pour relire le KV lui-même, ne jamais afficher un message en clair dans un
   workflow : les journaux d'Actions sont publics.
-- **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, bouton
-  📅).** On ne teste pas le rendu d'un `.ics` en local ni en CI : la seule
+- **Contrainte des calendriers ABONNÉS (le seul mode d'usage de Bémol, menu ⋯ de
+  « Mon agenda » › « S'abonner dans mon agenda »).** On ne teste pas le rendu d'un `.ics` en local ni en CI : la seule
   vérité, c'est l'agenda du frère (Apple Calendar, abonnement webcal). Les apps
   d'agenda qui s'abonnent à un flux **n'affichent que les propriétés standard**
   (`DESCRIPTION` en texte brut, `URL`, `GEO`, `LOCATION`) et **filtrent les
@@ -200,7 +209,7 @@ worksRemoved: [oeuvre], worksModified: [{ oeuvre, fields }] }] }`. Les deux
 - Un **service** est une séance de travail (répétition, concert…).
 - La **saison** va du 1er lundi d'août au dimanche précédant le 1er lundi
   d'août suivant, découpée en **périodes** de 4 semaines (c'est le découpage
-  utilisé par la vue Grille, calqué sur la « Bible » de saison papier).
+  utilisé par l'onglet « Mon agenda » et la Bible, calqué sur la « Bible » de saison papier).
 - Les ordinaux (« première », « neuvième »…) sont des **représentations**
   d'opéra ou de ballet ; « italienne », « scène et orchestre », « générale »
   sont des types de répétitions lyriques.
@@ -268,10 +277,10 @@ preview (~1 min après le commentaire de Claude), et une app restée ouverte en
 arrière-plan qui garde l'ancienne version. S'il teste trop tôt, il conclut
 « rien n'a changé » : un aller-retour perdu à chaque fois (une trentaine de
 commentaires de ce type, dont beaucoup dans #114). Depuis, l'app affiche sa
-version en bas des ⚙ Réglages (SHA court du commit, et le nom de la preview) et
+version en bas de l'onglet Réglages (SHA court du commit, et le nom de la preview) et
 propose « Mettre à jour » au retour au premier plan quand une version plus
 récente est publiée. Terminer donc **systématiquement** toute invitation à
-retester par : « la preview est prête d'ici ~1 min ; en bas des ⚙ Réglages, tu
+retester par : « la preview est prête d'ici ~1 min ; en bas de l'onglet Réglages, tu
 dois voir « Version <les 7 premiers caractères du SHA poussé> ». Sinon, ferme
 et rouvre l'app. »
 
@@ -346,7 +355,7 @@ d'« Œuvres au programme », juste en dessous : doublon repéré par le frère
 
 1. Générer les captures : `npm install --no-save playwright` puis
    `node scripts/screenshots.mjs <dossier> <prefixe>` (sert le dépôt local et
-   capture les vues Grille/Agenda en mobile 390px et desktop 1280px). Pour un
+   capture l'onglet « Mon agenda » en mobile 390px et desktop 1280px). Pour un
    « avant », lancer le script depuis `main` avant d'appliquer les changements
    (ou depuis un worktree de `main`).
 2. Les joindre à la description, selon le jeton de `gh` : `--attach` en
