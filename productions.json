@@ -1753,9 +1753,8 @@
    },
    {
     "oeuvre": "Dimitri CHOSTAKOVITCH — Concerto pour violon et orchestre N° 2 en ut dièse mineur op. 129",
-    "instrumentation": "2*.2.2.3* / 4.0.0.0 / 1.1.0.0 / 8*.7.6.6.5",
+    "instrumentation": "2*.2.2.3* / 4.0.0.0 / 1.1.0.0 / 8.7.6.6.5",
     "remarques": "1picc., 1kfgt",
-    "remarquesCordes": "effectif donné par le compositeur, à confirmer",
     "percussions": "tomtom",
     "duree": "≈ 31 min"
    },
@@ -1772,6 +1771,23 @@
    "Patricia KOPATCHINSKAJA, violon"
   ],
   "serviceWorks": {
+   "osr132942": [
+    3
+   ],
+   "osr132943": [
+    3
+   ],
+   "osr132944": [
+    1
+   ],
+   "osr132945": [
+    2
+   ],
+   "osr132946": [
+    1,
+    2,
+    3
+   ],
    "osr132947": [
     1,
     2,
@@ -1784,6 +1800,7 @@
    ]
   },
   "serviceNotes": {
+   "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les",
    "osr132947": "-ouverture au public du podium choeur en construction",
    "osr132948": "-ouverture au public du podium choeur en construction"
   }
