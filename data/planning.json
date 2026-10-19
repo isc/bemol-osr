@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-18T15:38:37.341Z",
+ "updatedAt": "2026-10-19T10:00:50.402Z",
  "count": 641,
  "events": [
   {
@@ -1672,7 +1672,7 @@
    "category": "repetition",
    "location": "ML - Studio P",
    "project": "ONU, VIL",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr233634",
@@ -1807,6 +1807,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr245662",
+   "start": "2026-10-22T09:30",
+   "end": "2026-10-22T15:30",
+   "liste": "audiogrammes période 3",
+   "activity": "audiogrammes",
+   "category": "autre",
+   "location": "HUG",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr132804",
    "start": "2026-10-22T10:00",
    "end": "2026-10-22T12:30",
@@ -1815,17 +1826,6 @@
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "ONU",
-   "cancelled": false
-  },
-  {
-   "uid": "osr245662",
-   "start": "2026-10-22T12:15",
-   "end": "2026-10-22T18:15",
-   "liste": "audiogrammes période 3",
-   "activity": "audiogrammes",
-   "category": "autre",
-   "location": "HUG",
-   "project": "",
    "cancelled": false
   },
   {
