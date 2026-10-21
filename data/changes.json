@@ -1,6 +1,35 @@
 {
  "entries": [
   {
+   "at": "2026-10-21T18:00:59.630Z",
+   "added": [
+    {
+     "uid": "osr263892",
+     "start": "2027-06-23T09:00",
+     "end": "2027-06-23T17:00",
+     "liste": "Auditions Master HEM",
+     "activity": "audition",
+     "category": "concours",
+     "location": "HEM Dufour GD10",
+     "project": "CONC.",
+     "cancelled": false
+    },
+    {
+     "uid": "osr263894",
+     "start": "2027-06-23T09:00",
+     "end": "2027-06-23T17:00",
+     "liste": "Auditions Master HEM",
+     "activity": "audition",
+     "category": "concours",
+     "location": "HEM Dufour GD30",
+     "project": "CONC.",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-10-21T16:01:23.697Z",
    "added": [],
    "removed": [],
