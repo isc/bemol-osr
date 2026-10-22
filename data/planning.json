@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-21T18:00:59.630Z",
+ "updatedAt": "2026-10-22T12:01:04.729Z",
  "count": 643,
  "events": [
   {
@@ -2182,8 +2182,8 @@
   },
   {
    "uid": "osr132853",
-   "start": "2026-11-06T19:30",
-   "end": "2026-11-06T22:30",
+   "start": "2026-11-06T20:15",
+   "end": "2026-11-06T23:15",
    "liste": "Liste 12",
    "activity": "concert",
    "category": "concert",
@@ -5606,7 +5606,7 @@
    "start": "2027-04-21T19:30",
    "end": "2027-04-21T22:00",
    "liste": "Liste 30",
-   "activity": "répétition avec soliste(s) pour les Amis",
+   "activity": "répétition privée Amis avec soliste·s",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboR3",
