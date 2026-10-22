@@ -981,7 +981,7 @@
    "osr132803": "avec trb. et perc.",
    "osr132805": "avec le choeur pour la 1ère heure",
    "osr132808": "-blocage loge 18",
-   "osr132809": "Concert Relax de la Ville de Genève"
+   "osr132809": "Concert Relax de la Ville de Genève (lumière salle, portes ouvertes, annonce voix off de"
   }
  },
  "audiogrammes période 4": {
@@ -1030,7 +1030,8 @@
    "osr132830": "-limited tech",
    "osr132834": "-full tech",
    "osr132833": "-démontage express à l'issue",
-   "osr160676": "-montage dès 14h"
+   "osr160676": "-montage dès 14h",
+   "osr132832": "-costumes et maquillage Halloween (sans maquilleuses)"
   }
  },
  "Liste 12": {
@@ -3182,6 +3183,7 @@
    ]
   },
   "serviceNotes": {
+   "osr128842": "RTS : présence en salle",
    "osr128845": "essais micro I (RTS)",
    "osr128846": "essais micro II (RTS)",
    "osr128847": "démontage à l'issue"
