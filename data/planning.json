@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-22T12:01:04.729Z",
- "count": 643,
+ "updatedAt": "2026-10-23T13:34:14.164Z",
+ "count": 642,
  "events": [
   {
    "uid": "osr225046",
@@ -2585,17 +2585,6 @@
    "category": "concert",
    "location": "Institut Jaques-Dalcroze",
    "project": "CPO1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr259567",
-   "start": "2026-11-23T10:00",
-   "end": "2026-11-23T13:00",
-   "liste": "Assemblée Artistique",
-   "activity": "Assemblée générale section GE",
-   "category": "autre",
-   "location": "ML - grande salle",
-   "project": "",
    "cancelled": false
   },
   {
@@ -6020,11 +6009,11 @@
    "cancelled": false
   },
   {
-   "uid": "osr262430",
+   "uid": "osr264086",
    "start": "2027-05-18T09:00",
    "end": "2027-05-18T13:00",
-   "liste": "Assemblée Artistique",
-   "activity": "Assemblée générale section GE",
+   "liste": "Assemblée Musicien·nes",
+   "activity": "AG section GE ((ordinaire))",
    "category": "autre",
    "location": "ML - grande salle",
    "project": "",

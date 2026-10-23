@@ -1,6 +1,47 @@
 {
  "entries": [
   {
+   "at": "2026-10-23T13:34:14.164Z",
+   "added": [
+    {
+     "uid": "osr264086",
+     "start": "2027-05-18T09:00",
+     "end": "2027-05-18T13:00",
+     "liste": "Assemblée Musicien·nes",
+     "activity": "AG section GE ((ordinaire))",
+     "category": "autre",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [
+    {
+     "uid": "osr259567",
+     "start": "2026-11-23T10:00",
+     "end": "2026-11-23T13:00",
+     "liste": "Assemblée Artistique",
+     "activity": "Assemblée générale section GE",
+     "category": "autre",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr262430",
+     "start": "2027-05-18T09:00",
+     "end": "2027-05-18T13:00",
+     "liste": "Assemblée Artistique",
+     "activity": "Assemblée générale section GE",
+     "category": "autre",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-10-23T09:35:45.488Z",
    "type": "memo",
    "programs": [
