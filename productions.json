@@ -1531,14 +1531,14 @@
   "serviceNotes": {
    "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au",
    "osr132921": "essai micros",
-   "osr132922": "-ouverture au public du podium choeur en construction",
+   "osr132922": "-ouverture au public du podium choeur si nécessaire",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN",
-   "osr132923": "-ouverture au public du podium choeur en construction",
+   "osr132923": "-ouverture au public du podium choeur si nécessaire",
    "osr132925": "-ouverture au public du podium choeur en construction"
   }
  },
  "Liste 18": {
-  "info": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)",
+  "info": "avec Orchestre du Collège de Genève\n-effectif OSR pour les 2 séances de coaching : 1111 / 1111 / 1010 // 1.1.1.1.1 (sans tuba à la 1ère séance)\n-effectif OSR pour les répétitions tutti et le concert : 12*11 / 1111 / 1010 // 4.4.4.2.4\n-effectif Orch.du Collège: 4*.3.3*.2 / 3.3.4.0 / 0.4.3.2 // 17.17.4.12.2\n-effectif chaises : 5.5.4.3 / 4.4.5.1 / 1.5.2.1 // 20.20.8.14.6 (3 harpistes étudiants + 1 harpiste coach = 2 instruments)",
   "contraires": "contraire liste C",
   "tenue": "05.12-11h00 : OSR : chemises noires / Collège : haut de couleur simple (T-shirts, polos...)",
   "chef": "Philippe BÉRAN",
@@ -1578,7 +1578,7 @@
    ]
   },
   "serviceNotes": {
-   "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
+   "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.0 / 1.0.1.0 // 1.1.1.1.1",
    "osr163275": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
    "osr132933": "générale raccourcie à 2h30",
    "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler"
@@ -1622,82 +1622,6 @@
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
   "chef": "Tugan SOKHIEV",
   "works": []
- },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
-  "contraires": "contraire Liste C",
-  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
-    "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist",
-   "Sylvie KLIJN, choriste ([leader])",
-   "NN2, choriste",
-   "NN3, choriste",
-   "NN4, choriste",
-   "NN5, choriste",
-   "NN6, choriste"
-  ],
-  "serviceWorks": {
-   "osr162112": [
-    1
-   ],
-   "osr162113": [
-    1
-   ],
-   "osr128620": [
-    1
-   ],
-   "osr261714": [
-    1
-   ],
-   "osr261715": [
-    1
-   ],
-   "osr261716": [
-    1
-   ],
-   "osr162114": [
-    1
-   ],
-   "osr162115": [
-    1
-   ],
-   "osr128623": [
-    1
-   ],
-   "osr128624": [
-    1
-   ],
-   "osr128622": [
-    1
-   ]
-  },
-  "serviceNotes": {
-   "osr162112": "-sans choristes ni soliste ni amplification",
-   "osr162113": "-sans choristes ni soliste ni amplification",
-   "osr128620": "-sans choristes ni soliste ni amplification",
-   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
-   "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne",
-   "osr128624": "différé Espace 2 le 23 décembre"
-  }
  },
  "Liste C": {
   "info": "-projet de captation vidéo Les Noces sous les Etoiles\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.)\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
@@ -1807,6 +1731,82 @@
    "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les",
    "osr132947": "-ouverture au public du podium choeur en construction",
    "osr132948": "-ouverture au public du podium choeur en construction"
+  }
+ },
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
+  "contraires": "contraire Liste C",
+  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
+    "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist",
+   "Sylvie KLIJN, choriste ([leader])",
+   "NN2, choriste",
+   "NN3, choriste",
+   "NN4, choriste",
+   "NN5, choriste",
+   "NN6, choriste"
+  ],
+  "serviceWorks": {
+   "osr162112": [
+    1
+   ],
+   "osr162113": [
+    1
+   ],
+   "osr128620": [
+    1
+   ],
+   "osr261714": [
+    1
+   ],
+   "osr261715": [
+    1
+   ],
+   "osr261716": [
+    1
+   ],
+   "osr162114": [
+    1
+   ],
+   "osr162115": [
+    1
+   ],
+   "osr128623": [
+    1
+   ],
+   "osr128624": [
+    1
+   ],
+   "osr128622": [
+    1
+   ]
+  },
+  "serviceNotes": {
+   "osr162112": "-sans choristes ni soliste ni amplification",
+   "osr162113": "-sans choristes ni soliste ni amplification",
+   "osr128620": "-sans choristes ni soliste ni amplification",
+   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr162114": "1ère demi-heure pour la balance micros",
+   "osr162115": "fin 22h15 max. pour repos nocturne",
+   "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
  "Liste 21": {
