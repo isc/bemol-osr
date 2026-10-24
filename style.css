@@ -1145,6 +1145,14 @@ dialog h2 {
   white-space: pre-wrap;
 }
 
+/* Remarque d'un service sans œuvre (rendez-vous des audiogrammes, issue
+   #258) : seule sous son titre, elle se lit en texte normal. */
+.detail-box .service-note.seule {
+  color: inherit;
+  font-size: inherit;
+  font-style: normal;
+}
+
 /* Lien vers le portail de partitions Dièse (issue #79), affiché juste sous
    le titre de la fiche (#80) : la ligne qui le contient a donc le même
    traitement d'espacement que le reste de la fiche, et le lien lui-même a un

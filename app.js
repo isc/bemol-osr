@@ -1506,36 +1506,52 @@ function scorePortalLink() {
 // (issue #161) faisait doublon et alourdissait la fiche pour rien (retour
 // PR #164, issue #168). Seule info propre à CE service et absente plus bas :
 // la remarque éventuelle du mémo (ex. « extraits »), via prod.serviceNotes[e.uid].
+// Un service sans œuvre peut n'avoir qu'une remarque : elle s'affiche alors
+// seule, en clair (ex. les rendez-vous de chacun aux audiogrammes, issue #258).
 function serviceWorksDetail(e) {
   const prod = state.productions[e.liste] || {}
-  const indices = (prod.serviceWorks || {})[e.uid]
-  if (!indices || !indices.length) return []
+  const note = (prod.serviceNotes || {})[e.uid]
   const works = prod.works || []
   // Toujours dans l'ordre du programme (prod.works, dans l'ordre de jeu), pas
   // dans l'ordre où le mémo les liste pour ce service (retour PR #113).
-  const list = [...indices]
+  const list = [...((prod.serviceWorks || {})[e.uid] || [])]
     .sort((a, b) => a - b)
     .map((i) => works[i - 1])
     .filter(Boolean)
-  if (!list.length) return []
-  const note = (prod.serviceNotes || {})[e.uid]
+  if (!list.length && !note) return []
   return [
     el(
       "h3",
       { class: "detail-section" },
-      "Œuvres travaillées pendant ce service",
+      list.length
+        ? "Œuvres travaillées pendant ce service"
+        : "Remarques pour ce service",
     ),
-    el(
-      "ul",
-      { class: "works" },
-      ...list.map((w) => el("li", {}, typeof w === "string" ? w : w.oeuvre)),
-    ),
+    ...(list.length
+      ? [
+          el(
+            "ul",
+            { class: "works" },
+            ...list.map((w) =>
+              el("li", {}, typeof w === "string" ? w : w.oeuvre),
+            ),
+          ),
+        ]
+      : []),
     // box.replaceChildren() (appelant, showDetail()) est l'API DOM native, pas
     // le helper el() : un `null` glissé ici, à la différence d'un enfant de
     // el(), n'est pas filtré mais coercé en la chaîne "null" et affiché tel
     // quel (retour #168) — d'où ce tableau de longueur variable plutôt qu'un
     // `note ? … : null` en position fixe.
-    ...(note ? [el("p", { class: "service-note" }, note)] : []),
+    ...(note
+      ? [
+          el(
+            "p",
+            { class: list.length ? "service-note" : "service-note seule" },
+            note,
+          ),
+        ]
+      : []),
   ]
 }
 
