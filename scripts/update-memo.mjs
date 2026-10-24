@@ -632,14 +632,61 @@ function resolveServiceDate(dateText, period) {
   return null
 }
 
+// Colonne du premier mot de `line` qui commence entre les colonnes `min` et
+// `max` et que précède une marge (au moins deux espaces, ou le début de la
+// ligne) ; -1 s'il n'y en a pas.
+function wordColumn(line, min, max = Infinity) {
+  for (const m of line.matchAll(/(?:^|\s{2,})(?=\S)/g)) {
+    const col = m.index + m[0].length
+    if (col > max) break
+    if (col >= min) return col
+  }
+  return -1
+}
+
+// Colonne du premier caractère non blanc de `line` à partir de `from`, sans
+// exiger de marge ; -1 s'il n'y en a pas.
+function firstWordColumn(line, from) {
+  const k = line.slice(from).search(/\S/)
+  return k < 0 ? -1 : from + k
+}
+
+// Texte de la colonne NOTES d'un service, qui commence colonne `noteCol` de
+// la ligne `i` (celle de l'horaire). La mise en colonnes le replie sur les
+// lignes suivantes (rendez-vous des audiogrammes, issue #258) : elles sont
+// recollées tant que, sans horaire, elles ont un mot qui commence pile dans
+// cette colonne (à deux caractères près) ; une ligne vide clôt le service. Un
+// mot coupé en fin de ligne (« PAYET- » / « LABONNE ») est recollé sans
+// espace.
+function noteText(rawLines, i, noteCol) {
+  let text = rawLines[i].slice(noteCol).trim()
+  for (let j = i + 1; j < rawLines.length; j++) {
+    const next = rawLines[j]
+    if (!next.trim() || SERVICE_TIME_RE.test(next)) break
+    const col = wordColumn(next, noteCol - 2, noteCol + 2)
+    if (col < 0) break
+    const part = next.slice(col).trim()
+    text += /\S-$/.test(text) ? part : ` ${part}`
+  }
+  return text
+}
+
+// Une note qui enchaîne des rendez-vous (« 9h30 : Theresa HOŘEJŠÍ - 10h :
+// Gabriel ESTEBAN - … », audiogrammes, issue #258) passe à la ligne avant
+// chaque horaire : un musicien y cherche son nom.
+const NOTE_SLOT_RE = /\s*-\s*(?=\d{1,2}h\d{0,2}\s*:?\s*\p{Lu})/gu
+function formatNote(note) {
+  const parts = note.split(NOTE_SLOT_RE)
+  return parts.length > 2 ? parts.join("\n") : note
+}
+
 // Relit l'extraction -layout et renvoie, par liste, les lignes du tableau des
-// services qui précisent des œuvres : [{ date (ISO), debut, fin, oeuvres
-// ([n,...], n° de position du mémo, cf. parseWorkNumbering), note }]. `note` reprend tel
-// quel le contenu de la colonne NOTES du mémo (ex. « extraits ») quand cette
-// colonne tient sur la même ligne que l'horaire — une NOTES repliée sur la
-// ligne suivante par la mise en colonnes n'est, comme le reste du tableau,
-// pas recollée (issue #161 : mieux vaut une note absente qu'une note tronquée
-// ou mal rattachée).
+// services qui précisent des œuvres ou une note : [{ date (ISO), debut, fin,
+// oeuvres ([n,...], n° de position du mémo, cf. parseWorkNumbering ; vide si
+// le service n'en cite pas), note }]. `note` reprend le contenu de la colonne
+// NOTES du mémo (ex. « extraits », ou les noms des musiciens convoqués aux
+// audiogrammes, issue #258), y compris ses lignes repliées par la mise en
+// colonnes (cf. noteText).
 function parseServiceTables(layoutText, knownListes) {
   const rawLines = layoutText.split("\n")
   const result = {}
@@ -647,6 +694,7 @@ function parseServiceTables(layoutText, knownListes) {
   let currentListe = null
   let dateCarry = null
   let inTable = false
+  let oeuvresCol = 0
 
   for (let i = 0; i < rawLines.length; i++) {
     const line = rawLines[i]
@@ -673,6 +721,7 @@ function parseServiceTables(layoutText, knownListes) {
 
     if (SERVICE_TABLE_HEADER_RE.test(line)) {
       inTable = true
+      oeuvresCol = line.indexOf("ŒUVRES")
       continue
     }
 
@@ -717,28 +766,36 @@ function parseServiceTables(layoutText, knownListes) {
     // environnant. Une liste trop longue pour sa colonne n'est séparée des
     // NOTES que par un espace (« …-18-19 -tutti », « …-9-10 démontage… ») ;
     // un numéro seul, lui, doit être suivi de la marge.
-    const after = line.slice(tm.index + tm[0].length)
+    const afterCol = tm.index + tm[0].length
+    const after = line.slice(afterCol)
     const oeuvresMatch = after.match(
       /(?:^|\s{2,})(\d{1,2}(?:-\d{1,2})+(?=\s|$)|\d{1,2}(?=\s{2,}|$))/,
     )
-    if (!oeuvresMatch) continue
-    const oeuvres = oeuvresMatch[1]
-      .split("-")
+    const oeuvres = (oeuvresMatch?.[1].split("-") || [])
       .map((n) => parseInt(n.trim(), 10))
       .filter((n) => n >= 1)
-    if (!oeuvres.length) continue
+
+    // Colonne NOTES : ce qui suit la colonne ŒUVRES sur la même ligne. Sans
+    // œuvre, la note est ce qui commence à hauteur de l'en-tête ŒUVRES (vide)
+    // ou au-delà — l'ACTIVITÉ s'arrête avant. Bornée en longueur derrière des
+    // œuvres — un fragment anormalement long y trahit plus probablement un
+    // texte d'ACTIVITÉ mal isolé qu'une vraie note courte (« extraits »…) :
+    // on préfère alors n'en garder aucune trace.
+    const noteCol = oeuvresMatch
+      ? firstWordColumn(
+          line,
+          afterCol + oeuvresMatch.index + oeuvresMatch[0].length,
+        )
+      : wordColumn(line, Math.max(afterCol, oeuvresCol - 2))
+    const firstLine = noteCol < 0 ? "" : line.slice(noteCol).trim()
+    const note =
+      firstLine && (!oeuvres.length || firstLine.length <= 120)
+        ? formatNote(noteText(rawLines, i, noteCol))
+        : null
+    if (!oeuvres.length && !note) continue
 
     const isoDate = resolveServiceDate(effectiveDateText, period)
     if (!isoDate) continue
-
-    // Colonne NOTES : ce qui suit la colonne ŒUVRES sur la même ligne.
-    // Bornée en longueur — un fragment anormalement long trahit plus
-    // probablement un texte d'ACTIVITÉ mal isolé qu'une vraie note courte
-    // (« extraits »…) : on préfère alors n'en garder aucune trace.
-    const noteText = after
-      .slice(oeuvresMatch.index + oeuvresMatch[0].length)
-      .trim()
-    const note = noteText && noteText.length <= 120 ? noteText : null
 
     result[currentListe] ??= []
     result[currentListe].push({
@@ -835,15 +892,17 @@ function workPositions(numbers, workCount) {
 // [n,...] }, serviceNotes: { uid: texte } }. Un service sans correspondance
 // unique (mémo désynchro, rencontre non publiée à l'ICS…) est silencieusement
 // omis plutôt que mal associé. `positions` (cf. workPositions) traduit le n°
-// de position ORIGINAL du mémo en index 1-based dans prod.works.
+// de position ORIGINAL du mémo en index 1-based dans prod.works ; null quand
+// la numérotation est incohérente ou que la fiche n'a pas d'œuvre — seules
+// les notes sont alors reprises (audiogrammes, issue #258).
 function matchServiceWorks(rows, events, positions) {
   const serviceWorks = {}
   const serviceNotes = {}
   for (const row of rows) {
     const oeuvres = row.oeuvres
-      .map((n) => positions.indexOf(n) + 1)
+      .map((n) => (positions?.indexOf(n) ?? -1) + 1)
       .filter((idx) => idx >= 1)
-    if (!oeuvres.length) continue
+    if (!oeuvres.length && !row.note) continue
     const candidates = events.filter(
       (e) =>
         e.start.slice(0, 10) === row.date &&
@@ -851,7 +910,7 @@ function matchServiceWorks(rows, events, positions) {
         e.end?.slice(11) === row.fin,
     )
     if (candidates.length !== 1) continue
-    serviceWorks[candidates[0].uid] = oeuvres
+    if (oeuvres.length) serviceWorks[candidates[0].uid] = oeuvres
     if (row.note) serviceNotes[candidates[0].uid] = row.note
   }
   return { serviceWorks, serviceNotes }
@@ -970,8 +1029,8 @@ if (layoutText) {
   const serviceTables = parseServiceTables(layoutText, knownListes)
   for (const [liste, rows] of Object.entries(serviceTables)) {
     const prod = parsed[liste]
-    const positions = workPositions(numbering[liste], prod?.works.length)
-    if (!positions) continue
+    if (!prod) continue
+    const positions = workPositions(numbering[liste], prod.works.length)
     const events = planningEvents.filter((e) => e.liste === liste)
     const { serviceWorks, serviceNotes } = matchServiceWorks(
       rows,
@@ -993,7 +1052,7 @@ const previous = existsSync(productionsPath)
   : {}
 const output = {
   _parseur: PARSER_HASH,
-  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).`,
+  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).`,
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 

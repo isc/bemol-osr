@@ -215,8 +215,13 @@ function contentLines(e, prod) {
     if (lines.length) lines.push({ text: "" })
     lines.push({ text: "Œuvres travaillées pendant ce service :" })
     for (const w of serviceList) lines.push(workLine(w))
-    const note = prod.serviceNotes?.[e.uid]
-    if (note) lines.push({ text: `Remarque : ${note}` })
+  }
+  // Remarque du mémo pour ce service, avec ses œuvres ou seule (rendez-vous
+  // des audiogrammes, un par ligne, issue #258).
+  const note = prod?.serviceNotes?.[e.uid]
+  if (note) {
+    if (!serviceList.length && lines.length) lines.push({ text: "" })
+    lines.push({ text: `Remarque :${note.includes("\n") ? "\n" : " "}${note}` })
   }
   if (works.length) {
     if (lines.length) lines.push({ text: "" })
