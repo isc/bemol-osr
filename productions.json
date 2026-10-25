@@ -1,6 +1,6 @@
 {
- "_parseur": "af21df5c8f8f",
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits » — quand le mémo en précise une). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
+ "_parseur": "ce943d70bc4b",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
  "Liste 01": {
   "info": "La Plage classique",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
@@ -56,7 +56,8 @@
   },
   "serviceNotes": {
    "osr224803": "captation audio d'archives pour la cheffe",
-   "osr224807": "-pas de captation radio"
+   "osr224805": "en cas de générale / balance incomplète",
+   "osr224807": "-pas de captation radio -réception sur invitation (25) / Genève Aéroport / 20h15-21h15 -captation audio d'archives pour la cheffe -captation vidéo d'archives pour la cheffe en construction -médecin de permanence : Samuel TEICHER 079 390 12 93"
   }
  },
  "Liste 02": {
@@ -95,7 +96,7 @@
   },
   "serviceNotes": {
    "osr128421": "en cas de générale / balance incomplète",
-   "osr128425": "-réception sur invitation (25) / Genève Aéroport / 20h15-21h15"
+   "osr128425": "-réception sur invitation (25) / Genève Aéroport / 20h15-21h15 -médecin de permanence : Mélissa VETSCH 079 410 75 50"
   }
  },
  "Liste 03": {
@@ -126,7 +127,15 @@
    ]
   },
   "serviceNotes": {
-   "osr229406": "travail chef+Kennedy avec piano électrique"
+   "osr229406": "travail chef+Kennedy avec piano électrique",
+   "osr229019": "rencontre chef+trio +/- Kennedy avec mise en place trio dès 10h30",
+   "osr128426": "-1ère heure orchestre seul puis avec keyb./drums/bs. et voix solo -amplification locale sans mix pour keyb./bs et voix solo",
+   "osr128427": "-amplification locale sans mix",
+   "osr128428": "amplification locale sans mix",
+   "osr128429": "amplification locale sans mix",
+   "osr128430": "captation audio d'archives pour soliste",
+   "osr128431": "en cas de générale / balance incomplète",
+   "osr132645": "-captation audio d'archives pour soliste -médecin de permanence : Johannes FEXER 076 200 93 17"
   }
  },
  "Liste 04": {
@@ -237,24 +246,24 @@
   "serviceNotes": {
    "osr132647": "orchestre seul",
    "osr132648": "orchestre seul",
-   "osr210774": "Pelléas - Golaud",
-   "osr210775": "Mélisande - Golaud",
-   "osr132650": "orchestre seul",
+   "osr210774": "Pelléas - Golaud act.III-sc.1 (2') + act.III-sc.2 (4') + act.III-sc.3 (5')",
+   "osr210775": "Mélisande - Golaud act.I-sc.1 (13') + act.II-sc.2 (13')",
+   "osr132650": "orchestre seul présence photographe Magali Dougados pendant la balance",
    "osr132651": "Pelléas - Golaud act.III - sc.2 (4') + act.III-sc.3 (5') + act.III-sc.1 (2')",
    "osr132652": "orchestre seul",
    "osr132653": "Golaud - Mélisande act.I-sc.1 (13')",
    "osr132654": "Golaud - Mélisande act.II-sc.2 (13')",
-   "osr161270": "Golaud - Arkel - Mélisande - Yniold - Berger",
-   "osr210778": "Arkel - Docteur - Golaud - Mélisande",
+   "osr161270": "Golaud - Arkel - Mélisande - Yniold - Berger act.IV-sc.2 (17') + act.III-sc.4 (10') + act.I-sc.2 (Arkel seul) + act.IV-sc.3 (5') présence photographe Magali Dougados en début de service présence photographe Magali Dougados",
+   "osr210778": "Arkel - Docteur - Golaud - Mélisande act.V (26')",
    "osr132659": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
-   "osr132660": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
+   "osr132660": "Médecin - Arkel - Golaud - Mélisande act.V (26') Arkel (seul) act.I-sc.2",
    "osr132657": "Golaud - Arkel - Mélisande act.IV-sc.2 (17')",
-   "osr132658": "Golaud - Yniold act.III-sc.4 (10')",
-   "osr161271": "Geneviève - Pelléas - Mélisande",
-   "osr210779": "Pelléas - Mélisande",
-   "osr210780": "Pelléas - Mélisande",
-   "osr132661": "Geneviève - Pelléas act.I-sc.2",
-   "osr132662": "Geneviève - Mélisande - Pelléas - choeur act.I-sc.3 (7')",
+   "osr132658": "Golaud - Yniold act.III-sc.4 (10') Yniold - Le Berger act.IV-sc.3 (5')",
+   "osr161271": "Geneviève - Pelléas - Mélisande act.I-sc.2 (sans Arkel) + act.II-sc.3 (5') + act.I-sc.3 (17')",
+   "osr210779": "Pelléas - Mélisande act.IV-sc.1 (4') + act.III-sc.1 (14') + act.II-sc.1 (10') + act.IV-sc.4 (15')",
+   "osr210780": "Pelléas - Mélisande act.IV-sc.1 (4') + act.III-sc.1 (14') + act.II-sc.1 (10') + act.IV-sc.4 (15')",
+   "osr132661": "Geneviève - Pelléas act.I-sc.2 Pelléas - Mélisande act.II-sc.3 (5')",
+   "osr132662": "Geneviève - Mélisande - Pelléas - choeur act.I-sc.3 (7') Pelléas - Mélisande act.IV-sc.1 (4') présence photographe Magali Dougados",
    "osr132663": "Mélisande - Pelléas act.III-sc.1 (14')",
    "osr132664": "Pelléas / Mélisande act.II-sc.1 (10')",
    "osr132665": "Pelléas - Mélisande act.IV-sc.4 (15')",
@@ -290,7 +299,10 @@
    "Elodie BERRY, violon",
    "Jean-Pierre BERRY, cor",
    "Deborah LEE, piano"
-  ]
+  ],
+  "serviceNotes": {
+   "osr173515": "-15h30-16h : raccord -16h30-17h20 : cérémonie"
+  }
  },
  "Liste 05": {
   "info": "enregistrement vidéo des 4 didacticiels vidéo (bois, cuivres, cordes, tutti) pour l'OSR C'est Vous ! (Fête de la Musique) : L'Italie et la Dolce Vita",
@@ -427,6 +439,7 @@
   },
   "serviceNotes": {
    "osr132704": "installation dispositif captation Mathys Billoud entre 8h et 10h",
+   "osr216144": "ANNULÉ Volare prévu en réduction piano pour le didacticiel est finalement entièrement coupé de l'enregistrement mais reste dans le programme pour les prochaines sessions et le concert",
    "osr132707": "démontage dispositif captation à l'issue"
   }
  },
@@ -514,22 +527,25 @@
    ]
   },
   "serviceNotes": {
-   "osr133255": "suivi de présentation à l'OSR de la saison GT par Alain Perroux",
+   "osr133255": "suivi de présentation à l'OSR de la saison GT par Alain Perroux sans orchestre de scène",
    "osr133256": "sans orchestre de scène",
    "osr133257": "sans orchestre de scène",
    "osr133258": "sans orchestre de scène",
    "osr133259": "uniquement pour l'orchestre de scène",
    "osr133261": "2 orchestres",
-   "osr133262": "uniquement petit orchestre",
-   "osr133268": "ATTENTION : 19h !!",
-   "osr133269": "ATTENTION 19h !!",
-   "osr133273": "essai micros Espace 2",
-   "osr133274": "captation Espace 2"
+   "osr133262": "uniquement petit orchestre test sonore amplification orchestre de coulisse (avec choeur et comédien).",
+   "osr133268": "ATTENTION : 19h !! horaire particulier pour démontage BFM (garage)",
+   "osr133269": "ATTENTION 19h !! horaire particulier pour démontage BFM (garage) essai micros Espace 2",
+   "osr133273": "essai micros Espace 2 1ère prise captation TV (RTS)",
+   "osr133274": "captation Espace 2 2ème prise captation TV (RTS)"
   }
  },
  "audiogrammes période 2": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245658": "9h30 : Theresa HOŘEJŠÍ\n10h : Gabriel ESTEBAN\n10h30 : Olivier MOREL\n11h : Nuno OSÓRIO\n11h30 : Loïc SCHNEIDER\n12h : Nora CISMONDI\n12h30 : Dmitr RASU-KAREYEV\n13h : Guillaume LE CORRE\n13h30 : Céleste-Marie ROY\n14h : Pierre BRIAND\n14h30 : Arthur BONZON\n15h : Michel MAILLARD"
+  }
  },
  "Liste 06": {
   "info": "concert hors abonnement avec 200 places pour événement KPMG\n-avec moniteur video + time code pour chef et percussioniste dès le 2ème service\n-écran et beamer du VH\n-régie vidéo Skynight au balcon d'orgue",
@@ -554,7 +570,11 @@
    ]
   },
   "serviceNotes": {
-   "osr132719": "-Blocage salle : configuration type Chaplin - SANS régie son en loge 18 (film muet) et régie"
+   "osr132714": "sans projection",
+   "osr132715": "-avec projection time-codée sur moniteur chef + percussion (timp sur l'écran de ML) -service suivi par la séance de titularisation Nuno OSÓRIO au foyer des musiciens",
+   "osr132716": "-avec projection time-codée sur moniteur chef + percussion (timp sur l'écran principal)",
+   "osr132718": "avec projection sur écran public + moniteurs (time code) pour chef et percussionniste",
+   "osr132719": "-Blocage salle : configuration type Chaplin - SANS régie son en loge 18 (film muet) et régie vidéo au balcon d'orgue. -réception KPMG sur invit. 18h / foyer -réception KPMG après concert sur invit. / foyer"
   }
  },
  "Liste 07": {
@@ -642,10 +662,10 @@
    "osr132732": "avec vidéo et présentateur",
    "osr132733": "-plateau libéré avant 13h pour journées portes ouvertes Victoria Hall",
    "osr132734": "avec vidéo et présentateur",
-   "osr132736": "cycle d'orientation et ESII",
+   "osr132736": "cycle d'orientation et ESII démontage express",
    "osr132737": "primaire",
-   "osr132738": "cycle d'orientation et ESII",
-   "osr132739": "9h15 : primaire",
+   "osr132738": "cycle d'orientation et ESII démontage express",
+   "osr132739": "9h15 : primaire 10h30 : cycle d'orientation et ESII démontage express",
    "osr132740": "primaire"
   }
  },
@@ -676,6 +696,9 @@
     2,
     3
    ]
+  },
+  "serviceNotes": {
+   "osr132182": "-horaires à confirmer par le groupe dans cette plage"
   }
  },
  "Liste 08": {
@@ -749,14 +772,19 @@
   "serviceNotes": {
    "osr132752": "visite de classes",
    "osr132753": "visite de classes",
-   "osr132755": "-essai micros",
-   "osr132756": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132759": "-Prélude Amis 19h Le Poulailler"
+   "osr132755": "-essai micros -présence groupe 20 étudiants / 1ère galerie (Jeunesse) -suivi du pot de départ Yan Wei Wang",
+   "osr132756": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -prise de parole Présidente FOSR sur scène -direct Espace 2 -réception Arab Bank sur invitation 18h30 / foyer -réception Arab Bank après concert sur invitation / café des Banques",
+   "osr132759": "-Prélude Amis 19h Le Poulailler -prise de parole Présidente FOSR sur scène",
+   "osr251540": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services"
   }
  },
  "audiogrammes période 3": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245661": "9h30 : Bogdan ZVORISTEANU\n10h : Bénédicte MOREAU\n10h30 : Merry MECHLING\n11h00 : Jarita NG\n11h30 : Lucas HENRY\n12h : Héctor SAPIÑA LLEDÓ\n12h30 : Mihai FAUR\n13h : Simon SOMMERHALDER\n13h30 : Jean-Pierre BERRY\n14h : Matteo De LUCA\n14h30 : Andrea BANDINI\n15h Olivier PERRENOUD",
+   "osr245662": "9h30 : Caroline BAERISWYL\n10h : Florin MOLDOVEANU\n10h30 : Yesong JEONG\n11h : Yuwen ZHU\n11h30 : Luca CASCIATO\n12h : Stéphane GONTIES\n12h30 : Lionel COTTET\n13h : Son Lam TRÂN\n13h30 : Ivy WONG\n14h : Alexandre EMARD\n14h30 : Luis MARQUEZ TERUEL\n15h : Michael TSCHAMPER"
+  }
  },
  "Liste 09": {
   "info": "Pas de garde-robes à Evian",
@@ -845,8 +873,10 @@
    "osr132769": "visite de classes",
    "osr137820": "visite de classes",
    "osr132773": "essai micros",
-   "osr132774": "-prise de parole Présidente FOSR sur scène",
-   "osr132775": "-pas de garde-robes à Evian"
+   "osr132774": "-prise de parole Présidente FOSR sur scène -différé Espace 2 le 28 octobre 26 -dans le cadre d'Octobre Rose (rubans à disposition du personnel OSR et VH)",
+   "osr132777": "-+ 1 journaliste (Nadia Sikorsky) avec Baptiste Goudeneige dans le bus",
+   "osr132775": "-pas de garde-robes à Evian -accès technique au plateau : 14h -mise en loge : 18h15",
+   "osr251627": "retour prévu avant minuit- amplitude 5-9h - concert comptabilisé 2 services"
   }
  },
  "Liste B": {
@@ -976,17 +1006,22 @@
    ]
   },
   "serviceNotes": {
+   "osr132801": "avec Ton Koopmann",
    "osr132802": "sans trb. ni perc.",
    "osr225315": "avec pianiste HEM",
    "osr132803": "avec trb. et perc.",
    "osr132805": "avec le choeur pour la 1ère heure",
-   "osr132808": "-blocage loge 18",
-   "osr132809": "Concert Relax de la Ville de Genève (lumière salle, portes ouvertes, annonce voix off de"
+   "osr132808": "-blocage loge 18 -réception ONU après concert sur invitation / cercles des Bains.",
+   "osr132809": "Concert Relax de la Ville de Genève (lumière salle, portes ouvertes, annonce voix off de Remy Walter)"
   }
  },
  "audiogrammes période 4": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245664": "9h30 : Guillaume BACHELLIER\n10h : Inès de SAUSSURE\n10h30 : Emmanuel MOREL\n11h : Roman FILIPOV\n11h30 : Linda BÄRLUND\n12h : Guillaume JACOT\n12h30 : Yumi KUBO\n13h : Florence BERDAT\n13h30 : Samuel JIMENEZ COLLAZOS\n14h : Inès LADEWIG OTT\n14h30 : Hilmar SCHWEIZER\n15h : Olivier BOMBRUN.",
+   "osr245663": "9h30 : Leonid BARANOV\n10h : Cristian ZIMMERMAN\n10h30 : Verena SCHWEIZER\n11h : France BERNIER\n11h30 : Léonard FREY-MAIBACH\n12h : Lior Michel VIROT\n12h30 : Francisco CERPA-ROMAN\n13h : Clément CHARPENTIER-LEROY\n13h30 : Agnès CHOPIN\n14h : Laurent FOUQUERAY\n14h30 : Clara BELLEGARDE\n15h : Mariana COSSERMELLI."
+  }
  },
  "Liste 11": {
   "info": "Cineconcert avec orchestre amplifié (1ère partie 58' / 2ème partie 44')\n-orchestre à plat avec lampes pupitres tutti\n-grand écran 16/9 + amplification de soutien : piano, solistes des cordes, bois, quelques perc. ...) avec cluster central et retour orchestre\n-régies vidéo et son en salle + 2 beamers Skynight en sas cour 2ème galerie\n-entrée des retardataires : 9'40'' après le début",
@@ -1026,12 +1061,13 @@
    ]
   },
   "serviceNotes": {
-   "osr132828": "-limited tech",
-   "osr132830": "-limited tech",
+   "osr132828": "-limited tech -visite de classes",
+   "osr132830": "-limited tech -visite de classes -montage décoration florale à l'issue du service",
    "osr132834": "-full tech",
-   "osr132833": "-démontage express à l'issue",
+   "osr132833": "-démontage express à l'issue -décoration florale en scène (démontage à l'issue) -costumes et maquillages Halloween (maquilleuses en coulisse dès 14h45) -avec photographe OSR",
    "osr160676": "-montage dès 14h",
-   "osr132832": "-costumes et maquillage Halloween (sans maquilleuses)"
+   "osr132832": "-costumes et maquillage Halloween (sans maquilleuses)",
+   "osr246247": "arrivée prévue 23h30 - amplitude 5-9h = concert comptabilisé pour 2 services"
   }
  },
  "Liste 12": {
@@ -1091,12 +1127,16 @@
    ]
   },
   "serviceNotes": {
-   "osr132845": "-1 seul service 15h-19h (1 pause 30') compté double avec accord des Représentants",
-   "osr132847": "-4ème mouvement de la 5ème symphonie au début (picc, kfgt, trb)",
-   "osr132848": "-foyer OSR-Bovy innaccessible (traiteur)",
+   "osr132845": "-1 seul service 15h-19h (1 pause 30') compté double avec accord des Représentants -sans le 4ème mouvement de la 5ème symphonie (picc, kfgt, trb) -les 6 étudiants de la masterclasse ont accès à tous les services sur le podium choeur",
+   "osr132847": "-4ème mouvement de la 5ème symphonie au début (picc, kfgt, trb) -le foyer OSR-Bovy doit être vide de tout instrument et effet personnel au service suivant",
+   "osr132848": "-foyer OSR-Bovy innaccessible (traiteur) -prise de parole Président Amis au début du service -50 invités Amis OSR en salle -réception après le service au foyer OSR-Bovy sur invitation (sortie par l’administration OSR)",
+   "osr132849": "dans l'ordre -Francesco Piemontesi (concert Orch.Berne) a accès à la loge 2",
    "osr132852": "-Prélude Amis 19h Le Poulailler",
-   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr132855": "-podium chœur fermé"
+   "osr246249": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services",
+   "osr132856": "-6 étudiants HEM :\n10h45 Célia VÉRICET-GUYOT n°1 mvt.1/2\n11h Zachary ROBERT n°1 mvt.3/4\n11h15 Léo HUNT n°4 mvt.1/2\n11h30 Gonzalo ALARCON BURRIEL n°4 mvt.1/2\n11h45 Simon FUENTES n°4 mvt.3/4 -12h pause\n12h20 Chenfei XIA n°5 mvt.2/3\n12h35 Gonzalo ALARCON BURRIEL n°5 mvt.1\n12h45 Léo HUNT n°5 mvt.1 -effectifs cordes réduits à celui de la 1ère symphonie -temps d'échange entre les étudiants et le chef au foyer OSR-Bovy après le service (avec catering léger).",
+   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
+   "osr132854": "-mise en place des extraits musicaux et du commentaire (+balance présentateur)",
+   "osr132855": "-podium chœur fermé -blocage en loge 18"
   }
  },
  "Liste 13": {
@@ -1145,8 +1185,8 @@
    ]
   },
   "serviceNotes": {
-   "osr132871": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15",
-   "osr132872": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15"
+   "osr132871": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort (connu le 7 novembre) de Debussy et le 1er mouvement du concerto de violoncelle",
+   "osr132872": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes 3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort de Debussy (connu le 7 novembre) et le 1er mouvement du concerto de piano"
   }
  },
  "Liste 14": {
@@ -1218,10 +1258,10 @@
    ]
   },
   "serviceNotes": {
-   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes",
-   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes",
-   "osr132887": "-2 pauses de 15 minutes",
-   "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
+   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 7 novembre",
+   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 7 novembre",
+   "osr132887": "-2 pauses de 15 minutes -50 minutes max par candidat -l'ordre sera connu le 7 novembre",
+   "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h45 + présentations -direct Espace 2 -proclamation des résultats à l'issue"
   }
  },
  "Liste 15": {
@@ -1367,10 +1407,10 @@
    ]
   },
   "serviceNotes": {
-   "osr131104": "50' par finaliste et 2 pauses de 15 minutes",
-   "osr131105": "50' par finaliste et 2 pauses de 15 minutes",
-   "osr131106": "50' max par candidat et 2 pauses de 15 minutes",
-   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes"
+   "osr131104": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
+   "osr131105": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
+   "osr131106": "50' max par candidat et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
+   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h30 + les présentations -le programme et l'ordre seront connus le 7 novembre -direct Espace 2 -vote des musiciens à l'issue pour décerner le Prix des Musiciens de l'OSR -proclamation des résultats à l'issue -"
   }
  },
  "Liste 16": {
@@ -1426,9 +1466,9 @@
   "serviceNotes": {
    "osr132902": "-visite de classes",
    "osr132904": "-repérage équipe captation",
-   "osr132905": "-avec caméras et prise de son",
-   "osr128610": "-avec surtitrage",
-   "osr128611": "-mise en place des extraits et de la présentation",
+   "osr132905": "-avec caméras et prise de son -avec photographe",
+   "osr128610": "-avec surtitrage -pas de captation radio -captation AV pour archives et membres du Motet -présence photographe du Motet",
+   "osr128611": "-mise en place des extraits et de la présentation -absence autorisée des choristes amateurs qui travaillent",
    "osr132906": "-réception Mme Françoise Demole & Migros Genève sur invit. en construction."
   }
  },
@@ -1529,11 +1569,11 @@
    ]
   },
   "serviceNotes": {
-   "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au",
+   "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
    "osr132921": "essai micros",
-   "osr132922": "-ouverture au public du podium choeur si nécessaire",
-   "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN",
-   "osr132923": "-ouverture au public du podium choeur si nécessaire",
+   "osr132922": "-ouverture au public du podium choeur si nécessaire -direct Espace 2",
+   "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
+   "osr132923": "-ouverture au public du podium choeur si nécessaire -réception SIG sur invit. 18h30 / foyer. -réception SIG après concert sur invit. / Lyrique.",
    "osr132925": "-ouverture au public du podium choeur en construction"
   }
  },
@@ -1578,10 +1618,10 @@
    ]
   },
   "serviceNotes": {
-   "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.0 / 1.0.1.0 // 1.1.1.1.1",
-   "osr163275": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1",
-   "osr132933": "générale raccourcie à 2h30",
-   "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler"
+   "osr206164": "service payé hors CCT : 1.1.1.1 / 1.1.1.0 / 1.0.1.0 // 1.1.1.1.1 hrp = coach Orch.du Collège pris en charge OSR",
+   "osr163275": "service payé hors CCT : 1.1.1.1 / 1.1.1.1 / 1.0.1.0 // 1.1.1.1.1 hrp = coach OSR",
+   "osr132933": "générale raccourcie à 2h30 avec 300 élèves/familles environ",
+   "osr132934": "-prise de parole Présidente FOSR + Nathalie Leutwyler -démontage à l'issue -blocage loge 18 -ATTENTION : Courses de l'Escalade en ville"
   }
  },
  "Musique De Chambre 2": {
@@ -1617,11 +1657,19 @@
  },
  "audiogrammes période 5": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245672": "9h30 : Nerea ARRIOLA MENDIETA\n10h : Sidonie BOUGAMONT\n10h30 : François PAYET-LABONNE\n11h : Eleonora RYNDINA\n11h30 : Elçim ÖZDEMIR\n12h : Marco NIRTA\n12h30 : Hannah FRANKE\n13h : Laurent ISSARTEL\n13h30 : Yao JIN\n14h : Adrien GAUBERT\n14h30 : Gergana KUSHEVA\n15h : Giuliano SOMMERHALDER.",
+   "osr245671": "9h30 : Yumiko AWANO\n10h : Elodie BERRY\n10h30 : Stéphane GUIOCHEAU\n11h : Yin SHEN\n11h30 : Claire TEMPERVILLE\n12h : David VALLEZ\n12h30 : Nina VASYLIEVA\n13h : Frederic KIRCH\n13h30 : Sofia SILVA SOUSA\n14h : Fernando DOMÍNGUEZ CORTEZ\n14h30 : Antoine PITTET\n15h : Marc SAPIN.",
+   "osr245670": "9h30 : Grégory CASSAR GATEAU\n10h : Catherine BEZIEAU\n10h30 : Yan WEI WANG\n11h : Christophe DELANNOY\n11h30 : Vincent METRAILLER\n12h : Alexandre FAURE\n12h30 : Claude-Alain BARMAZ\n13h : Jona VENTURI\n13h30 : Sarah RUMER\n14h : Hubert GEISER\n14h30 : Vincent GODEL\n15h : Rosnei TUON."
+  }
  },
  "Concours Premier.ère soliste des clarinettes (coordonné)": {
   "chef": "Tugan SOKHIEV",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr240317": "avec Tugan Sokhiev"
+  }
  },
  "Liste C": {
   "info": "-captation vidéo Les Noces sous les Etoiles (dates à définir)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
@@ -1728,9 +1776,10 @@
    ]
   },
   "serviceNotes": {
-   "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les",
-   "osr132947": "-ouverture au public du podium choeur si nécéssaire",
-   "osr132948": "-ouverture au public du podium choeur si nécéssaire"
+   "osr262425": "en loge",
+   "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les rediffusions après le direct) : générale en tenue -balance de chaque pièce avant de la filer -accueil de 15-20 étudiants + 3-4 professeurs du CMG de Raphaël Abeille en première galerie même si la générale devait être fermée",
+   "osr132947": "-ouverture au public du podium choeur si nécéssaire -direct Espace 2 + Mezzo",
+   "osr132948": "-ouverture au public du podium choeur si nécéssaire -réception après concert Fondation Arditi sur invit avec artistes. en construction."
   }
  },
  "Liste 20": {
@@ -1798,14 +1847,14 @@
    ]
   },
   "serviceNotes": {
-   "osr162112": "-sans choristes ni soliste ni amplification",
-   "osr162113": "-sans choristes ni soliste ni amplification",
-   "osr128620": "-sans choristes ni soliste ni amplification",
+   "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
+   "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
+   "osr128620": "-sans choristes ni soliste ni amplification -démontage à l'issue",
    "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
    "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne",
+   "osr162115": "fin 22h15 max. pour repos nocturne essai micro",
    "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
@@ -2036,16 +2085,22 @@
   },
   "serviceNotes": {
    "osr132967": "-tutti pour possiblement tout le programme",
-   "osr132968": "-sans Forza, Ballibili, Castillane, Prélude Carmen ni Meine",
+   "osr132968": "-sans Forza, Ballibili, Castillane, Prélude Carmen ni Meine Lippen (sans fgt4, trp4, hrp2 et possiblement perc4) -démontage express pour Caecilia 17h",
    "osr132969": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
    "osr132970": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
-   "osr132972": "-Prélude Amis 18h30",
-   "osr132975": "-Prélude Amis 19h Le Poulailler"
+   "osr132971": "-tutti, sans les airs avec soliste",
+   "osr132972": "-Prélude Amis 18h30 -réception après concert Fondation Francis & Marie-France Minkoff sur invit. / Mandarin Oriental",
+   "osr132974": "-tutti",
+   "osr132975": "-Prélude Amis 19h Le Poulailler",
+   "osr251619": "-retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services"
   }
  },
  "audiogrammes période 6": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245674": "9h30 : Michel WESTPHAL\n10h : Camillo BATTISTELLO\n10h30 : Guillaume MICHALAKAKOS\n11h : Frederic BROISIN\n11h30 : Bo YUAN\n12h : Martyna SZYMCZAK\n12h30 : Mariana COSSERMELLI\n13h : Wolfgang DOLDER\n13h30 : Alain RUAUX."
+  }
  },
  "Concerts pour Petites Oreilles 2": {
   "info": "Institut Florimont : avenue du Petit-Lancy 37 à Lancy",
@@ -2092,7 +2147,11 @@
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0",
     "duree": "≈ 26 min"
    }
-  ]
+  ],
+  "serviceNotes": {
+   "osr132186": "-horaires à confirmer par le groupe dans cette plage",
+   "osr132187": "-réception Fondation Etrillard. en construction."
+  }
  },
  "Liste 23": {
   "tenue": "20.01-19h30 + 21.01-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
@@ -2132,13 +2191,19 @@
    ]
   },
   "serviceNotes": {
-   "osr132991": "-réception sur invitations 19h/ Mme Lescure / Stand des Amis VH",
+   "osr132987": "début 10h30 pour montage le matin",
+   "osr132989": "visite de classes",
+   "osr132991": "-réception sur invitations 19h/ Mme Lescure / Stand des Amis VH -réception sur invitation Mme Lescure avec artistes / Lyrique",
    "osr132992": "-Dîner après concert Fondation Arditi avec artistes sur invit. en construction."
   }
  },
  "audiogrammes période 7": {
   "info": "audiogrammes individuels sur RDV (régie) - campagne 2026\ncampagne financée tous les 2 ans par la FOSR en collaboration avec les HUG\n-rdv individuels de 30 minutes à la Polyclinique ORL / Hôpital Cantonal de Genève : un jeudi entre fin septembre et début février (plan d'accès sur demande auprès de la régie)\n-obligatoire pour tous les musiciens (titulaires, DAS et à l'essai), la régie, la production et les nouveaux retraités présents en 2026\n-bilan individuel non communiqué à l'orchestre\n-coordination : Grégory Cassar et Mariana Cossermelli",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr245676": "12h : Benoît WILLMANN\n12h30 : Pierre-Louis DAUENHAUER\n13h : Fidel FERNÁNDEZ MORALEJA\n14h : Laurent FABRE.",
+   "osr245675": "9h30 : Steve ROGER\n10h : Jiaqi LU\n10h30 : Muriel NOBLE\n11h : Raphaëlle RUBELLIN\n11h30 : Jerica PAVLI\n12h : Nora CISMONDI\n12h30 : Anaëlle BROLY\n13h : Ross KNIGHT."
+  }
  },
  "Liste 24": {
   "info": "ATTENTION : au BFM dans la production GT de Theodora avec la fosse baissée (ok pour passer et stocker 2 pianos)",
@@ -2189,6 +2254,7 @@
    ]
   },
   "serviceNotes": {
+   "osr133001": "souhait des représentants de travailler l'après-midi et pas le matin",
    "osr133007": "démontage express pour OCG"
   }
  },
@@ -2205,15 +2271,25 @@
     "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
     "duree": "≈ 1 h 00"
    }
-  ]
+  ],
+  "serviceNotes": {
+   "osr176100": "verre d'accueil servi au foyer à la pause"
+  }
  },
  "Doudou Concert 4": {
   "info": "4ème série ajoutée en cours de saison",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr252409": "pour les crèches",
+   "osr252411": "tout public"
+  }
  },
  "Concours Premier.ère Soliste des seconds violons": {
   "chef": "Tugan SOKHIEV",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr236289": "avec Tugan Sokhiev clôture des inscriptions le 25 novembre"
+  }
  },
  "Liste D": {
   "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe",
@@ -2339,8 +2415,12 @@
    ]
   },
   "serviceNotes": {
-   "osr133022": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur",
-   "osr133025": "Prélude Amis 19h Le Poulailler"
+   "osr133017": "visite de classes",
+   "osr133019": "visite de classes",
+   "osr219512": "en coulisse",
+   "osr133022": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -Réception M. Eric Demole. en construction .",
+   "osr133025": "Prélude Amis 19h Le Poulailler -réception Retraites Populaires sur invit. avant / Beaulieu.",
+   "osr251621": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services"
   }
  },
  "Liste 26": {
@@ -2360,7 +2440,11 @@
  },
  "Atelier Découverte GT": {
   "chef": "Martyna SZYMCZAK",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr196360": "Martyna SZYMCZAK",
+   "osr196361": "Martyna SZYMCZAK"
+  }
  },
  "Liste E": {
   "info": "-Version réduite Ettore Panizza\n-En attente de la nomination du chef suite au décès d'Antonino Fogliani le 29 août 2026",
@@ -2378,7 +2462,12 @@
     "note": "A définir : « fischio » (sifflements enregistrés ?),",
     "duree": "≈ 2 h 15"
    }
-  ]
+  ],
+  "serviceNotes": {
+   "osr133356": "démontage fosse à l'issue",
+   "osr133357": "démontage fosse à l'issue captation RTS-Espace2",
+   "osr133358": "démontage fosse à l'issue"
+  }
  },
  "Musique De Chambre 4": {
   "info": "Musique de chambre : concert au cachet / sans régie OSR / sans bibliothèque OSR / répétitions à construire par le groupe\n-responsable du groupe : Lucas Henry\n-10h30 : ouverture des portes\n-régie SFL",
@@ -2415,6 +2504,7 @@
    ]
   },
   "serviceNotes": {
+   "osr132188": "-horaires à confirmer par le groupe dans cette plage",
    "osr132189": "-réception Fondation Etrillard. en construction."
   }
  },
@@ -2455,14 +2545,23 @@
    ]
   },
   "serviceNotes": {
-   "osr132568": "-amplitude 8h < 9 = 2 sces",
-   "osr132571": "-avec nuit et retour avant 13h = 3 sces"
+   "osr132566": "146km / 2h",
+   "osr132567": "en cours de confirmation le 22.01.26 avec Alexandra Egli -11h accès plateau -17h45 : mise en loge -18h30-19h : raccord -19h30 : concert -démontage à l'issue",
+   "osr132568": "-amplitude 8h < 9 = 2 sces -avec garde robes -introduction musicologique foyer du public à 18h45",
+   "osr259568": "-arrivée environ 23h30 -amplitude 5-9h = 2 services",
+   "osr132569": "solution contractuelle voyage de Liste 15 8 janvier 2022 aller groupe 1 : 10h42-13h32 + 10 min. en bus (3h) aller groupe 2 : 11h15-13h53 + 10 min. en bus (2h50)",
+   "osr132570": "en cours de confirmation le 22.01.26 avec Thomas Jung -11h accès plateau -17h45 : mise en loge -18h30-19h : raccord -19h30 : concert -démontage à l'issue",
+   "osr132571": "-avec nuit et retour avant 13h = 3 sces -nuit Basel (Radisson Blu ?) -avec garde robes -entracte 25 minutes à confirmer",
+   "osr132572": "solution contractuelle voyage de Liste 15 9 janvier 2022 retour groupes 1+2 : 9h bus (10 min.) + 9h28-12h18 (3h18)"
   }
  },
  "Liste 27b": {
   "contraires": "contraire Liste27",
   "chef": "Daniele GATTI",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr178808": "étudiants HEM"
+  }
  },
  "Concerts pour Petites Oreilles 3": {
   "info": "Centre des Arts Ecolint : route de Chêne 62",
@@ -2566,6 +2665,8 @@
   },
   "serviceNotes": {
    "osr133047": "montage lourd le matin",
+   "osr213044": "3 solistes et chef sans pianiste",
+   "osr133051": "ordre à déterminer",
    "osr133052": "-réception Mme Aline Foriel-Destezet sur invit. en construction.",
    "osr133053": "-réception Mme Aline Foriel-Destezet sur invit. en construction."
   }
@@ -2615,7 +2716,24 @@
   ],
   "solistes": [
    "Lyam CHENAUX, violoncelle"
-  ]
+  ],
+  "serviceNotes": {
+   "osr234459": "environ 2h de trajet",
+   "osr133064": "Bicubic : route d'Arruffens 37 - Romont -amplitude 5-9h = 2 services",
+   "osr234461": "-environ 2h15 de trajet -départ à l'issue du concert -arrivée environ 17h45",
+   "osr234106": "environ 50 minutes de trajet",
+   "osr133063": "-Rosey Concert Hall : Château du Rosey -attention : 1er concert à 13h -amplitude 5-9h = 2 services",
+   "osr234439": "-environ 60 minutes de trajet -départ à l'issue du concert -arrivée environ 16h15",
+   "osr234455": "horaire train prévisionnels à confimer (1h55) Genève-Sion : 10h24-12h19",
+   "osr133065": "-amplitude 5-9h = 2 services",
+   "osr234457": "horaires train prévisionnels à confirmer (1h56) -Sion-Genève 16h39-18h35",
+   "osr234441": "horaires indicatifs à confirmer : -train Genève-Delémont : 9h35-11h48 (changement à Renens) -bus Delémont-Porrentruy (30 min.)",
+   "osr133066": "-Eglise des Jésuites : en haut de la Grande Rue -amplitude > 9h = 3 services",
+   "osr234449": "horaires train indicatifs à confirmer -bus Porrentruy-Delémont (30 min.) -train Delémont-Genève 16h41-18h55 (changement Bienne + Renens)",
+   "osr234451": "environ 1h40 de trajet",
+   "osr133067": "Temple du Bas : rue du Temple Neuf 5 -amplitude 5-9h = 2 services",
+   "osr234453": "-départ à l'issue du concert -environ 1h45 de trajet -arrivée environ 17h15"
+  }
  },
  "Liste F": {
   "info": "-1 ballet unique sans entracte\n-orchestre en fosse, piano et voix en scène (sonorisées)\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat)\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
@@ -2700,7 +2818,11 @@
     "claviers": "piano",
     "duree": "≈ 14 min"
    }
-  ]
+  ],
+  "serviceNotes": {
+   "osr128827": "-horaires à confirmer par le groupe dans cette plage",
+   "osr132190": "-réception Fondation Etrillard sur invit. en construction."
+  }
  },
  "Liste 30": {
   "info": "ATTENTION : Effectif Berlioz+Tchaïkovski strictement identique pour Liste 42 avec Montpellier et La Chaux de Fonds\nprojet de captation AV en construction avec RTS / Mezzo / Ozango",
@@ -2750,13 +2872,22 @@
    ]
   },
   "serviceNotes": {
+   "osr133077": "visite de classes",
+   "osr133078": "visite de classes",
+   "osr133080": "-foyer OSR-Bovy innaccessible (traiteur) -prise de parole Président Amis au début du service -50 invités Amis OSR en salle -réception après le service au foyer OSR-Bovy sur invitation (sortie par l’administration OSR)",
+   "osr133081": "Démontage express pour Migros à 14h",
    "osr133084": "Prélude Amis 19h Le Poulailler",
-   "osr133085": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur"
+   "osr251623": "retour prévu 23h45 - amplitude 5-9h - concert comptabilisé 2 services",
+   "osr259742": "pour caméra et balance (fin 1h avant concert) : à confirmer",
+   "osr133085": "Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -réception JTI sur invit. en construction."
   }
  },
  "Concours Deuxième violon solo (coordonné)": {
   "chef": "Tugan SOKHIEV",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr239392": "avec Tugan Sokhiev"
+  }
  },
  "Liste 31": {
   "info": "projet de captation audiovisuelle RTS / Arte (jean-PIerre Loisil)\navec cordes limitées à Berne : 14.12.10.8.6\nAttention : Casino Bern est le nouveau nom du Kultur-Casino Bern",
@@ -2800,9 +2931,14 @@
    ]
   },
   "serviceNotes": {
+   "osr133096": "montage lourd le matin",
+   "osr133098": "visite de classes",
    "osr133101": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
-   "osr133102": "-réception SIG sur invit. 18h30 / foyer VH",
-   "osr133105": "-démontage à l'issue"
+   "osr133102": "-réception SIG sur invit. 18h30 / foyer VH -Cocktails après concert SIG sur invit. / Lyrique",
+   "osr133103": "163km - 2h15",
+   "osr133104": "confirmé avec Johannes Knapp le 3.04.25 puis le 27.01.26: -14h : accès plateau -18h15-18h45 : raccord -18h45 : retouche accordage piano -19h : ouverture des portes -19h30 : concert",
+   "osr133105": "-démontage à l'issue",
+   "osr259570": "-arrivée environ 23h55 -amplitude 5-9h = 2 services"
   }
  },
  "Liste 32": {
@@ -2891,13 +3027,13 @@
    ]
   },
   "serviceNotes": {
-   "osr132301": "-D'un soir triste puis Daphnis avant la pause",
+   "osr132301": "-D'un soir triste puis Daphnis avant la pause -visite de classes",
    "osr132302": "visite de classes",
-   "osr132303": "visite de classes",
+   "osr132303": "visite de classes TBC : visite ProSenectute x15 + essai VR",
    "osr132304": "Boulanger : dernière heure",
    "osr132306": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
-   "osr173588": "programme masterclass validé avec le chef : Jeux",
-   "osr132307": "-réception Arab Bank sur invit. / foyer public. en construction."
+   "osr173588": "programme masterclass validé avec le chef : Jeux étudiants Talent Norge",
+   "osr132307": "-réception Arab Bank sur invit. / foyer public. en construction. -réception après concert Arab Bank sur invit. / Café des Banques. en construction"
   }
  },
  "Liste 34": {
@@ -2931,13 +3067,21 @@
    ]
   },
   "serviceNotes": {
+   "osr133120": "après-midi pour montage le matin",
+   "osr133123": "visite de classes",
+   "osr133124": "demande de répétition privé Amis : déplacer la veille ?",
+   "osr133126": "full tech : balance amplification et projection",
    "osr133129": "OPTION",
    "osr133130": "OPTION"
   }
  },
  "Doudou Concert 5": {
   "info": "5ème série ajoutée en cours de saison",
-  "works": []
+  "works": [],
+  "serviceNotes": {
+   "osr252412": "pour les crèches",
+   "osr252414": "tout public"
+  }
  },
  "Liste 35": {
   "info": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26",
@@ -2970,7 +3114,14 @@
    ]
   },
   "serviceNotes": {
-   "osr133155": "Prélude Amis 19h Le Poulailler"
+   "osr133147": "1 seul service 15h-19h si Représentants ok",
+   "osr133152": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -ouverture au public du podium choeur en construction -réception Fondation Pictet sur invit.",
+   "osr133155": "Prélude Amis 19h Le Poulailler",
+   "osr251625": "retour prévu 23h - amplitude 5-9h - concert comptabilisé 2 services",
+   "osr133156": "165 km / 2h15",
+   "osr133157": "confimé Giada Marsadri le 22.01.26 : -accès plateau dès 13h (manutentionnaires NODA) -montage à définir 13h-15h -mise en loge 17h45 -raccord 18h30-19h -concert 19h30 -démontage à l'issue",
+   "osr133158": "avec garde-robes",
+   "osr259572": "-arrivée environ 23h45 -amplitude 5-9h = 2 services"
   }
  },
  "Liste 36": {
@@ -3042,6 +3193,7 @@
    ]
   },
   "serviceNotes": {
+   "osr128829": "-horaires à confirmer par le groupe dans cette plage",
    "osr132191": "-réception Fondation Etrillard sur invit. en construction."
   }
  },
@@ -3082,7 +3234,10 @@
     "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 6.6.5.4.4",
     "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer"
    }
-  ]
+  ],
+  "serviceNotes": {
+   "osr133203": "avec invités OCV <50 personnes"
+  }
  },
  "Liste 40": {
   "info": "Concert Jeune Public / Fête de la Musique\n-effectif OSR : 1111 / 1111 / 1201 / 2.2.2.2.2\n-élèves des orchestres en classes cordes et vents du DIP : 3 classes pour N° 1 et 2 et 3 classes pour n° 3 et 4\n-120-130 choristes des écoles de musique (CPMdT, IJD et CMG) + 2 classes du DIP. Le choeur est sonorisé.\nOrdre du concert :\n-Tchouka\n-Le Petit Tailleur tableaux I à III\n-changement d'orchestres en classe\n-Le Petit Tailleur tableaux IV à VI\n-Djia",
@@ -3186,7 +3341,7 @@
    "osr128842": "RTS : présence en salle",
    "osr128845": "essais micro I (RTS)",
    "osr128846": "essais micro II (RTS)",
-   "osr128847": "démontage à l'issue"
+   "osr128847": "démontage à l'issue captation RTS-Espace2"
   }
  },
  "Liste 41": {
@@ -3275,8 +3430,12 @@
    ]
   },
   "serviceNotes": {
-   "osr162257": "concert confirmé",
-   "osr230030": "concert confirmé (petite formation)"
+   "osr162256": "horaire à confirmer",
+   "osr162257": "concert confirmé horaires à confirmer",
+   "osr230032": "GE-La Chaux (2h15)",
+   "osr230034": "horaires à confirmer",
+   "osr230030": "concert confirmé (petite formation) horaires à confirmer Piemontesi souhaite Rachma2 ou Rachma3",
+   "osr230036": "La Chaux-GE (2h15)"
   }
  },
  "Projet 01": {
