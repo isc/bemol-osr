@@ -1,6 +1,42 @@
 {
  "entries": [
   {
+   "at": "2026-10-26T12:00:56.190Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132853",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132853",
+      "start": "2026-11-06T20:15",
+      "end": "2026-11-06T23:15",
+      "liste": "Liste 12",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "aboR1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132853",
+      "start": "2026-11-06T19:30",
+      "end": "2026-11-06T22:30",
+      "liste": "Liste 12",
+      "activity": "concert",
+      "category": "concert",
+      "location": "Victoria Hall de Genève",
+      "project": "aboR1",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-10-26T10:32:35.003Z",
    "type": "memo",
    "programs": [
