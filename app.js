@@ -510,17 +510,23 @@ const VACANCES_SCOLAIRES = [
   // « Calendrier scolaire » (académies de Lyon, Grenoble, Clermont-Ferrand),
   // publié jusqu'en 2027-2028 (été 2028 pas encore publié ; été 2027 confirmé par
   // la capture education.gouv.fr du frère, fin des cours le samedi 3 juillet).
-  // Ponts de l'Ascension non saisis (cf. #203).
+  // Ponts de l'Ascension : le jeu de données ne donne que le vendredi
+  // (« Pont de l'Ascension » du 7 au 7 mai 2027), confirmé par la page
+  // education.gouv.fr 2026-2027 (« pas classe le vendredi 7 mai 2027 ») ; en
+  // 2028, du jeudi 25 au lundi 29 mai (reprise). Jeudi férié compris, comme
+  // pour Genève et Vaud (#261).
   { region: "FR", nom: "Été", start: "2026-07-04", end: "2026-08-31" },
   { region: "FR", nom: "Toussaint", start: "2026-10-17", end: "2026-11-01" },
   { region: "FR", nom: "Noël", start: "2026-12-19", end: "2027-01-03" },
   { region: "FR", nom: "Hiver", start: "2027-02-13", end: "2027-02-28" },
   { region: "FR", nom: "Printemps", start: "2027-04-10", end: "2027-04-25" },
+  { region: "FR", nom: "Ascension", start: "2027-05-06", end: "2027-05-07" },
   { region: "FR", nom: "Été", start: "2027-07-03", end: "2027-09-01" },
   { region: "FR", nom: "Toussaint", start: "2027-10-23", end: "2027-11-07" },
   { region: "FR", nom: "Noël", start: "2027-12-18", end: "2028-01-02" },
   { region: "FR", nom: "Hiver", start: "2028-02-19", end: "2028-03-05" },
   { region: "FR", nom: "Printemps", start: "2028-04-22", end: "2028-05-08" },
+  { region: "FR", nom: "Ascension", start: "2028-05-25", end: "2028-05-26" },
 ]
 
 // Rentrée scolaire = premier jour d'école après les vacances d'été. Un seul
