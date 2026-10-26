@@ -124,6 +124,27 @@ jobs:
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
 
+      # Run fini sans commentaire de Claude : signalé dans le fil, Ivan prévenu,
+      # run en échec (détails dans le script). Le script retrouve le
+      # commentaire de démarrage au lien du run qu'il contient. Il vient
+      # toujours de main : Claude a pu laisser sous ses pieds la branche d'une
+      # PR, sans ce script ou avec une autre version.
+      - uses: actions/checkout@v4
+        if: ${{ !cancelled() }}
+        with:
+          ref: main
+          path: .main
+          sparse-checkout: scripts
+      - name: Vérifier que Claude a répondu
+        if: ${{ !cancelled() }}
+        run: node .main/scripts/claude-run-check.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
+
       # Un run rouge est aujourd'hui une BOÎTE NOIRE : le log du job ne contient
       # que l'init et le résultat final (« error_max_turns »,
       # « permission_denials_count: 7 ») — impossible de savoir où sont partis
