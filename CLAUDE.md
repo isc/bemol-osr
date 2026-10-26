@@ -455,6 +455,13 @@ continuer. Ne jamais répondre « relance-moi en autorisant les modifications »
 le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
 le run s'est arrêté sur ce message, sans rien pousser).
 
+**Le filet : `scripts/claude-run-check.mjs` (#261).** En fin de run, les
+trois jobs qui répondent au musicien vérifient que `claude[bot]` a commenté
+dans le fil. Sinon, le script poste « ⚠️ Claude a terminé sans rien publier
+ici », prévient Ivan (`besoin-ivan`) et fait échouer le run, ce qui archive la
+transcription. Ce filet rattrape un oubli, il ne répond pas à ta place : la
+règle ci-dessus tient toujours.
+
 ## Relier les demandes entre elles, une PR par sujet
 
 Loïc ne garde pas la trace des fils : « je ne me souviens plus dans quel PR

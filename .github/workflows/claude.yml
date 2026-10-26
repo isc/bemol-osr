@@ -142,6 +142,23 @@ jobs:
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
 
+      # Run fini sans commentaire de Claude : signalé (cf. claude-issue-to-pr.yml).
+      - uses: actions/checkout@v4
+        if: ${{ !cancelled() }}
+        with:
+          ref: main
+          path: .main
+          sparse-checkout: scripts
+      - name: Vérifier que Claude a répondu
+        if: ${{ !cancelled() }}
+        run: node .main/scripts/claude-run-check.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
+
       # Sans ça, un run rouge est une boîte noire (cf. claude-issue-to-pr.yml).
       - name: Archiver la transcription du run Claude
         if: failure()
@@ -225,6 +242,23 @@ jobs:
 
             Les utilisateurs sont des musiciens de l'orchestre, pas des
             développeurs : reste clair, simple et pédagogue dans tes réponses.
+
+      # Run fini sans commentaire de Claude : signalé (cf. claude-issue-to-pr.yml).
+      - uses: actions/checkout@v4
+        if: ${{ !cancelled() }}
+        with:
+          ref: main
+          path: .main
+          sparse-checkout: scripts
+      - name: Vérifier que Claude a répondu
+        if: ${{ !cancelled() }}
+        run: node .main/scripts/claude-run-check.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
 
       # Sans ça, un run rouge est une boîte noire (cf. claude-issue-to-pr.yml).
       - name: Archiver la transcription du run Claude
