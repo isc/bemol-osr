@@ -1072,7 +1072,7 @@
  },
  "Liste 12": {
   "info": "disposition des cordes : Maestro Gatti souhaite expérimenter avec l'OSR la disposition cordes indiquée qu'il vient de jouer avec Dresde et qu'il trouve apporter\nbeaucoup à ce répertoire. Il a de plus souhaité préserver l'effectif en réduisant les cordes pour la session Masterclasse.\n-6 étudiants HEM assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse\n-le projet de captation TV n'a finalement pas pu être confirmé",
-  "tenue": "05.11-20h15 + 06.11-20h15 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n07.11-11h00 : tenue de fosse",
+  "tenue": "05.11-20h15 + 06.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n07.11-11h00 : tenue de fosse",
   "chef": "Daniele GATTI",
   "effectif": "3.2.2.3 / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)",
   "duree": "≈ 1 h 51",
@@ -1117,11 +1117,6 @@
     2,
     3
    ],
-   "osr132853": [
-    1,
-    2,
-    3
-   ],
    "osr132855": [
     3
    ]
@@ -1134,7 +1129,6 @@
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr246249": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services",
    "osr132856": "-6 étudiants HEM :\n10h45 Célia VÉRICET-GUYOT n°1 mvt.1/2\n11h Zachary ROBERT n°1 mvt.3/4\n11h15 Léo HUNT n°4 mvt.1/2\n11h30 Gonzalo ALARCON BURRIEL n°4 mvt.1/2\n11h45 Simon FUENTES n°4 mvt.3/4 -12h pause\n12h20 Chenfei XIA n°5 mvt.2/3\n12h35 Gonzalo ALARCON BURRIEL n°5 mvt.1\n12h45 Léo HUNT n°5 mvt.1 -effectifs cordes réduits à celui de la 1ère symphonie -temps d'échange entre les étudiants et le chef au foyer OSR-Bovy après le service (avec catering léger).",
-   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
    "osr132854": "-mise en place des extraits musicaux et du commentaire (+balance présentateur)",
    "osr132855": "-podium chœur fermé -blocage en loge 18"
   }
@@ -1671,6 +1665,82 @@
    "osr240317": "avec Tugan Sokhiev"
   }
  },
+ "Liste 20": {
+  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
+  "contraires": "contraire Liste C",
+  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "chef": "Alexandre MASTRANGELO",
+  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
+  "duree": "≈ 1 h 35",
+  "works": [
+   {
+    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
+    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
+    "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
+    "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
+    "percussions": "perc.en construct., drumset",
+    "claviers": "piano+synthétiseur",
+    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
+    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
+    "duree": "≈ 1 h 15"
+   }
+  ],
+  "solistes": [
+   "Matt DUSK, jazz vocalist",
+   "Marie GAIRET, choriste (soprano)",
+   "Maud PAQUIS, choriste (soprano)",
+   "Sylvie KLIJN, choriste (alto [leader])",
+   "Marilou NICATY, choriste (alto)",
+   "Bart PLUGERS, choriste (ténor / baryton)",
+   "Vimbai MUKARATI, choriste (basse)"
+  ],
+  "serviceWorks": {
+   "osr162112": [
+    1
+   ],
+   "osr162113": [
+    1
+   ],
+   "osr128620": [
+    1
+   ],
+   "osr261714": [
+    1
+   ],
+   "osr261715": [
+    1
+   ],
+   "osr261716": [
+    1
+   ],
+   "osr162114": [
+    1
+   ],
+   "osr162115": [
+    1
+   ],
+   "osr128623": [
+    1
+   ],
+   "osr128624": [
+    1
+   ],
+   "osr128622": [
+    1
+   ]
+  },
+  "serviceNotes": {
+   "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
+   "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
+   "osr128620": "-sans choristes ni soliste ni amplification -démontage à l'issue",
+   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
+   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
+   "osr162114": "1ère demi-heure pour la balance micros",
+   "osr162115": "fin 22h15 max. pour repos nocturne essai micro",
+   "osr128624": "différé Espace 2 le 23 décembre"
+  }
+ },
  "Liste C": {
   "info": "-captation vidéo Les Noces sous les Etoiles (dates à définir)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
   "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
@@ -1778,84 +1848,8 @@
   "serviceNotes": {
    "osr262425": "en loge",
    "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les rediffusions après le direct) : générale en tenue -balance de chaque pièce avant de la filer -accueil de 15-20 étudiants + 3-4 professeurs du CMG de Raphaël Abeille en première galerie même si la générale devait être fermée",
-   "osr132947": "-ouverture au public du podium choeur si nécéssaire -direct Espace 2 + Mezzo",
-   "osr132948": "-ouverture au public du podium choeur si nécéssaire -réception après concert Fondation Arditi sur invit avec artistes. en construction."
-  }
- },
- "Liste 20": {
-  "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV en construction\n-décoration florale en scène",
-  "contraires": "contraire Liste C",
-  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
-  "chef": "Alexandre MASTRANGELO",
-  "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
-  "duree": "≈ 1 h 35",
-  "works": [
-   {
-    "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
-    "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
-    "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
-    "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
-    "claviers": "piano+synthétiseur",
-    "extra": "saxophone alto, saxophone baryton, saxophone ténor",
-    "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
-    "duree": "≈ 1 h 15"
-   }
-  ],
-  "solistes": [
-   "Matt DUSK, jazz vocalist",
-   "Sylvie KLIJN, choriste ([leader])",
-   "NN2, choriste",
-   "NN3, choriste",
-   "NN4, choriste",
-   "NN5, choriste",
-   "NN6, choriste"
-  ],
-  "serviceWorks": {
-   "osr162112": [
-    1
-   ],
-   "osr162113": [
-    1
-   ],
-   "osr128620": [
-    1
-   ],
-   "osr261714": [
-    1
-   ],
-   "osr261715": [
-    1
-   ],
-   "osr261716": [
-    1
-   ],
-   "osr162114": [
-    1
-   ],
-   "osr162115": [
-    1
-   ],
-   "osr128623": [
-    1
-   ],
-   "osr128624": [
-    1
-   ],
-   "osr128622": [
-    1
-   ]
-  },
-  "serviceNotes": {
-   "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
-   "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
-   "osr128620": "-sans choristes ni soliste ni amplification -démontage à l'issue",
-   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
-   "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne essai micro",
-   "osr128624": "différé Espace 2 le 23 décembre"
+   "osr132947": "-ouverture au public du podium choeur si nécéssaire -direct Espace 2 + Mezzo -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal",
+   "osr132948": "-ouverture au public du podium choeur si nécéssaire -réception après concert Fondation Arditi sur invit avec artistes. en construction. -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal"
   }
  },
  "Liste 21": {
