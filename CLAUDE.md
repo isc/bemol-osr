@@ -427,10 +427,11 @@ encore ouverte) exactement comme pour une nouvelle demande, puis poster le lien
 de cette PR. Ne repousser sur la branche existante que lorsque la PR est
 **encore ouverte**.
 
-## Retour « @claude … » sur une PR encore ouverte : ne jamais rester muet
+## Tout run Claude finit par un commentaire visible : ne jamais rester muet
 
-Un run déclenché par un retour sur une PR ouverte doit **toujours se terminer
-par un commentaire visible sur cette PR**, même quand la conclusion n'est pas un
+Un run déclenché par une issue (création ou « @claude » dans son fil) ou par
+un retour sur une PR ouverte doit **toujours se terminer par un commentaire
+visible sur cette issue ou cette PR**, même quand la conclusion n'est pas un
 commit : « je traite ce point dans une PR séparée #N », « ce réglage ne se
 vérifie qu'après merge (cf. calendriers abonnés) », « c'est le comportement
 voulu, voici pourquoi »… Un run qui « réussit » côté Actions mais ne poste rien
@@ -444,6 +445,15 @@ sans laisser de commentaire ; le frère a écrit « Peux-tu répondre ? » puis
 « Pr142 qui ne répond plus »**). Règle : **poster la réponse avant de terminer
 le tour**, quelle que soit la conclusion.
 
+Même chose pour une issue : sur **#258** (audiogrammes, 22/10/2026), le premier
+run a tourné 65 tours en 7 min 30, s'est terminé « vert » sans branche, sans PR
+ni commentaire ; Loïc a attendu plus de deux heures avant d'écrire « @claude pas
+de nouvelles ? ». Si tu t'arrêtes sans PR — question à poser, doute sur la
+demande, donnée introuvable, travail inachevé —, **le dire en commentaire sur
+l'issue** (`gh issue comment`) : ta réponse finale de run n'est publiée nulle
+part, seul un commentaire posté par toi est lu. Une question de clarification
+se pose donc dans un commentaire, jamais dans ce texte final.
+
 **Un outil refusé ne se renvoie jamais au musicien.** Dans les workflows
 Claude, l'outil d'édition de fichiers (Edit/Write) a été refusé en cours de
 run (« requested permissions to write … ») ; les journaux n'affichent alors
@@ -454,6 +464,13 @@ la modification par Bash (`node`, `perl -pi`, `cat > fichier <<'EOF'`…) et
 continuer. Ne jamais répondre « relance-moi en autorisant les modifications » :
 le frère ne peut rien autoriser, aucun réglage n'existe de son côté (PR #212 :
 le run s'est arrêté sur ce message, sans rien pousser).
+
+**Le filet : `scripts/claude-run-check.mjs` (#261).** En fin de run, les
+trois jobs qui répondent au musicien vérifient que `claude[bot]` a commenté
+dans le fil. Sinon, le script poste « ⚠️ Claude a terminé sans rien publier
+ici », prévient Ivan (`besoin-ivan`) et fait échouer le run, ce qui archive la
+transcription. Ce filet rattrape un oubli, il ne répond pas à ta place : la
+règle ci-dessus tient toujours.
 
 ## Relier les demandes entre elles, une PR par sujet
 
