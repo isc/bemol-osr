@@ -1117,6 +1117,11 @@
     2,
     3
    ],
+   "osr132853": [
+    1,
+    2,
+    3
+   ],
    "osr132855": [
     3
    ]
@@ -1129,6 +1134,7 @@
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr246249": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services",
    "osr132856": "-6 étudiants HEM :\n10h45 Célia VÉRICET-GUYOT n°1 mvt.1/2\n11h Zachary ROBERT n°1 mvt.3/4\n11h15 Léo HUNT n°4 mvt.1/2\n11h30 Gonzalo ALARCON BURRIEL n°4 mvt.1/2\n11h45 Simon FUENTES n°4 mvt.3/4 -12h pause\n12h20 Chenfei XIA n°5 mvt.2/3\n12h35 Gonzalo ALARCON BURRIEL n°5 mvt.1\n12h45 Léo HUNT n°5 mvt.1 -effectifs cordes réduits à celui de la 1ère symphonie -temps d'échange entre les étudiants et le chef au foyer OSR-Bovy après le service (avec catering léger).",
+   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
    "osr132854": "-mise en place des extraits musicaux et du commentaire (+balance présentateur)",
    "osr132855": "-podium chœur fermé -blocage en loge 18"
   }
@@ -2730,22 +2736,27 @@
   }
  },
  "Liste F": {
-  "info": "-1 ballet unique sans entracte\n-orchestre en fosse, piano et voix en scène (sonorisées)\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat)\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
+  "info": "-1 ballet unique sans entracte\n-orchestre en fosse + piano et voix en scène sonorisés\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat) - reportée au 11 janvier 27 pour les parties séparées\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
   "contraires": "contraire Liste 29",
   "chef": "Margaryta GRYNYVETSKA",
-  "effectif": "0.3.2.2 / 4.3.3.1 / 1.3.1.0 / 11.9.7.5.5 (60 musiciens)",
+  "effectif": "0.3.2.2 / 4.3.3.1 / 1.3.1.1 / 11.9.7.5.5 (61 musiciens)",
   "duree": "≈ 1 h 15",
   "works": [
    {
     "oeuvre": "Dimitris SKYLLAS — Dimmokratîa",
-    "instrumentation": "0.3*.2*.2* / 4.3.3*.1 / 1.3.1.0 / 11*.9.7.5.5",
-    "remarques": "1ca, cl2+cl.bs, fgt2+kfgt, 2 trb.t + 1 trb.bs",
+    "instrumentation": "0.3*.2*.2* / 4.3.3*.1 / 1*.3.1.1 / 11*.9.7.5.5",
+    "remarques": "1ca, cl2+cl.bs, fgt2+kfgt, 2 trb.t + 1 trb.bs, timbale 32'' descend jusqu'à ut (à confirmer)",
     "remarquesCordes": "y compris le tournus",
-    "percussions": "GC, cymb fr, 3 c.cl., tamtam, cymb sus, bsq, cl.tub., 2 grelots",
-    "claviers": "piano (solo joué en scène par le compositeur (non concertant))",
-    "detail": "-cl1, trp1 et trb1 : parties importantes ('balkan style')\n-dans certaines parties les musicien·nes chantent bouche fermée\n-dans certaines parties les danseurs chantent ou crient\n-1 cymbale suspendue est jouée sur scène par les danseurs\n-1 petite grosse caisse de marching band avec harnais est joué par pianiste ou danseurs sur scène",
+    "percussions": "GC ( 1 la plus grande possible et 1 grande), cymb fr, 3 c.cl., tamtam ( le plus grand\npossible), cymb sus, bsq, cl.tub. ( clocher complet), 2 grelots ( grand modèle avec poignée)",
+    "claviers": "2 piano (1 grand piano (solo) en scène + 1 piano droit en fosse (éventuellement hors fosse), les",
+    "extra": "melodica (joué et fourni par le compositeur)",
+    "detail": "-cl1, trp1 et trb1 : parties importantes ('balkan style')\n-dans 2 numéros tout l'orchestre chante\n-dans certains numéros les danseurs chantent ou crient\n-1 petite grosse caisse de marching band avec harnais est joué par pianiste ou danseurs sur scène (à confirmer)",
     "duree": "≈ 1 h 15"
    }
+  ],
+  "solistes": [
+   "ALKANNA GRAECA, 3 voix féminines grecques",
+   "Dimitris SKYLLAS, piano"
   ],
   "serviceWorks": {
    "osr133367": [
