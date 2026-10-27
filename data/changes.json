@@ -1,6 +1,46 @@
 {
  "entries": [
   {
+   "at": "2026-10-27T10:00:48.163Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr232662",
+     "start": "2027-01-31T16:00",
+     "end": "2027-01-31T22:00",
+     "liste": "Concours à définir",
+     "activity": "répétitions candidats (poste à définir)",
+     "category": "concours",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr178694",
+     "start": "2027-02-01T09:30",
+     "end": "2027-02-01T19:00",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "à définir Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr248533",
+     "start": "2027-05-01T11:00",
+     "end": "2027-05-01T22:00",
+     "liste": "Concours à définir",
+     "activity": "concours (poste à définir)",
+     "category": "concours",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-10-27T04:46:24.675Z",
    "type": "memo",
    "programs": [

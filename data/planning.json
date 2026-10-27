@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-26T12:00:56.190Z",
- "count": 642,
+ "updatedAt": "2026-10-27T10:00:48.163Z",
+ "count": 639,
  "events": [
   {
    "uid": "osr225046",
@@ -3919,28 +3919,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr232662",
-   "start": "2027-01-31T16:00",
-   "end": "2027-01-31T22:00",
-   "liste": "Concours à définir",
-   "activity": "répétitions candidats (poste à définir)",
-   "category": "concours",
-   "location": "ML - grande salle",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr178694",
-   "start": "2027-02-01T09:30",
-   "end": "2027-02-01T19:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "à définir Genève",
-   "project": "",
-   "cancelled": false
-  },
-  {
    "uid": "osr133324",
    "start": "2027-02-01T14:30",
    "end": "2027-02-01T18:30",
@@ -5830,17 +5808,6 @@
    "category": "autre",
    "location": "retour Genève",
    "project": "DPL5",
-   "cancelled": false
-  },
-  {
-   "uid": "osr248533",
-   "start": "2027-05-01T11:00",
-   "end": "2027-05-01T22:00",
-   "liste": "Concours à définir",
-   "activity": "concours (poste à définir)",
-   "category": "concours",
-   "location": "ML - grande salle",
-   "project": "",
    "cancelled": false
   },
   {
