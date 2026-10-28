@@ -2736,7 +2736,7 @@
   }
  },
  "Liste F": {
-  "info": "-1 ballet unique sans entracte\n-orchestre en fosse + piano et voix en scène sonorisés\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 (contrat) - reportée au 11 janvier 27 pour les parties séparées\n-rdv coup d'archet : a placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
+  "info": "-1 ballet unique sans entracte\n-orchestre en fosse + piano et voix en scène sonorisés\n-souhait compositeur / piano solo : piano Yamaha et non S&S (sauf en répétition)\n-livraison des partitions au GT : 4 décembre 26 pour le score - 11 janvier 27 pour les parties séparées\n-rdv coup d'archet : à placer autour du 16 février\n-présence à Genève du compositeur : septembre, 16-19 février et depuis début mars",
   "contraires": "contraire Liste 29",
   "chef": "Margaryta GRYNYVETSKA",
   "effectif": "0.3.2.2 / 4.3.3.1 / 1.3.1.1 / 11.9.7.5.5 (61 musiciens)",
@@ -2745,12 +2745,13 @@
    {
     "oeuvre": "Dimitris SKYLLAS — Dimmokratîa",
     "instrumentation": "0.3*.2*.2* / 4.3.3*.1 / 1*.3.1.1 / 11*.9.7.5.5",
-    "remarques": "1ca, cl2+cl.bs, fgt2+kfgt, 2 trb.t + 1 trb.bs, timbale 32'' descend jusqu'à ut (à confirmer)",
+    "remarques": "1ca, cl2+cl.bs, fgt2+kfgt, 2 trb.t + 1 trb.bs, timbale 32'' accordée à ut grave",
     "remarquesCordes": "y compris le tournus",
     "percussions": "GC ( 1 la plus grande possible et 1 grande), cymb fr, 3 c.cl., tamtam ( le plus grand\npossible), cymb sus, bsq, cl.tub. ( clocher complet), 2 grelots ( grand modèle avec poignée)",
     "claviers": "2 piano (1 grand piano (solo) en scène + 1 piano droit en fosse (éventuellement hors fosse), les",
     "extra": "melodica (joué et fourni par le compositeur)",
     "detail": "-cl1, trp1 et trb1 : parties importantes ('balkan style')\n-dans 2 numéros tout l'orchestre chante\n-dans certains numéros les danseurs chantent ou crient\n-1 petite grosse caisse de marching band avec harnais est joué par pianiste ou danseurs sur scène (à confirmer)",
+    "note": "Le piano ML suffit pour les lectures",
     "duree": "≈ 1 h 15"
    }
   ],
