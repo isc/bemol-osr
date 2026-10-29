@@ -1147,16 +1147,7 @@
   "duree": "≈ 50 min",
   "works": [
    {
-    "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
-    "instrumentation": "3*.3*.2.4* / 4.5*.3.1 / 1.3.2.0 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1kfgt, 2crt",
-    "percussions": "GC, cymb fr, glock, TT, tri",
-    "detail": "celli divisi à 8 (4 voix doublées)",
-    "note": "Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la\njournée.",
-    "duree": "≈ 12 min"
-   },
-   {
-    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
+    "oeuvre": "Robert SCHUMANN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Concerto pour violoncelle et orchestre en la mineur op. 129",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 0*.0.0.0 / 12.10.8.6.4",
     "remarques": "pas de timp. dans le 1er mvt",
     "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
@@ -1168,6 +1159,15 @@
     "claviers": "piano (solo) (piano garé sur scène derrière les cordes pendant Debussy)",
     "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
     "duree": "≈ 23 min"
+   },
+   {
+    "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
+    "instrumentation": "3*.3*.2.4* / 4.5*.3.1 / 1.3.2.0 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1kfgt, 2crt",
+    "percussions": "GC, cymb fr, glock, TT, tri",
+    "detail": "celli divisi à 8 (4 voix doublées)",
+    "note": "Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la\njournée.",
+    "duree": "≈ 12 min"
    }
   ],
   "solistes": [
@@ -1177,10 +1177,10 @@
   "serviceWorks": {
    "osr132871": [
     1,
-    2
+    3
    ],
    "osr132872": [
-    1,
+    2,
     3
    ]
   },
@@ -1197,7 +1197,7 @@
   "duree": "≈ 50 min",
   "works": [
    {
-    "oeuvre": "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84",
+    "oeuvre": "Ludwig van BEETHOVEN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Egmont, ouverture en fa mineur op. 84",
     "instrumentation": "2*.2.2.2 / 4.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
     "remarques": "fl2+picc",
     "duree": "≈ 9 min"
@@ -1258,9 +1258,9 @@
    ]
   },
   "serviceNotes": {
-   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 7 novembre",
-   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 7 novembre",
-   "osr132887": "-2 pauses de 15 minutes -50 minutes max par candidat -l'ordre sera connu le 7 novembre",
+   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 9 novembre",
+   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 9 novembre",
+   "osr132887": "-2 pauses de 15 minutes -50 minutes max par candidat -l'ordre sera connu le 9 novembre",
    "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h45 + présentations -direct Espace 2 -proclamation des résultats à l'issue"
   }
  },
@@ -1272,7 +1272,7 @@
   "duree": "≈ 1 h 55",
   "works": [
    {
-    "oeuvre": "Béla BARTÓK — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "oeuvre": "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
     "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
@@ -1407,10 +1407,10 @@
    ]
   },
   "serviceNotes": {
-   "osr131104": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
-   "osr131105": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
-   "osr131106": "50' max par candidat et 2 pauses de 15 minutes le programme et l'ordre seront connus le 7 novembre",
-   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h30 + les présentations -le programme et l'ordre seront connus le 7 novembre -direct Espace 2 -vote des musiciens à l'issue pour décerner le Prix des Musiciens de l'OSR -proclamation des résultats à l'issue -"
+   "osr131104": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
+   "osr131105": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
+   "osr131106": "50' max par candidat et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
+   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h30 + les présentations -le programme et l'ordre seront connus le 9 novembre -direct Espace 2 -vote des musiciens à l'issue pour décerner le Prix des Musiciens de l'OSR -proclamation des résultats à l'issue -"
   }
  },
  "Liste 16": {

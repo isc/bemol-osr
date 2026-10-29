@@ -1,6 +1,48 @@
 {
  "entries": [
   {
+   "at": "2026-10-29T04:46:25.956Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 13",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Robert SCHUMANN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Concerto pour violoncelle et orchestre en la mineur op. 129"
+     ],
+     "worksRemoved": [
+      "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Ludwig van BEETHOVEN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Egmont, ouverture en fa mineur op. 84"
+     ],
+     "worksRemoved": [
+      "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19"
+     ],
+     "worksRemoved": [
+      "Béla BARTÓK — Le Mandarin merveilleux, suite d'orchestre op. 19"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-10-28T04:46:22.647Z",
    "type": "memo",
    "programs": [
