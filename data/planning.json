@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-10-27T10:00:48.163Z",
- "count": 639,
+ "updatedAt": "2026-10-30T16:00:48.154Z",
+ "count": 643,
  "events": [
   {
    "uid": "osr225046",
@@ -5723,6 +5723,28 @@
    "cancelled": false
   },
   {
+   "uid": "osr265462",
+   "start": "2027-04-28T13:00",
+   "end": "2027-04-28T15:00",
+   "liste": "Liste 31",
+   "activity": "soliste(s) seul(s)",
+   "category": "autre",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
+   "uid": "osr265460",
+   "start": "2027-04-28T17:30",
+   "end": "2027-04-28T19:00",
+   "liste": "Liste 31",
+   "activity": "soliste(s) seul(s)",
+   "category": "autre",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr133101",
    "start": "2027-04-28T19:30",
    "end": "2027-04-28T22:00",
@@ -5745,6 +5767,17 @@
    "cancelled": false
   },
   {
+   "uid": "osr265459",
+   "start": "2027-04-29T10:00",
+   "end": "2027-04-29T15:00",
+   "liste": "Liste 31",
+   "activity": "soliste(s) seul(s)",
+   "category": "autre",
+   "location": "Victoria Hall de Genève",
+   "project": "",
+   "cancelled": false
+  },
+  {
    "uid": "osr259746",
    "start": "2027-04-29T14:30",
    "end": "2027-04-29T17:30",
@@ -5753,6 +5786,17 @@
    "category": "concours",
    "location": "ML - Tous les espaces",
    "project": "CONC.",
+   "cancelled": false
+  },
+  {
+   "uid": "osr265461",
+   "start": "2027-04-29T17:30",
+   "end": "2027-04-29T19:00",
+   "liste": "Liste 31",
+   "activity": "soliste(s) seul(s)",
+   "category": "autre",
+   "location": "Victoria Hall de Genève",
+   "project": "",
    "cancelled": false
   },
   {

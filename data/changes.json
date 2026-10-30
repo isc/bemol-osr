@@ -1,6 +1,57 @@
 {
  "entries": [
   {
+   "at": "2026-10-30T16:00:48.154Z",
+   "added": [
+    {
+     "uid": "osr265462",
+     "start": "2027-04-28T13:00",
+     "end": "2027-04-28T15:00",
+     "liste": "Liste 31",
+     "activity": "soliste(s) seul(s)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr265460",
+     "start": "2027-04-28T17:30",
+     "end": "2027-04-28T19:00",
+     "liste": "Liste 31",
+     "activity": "soliste(s) seul(s)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr265459",
+     "start": "2027-04-29T10:00",
+     "end": "2027-04-29T15:00",
+     "liste": "Liste 31",
+     "activity": "soliste(s) seul(s)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    },
+    {
+     "uid": "osr265461",
+     "start": "2027-04-29T17:30",
+     "end": "2027-04-29T19:00",
+     "liste": "Liste 31",
+     "activity": "soliste(s) seul(s)",
+     "category": "autre",
+     "location": "Victoria Hall de Genève",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-10-30T11:02:27.249Z",
    "type": "memo",
    "programs": [
