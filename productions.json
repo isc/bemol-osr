@@ -901,7 +901,7 @@
     "instrumentation": "0.1*.0.0 / 2.3.2*.0 / 0.1*.0.0 / 3*.3.3.4.3",
     "remarques": "ob+ca, 2trb.tén., 1 perc.+timp.",
     "remarquesCordes": "partitions pour violins A + violins B + violins C sans alti, joué pour cette production avec V1\n+ V2 + Al (nouvelles partitions / GT) - production SANS tournus (effectifs trop petits)",
-    "percussions": "glock, vibrslp, afouché, timp., scraper, woodblk, xyl, chimes, cast, pol whstle, tmplblk, tri,\nvibra, cabasa, bsq, ratch",
+    "percussions": "glock, vibrslp, afouché, timp, scraper, woodblk, xyl, chimes, cast, pol whstle, tmplblk, tri,\nvibra, cabasa, bsq, ratch",
     "extra": "guitare (de la prod.), claviériste (de la prod.), drum set (de la prod.), 4 reeds (de la prod.)",
     "detail": "musiciens de la production hors OSR : 4 reeds (polyinstrumentistes sax/bois), 1 batterie, 1 synthéthiseur,\n1 guitare",
     "duree": "≈ 2 h 20"
@@ -2949,6 +2949,10 @@
    "Yefim BRONFMAN, piano"
   ],
   "serviceWorks": {
+   "osr133100": [
+    2,
+    1
+   ],
    "osr133101": [
     1,
     2
@@ -2965,7 +2969,12 @@
   "serviceNotes": {
    "osr133096": "montage lourd le matin",
    "osr133098": "visite de classes",
+   "osr133100": "dans l'ordre impérativement",
+   "osr265462": "-plateau innaccessible -loge 2 possible",
+   "osr265460": "plateau (impératif) innaccessible",
    "osr133101": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
+   "osr265459": "-plateau innaccessible -loge 2 possible",
+   "osr265461": "scène (impératif) innaccessible",
    "osr133102": "-réception SIG sur invit. 18h30 / foyer VH -Cocktails après concert SIG sur invit. / Lyrique",
    "osr133103": "163km - 2h15",
    "osr133104": "confirmé avec Johannes Knapp le 3.04.25 puis le 27.01.26: -14h : accès plateau -18h15-18h45 : raccord -18h45 : retouche accordage piano -19h : ouverture des portes -19h30 : concert",
@@ -3295,7 +3304,7 @@
     "oeuvre": "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre",
     "instrumentation": "1*.1*.1.1 / 1.1.1.1* / 1.2.0.1 / 2.2.2.2.2",
     "remarques": "fl+picc, ob+ca, 1tub.ut",
-    "percussions": "GC, cymb fr, c.cl., timp., xyl, TT, 3 tmplblk, tri, cymb cloutées, 2 bsq",
+    "percussions": "GC, cymb fr, c.cl., timp, xyl, TT, 3 tmplblk, tri, cymb cloutées, 2 bsq",
     "claviers": "piano (orch.)",
     "detail": "Paroles et livret : Jeanne Perruchon d'après Grimm",
     "duree": "≈ 18 min"

@@ -1,6 +1,42 @@
 {
  "entries": [
   {
+   "at": "2026-10-31T04:46:19.300Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 40",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Etienne PERRUCHON — Le petit Tailleur, cantate pour chœur d'enfants et orchestre",
+       "fields": [
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste B",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Stephen SONDHEIM — Company",
+       "fields": [
+        "percussions"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-10-30T16:00:48.154Z",
    "added": [
     {
