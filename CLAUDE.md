@@ -37,9 +37,10 @@ production (GitHub Pages) comme dans les previews de PR.
   `document`, saison complète), « **Modifs** », « **Réglages** » (une page,
   plus de roue ⚙). Le menu **⋯** du bandeau donne « S'abonner dans mon
   agenda », « Notifications », « Imprimer / exporter en PDF » (Bible),
-  « Calendrier papier » et « Détail des Listes ». Dans les réponses au
-  musicien, ce sont ces libellés qu'il voit à l'écran, pas les noms internes
-  ni les anciens (« Agenda personnalisé », « bouton 📅 », « ⚙ Réglages »).
+  « Salles Marie Laggé », « Calendrier papier » et « Détail des Listes ». Dans
+  les réponses au musicien, ce sont ces libellés qu'il voit à l'écran, pas les
+  noms internes ni les anciens (« Agenda personnalisé », « bouton 📅 », « ⚙
+  Réglages »).
 
 ## Pipeline de données (à ne pas casser)
 
@@ -86,6 +87,16 @@ production (GitHub Pages) comme dans les previews de PR.
     séries contraires, objet de la demande, sont dans « Services annuels &
     contraires », juste à côté : il a fallu une seconde issue (#219) et une
     seconde PR (#220).
+- `scripts/update-salles.mjs` (Node ≥ 20, zéro dépendance) régénère
+  `data/salles.json`, l'occupation des salles d'Uni Mail (écran « Salles Marie
+  Laggé », #264), à partir du planning des salles partagé par Dièse (URL dans le
+  secret Actions `SALLES_URL` — **jamais en clair dans le code**, elle contient
+  un jeton). Il tourne dans le cron du planning, après `update-data.mjs`. Son
+  échec ne bloque pas le planning, qui se publie quand même : le run finit en
+  échec, ce qui ouvre l'issue d'alerte, et l'écran reste sur la dernière version
+  publiée. Seuls la salle, les horaires, le type d'activité et la Liste sont
+  publiés : les remarques libres de Dièse (prénoms des musiciens qui réservent un
+  studio…) n'en sortent pas.
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
@@ -471,6 +482,17 @@ dans le fil. Sinon, le script poste « ⚠️ Claude a terminé sans rien publie
 ici », prévient Ivan (`besoin-ivan`) et fait échouer le run, ce qui archive la
 transcription. Ce filet rattrape un oubli, il ne répond pas à ta place : la
 règle ci-dessus tient toujours.
+
+**Pas de tâche en arrière-plan dans un workflow.** Sur **#264** (01/11/2026), le
+premier run a lancé `/simplify`, donc quatre sous-agents en arrière-plan, puis a
+fini son tour sur « Branche créée ; j'attends la fin des relectures ». Le run
+s'est arrêté là : travail perdu, rien de poussé, aucun commentaire (la
+transcription archivée par le filet le montre). Dans un workflow, finir son tour
+termine le run. Les workflows Claude posent donc
+`CLAUDE_CODE_DISABLE_BACKGROUND_TASKS=1` : un sous-agent rend son résultat dans
+le même tour, et plusieurs lancés dans le même message tournent quand même en
+parallèle. Tout workflow qui appelle `claude-code-action` doit garder cette
+variable.
 
 ## Relier les demandes entre elles, une PR par sujet
 

@@ -156,11 +156,13 @@ const state = {
   modifsFilter: null,
   productions: {}, // Liste → { chef, solistes, effectif, duree, info, contraires, tenue, works:[{ oeuvre, instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }], serviceWorks:{ uid: [n,...] }, serviceNotes:{ uid: texte } } (mémo de production, généré par scripts/update-memo.mjs)
   venues: [], // [{ match, name?, address, geo }] — adresses postales des salles (venues.json)
+  salles: null, // occupation des salles d'Uni Mail (data/salles.json, scripts/update-salles.mjs)
+  sallesDay: null, // jour affiché par la vue Salles (Date à minuit)
   updatedAt: null,
   season: null,
   seasonListes: new Set(), // noms des Listes de la saison (cf. loadData)
   view: null,
-  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
+  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes / salles
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
@@ -667,7 +669,7 @@ function vacanceNom(region, key) {
 
 async function loadData() {
   const bust = `?t=${Date.now()}`
-  const [planning, changes, productions, venues] = await Promise.all([
+  const [planning, changes, productions, venues, salles] = await Promise.all([
     fetch(`data/planning.json${bust}`).then((r) => r.json()),
     fetch(`data/changes.json${bust}`)
       .then((r) => r.json())
@@ -681,12 +683,18 @@ async function loadData() {
     fetch(`venues.json${bust}`)
       .then((r) => r.json())
       .catch(() => []),
+    // Occupation des salles d'Uni Mail (#264) : facultative, la vue Salles
+    // dit simplement qu'elle n'est pas disponible.
+    fetch(`data/salles.json${bust}`)
+      .then((r) => r.json())
+      .catch(() => null),
   ])
   state.events = planning.events
   state.updatedAt = planning.updatedAt
   state.changes = changes.entries || []
   state.productions = productions || {}
   state.venues = venues || []
+  state.salles = salles
   // Les données ne contiennent qu'une saison (filtre ONLY_SEASON du pipeline) :
   // on l'adopte directement, sans sélecteur. Recalculée à chaque rechargement,
   // pour l'app restée ouverte pendant la bascule d'août.
@@ -2537,6 +2545,12 @@ function openMenu(from) {
         ]
   items.push(
     menuItem(
+      "pin",
+      "Salles Marie Laggé",
+      "Grande salle et studios : libres ou occupés",
+      openPaper("salles"),
+    ),
+    menuItem(
       "calendar",
       "Calendrier papier",
       "Une période par page A4",
@@ -2560,6 +2574,150 @@ function openMenu(from) {
     .getElementById("menu-content")
     .replaceChildren(el("div", { class: "sheet-grab" }), ...items)
   document.getElementById("menu-dialog").showModal()
+}
+
+// --- Vue Salles : occupation des salles d'Uni Mail (#264) -------------------
+
+// Pour savoir, avant d'appeler la régie, si la grande salle Marie Laggé ou un
+// studio est libre. Lecture seule : on ne réserve pas depuis Bémol. Un jour à
+// la fois, une frise par salle (de SALLES_FROM à SALLES_TO heures) et la liste
+// de ses occupations.
+const SALLES_FROM = 7
+const SALLES_TO = 23
+// Occupation de tout le bâtiment (montage, auditions…) : vaut pour chaque salle.
+const SALLES_TOUTES = "Tous les espaces"
+
+function renderSalles(main) {
+  const data = state.salles
+  const todayKey = localKey(new Date())
+  const covers = (k) => k >= data.from && k <= data.to
+  state.sallesDay ??= parseDate(
+    !data || covers(todayKey) ? todayKey : data.from,
+  )
+  const day = state.sallesDay
+  const key = localKey(day)
+  const go = (d) => () => {
+    state.sallesDay = d
+    renderContent()
+  }
+  const navBtn = (label, delta, glyph) =>
+    el(
+      "button",
+      { type: "button", "aria-label": label, onclick: go(addDays(day, delta)) },
+      glyph,
+    )
+
+  main.append(
+    el(
+      "div",
+      { class: "view-toolbar" },
+      el(
+        "div",
+        { class: "agenda-actions-btns" },
+        el(
+          "button",
+          { type: "button", onclick: () => setView(state.paperFrom) },
+          "← Retour",
+        ),
+        el(
+          "button",
+          {
+            type: "button",
+            onclick: go(parseDate(todayKey)),
+            disabled: key === todayKey ? "" : null,
+          },
+          "Aujourd'hui",
+        ),
+      ),
+      el(
+        "div",
+        { class: "view-bar salles-nav" },
+        navBtn("Jour précédent", -1, "‹"),
+        el("h2", {}, fmtDay(day, true, true)),
+        navBtn("Jour suivant", 1, "›"),
+      ),
+    ),
+  )
+
+  if (!data) {
+    main.append(
+      el(
+        "p",
+        { class: "empty-msg" },
+        "L'occupation des salles n'est pas encore disponible.",
+      ),
+    )
+    return
+  }
+  if (!covers(key)) {
+    main.append(
+      el(
+        "p",
+        { class: "empty-msg" },
+        `Pas d'information pour ce jour : le planning des salles couvre ${fmtDateRange(parseDate(data.from), parseDate(data.to)).toLowerCase()}.`,
+      ),
+    )
+    return
+  }
+
+  const ofDay = data.bookings.filter((b) => b.start.slice(0, 10) === key)
+  const hour = (s) => {
+    const [h, m] = fmtTime(s).split(":").map(Number)
+    return Math.min(Math.max(h + m / 60, SALLES_FROM), SALLES_TO)
+  }
+  const pos = (h) => ((h - SALLES_FROM) / (SALLES_TO - SALLES_FROM)) * 100
+
+  main.append(
+    ...data.salles.map((salle) => {
+      const list = ofDay.filter(
+        (b) => b.salle === salle || b.salle === SALLES_TOUTES,
+      )
+      return el(
+        "section",
+        { class: "salle-card" },
+        el("h3", {}, salle),
+        el(
+          "div",
+          { class: "salle-frise", "aria-hidden": "true" },
+          ...list.map((b) =>
+            el("span", {
+              class: "salle-occ",
+              style: `left:${pos(hour(b.start))}%;right:${100 - pos(hour(b.end))}%`,
+            }),
+          ),
+        ),
+        el(
+          "div",
+          { class: "salle-heures", "aria-hidden": "true" },
+          ...[8, 12, 16, 20].map((h) =>
+            el("span", { style: `left:${pos(h)}%` }, `${h}h`),
+          ),
+        ),
+        list.length
+          ? el(
+              "ul",
+              {},
+              ...list.map((b) =>
+                el(
+                  "li",
+                  {},
+                  el("b", {}, paperRange(b)),
+                  ` ${b.activity}`,
+                  b.liste ? ` · ${b.liste}` : "",
+                  b.salle === SALLES_TOUTES ? " (tout le bâtiment)" : "",
+                ),
+              ),
+            )
+          : el("p", { class: "salle-libre" }, "✓ Libre toute la journée"),
+      )
+    }),
+    el(
+      "p",
+      { class: "salles-note" },
+      `D'après le planning des salles de Dièse, dernière évolution : ${fmtInstant(data.updatedAt)}. ` +
+        "Bémol ne fait qu'afficher : pour réserver, rien ne change.",
+    ),
+  )
 }
 
 // --- Vue modifications --------------------------------------------------------
@@ -4081,6 +4239,7 @@ const VIEW_LABELS = {
   document: "Bible",
   papier: "Calendrier papier",
   listes: "Détail des Listes",
+  salles: "Salles Marie Laggé",
   reglages: "Réglages",
 }
 
@@ -4129,6 +4288,7 @@ function renderContent() {
   else if (state.view === "document") renderDocument(main)
   else if (state.view === "papier") renderPaper(main)
   else if (state.view === "listes") renderListes(main)
+  else if (state.view === "salles") renderSalles(main)
   else if (state.view === "reglages") renderReglages(main)
   else renderModifs(main)
 }
