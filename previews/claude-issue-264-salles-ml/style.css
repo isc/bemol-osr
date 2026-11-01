@@ -2766,10 +2766,7 @@ input.switch:checked::after {
 /* --- Vue Salles : occupation des salles d'Uni Mail (#264) --- */
 
 .salles-nav {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 8px;
   margin-top: 8px;
 }
 
@@ -2843,7 +2840,6 @@ input.switch:checked::after {
   font-weight: 600;
 }
 
-.salles-empty,
 .salles-note {
   color: var(--text-muted);
   font-size: 0.9em;
