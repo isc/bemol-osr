@@ -53,10 +53,14 @@ jobs:
         id: run
         env:
           ICS_URL: ${{ secrets.ICS_URL }}
+          SALLES_URL: ${{ secrets.SALLES_URL }}
         run: node scripts/cron.mjs run planning
 
+      # !cancelled() : l'échec d'un script d'appoint (salles) fait échouer l'étape
+      # précédente, et le planning doit sortir quand même. `changed` n'est posé
+      # que si le script principal a réussi.
       - name: Publier les données (gh-pages)
-        if: steps.run.outputs.changed == 'true'
+        if: ${{ !cancelled() && steps.run.outputs.changed == 'true' }}
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
