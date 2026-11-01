@@ -29,6 +29,11 @@ concurrency:
   group: claude-ci-fix-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: false
 
+env:
+  # Sous-agents au premier plan : en arrière-plan, Claude finit son tour en les
+  # attendant et le run s'arrête là, sans PR ni commentaire (#264, cf. CLAUDE.md).
+  CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+
 jobs:
   fix:
     # Uniquement les échecs, et uniquement pour les branches du dépôt lui-même

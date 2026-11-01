@@ -25,6 +25,11 @@ concurrency:
   cancel-in-progress: false
   queue: max
 
+env:
+  # Sous-agents au premier plan : en arrière-plan, Claude finit son tour en les
+  # attendant et le run s'arrête là, sans PR ni commentaire (#264, cf. CLAUDE.md).
+  CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+
 jobs:
   implement:
     # N'agit que si l'auteur de l'issue est le propriétaire ou un collaborateur

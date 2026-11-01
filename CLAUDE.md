@@ -483,6 +483,17 @@ ici », prévient Ivan (`besoin-ivan`) et fait échouer le run, ce qui archive l
 transcription. Ce filet rattrape un oubli, il ne répond pas à ta place : la
 règle ci-dessus tient toujours.
 
+**Pas de tâche en arrière-plan dans un workflow.** Sur **#264** (01/11/2026), le
+premier run a lancé `/simplify`, donc quatre sous-agents en arrière-plan, puis a
+fini son tour sur « Branche créée ; j'attends la fin des relectures ». Le run
+s'est arrêté là : travail perdu, rien de poussé, aucun commentaire (la
+transcription archivée par le filet le montre). Dans un workflow, finir son tour
+termine le run. Les workflows Claude posent donc
+`CLAUDE_CODE_DISABLE_BACKGROUND_TASKS=1` : un sous-agent rend son résultat dans
+le même tour, et plusieurs lancés dans le même message tournent quand même en
+parallèle. Tout workflow qui appelle `claude-code-action` doit garder cette
+variable.
+
 ## Relier les demandes entre elles, une PR par sujet
 
 Loïc ne garde pas la trace des fils : « je ne me souviens plus dans quel PR
