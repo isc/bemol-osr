@@ -120,7 +120,7 @@ jobs:
       # publiés ne sont plus ceux de main. Le changement reste invisible jusqu'au
       # prochain push sur main — potentiellement des jours, les crons de données
       # ne republiant pas les fichiers de l'app. On alerte donc, comme
-      # update-data / update-memo.
+      # update-data / update-memo : une issue et un email à Ivan.
       #
       # `failure() || cancelled()` pour la même raison qu'en #122 : un run
       # interrompu après son démarrage conclut `cancelled`, et failure() seul le
@@ -131,6 +131,8 @@ jobs:
         if: ${{ failure() || cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
           TITLE: "⚠️ La publication du site sur GitHub Pages échoue"
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           MIN_HOURS_BETWEEN_COMMENTS: 1
@@ -151,7 +153,7 @@ jobs:
               echo "Dernier message de l'issue #$num il y a $elapsed_hours h (< $MIN_HOURS_BETWEEN_COMMENTS h) : pas de nouveau commentaire."
             fi
           else
-            gh issue create -R "${{ github.repository }}" --title "$TITLE" --body \
+            url=$(gh issue create -R "${{ github.repository }}" --title "$TITLE" --label besoin-ivan --body \
               "La publication de \`main\` sur GitHub Pages vient d'échouer (commit \`${GITHUB_SHA:0:12}\`) : $RUN_URL
 
           Le site reste en ligne, mais il sert la **version précédente** de l'app : le changement qui vient d'être mergé n'est pas publié, et le restera jusqu'au prochain push sur \`main\` (les crons de données ne republient pas \`index.html\` / \`app.js\` / \`style.css\`).
@@ -160,5 +162,7 @@ jobs:
 
           Causes déjà vues : rejet du push sur \`gh-pages\` (\`cannot lock ref\`) quand une autre écriture s'y glisse, incident GitHub. À ne pas confondre avec un 404 de Pages, qui vient du build natif \`pages-build-deployment\` (cf. CLAUDE.md).
 
-          cc @isc"
+          cc @isc")
+            # Comme dans scripts/cron.mjs : un seul email par panne, à l'ouverture.
+            REPO="${{ github.repository }}" NUMBER="${url##*/}" node scripts/besoin-ivan.mjs
           fi
