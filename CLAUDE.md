@@ -533,6 +533,9 @@ commentaire, qu'Ivan est prévenu. Ivan retire l'étiquette une fois le point
 réglé. Avant ce mécanisme, les « je vais voir avec @isc » de Loïc (#159, #175)
 restaient sans suite tant qu'Ivan ne passait pas par hasard sur le dépôt.
 
+Les alertes d'échec des crons (`scripts/cron.mjs alert`) passent par le même
+email, avec un seul envoi par panne, à l'ouverture de l'issue.
+
 ## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
 
 Le jeton du bot Claude **n'a pas** la permission GitHub `workflows` : tout push

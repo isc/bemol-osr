@@ -16,7 +16,8 @@
 //     publier sur gh-pages.
 //   node scripts/cron.mjs alert planning|memo
 //     Ouvre (ou commente) l'issue qui signale l'échec du cron. Utilise `gh`
-//     (variable GH_TOKEN) et les variables GITHUB_* fournies par Actions.
+//     (variable GH_TOKEN) et les variables GITHUB_* fournies par Actions. À
+//     l'ouverture, prévient aussi Ivan par email (RESEND_API_KEY, IVAN_EMAIL).
 
 import { spawnSync, execFileSync } from "node:child_process"
 import { appendFileSync, cpSync, mkdirSync, rmSync } from "node:fs"
@@ -154,7 +155,7 @@ function run() {
   }
 }
 
-function alert() {
+async function alert() {
   const repo = process.env.GITHUB_REPOSITORY
   const runUrl = `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
   const gh = (...args) =>
@@ -173,7 +174,23 @@ function alert() {
     ".[0].number",
   )
   if (!num) {
-    gh("issue", "create", "--title", job.title, "--body", job.body(runUrl))
+    const url = gh(
+      "issue",
+      "create",
+      "--title",
+      job.title,
+      "--body",
+      job.body(runUrl),
+      "--label",
+      "besoin-ivan",
+    )
+    // Ivan a coupé ses notifications GitHub, l'issue seule ne le prévient pas.
+    // Posée avec GITHUB_TOKEN, l'étiquette ne déclenche pas besoin-ivan.yml :
+    // on envoie l'email ici. Un seul par panne : les échecs suivants ne font
+    // que commenter l'issue, tant qu'elle reste ouverte.
+    process.env.REPO = repo
+    process.env.NUMBER = url.split("/").pop()
+    await import("./besoin-ivan.mjs")
     return
   }
   // En cas de doute (API muette, date illisible), on commente : rater une
@@ -203,4 +220,4 @@ function alert() {
 }
 
 if (command === "run") run()
-else alert()
+else await alert()
