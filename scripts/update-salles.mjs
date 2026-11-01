@@ -29,16 +29,10 @@ const TIMEOUT = 60_000
 
 // Ordre d'affichage. Dièse range certaines occupations (accords du piano…)
 // sous un second nom de la même salle (« ► UM - … ») : on les regroupe.
-export const SALLES = [
-  "Grande salle",
-  "Studio A",
-  "Studio B",
-  "Studio C",
-  "Studio P",
-]
-export const TOUTES = "Tous les espaces"
+const SALLES = ["Grande salle", "Studio A", "Studio B", "Studio C", "Studio P"]
+const TOUTES = "Tous les espaces"
 
-export function salleName(raw) {
+function salleName(raw) {
   const s = raw.replace(/^►\s*/, "").trim()
   if (/tous les espaces/i.test(s)) return TOUTES
   if (/grande salle|marie lagg/i.test(s)) return "Grande salle"
@@ -63,7 +57,7 @@ const decode = (s) =>
 // Libellés de Dièse qui ne désignent pas une production : on ne les affiche pas.
 const NOT_A_LISTE = /^(Planning_Tech|T_Tech|nd)$/i
 
-export function parseSalles(html) {
+function parseSalles(html) {
   const bookings = []
   const seen = new Set()
   let day = null
@@ -191,8 +185,7 @@ async function main() {
   console.log(`${bookings.length} occupations de salles → data/salles.json`)
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url))
-  main().catch((err) => {
-    console.error(`Occupation des salles : ${err.message}`)
-    process.exit(1)
-  })
+main().catch((err) => {
+  console.error(`Occupation des salles : ${err.message}`)
+  process.exit(1)
+})
