@@ -33,6 +33,11 @@ permissions:
   id-token: write
   actions: read
 
+env:
+  # Sous-agents au premier plan : en arrière-plan, Claude finit son tour en les
+  # attendant et le run s'arrête là, sans PR ni commentaire (#264, cf. CLAUDE.md).
+  CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+
 jobs:
   # Commentaire « @claude » sur une PR (fil général ou review de code) :
   # ajustements poussés sur la branche de la PR si elle est ouverte, NOUVELLE PR
