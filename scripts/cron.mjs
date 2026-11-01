@@ -35,6 +35,11 @@ const MIN_HOURS_BETWEEN_COMMENTS = 6
 const JOBS = {
   planning: {
     script: "scripts/update-data.mjs",
+    // Scripts d'appoint, lancés après le principal : leur échec est signalé
+    // dans le journal mais n'empêche pas de publier le planning (la version
+    // servie de leur fichier, restaurée ci-dessous avec data/, reste en place).
+    // update-salles.mjs : occupation des salles d'Uni Mail (#264).
+    extras: ["scripts/update-salles.mjs"],
     // Fichiers servis à restaurer depuis gh-pages avant de régénérer : data/
     // est la référence du journal des différences (changes.json), et
     // productions.json le mémo vivant que build-ics.mjs reporte dans le
@@ -111,6 +116,11 @@ function run() {
     stdio: "inherit",
   })
   if (res.status !== 0) process.exit(res.status ?? 1)
+  for (const script of job.extras || []) {
+    const r = spawnSync("node", [script], { cwd: root, stdio: "inherit" })
+    if (r.status !== 0)
+      console.log(`::warning::${script} a échoué, version servie conservée`)
+  }
 
   // 3. Publier si quelque chose a changé. Si gh-pages n'avait pas encore l'un
   // des fichiers surveillés, on publie toujours : le `git diff` comparerait

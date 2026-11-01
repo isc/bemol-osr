@@ -2762,3 +2762,89 @@ input.switch:checked::after {
     box-sizing: border-box;
   }
 }
+
+/* --- Vue Salles : occupation des salles d'Uni Mail (#264) --- */
+
+.salles-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.salles-nav h2 {
+  margin: 0;
+  font-size: 1.05em;
+  text-align: center;
+}
+
+.salles-nav button {
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+.salle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px 12px;
+  margin: 0 0 10px;
+}
+
+.salle-card h3 {
+  margin: 0 0 8px;
+  font-size: 1em;
+}
+
+.salle-frise {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--success-soft);
+  overflow: hidden;
+}
+
+.salle-occ {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--danger);
+  opacity: 0.75;
+}
+
+.salle-heures {
+  position: relative;
+  height: 1.2em;
+  font-size: 0.75em;
+  color: var(--text-faint);
+}
+
+.salle-heures span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.salle-card ul {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.salle-card li {
+  padding: 3px 0;
+}
+
+.salle-libre {
+  margin: 4px 0 0;
+  color: var(--success-text);
+  font-weight: 600;
+}
+
+.salles-empty,
+.salles-note {
+  color: var(--text-muted);
+  font-size: 0.9em;
+}
