@@ -114,6 +114,8 @@ coder** :
    - `CLAUDE_CODE_OAUTH_TOKEN` — généré avec `claude setup-token` (abonnement
      Claude Pro/Max, pas de facturation API).
    - `ICS_URL` — l'URL complète de l'export ICS Dièse.
+   - `SALLES_URL` — le lien partagé du planning des salles d'Uni Mail dans Dièse
+     (écran « Salles Marie Laggé »).
 3. **Inviter les contributeurs comme collaborateurs** (accès _write_) :
    _Settings → Collaborators_. C'est ce statut qui sert de barrière anti-abus —
    les workflows Claude ne se déclenchent que pour le propriétaire ou des

@@ -35,9 +35,10 @@ const MIN_HOURS_BETWEEN_COMMENTS = 6
 const JOBS = {
   planning: {
     script: "scripts/update-data.mjs",
-    // Scripts d'appoint, lancés après le principal : leur échec est signalé
-    // dans le journal mais n'empêche pas de publier le planning (la version
-    // servie de leur fichier, restaurée ci-dessous avec data/, reste en place).
+    // Scripts d'appoint, lancés après le principal : leur échec fait échouer
+    // le run, donc ouvre l'issue d'alerte, mais n'empêche pas de publier le
+    // planning (la version servie de leur fichier, restaurée ci-dessous avec
+    // data/, reste en place).
     // update-salles.mjs : occupation des salles d'Uni Mail (#264).
     extras: ["scripts/update-salles.mjs"],
     // Fichiers servis à restaurer depuis gh-pages avant de régénérer : data/
@@ -57,7 +58,7 @@ const JOBS = {
 
 Tant que ce problème dure, le site continue de fonctionner mais affiche des données de plus en plus anciennes (un bandeau d'avertissement apparaît dans l'app au-delà de 26 h).
 
-Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
+Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Si le journal du run dit seulement \`update-salles.mjs a échoué\`, le planning a bien été publié : seul l'écran « Salles Marie Laggé » n'est plus actualisé (lien partagé du secret \`SALLES_URL\`, format de la page Dièse). Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
 
 cc @isc`,
   },
@@ -118,16 +119,25 @@ function run() {
   if (res.status !== 0) process.exit(res.status ?? 1)
   for (const script of job.extras || []) {
     const r = spawnSync("node", [script], { cwd: root, stdio: "inherit" })
-    if (r.status !== 0)
+    if (r.status !== 0) {
       console.log(`::warning::${script} a échoué, version servie conservée`)
+      process.exitCode = 1
+    }
   }
 
-  // 3. Publier si quelque chose a changé. Si gh-pages n'avait pas encore l'un
-  // des fichiers surveillés, on publie toujours : le `git diff` comparerait
-  // alors au seul instantané de main, qui peut coïncider par hasard avec le
-  // résultat frais et laisser gh-pages sans données.
-  const incomplete = job.watch.some((p) => missing.includes(p))
-  const changed = incomplete || !git("diff", "--quiet", "--", ...job.watch)
+  // 3. Publier si le résultat diffère de ce que sert gh-pages. On compare à son
+  // commit et non à l'index : un fichier qu'il n'a pas encore garde dans l'index
+  // sa version de main, qui peut coïncider avec le résultat frais et le laisser
+  // sans publication.
+  git("add", "-A", "--", ...job.watch)
+  const changed = !git(
+    "diff",
+    "--quiet",
+    "--cached",
+    "FETCH_HEAD",
+    "--",
+    ...job.watch,
+  )
   setOutput("changed", changed)
   if (!changed) {
     console.log("Aucun changement à publier.")

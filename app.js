@@ -162,7 +162,7 @@ const state = {
   season: null,
   seasonListes: new Set(), // noms des Listes de la saison (cf. loadData)
   view: null,
-  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes
+  paperFrom: "document", // onglet d'origine du calendrier papier / détail des Listes / salles
   recentUids: new Map(), // uid → date du dernier changement récent
   recentListes: new Map(), // liste (programme) → date du dernier changement récent du mémo
   prefs: loadPrefs(),
@@ -2548,10 +2548,7 @@ function openMenu(from) {
       "pin",
       "Salles Marie Laggé",
       "Grande salle et studios : libres ou occupés",
-      () => {
-        state.paperFrom = from
-        setView("salles")
-      },
+      openPaper("salles"),
     ),
     menuItem(
       "calendar",
@@ -2592,23 +2589,28 @@ const SALLES_TOUTES = "Tous les espaces"
 
 function renderSalles(main) {
   const data = state.salles
-  const today = parseDate(localKey(new Date()))
-  if (!state.sallesDay) {
-    const inRange =
-      data && localKey(today) >= data.from && localKey(today) <= data.to
-    state.sallesDay = inRange || !data ? today : parseDate(data.from)
-  }
+  const todayKey = localKey(new Date())
+  const covers = (k) => k >= data.from && k <= data.to
+  state.sallesDay ??= parseDate(
+    !data || covers(todayKey) ? todayKey : data.from,
+  )
   const day = state.sallesDay
   const key = localKey(day)
   const go = (d) => () => {
     state.sallesDay = d
     renderContent()
   }
+  const navBtn = (label, delta, glyph) =>
+    el(
+      "button",
+      { type: "button", "aria-label": label, onclick: go(addDays(day, delta)) },
+      glyph,
+    )
 
   main.append(
     el(
       "div",
-      { class: "view-toolbar salles-toolbar" },
+      { class: "view-toolbar" },
       el(
         "div",
         { class: "agenda-actions-btns" },
@@ -2621,34 +2623,18 @@ function renderSalles(main) {
           "button",
           {
             type: "button",
-            onclick: go(today),
-            disabled: key === localKey(today) ? "" : null,
+            onclick: go(parseDate(todayKey)),
+            disabled: key === todayKey ? "" : null,
           },
           "Aujourd'hui",
         ),
       ),
       el(
         "div",
-        { class: "salles-nav" },
-        el(
-          "button",
-          {
-            type: "button",
-            "aria-label": "Jour précédent",
-            onclick: go(addDays(day, -1)),
-          },
-          "‹",
-        ),
+        { class: "view-bar salles-nav" },
+        navBtn("Jour précédent", -1, "‹"),
         el("h2", {}, fmtDay(day, true, true)),
-        el(
-          "button",
-          {
-            type: "button",
-            "aria-label": "Jour suivant",
-            onclick: go(addDays(day, 1)),
-          },
-          "›",
-        ),
+        navBtn("Jour suivant", 1, "›"),
       ),
     ),
   )
@@ -2657,17 +2643,17 @@ function renderSalles(main) {
     main.append(
       el(
         "p",
-        { class: "salles-empty" },
+        { class: "empty-msg" },
         "L'occupation des salles n'est pas encore disponible.",
       ),
     )
     return
   }
-  if (key < data.from || key > data.to) {
+  if (!covers(key)) {
     main.append(
       el(
         "p",
-        { class: "salles-empty" },
+        { class: "empty-msg" },
         `Pas d'information pour ce jour : le planning des salles couvre ${fmtDateRange(parseDate(data.from), parseDate(data.to)).toLowerCase()}.`,
       ),
     )
@@ -2688,7 +2674,7 @@ function renderSalles(main) {
       )
       return el(
         "section",
-        { class: "salle-card" + (list.length ? "" : " libre") },
+        { class: "salle-card" },
         el("h3", {}, salle),
         el(
           "div",
@@ -2696,7 +2682,7 @@ function renderSalles(main) {
           ...list.map((b) =>
             el("span", {
               class: "salle-occ",
-              style: `left:${pos(hour(b.start))}%;width:${pos(hour(b.end)) - pos(hour(b.start))}%`,
+              style: `left:${pos(hour(b.start))}%;right:${100 - pos(hour(b.end))}%`,
             }),
           ),
         ),
@@ -2728,7 +2714,7 @@ function renderSalles(main) {
     el(
       "p",
       { class: "salles-note" },
-      `D'après le planning des salles de Dièse${data.updatedAt ? `, relevé le ${fmtInstant(data.updatedAt)}` : ""}. ` +
+      `D'après le planning des salles de Dièse, dernière évolution : ${fmtInstant(data.updatedAt)}. ` +
         "Bémol ne fait qu'afficher : pour réserver, rien ne change.",
     ),
   )
@@ -4241,7 +4227,7 @@ function setView(view) {
   // seulement au premier chargement de l'app) — demande #186 : sans ça, il
   // fallait redéfiler manuellement après être passé par un autre onglet
   // (ex. Modifications).
-  if (["papier", "listes", "salles"].includes(view)) window.scrollTo({ top: 0 })
+  if (view === "papier" || view === "listes") window.scrollTo({ top: 0 })
   else if (view === "grille" || view === "document") scrollToToday()
   // Les modifications les plus récentes sont tout en haut de la liste (#213).
   else window.scrollTo({ top: 0 })

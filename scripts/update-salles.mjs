@@ -33,13 +33,11 @@ const SALLES = ["Grande salle", "Studio A", "Studio B", "Studio C", "Studio P"]
 const TOUTES = "Tous les espaces"
 
 function salleName(raw) {
-  const s = raw.replace(/^►\s*/, "").trim()
+  const s = raw.replace(/^►\s*/, "")
   if (/tous les espaces/i.test(s)) return TOUTES
   if (/grande salle|marie lagg/i.test(s)) return "Grande salle"
   const studio = s.match(/studio\s+(\w+)/i)
-  return studio
-    ? `Studio ${studio[1].toUpperCase()}`
-    : s.replace(/^(ML|UM)\s*-\s*/, "")
+  return studio ? `Studio ${studio[1].toUpperCase()}` : s
 }
 
 const decode = (s) =>
@@ -78,12 +76,12 @@ function parseSalles(html) {
     const what = block[1].match(/<p>([\s\S]*?)<\/p>/)
     if (!what) continue
     const [activity, ...rest] = decode(what[1]).split(/\s+-\s+/)
-    const liste = rest.join(" - ").trim()
+    const liste = rest.join(" - ")
     const b = {
       start: `${day}T${time ? `${time[1]}:${time[2]}` : "00:00"}`,
       end: `${day}T${time ? `${time[3]}:${time[4]}` : "23:59"}`,
       salle,
-      activity: activity.trim(),
+      activity,
       ...(liste && !NOT_A_LISTE.test(liste) ? { liste } : {}),
     }
     const key = JSON.stringify(b)
@@ -144,13 +142,10 @@ async function download(shareUrl) {
 
 async function main() {
   const file = process.argv[2]
-  let src
-  if (file) src = { html: readFileSync(file, "utf8") }
-  else if (process.env.SALLES_URL) src = await download(process.env.SALLES_URL)
-  else {
-    console.log("SALLES_URL absent : occupation des salles non actualisée.")
-    return
-  }
+  if (!file && !process.env.SALLES_URL) throw new Error("SALLES_URL absent")
+  const src = file
+    ? { html: readFileSync(file, "utf8") }
+    : await download(process.env.SALLES_URL)
   const bookings = parseSalles(src.html)
   // Garde-fou : un tableau vide trahit un changement de format côté Dièse
   // (la saison compte plusieurs centaines d'occupations) ; on garde alors la
@@ -159,10 +154,9 @@ async function main() {
     throw new Error(
       `Seulement ${bookings.length} occupations lues : format changé ?`,
     )
-  const days = bookings.map((b) => b.start.slice(0, 10))
   const data = {
-    from: src.from || days[0],
-    to: src.to || days.at(-1),
+    from: src.from || bookings[0].start.slice(0, 10),
+    to: src.to || bookings.at(-1).start.slice(0, 10),
     salles: SALLES,
     bookings,
   }
