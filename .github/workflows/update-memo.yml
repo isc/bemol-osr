@@ -67,8 +67,8 @@ jobs:
           commit_message: "data: mise à jour du mémo de production"
 
       # Panne silencieuse : personne ne surveille l'onglet Actions. Si le run
-      # échoue (mini-site Dièse modifié, parsing cassé…), on ouvre une issue —
-      # donc une notification (cf. scripts/cron.mjs).
+      # échoue (mini-site Dièse modifié, parsing cassé…), on ouvre une issue et
+      # on prévient Ivan par email (cf. scripts/cron.mjs).
       #
       # failure() seul rate un run interrompu APRÈS son démarrage (dépassement
       # du timeout-minutes ci-dessus, annulation manuelle) : sa conclusion est
@@ -78,4 +78,6 @@ jobs:
         if: ${{ failure() || cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          IVAN_EMAIL: ${{ secrets.IVAN_EMAIL }}
         run: node scripts/cron.mjs alert memo
