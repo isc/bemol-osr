@@ -1,6 +1,33 @@
 {
  "entries": [
   {
+   "at": "2026-11-03T04:46:30.921Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 18",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
+       "after": "3.3.3.2 / 4.3.3.1 / 1.4.1.1 / 20.20.8.14.6 (97 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-10-31T04:46:19.300Z",
    "type": "memo",
    "programs": [

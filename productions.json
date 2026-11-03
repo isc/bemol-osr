@@ -1195,8 +1195,8 @@
    ]
   },
   "serviceNotes": {
-   "osr132871": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort (connu le 7 novembre) de Debussy et le 1er mouvement du concerto de violoncelle",
-   "osr132872": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes 3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort de Debussy (connu le 7 novembre) et le 1er mouvement du concerto de piano"
+   "osr132871": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -un signal sonore indique la fin du passage de chaque candidat -3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort (connu le 7 novembre) de Debussy et le 1er mouvement du concerto de violoncelle -jury (10) derrière l'orchestre -candidats avec micro",
+   "osr132872": "SERVICE EN PUBLIC ET EN TENUE / PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes 3 demi-finalistes tirés au sort répètent 1 mouvement tiré au sort de Debussy (connu le 7 novembre) et le 1er mouvement du concerto de piano -jury (10) derrière l'orchestre -candidats avec micro"
   }
  },
  "Liste 14": {
@@ -1268,10 +1268,10 @@
    ]
   },
   "serviceNotes": {
-   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 9 novembre",
-   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont -l'ordre sera connu le 9 novembre",
-   "osr132887": "-2 pauses de 15 minutes -50 minutes max par candidat -l'ordre sera connu le 9 novembre",
-   "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h45 + présentations -direct Espace 2 -proclamation des résultats à l'issue"
+   "osr132885": "50 minutes à disposition de chaque candidat + 2 pauses de 15 minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont. Ils portent un micro. -l'ordre sera connu le 9 novembre -jury (16) en salle",
+   "osr132886": "50 minutes à disposition de chaque candidat + 2 pauses de 15' minutes -les 3 finalistes répétent l'une des 3 pièces finalistes du concours de composition et Egmont. Ils portent un micro. -l'ordre sera connu le 9 novembre -jury (16) en salle",
+   "osr132887": "-2 pauses de 15 minutes -50 minutes max par candidat (avec micro) -l'ordre sera connu le 9 novembre -jury (16) en salle",
+   "osr132888": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h45 + présentations -candidats sans micro -jury (16) en salle -direct Espace 2 -proclamation des résultats à l'issue"
   }
  },
  "Liste 15": {
@@ -1417,10 +1417,10 @@
    ]
   },
   "serviceNotes": {
-   "osr131104": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
-   "osr131105": "50' par finaliste et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
-   "osr131106": "50' max par candidat et 2 pauses de 15 minutes le programme et l'ordre seront connus le 9 novembre",
-   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h30 + les présentations -le programme et l'ordre seront connus le 9 novembre -direct Espace 2 -vote des musiciens à l'issue pour décerner le Prix des Musiciens de l'OSR -proclamation des résultats à l'issue -"
+   "osr131104": "-50' par finaliste (sans micro) et 2 pauses de 15 minutes -le programme et l'ordre seront connus le 9 novembre -jury (12) derrière l'orchestre",
+   "osr131105": "-50' par finaliste (sans micro) et 2 pauses de 15 minutes -le programme et l'ordre seront connus le 9 novembre -jury (12) derrière l'orchestre",
+   "osr131106": "-50' max par candidat (sans micro) et 2 pauses de 15 minutes -le programme et l'ordre seront connus le 9 novembre -jury (12) derrière l'orchestre",
+   "osr131107": "SERVICE PRESENTÉ / FILMÉ / DIFFUSÉ LIVE avec 2 pauses de 15 minutes -durée prévue : 1h30 + les présentations -candidat sans micro -jury (12) derrière l'orchestre -le programme et l'ordre seront connus le 9 novembre -direct Espace 2 -vote des musiciens à l'issue pour décerner le Prix des Musiciens de l'OSR -proclamation des résultats à l'issue -"
   }
  },
  "Liste 16": {
@@ -1592,12 +1592,12 @@
   "contraires": "contraire liste C",
   "tenue": "05.12-11h00 : OSR : chemises noires / Collège : haut de couleur simple (T-shirts, polos...)",
   "chef": "Philippe BÉRAN",
-  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.2.1 / 20.20.8.14.6 (98 musiciens)",
+  "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.1.1 / 20.20.8.14.6 (97 musiciens)",
   "duree": "≈ 37 min",
   "works": [
    {
     "oeuvre": "Vladimir COSMA — 'Eh bien ! dansez maintenant', divertissement d'après les fables de La Fontaine (commande osr)",
-    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.2.1 / 20.20.8.14.6",
+    "instrumentation": "3*.3*.3*.2 / 4.3*.3.1 / 1.4.1.1 / 20.20.8.14.6",
     "remarques": "fl2&3+picc-orch.du Collège, 1ca-OSR, 1cl.bs-orch.du Collège, bugle=orch.du Collège",
     "percussions": "GC, cymb fr, glock, marim., 3 tomtom, xyl, 2 crot, 2 cast, batterie, c.cl., 2 tri, vibra, cymb\nsus, 2 bsq, metalchimes",
     "claviers": "piano+célésta",
