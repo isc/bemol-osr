@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-03T18:01:00.903Z",
+ "updatedAt": "2026-11-04T09:27:25.584Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1048,13 +1048,13 @@
   {
    "start": "2026-11-04T08:00",
    "end": "2026-11-04T12:00",
-   "salle": "Studio P",
+   "salle": "Studio B",
    "activity": "Réservation"
   },
   {
-   "start": "2026-11-04T13:00",
-   "end": "2026-11-04T17:00",
-   "salle": "Studio B",
+   "start": "2026-11-04T08:00",
+   "end": "2026-11-04T12:00",
+   "salle": "Studio P",
    "activity": "Réservation"
   },
   {
@@ -1066,13 +1066,13 @@
   {
    "start": "2026-11-05T08:00",
    "end": "2026-11-05T12:00",
-   "salle": "Studio P",
+   "salle": "Studio B",
    "activity": "Réservation"
   },
   {
-   "start": "2026-11-05T13:00",
-   "end": "2026-11-05T17:00",
-   "salle": "Studio B",
+   "start": "2026-11-05T08:00",
+   "end": "2026-11-05T12:00",
+   "salle": "Studio P",
    "activity": "Réservation"
   },
   {
@@ -1229,6 +1229,12 @@
    "liste": "Atelier Découverte 5"
   },
   {
+   "start": "2026-11-25T13:30",
+   "end": "2026-11-25T15:00",
+   "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
    "start": "2026-11-25T14:30",
    "end": "2026-11-25T19:00",
    "salle": "Grande salle",
@@ -1244,6 +1250,12 @@
    "start": "2026-11-25T19:00",
    "end": "2026-11-25T20:30",
    "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-11-27T11:00",
+   "end": "2026-11-27T13:00",
+   "salle": "Grande salle",
    "activity": "Réservation"
   },
   {
