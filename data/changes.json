@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-11-04T18:00:53.433Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132854",
+     "fields": [
+      "start"
+     ],
+     "before": {
+      "uid": "osr132854",
+      "start": "2026-11-07T09:45",
+      "end": "2026-11-07T10:30",
+      "liste": "Liste 12",
+      "activity": "raccord",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "aboF2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132854",
+      "start": "2026-11-07T10:10",
+      "end": "2026-11-07T10:30",
+      "liste": "Liste 12",
+      "activity": "raccord",
+      "category": "generale",
+      "location": "Victoria Hall de Genève",
+      "project": "aboF2",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-03T04:46:30.921Z",
    "type": "memo",
    "programs": [
