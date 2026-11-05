@@ -1144,7 +1144,7 @@
    "osr132852": "-Prélude Amis 19h Le Poulailler",
    "osr246249": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services",
    "osr132856": "-balance radio pour le concert du soir -6 étudiants HEM :\n10h45 Célia VÉRICET-GUYOT n°1 mvt.1/2\n11h Zachary ROBERT n°1 mvt.3/4\n11h15 Léo HUNT n°4 mvt.1/2\n11h30 Gonzalo ALARCON BURRIEL n°4 mvt.1/2\n11h45 Simon FUENTES n°4 mvt.3/4 -12h pause\n12h20 Chenfei XIA n°5 mvt.2/3\n12h35 Gonzalo ALARCON BURRIEL n°5 mvt.1\n12h45 Léo HUNT n°5 mvt.1 -effectifs cordes réduits à celui de la 1ère symphonie -temps d'échange entre les étudiants et le chef au foyer OSR-Bovy après le service (avec catering léger).",
-   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
+   "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -allocution présidente FOSR sur scène -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
    "osr132854": "ATTENTION : raccord prévu originellement à 9h45 et retardé à 10h10 -mise en place des extraits musicaux et du commentaire (+balance présentateur)",
    "osr132855": "-podium chœur fermé -blocage en loge 18"
   }
@@ -1579,7 +1579,8 @@
    ]
   },
   "serviceNotes": {
-   "osr132917": "les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
+   "osr132917": "ATTENTION : service prolongé jusqu'à 19h (1 pause de 30') et compté double. Service du soir annulé. Avec l'accord des représentants -les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
+   "osr132918": "SERVICE ANNULÉ",
    "osr132921": "essai micros",
    "osr132922": "-ouverture au public du podium choeur si nécessaire -direct Espace 2",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
@@ -1748,12 +1749,12 @@
   "serviceNotes": {
    "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
    "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
-   "osr128620": "-sans choristes ni soliste ni amplification -démontage à l'issue",
+   "osr128620": "-sans choristes ni soliste ni amplification -démontage express à l'issue",
    "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
    "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne essai micro",
+   "osr162115": "fin 22h15 max. pour repos nocturne essai micro présence retraités",
    "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
