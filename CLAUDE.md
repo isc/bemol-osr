@@ -97,15 +97,27 @@ production (GitHub Pages) comme dans les previews de PR.
   publiée. Seuls la salle, les horaires, le type d'activité et la Liste sont
   publiés : les remarques libres de Dièse (prénoms des musiciens qui réservent un
   studio…) n'en sortent pas.
+- **Un lien Dièse collé dans un fil ne justifie pas une alerte.** Ces liens
+  (`ICS_URL`, lien partagé `sp-…` de `SALLES_URL`…) n'ont pas d'authentification
+  devant et, d'après Ivan, sont a priori fournis aux membres de l'orchestre : ce
+  ne sont pas de vrais secrets. Le dépôt est public, en revanche, donc visible
+  hors de l'orchestre, et le planning des salles porte les prénoms des musiciens
+  qui réservent un studio (#264). Ne pas recopier un tel lien dans une PR, un
+  commit ou un commentaire, et le retirer du message d'origine une fois le secret
+  posé. Rien de plus : ni effacement de l'historique, ni régénération, ni
+  reproche au musicien. Le seul point à demander à Ivan est de poser le secret,
+  si la demande en a besoin.
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
   mémo prévu à 04:47 UTC part vers 10-11 h UTC : GitHub retarde ou saute les
   `schedule` sans rien signaler. Tous ces runs sont verts — un compte « 38/38
   verts » ne dit donc rien de la fraîcheur des données. Pour juger la santé du
-  pipeline, compter aussi les passages : **12 par jour attendus** pour
-  `update-data`
-  (`gh run list -w update-data.yml --created ">=AAAA-MM-JJ" --limit 200`).
+  pipeline, compter aussi les passages pour `update-data`
+  (`gh run list -w update-data.yml --created ">=AAAA-MM-JJ" --limit 200`) :
+  **12 `workflow_dispatch` par jour** (le worker, ci-dessous), plus 4 ou 5
+  `schedule`, soit ~16 par jour au total (constaté du 25/10 au 01/11/2026). S'il
+  y a moins de 12 `workflow_dispatch`, le worker ne lance plus les mises à jour.
   **Parade (revue #203, point 1)** : le cron du worker Cloudflare, lui
   ponctuel, lance lui-même `update-data.yml` toutes les 2 h et
   `update-memo.yml` à 04:45 UTC par l'API GitHub (`dispatchWorkflows` dans
@@ -519,8 +531,8 @@ les liens :
 Ivan a coupé ses notifications GitHub : une mention `@isc` ne le prévient
 **pas**. Dès qu'un run ne peut pas aboutir sans lui (modifier un fichier de
 `.github/workflows/`, cf. section suivante ; poser ou renouveler un secret ; un
-accès ou un réglage côté Dièse, Cloudflare, Resend ; une décision qui lui
-revient), dans cet ordre :
+accès ou un réglage côté Cloudflare, Resend ; une décision qui lui revient),
+dans cet ordre :
 
 1. poster le commentaire qui dit, en une ou deux phrases en tête, **ce
    qu'Ivan doit faire** (le diff à appliquer, le secret à poser…) ;
@@ -536,6 +548,17 @@ restaient sans suite tant qu'Ivan ne passait pas par hasard sur le dépôt.
 Les alertes d'échec des crons (`scripts/cron.mjs alert`) et du déploiement
 (`deploy.yml`) passent par le même email, avec un seul envoi par panne, à
 l'ouverture de l'issue.
+
+**Ce que Loïc peut faire ne passe pas par Ivan.** Il a les droits d'écriture et a
+mergé 52 des 100 dernières PR (relevé du 05/11/2026). Une PR à merger, y compris
+une PR de documentation issue d'une revue hebdomadaire, s'adresse donc à lui, en
+expliquant en une phrase ce qu'elle change et pourquoi la merger. Sur #269, la
+revue a envoyé un email à Ivan pour une telle PR, tout en écrivant à Loïc qu'il
+n'avait « rien à faire ». Seul un diff de workflow reste à Ivan (cf. section
+suivante).
+
+**Ivan n'a aucun accès à Dièse.** Il ne peut ni régénérer un lien ni changer un
+réglage là-bas : ce qui se passe côté Dièse se demande à Loïc.
 
 ## Modifier un fichier `.github/workflows/` : fournir un diff, jamais pousser
 
@@ -591,9 +614,9 @@ perdrait les montées de version automatiques.
   (<https://isc.github.io/bemol-osr/>).
 - Chaque PR → preview isolée déployée automatiquement, avec lien posté en
   commentaire. C'est cette preview qui sert à valider un changement avant merge.
-- Mise à jour des données : workflow cron `update-data.yml` (toutes les 2 h en
-  théorie ; en pratique 4 à 5 fois par jour, cf. « Les crons GitHub ne sont pas
-  tenus à l'heure »).
+- Mise à jour des données : workflow `update-data.yml`, toutes les 2 h. Le
+  worker Cloudflare le lance à l'heure. Le `schedule` de GitHub, irrégulier, sert
+  de filet de sécurité (cf. « Les crons GitHub ne sont pas tenus à l'heure »).
 - **Tout workflow qui écrit sur `gh-pages` rejoint le groupe de concurrence
   `gh-pages` avec `queue: max`** (donc `cancel-in-progress: false`). Sans la
   file, GitHub ne garde qu'un run en attente par groupe et annule l'autre en
