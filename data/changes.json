@@ -1,6 +1,127 @@
 {
  "entries": [
   {
+   "at": "2026-11-05T12:00:46.586Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132917",
+     "fields": [
+      "end"
+     ],
+     "before": {
+      "uid": "osr132917",
+      "start": "2026-11-23T15:00",
+      "end": "2026-11-23T17:30",
+      "liste": "Liste 17",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132917",
+      "start": "2026-11-23T15:00",
+      "end": "2026-11-23T19:00",
+      "liste": "Liste 17",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO2",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132918",
+     "fields": [
+      "cancelled"
+     ],
+     "before": {
+      "uid": "osr132918",
+      "start": "2026-11-23T19:30",
+      "end": "2026-11-23T22:00",
+      "liste": "Liste 17",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO2",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132918",
+      "start": "2026-11-23T19:30",
+      "end": "2026-11-23T22:00",
+      "liste": "Liste 17",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO2",
+      "cancelled": true
+     }
+    },
+    {
+     "uid": "osr132987",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132987",
+      "start": "2027-01-18T10:00",
+      "end": "2027-01-18T12:30",
+      "liste": "Liste 23",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO4",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132987",
+      "start": "2027-01-18T10:30",
+      "end": "2027-01-18T13:00",
+      "liste": "Liste 23",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO4",
+      "cancelled": false
+     }
+    },
+    {
+     "uid": "osr132988",
+     "fields": [
+      "start",
+      "end"
+     ],
+     "before": {
+      "uid": "osr132988",
+      "start": "2027-01-18T14:30",
+      "end": "2027-01-18T17:00",
+      "liste": "Liste 23",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO4",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132988",
+      "start": "2027-01-18T15:00",
+      "end": "2027-01-18T17:30",
+      "liste": "Liste 23",
+      "activity": "répétition",
+      "category": "repetition",
+      "location": "Victoria Hall de Genève",
+      "project": "aboO4",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-05T04:46:21.977Z",
    "type": "memo",
    "programs": [
