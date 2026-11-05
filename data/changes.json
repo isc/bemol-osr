@@ -1,6 +1,28 @@
 {
  "entries": [
   {
+   "at": "2026-11-05T04:46:21.977Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-11-04T18:00:53.433Z",
    "added": [],
    "removed": [],

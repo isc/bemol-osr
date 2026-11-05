@@ -1145,7 +1145,7 @@
    "osr246249": "retour prévu 23h30 - amplitude 5-9h - concert comptabilisé 2 services",
    "osr132856": "-balance radio pour le concert du soir -6 étudiants HEM :\n10h45 Célia VÉRICET-GUYOT n°1 mvt.1/2\n11h Zachary ROBERT n°1 mvt.3/4\n11h15 Léo HUNT n°4 mvt.1/2\n11h30 Gonzalo ALARCON BURRIEL n°4 mvt.1/2\n11h45 Simon FUENTES n°4 mvt.3/4 -12h pause\n12h20 Chenfei XIA n°5 mvt.2/3\n12h35 Gonzalo ALARCON BURRIEL n°5 mvt.1\n12h45 Léo HUNT n°5 mvt.1 -effectifs cordes réduits à celui de la 1ère symphonie -temps d'échange entre les étudiants et le chef au foyer OSR-Bovy après le service (avec catering léger).",
    "osr132853": "-Prélude Amis 18h30 Salle des Fêtes du Sacré Cœur -podium chœur ouvert au public -différé Espace 2 le 18 novembre 2026 -réception Goldman Sachs sur invit. 18h30 / foyer. -dîner assis Goldman Sachs après concert sur invit. avec Daniele Gatti / 3 Verres",
-   "osr132854": "-mise en place des extraits musicaux et du commentaire (+balance présentateur)",
+   "osr132854": "ATTENTION : raccord prévu originellement à 9h45 et retardé à 10h10 -mise en place des extraits musicaux et du commentaire (+balance présentateur)",
    "osr132855": "-podium chœur fermé -blocage en loge 18"
   }
  },
@@ -1889,8 +1889,8 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
-    "instrumentation": "3*.2.2.4 / 4.4*.4*.0 / 1.3.2.0 / 12.10.8.6.4",
-    "remarques": "1picc, 2cornets, trb3=trb.bs, trb4=cimbasso",
+    "instrumentation": "3*.2*.2.4 / 4.4*.4*.0 / 1.3.2.0 / 12.10.8.6.4",
+    "remarques": "1picc, ob2+ca, 2cornets, trb3=trb.bs, trb4=cimbasso",
     "percussions": "GC, cymb fr, c.cl.",
     "duree": "≈ 6 min"
    },
