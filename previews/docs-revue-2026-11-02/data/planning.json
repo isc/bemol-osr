@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-30T16:00:48.154Z",
+ "updatedAt": "2026-11-05T12:00:46.586Z",
  "count": 643,
  "events": [
   {
@@ -2193,7 +2193,7 @@
   },
   {
    "uid": "osr132854",
-   "start": "2026-11-07T09:45",
+   "start": "2026-11-07T10:10",
    "end": "2026-11-07T10:30",
    "liste": "Liste 12",
    "activity": "raccord",
@@ -2590,7 +2590,7 @@
   {
    "uid": "osr132917",
    "start": "2026-11-23T15:00",
-   "end": "2026-11-23T17:30",
+   "end": "2026-11-23T19:00",
    "liste": "Liste 17",
    "activity": "répétition",
    "category": "repetition",
@@ -2607,7 +2607,7 @@
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "aboO2",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr196349",
@@ -3689,8 +3689,8 @@
   },
   {
    "uid": "osr132987",
-   "start": "2027-01-18T10:00",
-   "end": "2027-01-18T12:30",
+   "start": "2027-01-18T10:30",
+   "end": "2027-01-18T13:00",
    "liste": "Liste 23",
    "activity": "répétition",
    "category": "repetition",
@@ -3700,8 +3700,8 @@
   },
   {
    "uid": "osr132988",
-   "start": "2027-01-18T14:30",
-   "end": "2027-01-18T17:00",
+   "start": "2027-01-18T15:00",
+   "end": "2027-01-18T17:30",
    "liste": "Liste 23",
    "activity": "répétition",
    "category": "repetition",

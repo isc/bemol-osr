@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-02T12:00:50.789Z",
+ "updatedAt": "2026-11-04T09:27:25.584Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1048,13 +1048,25 @@
   {
    "start": "2026-11-04T08:00",
    "end": "2026-11-04T12:00",
+   "salle": "Studio B",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-11-04T08:00",
+   "end": "2026-11-04T12:00",
    "salle": "Studio P",
    "activity": "Réservation"
   },
   {
-   "start": "2026-11-04T19:00",
-   "end": "2026-11-04T22:30",
+   "start": "2026-11-04T15:45",
+   "end": "2026-11-04T18:00",
    "salle": "Grande salle",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-11-05T08:00",
+   "end": "2026-11-05T12:00",
+   "salle": "Studio B",
    "activity": "Réservation"
   },
   {
@@ -1217,6 +1229,12 @@
    "liste": "Atelier Découverte 5"
   },
   {
+   "start": "2026-11-25T13:30",
+   "end": "2026-11-25T15:00",
+   "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
    "start": "2026-11-25T14:30",
    "end": "2026-11-25T19:00",
    "salle": "Grande salle",
@@ -1232,6 +1250,12 @@
    "start": "2026-11-25T19:00",
    "end": "2026-11-25T20:30",
    "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-11-27T11:00",
+   "end": "2026-11-27T13:00",
+   "salle": "Grande salle",
    "activity": "Réservation"
   },
   {
@@ -1643,62 +1667,6 @@
    "salle": "Grande salle",
    "activity": "répétition tutti",
    "liste": "Liste 24b"
-  },
-  {
-   "start": "2027-02-07T13:00",
-   "end": "2027-02-07T22:00",
-   "salle": "Grande salle",
-   "activity": "répétitions candidats",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-08T09:30",
-   "end": "2027-02-08T18:00",
-   "salle": "Grande salle",
-   "activity": "présélection",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-08T18:00",
-   "end": "2027-02-08T22:00",
-   "salle": "Grande salle",
-   "activity": "répétitions candidats",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-09T10:00",
-   "end": "2027-02-09T19:00",
-   "salle": "Grande salle",
-   "activity": "concours",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-09T19:00",
-   "end": "2027-02-09T22:00",
-   "salle": "Grande salle",
-   "activity": "répétitions candidats",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-10T09:30",
-   "end": "2027-02-10T18:00",
-   "salle": "Grande salle",
-   "activity": "présélection",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-10T18:00",
-   "end": "2027-02-10T22:00",
-   "salle": "Grande salle",
-   "activity": "répétitions candidats",
-   "liste": "Concours à définir"
-  },
-  {
-   "start": "2027-02-11T10:00",
-   "end": "2027-02-11T19:00",
-   "salle": "Grande salle",
-   "activity": "concours",
-   "liste": "Concours à définir"
   },
   {
    "start": "2027-02-14T16:00",
@@ -2430,6 +2398,20 @@
    "salle": "Grande salle",
    "activity": "Accords PS",
    "liste": "Liste 41"
+  },
+  {
+   "start": "2027-06-24T10:00",
+   "end": "2027-06-24T18:00",
+   "salle": "Grande salle",
+   "activity": "auditions mus. supplémentaires",
+   "liste": "Auditions de musicien·nes supplémentaires à définir"
+  },
+  {
+   "start": "2027-06-25T10:00",
+   "end": "2027-06-25T18:00",
+   "salle": "Grande salle",
+   "activity": "auditions mus. supplémentaires",
+   "liste": "Auditions de musicien·nes supplémentaires à définir"
   },
   {
    "start": "2027-06-28T05:00",
