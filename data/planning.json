@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-05T14:00:47.706Z",
+ "updatedAt": "2026-11-06T12:00:48.966Z",
  "count": 643,
  "events": [
   {
@@ -2622,7 +2622,7 @@
   },
   {
    "uid": "osr132919",
-   "start": "2026-11-24T09:30",
+   "start": "2026-11-24T10:00",
    "end": "2026-11-24T12:30",
    "liste": "Liste 17",
    "activity": "répétition",
@@ -3351,7 +3351,7 @@
    "start": "2026-12-21T19:30",
    "end": "2026-12-21T22:15",
    "liste": "Liste 20",
-   "activity": "générale non publique",
+   "activity": "générale publique ((retraités OSR))",
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
