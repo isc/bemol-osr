@@ -1581,6 +1581,7 @@
   "serviceNotes": {
    "osr132917": "ATTENTION : service prolongé jusqu'à 19h (1 pause de 30') et compté double. Service du soir annulé. Avec l'accord des représentants -les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
    "osr132918": "SERVICE ANNULÉ",
+   "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
    "osr132921": "essai micros",
    "osr132922": "-ouverture au public du podium choeur si nécessaire -direct Espace 2",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
@@ -1754,7 +1755,7 @@
    "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
    "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
    "osr162114": "1ère demi-heure pour la balance micros",
-   "osr162115": "fin 22h15 max. pour repos nocturne essai micro présence retraités",
+   "osr162115": "fin 22h15 max. pour repos nocturne essai micro Foyer OSR-Bovy innaccessible pour la verrée offerte aux retraités à l'issue",
    "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
