@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-11-06T15:59:26.266Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr196354",
+     "fields": [
+      "cancelled"
+     ],
+     "before": {
+      "uid": "osr196354",
+      "start": "2026-11-09T10:00",
+      "end": "2026-11-09T12:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr196354",
+      "start": "2026-11-09T10:00",
+      "end": "2026-11-09T12:00",
+      "liste": "Atelier Découverte 4",
+      "activity": "ateliers (avec mus.OSR)",
+      "category": "repetition",
+      "location": "ML - grande salle (+ st. A, B & P)",
+      "project": "AD4.1",
+      "cancelled": true
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-06T12:00:48.966Z",
    "added": [],
    "removed": [],

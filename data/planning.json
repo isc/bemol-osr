@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-06T12:00:48.966Z",
+ "updatedAt": "2026-11-06T15:59:26.266Z",
  "count": 643,
  "events": [
   {
@@ -2222,7 +2222,7 @@
    "category": "repetition",
    "location": "ML - grande salle (+ st. A, B & P)",
    "project": "AD4.1",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr193688",

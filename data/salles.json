@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-04T09:27:25.584Z",
+ "updatedAt": "2026-11-06T15:59:28.858Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1446,6 +1446,12 @@
    "activity": "Réservation"
   },
   {
+   "start": "2026-12-17T08:00",
+   "end": "2026-12-17T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
+  },
+  {
    "start": "2026-12-19T07:00",
    "end": "2026-12-19T09:00",
    "salle": "Grande salle",
@@ -1474,11 +1480,41 @@
    "liste": "Liste 20"
   },
   {
+   "start": "2026-12-21T08:00",
+   "end": "2026-12-21T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
+  },
+  {
+   "start": "2026-12-22T08:00",
+   "end": "2026-12-22T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
+  },
+  {
+   "start": "2026-12-23T08:00",
+   "end": "2026-12-23T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
+  },
+  {
    "start": "2026-12-28T16:00",
    "end": "2026-12-28T18:00",
    "salle": "Grande salle",
    "activity": "Technique",
    "liste": "Liste 21"
+  },
+  {
+   "start": "2026-12-29T08:00",
+   "end": "2026-12-29T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
+  },
+  {
+   "start": "2026-12-30T08:00",
+   "end": "2026-12-30T09:00",
+   "salle": "ML - ascenseur",
+   "activity": "Blocage"
   },
   {
    "start": "2027-01-12T15:00",
