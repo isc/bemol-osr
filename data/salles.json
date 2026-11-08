@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-06T15:59:28.858Z",
+ "updatedAt": "2026-11-08T16:00:50.787Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1110,6 +1110,12 @@
    "activity": "Réservation"
   },
   {
+   "start": "2026-11-14T11:00",
+   "end": "2026-11-14T14:00",
+   "salle": "Grande salle",
+   "activity": "Réservation"
+  },
+  {
    "start": "2026-11-16T07:00",
    "end": "2026-11-16T10:00",
    "salle": "Grande salle",
@@ -1188,6 +1194,12 @@
    "activity": "Réservation"
   },
   {
+   "start": "2026-11-19T11:30",
+   "end": "2026-11-19T15:00",
+   "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
    "start": "2026-11-20T07:00",
    "end": "2026-11-20T09:00",
    "salle": "Grande salle",
@@ -1207,6 +1219,12 @@
    "salle": "Grande salle",
    "activity": "audition",
    "liste": "Audition de hautboïstes supplémentaires"
+  },
+  {
+   "start": "2026-11-23T10:00",
+   "end": "2026-11-23T14:00",
+   "salle": "Grande salle",
+   "activity": "Réservation"
   },
   {
    "start": "2026-11-23T14:30",
