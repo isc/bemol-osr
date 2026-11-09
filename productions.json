@@ -1522,7 +1522,7 @@
  },
  "Liste 17": {
   "info": "-dispositif cordes Gatti particulier pour Beethoven\n-accord chef pour ouverture du podium choeur si nécéssaire\n-les jeunes chefs Talent Norge assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse",
-  "tenue": "25.11-19h45 + 26.11-19h30 + 27.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)",
   "duree": "≈ 1 h 39",
@@ -1561,10 +1561,6 @@
     1,
     2
    ],
-   "osr132922": [
-    1,
-    2
-   ],
    "osr132926": [
     1,
     2
@@ -1583,7 +1579,6 @@
    "osr132918": "SERVICE ANNULÉ",
    "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
    "osr132921": "essai micros",
-   "osr132922": "-ouverture au public du podium choeur si nécessaire -direct Espace 2",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
    "osr132923": "-ouverture au public du podium choeur si nécessaire -réception SIG sur invit. 18h30 / foyer. -réception SIG après concert sur invit. / Lyrique.",
    "osr132925": "-ouverture au public du podium choeur en construction"
