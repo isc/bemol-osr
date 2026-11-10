@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-10T10:00:49.851Z",
+ "updatedAt": "2026-11-10T14:00:47.835Z",
  "count": 641,
  "events": [
   {
@@ -3600,17 +3600,6 @@
    "cancelled": false
   },
   {
-   "uid": "osr132186",
-   "start": "2027-01-17T09:00",
-   "end": "2027-01-17T10:30",
-   "liste": "Musique De Chambre 3",
-   "activity": "raccord hors contrat",
-   "category": "generale",
-   "location": "Salle Franz Liszt - CMG",
-   "project": "MDC3",
-   "cancelled": false
-  },
-  {
    "uid": "osr162235",
    "start": "2027-01-17T09:00",
    "end": "2027-01-17T09:30",
@@ -3619,6 +3608,17 @@
    "category": "concert",
    "location": "Auditorium Florimont, Genève",
    "project": "DDC2.3",
+   "cancelled": false
+  },
+  {
+   "uid": "osr132186",
+   "start": "2027-01-17T09:30",
+   "end": "2027-01-17T10:30",
+   "liste": "Musique De Chambre 3",
+   "activity": "raccord hors contrat",
+   "category": "generale",
+   "location": "Salle Franz Liszt - CMG",
+   "project": "MDC3",
    "cancelled": false
   },
   {

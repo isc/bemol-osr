@@ -1,6 +1,41 @@
 {
  "entries": [
   {
+   "at": "2026-11-10T14:00:47.835Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr132186",
+     "fields": [
+      "start"
+     ],
+     "before": {
+      "uid": "osr132186",
+      "start": "2027-01-17T09:00",
+      "end": "2027-01-17T10:30",
+      "liste": "Musique De Chambre 3",
+      "activity": "raccord hors contrat",
+      "category": "generale",
+      "location": "Salle Franz Liszt - CMG",
+      "project": "MDC3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr132186",
+      "start": "2027-01-17T09:30",
+      "end": "2027-01-17T10:30",
+      "liste": "Musique De Chambre 3",
+      "activity": "raccord hors contrat",
+      "category": "generale",
+      "location": "Salle Franz Liszt - CMG",
+      "project": "MDC3",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-10T13:00:27.260Z",
    "type": "memo",
    "programs": [
