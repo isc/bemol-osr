@@ -36,9 +36,6 @@
    "Valentine MICHAUD, saxophone alto"
   ],
   "serviceWorks": {
-   "osr225046": [
-    3
-   ],
    "osr224800": [
     2,
     1
@@ -78,9 +75,6 @@
    }
   ],
   "serviceWorks": {
-   "osr128422": [
-    1
-   ],
    "osr128423": [
     1
    ],
@@ -1202,7 +1196,7 @@
  "Liste 14": {
   "info": "Concours de Genève / Finale 1 du concours de direction et Finale du concours de de composition\n-les 3 finalistes du concours de direction sont connus après la 1/2 finale 3 du 9 novembre avec l'OSR\n-chacun répète 2 fois 50 minutes et la générale avec l'orchestre en présence du jury\n-chacun dirige l'une des 3 œuvres finalistes du concours de composition (15' env.) qu'il aura tiré au sort lors de la Cérémonie d'ouverture le 6 novembre. La durée du concert est au plus\nde 1h15 + 2 pauses de 15 minutes + les présentations\n-les 3 pièces finalistes et leur instrumentation sont connues fin mars 2025 et les partitions prêtes au plus tard fin septembre 2025 (réalisées par le Concours de Genève)\n-le jury du concours de direction (président : Bertrand de Billy) assiste aux répétitions.\n-les compositeurs finalistes assistent aux répétitions de leur pièce\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de composition (présidente : Unsuk Chin)",
   "tenue": "11.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
-  "chef": "Alejandro CANTALAPIEDRA",
+  "chef": "Gabriel PERNET",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.2 / 12.10.8.6.4 (70 musiciens)",
   "duree": "≈ 50 min",
   "works": [
@@ -1277,7 +1271,7 @@
  "Liste 15": {
   "info": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)\n-vote de l'effectif après le concert pour décerner le Prix des Musiciens de l'OSR",
   "tenue": "13.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
-  "chef": "Alejandro CANTALAPIEDRA",
+  "chef": "Mats THIERSCH",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6 (83 musiciens)",
   "duree": "≈ 1 h 55",
   "works": [
@@ -1288,10 +1282,11 @@
     "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
     "claviers": "célesta, orgue, piano",
     "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
+    "note": "Totenfeier, poème symphonique pour grand orchestre en ut majeur",
     "duree": "≈ 20 min"
    },
    {
-    "oeuvre": "Gustav MAHLER — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "oeuvre": "Gustav MAHLER — ",
     "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
     "remarques": "fl3+picc, 1ca, 1cl.bs",
     "percussions": "GC, cymb fr, TT, tri",
@@ -1561,6 +1556,10 @@
     1,
     2
    ],
+   "osr132922": [
+    1,
+    2
+   ],
    "osr132926": [
     1,
     2
@@ -1579,6 +1578,7 @@
    "osr132918": "SERVICE ANNULÉ",
    "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
    "osr132921": "essai micros",
+   "osr132922": "-ouverture au public du podium choeur si nécessaire -direct Espace 2",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
    "osr132923": "-ouverture au public du podium choeur si nécessaire -réception SIG sur invit. 18h30 / foyer. -réception SIG après concert sur invit. / Lyrique.",
    "osr132925": "-ouverture au public du podium choeur en construction"

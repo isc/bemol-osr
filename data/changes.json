@@ -1,6 +1,51 @@
 {
  "entries": [
   {
+   "at": "2026-11-10T04:47:44.144Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "Alejandro CANTALAPIEDRA",
+       "after": "Gabriel PERNET"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "chef",
+       "before": "Alejandro CANTALAPIEDRA",
+       "after": "Mats THIERSCH"
+      }
+     ],
+     "worksAdded": [
+      "Gustav MAHLER — "
+     ],
+     "worksRemoved": [
+      "Gustav MAHLER — Totenfeier, poème symphonique pour grand orchestre en ut majeur"
+     ],
+     "worksModified": [
+      {
+       "oeuvre": "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-11-10T00:00:49.354Z",
    "added": [],
    "removed": [
