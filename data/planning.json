@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-11T00:00:49.368Z",
+ "updatedAt": "2026-11-11T09:33:36.329Z",
  "count": 638,
  "events": [
   {
@@ -3274,7 +3274,7 @@
    "start": "2026-12-21T14:30",
    "end": "2026-12-21T17:30",
    "liste": "Liste 20",
-   "activity": "répétition avec solistes (sol. + sextet vocal)",
+   "activity": "répétition avec solistes ((sol.+sextet vocal))",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "DIP2",
@@ -3428,7 +3428,7 @@
    "start": "2027-01-12T19:30",
    "end": "2027-01-12T22:00",
    "liste": "Liste 21",
-   "activity": "répétition avec soliste (générale soliste)",
+   "activity": "répétition avec soliste ((générale soliste))",
    "category": "repetition",
    "location": "Victoria Hall de Genève",
    "project": "AMI1",

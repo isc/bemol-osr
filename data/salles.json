@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-08T16:00:50.787Z",
+ "updatedAt": "2026-11-11T09:33:38.530Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1456,6 +1456,13 @@
    "end": "2026-12-14T13:00",
    "salle": "Grande salle",
    "activity": "Réservation"
+  },
+  {
+   "start": "2026-12-14T17:30",
+   "end": "2026-12-14T20:30",
+   "salle": "Grande salle",
+   "activity": "Réservation",
+   "liste": "Concerts pour Petites Oreilles 2"
   },
   {
    "start": "2026-12-16T19:00",
