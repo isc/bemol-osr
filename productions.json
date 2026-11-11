@@ -36,10 +36,6 @@
    "Valentine MICHAUD, saxophone alto"
   ],
   "serviceWorks": {
-   "osr224800": [
-    2,
-    1
-   ],
    "osr224803": [
     1,
     2,
@@ -75,9 +71,6 @@
    }
   ],
   "serviceWorks": {
-   "osr128423": [
-    1
-   ],
    "osr128424": [
     1
    ],
@@ -1275,24 +1268,15 @@
   "duree": "≈ 1 h 03",
   "works": [
    {
-    "oeuvre": "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
-    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
-    "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
-    "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
-    "claviers": "célesta, orgue, piano",
-    "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
+    "oeuvre": "Gustav MAHLER — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
+    "remarques": "fl3+picc, 1ca, 1cl.bs",
+    "percussions": "GC, cymb fr, TT, tri",
     "note": "PIECE HORS-COMPETITION",
     "duree": "≈ 17 min"
    },
    {
-    "oeuvre": "Richard STRAUSS — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
-    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
-    "remarques": "fl3+picc, 1ca, 1cl.bs",
-    "percussions": "GC, cymb fr, TT, tri",
-    "note": "PIECE HORS-COMPETITION"
-   },
-   {
-    "oeuvre": "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
     "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "glock, tri",
@@ -1300,12 +1284,21 @@
     "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "oeuvre": "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
     "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
     "percussions": "GC",
     "claviers": "piano+célésta",
     "extra": "saxophone ténor",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
+    "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
+    "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
+    "claviers": "célesta, orgue, piano",
+    "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
     "note": "PIECE HORS-COMPETITION"
    },
    {
@@ -1834,14 +1827,15 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
-    "instrumentation": "3*.2*.2.4 / 4.4*.4*.0 / 1.3.2.0 / 12.10.8.6.4",
-    "remarques": "1picc, ob2+ca, 2cornets, trb3=trb.bs, trb4=cimbasso",
+    "instrumentation": "3*.2*.2.4 / 4.4*.3*.1* / 1.3.2.0 / 12.10.8.6.4",
+    "remarques": "1picc, ob2+ca, 2cornets, trb3=trb.bs, cimbasso (partie de trb4)",
     "percussions": "GC, cymb fr, c.cl.",
     "duree": "≈ 6 min"
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.0*",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12*.10.8.6.0",
+    "remarquesCordes": "sans contrebasses",
     "duree": "≈ 4 min"
    },
    {
@@ -1853,8 +1847,8 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
-    "instrumentation": "3*.3*.3*.2 / 4.3.4*.0 / 1.1.1.0 / 12.10.8.6.4",
-    "remarques": "fl3+picc., 1ca, 1cl.bs, trb3=trb.bs, trb4=cimbasso",
+    "instrumentation": "3*.3*.3*.2 / 4.3.4*.1* / 1.1.1.0 / 12.10.8.6.4",
+    "remarques": "fl3+picc., 1ca, 1cl.bs, trb3=trb.bs, cimbasso (partie de trb4)",
     "percussions": "GC",
     "duree": "≈ 5 min"
    },
@@ -1893,7 +1887,7 @@
    {
     "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
     "instrumentation": "2.2*.2.2 / 3.2.2*.0 / 1.0.1.0 / 12.10.8.6.4",
-    "remarques": "1c.a, 1trb.bs",
+    "remarques": "1ca, 1trb.bs",
     "duree": "≈ 7 min"
    },
    {
@@ -2110,7 +2104,7 @@
   "duree": "≈ 1 h 01",
   "works": [
    {
-    "oeuvre": "Wolfgang Amadeus MOZART — Quintette à cordes N° 3 en sol mineur KV 516",
+    "oeuvre": "Wolfgang Amadeus MOZART — Quintette à cordes en sol mineur KV 516",
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 1.1.2.1.0",
     "duree": "≈ 35 min"
    },
@@ -2123,12 +2117,12 @@
   "solistes": [
    "Roman FILIPOV, violon 1",
    "Sidonie BOUGAMONT, violon 2",
-   "Elçim ÖZDEMIR, alto",
-   "Frédéric KIRCH, alto",
+   "Frédéric KIRCH, alto (alto 1 / Brahms - alto 2 / Mozart )",
+   "Elçim ÖZDEMIR, alto (alto 1 / Mozart - alto 2 / Brahms)",
    "Lionel COTTET, violoncelle"
   ],
   "serviceNotes": {
-   "osr132186": "-horaires à confirmer par le groupe dans cette plage",
+   "osr132186": "horaires confirmés avec le groupe",
    "osr132187": "-réception Fondation Etrillard. en construction."
   }
  },

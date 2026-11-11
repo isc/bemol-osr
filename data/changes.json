@@ -1,6 +1,84 @@
 {
  "entries": [
   {
+   "at": "2026-11-11T04:46:23.669Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Gustav MAHLER — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+      "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+      "Serge PROKOFIEV — Le Mandarin merveilleux, suite d'orchestre op. 19"
+     ],
+     "worksRemoved": [
+      "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
+      "Richard STRAUSS — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+      "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — Otello, Ballabili (ballet acte III)",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
+       "fields": [
+        "instrumentation",
+        "remarquesCordes"
+       ]
+      },
+      {
+       "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
+       "fields": [
+        "instrumentation",
+        "remarques"
+       ]
+      },
+      {
+       "oeuvre": "Richard STRAUSS — Intermezzo, Träumerei am Kamin, Interlude symphonique N° 2",
+       "fields": [
+        "remarques"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Musique De Chambre 3",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "solistes",
+       "before": "Roman FILIPOV, violon 1 · Sidonie BOUGAMONT, violon 2 · Elçim ÖZDEMIR, alto · Frédéric KIRCH, alto · Lionel COTTET, violoncelle",
+       "after": "Roman FILIPOV, violon 1 · Sidonie BOUGAMONT, violon 2 · Frédéric KIRCH, alto (alto 1 / Brahms - alto 2 / Mozart ) · Elçim ÖZDEMIR, alto (alto 1 / Mozart - alto 2 / Brahms) · Lionel COTTET, violoncelle"
+      }
+     ],
+     "worksAdded": [
+      "Wolfgang Amadeus MOZART — Quintette à cordes en sol mineur KV 516"
+     ],
+     "worksRemoved": [
+      "Wolfgang Amadeus MOZART — Quintette à cordes N° 3 en sol mineur KV 516"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-11-11T00:00:49.368Z",
    "added": [],
    "removed": [
