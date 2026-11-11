@@ -699,7 +699,7 @@
   }
  },
  "Liste 08": {
-  "tenue": "30.09-19h30 + 01.10-20h15 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "30.09-19h30 + 01.10-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Elim CHAN",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.4.2.1 / 15.13.11.9.7 (86 musiciens)",
   "duree": "≈ 1 h 39",
@@ -786,7 +786,7 @@
  "Liste 09": {
   "info": "Pas de garde-robes à Evian",
   "contraires": "contraire Liste B",
-  "tenue": "08.10-19h30 + 10.10-20h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "08.10-19h30 + 10.10-20h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Eva OLLIKAINEN",
   "effectif": "3.3.3.3 / 4.4.3.1 / 2.3.2.1 / 15.13.11.9.7 (87 musiciens)",
   "duree": "≈ 1 h 45",
@@ -1069,7 +1069,7 @@
  },
  "Liste 12": {
   "info": "disposition des cordes : Maestro Gatti souhaite expérimenter avec l'OSR la disposition cordes indiquée qu'il vient de jouer avec Dresde et qu'il trouve apporter\nbeaucoup à ce répertoire. Il a de plus souhaité préserver l'effectif en réduisant les cordes pour la session Masterclasse.\n-6 étudiants HEM assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse\n-le projet de captation TV n'a finalement pas pu être confirmé",
-  "tenue": "05.11-20h15 + 06.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n07.11-11h00 : tenue de fosse",
+  "tenue": "05.11-20h15 + 06.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)\n07.11-11h00 : tenue de fosse (chemise noire)",
   "chef": "Daniele GATTI",
   "effectif": "3.2.2.3 / 2.2.3.0 / 1.0.0.0 / 14.12.10.8.6 (68 musiciens)",
   "duree": "≈ 1 h 51",
@@ -1188,7 +1188,7 @@
  },
  "Liste 14": {
   "info": "Concours de Genève / Finale 1 du concours de direction et Finale du concours de de composition\n-les 3 finalistes du concours de direction sont connus après la 1/2 finale 3 du 9 novembre avec l'OSR\n-chacun répète 2 fois 50 minutes et la générale avec l'orchestre en présence du jury\n-chacun dirige l'une des 3 œuvres finalistes du concours de composition (15' env.) qu'il aura tiré au sort lors de la Cérémonie d'ouverture le 6 novembre. La durée du concert est au plus\nde 1h15 + 2 pauses de 15 minutes + les présentations\n-les 3 pièces finalistes et leur instrumentation sont connues fin mars 2025 et les partitions prêtes au plus tard fin septembre 2025 (réalisées par le Concours de Genève)\n-le jury du concours de direction (président : Bertrand de Billy) assiste aux répétitions.\n-les compositeurs finalistes assistent aux répétitions de leur pièce\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de composition (présidente : Unsuk Chin)",
-  "tenue": "11.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "11.11-19h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Gabriel PERNET",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.3.1.2 / 12.10.8.6.4 (70 musiciens)",
   "duree": "≈ 50 min",
@@ -1262,29 +1262,22 @@
  },
  "Liste 15": {
   "info": "Concours de Genève / Finale 2 du concours de direction\n-les 3 finalistes sont connus après la 1/2 finale 3 du 9 novembre\n-chacun répète 2 sessions de 50 minutes et 1 générale en présence du jury\n-chacun dirige 1 pièce au choix tirée au sort lors de la Cérémonie d'ouverture du 6 novembre dans la liste ci-dessous et parmi les 2 qu'il a préparées. La durée du concert est au plus de 1h\n+ 2 pauses de 15 minutes + les présentations.\n-le concert est suivi des délibérations et de la proclamation des résultats du concours de direction\nChoix des candidats :\n-Alejandro Cantalapiedra : Mahler ou Stravinski\n-Jakobus De Jager : Bartok ou Prokofiev (2.1 > 1.6 > 1.7 > 2.7)\n-Gabriel Pernet : Mahler ou Stravinski\n-Simon Schmied : Strauss ou Stravinski\n-Mats Thiersch : Mahler ou Strauss\n-Leonard Weiss : Stravinski ou Prokofiev (2.1 > 2.2 > 2.5 avec coupure > 1.7 attaca > 2.5 avec coupure > 2.7)\n-vote de l'effectif après le concert pour décerner le Prix des Musiciens de l'OSR",
-  "tenue": "13.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "13.11-19h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Mats THIERSCH",
   "effectif": "3.3.3.3 / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6 (83 musiciens)",
   "duree": "≈ 1 h 03",
   "works": [
    {
-    "oeuvre": "Gustav MAHLER — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Totenfeier, poème symphonique pour grand orchestre en ut majeur",
-    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
-    "remarques": "fl3+picc, 1ca, 1cl.bs",
-    "percussions": "GC, cymb fr, TT, tri",
-    "note": "PIECE HORS-COMPETITION",
-    "duree": "≈ 17 min"
-   },
-   {
-    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "oeuvre": "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
     "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "glock, tri",
     "extra": "saxophone ténor",
-    "note": "PIECE HORS-COMPETITION"
+    "note": "PIECE HORS-COMPETITION",
+    "duree": "≈ 17 min"
    },
    {
-    "oeuvre": "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
     "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
     "percussions": "GC",
@@ -1293,12 +1286,19 @@
     "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "oeuvre": "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
     "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
     "claviers": "célesta, orgue, piano",
     "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
+    "remarques": "fl3+picc, 1ca, 1cl.bs",
+    "percussions": "GC, cymb fr, TT, tri",
     "note": "PIECE HORS-COMPETITION"
    },
    {
@@ -1361,7 +1361,7 @@
  },
  "Liste 16": {
   "info": "Centenaire du Motet le 19 novembre (production Le Motet) : opéra complet en version concert\nreprise en extraits pour FAM+ (production OSR) le 20 novembre avec le chœur et uniquement Abigaille\n-finalement sans avant-scène\n-avec régie son en loge 18 pour concert du 20 novembre\n-avec caméras en salle (4 places en 1ère galerie face-jardin)\n-avec sous-titrage le 19 novembre uniquement (écran+beamer VH)\nChoeur Le Motet : 85 env. (sans pupitre)\nDistribution : Le Motet\nAbigaille : Maria Jose SIRI\nNabucco : Nikoloz LAGVILAVA\nIsmaele : Sahy RATIA,\nFenena : Carine SÉCHAYE\nZaccaria : Rubén AMORETTI\nGran Sacerdote : Joe BERTILI\nAbdallo: Oscar ESMERODE\nAnna : Clémence TILQUIN",
-  "tenue": "19.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n20.11-19h00 : chemise noire",
+  "tenue": "19.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)\n20.11-19h00 : chemise noire",
   "chef": "Romain MAYOR",
   "effectif": "2.2.2.2 / 4.2.3.1 / 1.3.2.0 / 10.8.6.4.3 (55 musiciens)",
   "duree": "≈ 2 h 35",
@@ -1458,7 +1458,7 @@
  },
  "Liste 17": {
   "info": "-dispositif cordes Gatti particulier pour Beethoven\n-accord chef pour ouverture du podium choeur si nécéssaire\n-les jeunes chefs Talent Norge assistent à toutes les répétitions et dirigent l'orchestre à la session Masterclasse",
-  "tenue": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 3.2.0.0 / 1.0.0.0 / 14.12.10.8.6 (64 musiciens)",
   "duree": "≈ 1 h 39",
@@ -1622,7 +1622,7 @@
  "Liste 20": {
   "info": "A White Christmas with Matt Dusk (sans présentateur)\n-avec amplification du soliste et des 6 choristes mais pas de l'orchestre (micros rétros sur pied)\n-projet de captation TV abandonné\n-décoration florale en scène",
   "contraires": "contraire Liste C",
-  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Alexandre MASTRANGELO",
   "effectif": "2.2.2.2 / 4.3.3.1 / 1.4.0.1 / 8.7.6.5.4 (55 musiciens)",
   "duree": "≈ 1 h 35",
@@ -1698,6 +1698,7 @@
  "Liste C": {
   "info": "-captation vidéo Les Noces sous les Etoiles (dates à définir)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
   "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
+  "tenue": "13.12-17h00 + 15.12-19h00 + 17.12-19h00 + 18.12-19h00 + 20.12-15h00 + 22.12-19h00 + 26.12-19h00 + 28.12-19h00 + 29.12-19h00 + 31.12-19h00 : tenue de fosse (chemise noire)",
   "chef": "Marta GARDOLIŃSKA",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.1 / 11.9.7.5.4 (50 musiciens)",
   "duree": "≈ 3 h 40",
@@ -1739,7 +1740,7 @@
  "Liste 19": {
   "info": "Captation audiovisuelle confirmée RTS / Mezzo par Ozango, en direct Espace 2 et Mezzo",
   "contraires": "contraire Liste C",
-  "tenue": "16.12-10h00 + 17.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "16.12-10h00 + 17.12-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Pablo HERAS-CASADO",
   "effectif": "2.2.2.3 / 4.2.3.0 / 1.1.0.0 / 10.8.7.6.5 (56 musiciens)",
   "duree": "≈ 1 h 54",
@@ -1808,6 +1809,7 @@
  },
  "Liste 21": {
   "info": "Concert de l'An\n-avec décoration florale\n-avec discours en scène",
+  "tenue": "13.01-19h30 + 14.01-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Karen KAMENSEK",
   "effectif": "3.3.3.4 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (73 musiciens)",
   "duree": "≈ 1 h 52",
@@ -1918,7 +1920,7 @@
    {
     "oeuvre": "Armenian Folk Song",
     "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
-    "note": "effectif en attente de la soliste",
+    "note": "effectif en attente de la soliste (inférieur ou égal à l'effectif max.)",
     "duree": "≈ 4 min"
    },
    {
@@ -1993,6 +1995,26 @@
     17,
     18
    ],
+   "osr132971": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
    "osr132972": [
     1,
     2,
@@ -2033,7 +2055,7 @@
    ]
   },
   "serviceNotes": {
-   "osr132967": "-tutti pour possiblement tout le programme",
+   "osr132967": "-LE PLAN DE TRAVAIL PAR ŒUVRE PRÉSENTÉ RESTE À CONFIRMER. Il sera finalisé sur la Période définitive. -tutti pour possiblement tout le programme",
    "osr132968": "-sans Forza, Ballibili, Castillane, Prélude Carmen ni Meine Lippen (sans fgt4, trp4, hrp2 et possiblement perc4) -démontage express pour Caecilia 17h",
    "osr132969": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
    "osr132970": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
@@ -2090,6 +2112,7 @@
   }
  },
  "Doudou Concert 2": {
+  "info": "Institut Florimont : avenue du Petit-Lancy 37 à Lancy",
   "works": [],
   "solistes": [
    "Elodie BERRY, violon (16 janvier uniquement)",
@@ -2127,14 +2150,16 @@
   }
  },
  "Liste 23": {
-  "tenue": "20.01-19h30 + 21.01-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "20.01-19h30 + 21.01-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Jonathan NOTT",
   "effectif": "5.4.5.4 / 4.3.4.1 / 1.5.2.1 / 15.13.11.9.7 (94 musiciens)",
   "duree": "≈ 2 h 07",
   "works": [
    {
     "oeuvre": "Richard DUBUGNON — Sonnenring, concerto pour violon et orchestre, inspiré par des tableaux d'Adolf Wölfli",
-    "instrumentation": "2.2.2.2 / 4.2.2.1 / 1.3.1.1 / 15.13.11.9.7",
+    "instrumentation": "2*.2.2.2 / 4.2*.2.1 / 1.5.1.1 / 15.13.11.9.7",
+    "remarques": "fl1&2+picc, trp1+trp.picc",
+    "percussions": "GC, glock, TT, tri",
     "claviers": "piano+célésta",
     "detail": "Mention obligatoire : Sonnenring est une comnmande de l'Orchestre de la Suisse Romande et du",
     "note": "Première suisse OSR le 20 janvier 2027",
@@ -2267,7 +2292,7 @@
  "Liste D": {
   "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe",
   "contraires": "contraire Listes 24 et 24b",
-  "tenue": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures\nvernies)",
   "chef": "Jader BIGNAMINI",
   "effectif": "3.2.2.2 / 4.2.3.1 / 1.4.1.1 / 11.9.7.5.4 (62 musiciens)",
   "duree": "≈ 2 h 45",
@@ -2483,7 +2508,7 @@
  },
  "Liste 27": {
   "info": "Dispositif spécial cordes Gatti pour Beethoven",
-  "tenue": "10.03-19h30 + 12.03-19h30 + 15.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "10.03-19h30 + 12.03-19h30 + 15.03-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Daniele GATTI",
   "effectif": "3.2.2.2 / 2.2.2.0 / 1.0.0.0 / 12.10.8.7.5 (58 musiciens)",
   "duree": "≈ 1 h 33",
@@ -2571,7 +2596,7 @@
  },
  "Liste 28": {
   "contraires": "contraire liste 28b",
-  "tenue": "24.03-19h30 + 25.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "24.03-19h30 + 25.03-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Daniel HARDING",
   "effectif": "3.3.3.4 / 4.5.3.1 / 1.3.2.1 / 15.13.11.9.7 (88 musiciens)",
   "duree": "≈ 1 h 23",
@@ -2879,7 +2904,7 @@
  },
  "Liste 31": {
   "info": "projet de captation audiovisuelle RTS / Arte (jean-PIerre Loisil)\navec cordes limitées à Berne : 14.12.10.8.6\nAttention : Casino Bern est le nouveau nom du Kultur-Casino Bern",
-  "tenue": "28.04-19h30 + 29.04-19h30 + 30.04-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "28.04-19h30 + 29.04-19h30 + 30.04-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Tugan SOKHIEV",
   "effectif": "3.3.3.2 / 4.3.3.1 / 1.4.0.0 / 15.13.11.9.7 (82 musiciens)",
   "duree": "≈ 2 h 24",
@@ -2939,7 +2964,7 @@
   }
  },
  "Liste 32": {
-  "tenue": "12.05-19h30 + 13.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "12.05-19h30 + 13.05-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Alan Gilbert",
   "effectif": "4.4.4.4 / 4.4.3.1 / 1.7.2.2 / 15.13.11.9.7 (95 musiciens)",
   "duree": "≈ 1 h 38",
@@ -3035,7 +3060,7 @@
  },
  "Liste 34": {
   "info": "Harry Potter and the Sorcerer's Stone à l'Arena avec Opus One (2ème et 3ème épisodes en 2028 et 2029)",
-  "tenue": "21.05-19h30 + 22.05-14h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "21.05-19h30 + 22.05-14h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Ludwig WICKI",
   "effectif": "3.3.3.3 / 6.3.3.1 / 1.5.1.3 / 16.14.12.10.8 (95 musiciens)",
   "duree": "≈ 2 h 56",
@@ -3083,7 +3108,7 @@
  "Liste 35": {
   "info": "chef ok pour 15h-19h le 1er jour si Comité ok\nhoraires NODA confirmés le 22.01.26",
   "contraires": "contraire Liste 36 et Liste 37",
-  "tenue": "26.05-19h30 + 27.05-20h15 + 28.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "26.05-19h30 + 27.05-20h15 + 28.05-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Daniele GATTI",
   "effectif": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.7.5 (55 musiciens)",
   "duree": "≈ 1 h 27",
@@ -3293,7 +3318,7 @@
  "Liste G": {
   "info": "VERSION CONCERT OU SEMI STAGE AU VH",
   "contraires": "contraires G-39-40 : seuls sont possibles 39+40 ou 39+G ou 40+G",
-  "tenue": "24.06-19h30 + 25.06-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+  "tenue": "24.06-19h30 + 25.06-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Guillaume Tourniaire",
   "effectif": "2.1.2.1 / 2.2.2.1 / 1.2.1.0 / 12.10.8.6.4 (57 musiciens)",
   "duree": "≈ 3 h 00",

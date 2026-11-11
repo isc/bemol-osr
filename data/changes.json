@@ -1,6 +1,332 @@
 {
  "entries": [
   {
+   "at": "2026-11-11T12:11:30.873Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Doudou Concert 2",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "",
+       "after": "Institut Florimont : avenue du Petit-Lancy 37 à Lancy"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 08",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "30.09-19h30 + 01.10-20h15 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "30.09-19h30 + 01.10-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 09",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "08.10-19h30 + 10.10-20h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "08.10-19h30 + 10.10-20h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 12",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "05.11-20h15 + 06.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n07.11-11h00 : tenue de fosse",
+       "after": "05.11-20h15 + 06.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)\n07.11-11h00 : tenue de fosse (chemise noire)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 14",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "11.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "11.11-19h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "13.11-19h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "13.11-19h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [
+      "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+      "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
+      "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur"
+     ],
+     "worksRemoved": [
+      "Gustav MAHLER — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+      "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+      "Serge PROKOFIEV — Le Mandarin merveilleux, suite d'orchestre op. 19"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 16",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "19.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies\n20.11-19h00 : chemise noire",
+       "after": "19.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)\n20.11-19h00 : chemise noire"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 17",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "25.11-19h30 + 26.11-19h30 + 27.11-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 19",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "16.12-10h00 + 17.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "16.12-10h00 + 17.12-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "22.12-09h15 + 23.12-09h15 : chemise noire\n22.12-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "",
+       "after": "13.01-19h30 + 14.01-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Armenian Folk Song",
+       "fields": [
+        "note"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 23",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "20.01-19h30 + 21.01-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "20.01-19h30 + 21.01-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Richard DUBUGNON — Sonnenring, concerto pour violon et orchestre, inspiré par des tableaux d'Adolf Wölfli",
+       "fields": [
+        "instrumentation",
+        "remarques",
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 27",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "10.03-19h30 + 12.03-19h30 + 15.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "10.03-19h30 + 12.03-19h30 + 15.03-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 28",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "24.03-19h30 + 25.03-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "24.03-19h30 + 25.03-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 31",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "28.04-19h30 + 29.04-19h30 + 30.04-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "28.04-19h30 + 29.04-19h30 + 30.04-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 32",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "12.05-19h30 + 13.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "12.05-19h30 + 13.05-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 34",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "21.05-19h30 + 22.05-14h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "21.05-19h30 + 22.05-14h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste 35",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "26.05-19h30 + 27.05-20h15 + 28.05-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "26.05-19h30 + 27.05-20h15 + 28.05-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste C",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "",
+       "after": "13.12-17h00 + 15.12-19h00 + 17.12-19h00 + 18.12-19h00 + 20.12-15h00 + 22.12-19h00 + 26.12-19h00 + 28.12-19h00 + 29.12-19h00 + 31.12-19h00 : tenue de fosse (chemise noire)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste D",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures\nvernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste G",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "tenue",
+       "before": "24.06-19h30 + 25.06-19h30 : Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies",
+       "after": "24.06-19h30 + 25.06-19h30 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-11-11T09:33:36.329Z",
    "added": [],
    "removed": [],
