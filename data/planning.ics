@@ -26,268 +26,8 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:osr224803@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T100000
-DTEND;TZID=Europe/Zurich:20260813T130000
-SUMMARY:Liste 01 — générale non publique (+ balance amplification)
-LOCATION:Genève-Plage (scène mobile)\, Quai de Cologny 5\, 1223 Cologny
-GEO:46.21148;6.17205
-URL:https://isc.github.io/bemol-osr/#liste-01
-DESCRIPTION:Programme : OGP1\n\nŒuvres travaillées pendant ce service :\n
- • Florence PRICE — Colonial Dance\, pour orchestre (≈ 6 min)\n• Jo
- hn ADAMS — Concerto pour saxophone et orchestre (≈ 28 min)\n• Anton
- ín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95\, dite 'du Nouveau Mo
- nde' (≈ 40 min)\nRemarque : captation audio d'archives pour la cheffe\n\
- nŒuvres au programme :\n• Florence PRICE — Colonial Dance\, pour orch
- estre (≈ 6 min)\n• John ADAMS — Concerto pour saxophone et orchestre
-  (≈ 28 min)\n• Antonín DVOŘÁK — Symphonie N° 9 en mi mineur op. 
- 95\, dite 'du Nouveau Monde' (≈ 40 min)\n\n— Mémo de production —\n
- Direction musicale : Margaryta GRYNYVETSKA\nSoliste :\n• Valentine MICHA
- UD\, saxophone alto\nInstrumentation par œuvre :\n• Florence PRICE — 
- Colonial Dance\, pour orchestre\n    Instrumentation : 3*.2.2.2 / 4.2.3.1 
- / 1.3.0.0 / 10.10.8.6.4\n    Remarques : 1picc\n    Percussions : GC\, cym
- b fr\, glock\, c․cl.\, tri\n• John ADAMS — Concerto pour saxophone e
- t orchestre\n    Instrumentation : 3*.3*.3*.2 / 3.2.0.0 / 0.0.1.2 / 10.10.
- 8.6.4\n    Remarques : 1picc\, ob3+c․a\, 1cl․bs\n    Claviers : céles
- ta\, piano\n• Antonín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95\
- , dite 'du Nouveau Monde'\n    Instrumentation : 2*.2*.2.2 / 4.2.3*.1 / 1.
- 1.0.0 / 10.10.8.6.4\n    Remarques : picc joué par fl1ou2\, ca joué par 
- ob1ou2\, 1trb․alto\n    Percussions : cymb fr\, tri\n    Détail : -Tuba
-  seulement dans le 2e mvt / -Perc seulement dans le 3e mvt / -Dans ancienn
- e édition : picc dans partie de fl2 et c․a joué par ob1 ou ob2. / couc
- ou\nEffectif orchestral (max) : 3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 
- (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\n— Liens util
- es —\n🎼 Portail partitions (Dièse) : https://osr.opas-online.com/doc
- uments.php\n📋 Série complète de Liste 01 (Bémol) : https://isc.githu
- b.io/bemol-osr/#liste-01\n\nCalendrier Bémol · mis à jour automatiqueme
- nt
-CATEGORIES:Générale / Raccord
-X-BEMOL-LISTE:Liste 01
-X-BEMOL-CAT:generale
-X-BEMOL-ACTIVITY:générale non publique (+ balance amplification)
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr229406@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T100000
-DTEND;TZID=Europe/Zurich:20260813T110000
-SUMMARY:Liste 03 — rencontre chef-soliste(s)
-LOCATION:ML - grande salle ((loge))\, Uni Mail\, Boulevard Carl-Vogt 102\, 
- 1205 Genève
-GEO:46.19538;6.14031
-URL:https://isc.github.io/bemol-osr/#liste-03
-DESCRIPTION:Programme : OGP3\n\nŒuvres travaillées pendant ce service :\n
- • Alexandre MASTRANGELO — Hommage à Josephine Baker (≈ 1 h 30)\nRem
- arque : travail chef+Kennedy avec piano électrique\n\nŒuvres au programm
- e :\n• Alexandre MASTRANGELO — Hommage à Josephine Baker (≈ 1 h 30)
- \n\n— Mémo de production —\nDirection musicale : Alexandre MASTRANGEL
- O\nSolistes :\n• KENNEDY\, solo voice\n• Matti KLEIN\, keyboard\n• C
- hristian VON KAPHENGST\, bass [guit.]\n• Guido JÖRIS\, drums\nInstrumen
- tation par œuvre :\n• Alexandre MASTRANGELO — Hommage à Josephine Ba
- ker\n    Instrumentation : 2*.2*.2*.2* / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2\n  
-   Remarques : picc\, ca\, cl․bs\, kfgt\n    Percussions : GC\, glock\, s
- teeldrum\, xyl\, TT\, tri\, vibra\, cymb sus\, cuillères\, bsq\nEffectif 
- orchestral (max) : 2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)\
- nDurée totale approximative : ≈ 1 h 30\n\n— Liens utiles —\n🎼 Po
- rtail partitions (Dièse) : https://osr.opas-online.com/documents.php\n
- 📋 Série complète de Liste 03 (Bémol) : https://isc.github.io/bemol-o
- sr/#liste-03\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Répétition / Lecture
-X-BEMOL-LISTE:Liste 03
-X-BEMOL-CAT:repetition
-X-BEMOL-ACTIVITY:rencontre chef-soliste(s)
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr229019@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T110000
-DTEND;TZID=Europe/Zurich:20260813T123000
-SUMMARY:Liste 03 — rencontre chef-soliste(s)
-LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
- ève
-GEO:46.19538;6.14031
-URL:https://isc.github.io/bemol-osr/#liste-03
-DESCRIPTION:Programme : OGP3\n\nRemarque : rencontre chef+trio +/- Kennedy 
- avec mise en place trio dès 10h30\n\nŒuvres au programme :\n• Alexandr
- e MASTRANGELO — Hommage à Josephine Baker (≈ 1 h 30)\n\n— Mémo de 
- production —\nDirection musicale : Alexandre MASTRANGELO\nSolistes :\n
- • KENNEDY\, solo voice\n• Matti KLEIN\, keyboard\n• Christian VON KA
- PHENGST\, bass [guit.]\n• Guido JÖRIS\, drums\nInstrumentation par œuv
- re :\n• Alexandre MASTRANGELO — Hommage à Josephine Baker\n    Instru
- mentation : 2*.2*.2*.2* / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2\n    Remarques : p
- icc\, ca\, cl․bs\, kfgt\n    Percussions : GC\, glock\, steeldrum\, xyl\
- , TT\, tri\, vibra\, cymb sus\, cuillères\, bsq\nEffectif orchestral (max
- ) : 2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)\nDurée totale 
- approximative : ≈ 1 h 30\n\n— Liens utiles —\n🎼 Portail partition
- s (Dièse) : https://osr.opas-online.com/documents.php\n📋 Série compl
- ète de Liste 03 (Bémol) : https://isc.github.io/bemol-osr/#liste-03\n\nC
- alendrier Bémol · mis à jour automatiquement
-CATEGORIES:Répétition / Lecture
-X-BEMOL-LISTE:Liste 03
-X-BEMOL-CAT:repetition
-X-BEMOL-ACTIVITY:rencontre chef-soliste(s)
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr128426@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T143000
-DTEND;TZID=Europe/Zurich:20260813T170000
-SUMMARY:Liste 03 — répétition avec solistes ((voice+trio))
-LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
- ève
-GEO:46.19538;6.14031
-URL:https://isc.github.io/bemol-osr/#liste-03
-DESCRIPTION:Programme : OGP3\n\nRemarque : -1ère heure orchestre seul puis
-  avec keyb./drums/bs. et voix solo -amplification locale sans mix pour key
- b./bs et voix solo\n\nŒuvres au programme :\n• Alexandre MASTRANGELO 
- — Hommage à Josephine Baker (≈ 1 h 30)\n\n— Mémo de production —
- \nDirection musicale : Alexandre MASTRANGELO\nSolistes :\n• KENNEDY\, so
- lo voice\n• Matti KLEIN\, keyboard\n• Christian VON KAPHENGST\, bass [
- guit.]\n• Guido JÖRIS\, drums\nInstrumentation par œuvre :\n• Alexan
- dre MASTRANGELO — Hommage à Josephine Baker\n    Instrumentation : 2*.2
- *.2*.2* / 4.2.2.0 / 1.1.0.0 / 5.4.3.2.2\n    Remarques : picc\, ca\, cl․
- bs\, kfgt\n    Percussions : GC\, glock\, steeldrum\, xyl\, TT\, tri\, vib
- ra\, cymb sus\, cuillères\, bsq\nEffectif orchestral (max) : 2.2.2.2 / 4.
- 2.2.0 / 1.1.0.0 / 5.4.3.2.2 (34 musiciens)\nDurée totale approximative : 
- ≈ 1 h 30\n\n— Liens utiles —\n🎼 Portail partitions (Dièse) : htt
- ps://osr.opas-online.com/documents.php\n📋 Série complète de Liste 03 
- (Bémol) : https://isc.github.io/bemol-osr/#liste-03\n\nCalendrier Bémol 
- · mis à jour automatiquement
-CATEGORIES:Répétition / Lecture
-X-BEMOL-LISTE:Liste 03
-X-BEMOL-CAT:repetition
-X-BEMOL-ACTIVITY:répétition avec solistes ((voice+trio))
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr224805@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T191500
-DTEND;TZID=Europe/Zurich:20260813T201500
-SUMMARY:Liste 01 — raccord (+balance)
-LOCATION:Genève-Plage (scène mobile)\, Quai de Cologny 5\, 1223 Cologny
-GEO:46.21148;6.17205
-URL:https://isc.github.io/bemol-osr/#liste-01
-DESCRIPTION:Programme : OGP1\n\nRemarque : en cas de générale / balance i
- ncomplète\n\nŒuvres au programme :\n• Florence PRICE — Colonial Danc
- e\, pour orchestre (≈ 6 min)\n• John ADAMS — Concerto pour saxophone
-  et orchestre (≈ 28 min)\n• Antonín DVOŘÁK — Symphonie N° 9 en m
- i mineur op. 95\, dite 'du Nouveau Monde' (≈ 40 min)\n\n— Mémo de pro
- duction —\nDirection musicale : Margaryta GRYNYVETSKA\nSoliste :\n• Va
- lentine MICHAUD\, saxophone alto\nInstrumentation par œuvre :\n• Floren
- ce PRICE — Colonial Dance\, pour orchestre\n    Instrumentation : 3*.2.2
- .2 / 4.2.3.1 / 1.3.0.0 / 10.10.8.6.4\n    Remarques : 1picc\n    Percussio
- ns : GC\, cymb fr\, glock\, c․cl.\, tri\n• John ADAMS — Concerto pou
- r saxophone et orchestre\n    Instrumentation : 3*.3*.3*.2 / 3.2.0.0 / 0.0
- .1.2 / 10.10.8.6.4\n    Remarques : 1picc\, ob3+c․a\, 1cl․bs\n    Clav
- iers : célesta\, piano\n• Antonín DVOŘÁK — Symphonie N° 9 en mi m
- ineur op. 95\, dite 'du Nouveau Monde'\n    Instrumentation : 2*.2*.2.2 / 
- 4.2.3*.1 / 1.1.0.0 / 10.10.8.6.4\n    Remarques : picc joué par fl1ou2\, 
- ca joué par ob1ou2\, 1trb․alto\n    Percussions : cymb fr\, tri\n    D
- étail : -Tuba seulement dans le 2e mvt / -Perc seulement dans le 3e mvt /
-  -Dans ancienne édition : picc dans partie de fl2 et c․a joué par ob1 
- ou ob2. / coucou\nEffectif orchestral (max) : 3.3.3.2 / 4.2.3.1 / 1.3.1.2 
- / 10.10.8.6.4 (66 musiciens)\nDurée totale approximative : ≈ 1 h 14\n\n
- — Liens utiles —\n🎼 Portail partitions (Dièse) : https://osr.opas-
- online.com/documents.php\n📋 Série complète de Liste 01 (Bémol) : htt
- ps://isc.github.io/bemol-osr/#liste-01\n\nCalendrier Bémol · mis à jour
-  automatiquement
-CATEGORIES:Générale / Raccord
-X-BEMOL-LISTE:Liste 01
-X-BEMOL-CAT:generale
-X-BEMOL-ACTIVITY:raccord (+balance)
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr128427@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T193000
-DTEND;TZID=Europe/Zurich:20260813T220000
-SUMMARY:Liste 03 — répétition avec soliste ((voice+trio))
-LOCATION:ML - grande salle\, Uni Mail\, Boulevard Carl-Vogt 102\, 1205 Gen
- ève
-GEO:46.19538;6.14031
-URL:https://isc.github.io/bemol-osr/#liste-03
-DESCRIPTION:Programme : OGP3\n\nRemarque : -amplification locale sans mix\n
- \nŒuvres au programme :\n• Alexandre MASTRANGELO — Hommage à Josephi
- ne Baker (≈ 1 h 30)\n\n— Mémo de production —\nDirection musicale :
-  Alexandre MASTRANGELO\nSolistes :\n• KENNEDY\, solo voice\n• Matti KL
- EIN\, keyboard\n• Christian VON KAPHENGST\, bass [guit.]\n• Guido JÖR
- IS\, drums\nInstrumentation par œuvre :\n• Alexandre MASTRANGELO — Ho
- mmage à Josephine Baker\n    Instrumentation : 2*.2*.2*.2* / 4.2.2.0 / 1.
- 1.0.0 / 5.4.3.2.2\n    Remarques : picc\, ca\, cl․bs\, kfgt\n    Percuss
- ions : GC\, glock\, steeldrum\, xyl\, TT\, tri\, vibra\, cymb sus\, cuill
- ères\, bsq\nEffectif orchestral (max) : 2.2.2.2 / 4.2.2.0 / 1.1.0.0 / 5.4
- .3.2.2 (34 musiciens)\nDurée totale approximative : ≈ 1 h 30\n\n— Lie
- ns utiles —\n🎼 Portail partitions (Dièse) : https://osr.opas-online.
- com/documents.php\n📋 Série complète de Liste 03 (Bémol) : https://is
- c.github.io/bemol-osr/#liste-03\n\nCalendrier Bémol · mis à jour automa
- tiquement
-CATEGORIES:Répétition / Lecture
-X-BEMOL-LISTE:Liste 03
-X-BEMOL-CAT:repetition
-X-BEMOL-ACTIVITY:répétition avec soliste ((voice+trio))
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:osr224807@bemol-osr
-DTSTAMP:20261111T140047Z
-DTSTART;TZID=Europe/Zurich:20260813T211500
-DTEND;TZID=Europe/Zurich:20260813T230000
-SUMMARY:Liste 01 — concert
-LOCATION:Genève-Plage (scène mobile)\, Quai de Cologny 5\, 1223 Cologny
-GEO:46.21148;6.17205
-URL:https://isc.github.io/bemol-osr/#liste-01
-DESCRIPTION:Programme : OGP1\n\nŒuvres travaillées pendant ce service :\n
- • Florence PRICE — Colonial Dance\, pour orchestre (≈ 6 min)\n• Jo
- hn ADAMS — Concerto pour saxophone et orchestre (≈ 28 min)\n• Anton
- ín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95\, dite 'du Nouveau Mo
- nde' (≈ 40 min)\nRemarque : -pas de captation radio -réception sur invi
- tation (25) / Genève Aéroport / 20h15-21h15 -captation audio d'archives 
- pour la cheffe -captation vidéo d'archives pour la cheffe en construction
-  -médecin de permanence : Samuel TEICHER 079 390 12 93\n\nŒuvres au prog
- ramme :\n• Florence PRICE — Colonial Dance\, pour orchestre (≈ 6 min
- )\n• John ADAMS — Concerto pour saxophone et orchestre (≈ 28 min)\n
- • Antonín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95\, dite 'du N
- ouveau Monde' (≈ 40 min)\n\n— Mémo de production —\nDirection music
- ale : Margaryta GRYNYVETSKA\nSoliste :\n• Valentine MICHAUD\, saxophone 
- alto\nInstrumentation par œuvre :\n• Florence PRICE — Colonial Dance\
- , pour orchestre\n    Instrumentation : 3*.2.2.2 / 4.2.3.1 / 1.3.0.0 / 10.
- 10.8.6.4\n    Remarques : 1picc\n    Percussions : GC\, cymb fr\, glock\, 
- c․cl.\, tri\n• John ADAMS — Concerto pour saxophone et orchestre\n  
-   Instrumentation : 3*.3*.3*.2 / 3.2.0.0 / 0.0.1.2 / 10.10.8.6.4\n    Rema
- rques : 1picc\, ob3+c․a\, 1cl․bs\n    Claviers : célesta\, piano\n•
-  Antonín DVOŘÁK — Symphonie N° 9 en mi mineur op. 95\, dite 'du Nouv
- eau Monde'\n    Instrumentation : 2*.2*.2.2 / 4.2.3*.1 / 1.1.0.0 / 10.10.8
- .6.4\n    Remarques : picc joué par fl1ou2\, ca joué par ob1ou2\, 1trb
- ․alto\n    Percussions : cymb fr\, tri\n    Détail : -Tuba seulement da
- ns le 2e mvt / -Perc seulement dans le 3e mvt / -Dans ancienne édition : 
- picc dans partie de fl2 et c․a joué par ob1 ou ob2. / coucou\nEffectif 
- orchestral (max) : 3.3.3.2 / 4.2.3.1 / 1.3.1.2 / 10.10.8.6.4 (66 musiciens
- )\nDurée totale approximative : ≈ 1 h 14\n\n— Liens utiles —\n🎼 
- Portail partitions (Dièse) : https://osr.opas-online.com/documents.php\n
- 📋 Série complète de Liste 01 (Bémol) : https://isc.github.io/bemol-o
- sr/#liste-01\n\nCalendrier Bémol · mis à jour automatiquement
-CATEGORIES:Concert
-X-BEMOL-LISTE:Liste 01
-X-BEMOL-CAT:concert
-X-BEMOL-ACTIVITY:concert
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:osr128424@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260814T100000
 DTEND;TZID=Europe/Zurich:20260814T130000
 SUMMARY:Liste 02 — générale non publique (+ balance amplification)
@@ -317,7 +57,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128428@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260814T103000
 DTEND;TZID=Europe/Zurich:20260814T130000
 SUMMARY:Liste 03 — répétition avec solistes ((voice+trio))
@@ -349,7 +89,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128429@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260814T143000
 DTEND;TZID=Europe/Zurich:20260814T173000
 SUMMARY:Liste 03 — répétition avec solistes ((filage))
@@ -381,7 +121,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128421@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260814T191500
 DTEND;TZID=Europe/Zurich:20260814T201500
 SUMMARY:Liste 02 — raccord (+balance)
@@ -412,7 +152,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128425@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260814T211500
 DTEND;TZID=Europe/Zurich:20260814T230000
 SUMMARY:Liste 02 — concert
@@ -444,7 +184,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128430@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260815T100000
 DTEND;TZID=Europe/Zurich:20260815T130000
 SUMMARY:Liste 03 — générale non publique (+ balance amplification)
@@ -475,7 +215,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132647@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260815T150000
 DTEND;TZID=Europe/Zurich:20260815T173000
 SUMMARY:Liste 04 — répétition
@@ -516,7 +256,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128431@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260815T191500
 DTEND;TZID=Europe/Zurich:20260815T201500
 SUMMARY:Liste 03 — raccord (+balance)
@@ -547,7 +287,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132648@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260815T193000
 DTEND;TZID=Europe/Zurich:20260815T220000
 SUMMARY:Liste 04 — répétition
@@ -588,7 +328,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132645@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260815T211500
 DTEND;TZID=Europe/Zurich:20260815T231500
 SUMMARY:Liste 03 — concert
@@ -619,7 +359,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259357@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260816T090000
 DTEND;TZID=Europe/Zurich:20260816T220000
 SUMMARY:Liste 04 — Technique (sans orch)
@@ -658,7 +398,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr210774@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260816T170000
 DTEND;TZID=Europe/Zurich:20260816T180000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -700,7 +440,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr210775@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260816T190000
 DTEND;TZID=Europe/Zurich:20260816T210000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -742,7 +482,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132650@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260817T100000
 DTEND;TZID=Europe/Zurich:20260817T123000
 SUMMARY:Liste 04 — répétition + balance
@@ -784,7 +524,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132651@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260817T143000
 DTEND;TZID=Europe/Zurich:20260817T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -826,7 +566,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132652@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260818T100000
 DTEND;TZID=Europe/Zurich:20260818T123000
 SUMMARY:Liste 04 — session enregistrement
@@ -867,7 +607,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132653@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260818T143000
 DTEND;TZID=Europe/Zurich:20260818T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -909,7 +649,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132654@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260819T100000
 DTEND;TZID=Europe/Zurich:20260819T123000
 SUMMARY:Liste 04 — session enregistrement
@@ -951,7 +691,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr161270@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260819T150000
 DTEND;TZID=Europe/Zurich:20260819T180000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -995,7 +735,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr210778@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260819T193000
 DTEND;TZID=Europe/Zurich:20260819T223000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -1037,7 +777,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193684@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260820T120000
 DTEND;TZID=Europe/Zurich:20260820T140000
 SUMMARY:Conseil de Fondation Août — Séance CF
@@ -1058,7 +798,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132659@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260820T143000
 DTEND;TZID=Europe/Zurich:20260820T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -1100,7 +840,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132660@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260820T193000
 DTEND;TZID=Europe/Zurich:20260820T220000
 SUMMARY:Liste 04 — session enregistrement
@@ -1142,7 +882,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132657@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260821T143000
 DTEND;TZID=Europe/Zurich:20260821T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -1184,7 +924,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132658@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260821T193000
 DTEND;TZID=Europe/Zurich:20260821T223000
 SUMMARY:Liste 04 — session enregistrement
@@ -1226,7 +966,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr161271@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260823T150000
 DTEND;TZID=Europe/Zurich:20260823T160000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -1269,7 +1009,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr210779@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260823T160000
 DTEND;TZID=Europe/Zurich:20260823T180000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -1312,7 +1052,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr210780@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260823T190000
 DTEND;TZID=Europe/Zurich:20260823T210000
 SUMMARY:Liste 04 — répétition chef+soliste(s)+piano (sans orchestre)
@@ -1355,7 +1095,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132661@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260824T143000
 DTEND;TZID=Europe/Zurich:20260824T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -1397,7 +1137,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132662@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260824T193000
 DTEND;TZID=Europe/Zurich:20260824T220000
 SUMMARY:Liste 04 — session enregistrement (avec choeurs)
@@ -1440,7 +1180,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132663@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260825T143000
 DTEND;TZID=Europe/Zurich:20260825T170000
 SUMMARY:Liste 04 — session enregistrement
@@ -1482,7 +1222,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132664@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260825T193000
 DTEND;TZID=Europe/Zurich:20260825T220000
 SUMMARY:Liste 04 — session enregistrement
@@ -1524,7 +1264,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132665@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260826T193000
 DTEND;TZID=Europe/Zurich:20260826T220000
 SUMMARY:Liste 04 — session enregistrement
@@ -1566,7 +1306,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132666@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260827T143000
 DTEND;TZID=Europe/Zurich:20260827T173000
 SUMMARY:Liste 04 — session enregistrement
@@ -1608,7 +1348,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132667@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260827T193000
 DTEND;TZID=Europe/Zurich:20260827T223000
 SUMMARY:Liste 04 — session enregistrement
@@ -1650,7 +1390,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133255@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260902T100000
 DTEND;TZID=Europe/Zurich:20260902T123000
 SUMMARY:Liste A — lecture
@@ -1698,7 +1438,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr222606@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260902T123000
 DTEND;TZID=Europe/Zurich:20260902T133000
 SUMMARY:Présentation de Saison GT 2627 — Présentation Saison GT
@@ -1720,7 +1460,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133256@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260902T193000
 DTEND;TZID=Europe/Zurich:20260902T220000
 SUMMARY:Liste A — lecture
@@ -1767,7 +1507,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133257@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260903T100000
 DTEND;TZID=Europe/Zurich:20260903T123000
 SUMMARY:Liste A — lecture
@@ -1814,7 +1554,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133258@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260903T143000
 DTEND;TZID=Europe/Zurich:20260903T170000
 SUMMARY:Liste A — lecture
@@ -1861,7 +1601,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133259@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260904T100000
 DTEND;TZID=Europe/Zurich:20260904T123000
 SUMMARY:Liste A — lecture
@@ -1908,7 +1648,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236839@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260904T133000
 DTEND;TZID=Europe/Zurich:20260904T153000
 SUMMARY:Cérémonie d'Accueil des Nouveaux Habitants — répétition hors 
@@ -1948,7 +1688,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133260@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260904T143000
 DTEND;TZID=Europe/Zurich:20260904T183000
 SUMMARY:Liste A — générale piano
@@ -1993,7 +1733,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133261@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260905T140000
 DTEND;TZID=Europe/Zurich:20260905T170000
 SUMMARY:Liste A — italienne
@@ -2040,7 +1780,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr173515@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260905T153000
 DTEND;TZID=Europe/Zurich:20260905T173000
 SUMMARY:Cérémonie d'Accueil des Nouveaux Habitants — concert hors contr
@@ -2081,7 +1821,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133262@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260905T193000
 DTEND;TZID=Europe/Zurich:20260905T223000
 SUMMARY:Liste A — italienne
@@ -2129,7 +1869,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133263@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260907T140000
 DTEND;TZID=Europe/Zurich:20260907T170000
 SUMMARY:Liste A — italienne
@@ -2176,7 +1916,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133264@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260907T193000
 DTEND;TZID=Europe/Zurich:20260907T223000
 SUMMARY:Liste A — scène et orchestre
@@ -2223,7 +1963,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133265@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260908T140000
 DTEND;TZID=Europe/Zurich:20260908T170000
 SUMMARY:Liste A — scène et orchestre
@@ -2270,7 +2010,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133266@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260908T193000
 DTEND;TZID=Europe/Zurich:20260908T223000
 SUMMARY:Liste A — scène et orchestre
@@ -2317,7 +2057,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133267@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260909T193000
 DTEND;TZID=Europe/Zurich:20260909T223000
 SUMMARY:Liste A — scène et orchestre
@@ -2364,7 +2104,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133268@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260911T190000
 DTEND;TZID=Europe/Zurich:20260911T230000
 SUMMARY:Liste A — prégénérale GT
@@ -2412,7 +2152,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132704@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260914T100000
 DTEND;TZID=Europe/Zurich:20260914T130000
 SUMMARY:Liste 05 — session enregistrement cordes
@@ -2505,7 +2245,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr216144@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260914T130000
 DTEND;TZID=Europe/Zurich:20260914T133000
 SUMMARY:ANNULÉ · Liste 05 — session enregistrement (piano)
@@ -2589,7 +2329,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133269@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260914T190000
 DTEND;TZID=Europe/Zurich:20260914T223000
 SUMMARY:Liste A — générale GT
@@ -2637,7 +2377,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132706@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260915T103000
 DTEND;TZID=Europe/Zurich:20260915T130000
 SUMMARY:Liste 05 — session enregistrement cuivres
@@ -2728,7 +2468,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132705@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260915T143000
 DTEND;TZID=Europe/Zurich:20260915T170000
 SUMMARY:Liste 05 — session enregistrement bois
@@ -2819,7 +2559,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132707@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260915T193000
 DTEND;TZID=Europe/Zurich:20260915T223000
 SUMMARY:Liste 05 — session enregistrement tutti
@@ -2911,7 +2651,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr239151@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260916T101500
 DTEND;TZID=Europe/Zurich:20260916T123000
 SUMMARY:Réunion d'accueil et d'information des Etudiants DAS — Réunion 
@@ -2933,7 +2673,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193687@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260916T120000
 DTEND;TZID=Europe/Zurich:20260916T140000
 SUMMARY:Conseil de Fondation Septembre — Séance CF
@@ -2955,7 +2695,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133270@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260916T193000
 DTEND;TZID=Europe/Zurich:20260916T230000
 SUMMARY:Liste A — première
@@ -3002,7 +2742,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245658@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260917T093000
 DTEND;TZID=Europe/Zurich:20260917T153000
 SUMMARY:audiogrammes période 2 — audiogrammes
@@ -3028,7 +2768,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176101@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260918T090000
 DTEND;TZID=Europe/Zurich:20260918T110000
 SUMMARY:Atelier Découverte 1 — ateliers (avec mus.OSR)
@@ -3050,7 +2790,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176102@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260918T134500
 DTEND;TZID=Europe/Zurich:20260918T154500
 SUMMARY:Atelier Découverte 1 — ateliers (avec mus.OSR)
@@ -3072,7 +2812,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133271@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260918T193000
 DTEND;TZID=Europe/Zurich:20260918T230000
 SUMMARY:Liste A — deuxième
@@ -3119,7 +2859,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133272@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260920T150000
 DTEND;TZID=Europe/Zurich:20260920T183000
 SUMMARY:Liste A — troisième
@@ -3166,7 +2906,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132714@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260922T100000
 DTEND;TZID=Europe/Zurich:20260922T123000
 SUMMARY:Liste 06 — répétition
@@ -3200,7 +2940,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132715@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260922T143000
 DTEND;TZID=Europe/Zurich:20260922T170000
 SUMMARY:Liste 06 — répétition
@@ -3236,7 +2976,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr226832@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260922T170000
 DTEND;TZID=Europe/Zurich:20260922T180000
 SUMMARY:Titularisation OSÓRIO — séance titularisation (Nuno OSÓRIO)
@@ -3257,7 +2997,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133273@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260922T193000
 DTEND;TZID=Europe/Zurich:20260922T230000
 SUMMARY:Liste A — quatrième
@@ -3305,7 +3045,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132716@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260923T100000
 DTEND;TZID=Europe/Zurich:20260923T123000
 SUMMARY:Liste 06 — répétition
@@ -3340,7 +3080,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232645@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260923T180000
 DTEND;TZID=Europe/Zurich:20260923T210000
 SUMMARY:Audition de cornistes supplémentaires — audition
@@ -3363,7 +3103,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132718@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260924T100000
 DTEND;TZID=Europe/Zurich:20260924T130000
 SUMMARY:Liste 06 — générale non publique
@@ -3398,7 +3138,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr226835@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260924T170000
 DTEND;TZID=Europe/Zurich:20260924T180000
 SUMMARY:Titularisation MARQUEZ TERUEL — séance titularisation (Luis MARQ
@@ -3421,7 +3161,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132719@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260924T193000
 DTEND;TZID=Europe/Zurich:20260924T213000
 SUMMARY:Liste 06 — cinéconcert
@@ -3459,7 +3199,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133274@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260924T193000
 DTEND;TZID=Europe/Zurich:20260924T230000
 SUMMARY:Liste A — cinquième
@@ -3507,7 +3247,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132731@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260925T143000
 DTEND;TZID=Europe/Zurich:20260925T173000
 SUMMARY:Liste 07 — répétition
@@ -3554,7 +3294,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132732@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260925T193000
 DTEND;TZID=Europe/Zurich:20260925T223000
 SUMMARY:Liste 07 — générale non publique
@@ -3602,7 +3342,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132733@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260926T110000
 DTEND;TZID=Europe/Zurich:20260926T123000
 SUMMARY:Liste 07 — concert
@@ -3650,7 +3390,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133275@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260926T193000
 DTEND;TZID=Europe/Zurich:20260926T230000
 SUMMARY:Liste A — sixième
@@ -3697,7 +3437,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132182@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260927T090000
 DTEND;TZID=Europe/Zurich:20260927T103000
 SUMMARY:Musique De Chambre 1 — raccord hors contrat
@@ -3735,7 +3475,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132183@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260927T110000
 DTEND;TZID=Europe/Zurich:20260927T120000
 SUMMARY:Musique De Chambre 1 — concert hors contrat
@@ -3776,7 +3516,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132751@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260928T100000
 DTEND;TZID=Europe/Zurich:20260928T123000
 SUMMARY:Liste 08 — répétition
@@ -3816,7 +3556,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132752@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260928T143000
 DTEND;TZID=Europe/Zurich:20260928T170000
 SUMMARY:Liste 08 — répétition
@@ -3856,7 +3596,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132753@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260929T100000
 DTEND;TZID=Europe/Zurich:20260929T123000
 SUMMARY:Liste 08 — répétition
@@ -3897,7 +3637,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132754@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260929T143000
 DTEND;TZID=Europe/Zurich:20260929T170000
 SUMMARY:Liste 08 — répétition avec soliste
@@ -3937,7 +3677,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236938@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260929T170000
 DTEND;TZID=Europe/Zurich:20260929T183000
 SUMMARY:Liste 08 — technique RTS
@@ -3975,7 +3715,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132755@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260930T100000
 DTEND;TZID=Europe/Zurich:20260930T130000
 SUMMARY:Liste 08 — générale publique
@@ -4018,7 +3758,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr241270@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260930T130000
 DTEND;TZID=Europe/Zurich:20260930T140000
 SUMMARY:Pot de départ Yan Wei Wang — pot de départ
@@ -4039,7 +3779,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132756@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20260930T193000
 DTEND;TZID=Europe/Zurich:20260930T213000
 SUMMARY:Liste 08 — concert
@@ -4084,7 +3824,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245661@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261001T093000
 DTEND;TZID=Europe/Zurich:20261001T153000
 SUMMARY:audiogrammes période 3 — audiogrammes
@@ -4110,7 +3850,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132757@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261001T171500
 DTEND;TZID=Europe/Zurich:20261001T183000
 SUMMARY:Liste 08 — bus
@@ -4147,7 +3887,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132758@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261001T191500
 DTEND;TZID=Europe/Zurich:20261001T194500
 SUMMARY:Liste 08 — raccord
@@ -4189,7 +3929,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132759@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261001T201500
 DTEND;TZID=Europe/Zurich:20261001T221500
 SUMMARY:Liste 08 — concert
@@ -4232,7 +3972,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251540@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261001T221500
 DTEND;TZID=Europe/Zurich:20261001T233000
 SUMMARY:Liste 08 — bus
@@ -4269,7 +4009,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133277@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261002T143000
 DTEND;TZID=Europe/Zurich:20261002T173000
 SUMMARY:Liste B — lecture
@@ -4307,7 +4047,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133278@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261002T193000
 DTEND;TZID=Europe/Zurich:20261002T223000
 SUMMARY:Liste B — lecture
@@ -4345,7 +4085,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224682@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261004T080000
 DTEND;TZID=Europe/Zurich:20261004T130000
 SUMMARY:Résa VH 2627 — salle résa 1M
@@ -4366,7 +4106,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224681@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261004T140000
 DTEND;TZID=Europe/Zurich:20261004T180000
 SUMMARY:Résa VH 2627 — salle résa 2AM
@@ -4387,7 +4127,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224680@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261004T183000
 DTEND;TZID=Europe/Zurich:20261004T235900
 SUMMARY:Résa VH 2627 — salle résa 3S
@@ -4408,7 +4148,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132769@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261006T100000
 DTEND;TZID=Europe/Zurich:20261006T123000
 SUMMARY:Liste 09 — répétition
@@ -4456,7 +4196,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr137820@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261006T143000
 DTEND;TZID=Europe/Zurich:20261006T170000
 SUMMARY:Liste 09 — répétition avec solistes
@@ -4507,7 +4247,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133281@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261006T193000
 DTEND;TZID=Europe/Zurich:20261006T223000
 SUMMARY:Liste B — scène et orchestre (+ check son / balance)
@@ -4545,7 +4285,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132770@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261007T100000
 DTEND;TZID=Europe/Zurich:20261007T123000
 SUMMARY:Liste 09 — répétition avec solistes
@@ -4595,7 +4335,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133282@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261007T100000
 DTEND;TZID=Europe/Zurich:20261007T130000
 SUMMARY:Liste B — scène et orchestre
@@ -4632,7 +4372,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236932@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261007T170000
 DTEND;TZID=Europe/Zurich:20261007T183000
 SUMMARY:Liste 09 — technique RTS
@@ -4678,7 +4418,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132772@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261007T193000
 DTEND;TZID=Europe/Zurich:20261007T220000
 SUMMARY:Liste 09 — répétition
@@ -4726,7 +4466,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133283@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261007T193000
 DTEND;TZID=Europe/Zurich:20261007T223000
 SUMMARY:Liste B — scène et orchestre
@@ -4763,7 +4503,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132773@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261008T100000
 DTEND;TZID=Europe/Zurich:20261008T130000
 SUMMARY:Liste 09 — générale publique
@@ -4815,7 +4555,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132774@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261008T193000
 DTEND;TZID=Europe/Zurich:20261008T213000
 SUMMARY:Liste 09 — concert
@@ -4869,7 +4609,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133284@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261008T193000
 DTEND;TZID=Europe/Zurich:20261008T233000
 SUMMARY:Liste B — générale GT
@@ -4906,7 +4646,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193686@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261009T120000
 DTEND;TZID=Europe/Zurich:20261009T140000
 SUMMARY:Conseil de Fondation Octobre — Séance CF
@@ -4928,7 +4668,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133285@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261009T193000
 DTEND;TZID=Europe/Zurich:20261009T223000
 SUMMARY:Liste B — première
@@ -4965,7 +4705,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132777@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261010T163000
 DTEND;TZID=Europe/Zurich:20261010T181500
 SUMMARY:Liste 09 — bus
@@ -5011,7 +4751,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132775@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261010T190000
 DTEND;TZID=Europe/Zurich:20261010T200000
 SUMMARY:Liste 09 — raccord
@@ -5064,7 +4804,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132776@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261010T203000
 DTEND;TZID=Europe/Zurich:20261010T223000
 SUMMARY:Liste 09 — concert
@@ -5116,7 +4856,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251627@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261010T223000
 DTEND;TZID=Europe/Zurich:20261010T235900
 SUMMARY:Liste 09 — bus
@@ -5161,7 +4901,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133286@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261011T143000
 DTEND;TZID=Europe/Zurich:20261011T173000
 SUMMARY:Liste B — deuxième
@@ -5198,7 +4938,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133287@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261011T200000
 DTEND;TZID=Europe/Zurich:20261011T230000
 SUMMARY:Liste B — troisième
@@ -5235,7 +4975,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236835@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261012T080000
 DTEND;TZID=Europe/Zurich:20261012T110000
 SUMMARY:Liste 07 — Technique (vidéo - Rzn Torbey)
@@ -5277,7 +5017,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132734@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261012T120000
 DTEND;TZID=Europe/Zurich:20261012T130000
 SUMMARY:Liste 07 — raccord
@@ -5325,7 +5065,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132736@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261012T141500
 DTEND;TZID=Europe/Zurich:20261012T151500
 SUMMARY:Liste 07 — un concert scolaire
@@ -5373,7 +5113,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132737@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261013T091500
 DTEND;TZID=Europe/Zurich:20261013T113000
 SUMMARY:Liste 07 — deux concerts scolaires (9h15 + 10h30)
@@ -5420,7 +5160,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132738@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261013T141500
 DTEND;TZID=Europe/Zurich:20261013T151500
 SUMMARY:Liste 07 — un concert scolaire
@@ -5468,7 +5208,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133288@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261013T193000
 DTEND;TZID=Europe/Zurich:20261013T223000
 SUMMARY:Liste B — quatrième
@@ -5505,7 +5245,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132739@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261014T091500
 DTEND;TZID=Europe/Zurich:20261014T113000
 SUMMARY:Liste 07 — deux concerts scolaires (9h15 + 10h30)
@@ -5553,7 +5293,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133289@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261014T193000
 DTEND;TZID=Europe/Zurich:20261014T223000
 SUMMARY:Liste B — cinquième
@@ -5590,7 +5330,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132740@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261015T091500
 DTEND;TZID=Europe/Zurich:20261015T113000
 SUMMARY:Liste 07 — deux concerts scolaires (9h15 + 10h30)
@@ -5637,7 +5377,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236836@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261015T120000
 DTEND;TZID=Europe/Zurich:20261015T130000
 SUMMARY:Liste 07 — Technique (vidéo - Rzn Torbey)
@@ -5679,7 +5419,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232647@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261015T143000
 DTEND;TZID=Europe/Zurich:20261015T173000
 SUMMARY:Audition de violonistes supplémentaires — audition
@@ -5702,7 +5442,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133290@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261015T193000
 DTEND;TZID=Europe/Zurich:20261015T223000
 SUMMARY:Liste B — sixième
@@ -5739,7 +5479,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132795@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (violons 1)
@@ -5775,7 +5515,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233616@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (hautbois)
@@ -5810,7 +5550,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233619@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261016T100000
 DTEND;TZID=Europe/Zurich:20261016T123000
 SUMMARY:Liste 10 — partielle par pupitre (flûtes)
@@ -5845,7 +5585,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133291@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261016T193000
 DTEND;TZID=Europe/Zurich:20261016T223000
 SUMMARY:Liste B — septième
@@ -5882,7 +5622,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132796@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T100000
 DTEND;TZID=Europe/Zurich:20261017T123000
 SUMMARY:Liste 10 — partielle par pupitre (violons 2)
@@ -5918,7 +5658,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233625@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T100000
 DTEND;TZID=Europe/Zurich:20261017T123000
 SUMMARY:Liste 10 — partielle par pupitre (bassons)
@@ -5953,7 +5693,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132798@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T140000
 DTEND;TZID=Europe/Zurich:20261017T163000
 SUMMARY:Liste 10 — partielle par pupitre (altos)
@@ -5989,7 +5729,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233628@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T140000
 DTEND;TZID=Europe/Zurich:20261017T163000
 SUMMARY:Liste 10 — partielle par pupitre (trompettes)
@@ -6024,7 +5764,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132797@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T183000
 DTEND;TZID=Europe/Zurich:20261017T210000
 SUMMARY:ANNULÉ · Liste 10 — partielle par pupitre (trimbales+percussion
@@ -6060,7 +5800,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233634@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261017T183000
 DTEND;TZID=Europe/Zurich:20261017T210000
 SUMMARY:Liste 10 — partielle par pupitre (contrebasses)
@@ -6096,7 +5836,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232433@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261019T100000
 DTEND;TZID=Europe/Zurich:20261019T130000
 SUMMARY:Audition de percussionistes supplémentaires — répétitions cand
@@ -6120,7 +5860,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232435@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261019T140000
 DTEND;TZID=Europe/Zurich:20261019T170000
 SUMMARY:Audition de percussionistes supplémentaires — audition
@@ -6143,7 +5883,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132799@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T100000
 DTEND;TZID=Europe/Zurich:20261020T123000
 SUMMARY:Liste 10 — partielle par pupitre (violoncelles)
@@ -6179,7 +5919,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr225312@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T100000
 DTEND;TZID=Europe/Zurich:20261020T123000
 SUMMARY:Liste 10 — musicale choeur
@@ -6213,7 +5953,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132800@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T143000
 DTEND;TZID=Europe/Zurich:20261020T170000
 SUMMARY:Liste 10 — partielle par registre (cordes)
@@ -6249,7 +5989,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233631@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T143000
 DTEND;TZID=Europe/Zurich:20261020T170000
 SUMMARY:Liste 10 — partielle par pupitre (trombones)
@@ -6284,7 +6024,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr233622@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T150000
 DTEND;TZID=Europe/Zurich:20261020T180000
 SUMMARY:Liste 10 — partielle par pupitre (clarinettes)
@@ -6321,7 +6061,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132801@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261020T193000
 DTEND;TZID=Europe/Zurich:20261020T220000
 SUMMARY:Liste 10 — partielle par registre (bois\, cuivres\, timbales\, pe
@@ -6359,7 +6099,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132802@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261021T100000
 DTEND;TZID=Europe/Zurich:20261021T123000
 SUMMARY:Liste 10 — répétition
@@ -6398,7 +6138,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr225315@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261021T143000
 DTEND;TZID=Europe/Zurich:20261021T170000
 SUMMARY:Liste 10 — musicale choeur
@@ -6437,7 +6177,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132803@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261021T193000
 DTEND;TZID=Europe/Zurich:20261021T220000
 SUMMARY:Liste 10 — répétition
@@ -6476,7 +6216,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245662@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261022T093000
 DTEND;TZID=Europe/Zurich:20261022T153000
 SUMMARY:audiogrammes période 3 — audiogrammes
@@ -6502,7 +6242,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132804@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261022T100000
 DTEND;TZID=Europe/Zurich:20261022T123000
 SUMMARY:Liste 10 — répétition
@@ -6540,7 +6280,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132805@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261022T143000
 DTEND;TZID=Europe/Zurich:20261022T170000
 SUMMARY:Liste 10 — répétition avec choeurs
@@ -6579,7 +6319,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132806@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261023T100000
 DTEND;TZID=Europe/Zurich:20261023T123000
 SUMMARY:Liste 10 — répétition avec soliste(s) et choeurs
@@ -6617,7 +6357,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132807@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261023T193000
 DTEND;TZID=Europe/Zurich:20261023T223000
 SUMMARY:Liste 10 — générale non publique
@@ -6655,7 +6395,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132808@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261024T193000
 DTEND;TZID=Europe/Zurich:20261024T213000
 SUMMARY:Liste 10 — concert
@@ -6695,7 +6435,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132809@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261025T170000
 DTEND;TZID=Europe/Zurich:20261025T193000
 SUMMARY:Liste 10 — concert
@@ -6735,7 +6475,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176070@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261026T131500
 DTEND;TZID=Europe/Zurich:20261026T151500
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
@@ -6757,7 +6497,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176068@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261027T090000
 DTEND;TZID=Europe/Zurich:20261027T110000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
@@ -6779,7 +6519,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176069@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261027T133000
 DTEND;TZID=Europe/Zurich:20261027T153000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
@@ -6801,7 +6541,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176071@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261028T090000
 DTEND;TZID=Europe/Zurich:20261028T110000
 SUMMARY:Atelier Découverte 2 — ateliers (avec mus.OSR)
@@ -6823,7 +6563,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232649@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261029T093000
 DTEND;TZID=Europe/Zurich:20261029T123000
 SUMMARY:Audition d'altistes supplémentaires — audition
@@ -6846,7 +6586,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245664@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261029T093000
 DTEND;TZID=Europe/Zurich:20261029T153000
 SUMMARY:audiogrammes période 4 — audiogrammes
@@ -6872,7 +6612,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232650@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261029T140000
 DTEND;TZID=Europe/Zurich:20261029T170000
 SUMMARY:Audition de tubistes supplémentaires — audition
@@ -6895,7 +6635,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132828@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261030T093000
 DTEND;TZID=Europe/Zurich:20261030T123000
 SUMMARY:Liste 11 — répétition
@@ -6932,7 +6672,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132830@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261030T143000
 DTEND;TZID=Europe/Zurich:20261030T173000
 SUMMARY:Liste 11 — répétition
@@ -6970,7 +6710,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132834@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261031T100000
 DTEND;TZID=Europe/Zurich:20261031T130000
 SUMMARY:Liste 11 — générale non publique
@@ -7007,7 +6747,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132833@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261031T170000
 DTEND;TZID=Europe/Zurich:20261031T193000
 SUMMARY:Liste 11 — cinéconcert
@@ -7046,7 +6786,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr248530@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261101T093000
 DTEND;TZID=Europe/Zurich:20261101T143000
 SUMMARY:Concours Violoncelle Tuttiste - 2 postes — présélection (Violon
@@ -7070,7 +6810,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132831@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261101T171500
 DTEND;TZID=Europe/Zurich:20261101T181500
 SUMMARY:Liste 11 — bus
@@ -7104,7 +6844,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr160676@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261101T190000
 DTEND;TZID=Europe/Zurich:20261101T194500
 SUMMARY:Liste 11 — raccord (+ balance)
@@ -7141,7 +6881,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132832@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261101T201500
 DTEND;TZID=Europe/Zurich:20261101T223000
 SUMMARY:Liste 11 — cinéconcert
@@ -7178,7 +6918,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr246247@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261101T223000
 DTEND;TZID=Europe/Zurich:20261101T235000
 SUMMARY:Liste 11 — bus
@@ -7212,7 +6952,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245691@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261102T100000
 DTEND;TZID=Europe/Zurich:20261102T193000
 SUMMARY:Concours Violoncelle Tuttiste - 2 postes — concours (Violoncelle 
@@ -7236,7 +6976,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132845@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261103T150000
 DTEND;TZID=Europe/Zurich:20261103T190000
 SUMMARY:Liste 12 — répétition
@@ -7281,7 +7021,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132847@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261104T100000
 DTEND;TZID=Europe/Zurich:20261104T130000
 SUMMARY:Liste 12 — répétition
@@ -7324,7 +7064,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132848@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261104T193000
 DTEND;TZID=Europe/Zurich:20261104T220000
 SUMMARY:Liste 12 — répétition privée Amis
@@ -7367,7 +7107,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132849@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261105T100000
 DTEND;TZID=Europe/Zurich:20261105T130000
 SUMMARY:Liste 12 — générale non publique
@@ -7405,7 +7145,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132850@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261105T181500
 DTEND;TZID=Europe/Zurich:20261105T193000
 SUMMARY:Liste 12 — bus
@@ -7441,7 +7181,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132852@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261105T201500
 DTEND;TZID=Europe/Zurich:20261105T221500
 SUMMARY:Liste 12 — concert
@@ -7483,7 +7223,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr246249@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261105T221500
 DTEND;TZID=Europe/Zurich:20261105T233000
 SUMMARY:Liste 12 — bus
@@ -7519,7 +7259,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176073@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261106T090000
 DTEND;TZID=Europe/Zurich:20261106T110000
 SUMMARY:Atelier Découverte 3 — ateliers (avec mus.OSR)
@@ -7541,7 +7281,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132856@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261106T104500
 DTEND;TZID=Europe/Zurich:20261106T130000
 SUMMARY:Liste 12 — session masterclass direction
@@ -7586,7 +7326,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176074@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261106T134500
 DTEND;TZID=Europe/Zurich:20261106T154500
 SUMMARY:Atelier Découverte 3 — ateliers (avec mus.OSR)
@@ -7608,7 +7348,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132853@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261106T193000
 DTEND;TZID=Europe/Zurich:20261106T223000
 SUMMARY:Liste 12 — concert
@@ -7653,7 +7393,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132854@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261107T101000
 DTEND;TZID=Europe/Zurich:20261107T103000
 SUMMARY:Liste 12 — raccord
@@ -7692,7 +7432,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132855@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261107T110000
 DTEND;TZID=Europe/Zurich:20261107T123000
 SUMMARY:Liste 12 — concert
@@ -7732,7 +7472,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196354@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261109T100000
 DTEND;TZID=Europe/Zurich:20261109T120000
 SUMMARY:ANNULÉ · Atelier Découverte 4 — ateliers (avec mus.OSR)
@@ -7754,7 +7494,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193688@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261109T120000
 DTEND;TZID=Europe/Zurich:20261109T140000
 SUMMARY:Conseil de Fondation Novembre — Séance CF
@@ -7776,7 +7516,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132871@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261109T143000
 DTEND;TZID=Europe/Zurich:20261109T173000
 SUMMARY:Liste 13 — répétition publique (1/2 finale)
@@ -7832,7 +7572,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132872@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261109T193000
 DTEND;TZID=Europe/Zurich:20261109T223000
 SUMMARY:Liste 13 — répétition publique (1/2 finale)
@@ -7886,7 +7626,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196355@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261110T090000
 DTEND;TZID=Europe/Zurich:20261110T110000
 SUMMARY:Atelier Découverte 4 — ateliers (avec mus.OSR)
@@ -7908,7 +7648,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132885@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261110T143000
 DTEND;TZID=Europe/Zurich:20261110T173000
 SUMMARY:Liste 14 — répétition
@@ -7979,7 +7719,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132886@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261110T193000
 DTEND;TZID=Europe/Zurich:20261110T223000
 SUMMARY:Liste 14 — répétition
@@ -8053,7 +7793,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132887@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261111T100000
 DTEND;TZID=Europe/Zurich:20261111T130000
 SUMMARY:Liste 14 — générale non publique
@@ -8125,7 +7865,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132888@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261111T190000
 DTEND;TZID=Europe/Zurich:20261111T210000
 SUMMARY:Liste 14 — concert (Finale 1)
@@ -8198,7 +7938,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr131104@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261112T093000
 DTEND;TZID=Europe/Zurich:20261112T123000
 SUMMARY:Liste 15 — répétition
@@ -8283,7 +8023,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr131105@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261112T143000
 DTEND;TZID=Europe/Zurich:20261112T173000
 SUMMARY:Liste 15 — répétition
@@ -8368,7 +8108,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr131106@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261113T100000
 DTEND;TZID=Europe/Zurich:20261113T130000
 SUMMARY:Liste 15 — générale non publique
@@ -8453,7 +8193,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr131107@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261113T190000
 DTEND;TZID=Europe/Zurich:20261113T213000
 SUMMARY:Liste 15 — concert (Finale 2)
@@ -8541,7 +8281,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132902@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261116T143000
 DTEND;TZID=Europe/Zurich:20261116T170000
 SUMMARY:Liste 16 — répétition
@@ -8575,7 +8315,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132903@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261116T193000
 DTEND;TZID=Europe/Zurich:20261116T220000
 SUMMARY:Liste 16 — répétition avec choeurs
@@ -8608,7 +8348,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128605@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261117T143000
 DTEND;TZID=Europe/Zurich:20261117T170000
 SUMMARY:Liste 16 — répétition avec solistes (sans choeur)
@@ -8641,7 +8381,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132904@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261117T193000
 DTEND;TZID=Europe/Zurich:20261117T223000
 SUMMARY:Liste 16 — répétition avec soliste(s) et choeurs
@@ -8675,7 +8415,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128607@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261118T100000
 DTEND;TZID=Europe/Zurich:20261118T123000
 SUMMARY:Liste 16 — répétition avec solistes (sans choeur)
@@ -8708,7 +8448,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132905@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261118T193000
 DTEND;TZID=Europe/Zurich:20261118T223000
 SUMMARY:Liste 16 — générale non publique
@@ -8742,7 +8482,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245663@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261119T093000
 DTEND;TZID=Europe/Zurich:20261119T153000
 SUMMARY:audiogrammes période 4 — audiogrammes
@@ -8768,7 +8508,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128610@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261119T193000
 DTEND;TZID=Europe/Zurich:20261119T223000
 SUMMARY:Liste 16 — concert
@@ -8803,7 +8543,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232652@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261120T100000
 DTEND;TZID=Europe/Zurich:20261120T130000
 SUMMARY:Audition de contrebassistes supplémentaires — audition
@@ -8826,7 +8566,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232654@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261120T140000
 DTEND;TZID=Europe/Zurich:20261120T170000
 SUMMARY:Audition de hautboïstes supplémentaires — audition
@@ -8849,7 +8589,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162177@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261120T153000
 DTEND;TZID=Europe/Zurich:20261120T170000
 SUMMARY:Concerts pour Petites Oreilles 1 — répétition hors contrat
@@ -8882,7 +8622,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128611@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261120T174500
 DTEND;TZID=Europe/Zurich:20261120T183000
 SUMMARY:Liste 16 — raccord (chœur + orch.)
@@ -8917,7 +8657,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132906@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261120T190000
 DTEND;TZID=Europe/Zurich:20261120T203000
 SUMMARY:Liste 16 — concert
@@ -8952,7 +8692,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162180@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261121T090000
 DTEND;TZID=Europe/Zurich:20261121T093000
 SUMMARY:Doudou Concert 1 — concert hors contrat
@@ -8973,7 +8713,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162181@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261121T100000
 DTEND;TZID=Europe/Zurich:20261121T103000
 SUMMARY:Doudou Concert 1 — concert hors contrat
@@ -8994,7 +8734,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162175@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261121T110000
 DTEND;TZID=Europe/Zurich:20261121T123000
 SUMMARY:Concerts pour Petites Oreilles 1 — concert hors contrat
@@ -9027,7 +8767,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162176@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261121T153000
 DTEND;TZID=Europe/Zurich:20261121T170000
 SUMMARY:Concerts pour Petites Oreilles 1 — concert hors contrat
@@ -9060,7 +8800,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162182@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261122T090000
 DTEND;TZID=Europe/Zurich:20261122T093000
 SUMMARY:Doudou Concert 1 — concert hors contrat
@@ -9081,7 +8821,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162183@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261122T100000
 DTEND;TZID=Europe/Zurich:20261122T103000
 SUMMARY:Doudou Concert 1 — concert hors contrat
@@ -9102,7 +8842,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162178@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261122T110000
 DTEND;TZID=Europe/Zurich:20261122T123000
 SUMMARY:Concerts pour Petites Oreilles 1 — concert hors contrat
@@ -9135,7 +8875,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162179@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261122T153000
 DTEND;TZID=Europe/Zurich:20261122T170000
 SUMMARY:Concerts pour Petites Oreilles 1 — concert hors contrat
@@ -9168,7 +8908,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132917@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261123T150000
 DTEND;TZID=Europe/Zurich:20261123T190000
 SUMMARY:Liste 17 — répétition
@@ -9207,7 +8947,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132918@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261123T193000
 DTEND;TZID=Europe/Zurich:20261123T220000
 SUMMARY:ANNULÉ · Liste 17 — répétition
@@ -9244,7 +8984,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196349@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261124T090000
 DTEND;TZID=Europe/Zurich:20261124T110000
 SUMMARY:Atelier Découverte 5 — ateliers (avec mus.OSR)
@@ -9266,7 +9006,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132919@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261124T100000
 DTEND;TZID=Europe/Zurich:20261124T123000
 SUMMARY:Liste 17 — répétition
@@ -9303,7 +9043,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196350@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261124T130000
 DTEND;TZID=Europe/Zurich:20261124T150000
 SUMMARY:Atelier Découverte 5 — ateliers (avec mus.OSR)
@@ -9325,7 +9065,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132920@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261124T143000
 DTEND;TZID=Europe/Zurich:20261124T170000
 SUMMARY:Liste 17 — répétition
@@ -9361,7 +9101,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr262474@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261124T170000
 DTEND;TZID=Europe/Zurich:20261124T183000
 SUMMARY:Liste 17 — technique RTS
@@ -9394,7 +9134,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132921@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261125T100000
 DTEND;TZID=Europe/Zurich:20261125T130000
 SUMMARY:Liste 17 — générale publique
@@ -9430,7 +9170,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr206164@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261125T160000
 DTEND;TZID=Europe/Zurich:20261125T183000
 SUMMARY:Liste 18 — coaching Orch.Coll.
@@ -9469,7 +9209,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132922@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261125T193000
 DTEND;TZID=Europe/Zurich:20261125T220000
 SUMMARY:Liste 17 — concert
@@ -9506,7 +9246,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132926@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261126T103000
 DTEND;TZID=Europe/Zurich:20261126T130000
 SUMMARY:Liste 17 — session masterclass direction
@@ -9546,7 +9286,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132923@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261126T193000
 DTEND;TZID=Europe/Zurich:20261126T220000
 SUMMARY:Liste 17 — concert
@@ -9584,7 +9324,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132925@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261127T193000
 DTEND;TZID=Europe/Zurich:20261127T220000
 SUMMARY:Liste 17 — concert
@@ -9621,7 +9361,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132184@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261129T090000
 DTEND;TZID=Europe/Zurich:20261129T103000
 SUMMARY:Musique De Chambre 2 — raccord hors contrat
@@ -9655,7 +9395,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132185@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261129T110000
 DTEND;TZID=Europe/Zurich:20261129T120000
 SUMMARY:Musique De Chambre 2 — concert hors contrat
@@ -9692,7 +9432,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr248482@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261201T100000
 DTEND;TZID=Europe/Zurich:20261201T123000
 SUMMARY:Groupe de Prévention 2026 — Réunion (plénière des membres)
@@ -9713,7 +9453,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133293@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261202T100000
 DTEND;TZID=Europe/Zurich:20261202T123000
 SUMMARY:Liste C — lecture
@@ -9744,7 +9484,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr163275@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261202T160000
 DTEND;TZID=Europe/Zurich:20261202T183000
 SUMMARY:Liste 18 — coaching Orch.Coll.
@@ -9783,7 +9523,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245672@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261203T093000
 DTEND;TZID=Europe/Zurich:20261203T153000
 SUMMARY:audiogrammes période 5 — audiogrammes
@@ -9809,7 +9549,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133294@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261203T100000
 DTEND;TZID=Europe/Zurich:20261203T123000
 SUMMARY:Liste C — lecture
@@ -9840,7 +9580,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133295@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261203T143000
 DTEND;TZID=Europe/Zurich:20261203T170000
 SUMMARY:Liste C — lecture
@@ -9871,7 +9611,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132931@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261203T190000
 DTEND;TZID=Europe/Zurich:20261203T213000
 SUMMARY:Liste 18 — répétition
@@ -9910,7 +9650,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133296@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261204T100000
 DTEND;TZID=Europe/Zurich:20261204T123000
 SUMMARY:Liste C — lecture
@@ -9941,7 +9681,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133297@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261204T143000
 DTEND;TZID=Europe/Zurich:20261204T170000
 SUMMARY:Liste C — lecture
@@ -9972,7 +9712,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132933@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261204T190000
 DTEND;TZID=Europe/Zurich:20261204T213000
 SUMMARY:Liste 18 — générale publique ((hors Amis) + balance récitant)
@@ -10013,7 +9753,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132934@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261205T110000
 DTEND;TZID=Europe/Zurich:20261205T130000
 SUMMARY:Liste 18 — concert
@@ -10054,7 +9794,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr262477@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261205T130000
 DTEND;TZID=Europe/Zurich:20261205T220000
 SUMMARY:Concours Premier.ère soliste des clarinettes (coordonné) — rép
@@ -10080,7 +9820,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133298@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261205T140000
 DTEND;TZID=Europe/Zurich:20261205T170000
 SUMMARY:Liste C — italienne
@@ -10111,7 +9851,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133299@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261205T193000
 DTEND;TZID=Europe/Zurich:20261205T223000
 SUMMARY:Liste C — italienne
@@ -10142,7 +9882,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240516@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261206T093000
 DTEND;TZID=Europe/Zurich:20261206T190000
 SUMMARY:Concours Premier.ère soliste des clarinettes (coordonné) — pré
@@ -10168,7 +9908,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr262476@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261206T180000
 DTEND;TZID=Europe/Zurich:20261206T220000
 SUMMARY:Concours Premier.ère soliste des clarinettes (coordonné) — rép
@@ -10194,7 +9934,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240317@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261207T093000
 DTEND;TZID=Europe/Zurich:20261207T190000
 SUMMARY:Concours Premier.ère soliste des clarinettes (coordonné) — conc
@@ -10219,7 +9959,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr261722@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261207T100000
 DTEND;TZID=Europe/Zurich:20261207T120000
 SUMMARY:Liste 20 — répétition chef+soliste(s)+piano ((sextet vocal sans
@@ -10260,7 +10000,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133300@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261207T143000
 DTEND;TZID=Europe/Zurich:20261207T190000
 SUMMARY:Liste C — générale piano
@@ -10291,7 +10031,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193689@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261208T120000
 DTEND;TZID=Europe/Zurich:20261208T140000
 SUMMARY:Conseil de Fondation Décembre 1 — Séance CF
@@ -10313,7 +10053,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133301@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261208T140000
 DTEND;TZID=Europe/Zurich:20261208T170000
 SUMMARY:Liste C — scène et orchestre
@@ -10344,7 +10084,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133302@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261208T193000
 DTEND;TZID=Europe/Zurich:20261208T223000
 SUMMARY:Liste C — scène et orchestre
@@ -10375,7 +10115,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133303@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261209T100000
 DTEND;TZID=Europe/Zurich:20261209T130000
 SUMMARY:Liste C — scène et orchestre
@@ -10406,7 +10146,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133304@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261209T193000
 DTEND;TZID=Europe/Zurich:20261209T223000
 SUMMARY:Liste C — scène et orchestre
@@ -10437,7 +10177,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245671@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261210T093000
 DTEND;TZID=Europe/Zurich:20261210T153000
 SUMMARY:audiogrammes période 5 — audiogrammes
@@ -10463,7 +10203,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133309@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261210T190000
 DTEND;TZID=Europe/Zurich:20261210T230000
 SUMMARY:Liste C — prégénérale GT
@@ -10494,7 +10234,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133310@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261211T190000
 DTEND;TZID=Europe/Zurich:20261211T230000
 SUMMARY:Liste C — générale GT
@@ -10525,7 +10265,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133311@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261213T170000
 DTEND;TZID=Europe/Zurich:20261213T210000
 SUMMARY:Liste C — première
@@ -10556,7 +10296,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132942@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261214T100000
 DTEND;TZID=Europe/Zurich:20261214T123000
 SUMMARY:Liste 19 — répétition
@@ -10596,7 +10336,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132943@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261214T143000
 DTEND;TZID=Europe/Zurich:20261214T170000
 SUMMARY:Liste 19 — répétition
@@ -10636,7 +10376,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132944@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261215T100000
 DTEND;TZID=Europe/Zurich:20261215T123000
 SUMMARY:Liste 19 — répétition
@@ -10676,7 +10416,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr262425@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261215T134500
 DTEND;TZID=Europe/Zurich:20261215T141500
 SUMMARY:Liste 19 — rencontre chef-soliste(s) ((sans orch.))
@@ -10715,7 +10455,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132945@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261215T143000
 DTEND;TZID=Europe/Zurich:20261215T170000
 SUMMARY:Liste 19 — répétition avec soliste
@@ -10755,7 +10495,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133312@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261215T190000
 DTEND;TZID=Europe/Zurich:20261215T230000
 SUMMARY:Liste C — deuxième
@@ -10786,7 +10526,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132946@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261216T100000
 DTEND;TZID=Europe/Zurich:20261216T130000
 SUMMARY:Liste 19 — générale publique
@@ -10833,7 +10573,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132947@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261216T193000
 DTEND;TZID=Europe/Zurich:20261216T220000
 SUMMARY:Liste 19 — concert
@@ -10878,7 +10618,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245670@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T093000
 DTEND;TZID=Europe/Zurich:20261217T153000
 SUMMARY:audiogrammes période 5 — audiogrammes
@@ -10904,7 +10644,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr193690@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T120000
 DTEND;TZID=Europe/Zurich:20261217T140000
 SUMMARY:Conseil de Fondation Décembre 2 — Séance CF
@@ -10926,7 +10666,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240146@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T160000
 DTEND;TZID=Europe/Zurich:20261217T164500
 SUMMARY:évaluation DAS #1 — réunion évaluation DAS (violons)
@@ -10945,7 +10685,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240149@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T164500
 DTEND;TZID=Europe/Zurich:20261217T173000
 SUMMARY:évaluation DAS #1 — réunion évaluation DAS (alti)
@@ -10964,7 +10704,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240151@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T173000
 DTEND;TZID=Europe/Zurich:20261217T181500
 SUMMARY:évaluation DAS #1 — réunion évaluation DAS (cors)
@@ -10983,7 +10723,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133313@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T190000
 DTEND;TZID=Europe/Zurich:20261217T230000
 SUMMARY:Liste C — troisième
@@ -11014,7 +10754,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132948@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261217T193000
 DTEND;TZID=Europe/Zurich:20261217T220000
 SUMMARY:Liste 19 — concert
@@ -11060,7 +10800,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162112@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261218T100000
 DTEND;TZID=Europe/Zurich:20261218T123000
 SUMMARY:Liste 20 — répétition
@@ -11102,7 +10842,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162113@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261218T143000
 DTEND;TZID=Europe/Zurich:20261218T170000
 SUMMARY:Liste 20 — répétition
@@ -11144,7 +10884,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133314@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261218T190000
 DTEND;TZID=Europe/Zurich:20261218T230000
 SUMMARY:Liste C — quatrième
@@ -11177,7 +10917,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128620@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261219T100000
 DTEND;TZID=Europe/Zurich:20261219T123000
 SUMMARY:Liste 20 — répétition
@@ -11219,7 +10959,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr261714@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261219T140000
 DTEND;TZID=Europe/Zurich:20261219T170000
 SUMMARY:Liste 20 — répétition chef+soliste(s)+piano ((sextet vocal sans
@@ -11263,7 +11003,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr261715@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261220T140000
 DTEND;TZID=Europe/Zurich:20261220T160000
 SUMMARY:Liste 20 — répétition chef+soliste(s)+piano ((sextet sans orch.
@@ -11306,7 +11046,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133305@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261220T150000
 DTEND;TZID=Europe/Zurich:20261220T190000
 SUMMARY:Liste C — cinquième
@@ -11339,7 +11079,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr261716@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261220T170000
 DTEND;TZID=Europe/Zurich:20261220T200000
 SUMMARY:Liste 20 — répétition chef+soliste(s)+piano ((sol+sextet sans o
@@ -11383,7 +11123,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr261723@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261221T133000
 DTEND;TZID=Europe/Zurich:20261221T140000
 SUMMARY:Liste 20 — balance ((soliste et choristes))
@@ -11422,7 +11162,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162114@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261221T143000
 DTEND;TZID=Europe/Zurich:20261221T173000
 SUMMARY:Liste 20 — répétition avec solistes ((sol.+sextet vocal))
@@ -11463,7 +11203,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr229810@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261221T173000
 DTEND;TZID=Europe/Zurich:20261221T190000
 SUMMARY:Liste 20 — technique RTS
@@ -11502,7 +11242,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162115@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261221T193000
 DTEND;TZID=Europe/Zurich:20261221T221500
 SUMMARY:Liste 20 — générale publique ((retraités OSR))
@@ -11545,7 +11285,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128623@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261222T091500
 DTEND;TZID=Europe/Zurich:20261222T113000
 SUMMARY:Liste 20 — deux concerts scolaires (9h15 + 10h30)
@@ -11586,7 +11326,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133315@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261222T190000
 DTEND;TZID=Europe/Zurich:20261222T230000
 SUMMARY:Liste C — sixième
@@ -11619,7 +11359,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128624@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261222T193000
 DTEND;TZID=Europe/Zurich:20261222T220000
 SUMMARY:Liste 20 — concert
@@ -11660,7 +11400,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128622@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261223T091500
 DTEND;TZID=Europe/Zurich:20261223T113000
 SUMMARY:Liste 20 — deux concerts scolaires (9h15 + 10h30)
@@ -11701,7 +11441,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133306@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261226T190000
 DTEND;TZID=Europe/Zurich:20261226T230000
 SUMMARY:Liste C — septième
@@ -11734,7 +11474,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133316@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261228T190000
 DTEND;TZID=Europe/Zurich:20261228T230000
 SUMMARY:Liste C — huitième
@@ -11767,7 +11507,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133307@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261229T190000
 DTEND;TZID=Europe/Zurich:20261229T230000
 SUMMARY:Liste C — neuvième
@@ -11800,7 +11540,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133308@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20261231T190000
 DTEND;TZID=Europe/Zurich:20261231T230000
 SUMMARY:Liste C — dixième
@@ -11833,7 +11573,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132967@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270111T100000
 DTEND;TZID=Europe/Zurich:20270111T123000
 SUMMARY:Liste 21 — répétition
@@ -11952,7 +11692,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132968@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270111T143000
 DTEND;TZID=Europe/Zurich:20270111T170000
 SUMMARY:Liste 21 — répétition
@@ -12065,7 +11805,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132969@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270112T143000
 DTEND;TZID=Europe/Zurich:20270112T170000
 SUMMARY:Liste 21 — répétition avec soliste
@@ -12175,7 +11915,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132970@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270112T193000
 DTEND;TZID=Europe/Zurich:20270112T220000
 SUMMARY:Liste 21 — répétition avec soliste ((générale soliste))
@@ -12285,7 +12025,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132971@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270113T100000
 DTEND;TZID=Europe/Zurich:20270113T130000
 SUMMARY:Liste 21 — générale non publique (sans soliste)
@@ -12402,7 +12142,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132972@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270113T193000
 DTEND;TZID=Europe/Zurich:20270113T223000
 SUMMARY:Liste 21 — concert
@@ -12519,7 +12259,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245674@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270114T093000
 DTEND;TZID=Europe/Zurich:20270114T153000
 SUMMARY:audiogrammes période 6 — audiogrammes
@@ -12544,7 +12284,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132973@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270114T171500
 DTEND;TZID=Europe/Zurich:20270114T183000
 SUMMARY:Liste 21 — bus
@@ -12638,7 +12378,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132974@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270114T191500
 DTEND;TZID=Europe/Zurich:20270114T194500
 SUMMARY:Liste 21 — raccord
@@ -12733,7 +12473,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132975@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270114T201500
 DTEND;TZID=Europe/Zurich:20270114T221500
 SUMMARY:Liste 21 — concert
@@ -12848,7 +12588,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251619@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270114T221500
 DTEND;TZID=Europe/Zurich:20270114T233000
 SUMMARY:Liste 21 — bus
@@ -12942,7 +12682,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162228@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270115T160000
 DTEND;TZID=Europe/Zurich:20270115T190000
 SUMMARY:Concerts pour Petites Oreilles 2 — répétition hors contrat
@@ -12975,7 +12715,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162233@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270116T090000
 DTEND;TZID=Europe/Zurich:20270116T093000
 SUMMARY:Doudou Concert 2 — concert hors contrat
@@ -13000,7 +12740,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162234@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270116T100000
 DTEND;TZID=Europe/Zurich:20270116T103000
 SUMMARY:Doudou Concert 2 — concert hors contrat
@@ -13025,7 +12765,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162229@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270116T110000
 DTEND;TZID=Europe/Zurich:20270116T123000
 SUMMARY:Concerts pour Petites Oreilles 2 — concert hors contrat
@@ -13058,7 +12798,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162230@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270116T153000
 DTEND;TZID=Europe/Zurich:20270116T170000
 SUMMARY:Concerts pour Petites Oreilles 2 — concert hors contrat
@@ -13091,7 +12831,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162235@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T090000
 DTEND;TZID=Europe/Zurich:20270117T093000
 SUMMARY:Doudou Concert 2 — concert hors contrat
@@ -13116,7 +12856,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132186@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T093000
 DTEND;TZID=Europe/Zurich:20270117T103000
 SUMMARY:Musique De Chambre 3 — raccord hors contrat
@@ -13151,7 +12891,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162236@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T100000
 DTEND;TZID=Europe/Zurich:20270117T103000
 SUMMARY:Doudou Concert 2 — concert hors contrat
@@ -13176,7 +12916,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132187@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T110000
 DTEND;TZID=Europe/Zurich:20270117T120000
 SUMMARY:Musique De Chambre 3 — concert hors contrat
@@ -13211,7 +12951,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162231@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T110000
 DTEND;TZID=Europe/Zurich:20270117T123000
 SUMMARY:Concerts pour Petites Oreilles 2 — concert hors contrat
@@ -13244,7 +12984,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162232@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270117T153000
 DTEND;TZID=Europe/Zurich:20270117T170000
 SUMMARY:Concerts pour Petites Oreilles 2 — concert hors contrat
@@ -13277,7 +13017,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132987@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270118T103000
 DTEND;TZID=Europe/Zurich:20270118T130000
 SUMMARY:Liste 23 — répétition
@@ -13320,7 +13060,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132988@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270118T150000
 DTEND;TZID=Europe/Zurich:20270118T173000
 SUMMARY:Liste 23 — répétition
@@ -13362,7 +13102,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132989@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270119T100000
 DTEND;TZID=Europe/Zurich:20270119T123000
 SUMMARY:Liste 23 — répétition
@@ -13404,7 +13144,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132990@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270119T143000
 DTEND;TZID=Europe/Zurich:20270119T170000
 SUMMARY:Liste 23 — répétition avec soliste
@@ -13446,7 +13186,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132993@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270120T100000
 DTEND;TZID=Europe/Zurich:20270120T130000
 SUMMARY:Liste 23 — générale publique
@@ -13488,7 +13228,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132991@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270120T193000
 DTEND;TZID=Europe/Zurich:20270120T220000
 SUMMARY:Liste 23 — concert
@@ -13535,7 +13275,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245676@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270121T093000
 DTEND;TZID=Europe/Zurich:20270121T153000
 SUMMARY:audiogrammes période 7 — audiogrammes
@@ -13558,7 +13298,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132992@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270121T193000
 DTEND;TZID=Europe/Zurich:20270121T220000
 SUMMARY:Liste 23 — concert
@@ -13605,7 +13345,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133001@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270122T143000
 DTEND;TZID=Europe/Zurich:20270122T170000
 SUMMARY:Liste 24 — répétition
@@ -13643,7 +13383,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133003@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270125T100000
 DTEND;TZID=Europe/Zurich:20270125T130000
 SUMMARY:Liste 24 — générale non publique
@@ -13680,7 +13420,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133004@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270125T141500
 DTEND;TZID=Europe/Zurich:20270125T151500
 SUMMARY:Liste 24 — un concert scolaire
@@ -13720,7 +13460,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133005@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270126T091500
 DTEND;TZID=Europe/Zurich:20270126T113000
 SUMMARY:Liste 24 — deux concerts scolaires (9h15 + 10h30)
@@ -13760,7 +13500,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133006@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270127T091500
 DTEND;TZID=Europe/Zurich:20270127T113000
 SUMMARY:Liste 24 — deux concerts scolaires
@@ -13800,7 +13540,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133317@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270127T100000
 DTEND;TZID=Europe/Zurich:20270127T123000
 SUMMARY:Liste D — lecture
@@ -13833,7 +13573,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133007@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270128T091500
 DTEND;TZID=Europe/Zurich:20270128T113000
 SUMMARY:Liste 24 — deux concerts scolaires (9h15 + 10h30)
@@ -13873,7 +13613,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133318@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270128T100000
 DTEND;TZID=Europe/Zurich:20270128T123000
 SUMMARY:Liste D — lecture
@@ -13906,7 +13646,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133319@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270128T143000
 DTEND;TZID=Europe/Zurich:20270128T170000
 SUMMARY:Liste D — lecture
@@ -13939,7 +13679,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133320@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270129T100000
 DTEND;TZID=Europe/Zurich:20270129T123000
 SUMMARY:Liste D — lecture
@@ -13972,7 +13712,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133321@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270129T143000
 DTEND;TZID=Europe/Zurich:20270129T170000
 SUMMARY:Liste D — lecture
@@ -14005,7 +13745,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133322@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270130T140000
 DTEND;TZID=Europe/Zurich:20270130T170000
 SUMMARY:Liste D — italienne
@@ -14038,7 +13778,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133323@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270130T193000
 DTEND;TZID=Europe/Zurich:20270130T223000
 SUMMARY:Liste D — italienne
@@ -14072,7 +13812,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133324@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T143000
 DTEND;TZID=Europe/Zurich:20270201T183000
 SUMMARY:Liste D — générale piano
@@ -14105,7 +13845,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176088@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Fl)
@@ -14134,7 +13874,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176089@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Ob.)
@@ -14162,7 +13902,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176090@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Cl.)
@@ -14190,7 +13930,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176091@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T183000
 DTEND;TZID=Europe/Zurich:20270201T203000
 SUMMARY:Liste 24b — partielle (Fgt.)
@@ -14218,7 +13958,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176092@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (trb.+tub)
@@ -14247,7 +13987,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176093@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (trp.)
@@ -14275,7 +14015,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176094@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (cr.)
@@ -14303,7 +14043,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr217813@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270201T204500
 DTEND;TZID=Europe/Zurich:20270201T223000
 SUMMARY:Liste 24b — partielle (sax.)
@@ -14331,7 +14071,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133325@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270202T140000
 DTEND;TZID=Europe/Zurich:20270202T170000
 SUMMARY:Liste D — scène et orchestre
@@ -14364,7 +14104,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176095@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270202T190000
 DTEND;TZID=Europe/Zurich:20270202T213000
 SUMMARY:Liste 24b — partielle (V1)
@@ -14393,7 +14133,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176096@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270202T190000
 DTEND;TZID=Europe/Zurich:20270202T213000
 SUMMARY:Liste 24b — partielle (Vc)
@@ -14421,7 +14161,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133326@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270202T193000
 DTEND;TZID=Europe/Zurich:20270202T223000
 SUMMARY:Liste D — scène et orchestre
@@ -14454,7 +14194,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176097@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (V2)
@@ -14483,7 +14223,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176098@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (altos)
@@ -14511,7 +14251,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176099@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270203T190000
 DTEND;TZID=Europe/Zurich:20270203T213000
 SUMMARY:Liste 24b — partielle (contrebasses)
@@ -14539,7 +14279,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133327@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270203T193000
 DTEND;TZID=Europe/Zurich:20270203T233000
 SUMMARY:Liste D — prégénérale GT
@@ -14572,7 +14312,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr245675@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270204T093000
 DTEND;TZID=Europe/Zurich:20270204T153000
 SUMMARY:audiogrammes période 7 — audiogrammes
@@ -14596,7 +14336,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr252409@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270204T093000
 DTEND;TZID=Europe/Zurich:20270204T100000
 SUMMARY:Doudou Concert 4 — concert hors contrat
@@ -14616,7 +14356,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr252411@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270204T103000
 DTEND;TZID=Europe/Zurich:20270204T110000
 SUMMARY:Doudou Concert 4 — concert hors contrat
@@ -14636,7 +14376,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176100@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270204T183000
 DTEND;TZID=Europe/Zurich:20270204T213000
 SUMMARY:Liste 24b — répétition tutti
@@ -14665,7 +14405,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133328@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270204T193000
 DTEND;TZID=Europe/Zurich:20270204T233000
 SUMMARY:Liste D — générale GT
@@ -14698,7 +14438,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr236289@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270205T100000
 DTEND;TZID=Europe/Zurich:20270205T193000
 SUMMARY:Concours Premier.ère Soliste des seconds violons — concours (Pre
@@ -14722,7 +14462,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133329@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270206T193000
 DTEND;TZID=Europe/Zurich:20270206T223000
 SUMMARY:Liste D — première
@@ -14756,7 +14496,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133330@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270208T193000
 DTEND;TZID=Europe/Zurich:20270208T223000
 SUMMARY:Liste D — deuxième
@@ -14789,7 +14529,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178695@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270209T100000
 DTEND;TZID=Europe/Zurich:20270209T193000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -14808,7 +14548,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133331@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270210T193000
 DTEND;TZID=Europe/Zurich:20270210T223000
 SUMMARY:Liste D — troisième
@@ -14841,7 +14581,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178696@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270211T100000
 DTEND;TZID=Europe/Zurich:20270211T193000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -14860,7 +14600,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133332@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270212T193000
 DTEND;TZID=Europe/Zurich:20270212T223000
 SUMMARY:Liste D — quatrième
@@ -14893,7 +14633,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133333@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270214T150000
 DTEND;TZID=Europe/Zurich:20270214T190000
 SUMMARY:Liste D — cinquième
@@ -14926,7 +14666,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr239389@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270215T093000
 DTEND;TZID=Europe/Zurich:20270215T190000
 SUMMARY:Concours Violon tuttiste - registre des seconds violons — concour
@@ -14948,7 +14688,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr249282@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270216T093000
 DTEND;TZID=Europe/Zurich:20270216T190000
 SUMMARY:Concours Alto tuttiste — concours (Alto tuttiste)
@@ -14967,7 +14707,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133339@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270217T100000
 DTEND;TZID=Europe/Zurich:20270217T123000
 SUMMARY:Liste E — lecture
@@ -15001,7 +14741,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133340@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270218T100000
 DTEND;TZID=Europe/Zurich:20270218T123000
 SUMMARY:Liste E — lecture
@@ -15035,7 +14775,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133341@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270218T143000
 DTEND;TZID=Europe/Zurich:20270218T170000
 SUMMARY:Liste E — lecture
@@ -15069,7 +14809,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133342@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270219T100000
 DTEND;TZID=Europe/Zurich:20270219T123000
 SUMMARY:Liste E — lecture
@@ -15103,7 +14843,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133343@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270219T143000
 DTEND;TZID=Europe/Zurich:20270219T170000
 SUMMARY:Liste E — lecture
@@ -15137,7 +14877,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133017@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270222T100000
 DTEND;TZID=Europe/Zurich:20270222T123000
 SUMMARY:Liste 25 — répétition
@@ -15176,7 +14916,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133018@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270222T143000
 DTEND;TZID=Europe/Zurich:20270222T170000
 SUMMARY:Liste 25 — répétition
@@ -15215,7 +14955,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162105@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270222T183000
 DTEND;TZID=Europe/Zurich:20270222T210000
 SUMMARY:Liste 26 — partielle (registre cordes)
@@ -15244,7 +14984,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133019@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270223T100000
 DTEND;TZID=Europe/Zurich:20270223T123000
 SUMMARY:Liste 25 — répétition
@@ -15283,7 +15023,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr219512@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270223T134500
 DTEND;TZID=Europe/Zurich:20270223T141500
 SUMMARY:Liste 25 — rencontre chef-soliste(s)
@@ -15322,7 +15062,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133020@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270223T143000
 DTEND;TZID=Europe/Zurich:20270223T170000
 SUMMARY:Liste 25 — répétition avec soliste
@@ -15361,7 +15101,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162104@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270223T183000
 DTEND;TZID=Europe/Zurich:20270223T210000
 SUMMARY:Liste 26 — partielle (registre vents-percu)
@@ -15390,7 +15130,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133021@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270224T100000
 DTEND;TZID=Europe/Zurich:20270224T130000
 SUMMARY:Liste 25 — générale publique
@@ -15429,7 +15169,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162103@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270224T183000
 DTEND;TZID=Europe/Zurich:20270224T213000
 SUMMARY:Liste 26 — répétition tutti
@@ -15458,7 +15198,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133022@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270224T193000
 DTEND;TZID=Europe/Zurich:20270224T223000
 SUMMARY:Liste 25 — concert
@@ -15502,7 +15242,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133023@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270225T171500
 DTEND;TZID=Europe/Zurich:20270225T183000
 SUMMARY:Liste 25 — bus
@@ -15540,7 +15280,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133024@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270225T191500
 DTEND;TZID=Europe/Zurich:20270225T194500
 SUMMARY:Liste 25 — raccord
@@ -15579,7 +15319,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133025@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270225T201500
 DTEND;TZID=Europe/Zurich:20270225T221500
 SUMMARY:Liste 25 — concert
@@ -15623,7 +15363,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251621@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270225T221500
 DTEND;TZID=Europe/Zurich:20270225T233000
 SUMMARY:Liste 25 — bus
@@ -15661,7 +15401,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133344@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270226T140000
 DTEND;TZID=Europe/Zurich:20270226T170000
 SUMMARY:Liste E — italienne
@@ -15695,7 +15435,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133345@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270226T193000
 DTEND;TZID=Europe/Zurich:20270226T224500
 SUMMARY:Liste E — italienne
@@ -15729,7 +15469,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133346@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270301T193000
 DTEND;TZID=Europe/Zurich:20270301T233000
 SUMMARY:Liste E — générale piano
@@ -15763,7 +15503,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133347@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270302T140000
 DTEND;TZID=Europe/Zurich:20270302T170000
 SUMMARY:Liste E — scène et orchestre
@@ -15797,7 +15537,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133348@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270302T193000
 DTEND;TZID=Europe/Zurich:20270302T223000
 SUMMARY:Liste E — scène et orchestre
@@ -15831,7 +15571,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133349@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270303T100000
 DTEND;TZID=Europe/Zurich:20270303T130000
 SUMMARY:Liste E — scène et orchestre
@@ -15865,7 +15605,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133350@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270303T193000
 DTEND;TZID=Europe/Zurich:20270303T223000
 SUMMARY:Liste E — scène et orchestre
@@ -15899,7 +15639,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196360@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270304T090000
 DTEND;TZID=Europe/Zurich:20270304T120000
 SUMMARY:Atelier Découverte GT — ateliers (avec mus.OSR)
@@ -15922,7 +15662,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133351@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270304T193000
 DTEND;TZID=Europe/Zurich:20270304T233000
 SUMMARY:Liste E — prégénérale GT
@@ -15956,7 +15696,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196361@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270305T090000
 DTEND;TZID=Europe/Zurich:20270305T120000
 SUMMARY:Atelier Découverte GT — ateliers (avec mus.OSR) (OPTION)
@@ -15979,7 +15719,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133352@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270305T193000
 DTEND;TZID=Europe/Zurich:20270305T223000
 SUMMARY:Liste E — générale GT
@@ -16013,7 +15753,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132188@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270307T090000
 DTEND;TZID=Europe/Zurich:20270307T103000
 SUMMARY:Musique De Chambre 4 — raccord hors contrat
@@ -16048,7 +15788,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132189@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270307T110000
 DTEND;TZID=Europe/Zurich:20270307T120000
 SUMMARY:Musique De Chambre 4 — concert hors contrat
@@ -16087,7 +15827,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133353@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270307T170000
 DTEND;TZID=Europe/Zurich:20270307T200000
 SUMMARY:Liste E — première
@@ -16121,7 +15861,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162117@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270308T150000
 DTEND;TZID=Europe/Zurich:20270308T173000
 SUMMARY:Liste 27 — répétition
@@ -16156,7 +15896,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132562@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270308T193000
 DTEND;TZID=Europe/Zurich:20270308T220000
 SUMMARY:Liste 27 — répétition privée Amis
@@ -16191,7 +15931,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132563@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270309T100000
 DTEND;TZID=Europe/Zurich:20270309T123000
 SUMMARY:Liste 27 — répétition avec soliste
@@ -16226,7 +15966,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133354@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270309T193000
 DTEND;TZID=Europe/Zurich:20270309T223000
 SUMMARY:Liste E — deuxième
@@ -16260,7 +16000,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132564@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270310T100000
 DTEND;TZID=Europe/Zurich:20270310T130000
 SUMMARY:Liste 27 — générale non publique
@@ -16295,7 +16035,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132565@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270310T193000
 DTEND;TZID=Europe/Zurich:20270310T220000
 SUMMARY:Liste 27 — concert
@@ -16330,7 +16070,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178808@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270311T103000
 DTEND;TZID=Europe/Zurich:20270311T130000
 SUMMARY:Liste 27b — session masterclass direction
@@ -16353,7 +16093,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240153@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270311T160000
 DTEND;TZID=Europe/Zurich:20270311T164500
 SUMMARY:évaluation DAS #2 — réunion évaluation DAS (alti)
@@ -16372,7 +16112,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240154@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270311T164500
 DTEND;TZID=Europe/Zurich:20270311T173000
 SUMMARY:évaluation DAS #2 — réunion évaluation DAS (cors)
@@ -16391,7 +16131,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240157@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270311T173000
 DTEND;TZID=Europe/Zurich:20270311T181500
 SUMMARY:évaluation DAS #2 — réunion évaluation DAS (violons)
@@ -16410,7 +16150,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133355@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270311T193000
 DTEND;TZID=Europe/Zurich:20270311T223000
 SUMMARY:Liste E — troisième
@@ -16444,7 +16184,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132566@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270312T153000
 DTEND;TZID=Europe/Zurich:20270312T173000
 SUMMARY:Liste 27 — bus
@@ -16478,7 +16218,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132567@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270312T183000
 DTEND;TZID=Europe/Zurich:20270312T190000
 SUMMARY:Liste 27 — raccord
@@ -16515,7 +16255,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132568@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270312T193000
 DTEND;TZID=Europe/Zurich:20270312T211500
 SUMMARY:Liste 27 — concert
@@ -16555,7 +16295,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259568@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270312T211500
 DTEND;TZID=Europe/Zurich:20270312T233000
 SUMMARY:Liste 27 — bus
@@ -16589,7 +16329,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224684@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270313T070000
 DTEND;TZID=Europe/Zurich:20270313T130000
 SUMMARY:ANNULÉ · Résa VH 2627 — Réservation
@@ -16610,7 +16350,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133356@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270314T150000
 DTEND;TZID=Europe/Zurich:20270314T180000
 SUMMARY:Liste E — quatrième
@@ -16644,7 +16384,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132569@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270315T104000
 DTEND;TZID=Europe/Zurich:20270315T134000
 SUMMARY:Liste 27 — train
@@ -16680,7 +16420,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132570@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270315T183000
 DTEND;TZID=Europe/Zurich:20270315T190000
 SUMMARY:Liste 27 — raccord
@@ -16716,7 +16456,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132571@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270315T193000
 DTEND;TZID=Europe/Zurich:20270315T220000
 SUMMARY:Liste 27 — concert
@@ -16755,7 +16495,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132572@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270316T090000
 DTEND;TZID=Europe/Zurich:20270316T123000
 SUMMARY:Liste 27 — train
@@ -16790,7 +16530,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133357@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270317T193000
 DTEND;TZID=Europe/Zurich:20270317T223000
 SUMMARY:Liste E — cinquième
@@ -16824,7 +16564,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162238@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270319T100000
 DTEND;TZID=Europe/Zurich:20270319T180000
 SUMMARY:Concerts pour Petites Oreilles 3 — répétition hors contrat
@@ -16856,7 +16596,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162243@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270320T090000
 DTEND;TZID=Europe/Zurich:20270320T093000
 SUMMARY:Doudou Concert 3 — concert hors contrat
@@ -16877,7 +16617,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162245@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270320T100000
 DTEND;TZID=Europe/Zurich:20270320T103000
 SUMMARY:Doudou Concert 3 — concert hors contrat
@@ -16898,7 +16638,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162239@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270320T110000
 DTEND;TZID=Europe/Zurich:20270320T123000
 SUMMARY:Concerts pour Petites Oreilles 3 — concert hors contrat
@@ -16929,7 +16669,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162241@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270320T153000
 DTEND;TZID=Europe/Zurich:20270320T170000
 SUMMARY:Concerts pour Petites Oreilles 3 — concert hors contrat
@@ -16960,7 +16700,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133358@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270320T193000
 DTEND;TZID=Europe/Zurich:20270320T223000
 SUMMARY:Liste E — sixième
@@ -16994,7 +16734,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162244@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270321T090000
 DTEND;TZID=Europe/Zurich:20270321T093000
 SUMMARY:Doudou Concert 3 — concert hors contrat
@@ -17015,7 +16755,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162246@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270321T100000
 DTEND;TZID=Europe/Zurich:20270321T103000
 SUMMARY:Doudou Concert 3 — concert hors contrat
@@ -17036,7 +16776,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162240@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270321T110000
 DTEND;TZID=Europe/Zurich:20270321T123000
 SUMMARY:Concerts pour Petites Oreilles 3 — concert hors contrat
@@ -17067,7 +16807,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162242@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270321T153000
 DTEND;TZID=Europe/Zurich:20270321T170000
 SUMMARY:Concerts pour Petites Oreilles 3 — concert hors contrat
@@ -17098,7 +16838,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133047@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T103000
 DTEND;TZID=Europe/Zurich:20270322T130000
 SUMMARY:Liste 28 — répétition
@@ -17147,7 +16887,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133048@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T150000
 DTEND;TZID=Europe/Zurich:20270322T173000
 SUMMARY:Liste 28 — répétition (sans solistes)
@@ -17195,7 +16935,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220676@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T180000
 DTEND;TZID=Europe/Zurich:20270322T200000
 SUMMARY:Liste 28b — partielle (violons 1)
@@ -17223,7 +16963,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr174776@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle bois
@@ -17251,7 +16991,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220674@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle (violoncelles)
@@ -17278,7 +17018,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220684@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T183000
 DTEND;TZID=Europe/Zurich:20270322T203000
 SUMMARY:Liste 28b — partielle (contrebasses)
@@ -17305,7 +17045,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220682@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T201500
 DTEND;TZID=Europe/Zurich:20270322T220000
 SUMMARY:Liste 28b — partielle (violons 2)
@@ -17333,7 +17073,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220678@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T204500
 DTEND;TZID=Europe/Zurich:20270322T223000
 SUMMARY:Liste 28b — partielle (cuivres)
@@ -17361,7 +17101,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220680@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270322T204500
 DTEND;TZID=Europe/Zurich:20270322T223000
 SUMMARY:Liste 28b — partielle (altos)
@@ -17388,7 +17128,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133049@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270323T100000
 DTEND;TZID=Europe/Zurich:20270323T123000
 SUMMARY:Liste 28 — répétition
@@ -17437,7 +17177,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr213044@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270323T133000
 DTEND;TZID=Europe/Zurich:20270323T141500
 SUMMARY:Liste 28 — rencontre chef-soliste(s)
@@ -17483,7 +17223,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133050@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270323T143000
 DTEND;TZID=Europe/Zurich:20270323T170000
 SUMMARY:Liste 28 — répétition avec solistes
@@ -17531,7 +17271,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr174778@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270323T183000
 DTEND;TZID=Europe/Zurich:20270323T213000
 SUMMARY:Liste 28b — répétition tutti
@@ -17559,7 +17299,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133051@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270324T100000
 DTEND;TZID=Europe/Zurich:20270324T130000
 SUMMARY:Liste 28 — générale non publique
@@ -17605,7 +17345,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133052@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270324T193000
 DTEND;TZID=Europe/Zurich:20270324T220000
 SUMMARY:Liste 28 — concert
@@ -17657,7 +17397,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133053@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270325T193000
 DTEND;TZID=Europe/Zurich:20270325T220000
 SUMMARY:Liste 28 — concert
@@ -17709,7 +17449,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133360@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270405T100000
 DTEND;TZID=Europe/Zurich:20270405T123000
 SUMMARY:Liste F — lecture
@@ -17749,7 +17489,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133361@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270405T143000
 DTEND;TZID=Europe/Zurich:20270405T170000
 SUMMARY:Liste F — lecture
@@ -17789,7 +17529,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133362@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270406T100000
 DTEND;TZID=Europe/Zurich:20270406T123000
 SUMMARY:Liste F — lecture
@@ -17829,7 +17569,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133363@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270406T143000
 DTEND;TZID=Europe/Zurich:20270406T170000
 SUMMARY:Liste F — lecture
@@ -17869,7 +17609,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133364@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270407T193000
 DTEND;TZID=Europe/Zurich:20270407T223000
 SUMMARY:Liste F — italienne (+ balance amplification)
@@ -17909,7 +17649,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133366@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270408T103000
 DTEND;TZID=Europe/Zurich:20270408T130000
 SUMMARY:Liste F — scène et orchestre
@@ -17949,7 +17689,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133365@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270408T150000
 DTEND;TZID=Europe/Zurich:20270408T173000
 SUMMARY:Liste F — scène et orchestre
@@ -17989,7 +17729,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133061@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270409T100000
 DTEND;TZID=Europe/Zurich:20270409T123000
 SUMMARY:Liste 29 — répétition
@@ -18027,7 +17767,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133367@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270409T140000
 DTEND;TZID=Europe/Zurich:20270409T170000
 SUMMARY:Liste F — scène et orchestre
@@ -18068,7 +17808,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133062@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270409T143000
 DTEND;TZID=Europe/Zurich:20270409T170000
 SUMMARY:Liste 29 — répétition
@@ -18106,7 +17846,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133368@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270409T193000
 DTEND;TZID=Europe/Zurich:20270409T223000
 SUMMARY:Liste F — scène et orchestre
@@ -18148,7 +17888,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133369@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270410T200000
 DTEND;TZID=Europe/Zurich:20270410T230000
 SUMMARY:Liste F — générale GT
@@ -18189,7 +17929,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234459@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270412T103000
 DTEND;TZID=Europe/Zurich:20270412T124500
 SUMMARY:Liste 29 — bus (Romont)
@@ -18226,7 +17966,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133064@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270412T133000
 DTEND;TZID=Europe/Zurich:20270412T153000
 SUMMARY:Liste 29 — deux concerts scolaires (13h30 + 14h45)
@@ -18263,7 +18003,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234461@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270412T153000
 DTEND;TZID=Europe/Zurich:20270412T180000
 SUMMARY:Liste 29 — bus (Place Neuve)
@@ -18300,7 +18040,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234106@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270413T111500
 DTEND;TZID=Europe/Zurich:20270413T121500
 SUMMARY:Liste 29 — bus (Rolle)
@@ -18338,7 +18078,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133063@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270413T130000
 DTEND;TZID=Europe/Zurich:20270413T153000
 SUMMARY:Liste 29 — deux concerts scolaires (13h + 14h15)
@@ -18378,7 +18118,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234439@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270413T160000
 DTEND;TZID=Europe/Zurich:20270413T170000
 SUMMARY:Liste 29 — bus (Place Neuve)
@@ -18417,7 +18157,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133370@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270413T200000
 DTEND;TZID=Europe/Zurich:20270413T230000
 SUMMARY:Liste F — première
@@ -18459,7 +18199,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133371@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270414T200000
 DTEND;TZID=Europe/Zurich:20270414T230000
 SUMMARY:Liste F — deuxième
@@ -18500,7 +18240,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234455@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270415T102000
 DTEND;TZID=Europe/Zurich:20270415T123000
 SUMMARY:Liste 29 — train (Sion)
@@ -18538,7 +18278,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133065@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270415T133000
 DTEND;TZID=Europe/Zurich:20270415T153000
 SUMMARY:Liste 29 — deux concerts scolaires (13h30 + 14h45)
@@ -18576,7 +18316,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234457@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270415T163000
 DTEND;TZID=Europe/Zurich:20270415T184000
 SUMMARY:Liste 29 — train (Cornavin)
@@ -18614,7 +18354,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133372@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270415T200000
 DTEND;TZID=Europe/Zurich:20270415T230000
 SUMMARY:Liste F — troisième
@@ -18656,7 +18396,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234441@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270416T091500
 DTEND;TZID=Europe/Zurich:20270416T121000
 SUMMARY:Liste 29 — train (Porrentruy)
@@ -18695,7 +18435,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133066@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270416T133000
 DTEND;TZID=Europe/Zurich:20270416T160000
 SUMMARY:Liste 29 — deux concerts scolaires (13h30 + 14h45)
@@ -18732,7 +18472,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234449@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270416T161500
 DTEND;TZID=Europe/Zurich:20270416T185500
 SUMMARY:Liste 29 — train (Cornavin)
@@ -18770,7 +18510,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133373@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270417T200000
 DTEND;TZID=Europe/Zurich:20270417T230000
 SUMMARY:Liste F — quatrième
@@ -18811,7 +18551,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128827@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270418T090000
 DTEND;TZID=Europe/Zurich:20270418T103000
 SUMMARY:Musique De Chambre 5 — raccord hors contrat
@@ -18855,7 +18595,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132190@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270418T110000
 DTEND;TZID=Europe/Zurich:20270418T120000
 SUMMARY:Musique De Chambre 5 — concert hors contrat (avec Kopachinskaja ?
@@ -18901,7 +18641,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133374@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270418T150000
 DTEND;TZID=Europe/Zurich:20270418T180000
 SUMMARY:Liste F — cinquième
@@ -18943,7 +18683,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234451@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270419T120000
 DTEND;TZID=Europe/Zurich:20270419T134000
 SUMMARY:Liste 29 — bus (Neuchâtel)
@@ -18981,7 +18721,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133067@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270419T143000
 DTEND;TZID=Europe/Zurich:20270419T151500
 SUMMARY:Liste 29 — un concert scolaire
@@ -19018,7 +18758,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr234453@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270419T151500
 DTEND;TZID=Europe/Zurich:20270419T173000
 SUMMARY:Liste 29 — bus (Place Neuve)
@@ -19055,7 +18795,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133077@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270420T100000
 DTEND;TZID=Europe/Zurich:20270420T123000
 SUMMARY:Liste 30 — répétition
@@ -19097,7 +18837,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133078@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270420T143000
 DTEND;TZID=Europe/Zurich:20270420T170000
 SUMMARY:Liste 30 — répétition
@@ -19139,7 +18879,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133079@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270421T100000
 DTEND;TZID=Europe/Zurich:20270421T123000
 SUMMARY:Liste 30 — répétition
@@ -19180,7 +18920,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133080@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270421T193000
 DTEND;TZID=Europe/Zurich:20270421T220000
 SUMMARY:Liste 30 — répétition privée Amis avec soliste·s
@@ -19225,7 +18965,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133081@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270422T093000
 DTEND;TZID=Europe/Zurich:20270422T123000
 SUMMARY:Liste 30 — générale publique
@@ -19267,7 +19007,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133082@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270422T181500
 DTEND;TZID=Europe/Zurich:20270422T193000
 SUMMARY:Liste 30 — bus
@@ -19307,7 +19047,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133084@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270422T201500
 DTEND;TZID=Europe/Zurich:20270422T223000
 SUMMARY:Liste 30 — concert
@@ -19353,7 +19093,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251623@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270422T223000
 DTEND;TZID=Europe/Zurich:20270422T234500
 SUMMARY:Liste 30 — bus
@@ -19393,7 +19133,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259744@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270423T093000
 DTEND;TZID=Europe/Zurich:20270423T123000
 SUMMARY:Auditions DAS — audition DAS (poste à préciser)
@@ -19414,7 +19154,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259742@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270423T180000
 DTEND;TZID=Europe/Zurich:20270423T183000
 SUMMARY:Liste 30 — raccord
@@ -19456,7 +19196,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133085@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270423T193000
 DTEND;TZID=Europe/Zurich:20270423T213000
 SUMMARY:Liste 30 — concert
@@ -19503,7 +19243,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr239392@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270424T093000
 DTEND;TZID=Europe/Zurich:20270424T190000
 SUMMARY:Concours Deuxième violon solo (coordonné) — concours (Deuxième
@@ -19528,7 +19268,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133096@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270426T103000
 DTEND;TZID=Europe/Zurich:20270426T130000
 SUMMARY:Liste 31 — répétition
@@ -19563,7 +19303,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133097@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270426T150000
 DTEND;TZID=Europe/Zurich:20270426T173000
 SUMMARY:Liste 31 — répétition
@@ -19598,7 +19338,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133098@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270427T100000
 DTEND;TZID=Europe/Zurich:20270427T123000
 SUMMARY:Liste 31 — répétition
@@ -19633,7 +19373,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133099@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270427T143000
 DTEND;TZID=Europe/Zurich:20270427T170000
 SUMMARY:Liste 31 — répétition avec soliste
@@ -19668,7 +19408,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133100@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270428T100000
 DTEND;TZID=Europe/Zurich:20270428T130000
 SUMMARY:Liste 31 — générale non publique
@@ -19707,7 +19447,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr265462@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270428T130000
 DTEND;TZID=Europe/Zurich:20270428T150000
 SUMMARY:Liste 31 — soliste(s) seul(s)
@@ -19742,7 +19482,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr265460@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270428T173000
 DTEND;TZID=Europe/Zurich:20270428T190000
 SUMMARY:Liste 31 — soliste(s) seul(s)
@@ -19777,7 +19517,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133101@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270428T193000
 DTEND;TZID=Europe/Zurich:20270428T220000
 SUMMARY:Liste 31 — concert
@@ -19816,7 +19556,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259745@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270429T093000
 DTEND;TZID=Europe/Zurich:20270429T123000
 SUMMARY:Auditions DAS — audition DAS (poste à préciser)
@@ -19837,7 +19577,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr265459@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270429T100000
 DTEND;TZID=Europe/Zurich:20270429T150000
 SUMMARY:Liste 31 — soliste(s) seul(s)
@@ -19872,7 +19612,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259746@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270429T143000
 DTEND;TZID=Europe/Zurich:20270429T173000
 SUMMARY:Auditions DAS — audition DAS (poste à préciser)
@@ -19893,7 +19633,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr265461@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270429T173000
 DTEND;TZID=Europe/Zurich:20270429T190000
 SUMMARY:Liste 31 — soliste(s) seul(s)
@@ -19928,7 +19668,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133102@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270429T193000
 DTEND;TZID=Europe/Zurich:20270429T220000
 SUMMARY:Liste 31 — concert
@@ -19967,7 +19707,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133103@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270430T151500
 DTEND;TZID=Europe/Zurich:20270430T173000
 SUMMARY:Liste 31 — bus
@@ -20001,7 +19741,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133104@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270430T181500
 DTEND;TZID=Europe/Zurich:20270430T184500
 SUMMARY:Liste 31 — raccord
@@ -20039,7 +19779,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133105@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270430T193000
 DTEND;TZID=Europe/Zurich:20270430T214500
 SUMMARY:Liste 31 — concert
@@ -20077,7 +19817,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259570@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270430T214500
 DTEND;TZID=Europe/Zurich:20270430T235900
 SUMMARY:Liste 31 — bus
@@ -20111,7 +19851,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196352@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270503T090000
 DTEND;TZID=Europe/Zurich:20270503T110000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
@@ -20133,7 +19873,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196353@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270503T133000
 DTEND;TZID=Europe/Zurich:20270503T153000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
@@ -20155,7 +19895,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196351@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270504T090000
 DTEND;TZID=Europe/Zurich:20270504T110000
 SUMMARY:Atelier Découverte 6 — ateliers (avec mus.OSR)
@@ -20177,7 +19917,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132301@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270510T100000
 DTEND;TZID=Europe/Zurich:20270510T123000
 SUMMARY:Liste 32 — répétition
@@ -20227,7 +19967,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132302@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270510T143000
 DTEND;TZID=Europe/Zurich:20270510T170000
 SUMMARY:Liste 32 — répétition
@@ -20276,7 +20016,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132303@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270511T100000
 DTEND;TZID=Europe/Zurich:20270511T123000
 SUMMARY:Liste 32 — répétition
@@ -20326,7 +20066,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132304@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270511T143000
 DTEND;TZID=Europe/Zurich:20270511T170000
 SUMMARY:Liste 32 — répétition avec soliste
@@ -20376,7 +20116,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132305@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270512T100000
 DTEND;TZID=Europe/Zurich:20270512T130000
 SUMMARY:Liste 32 — générale non publique
@@ -20427,7 +20167,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132306@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270512T193000
 DTEND;TZID=Europe/Zurich:20270512T220000
 SUMMARY:Liste 32 — concert
@@ -20479,7 +20219,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196356@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270513T090000
 DTEND;TZID=Europe/Zurich:20270513T110000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
@@ -20501,7 +20241,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr173588@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270513T103000
 DTEND;TZID=Europe/Zurich:20270513T130000
 SUMMARY:Liste 32 — session masterclass direction
@@ -20550,7 +20290,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196357@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270513T133000
 DTEND;TZID=Europe/Zurich:20270513T153000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
@@ -20572,7 +20312,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132307@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270513T193000
 DTEND;TZID=Europe/Zurich:20270513T220000
 SUMMARY:Liste 32 — concert
@@ -20625,7 +20365,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196358@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270514T090000
 DTEND;TZID=Europe/Zurich:20270514T110000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
@@ -20647,7 +20387,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr196359@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270514T133000
 DTEND;TZID=Europe/Zurich:20270514T153000
 SUMMARY:Atelier Découverte 7 — ateliers (avec mus.OSR)
@@ -20669,7 +20409,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr264086@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270518T090000
 DTEND;TZID=Europe/Zurich:20270518T130000
 SUMMARY:Assemblée Musicien·nes — AG section GE ((ordinaire))
@@ -20690,7 +20430,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133120@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270518T140000
 DTEND;TZID=Europe/Zurich:20270518T163000
 SUMMARY:Liste 34 — répétition
@@ -20725,7 +20465,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133123@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270519T100000
 DTEND;TZID=Europe/Zurich:20270519T123000
 SUMMARY:Liste 34 — répétition
@@ -20759,7 +20499,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133124@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270519T193000
 DTEND;TZID=Europe/Zurich:20270519T220000
 SUMMARY:Liste 34 — musicale choeur (sans orch.)
@@ -20794,7 +20534,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr252412@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270520T093000
 DTEND;TZID=Europe/Zurich:20270520T100000
 SUMMARY:Doudou Concert 5 — concert hors contrat
@@ -20814,7 +20554,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr252414@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270520T103000
 DTEND;TZID=Europe/Zurich:20270520T110000
 SUMMARY:Doudou Concert 5 — concert hors contrat
@@ -20834,7 +20574,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133126@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270520T193000
 DTEND;TZID=Europe/Zurich:20270520T223000
 SUMMARY:Liste 34 — répétition + balance (+ projection)
@@ -20868,7 +20608,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133127@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270521T100000
 DTEND;TZID=Europe/Zurich:20270521T130000
 SUMMARY:Liste 34 — générale non publique
@@ -20901,7 +20641,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133128@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270521T193000
 DTEND;TZID=Europe/Zurich:20270521T223000
 SUMMARY:Liste 34 — concert
@@ -20936,7 +20676,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133129@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270522T140000
 DTEND;TZID=Europe/Zurich:20270522T170000
 SUMMARY:Liste 34 — concert
@@ -20971,7 +20711,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133130@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270522T193000
 DTEND;TZID=Europe/Zurich:20270522T223000
 SUMMARY:ANNULÉ · Liste 34 — concert en construction
@@ -21006,7 +20746,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133147@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270524T150000
 DTEND;TZID=Europe/Zurich:20270524T173000
 SUMMARY:Liste 35 — répétition
@@ -21039,7 +20779,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133148@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270524T193000
 DTEND;TZID=Europe/Zurich:20270524T220000
 SUMMARY:Liste 35 — répétition
@@ -21071,7 +20811,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133149@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270525T093000
 DTEND;TZID=Europe/Zurich:20270525T123000
 SUMMARY:Liste 35 — répétition
@@ -21103,7 +20843,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133150@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270525T143000
 DTEND;TZID=Europe/Zurich:20270525T170000
 SUMMARY:Liste 35 — répétition avec soliste
@@ -21135,7 +20875,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133151@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270526T100000
 DTEND;TZID=Europe/Zurich:20270526T130000
 SUMMARY:Liste 35 — générale publique
@@ -21167,7 +20907,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133152@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270526T193000
 DTEND;TZID=Europe/Zurich:20270526T220000
 SUMMARY:Liste 35 — concert
@@ -21201,7 +20941,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132643@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270527T100000
 DTEND;TZID=Europe/Zurich:20270527T123000
 SUMMARY:Liste 36 — session masterclass direction
@@ -21229,7 +20969,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133153@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270527T171500
 DTEND;TZID=Europe/Zurich:20270527T183000
 SUMMARY:Liste 35 — bus
@@ -21260,7 +21000,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133154@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270527T191500
 DTEND;TZID=Europe/Zurich:20270527T194500
 SUMMARY:Liste 35 — raccord
@@ -21292,7 +21032,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133155@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270527T201500
 DTEND;TZID=Europe/Zurich:20270527T220000
 SUMMARY:Liste 35 — concert
@@ -21327,7 +21067,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr251625@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270527T214500
 DTEND;TZID=Europe/Zurich:20270527T230000
 SUMMARY:Liste 35 — bus
@@ -21358,7 +21098,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224686@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T070000
 DTEND;TZID=Europe/Zurich:20270528T130000
 SUMMARY:Résa VH 2627 — salle résa 1M
@@ -21379,7 +21119,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133166@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T100000
 DTEND;TZID=Europe/Zurich:20270528T123000
 SUMMARY:Liste 37 — répétition
@@ -21414,7 +21154,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133156@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T151500
 DTEND;TZID=Europe/Zurich:20270528T173000
 SUMMARY:Liste 35 — bus
@@ -21445,7 +21185,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133157@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T183000
 DTEND;TZID=Europe/Zurich:20270528T190000
 SUMMARY:Liste 35 — raccord
@@ -21479,7 +21219,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133158@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T193000
 DTEND;TZID=Europe/Zurich:20270528T211500
 SUMMARY:Liste 35 — concert
@@ -21510,7 +21250,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259572@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270528T211500
 DTEND;TZID=Europe/Zurich:20270528T234500
 SUMMARY:Liste 35 — bus
@@ -21541,7 +21281,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133167@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270529T110000
 DTEND;TZID=Europe/Zurich:20270529T123000
 SUMMARY:Liste 37 — concert
@@ -21580,7 +21320,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224685@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270529T130000
 DTEND;TZID=Europe/Zurich:20270529T214500
 SUMMARY:ANNULÉ · Résa VH 2627 — Réservation (MIGROS)
@@ -21601,7 +21341,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128829@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270530T090000
 DTEND;TZID=Europe/Zurich:20270530T103000
 SUMMARY:Musique De Chambre 6 — raccord hors contrat
@@ -21635,7 +21375,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr132191@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270530T110000
 DTEND;TZID=Europe/Zurich:20270530T120000
 SUMMARY:Musique De Chambre 6 — concert hors contrat
@@ -21672,7 +21412,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178700@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270531T093000
 DTEND;TZID=Europe/Zurich:20270531T190000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -21691,7 +21431,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178701@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270601T093000
 DTEND;TZID=Europe/Zurich:20270601T190000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -21710,7 +21450,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240158@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270602T093000
 DTEND;TZID=Europe/Zurich:20270602T101500
 SUMMARY:évaluation DAS #3 — réunion évaluation DAS (cors)
@@ -21729,7 +21469,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240160@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270602T101500
 DTEND;TZID=Europe/Zurich:20270602T110000
 SUMMARY:évaluation DAS #3 — réunion évaluation DAS (violons)
@@ -21748,7 +21488,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr240162@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270602T110000
 DTEND;TZID=Europe/Zurich:20270602T114500
 SUMMARY:évaluation DAS #3 — réunion évaluation DAS (alti)
@@ -21767,7 +21507,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162247@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270603T100000
 DTEND;TZID=Europe/Zurich:20270603T123000
 SUMMARY:Concerts pour Petites Oreilles 4 — répétition hors contrat
@@ -21793,7 +21533,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162249@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270603T140000
 DTEND;TZID=Europe/Zurich:20270603T163000
 SUMMARY:Concerts pour Petites Oreilles 4 — répétition hors contrat
@@ -21819,7 +21559,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162248@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270604T100000
 DTEND;TZID=Europe/Zurich:20270604T123000
 SUMMARY:Concerts pour Petites Oreilles 4 — répétition hors contrat
@@ -21845,7 +21585,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162250@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270604T140000
 DTEND;TZID=Europe/Zurich:20270604T163000
 SUMMARY:Concerts pour Petites Oreilles 4 — répétition hors contrat
@@ -21871,7 +21611,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133198@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270604T190000
 DTEND;TZID=Europe/Zurich:20270604T213000
 SUMMARY:Liste 39 — répétition tutti
@@ -21898,7 +21638,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133200@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270605T100000
 DTEND;TZID=Europe/Zurich:20270605T123000
 SUMMARY:Liste 39 — répétition tutti
@@ -21925,7 +21665,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162251@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270605T110000
 DTEND;TZID=Europe/Zurich:20270605T123000
 SUMMARY:Concerts pour Petites Oreilles 4 — concert hors contrat
@@ -21953,7 +21693,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162253@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270605T153000
 DTEND;TZID=Europe/Zurich:20270605T170000
 SUMMARY:Concerts pour Petites Oreilles 4 — concert hors contrat
@@ -21981,7 +21721,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162252@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270606T110000
 DTEND;TZID=Europe/Zurich:20270606T123000
 SUMMARY:Concerts pour Petites Oreilles 4 — concert hors contrat
@@ -22009,7 +21749,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162254@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270606T153000
 DTEND;TZID=Europe/Zurich:20270606T170000
 SUMMARY:Concerts pour Petites Oreilles 4 — concert hors contrat
@@ -22037,7 +21777,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178702@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270607T093000
 DTEND;TZID=Europe/Zurich:20270607T190000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -22056,7 +21796,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176066@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270608T080000
 DTEND;TZID=Europe/Zurich:20270608T160000
 SUMMARY:Liste 40 — répétition (sans OSR)
@@ -22092,7 +21832,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133186@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270609T100000
 DTEND;TZID=Europe/Zurich:20270609T123000
 SUMMARY:Liste 38 — répétition
@@ -22121,7 +21861,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133187@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270609T193000
 DTEND;TZID=Europe/Zurich:20270609T220000
 SUMMARY:Liste 38 — répétition
@@ -22150,7 +21890,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133188@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270610T100000
 DTEND;TZID=Europe/Zurich:20270610T123000
 SUMMARY:Liste 38 — répétition
@@ -22179,7 +21919,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133189@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270610T143000
 DTEND;TZID=Europe/Zurich:20270610T170000
 SUMMARY:Liste 38 — répétition
@@ -22208,7 +21948,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133190@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270611T100000
 DTEND;TZID=Europe/Zurich:20270611T130000
 SUMMARY:Liste 38 — générale non publique
@@ -22237,7 +21977,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133191@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270611T193000
 DTEND;TZID=Europe/Zurich:20270611T220000
 SUMMARY:Liste 38 — concert
@@ -22266,7 +22006,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178703@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270614T093000
 DTEND;TZID=Europe/Zurich:20270614T190000
 SUMMARY:Concours à définir — concours (poste à définir)
@@ -22285,7 +22025,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr176067@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270615T093000
 DTEND;TZID=Europe/Zurich:20270615T123000
 SUMMARY:Liste 40 — répétition
@@ -22319,7 +22059,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr220672@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270615T143000
 DTEND;TZID=Europe/Zurich:20270615T170000
 SUMMARY:Liste 40 — répétition
@@ -22353,7 +22093,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128838@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270616T100000
 DTEND;TZID=Europe/Zurich:20270616T130000
 SUMMARY:Liste G — lecture
@@ -22389,7 +22129,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133202@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270616T190000
 DTEND;TZID=Europe/Zurich:20270616T213000
 SUMMARY:Liste 39 — répétition
@@ -22416,7 +22156,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128839@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270617T100000
 DTEND;TZID=Europe/Zurich:20270617T130000
 SUMMARY:Liste G — lecture
@@ -22452,7 +22192,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr259164@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270617T140000
 DTEND;TZID=Europe/Zurich:20270617T160000
 SUMMARY:Groupe de Prévention 2027 — Réunion (plénière des membres)
@@ -22473,7 +22213,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133203@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270617T190000
 DTEND;TZID=Europe/Zurich:20270617T213000
 SUMMARY:Liste 39 — générale non publique
@@ -22501,7 +22241,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128840@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270618T100000
 DTEND;TZID=Europe/Zurich:20270618T130000
 SUMMARY:Liste G — lecture
@@ -22537,7 +22277,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133212@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270618T153000
 DTEND;TZID=Europe/Zurich:20270618T173000
 SUMMARY:Liste 40 — générale non publique
@@ -22573,7 +22313,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133204@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270618T190000
 DTEND;TZID=Europe/Zurich:20270618T220000
 SUMMARY:Liste 39 — concert
@@ -22600,7 +22340,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133213@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270619T140000
 DTEND;TZID=Europe/Zurich:20270619T150000
 SUMMARY:Liste 40 — concert
@@ -22636,7 +22376,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128841@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270621T140000
 DTEND;TZID=Europe/Zurich:20270621T170000
 SUMMARY:Liste G — lecture
@@ -22672,7 +22412,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128842@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270621T193000
 DTEND;TZID=Europe/Zurich:20270621T223000
 SUMMARY:Liste G — italienne
@@ -22708,7 +22448,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128843@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270622T140000
 DTEND;TZID=Europe/Zurich:20270622T170000
 SUMMARY:Liste G — italienne
@@ -22744,7 +22484,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128844@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270622T193000
 DTEND;TZID=Europe/Zurich:20270622T223000
 SUMMARY:Liste G — italienne
@@ -22780,7 +22520,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr263892@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270623T090000
 DTEND;TZID=Europe/Zurich:20270623T170000
 SUMMARY:Auditions Master HEM — audition
@@ -22800,7 +22540,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr263894@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270623T090000
 DTEND;TZID=Europe/Zurich:20270623T170000
 SUMMARY:Auditions Master HEM — audition
@@ -22820,7 +22560,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128845@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270623T193000
 DTEND;TZID=Europe/Zurich:20270623T223000
 SUMMARY:Liste G — générale GT
@@ -22856,7 +22596,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128846@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270624T193000
 DTEND;TZID=Europe/Zurich:20270624T233000
 SUMMARY:Liste G — première
@@ -22892,7 +22632,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr128847@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270625T193000
 DTEND;TZID=Europe/Zurich:20270625T233000
 SUMMARY:Liste G — deuxième
@@ -22928,7 +22668,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133221@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270628T100000
 DTEND;TZID=Europe/Zurich:20270628T123000
 SUMMARY:Liste 41 — répétition
@@ -22955,7 +22695,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133222@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270628T143000
 DTEND;TZID=Europe/Zurich:20270628T170000
 SUMMARY:Liste 41 — répétition
@@ -22982,7 +22722,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133220@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270629T100000
 DTEND;TZID=Europe/Zurich:20270629T123000
 SUMMARY:Liste 41 — répétition
@@ -23009,7 +22749,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr137947@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270629T200000
 DTEND;TZID=Europe/Zurich:20270629T230000
 SUMMARY:Liste 41 — générale non publique
@@ -23036,7 +22776,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr224657@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270630T190000
 DTEND;TZID=Europe/Zurich:20270630T200000
 SUMMARY:Liste 41 — balance
@@ -23063,7 +22803,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133223@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270630T213000
 DTEND;TZID=Europe/Zurich:20270630T235900
 SUMMARY:Liste 41 — concert
@@ -23090,7 +22830,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr178751@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270701T140000
 DTEND;TZID=Europe/Zurich:20270701T220000
 SUMMARY:Concours à définir — concours (cor soliste remplaçant ?)
@@ -23109,7 +22849,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr232669@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270702T093000
 DTEND;TZID=Europe/Zurich:20270702T190000
 SUMMARY:Concours à définir — concours (cor soliste remplaçant ?)
@@ -23128,7 +22868,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133230@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270703T100000
 DTEND;TZID=Europe/Zurich:20270703T123000
 SUMMARY:Liste 42 — répétition avec soliste
@@ -23182,7 +22922,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr133229@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270703T143000
 DTEND;TZID=Europe/Zurich:20270703T170000
 SUMMARY:Liste 42 — répétition avec soliste
@@ -23236,7 +22976,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr227893@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270705T100000
 DTEND;TZID=Europe/Zurich:20270705T123000
 SUMMARY:Liste 42 — répétition (matin à Genève ou soir à Montpellier)
@@ -23288,7 +23028,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162255@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270705T160000
 DTEND;TZID=Europe/Zurich:20270705T211500
 SUMMARY:Liste 42 — voyage
@@ -23333,7 +23073,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162256@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270706T103000
 DTEND;TZID=Europe/Zurich:20270706T130000
 SUMMARY:Liste 42 — générale non publique
@@ -23379,7 +23119,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162257@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270706T200000
 DTEND;TZID=Europe/Zurich:20270706T220000
 SUMMARY:Liste 42 — concert
@@ -23430,7 +23170,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr162258@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270707T090000
 DTEND;TZID=Europe/Zurich:20270707T141500
 SUMMARY:Liste 42 — voyage
@@ -23475,7 +23215,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr230032@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270708T140000
 DTEND;TZID=Europe/Zurich:20270708T161500
 SUMMARY:Liste 42 — voyage
@@ -23521,7 +23261,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr230034@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270708T173000
 DTEND;TZID=Europe/Zurich:20270708T183000
 SUMMARY:Liste 42 — raccord
@@ -23569,7 +23309,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr230030@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270708T190000
 DTEND;TZID=Europe/Zurich:20270708T210000
 SUMMARY:Liste 42 — concert
@@ -23621,7 +23361,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr230036@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270708T210000
 DTEND;TZID=Europe/Zurich:20270708T220000
 SUMMARY:Liste 42 — voyage
@@ -23667,7 +23407,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:osr190816@bemol-osr
-DTSTAMP:20261111T140047Z
+DTSTAMP:20261112T000048Z
 DTSTART;TZID=Europe/Zurich:20270710T193000
 DTEND;TZID=Europe/Zurich:20270710T213000
 SUMMARY:Projet 01 — concert hors contrat
