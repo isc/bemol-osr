@@ -1,6 +1,68 @@
 {
  "entries": [
   {
+   "at": "2026-11-13T23:40:19.045Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr128430",
+     "start": "2026-08-15T10:00",
+     "end": "2026-08-15T13:00",
+     "liste": "Liste 03",
+     "activity": "générale non publique (+ balance amplification)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132647",
+     "start": "2026-08-15T15:00",
+     "end": "2026-08-15T17:30",
+     "liste": "Liste 04",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128431",
+     "start": "2026-08-15T19:15",
+     "end": "2026-08-15T20:15",
+     "liste": "Liste 03",
+     "activity": "raccord (+balance)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132648",
+     "start": "2026-08-15T19:30",
+     "end": "2026-08-15T22:00",
+     "liste": "Liste 04",
+     "activity": "répétition",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132645",
+     "start": "2026-08-15T21:15",
+     "end": "2026-08-15T23:15",
+     "liste": "Liste 03",
+     "activity": "concert",
+     "category": "concert",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP3",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-11-13T12:38:29.190Z",
    "type": "memo",
    "programs": [
