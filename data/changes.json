@@ -1,6 +1,30 @@
 {
  "entries": [
   {
+   "at": "2026-11-13T12:38:29.190Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 15",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [
+      "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
+      "Richard STRAUSS — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+      "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation"
+     ],
+     "worksRemoved": [
+      "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+      "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+      "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
+      "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur"
+     ],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-11-13T04:46:11.532Z",
    "type": "memo",
    "programs": [
