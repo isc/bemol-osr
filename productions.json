@@ -1,39 +1,6 @@
 {
  "_parseur": "ce943d70bc4b",
  "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
- "Liste 02": {
-  "info": "La Plage Cinéconcert\nAttention : même effectif le plus rigoureusement possible que Liste 11 saison 2526 (y compris mus.suppl.) afin de remonter la production en 2 services de répétition",
-  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
-  "tenue": "14.08-21h15 : tenue d'été OSR",
-  "chef": "Philippe BÉRAN",
-  "effectif": "1.0.1.1 / 1.0.0.0 / 0.2.0.1 / 8.6.4.3.2 (30 musiciens)",
-  "duree": "≈ 1 h 29",
-  "works": [
-   {
-    "oeuvre": "Neil BRAND — The Lodger, A story of the London Fog",
-    "instrumentation": "1*.0.1*.1 / 1.0.0.0 / 0.2*.0.1 / 8.6.4.3.2",
-    "remarques": "fl+picc, cl+cl.bs, 2perc y compris timp",
-    "percussions": "GC, cymb fr, glock, woodblk, xyl, c.cl., TT, vibra, cymb sus, cl.tub.",
-    "claviers": "piano",
-    "duree": "≈ 1 h 29"
-   }
-  ],
-  "serviceWorks": {
-   "osr128424": [
-    1
-   ],
-   "osr128421": [
-    1
-   ],
-   "osr128425": [
-    1
-   ]
-  },
-  "serviceNotes": {
-   "osr128421": "en cas de générale / balance incomplète",
-   "osr128425": "-réception sur invitation (25) / Genève Aéroport / 20h15-21h15 -médecin de permanence : Mélissa VETSCH 079 410 75 50"
-  }
- },
  "Liste 03": {
   "info": "La Plage Crossover\nAnnées folles - Hommage à Joséphine Baker\navec Kennedy, l'une des grandes voix du jazz-soul américain\nSet-list [titre : musique / paroles] - ordre à confirmer en répétition\narrangements originaux d'Alexandre Mastrangello commandés par l'OSR sauf Addicted to addictions / Let's Party\n-My fate is in your hands : Thomas 'Fats' Waller / Andy Razaf\n-I'm feeling like a million : Nacio Herb Brown / Arthur Freed\n-Bye bye blackbird : Ray Henderson / Mort Dixon\n-London Town : Wal-Berg / Wynne Thomas & Léo Lelièvre\n-J'attendrais : Dino Olivieri / Nino Rastelli - Louis Poterat\n-Rag-Mazurka d'après Francis Poulenc (orchestre seul)\n-Don't touch my tomatoes : Sam Manning / Sam Manning\n-Afraid to dream : Mark Gordon & Harry Revel (paroles et musique)\n-You're driving me crazy : Walter Donaldson / Walter Donaldson\n-You are my lucky star (Nacio Herb Brown / Arthur Freed)\n-J'ai deux amours : Vincent Scotto / Géo Koger & Henri Varna\n-BIS : Addicted to addictions / Let's Party : paroles & musique : Ondrej Pivec & Kennedy / arrangements : Tomas Sykora / adaptation : Alexandre Mastrangelo",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
@@ -57,8 +24,6 @@
    "Guido JÖRIS, drums"
   ],
   "serviceNotes": {
-   "osr128428": "amplification locale sans mix",
-   "osr128429": "amplification locale sans mix",
    "osr128430": "captation audio d'archives pour soliste",
    "osr128431": "en cas de générale / balance incomplète",
    "osr132645": "-captation audio d'archives pour soliste -médecin de permanence : Johannes FEXER 076 200 93 17"
