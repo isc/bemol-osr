@@ -1,6 +1,68 @@
 {
  "entries": [
   {
+   "at": "2026-11-13T00:00:49.190Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr128424",
+     "start": "2026-08-14T10:00",
+     "end": "2026-08-14T13:00",
+     "liste": "Liste 02",
+     "activity": "générale non publique (+ balance amplification)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP2",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128428",
+     "start": "2026-08-14T10:30",
+     "end": "2026-08-14T13:00",
+     "liste": "Liste 03",
+     "activity": "répétition avec solistes ((voice+trio))",
+     "category": "repetition",
+     "location": "ML - grande salle",
+     "project": "OGP3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128429",
+     "start": "2026-08-14T14:30",
+     "end": "2026-08-14T17:30",
+     "liste": "Liste 03",
+     "activity": "répétition avec solistes ((filage))",
+     "category": "repetition",
+     "location": "ML - grande salle",
+     "project": "OGP3",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128421",
+     "start": "2026-08-14T19:15",
+     "end": "2026-08-14T20:15",
+     "liste": "Liste 02",
+     "activity": "raccord (+balance)",
+     "category": "generale",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP2",
+     "cancelled": false
+    },
+    {
+     "uid": "osr128425",
+     "start": "2026-08-14T21:15",
+     "end": "2026-08-14T23:00",
+     "liste": "Liste 02",
+     "activity": "concert",
+     "category": "concert",
+     "location": "Genève-Plage (scène mobile)",
+     "project": "OGP2",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-11-12T13:16:30.329Z",
    "type": "memo",
    "programs": [
