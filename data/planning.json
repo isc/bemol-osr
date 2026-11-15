@@ -1,40 +1,7 @@
 {
- "updatedAt": "2026-11-13T23:40:19.045Z",
- "count": 621,
+ "updatedAt": "2026-11-15T00:01:00.065Z",
+ "count": 618,
  "events": [
-  {
-   "uid": "osr259357",
-   "start": "2026-08-16T09:00",
-   "end": "2026-08-16T22:00",
-   "liste": "Liste 04",
-   "activity": "Technique (sans orch)",
-   "category": "generale",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr210774",
-   "start": "2026-08-16T17:00",
-   "end": "2026-08-16T18:00",
-   "liste": "Liste 04",
-   "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr210775",
-   "start": "2026-08-16T19:00",
-   "end": "2026-08-16T21:00",
-   "liste": "Liste 04",
-   "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
-   "category": "repetition",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
   {
    "uid": "osr132650",
    "start": "2026-08-17T10:00",

@@ -1,6 +1,46 @@
 {
  "entries": [
   {
+   "at": "2026-11-15T00:01:00.065Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr259357",
+     "start": "2026-08-16T09:00",
+     "end": "2026-08-16T22:00",
+     "liste": "Liste 04",
+     "activity": "Technique (sans orch)",
+     "category": "generale",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr210774",
+     "start": "2026-08-16T17:00",
+     "end": "2026-08-16T18:00",
+     "liste": "Liste 04",
+     "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr210775",
+     "start": "2026-08-16T19:00",
+     "end": "2026-08-16T21:00",
+     "liste": "Liste 04",
+     "activity": "répétition chef+soliste(s)+piano (sans orchestre)",
+     "category": "repetition",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-11-14T11:46:24.520Z",
    "type": "memo",
    "programs": [
