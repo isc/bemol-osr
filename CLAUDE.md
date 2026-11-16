@@ -107,6 +107,21 @@ production (GitHub Pages) comme dans les previews de PR.
   posé. Rien de plus : ni effacement de l'historique, ni régénération, ni
   reproche au musicien. Le seul point à demander à Ivan est de poser le secret,
   si la demande en a besoin.
+- **Remplacer `ICS_URL` n'est pas un simple réglage.** `update-data.mjs`
+  reconnaît un service à son `UID`, et deux liens Dièse différents n'en ont
+  aucun en commun (constaté sur #270). Un changement de lien ferait donc
+  disparaître tous les services puis réapparaître autant de « nouveaux » :
+  l'onglet « Modifs » serait noyé, son historique perdu, et tous les abonnés
+  recevraient une notification pour rien. Le nouveau lien peut aussi couvrir
+  un autre périmètre (sur #270 : 588 événements contre 1 862, sans les
+  services « sans orchestre », les trajets ni les « Résa VH »). Claude ne peut
+  pas lire un lien qu'on ne lui donne pas : ne jamais écrire « il suffit de
+  remplacer le secret, en une minute ». Écrire plutôt qu'Ivan doit d'abord
+  comparer les deux exports (nombre d'événements, horizon, UID communs,
+  services présents d'un seul côté), et que la décision lui revient. De même,
+  ne pas présenter comme établi (« le lien a changé, l'ancien n'affiche plus
+  tout ») ce qui n'est qu'une hypothèse, surtout si le musicien compte le
+  répéter à l'administration.
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
