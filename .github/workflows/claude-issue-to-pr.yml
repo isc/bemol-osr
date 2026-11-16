@@ -55,7 +55,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh issue comment ${{ github.event.issue.number }} -R ${{ github.repository }} --body \
-            "🤖 **Claude a pris cette issue en charge** : il implémente la demande puis ouvrira une pull request (compter quelques minutes). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+            "🤖 **Claude a pris cette issue en charge** : il implémente la demande puis ouvrira une pull request (de quelques minutes à une demi-heure ; inutile de relancer, la réponse arrivera ici). [Suivre le travail en direct](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
       - uses: anthropics/claude-code-action@v1
         id: claude
