@@ -23,6 +23,7 @@ import { spawnSync, execFileSync } from "node:child_process"
 import { appendFileSync, cpSync, mkdirSync, rmSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
+import { absentsIcs } from "./check-lien-ics.mjs"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
@@ -41,7 +42,9 @@ const JOBS = {
     // planning (la version servie de leur fichier, restaurée ci-dessous avec
     // data/, reste en place).
     // update-salles.mjs : occupation des salles d'Uni Mail (#264).
-    extras: ["scripts/update-salles.mjs"],
+    // check-lien-ics.mjs : lien ICS périmé, d'après le mémo (#270) ; son
+    // échec ouvre l'issue LIEN_ICS_ALERT plutôt que celle du cron.
+    extras: ["scripts/update-salles.mjs", "scripts/check-lien-ics.mjs"],
     // Fichiers servis à restaurer depuis gh-pages avant de régénérer : data/
     // est la référence du journal des différences (changes.json), et
     // productions.json le mémo vivant que build-ics.mjs reporte dans le
@@ -81,6 +84,26 @@ Causes possibles : changement du mini-site Dièse (URL, format du PDF), garde-fo
 
 cc @isc`,
   },
+}
+
+// Productions à venir du mémo absentes du planning (check-lien-ics.mjs) : le
+// lien ICS de Bémol n'est sans doute plus celui que Dièse tient à jour (#270).
+// Ce n'est pas une panne du cron : issue distincte, qui s'adresse aussi à Loïc,
+// seul à avoir accès à Dièse.
+const LIEN_ICS_ALERT = {
+  title: "⚠️ Le lien ICS de Dièse semble périmé",
+  body: (
+    runUrl,
+    absents,
+  ) => `Le mémo de production de Dièse annonce des productions à venir qui **n'apparaissent pas** dans le lien ICS utilisé par Bémol (secret \`ICS_URL\`) : ${runUrl}
+
+${absents.map(({ fiche, fin }) => `- ${fiche} (jusqu'au ${fin})`).join("\n")}
+
+C'est ce qui s'est passé en novembre 2026 (#270) : Dièse affichait un nouveau lien sans prévenir, et l'ancien ne recevait plus tout. Le planning continue d'être publié, mais il lui manque ces services, comme aux agendas abonnés.
+
+**Ce qu'il faut faire.** @schneiderflute-create : récupérer le lien ICS actuellement affiché sur la page Dièse et l'envoyer **en privé** à Ivan (jamais ici, le dépôt est public). Ivan : le poser dans le secret \`ICS_URL\`. Au passage suivant du cron, l'onglet « Modifs » montrera ce que le nouveau lien ajoute.
+
+Si le lien affiché par Dièse n'a pas changé et que ces productions n'y figurent pas non plus, c'est une fausse alerte : ajouter leur nom à \`FICHES_HORS_ICS\` dans \`scripts/check-lien-ics.mjs\`. **Fermer cette issue une fois le problème réglé.**`,
 }
 
 const [command, jobName, ...rest] = process.argv.slice(2)
@@ -156,6 +179,13 @@ function run() {
 }
 
 async function alert() {
+  // Seul le cron du planning lance check-lien-ics.mjs (extras).
+  // Un fichier illisible ne doit pas empêcher l'alerte générique.
+  let absents = []
+  try {
+    if (jobName === "planning") absents = absentsIcs()
+  } catch {}
+  const { title, body } = absents.length ? LIEN_ICS_ALERT : job
   const repo = process.env.GITHUB_REPOSITORY
   const runUrl = `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
   const gh = (...args) =>
@@ -167,7 +197,7 @@ async function alert() {
     "--state",
     "open",
     "--search",
-    `"${job.title}" in:title`,
+    `"${title}" in:title`,
     "--json",
     "number",
     "--jq",
@@ -178,9 +208,9 @@ async function alert() {
       "issue",
       "create",
       "--title",
-      job.title,
+      title,
       "--body",
-      job.body(runUrl),
+      body(runUrl, absents),
       "--label",
       "besoin-ivan",
     )

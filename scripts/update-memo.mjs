@@ -517,22 +517,31 @@ function canonicalListeKey(line, knownListes) {
   return null
 }
 
-function parseMemoText(text, knownListes, numbering) {
-  const canonicalKey = (line) => canonicalListeKey(line, knownListes)
-
-  const lines = text.split("\n").map((l) => l.trim())
-
-  // Découpage en fiches : un titre canonicalisable qui suit une ligne "Saison 20xx/xx"
-  const sections = []
+// Découpage en fiches : le titre est la première ligne non vide (à 3 lignes
+// au plus) qui suit une ligne "Saison 20xx/xx". `lines` : lignes déjà trimées.
+function memoFiches(lines) {
+  const fiches = []
   for (let i = 0; i < lines.length; i++) {
     if (!/^Saison \d{4}\/\d{2}$/.test(lines[i])) continue
     for (let j = i + 1; j <= i + 3 && j < lines.length; j++) {
       if (!lines[j]) continue
-      const key = canonicalKey(lines[j])
-      if (key) sections.push({ key, start: j + 1 })
+      fiches.push({ title: lines[j], start: j + 1 })
       break // seule la première ligne non vide compte
     }
   }
+  return fiches
+}
+
+function parseMemoText(text, knownListes, numbering) {
+  const lines = text.split("\n").map((l) => l.trim())
+
+  // Fiches dont le titre se canonicalise en une liste du planning
+  const sections = memoFiches(lines)
+    .map(({ title, start }) => ({
+      key: canonicalListeKey(title, knownListes),
+      start,
+    }))
+    .filter((s) => s.key)
 
   const result = {}
   for (let s = 0; s < sections.length; s++) {
@@ -809,6 +818,43 @@ function parseServiceTables(layoutText, knownListes) {
   return result
 }
 
+// --- Fiches du mémo absentes du lien ICS (issue #270) -----------------------
+// Le mémo et le lien ICS lisent la même base Dièse par deux chemins distincts.
+// En novembre 2026, le lien ICS de Bémol (celui des abonnements de cet été)
+// avait cessé de recevoir certains services : tout un concours (13-14 mai
+// 2027) n'y figurait plus, alors que le mémo et le nouveau lien affiché par
+// Dièse l'avaient. Rien ne le signalait. Les fiches du mémo dont le nom ne
+// correspond à aucune Liste du planning sont donc relevées, avec leur date de
+// fin, dans la clé « _fichesHorsPlanning » de productions.json ;
+// scripts/check-lien-ics.mjs garde celles qui sont à venir et toujours
+// absentes du planning, à chaque passage du cron, et alerte s'il en reste.
+const FICHE_FIN_RE = new RegExp(
+  `^du .* au (\\d{1,2}) (${MONTH_NAMES_RE.source}) (\\d{4})$`,
+  "i",
+)
+function fichesHorsPlanning(text, knownListes) {
+  const lines = text.split("\n").map((l) => l.trim())
+  const fiches = []
+  for (const { title, start } of memoFiches(lines)) {
+    if (canonicalListeKey(title, knownListes)) continue
+    if (fiches.some((f) => f.fiche === title)) continue
+    const au = lines
+      .slice(start, start + 3)
+      .map((l) => l.match(FICHE_FIN_RE))
+      .find(Boolean)
+    if (!au) continue
+    const month = String(FRENCH_MONTHS[au[2].toLowerCase()] + 1).padStart(
+      2,
+      "0",
+    )
+    fiches.push({
+      fiche: title,
+      fin: `${au[3]}-${month}-${au[1].padStart(2, "0")}`,
+    })
+  }
+  return fiches
+}
+
 // n° de position ORIGINAL du mémo (celui de la colonne ŒUVRES du tableau des
 // services) de chaque œuvre de prod.works, dans l'ordre, par liste. Un
 // entracte, ou une œuvre sans compositeur nommé (arrangement de musique de chambre…), consomme
@@ -1052,7 +1098,8 @@ const previous = existsSync(productionsPath)
   : {}
 const output = {
   _parseur: PARSER_HASH,
-  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).`,
+  _fichesHorsPlanning: fichesHorsPlanning(memoText, knownListes),
+  _lisezmoi: `Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », ${WORK_FIELDS.join(", ")} }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH ; « _fichesHorsPlanning » : fiches du mémo sans Liste dans le planning, cf. scripts/check-lien-ics.mjs).`,
 }
 for (const [k, v] of Object.entries(parsed)) output[k] = v
 
