@@ -27,7 +27,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 // Fiches du mémo qui n'ont, en temps normal, aucun service dans le lien ICS.
 // Si l'alerte se déclenche pour l'une d'elles alors que le lien est à jour
 // (le lien affiché par Dièse n'en montre pas trace non plus), l'ajouter ici.
-const FICHES_HORS_ICS = new Set([])
+const FICHES_HORS_ICS = new Set([
+  // Fiche d'attente du mémo, sans service : absente de l'ancien comme du
+  // nouveau lien Dièse (#270, vérifié le 16/11/2026).
+  "Auditions de musicien·nes supplémentaires à définir",
+])
 
 const read = (p) => JSON.parse(readFileSync(join(root, p), "utf8"))
 
