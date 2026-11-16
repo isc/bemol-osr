@@ -18,6 +18,7 @@ import { buildIcs } from "./build-ics.mjs"
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 const planningPath = join(root, "data", "planning.json")
 const changesPath = join(root, "data", "changes.json")
+const aliasesPath = join(root, "data", "uid-aliases.json")
 
 const MAX_CHANGE_ENTRIES = 300
 
@@ -211,6 +212,61 @@ function diff(oldEvents, newEvents) {
   return { added, removed, modified }
 }
 
+// --- Changement de lien Dièse (#270) ------------------------------------
+//
+// Deux liens d'export Dièse ne partagent aucun UID : passer de l'un à l'autre
+// ferait « disparaître » tous les services et « apparaître » autant de
+// nouveaux (onglet Modifs noyé, historique par service perdu, notifications
+// pour rien, calendriers abonnés réécrits). Quand moins de la moitié des UID
+// reçus sont connus, on considère que la source a changé : chaque nouvel
+// événement identique à un ancien (même début, fin, liste et activité) en
+// reprend l'UID. La correspondance UID reçu → UID Bémol est gardée dans
+// data/uid-aliases.json (hors de planning.json, que l'app télécharge) pour les
+// passages suivants, où un service déplacé reste ainsi une modification et non
+// un retrait + un ajout. Un service absent d'un export y perd son entrée : s'il
+// revient, il revient sous l'UID du nouveau lien (retrait puis ajout, comme
+// aujourd'hui).
+
+const sameService = (e) => [e.start, e.end, e.liste, e.activity].join("|")
+
+function stabilizeUids(events, previous) {
+  if (!previous) return {}
+  const aliases = existsSync(aliasesPath)
+    ? JSON.parse(readFileSync(aliasesPath, "utf8"))
+    : {}
+  const sourceUids = events.map((e) => e.uid)
+  for (const e of events) e.uid = aliases[e.uid] ?? e.uid
+
+  const oldUids = new Set(previous.events.map((e) => e.uid))
+  const unknown = events.filter((e) => !oldUids.has(e.uid))
+  if (unknown.length > events.length / 2) {
+    const kept = new Set(events.map((e) => e.uid))
+    const candidates = new Map()
+    for (const o of previous.events) {
+      if (kept.has(o.uid)) continue
+      const key = sameService(o)
+      if (!candidates.has(key)) candidates.set(key, [])
+      candidates.get(key).push(o.uid)
+    }
+    let matched = 0
+    for (const e of unknown) {
+      const uid = candidates.get(sameService(e))?.shift()
+      if (!uid) continue
+      e.uid = uid
+      matched++
+    }
+    console.log(
+      `Lien Dièse changé ? ${unknown.length} UID inconnus sur ${events.length}, ${matched} rapprochés d'un service existant.`,
+    )
+  }
+
+  const next = {}
+  events.forEach((e, i) => {
+    if (e.uid !== sourceUids[i]) next[sourceUids[i]] = e.uid
+  })
+  return next
+}
+
 // --- Main ------------------------------------------------------------------
 
 const raw = await loadIcs()
@@ -218,9 +274,6 @@ const events = parseIcs(raw)
   .map(normalize)
   .filter((e) => e.start)
   .filter((e) => seasonYear(e.start) === ONLY_SEASON)
-  .sort((a, b) =>
-    a.start < b.start ? -1 : a.start > b.start ? 1 : a.uid < b.uid ? -1 : 1,
-  )
 
 if (events.length === 0)
   throw new Error("Aucun événement trouvé dans l'ICS — export vide ?")
@@ -230,6 +283,11 @@ mkdirSync(join(root, "data"), { recursive: true })
 const previous = existsSync(planningPath)
   ? JSON.parse(readFileSync(planningPath, "utf8"))
   : null
+
+const uidAliases = stabilizeUids(events, previous)
+events.sort((a, b) =>
+  a.start < b.start ? -1 : a.start > b.start ? 1 : a.uid < b.uid ? -1 : 1,
+)
 
 const { added, removed, modified } = diff(previous?.events ?? [], events)
 const changed = added.length + removed.length + modified.length > 0
@@ -249,6 +307,8 @@ writeFileSync(
   JSON.stringify({ updatedAt: now, count: events.length, events }, null, 1) +
     "\n",
 )
+if (Object.keys(uidAliases).length || existsSync(aliasesPath))
+  writeFileSync(aliasesPath, JSON.stringify(uidAliases, null, 1) + "\n")
 
 if (previous) {
   const changes = existsSync(changesPath)
