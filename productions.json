@@ -30,12 +30,6 @@
    "Mark BIGGINS, chef·fe de choeur"
   ],
   "serviceWorks": {
-   "osr132650": [
-    1
-   ],
-   "osr132651": [
-    1
-   ],
    "osr132652": [
     1
    ],
@@ -95,8 +89,6 @@
    ]
   },
   "serviceNotes": {
-   "osr132650": "orchestre seul présence photographe Magali Dougados pendant la balance",
-   "osr132651": "Pelléas - Golaud act.III - sc.2 (4') + act.III-sc.3 (5') + act.III-sc.1 (2')",
    "osr132652": "orchestre seul",
    "osr132653": "Golaud - Mélisande act.I-sc.1 (13')",
    "osr132654": "Golaud - Mélisande act.II-sc.2 (13')",
@@ -1128,17 +1120,25 @@
   "duree": "≈ 1 h 03",
   "works": [
    {
-    "oeuvre": "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
-    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
-    "percussions": "GC",
-    "claviers": "piano+célésta",
+    "oeuvre": "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
+    "percussions": "glock, tri",
     "extra": "saxophone ténor",
     "note": "PIECE HORS-COMPETITION",
     "duree": "≈ 17 min"
    },
    {
-    "oeuvre": "Richard STRAUSS — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
+    "percussions": "GC",
+    "claviers": "piano+célésta",
+    "extra": "saxophone ténor",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
     "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
@@ -1147,18 +1147,10 @@
     "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Igor STRAVINSKI — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "oeuvre": "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
     "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
     "remarques": "fl3+picc, 1ca, 1cl.bs",
     "percussions": "GC, cymb fr, TT, tri",
-    "note": "PIECE HORS-COMPETITION"
-   },
-   {
-    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
-    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
-    "percussions": "glock, tri",
-    "extra": "saxophone ténor",
     "note": "PIECE HORS-COMPETITION"
    },
    {
