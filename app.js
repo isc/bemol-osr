@@ -896,8 +896,9 @@ function migrateListes() {
     return liste
   }
   const newSeason = p.listesSeason != null && p.listesSeason !== state.season
-  let listes = newSeason ? [] : [...new Set(p.listes.map(follow))]
-  if ([...known].every((l) => listes.includes(l))) listes = []
+  const listes = allListesIfComplete(
+    newSeason ? [] : [...new Set(p.listes.map(follow))],
+  )
   // Services masqués d'une Liste (#144), rangés eux aussi par nom.
   const hiddenActivities = newSeason
     ? {}
@@ -912,6 +913,12 @@ function migrateListes() {
   // Le seul tampon de saison ne concerne pas le worker.
   if (changed) savePrefs()
   else storePrefs()
+}
+
+// Une sélection qui couvre toutes les Listes de la saison s'enregistre vide
+// (= toutes) : sinon, une Liste ajoutée ensuite au planning resterait masquée.
+function allListesIfComplete(listes) {
+  return [...state.seasonListes].every((l) => listes.includes(l)) ? [] : listes
 }
 
 // Listes cochées présentes dans la saison, pour l'agenda comme pour le worker.
@@ -3336,38 +3343,60 @@ function renderPrefs(box) {
   // Note récapitulative mise à jour en place (sans reconstruire le panneau,
   // pour ne pas faire remonter la liste des cases au début à chaque coche).
   const note = el("strong", { class: "prefs-summary" })
-  // « Tout afficher » se met en évidence (retour #129) quand aucune Liste
-  // n'est cochée, c'est-à-dire quand l'agenda les montre toutes.
-  const updateSummary = () => {
-    const n = selectedListes().length
-    note.textContent = n
-      ? `${n} liste${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""}`
-      : "Toutes les listes"
-    showAllBtn.classList.toggle("active", !n)
-  }
-
+  // Sélection vide = toutes les Listes, montrées toutes cochées (#279) : on
+  // décoche ensuite celles où l'on ne joue pas. Toutes les cases cochées
+  // s'enregistrent comme une sélection vide, sans quoi une Liste ajoutée
+  // ensuite au planning resterait masquée. « Tout décocher », ou la dernière
+  // case décochée, laisse au contraire les cases vides le temps de cocher les
+  // siennes (`cleared`) ; l'agenda montre alors toutes les Listes.
+  let cleared = false
   const checkboxes = new Map() // liste → <input>
 
-  // Coche/décoche une liste, sans doublon. La page ne se reconstruit pas :
-  // les genres dépliés restent dépliés, on peut cocher plusieurs cases à la
-  // suite (l'agenda sera redessiné en revenant sur son onglet).
-  const toggleListe = (liste, on) => {
-    const set = new Set(state.prefs.listes)
-    if (on) set.add(liste)
-    else set.delete(liste)
-    state.prefs.listes = [...set]
+  // Le bouton qui correspond à l'état des cases se met en évidence (#139).
+  const updateSummary = () => {
+    const selection = selectedListes()
+    const n = selection.length
+    note.textContent = n
+      ? `${n} liste${n > 1 ? "s" : ""} cochée${n > 1 ? "s" : ""}`
+      : cleared
+        ? "Aucune cochée : toutes affichées"
+        : "Toutes les listes"
+    for (const [l, cb] of checkboxes)
+      cb.checked = n ? selection.includes(l) : !cleared
+    checkAllBtn.classList.toggle("active", !n && !cleared)
+    uncheckAllBtn.classList.toggle("active", !n && cleared)
+  }
+
+  // Un nom absent de la saison reste enregistré (cf. selectedListes()).
+  const setListes = (listes) => {
+    cleared = !listes.length
+    state.prefs.listes = [
+      ...state.prefs.listes.filter((l) => !state.seasonListes.has(l)),
+      ...allListesIfComplete(listes),
+    ]
     savePrefs()
     updateSummary()
   }
 
-  // Aucune case cochée = toutes les Listes. Cocher toutes les cases figeait
-  // au contraire la sélection : une Liste ajoutée ensuite au planning restait
-  // masquée.
-  const showAll = () => {
-    state.prefs.listes = []
-    savePrefs()
-    for (const cb of checkboxes.values()) cb.checked = false
-    updateSummary()
+  // Les cases à l'écran font la sélection. La page ne se reconstruit pas :
+  // les genres dépliés restent dépliés, on peut cocher plusieurs cases à la
+  // suite (l'agenda sera redessiné en revenant sur son onglet). Hors de cette
+  // page, `cleared` est oublié : on retrouve toutes les cases cochées.
+  const toggleListe = () =>
+    setListes([...checkboxes].filter(([, cb]) => cb.checked).map(([l]) => l))
+
+  // Les deux boutons effacent une sélection personnelle : on demande d'abord
+  // confirmation (#279).
+  const confirmReset = () =>
+    !selectedListes().length ||
+    confirm(
+      "Tu vas perdre ton choix de Listes : il faudra recocher une à une les productions sur lesquelles tu joues. Continuer ?",
+    )
+  const checkAll = () => {
+    if (confirmReset()) setListes([...state.seasonListes])
+  }
+  const uncheckAll = () => {
+    if (confirmReset()) setListes([])
   }
 
   // Masque/affiche un service précis d'une Liste (#144), indépendamment de
@@ -3388,9 +3417,8 @@ function renderPrefs(box) {
   const listeOption = (l) => {
     const cb = el("input", {
       type: "checkbox",
-      onchange: (ev) => toggleListe(l, ev.target.checked),
+      onchange: toggleListe,
     })
-    cb.checked = state.prefs.listes.includes(l)
     checkboxes.set(l, cb)
     return el(
       "label",
@@ -3476,15 +3504,26 @@ function renderPrefs(box) {
     )
   })
 
-  const showAllBtn = el(
+  const checkAllBtn = el(
     "button",
-    { type: "button", class: "link-btn", onclick: showAll },
-    "Tout afficher",
+    { type: "button", class: "link-btn", onclick: checkAll },
+    "Tout cocher",
+  )
+  const uncheckAllBtn = el(
+    "button",
+    { type: "button", class: "link-btn", onclick: uncheckAll },
+    "Tout décocher",
   )
 
   const listeRows = listes.length
     ? [
-        el("div", { class: "liste-filter-actions" }, note, showAllBtn),
+        el(
+          "div",
+          { class: "liste-filter-actions" },
+          note,
+          checkAllBtn,
+          uncheckAllBtn,
+        ),
         ...listeGroups,
       ]
     : [el("p", { class: "prefs-row" }, "Aucune liste dans cette saison.")]
@@ -3547,7 +3586,7 @@ function renderPrefs(box) {
     prefsGroup(
       "Mes Listes",
       listeRows,
-      "Coche les productions sur lesquelles tu joues : elles seules restent dans Mon agenda.",
+      "Décoche les productions sur lesquelles tu ne joues pas : seules les Listes cochées restent dans Mon agenda.",
     ),
     prefsGroup("Affichage", [
       switchRow(

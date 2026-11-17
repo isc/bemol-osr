@@ -1333,7 +1333,7 @@ dialog h2 {
   color: var(--success-text);
 }
 
-/* Bouton Tout cocher / Tout décocher mis en évidence (retour #129) quand il
+/* Bouton Tout cocher / Tout décocher mis en évidence (#139) quand il
    correspond à l'état courant (toutes les listes cochées, ou aucune). */
 .liste-filter-actions .link-btn.active {
   background: var(--surface-accent-soft);
