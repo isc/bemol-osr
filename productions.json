@@ -1,6 +1,40 @@
 {
- "_parseur": "ce943d70bc4b",
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
+ "_parseur": "f8bb836186e1",
+ "_fichesHorsPlanning": [
+  {
+   "fiche": "Liste 01",
+   "fin": "2026-08-13"
+  },
+  {
+   "fiche": "Liste 02",
+   "fin": "2026-08-14"
+  },
+  {
+   "fiche": "Liste 03",
+   "fin": "2026-08-15"
+  },
+  {
+   "fiche": "Communication 2627 (interview, shootings photo etc....)",
+   "fin": "2026-11-04"
+  },
+  {
+   "fiche": "Accueil Berner Symphonieorchester",
+   "fin": "2026-11-05"
+  },
+  {
+   "fiche": "Conseil de Fondation Décembre 1",
+   "fin": "2026-12-08"
+  },
+  {
+   "fiche": "Conseil de Fondation Décembre 2",
+   "fin": "2026-12-17"
+  },
+  {
+   "fiche": "Auditions de musicien·nes supplémentaires à définir",
+   "fin": "2027-06-25"
+  }
+ ],
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH ; « _fichesHorsPlanning » : fiches du mémo sans Liste dans le planning, cf. scripts/check-lien-ics.mjs).",
  "Liste 04": {
   "info": "ENREGISTREMENT DISCOGRAPHIQUE STUDIO en collaboration avec la RTS\n-conseiller artistique et distribution : Jean-Pierre Brossmann\n-label : RTS + PentaTone ou Chandos ou Sony\n-avec extension avant-scène\n-le studio d'enregistrement est installé au foyer des chœurs (foyer du bas). L'orchestre utilise le foyer du public",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
@@ -30,19 +64,7 @@
    "Mark BIGGINS, chef·fe de choeur"
   ],
   "serviceWorks": {
-   "osr132652": [
-    1
-   ],
-   "osr132653": [
-    1
-   ],
    "osr132654": [
-    1
-   ],
-   "osr161270": [
-    1
-   ],
-   "osr210778": [
     1
    ],
    "osr132659": [
@@ -55,15 +77,6 @@
     1
    ],
    "osr132658": [
-    1
-   ],
-   "osr161271": [
-    1
-   ],
-   "osr210779": [
-    1
-   ],
-   "osr210780": [
     1
    ],
    "osr132661": [
@@ -89,18 +102,11 @@
    ]
   },
   "serviceNotes": {
-   "osr132652": "orchestre seul",
-   "osr132653": "Golaud - Mélisande act.I-sc.1 (13')",
    "osr132654": "Golaud - Mélisande act.II-sc.2 (13')",
-   "osr161270": "Golaud - Arkel - Mélisande - Yniold - Berger act.IV-sc.2 (17') + act.III-sc.4 (10') + act.I-sc.2 (Arkel seul) + act.IV-sc.3 (5') présence photographe Magali Dougados en début de service présence photographe Magali Dougados",
-   "osr210778": "Arkel - Docteur - Golaud - Mélisande act.V (26')",
    "osr132659": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
    "osr132660": "Médecin - Arkel - Golaud - Mélisande act.V (26') Arkel (seul) act.I-sc.2",
    "osr132657": "Golaud - Arkel - Mélisande act.IV-sc.2 (17')",
    "osr132658": "Golaud - Yniold act.III-sc.4 (10') Yniold - Le Berger act.IV-sc.3 (5')",
-   "osr161271": "Geneviève - Pelléas - Mélisande act.I-sc.2 (sans Arkel) + act.II-sc.3 (5') + act.I-sc.3 (17')",
-   "osr210779": "Pelléas - Mélisande act.IV-sc.1 (4') + act.III-sc.1 (14') + act.II-sc.1 (10') + act.IV-sc.4 (15')",
-   "osr210780": "Pelléas - Mélisande act.IV-sc.1 (4') + act.III-sc.1 (14') + act.II-sc.1 (10') + act.IV-sc.4 (15')",
    "osr132661": "Geneviève - Pelléas act.I-sc.2 Pelléas - Mélisande act.II-sc.3 (5')",
    "osr132662": "Geneviève - Mélisande - Pelléas - choeur act.I-sc.3 (7') Pelléas - Mélisande act.IV-sc.1 (4') présence photographe Magali Dougados",
    "osr132663": "Mélisande - Pelléas act.III-sc.1 (14')",
@@ -278,7 +284,6 @@
   },
   "serviceNotes": {
    "osr132704": "installation dispositif captation Mathys Billoud entre 8h et 10h",
-   "osr216144": "ANNULÉ Volare prévu en réduction piano pour le didacticiel est finalement entièrement coupé de l'enregistrement mais reste dans le programme pour les prochaines sessions et le concert",
    "osr132707": "démontage dispositif captation à l'issue"
   }
  },
@@ -823,13 +828,13 @@
    "Ivan THIRION, baryton (annulé / maladie)"
   ],
   "serviceWorks": {
+   "osr132799": [
+    1
+   ],
    "osr233622": [
     1
    ],
    "osr132802": [
-    1
-   ],
-   "osr225315": [
     1
    ],
    "osr132803": [
@@ -855,9 +860,9 @@
    ]
   },
   "serviceNotes": {
+   "osr132799": "avec cheffe assistante OSR",
    "osr132801": "avec Ton Koopmann",
    "osr132802": "sans trb. ni perc.",
-   "osr225315": "avec pianiste HEM",
    "osr132803": "avec trb. et perc.",
    "osr132805": "avec le choeur pour la 1ère heure",
    "osr132808": "-blocage loge 18 -réception ONU après concert sur invitation / cercles des Bains.",
@@ -1333,10 +1338,6 @@
     2,
     1
    ],
-   "osr132918": [
-    2,
-    1
-   ],
    "osr132919": [
     2,
     1
@@ -1368,7 +1369,6 @@
   },
   "serviceNotes": {
    "osr132917": "ATTENTION : service prolongé jusqu'à 19h (1 pause de 30') et compté double. Service du soir annulé. Avec l'accord des représentants -les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
-   "osr132918": "SERVICE ANNULÉ",
    "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
    "osr132921": "essai micros",
    "osr132922": "-podium choeur finalement fermé au public",
@@ -1510,15 +1510,6 @@
    "osr128620": [
     1
    ],
-   "osr261714": [
-    1
-   ],
-   "osr261715": [
-    1
-   ],
-   "osr261716": [
-    1
-   ],
    "osr162114": [
     1
    ],
@@ -1539,9 +1530,6 @@
    "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
    "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
    "osr128620": "-sans choristes ni soliste ni amplification -démontage express à l'issue",
-   "osr261714": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261715": "avec Alexandre Mastrangelo au piano + sextet vocal",
-   "osr261716": "avec Alexandre Mastrangelo au piano + sextet vocal + Matt Dusk",
    "osr162114": "1ère demi-heure pour la balance micros",
    "osr162115": "fin 22h15 max. pour repos nocturne essai micro Foyer OSR-Bovy innaccessible pour la verrée offerte aux retraités à l'issue",
    "osr128624": "différé Espace 2 le 23 décembre"
@@ -1653,7 +1641,6 @@
    ]
   },
   "serviceNotes": {
-   "osr262425": "en loge",
    "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les rediffusions après le direct) : générale en tenue -balance de chaque pièce avant de la filer -accueil de 15-20 étudiants + 3-4 professeurs du CMG de Raphaël Abeille en première galerie même si la générale devait être fermée",
    "osr132947": "-ouverture au public du podium choeur si nécéssaire -direct Espace 2 + Mezzo -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal -studio Ozango au P1",
    "osr132948": "-ouverture au public du podium choeur si nécéssaire -réception après concert Fondation Arditi sur invit avec artistes. en construction. -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal"
@@ -2568,21 +2555,12 @@
    "Lyam CHENAUX, violoncelle"
   ],
   "serviceNotes": {
-   "osr234459": "environ 2h de trajet",
    "osr133064": "Bicubic : route d'Arruffens 37 - Romont -amplitude 5-9h = 2 services",
-   "osr234461": "-environ 2h15 de trajet -départ à l'issue du concert -arrivée environ 17h45",
-   "osr234106": "environ 50 minutes de trajet",
    "osr133063": "-Rosey Concert Hall : Château du Rosey -attention : 1er concert à 13h -amplitude 5-9h = 2 services",
-   "osr234439": "-environ 60 minutes de trajet -départ à l'issue du concert -arrivée environ 16h15",
-   "osr234455": "horaire train prévisionnels à confimer (1h55) Genève-Sion : 10h24-12h19",
    "osr133065": "-amplitude 5-9h = 2 services",
    "osr234457": "horaires train prévisionnels à confirmer (1h56) -Sion-Genève 16h39-18h35",
-   "osr234441": "horaires indicatifs à confirmer : -train Genève-Delémont : 9h35-11h48 (changement à Renens) -bus Delémont-Porrentruy (30 min.)",
    "osr133066": "-Eglise des Jésuites : en haut de la Grande Rue -amplitude > 9h = 3 services",
-   "osr234449": "horaires train indicatifs à confirmer -bus Porrentruy-Delémont (30 min.) -train Delémont-Genève 16h41-18h55 (changement Bienne + Renens)",
-   "osr234451": "environ 1h40 de trajet",
-   "osr133067": "Temple du Bas : rue du Temple Neuf 5 -amplitude 5-9h = 2 services",
-   "osr234453": "-départ à l'issue du concert -environ 1h45 de trajet -arrivée environ 17h15"
+   "osr133067": "Temple du Bas : rue du Temple Neuf 5 -amplitude 5-9h = 2 services"
   }
  },
  "Liste F": {
@@ -2803,11 +2781,7 @@
    "osr133096": "montage lourd le matin",
    "osr133098": "visite de classes",
    "osr133100": "dans l'ordre impérativement",
-   "osr265462": "-plateau innaccessible -loge 2 possible",
-   "osr265460": "plateau (impératif) innaccessible",
    "osr133101": "-réception Fondation Francis & Marie-France Minkoff sur invit. en construction.",
-   "osr265459": "-plateau innaccessible -loge 2 possible",
-   "osr265461": "scène (impératif) innaccessible",
    "osr133102": "-réception SIG sur invit. 18h30 / foyer VH -Cocktails après concert SIG sur invit. / Lyrique",
    "osr133103": "163km - 2h15",
    "osr133104": "confirmé avec Johannes Knapp le 3.04.25 puis le 27.01.26: -14h : accès plateau -dès 16h : accès plateau/piano pour le soliste -18h15-18h45 : raccord -18h45 : retouche accordage piano -19h : ouverture des portes -19h30 : concert",
