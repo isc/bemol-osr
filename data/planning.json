@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-17T00:00:49.468Z",
+ "updatedAt": "2026-11-17T16:00:49.127Z",
  "count": 573,
  "events": [
   {
@@ -3586,7 +3586,7 @@
    "category": "concours",
    "location": "à définir Genève",
    "project": "",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr133331",
@@ -3608,7 +3608,7 @@
    "category": "concours",
    "location": "à définir Genève",
    "project": "",
-   "cancelled": false
+   "cancelled": true
   },
   {
    "uid": "osr133332",

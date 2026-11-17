@@ -1,6 +1,69 @@
 {
  "entries": [
   {
+   "at": "2026-11-17T16:00:49.127Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr178695",
+     "fields": [
+      "cancelled"
+     ],
+     "before": {
+      "uid": "osr178695",
+      "start": "2027-02-09T10:00",
+      "end": "2027-02-09T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "à définir Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr178695",
+      "start": "2027-02-09T10:00",
+      "end": "2027-02-09T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "à définir Genève",
+      "project": "",
+      "cancelled": true
+     }
+    },
+    {
+     "uid": "osr178696",
+     "fields": [
+      "cancelled"
+     ],
+     "before": {
+      "uid": "osr178696",
+      "start": "2027-02-11T10:00",
+      "end": "2027-02-11T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "à définir Genève",
+      "project": "",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr178696",
+      "start": "2027-02-11T10:00",
+      "end": "2027-02-11T19:30",
+      "liste": "Concours à définir",
+      "activity": "concours (poste à définir)",
+      "category": "concours",
+      "location": "à définir Genève",
+      "project": "",
+      "cancelled": true
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-17T00:00:49.468Z",
    "added": [],
    "removed": [
