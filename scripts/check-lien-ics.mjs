@@ -24,14 +24,23 @@ import { fileURLToPath } from "node:url"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
-// Fiches du mémo qui n'ont, en temps normal, aucun service dans le lien ICS.
-// Si l'alerte se déclenche pour l'une d'elles alors que le lien est à jour
-// (le lien affiché par Dièse n'en montre pas trace non plus), l'ajouter ici.
-const FICHES_HORS_ICS = new Set([
+// Fiches du mémo qui n'ont, en temps normal, aucun service dans le lien ICS
+// (nom exact, ou motif pour une série). Si l'alerte se déclenche pour l'une
+// d'elles alors que le lien est à jour (le lien affiché par Dièse n'en montre
+// pas trace non plus), l'ajouter ici.
+const FICHES_HORS_ICS = [
   // Fiche d'attente du mémo, sans service : absente de l'ancien comme du
   // nouveau lien Dièse (#270, vérifié le 16/11/2026).
   "Auditions de musicien·nes supplémentaires à définir",
-])
+  // Séances du Conseil de Fondation, sans orchestre : l'ancien lien les
+  // donnait, le lien actuel (#270) ne les donne plus. Leurs services de
+  // décembre en sont sortis au changement de lien, le 16/11/2026 (#277).
+  /^Conseil de Fondation /,
+]
+const horsIcs = (fiche) =>
+  FICHES_HORS_ICS.some((m) =>
+    m instanceof RegExp ? m.test(fiche) : m === fiche,
+  )
 
 const read = (p) => JSON.parse(readFileSync(join(root, p), "utf8"))
 
@@ -42,8 +51,7 @@ export function absentsIcs() {
     timeZone: "Europe/Zurich",
   })
   return (read("productions.json")._fichesHorsPlanning || []).filter(
-    ({ fiche, fin }) =>
-      fin >= today && !listes.has(fiche) && !FICHES_HORS_ICS.has(fiche),
+    ({ fiche, fin }) => fin >= today && !listes.has(fiche) && !horsIcs(fiche),
   )
 }
 
