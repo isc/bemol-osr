@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-18T10:00:47.392Z",
+ "updatedAt": "2026-11-18T12:00:50.096Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1537,6 +1537,13 @@
    "end": "2026-12-17T09:00",
    "salle": "ML - ascenseur",
    "activity": "Blocage"
+  },
+  {
+   "start": "2026-12-17T10:00",
+   "end": "2026-12-17T12:30",
+   "salle": "Grande salle",
+   "activity": "partielle rythmique",
+   "liste": "Liste 20"
   },
   {
    "start": "2026-12-17T17:00",
