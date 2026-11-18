@@ -64,9 +64,6 @@
    "Mark BIGGINS, chef·fe de choeur"
   ],
   "serviceWorks": {
-   "osr132654": [
-    1
-   ],
    "osr132659": [
     1
    ],
@@ -102,7 +99,6 @@
    ]
   },
   "serviceNotes": {
-   "osr132654": "Golaud - Mélisande act.II-sc.2 (13')",
    "osr132659": "Médecin - Arkel - Golaud - Mélisande act.V (26')",
    "osr132660": "Médecin - Arkel - Golaud - Mélisande act.V (26') Arkel (seul) act.I-sc.2",
    "osr132657": "Golaud - Arkel - Mélisande act.IV-sc.2 (17')",
@@ -1650,7 +1646,7 @@
   "info": "Concert de l'An\n-avec décoration florale\n-avec discours en scène",
   "tenue": "13.01-19h30 + 14.01-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Karen KAMENSEK",
-  "effectif": "3.3.3.4 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (73 musiciens)",
+  "effectif": "3.3.3.4 / 4.4.3.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
   "duree": "≈ 1 h 52",
   "works": [
    {
@@ -1688,7 +1684,7 @@
    },
    {
     "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
-    "instrumentation": "3*.3*.3*.2 / 4.3.4*.1* / 1.1.1.0 / 12.10.8.6.4",
+    "instrumentation": "3*.3*.3*.2 / 4.3.3*.1* / 1.1.1.0 / 12.10.8.6.4",
     "remarques": "fl3+picc., 1ca, 1cl.bs, trb3=trb.bs, cimbasso (partie de trb4)",
     "percussions": "GC",
     "duree": "≈ 5 min"

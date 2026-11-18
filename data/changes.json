@@ -1,6 +1,33 @@
 {
  "entries": [
   {
+   "at": "2026-11-18T04:46:22.424Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "effectif",
+       "before": "3.3.3.4 / 4.4.4.1 / 1.4.2.0 / 12.10.8.6.4 (73 musiciens)",
+       "after": "3.3.3.4 / 4.4.3.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giacomo PUCCINI — Madame Butterfly, air de Cio-Cio San acte 2 'Un bel di vedremo...'",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-11-18T00:00:50.267Z",
    "added": [],
    "removed": [
