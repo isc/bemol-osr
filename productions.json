@@ -1671,7 +1671,7 @@
    },
    {
     "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12*.10.8.6.0",
+    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.0*",
     "remarquesCordes": "sans contrebasses",
     "duree": "≈ 4 min"
    },

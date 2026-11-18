@@ -1,6 +1,27 @@
 {
  "entries": [
   {
+   "at": "2026-11-18T13:28:10.485Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "Giuseppe VERDI — Otello, Air de Desdémone acte 4 \"Ave Maria\"",
+       "fields": [
+        "instrumentation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "2026-11-18T04:46:22.424Z",
    "type": "memo",
    "programs": [
