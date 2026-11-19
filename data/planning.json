@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-19T10:00:53.906Z",
- "count": 570,
+ "updatedAt": "2026-11-19T14:00:51.351Z",
+ "count": 571,
  "events": [
   {
    "uid": "osr132657",
@@ -2530,6 +2530,17 @@
    "category": "generale",
    "location": "Victoria Hall de Genève",
    "project": "aboO3",
+   "cancelled": false
+  },
+  {
+   "uid": "osr275173",
+   "start": "2026-12-16T13:00",
+   "end": "2026-12-16T14:30",
+   "liste": "Pot de départ Bénédicte Moreau et Michel Westphal",
+   "activity": "pot de départ",
+   "category": "autre",
+   "location": "Victoria Hall  - foyer Bovy",
+   "project": "",
    "cancelled": false
   },
   {
