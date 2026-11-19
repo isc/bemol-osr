@@ -1,40 +1,7 @@
 {
- "updatedAt": "2026-11-18T00:00:50.267Z",
- "count": 572,
+ "updatedAt": "2026-11-19T00:00:45.345Z",
+ "count": 569,
  "events": [
-  {
-   "uid": "osr193684",
-   "start": "2026-08-20T12:00",
-   "end": "2026-08-20T14:00",
-   "liste": "Conseil de Fondation Août",
-   "activity": "Séance CF",
-   "category": "autre",
-   "location": "Administration - Salle du Conseil",
-   "project": "",
-   "cancelled": false
-  },
-  {
-   "uid": "osr132659",
-   "start": "2026-08-20T14:30",
-   "end": "2026-08-20T17:00",
-   "liste": "Liste 04",
-   "activity": "session enregistrement",
-   "category": "enregistrement",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
-  {
-   "uid": "osr132660",
-   "start": "2026-08-20T19:30",
-   "end": "2026-08-20T22:00",
-   "liste": "Liste 04",
-   "activity": "session enregistrement",
-   "category": "enregistrement",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
   {
    "uid": "osr132657",
    "start": "2026-08-21T14:30",
