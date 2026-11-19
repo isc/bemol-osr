@@ -1,6 +1,24 @@
 {
  "entries": [
   {
+   "at": "2026-11-19T10:00:53.906Z",
+   "added": [
+    {
+     "uid": "osr275086",
+     "start": "2026-12-11T14:30",
+     "end": "2026-12-11T17:00",
+     "liste": "Assemblée Musicien·nes",
+     "activity": "Assemblée Générale ((extraordinaire))",
+     "category": "autre",
+     "location": "ML - grande salle",
+     "project": "",
+     "cancelled": false
+    }
+   ],
+   "removed": [],
+   "modified": []
+  },
+  {
    "at": "2026-11-19T00:00:45.345Z",
    "added": [],
    "removed": [
