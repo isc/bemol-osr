@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-18T18:00:52.873Z",
+ "updatedAt": "2026-11-19T16:00:50.335Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1490,6 +1490,13 @@
    "activity": "Réservation"
   },
   {
+   "start": "2026-12-07T13:30",
+   "end": "2026-12-07T15:30",
+   "salle": "Grande salle",
+   "activity": "partielle rythmique",
+   "liste": "Liste 20"
+  },
+  {
    "start": "2026-12-08T09:00",
    "end": "2026-12-08T12:00",
    "salle": "Studio P",
@@ -1537,13 +1544,6 @@
    "end": "2026-12-17T09:00",
    "salle": "ML - ascenseur",
    "activity": "Blocage"
-  },
-  {
-   "start": "2026-12-17T10:00",
-   "end": "2026-12-17T12:30",
-   "salle": "Grande salle",
-   "activity": "partielle rythmique",
-   "liste": "Liste 20"
   },
   {
    "start": "2026-12-17T17:00",
