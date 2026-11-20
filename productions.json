@@ -1,48 +1,6 @@
 {
- "_parseur": "f8bb836186e1",
- "_fichesHorsPlanning": [
-  {
-   "fiche": "Planning_Tech",
-   "fin": "2026-12-30"
-  },
-  {
-   "fiche": "Liste 01",
-   "fin": "2026-08-13"
-  },
-  {
-   "fiche": "Liste 02",
-   "fin": "2026-08-14"
-  },
-  {
-   "fiche": "Liste 03",
-   "fin": "2026-08-15"
-  },
-  {
-   "fiche": "Conseil de Fondation Août",
-   "fin": "2026-08-20"
-  },
-  {
-   "fiche": "Communication 2627 (interview, shootings photo etc....)",
-   "fin": "2026-11-04"
-  },
-  {
-   "fiche": "Accueil Berner Symphonieorchester",
-   "fin": "2026-11-05"
-  },
-  {
-   "fiche": "Conseil de Fondation Décembre 1",
-   "fin": "2026-12-08"
-  },
-  {
-   "fiche": "Conseil de Fondation Décembre 2",
-   "fin": "2026-12-17"
-  },
-  {
-   "fiche": "Auditions de musicien·nes supplémentaires à définir",
-   "fin": "2027-06-25"
-  }
- ],
- "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH ; « _fichesHorsPlanning » : fiches du mémo sans Liste dans le planning, cf. scripts/check-lien-ics.mjs).",
+ "_parseur": "366a48a6adba",
+ "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
  "Liste 04": {
   "info": "ENREGISTREMENT DISCOGRAPHIQUE STUDIO en collaboration avec la RTS\n-conseiller artistique et distribution : Jean-Pierre Brossmann\n-label : RTS + PentaTone ou Chandos ou Sony\n-avec extension avant-scène\n-le studio d'enregistrement est installé au foyer des chœurs (foyer du bas). L'orchestre utilise le foyer du public",
   "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
@@ -178,7 +136,7 @@
     "instrumentation": "3*.2.2.2* / 4.4*.3.1 / 1.3.1.0 / 10.8.6.4.3",
     "remarques": "1picc, fgt3+kfgt coupé pour le didacticiel, 2cornets",
     "percussions": "GC, cymb fr, TT, tri",
-    "duree": "≈ 5 min"
+    "duree": "≈ 4 min"
    },
    {
     "oeuvre": "Nicola PIOVANI — La vita è bella, suite pour orchestre",
@@ -188,7 +146,7 @@
     "claviers": "piano",
     "extra": "0 guitare (coupé pour le didacticiel), 0 saxophone soprano (coupé pour le didacticiel)",
     "note": "1ère moitié de la suite",
-    "duree": "≈ 4 min"
+    "duree": "≈ 5 min"
    },
    {
     "oeuvre": "Nino ROTA — Amarcord, Suite (Mandozzi)",
@@ -989,18 +947,18 @@
   "duree": "≈ 50 min",
   "works": [
    {
-    "oeuvre": "Robert SCHUMANN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Concerto pour violoncelle et orchestre en la mineur op. 129",
+    "oeuvre": "Robert SCHUMANN — Concerto pour violoncelle et orchestre en la mineur op. 129",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 0*.0.0.0 / 12.10.8.6.4",
     "remarques": "pas de timp. dans le 1er mvt",
     "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendent le service de l'après-midi)",
-    "duree": "≈ 15 min"
+    "duree": "≈ 12 min"
    },
    {
     "oeuvre": "Robert SCHUMANN — Concerto pour piano et orchestre en la mineur op. 54",
     "instrumentation": "2.2.2.2 / 2.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
     "claviers": "piano (solo) (piano garé sur scène derrière les cordes pendant Debussy)",
     "note": "uniquement le 1er mouvement (qui sera donc répété 3 fois pendant le service du soir)",
-    "duree": "≈ 23 min"
+    "duree": "≈ 15 min"
    },
    {
     "oeuvre": "Claude DEBUSSY — La Mer, trois esquisses symphoniques pour orchestre",
@@ -1009,7 +967,7 @@
     "percussions": "GC, cymb fr, glock, TT, tri",
     "detail": "celli divisi à 8 (4 voix doublées)",
     "note": "Chaque candidat répète 1 mouvement tiré au hasard. Chaque mouvement sera donc joué 2 fois au cours de la\njournée.",
-    "duree": "≈ 12 min"
+    "duree": "≈ 23 min"
    }
   ],
   "solistes": [
@@ -1039,7 +997,7 @@
   "duree": "≈ 50 min",
   "works": [
    {
-    "oeuvre": "Ludwig van BEETHOVEN — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Egmont, ouverture en fa mineur op. 84",
+    "oeuvre": "Ludwig van BEETHOVEN — Egmont, ouverture en fa mineur op. 84",
     "instrumentation": "2*.2.2.2 / 4.2.0.0 / 1.0.0.0 / 12.10.8.6.4",
     "remarques": "fl2+picc",
     "duree": "≈ 9 min"
@@ -1113,25 +1071,7 @@
   "duree": "≈ 1 h 03",
   "works": [
    {
-    "oeuvre": "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
-    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
-    "percussions": "glock, tri",
-    "extra": "saxophone ténor",
-    "note": "PIECE HORS-COMPETITION",
-    "duree": "≈ 17 min"
-   },
-   {
-    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
-    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
-    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
-    "percussions": "GC",
-    "claviers": "piano+célésta",
-    "extra": "saxophone ténor",
-    "note": "PIECE HORS-COMPETITION"
-   },
-   {
-    "oeuvre": "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "oeuvre": "Béla BARTÓK — Le Mandarin merveilleux, suite d'orchestre op. 19",
     "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
     "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
     "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
@@ -1140,20 +1080,38 @@
     "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "oeuvre": "Gustav MAHLER — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
     "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
     "remarques": "fl3+picc, 1ca, 1cl.bs",
     "percussions": "GC, cymb fr, TT, tri",
     "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Don Juan, poème symphonique op. 20",
-    "instrumentation": "3*.3*.2.3* / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
-    "remarques": "fl3+picc, 1ca, 1kfgt",
-    "percussions": "cymb fr, glock, tri, cymb sus"
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
+    "percussions": "glock, tri",
+    "extra": "saxophone ténor",
+    "note": "PIECE HORS-COMPETITION"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — L’Oiseau de feu, deuxième suite d'orchestre (1919)",
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
+    "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
+    "percussions": "GC",
+    "claviers": "piano+célésta",
+    "extra": "saxophone ténor",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Richard STRAUSS — Don Juan, poème symphonique op. 20",
+    "instrumentation": "3*.3*.2.3* / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
+    "remarques": "fl3+picc, 1ca, 1kfgt",
+    "percussions": "cymb fr, glock, tri, cymb sus",
+    "duree": "≈ 17 min"
+   },
+   {
+    "oeuvre": "Igor STRAVINSKI — L’Oiseau de feu, deuxième suite d'orchestre (1919)",
     "instrumentation": "2*.2*.2.2 / 4.2.3.1 / 1.3.1.1 / 14.12.10.8.6",
     "remarques": "fl2+picc, ob2+ca",
     "percussions": "GC, cymb fr, bsq, xyl, tri",
@@ -1170,7 +1128,7 @@
     "duree": "≈ 8 min"
    },
    {
-    "oeuvre": "Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 1, N° 7 Mort de Tybalt",
     "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.4.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "GC, cymb fr, glock, xyl, c.cl., cymb sus",
@@ -1179,7 +1137,7 @@
     "duree": "≈ 4 min"
    },
    {
-    "oeuvre": "Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 1 Montaigus et Capulets",
     "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.3.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1crt",
     "percussions": "GC, c.cl.",
@@ -1188,7 +1146,7 @@
     "duree": "≈ 5 min"
    },
    {
-    "oeuvre": "Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette",
+    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 7 Roméo sur la tombe de Juliette",
     "instrumentation": "3*.3*.3*.3* / 4.3*.3.1 / 1.2.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "GC, cymb fr, c.cl.",
@@ -1197,6 +1155,40 @@
     "duree": "≈ 6 min"
    }
   ],
+  "serviceWorks": {
+   "osr131104": [
+    5,
+    6,
+    9,
+    7,
+    8,
+    10
+   ],
+   "osr131105": [
+    5,
+    6,
+    9,
+    7,
+    8,
+    10
+   ],
+   "osr131106": [
+    5,
+    6,
+    9,
+    7,
+    8,
+    10
+   ],
+   "osr131107": [
+    5,
+    6,
+    9,
+    7,
+    8,
+    10
+   ]
+  },
   "serviceNotes": {
    "osr131104": "-50' par finaliste (sans micro) et 2 pauses de 15 minutes -le programme et l'ordre seront connus le 9 novembre -jury (12) derrière l'orchestre",
    "osr131105": "-50' par finaliste (sans micro) et 2 pauses de 15 minutes -le programme et l'ordre seront connus le 9 novembre -jury (12) derrière l'orchestre",
@@ -2083,39 +2075,6 @@
    "osr133007": "démontage express pour OCG"
   }
  },
- "Liste 24b": {
-  "info": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1",
-  "contraires": "contraire liste D - 2 services max. par musicien·ne",
-  "chef": "Philippe BÉRAN",
-  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
-  "duree": "≈ 1 h 00",
-  "works": [
-   {
-    "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
-    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
-    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
-    "duree": "≈ 1 h 00"
-   }
-  ],
-  "serviceNotes": {
-   "osr176100": "verre d'accueil servi au foyer à la pause"
-  }
- },
- "Doudou Concert 4": {
-  "info": "4ème série ajoutée en cours de saison",
-  "works": [],
-  "serviceNotes": {
-   "osr252409": "pour les crèches",
-   "osr252411": "tout public"
-  }
- },
- "Concours Premier.ère Soliste des seconds violons": {
-  "chef": "Tugan SOKHIEV",
-  "works": [],
-  "serviceNotes": {
-   "osr236289": "avec Tugan Sokhiev clôture des inscriptions le 25 novembre"
-  }
- },
  "Liste D": {
   "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe",
   "contraires": "contraire Listes 24 et 24b",
@@ -2191,6 +2150,39 @@
   "serviceNotes": {
    "osr133323": ":M.Inaudi assis dans l'orchestre x2 pour amis OSR (enchères)",
    "osr133329": "ouvrage sans captation radio"
+  }
+ },
+ "Liste 24b": {
+  "info": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1",
+  "contraires": "contraire liste D - 2 services max. par musicien·ne",
+  "chef": "Philippe BÉRAN",
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
+  "duree": "≈ 1 h 00",
+  "works": [
+   {
+    "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
+    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
+    "duree": "≈ 1 h 00"
+   }
+  ],
+  "serviceNotes": {
+   "osr176100": "verre d'accueil servi au foyer à la pause"
+  }
+ },
+ "Doudou Concert 4": {
+  "info": "4ème série ajoutée en cours de saison",
+  "works": [],
+  "serviceNotes": {
+   "osr252409": "pour les crèches",
+   "osr252411": "tout public"
+  }
+ },
+ "Concours Premier.ère Soliste des seconds violons": {
+  "chef": "Tugan SOKHIEV",
+  "works": [],
+  "serviceNotes": {
+   "osr236289": "avec Tugan Sokhiev clôture des inscriptions le 25 novembre"
   }
  },
  "Liste 25": {
