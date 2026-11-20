@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-19T20:00:51.015Z",
+ "updatedAt": "2026-11-20T14:00:48.916Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1354,6 +1354,12 @@
    "start": "2026-12-01T13:00",
    "end": "2026-12-01T17:00",
    "salle": "Grande salle",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-12-01T13:00",
+   "end": "2026-12-01T16:00",
+   "salle": "Studio P",
    "activity": "Réservation"
   },
   {
