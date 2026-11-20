@@ -203,7 +203,7 @@ const TECH_ROLES =
   /chef·?fe de chant|conseiller artistique|ingénieur du son|direction artistique|assistant·?e?$/i
 // Rôles de production/staff : ni solistes, ni titre d'œuvre (la ligne est jetée)
 const NONSOLIST_ROLES =
-  /^(présentation|mise en (scène|espace)|chorégraph|conseiller artistique|direction artistique|ingénieur du son|chef·?fe de chant|texte\b|arrangements?\b|orchestration|vidéo|image et son|intervenant artistique|raccord|décors|costumes|lumières|scénographie|dramaturgie)/i
+  /^(présentation|ma[îi]tre(sse)? de cérémonie|mise en (scène|espace)|chorégraph|conseiller artistique|direction artistique|ingénieur du son|chef·?fe de chant|texte\b|arrangements?\b|orchestration|vidéo|image et son|intervenant artistique|raccord|décors|costumes|lumières|scénographie|dramaturgie)/i
 // Un nom de personne (suite de ≥2 capitales) ou d'ensemble (Motet, Chœur…)
 const NAME_LIKE = (name) =>
   /(^|[ '’-])\p{Lu}{2,}/u.test(name) ||
@@ -255,7 +255,9 @@ function parseComposerRun(line) {
 // -layout (cf. parseWorkNumbering), absent en test local sans -layout.
 function parseSection(body, numbers) {
   const prod = {}
-  const composerByNum = new Map() // n° de position programme → compositeur
+  // [n° de position programme, compositeur], dans l'ordre du document (un même
+  // n° peut revenir, cf. workPositions)
+  const composerRuns = []
   const works = []
   const solistes = []
   let titleBuffer = [] // texte libre : titre de la prochaine œuvre (ou programme MDC)
@@ -399,8 +401,7 @@ function parseSection(body, numbers) {
     // compositeurs numérotés
     const run = parseComposerRun(line)
     if (run) {
-      for (const [n, name] of run)
-        if (!composerByNum.has(n)) composerByNum.set(n, name)
+      composerRuns.push(...run)
       continue
     }
 
@@ -425,11 +426,15 @@ function parseSection(body, numbers) {
       continue
     }
 
-    // durée d'œuvre "02.50"
+    // durée d'œuvre "02.50", une par œuvre (« 00.00 » si non renseignée :
+    // null, qui tient sa place sans s'afficher). Les durées suivent l'ordre des
+    // œuvres, mais une page peut en regrouper plusieurs sous la dernière
+    // (Liste 15 : quatre « 00.00 », puis les « 00.17 » de Don Juan, sous Don
+    // Juan) : chacune revient à la première œuvre qui n'a pas la sienne.
     if (/^\d{2}\.\d{2}$/.test(line)) {
       const d = fmtWorkDuration(line)
-      const target = cur || works.find((w) => !w.duree)
-      if (target && d) target.duree = d
+      const target = works.find((w) => w.duree === undefined) || cur
+      if (target) target.duree = d
       if (cur) pushWork()
       titleBuffer = [] // les orphelins précédant la prochaine œuvre sont jetés
       continue
@@ -488,17 +493,31 @@ function parseSection(body, numbers) {
   // « Giacomo PUCCINI — Armenian Folk Song », bis sans compositeur). Le n°
   // de chaque œuvre vient donc de l'extraction -layout ; à défaut (test local,
   // table incohérente), appariement dans l'ordre du document (les entractes
-  // portent un n° nu sans nom → absents de la Map, donc pas de décalage).
+  // portent un n° nu sans nom → absents de composerRuns, donc pas de décalage).
+  // Des œuvres de même n° (cf. workPositions) prennent les compositeurs de ce
+  // n° dans l'ordre du document.
   const positions = workPositions(numbers, works.length)
   const composers = positions
-    ? positions.map((n) => composerByNum.get(n))
-    : [...composerByNum.entries()].sort((a, b) => a[0] - b[0]).map((e) => e[1])
+    ? positions.map((n) => {
+        const k = composerRuns.findIndex(([m]) => m === n)
+        return k < 0 ? undefined : composerRuns.splice(k, 1)[0][1]
+      })
+    : composerRuns.toSorted((a, b) => a[0] - b[0]).map((e) => e[1])
   prod.works = works.map((w, idx) => {
     const out = {}
     out.oeuvre = composers[idx] ? `${composers[idx]} — ${w.titre}` : w.titre
     for (const f of WORK_FIELDS) if (w[f]) out[f] = w[f]
     return out
   })
+  // Œuvres d'un même n° triées par libellé, pour un productions.json
+  // identique d'un PDF à l'autre (cf. workPositions).
+  if (positions)
+    prod.works = prod.works
+      .map((w, idx) => [positions[idx], w])
+      .sort(
+        ([a, w1], [b, w2]) => a - b || w1.oeuvre.localeCompare(w2.oeuvre, "fr"),
+      )
+      .map(([, w]) => w)
   if (solistes.length) prod.solistes = solistes
   return prod
 }
@@ -879,12 +898,20 @@ function parseWorkNumbering(layoutText, knownListes) {
 }
 
 // Numérotation retenue seulement si elle est cohérente avec les œuvres lues
-// dans memo.txt : autant de numéros que d'œuvres, strictement croissants. Une
-// œuvre manquée d'un côté ou de l'autre la rend inutilisable : mieux vaut
-// alors aucune œuvre par service qu'une œuvre décalée.
+// dans memo.txt : autant de numéros que d'œuvres, croissants. Une œuvre
+// manquée d'un côté ou de l'autre la rend inutilisable : mieux vaut alors
+// aucune œuvre par service qu'une œuvre décalée.
+// Un même n° peut revenir : les pièces « hors compétition » d'une finale de
+// concours sont toutes numérotées 0 (Liste 15, novembre 2026), et Dièse les
+// range dans un ordre différent à chaque génération du PDF. Le parseur ne
+// gardait qu'un compositeur par n° : il les appariait de travers, autrement à
+// chaque passage, et « Modifs » journalisait presque chaque jour une fausse
+// modification de la Liste 15 (œuvres « retirées » puis « ajoutées »).
 function workPositions(numbers, workCount) {
   if (!numbers || numbers.length !== workCount) return null
-  return numbers.every((n, i) => i === 0 || n > numbers[i - 1]) ? numbers : null
+  return numbers.every((n, i) => i === 0 || n >= numbers[i - 1])
+    ? numbers
+    : null
 }
 
 // Rapproche les lignes du tableau des services des événements du planning
@@ -898,10 +925,13 @@ function workPositions(numbers, workCount) {
 function matchServiceWorks(rows, events, positions) {
   const serviceWorks = {}
   const serviceNotes = {}
+  // n° → index 1-based de ses œuvres (plusieurs si le n° revient)
+  const indexes = new Map()
+  positions?.forEach((n, idx) =>
+    indexes.set(n, [...(indexes.get(n) || []), idx + 1]),
+  )
   for (const row of rows) {
-    const oeuvres = row.oeuvres
-      .map((n) => (positions?.indexOf(n) ?? -1) + 1)
-      .filter((idx) => idx >= 1)
+    const oeuvres = row.oeuvres.flatMap((n) => indexes.get(n) || [])
     if (!oeuvres.length && !row.note) continue
     const candidates = events.filter(
       (e) =>
