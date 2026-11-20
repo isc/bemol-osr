@@ -54,6 +54,8 @@ jobs:
         env:
           ICS_URL: ${{ secrets.ICS_URL }}
           SALLES_URL: ${{ secrets.SALLES_URL }}
+          # Page Dièse où s'affiche le lien ICS (scripts/check-lien-ics.mjs).
+          DIESE_PAGE_URL: ${{ secrets.DIESE_PAGE_URL }}
         run: node scripts/cron.mjs run planning
 
       # !cancelled() : l'échec d'un script d'appoint (salles) fait échouer l'étape

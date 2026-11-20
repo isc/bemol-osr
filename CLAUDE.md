@@ -116,13 +116,20 @@ production (GitHub Pages) comme dans les previews de PR.
   différences. Mais le nouveau lien peut couvrir un autre périmètre (sur #270 :
   588 événements contre 1 862, sans les services « sans orchestre », les
   trajets de tournée ni les « Résa VH ») : ce qui y manque part en retraits,
-  avec une notification aux abonnés. Claude ne peut pas lire un lien qu'on ne
-  lui donne pas : ne jamais écrire « il suffit de remplacer le secret, en une
-  minute ». Écrire plutôt qu'Ivan doit d'abord comparer les deux exports
-  (nombre d'événements, horizon, services présents d'un seul côté), et que la
-  décision lui revient. De même, ne pas présenter comme établi (« le lien a
-  changé, l'ancien n'affiche plus tout ») ce qui n'est qu'une hypothèse,
+  avec une notification aux abonnés. Un run Claude dans un workflow ne peut
+  lire aucun de ces liens : ne jamais écrire « il suffit de remplacer le
+  secret, en une minute ». Écrire plutôt qu'Ivan doit d'abord comparer les deux
+  exports (nombre d'événements, horizon, services présents d'un seul côté), et
+  que la décision lui revient. De même, ne pas présenter comme établi (« le
+  lien a changé, l'ancien n'affiche plus tout ») ce qui n'est qu'une hypothèse,
   surtout si le musicien compte le répéter à l'administration.
+- **Changement de lien ICS : `scripts/check-lien-ics.mjs`** (cf. son
+  en-tête). À chaque passage du cron du planning, il compare `ICS_URL` au lien
+  affiché sur la page Dièse où Loïc le récupère (secret `DIESE_PAGE_URL`). S'ils
+  diffèrent, l'issue « ⚠️ Dièse affiche un nouveau lien ICS » prévient Ivan, à
+  qui revient la décision. L'adresse de cette page ne va **jamais** en clair
+  dans le dépôt : elle affiche aussi le mot de passe de l'espace documents de
+  l'orchestre.
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le

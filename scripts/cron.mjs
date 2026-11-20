@@ -23,7 +23,6 @@ import { spawnSync, execFileSync } from "node:child_process"
 import { appendFileSync, cpSync, mkdirSync, rmSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
-import { absentsIcs } from "./check-lien-ics.mjs"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
@@ -37,14 +36,18 @@ const MIN_HOURS_BETWEEN_COMMENTS = 6
 const JOBS = {
   planning: {
     script: "scripts/update-data.mjs",
+    // Vérifications, lancées avant le principal (même s'il échoue, elles
+    // disent pourquoi) : leur échec fait échouer le run sans rien empêcher.
+    // check-lien-ics.mjs : Dièse affiche-t-il toujours le lien de Bémol (#270) ?
+    // Un changement de lien ouvre l'issue LIEN_ICS_ALERT plutôt que celle du
+    // cron.
+    checks: ["scripts/check-lien-ics.mjs"],
     // Scripts d'appoint, lancés après le principal : leur échec fait échouer
     // le run, donc ouvre l'issue d'alerte, mais n'empêche pas de publier le
     // planning (la version servie de leur fichier, restaurée ci-dessous avec
     // data/, reste en place).
     // update-salles.mjs : occupation des salles d'Uni Mail (#264).
-    // check-lien-ics.mjs : lien ICS périmé, d'après le mémo (#270) ; son
-    // échec ouvre l'issue LIEN_ICS_ALERT plutôt que celle du cron.
-    extras: ["scripts/update-salles.mjs", "scripts/check-lien-ics.mjs"],
+    extras: ["scripts/update-salles.mjs"],
     // Fichiers servis à restaurer depuis gh-pages avant de régénérer : data/
     // est la référence du journal des différences (changes.json), et
     // productions.json le mémo vivant que build-ics.mjs reporte dans le
@@ -62,7 +65,7 @@ const JOBS = {
 
 Tant que ce problème dure, le site continue de fonctionner mais affiche des données de plus en plus anciennes (un bandeau d'avertissement apparaît dans l'app au-delà de 26 h).
 
-Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Si le journal du run dit seulement \`update-salles.mjs a échoué\`, le planning a bien été publié : seul l'écran « Salles Marie Laggé » n'est plus actualisé (lien partagé du secret \`SALLES_URL\`, format de la page Dièse). Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
+Causes possibles : jeton du lien ICS invalide ou expiré (secret \`ICS_URL\`), changement côté Dièse, incident GitHub. Si le journal du run dit seulement \`update-salles.mjs a échoué\`, le planning a bien été publié : seul l'écran « Salles Marie Laggé » n'est plus actualisé (lien partagé du secret \`SALLES_URL\`, format de la page Dièse). S'il dit \`check-lien-ics.mjs a échoué\` sans autre erreur, le planning a aussi été publié : c'est la page Dièse où s'affiche le lien ICS qui n'a pas pu être lue (adresse du secret \`DIESE_PAGE_URL\` périmée, à redemander à Loïc, ou format de la page changé). Les échecs suivants seront ajoutés en commentaire ici. **Fermer cette issue une fois le problème réglé.**
 
 cc @isc`,
   },
@@ -86,24 +89,24 @@ cc @isc`,
   },
 }
 
-// Productions à venir du mémo absentes du planning (check-lien-ics.mjs) : le
-// lien ICS de Bémol n'est sans doute plus celui que Dièse tient à jour (#270).
-// Ce n'est pas une panne du cron : issue distincte, qui s'adresse aussi à Loïc,
-// seul à avoir accès à Dièse.
+// check-lien-ics.mjs a vu sur la page Dièse un lien ICS autre que celui de
+// Bémol. Ce n'est pas une panne du cron : issue distincte. La décision de
+// changer de lien revient à Ivan (cf. CLAUDE.md, « Remplacer ICS_URL n'est pas
+// un simple réglage ») ; Loïc est mis en copie pour les collègues abonnés
+// directement à Dièse.
 const LIEN_ICS_ALERT = {
-  title: "⚠️ Le lien ICS de Dièse semble périmé",
+  title: "⚠️ Dièse affiche un nouveau lien ICS",
   body: (
     runUrl,
-    absents,
-  ) => `Le mémo de production de Dièse annonce des productions à venir qui **n'apparaissent pas** dans le lien ICS utilisé par Bémol (secret \`ICS_URL\`) : ${runUrl}
+  ) => `Le lien ICS affiché par Dièse (page « Calendriers partagés / Partitions / Documents ») n'est plus celui que lit Bémol (secret \`ICS_URL\`) : ${runUrl}
 
-${absents.map(({ fiche, fin }) => `- ${fiche} (jusqu'au ${fin})`).join("\n")}
+Bémol continue de lire l'ancien lien (s'il ne répond plus, le planning n'est plus mis à jour). Mais en novembre 2026 (#270), les deux liens ne couvraient pas la même chose : le nouveau avait un concours absent de l'ancien, l'ancien une quarantaine de services absents du nouveau.
 
-C'est ce qui s'est passé en novembre 2026 (#270) : Dièse affichait un nouveau lien sans prévenir, et l'ancien ne recevait plus tout. Le planning continue d'être publié, mais il lui manque ces services, comme aux agendas abonnés.
+**Ivan :** comparer les deux exports avant de remplacer le secret \`ICS_URL\` (nombre d'événements, horizon, services présents d'un seul côté). Claude peut le faire dans une session locale. Depuis #274, \`update-data.mjs\` rapproche les services des deux liens, mais ce que le nouveau n'a plus partira en retraits, avec une notification aux abonnés. La décision te revient.
 
-**Ce qu'il faut faire.** @schneiderflute-create : récupérer le lien ICS actuellement affiché sur la page Dièse et l'envoyer **en privé** à Ivan (jamais ici, le dépôt est public). Ivan : le poser dans le secret \`ICS_URL\`. Au passage suivant du cron, l'onglet « Modifs » montrera ce que le nouveau lien ajoute.
+@schneiderflute-create, pour info : rien à faire de ton côté, Bémol a repéré le changement tout seul. Les collègues abonnés directement au lien Dièse gardent l'ancien : ils devront se réabonner avec le nouveau.
 
-Si le lien affiché par Dièse n'a pas changé et que ces productions n'y figurent pas non plus, c'est une fausse alerte : ajouter leur nom à \`FICHES_HORS_ICS\` dans \`scripts/check-lien-ics.mjs\`. **Fermer cette issue une fois le problème réglé.**`,
+Pour garder l'ancien lien, supprimer le secret \`DIESE_PAGE_URL\` : la vérification s'arrête. Sinon, tant que les deux liens diffèrent, une issue fermée est remplacée par une nouvelle au passage suivant, avec un nouvel email. **Fermer cette issue une fois le problème réglé.**`,
 }
 
 const [command, jobName, ...rest] = process.argv.slice(2)
@@ -123,6 +126,18 @@ function setOutput(name, value) {
     appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${value}\n`)
 }
 
+// Scripts annexes (checks, extras) : leur échec fait échouer le run sans
+// interrompre la suite.
+function runSide(scripts = [], suite = "") {
+  for (const script of scripts) {
+    const r = spawnSync("node", [script], { cwd: root, stdio: "inherit" })
+    if (r.status !== 0) {
+      console.log(`::warning::${script} a échoué${suite}`)
+      process.exitCode = 1
+    }
+  }
+}
+
 function run() {
   // 1. Les données de référence sont celles actuellement servies, pas
   // l'instantané de main.
@@ -136,18 +151,13 @@ function run() {
     )
 
   // 2. Régénérer. Un échec fait échouer l'étape, donc déclenche l'alerte.
+  runSide(job.checks)
   const res = spawnSync("node", [job.script, ...rest], {
     cwd: root,
     stdio: "inherit",
   })
   if (res.status !== 0) process.exit(res.status ?? 1)
-  for (const script of job.extras || []) {
-    const r = spawnSync("node", [script], { cwd: root, stdio: "inherit" })
-    if (r.status !== 0) {
-      console.log(`::warning::${script} a échoué, version servie conservée`)
-      process.exitCode = 1
-    }
-  }
+  runSide(job.extras, ", version servie conservée")
 
   // 3. Publier si le résultat diffère de ce que sert gh-pages. On compare à son
   // commit et non à l'index : un fichier qu'il n'a pas encore garde dans l'index
@@ -179,13 +189,8 @@ function run() {
 }
 
 async function alert() {
-  // Seul le cron du planning lance check-lien-ics.mjs (extras).
-  // Un fichier illisible ne doit pas empêcher l'alerte générique.
-  let absents = []
-  try {
-    if (jobName === "planning") absents = absentsIcs()
-  } catch {}
-  const { title, body } = absents.length ? LIEN_ICS_ALERT : job
+  // Posée par check-lien-ics.mjs (cron du planning) dans GITHUB_ENV.
+  const { title, body } = process.env.LIEN_ICS_CHANGE ? LIEN_ICS_ALERT : job
   const repo = process.env.GITHUB_REPOSITORY
   const runUrl = `${process.env.GITHUB_SERVER_URL}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
   const gh = (...args) =>
@@ -210,7 +215,7 @@ async function alert() {
       "--title",
       title,
       "--body",
-      body(runUrl, absents),
+      body(runUrl),
       "--label",
       "besoin-ivan",
     )
