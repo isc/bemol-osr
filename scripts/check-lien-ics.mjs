@@ -1,70 +1,66 @@
 #!/usr/bin/env node
-// Vérifie que le lien ICS de Dièse (secret ICS_URL) n'est pas périmé (#270).
+// Vérifie que Bémol lit bien le lien ICS que Dièse affiche aux musiciens (#270).
 //
-// En novembre 2026, Dièse affichait un nouveau lien ICS sans prévenir ; l'ancien,
-// celui de Bémol, répondait toujours mais ne recevait plus tout (un concours
-// du 14 mai 2027 manquait). Rien ne le signalait : c'est Loïc qui l'a vu.
+// En novembre 2026, Dièse affichait un nouveau lien ICS sans prévenir. L'ancien,
+// celui de Bémol, répondait toujours mais ne couvrait plus la même chose (un
+// concours du 14 mai 2027 manquait). Rien ne le signalait : c'est Loïc qui l'a vu.
 //
-// Le mémo de production, lu chaque nuit par un autre chemin, liste toutes les
-// productions de la saison. update-memo.mjs relève dans productions.json
-// (« _fichesHorsPlanning ») ses fiches dont le nom ne correspond à aucune
-// Liste du planning. absentsIcs() garde celles qui ne sont pas terminées et
-// manquent toujours au planning le plus récent.
+// Ce lien s'affiche sur la page « Calendriers partagés / Partitions /
+// Documents » du mini-site Dièse, celle où Loïc le récupère. Elle se lit sans
+// connexion ; son corps se charge à part (`&service=renderHTML`, comme le fait
+// le script de la page). Son adresse est dans le secret DIESE_PAGE_URL : la
+// page affiche aussi l'identifiant et le mot de passe de l'espace documents de
+// l'orchestre, qui n'ont rien à faire dans un dépôt public.
 //
-// Lancé après chaque mise à jour du planning (cf. `extras` dans cron.mjs), ce
-// script échoue s'il en reste : le run passe en échec, sans empêcher la
-// publication du planning, et `cron.mjs alert planning` rappelle absentsIcs()
-// pour ouvrir l'issue dédiée plutôt que celle d'une panne du cron.
+// Une première version (#271) déduisait un lien périmé des fiches du mémo de
+// production absentes du planning. Elle a donné trois fausses alertes en une
+// semaine (#275, #277, #281), pour des fiches qui n'ont jamais de service.
 //
-// Usage : node scripts/check-lien-ics.mjs
+// Lancé avant chaque mise à jour du planning (cf. `checks` dans cron.mjs), ce
+// script échoue si le lien affiché n'est pas celui d'ICS_URL, ou si la page
+// n'en affiche plus aucun. Le run passe alors en échec, sans empêcher la
+// publication du planning. Un changement de lien pose LIEN_ICS_CHANGE pour les
+// étapes suivantes du job : `cron.mjs alert planning` ouvre alors l'issue
+// dédiée plutôt que celle d'une panne du cron.
+//
+// Usage : DIESE_PAGE_URL=… ICS_URL=… node scripts/check-lien-ics.mjs
 
-import { existsSync, readFileSync } from "node:fs"
-import { dirname, join } from "node:path"
-import { fileURLToPath } from "node:url"
+import { appendFileSync } from "node:fs"
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "..")
+// Seul le jeton compte : https:// ou webcal://, peu importe.
+const JETON_RE = /contact_ics-[^\s"'<>/]+?\.ics/g
 
-// Fiches du mémo qui n'ont, en temps normal, aucun service dans le lien ICS
-// (nom exact, ou motif pour une série). Si l'alerte se déclenche pour l'une
-// d'elles alors que le lien est à jour (le lien affiché par Dièse n'en montre
-// pas trace non plus), l'ajouter ici.
-const FICHES_HORS_ICS = [
-  // Fiche d'attente du mémo, sans service : absente de l'ancien comme du
-  // nouveau lien Dièse (#270, vérifié le 16/11/2026).
-  "Auditions de musicien·nes supplémentaires à définir",
-  // Séances du Conseil de Fondation, sans orchestre : l'ancien lien les
-  // donnait, le lien actuel (#270) ne les donne plus. Leurs services de
-  // décembre en sont sortis au changement de lien, le 16/11/2026 (#277).
-  /^Conseil de Fondation /,
-]
-const horsIcs = (fiche) =>
-  FICHES_HORS_ICS.some((m) =>
-    m instanceof RegExp ? m.test(fiche) : m === fiche,
-  )
-
-const read = (p) => JSON.parse(readFileSync(join(root, p), "utf8"))
-
-export function absentsIcs() {
-  if (!existsSync(join(root, "productions.json"))) return []
-  const listes = new Set(read("data/planning.json").events.map((e) => e.liste))
-  const today = new Date().toLocaleDateString("sv-SE", {
-    timeZone: "Europe/Zurich",
-  })
-  return (read("productions.json")._fichesHorsPlanning || []).filter(
-    ({ fiche, fin }) => fin >= today && !listes.has(fiche) && !horsIcs(fiche),
-  )
-}
-
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const absents = absentsIcs()
-  if (!absents.length) {
-    console.log("Lien ICS : toutes les productions à venir du mémo y figurent.")
-    process.exit(0)
+async function main() {
+  const { DIESE_PAGE_URL: page, ICS_URL: ics } = process.env
+  if (!page || !ics) {
+    // En annotation sous Actions : une vérification coupée doit se voir.
+    console.log(
+      `${process.env.GITHUB_ACTIONS ? "::warning::" : ""}DIESE_PAGE_URL ou ICS_URL absent : vérification du lien ICS sautée.`,
+    )
+    return
   }
+  const res = await fetch(`${page}&service=renderHTML`, {
+    signal: AbortSignal.timeout(30_000),
+  })
+  if (!res.ok) throw new Error(`page Dièse : HTTP ${res.status}`)
+  const affiches = new Set((await res.text()).match(JETON_RE))
+  if (!affiches.size)
+    throw new Error(
+      "la page Dièse n'affiche plus de lien ICS (adresse DIESE_PAGE_URL périmée, ou format de la page changé)",
+    )
+  if (affiches.has(ics.match(JETON_RE)?.[0])) {
+    console.log("Lien ICS : Bémol lit bien le lien affiché par Dièse.")
+    return
+  }
+  if (process.env.GITHUB_ENV)
+    appendFileSync(process.env.GITHUB_ENV, "LIEN_ICS_CHANGE=1\n")
   console.log(
-    `::warning::Lien ICS peut-être périmé : ${absents.length} production(s) à venir du mémo absente(s) du planning`,
+    "::warning::Dièse affiche un nouveau lien ICS, différent de celui de Bémol (secret ICS_URL)",
   )
-  for (const { fiche, fin } of absents)
-    console.log(`  - ${fiche} (jusqu'au ${fin})`)
-  process.exit(1)
+  process.exitCode = 1
 }
+
+await main().catch((e) => {
+  console.log(`::warning::Vérification du lien ICS impossible : ${e.message}`)
+  process.exitCode = 1
+})
