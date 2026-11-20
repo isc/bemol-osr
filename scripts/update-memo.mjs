@@ -255,9 +255,8 @@ function parseComposerRun(line) {
 // -layout (cf. parseWorkNumbering), absent en test local sans -layout.
 function parseSection(body, numbers) {
   const prod = {}
-  // [n° de position programme, compositeur], dans l'ordre du document. Un même
-  // n° peut revenir : les pièces « hors compétition » d'une finale de concours
-  // sont toutes numérotées 0 (Liste 15, novembre 2026).
+  // [n° de position programme, compositeur], dans l'ordre du document (un même
+  // n° peut revenir, cf. workPositions)
   const composerRuns = []
   const works = []
   const solistes = []
@@ -427,11 +426,11 @@ function parseSection(body, numbers) {
       continue
     }
 
-    // durée d'œuvre "02.50". Les durées suivent l'ordre des œuvres, mais une
-    // page peut en regrouper plusieurs sous la dernière (Liste 15 : quatre
-    // « 00.00 », puis « 00.17 » de Don Juan, sous Don Juan) : chacune revient
-    // à la première œuvre qui n'a pas encore la sienne. « 00.00 » (durée non
-    // renseignée, null) tient sa place sans s'afficher.
+    // durée d'œuvre "02.50", une par œuvre (« 00.00 » si non renseignée :
+    // null, qui tient sa place sans s'afficher). Les durées suivent l'ordre des
+    // œuvres, mais une page peut en regrouper plusieurs sous la dernière
+    // (Liste 15 : quatre « 00.00 », puis les « 00.17 » de Don Juan, sous Don
+    // Juan) : chacune revient à la première œuvre qui n'a pas la sienne.
     if (/^\d{2}\.\d{2}$/.test(line)) {
       const d = fmtWorkDuration(line)
       const target = works.find((w) => w.duree === undefined) || cur
@@ -495,14 +494,13 @@ function parseSection(body, numbers) {
   // de chaque œuvre vient donc de l'extraction -layout ; à défaut (test local,
   // table incohérente), appariement dans l'ordre du document (les entractes
   // portent un n° nu sans nom → absents de composerRuns, donc pas de décalage).
-  // Des œuvres de même n° prennent les compositeurs de ce n° dans l'ordre du
-  // document.
+  // Des œuvres de même n° (cf. workPositions) prennent les compositeurs de ce
+  // n° dans l'ordre du document.
   const positions = workPositions(numbers, works.length)
-  const unpaired = [...composerRuns]
   const composers = positions
     ? positions.map((n) => {
-        const k = unpaired.findIndex(([m]) => m === n)
-        return k < 0 ? undefined : unpaired.splice(k, 1)[0][1]
+        const k = composerRuns.findIndex(([m]) => m === n)
+        return k < 0 ? undefined : composerRuns.splice(k, 1)[0][1]
       })
     : composerRuns.toSorted((a, b) => a[0] - b[0]).map((e) => e[1])
   prod.works = works.map((w, idx) => {
@@ -511,11 +509,8 @@ function parseSection(body, numbers) {
     for (const f of WORK_FIELDS) if (w[f]) out[f] = w[f]
     return out
   })
-  // Dièse range dans un ordre différent, à chaque génération du PDF, les
-  // œuvres d'un même n° : sans ce tri, Liste 15 changeait d'ordre (et, avant
-  // l'appariement ci-dessus, de compositeurs) à presque chaque passage du
-  // cron, journalisée à tort dans « Modifs ». Les n° étant croissants
-  // (cf. workPositions), seules ces œuvres-là changent de place.
+  // Œuvres d'un même n° triées par libellé, pour un productions.json
+  // identique d'un PDF à l'autre (cf. workPositions).
   if (positions)
     prod.works = prod.works
       .map((w, idx) => [positions[idx], w])
@@ -949,10 +944,15 @@ function parseWorkNumbering(layoutText, knownListes) {
 }
 
 // Numérotation retenue seulement si elle est cohérente avec les œuvres lues
-// dans memo.txt : autant de numéros que d'œuvres, croissants. Un même n° peut
-// revenir (pièces « hors compétition » toutes numérotées 0, cf. parseSection).
-// Une œuvre manquée d'un côté ou de l'autre la rend inutilisable : mieux vaut
-// alors aucune œuvre par service qu'une œuvre décalée.
+// dans memo.txt : autant de numéros que d'œuvres, croissants. Une œuvre
+// manquée d'un côté ou de l'autre la rend inutilisable : mieux vaut alors
+// aucune œuvre par service qu'une œuvre décalée.
+// Un même n° peut revenir : les pièces « hors compétition » d'une finale de
+// concours sont toutes numérotées 0 (Liste 15, novembre 2026), et Dièse les
+// range dans un ordre différent à chaque génération du PDF. Le parseur ne
+// gardait qu'un compositeur par n° : il les appariait de travers, autrement à
+// chaque passage, et « Modifs » journalisait presque chaque jour une fausse
+// modification de la Liste 15 (œuvres « retirées » puis « ajoutées »).
 function workPositions(numbers, workCount) {
   if (!numbers || numbers.length !== workCount) return null
   return numbers.every((n, i) => i === 0 || n >= numbers[i - 1])
@@ -971,11 +971,13 @@ function workPositions(numbers, workCount) {
 function matchServiceWorks(rows, events, positions) {
   const serviceWorks = {}
   const serviceNotes = {}
+  // n° → index 1-based de ses œuvres (plusieurs si le n° revient)
+  const indexes = new Map()
+  positions?.forEach((n, idx) =>
+    indexes.set(n, [...(indexes.get(n) || []), idx + 1]),
+  )
   for (const row of rows) {
-    // (toutes les œuvres de ce n°, s'il revient : cf. workPositions)
-    const oeuvres = row.oeuvres.flatMap((n) =>
-      (positions || []).flatMap((p, idx) => (p === n ? [idx + 1] : [])),
-    )
+    const oeuvres = row.oeuvres.flatMap((n) => indexes.get(n) || [])
     if (!oeuvres.length && !row.note) continue
     const candidates = events.filter(
       (e) =>
