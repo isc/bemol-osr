@@ -1113,37 +1113,37 @@
   "duree": "≈ 1 h 03",
   "works": [
    {
-    "oeuvre": "Béla BARTÓK — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Le Mandarin merveilleux, suite d'orchestre op. 19",
-    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
-    "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
-    "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
-    "claviers": "célesta, orgue, piano",
-    "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
-    "note": "PIECE HORS-COMPETITION",
-    "duree": "≈ 17 min"
-   },
-   {
-    "oeuvre": "Richard STRAUSS — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
-    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
-    "remarques": "fl3+picc, 1ca, 1cl.bs",
-    "percussions": "GC, cymb fr, TT, tri",
-    "note": "PIECE HORS-COMPETITION"
-   },
-   {
-    "oeuvre": "Igor STRAVINSKI — Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
+    "oeuvre": "Serge PROKOFIEV — Charlotte GARDNER, maîtresse de cérémonie Antoine PECQUEUR, maître de cérémonie Roméo et Juliette, suite de ballet N° 2, N° 2 Juliette enfant",
     "instrumentation": "3*.3*.3*.3* / 3.3*.0.0 / 0.2.1.0 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet",
     "percussions": "glock, tri",
     "extra": "saxophone ténor",
-    "note": "PIECE HORS-COMPETITION"
+    "note": "PIECE HORS-COMPETITION",
+    "duree": "≈ 17 min"
    },
    {
-    "oeuvre": "Serge PROKOFIEV — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
+    "oeuvre": "Richard STRAUSS — Roméo et Juliette, suite de ballet N° 2, N° 5 Avant la séparation",
     "instrumentation": "3*.3*.3*.3* / 4.1*.2*.1 / 0.1.1.1 / 14.12.10.8.6",
     "remarques": "1picc, 1ca, 1cl.bs, 1kfgt, 1cornet, 1trb.bs",
     "percussions": "GC",
     "claviers": "piano+célésta",
     "extra": "saxophone ténor",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Igor STRAVINSKI — Le Mandarin merveilleux, suite d'orchestre op. 19",
+    "instrumentation": "3*.3*.3*.3* / 4.3.3.1 / 1.5.1.3 / 14.12.10.8.6",
+    "remarques": "fl2&3+picc, ob3+ca, cl2+cl.mib+cl.ré, cl3+cl.bs, fgt3+kfgt",
+    "percussions": "GC, cymb fr, t tamb, xyl, c.cl., TT, tri, cymb sus",
+    "claviers": "célesta, orgue, piano",
+    "detail": "Seulement 8 notes à l'orgue (chiffre 4) : au pédalier et toutes doublées au tuba et Tb3 Possible à 2\npianistes si Célesta+Orgue.",
+    "note": "PIECE HORS-COMPETITION"
+   },
+   {
+    "oeuvre": "Serge PROKOFIEV — Totenfeier, poème symphonique pour grand orchestre en ut majeur",
+    "instrumentation": "3*.3*.3*.3 / 4.3.3.1 / 1.3.1.0 / 14.12.10.8.6",
+    "remarques": "fl3+picc, 1ca, 1cl.bs",
+    "percussions": "GC, cymb fr, TT, tri",
     "note": "PIECE HORS-COMPETITION"
    },
    {
@@ -1360,7 +1360,7 @@
    "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
    "osr132921": "essai micros",
    "osr132922": "-podium choeur finalement fermé au public",
-   "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger).",
+   "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger). -photographe Niels Ackermann",
    "osr132923": "-podium choeur finalement fermé au public -réception SIG sur invit. 18h30 / foyer. -réception SIG après concert sur invit. / Lyrique.",
    "osr132925": "-podium choeur finalement fermé au public"
   }
