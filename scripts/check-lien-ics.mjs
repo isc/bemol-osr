@@ -36,6 +36,10 @@ const FICHES_HORS_ICS = [
   // donnait, le lien actuel (#270) ne les donne plus. Leurs services de
   // décembre en sont sortis au changement de lien, le 16/11/2026 (#277).
   /^Conseil de Fondation /,
+  // Fiche apparue dans le mémo le 19/11/2026, sans aucun service dans le lien
+  // ICS ; Loïc a vérifié que le lien affiché par Dièse n'avait pas changé
+  // (#281).
+  "Planning_Tech",
 ]
 const horsIcs = (fiche) =>
   FICHES_HORS_ICS.some((m) =>
