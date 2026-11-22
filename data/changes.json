@@ -1,6 +1,35 @@
 {
  "entries": [
   {
+   "at": "2026-11-22T23:39:14.203Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr132661",
+     "start": "2026-08-24T14:30",
+     "end": "2026-08-24T17:00",
+     "liste": "Liste 04",
+     "activity": "session enregistrement",
+     "category": "enregistrement",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    },
+    {
+     "uid": "osr132662",
+     "start": "2026-08-24T19:30",
+     "end": "2026-08-24T22:00",
+     "liste": "Liste 04",
+     "activity": "session enregistrement (avec choeurs)",
+     "category": "enregistrement",
+     "location": "Victoria Hall de Genève",
+     "project": "ENR1",
+     "cancelled": false
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-11-20T13:37:57.523Z",
    "type": "memo",
    "programs": [
