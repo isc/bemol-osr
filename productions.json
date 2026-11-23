@@ -1342,7 +1342,7 @@
   "serviceNotes": {
    "osr132917": "ATTENTION : service prolongé jusqu'à 19h (1 pause de 30') et compté double. Service du soir annulé. Avec l'accord des représentants -les jeunes chefs de la masterclasse Talent Norge ont accès à toutes les répétitions au podium choeur",
    "osr132919": "ATTENTION : service originellement prévu à 9h30 et raccourci à 10h",
-   "osr132921": "essai micros",
+   "osr132921": "-essai micros -groupe Jeunesse (30) en galerie d'orgue même si la générale devait être fermée",
    "osr132922": "-podium choeur finalement fermé au public",
    "osr132926": "-jeunes chefs Talent Norge : Tobias FURHOLT, Nina HAUG, Rasmus HELLA MIKKELSEN -avec cordes réduites à 10.8.7.6.4 pour les 2 symphonies -temps d'échange entre les jeunes chefs et le chef au foyer OSR-Bovy après le service (avec catering léger). -photographe Niels Ackermann",
    "osr132923": "-podium choeur finalement fermé au public -réception SIG sur invit. 18h30 / foyer. -réception SIG après concert sur invit. / Lyrique.",
@@ -1504,6 +1504,7 @@
    "osr128620": "-sans choristes ni soliste ni amplification -démontage express à l'issue",
    "osr162114": "1ère demi-heure pour la balance micros",
    "osr162115": "fin 22h15 max. pour repos nocturne essai micro Foyer OSR-Bovy innaccessible pour la verrée offerte aux retraités à l'issue",
+   "osr128623": "-invitations des membres retraité·es sur le concert de 10h30 + visite des coulisses + déjeuner à La Cave Valaisanne",
    "osr128624": "différé Espace 2 le 23 décembre"
   }
  },
@@ -2067,8 +2068,41 @@
    "osr133007": "démontage express pour OCG"
   }
  },
+ "Liste 24b": {
+  "info": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1",
+  "contraires": "contraire liste D - 2 services max. par musicien·ne",
+  "chef": "Philippe BÉRAN",
+  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
+  "duree": "≈ 1 h 00",
+  "works": [
+   {
+    "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
+    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
+    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
+    "duree": "≈ 1 h 00"
+   }
+  ],
+  "serviceNotes": {
+   "osr176100": "verre d'accueil servi au foyer à la pause"
+  }
+ },
+ "Doudou Concert 4": {
+  "info": "4ème série ajoutée en cours de saison",
+  "works": [],
+  "serviceNotes": {
+   "osr252409": "pour les crèches",
+   "osr252411": "tout public"
+  }
+ },
+ "Concours Premier.ère Soliste des seconds violons": {
+  "chef": "Tugan SOKHIEV",
+  "works": [],
+  "serviceNotes": {
+   "osr236289": "avec Tugan Sokhiev clôture des inscriptions le 25 novembre"
+  }
+ },
  "Liste D": {
-  "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe",
+  "info": "PRODUCTION AU VH EN SEMI-STAGE\néventuellement en 4 lectures au lieu de 5 (en attente GT le 28.05.26)\n-attention solo harpe\nATTENTION : l'OSR n'a pas accès au foyer du bas sur cette production (uniquement foyer OSR-Bovy et foyer du haut). Aucune caisse collective d'instruments (violons, altos, trompettes,\ntrombones etc...) n'est prévue au VH en dehors des violoncelles et contrebasses. Tous les instruments peuvent par contre rester au VH entre le 1er et le dernier service, même si il faut\nnoter qu'il y aura beaucoup de personnel étranger sur place pendant cette période.",
   "contraires": "contraire Listes 24 et 24b",
   "tenue": "06.02-19h30 + 08.02-19h30 + 10.02-19h30 + 12.02-19h30 + 14.02-15h00 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures\nvernies)",
   "chef": "Jader BIGNAMINI",
@@ -2142,39 +2176,6 @@
   "serviceNotes": {
    "osr133323": ":M.Inaudi assis dans l'orchestre x2 pour amis OSR (enchères)",
    "osr133329": "ouvrage sans captation radio"
-  }
- },
- "Liste 24b": {
-  "info": "Coaching OSR c'est vous avec OSR = 1111 / 1110 / 1000 / 1.1.1.1.1",
-  "contraires": "contraire liste D - 2 services max. par musicien·ne",
-  "chef": "Philippe BÉRAN",
-  "effectif": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1 (13 musiciens)",
-  "duree": "≈ 1 h 00",
-  "works": [
-   {
-    "oeuvre": "DIVERS COMPOSITEURS — L'OSR c'est Vous [effectif OSR type]",
-    "instrumentation": "1.1.1.1 / 1.1.1.0 / 1.0.0.0 / 1.1.1.1.1",
-    "note": "L'Italie et la Dolce Vita : oeuvres de Respighi, Verdi, Morricone, Rota et Zimmer",
-    "duree": "≈ 1 h 00"
-   }
-  ],
-  "serviceNotes": {
-   "osr176100": "verre d'accueil servi au foyer à la pause"
-  }
- },
- "Doudou Concert 4": {
-  "info": "4ème série ajoutée en cours de saison",
-  "works": [],
-  "serviceNotes": {
-   "osr252409": "pour les crèches",
-   "osr252411": "tout public"
-  }
- },
- "Concours Premier.ère Soliste des seconds violons": {
-  "chef": "Tugan SOKHIEV",
-  "works": [],
-  "serviceNotes": {
-   "osr236289": "avec Tugan Sokhiev clôture des inscriptions le 25 novembre"
   }
  },
  "Liste 25": {
