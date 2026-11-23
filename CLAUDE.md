@@ -87,6 +87,18 @@ production (GitHub Pages) comme dans les previews de PR.
     séries contraires, objet de la demande, sont dans « Services annuels &
     contraires », juste à côté : il a fallu une seconde issue (#219) et une
     seconde PR (#220).
+  - **Une même Liste « modifiée » presque chaque jour dans « Modifs » est
+    suspecte.** Les 11, 13, 14, 15, 16 et 20/11/2026, la Liste 15 y est
+    apparue avec quatre œuvres « ajoutées » et quatre « retirées », alors que le mémo n'avait
+    pas changé : le parseur appariait mal les compositeurs, et chaque génération
+    du PDF donnait d'autres libellés (#284). Des notifications push sont parties
+    pour rien, et c'est Ivan qui l'a vu, par hasard. Les journaux de
+    `update-memo` affichaient pourtant chaque nuit « numérotation -layout
+    incohérente ». Le repérer : une entrée `type: "memo"` dont `worksAdded` et
+    `worksRemoved` ont la même taille, revenant sur la même Liste à quelques
+    jours d'écart, ou ce message dans le journal du dernier run
+    (`gh run view <id> --log | grep incohérente`). C'est un bug du parseur, à
+    corriger, et non un vrai changement du mémo.
 - `scripts/update-salles.mjs` (Node ≥ 20, zéro dépendance) régénère
   `data/salles.json`, l'occupation des salles d'Uni Mail (écran « Salles Marie
   Laggé », #264), à partir du planning des salles partagé par Dièse (URL dans le
@@ -130,6 +142,19 @@ production (GitHub Pages) comme dans les previews de PR.
   qui revient la décision. L'adresse de cette page ne va **jamais** en clair
   dans le dépôt : elle affiche aussi le mot de passe de l'espace documents de
   l'orchestre.
+- **Une alerte qui fait échouer un cron se rejoue d'abord sur des données
+  réelles, et une deuxième fausse alerte remet en cause la règle.** La première
+  vérification du lien (#271) déduisait un lien périmé des fiches du mémo
+  absentes du planning. Son propre test listait déjà des fiches sans aucun
+  service (« Communication 2627 »…). En une semaine, il a fallu en exclure trois fiches
+  (#275, #277, #281), dont deux après une fausse alerte. Chaque alerte a valu un
+  email inutile à Ivan, une vérification dans Dièse pour Loïc, une PR
+  d'exception, et jusqu'à 19 runs en échec d'affilée. Claude a ajouté une exception à chaque fois (#278, puis #282) ;
+  c'est Ivan qui a changé de méthode (#283). Avant d'ouvrir une telle alerte,
+  regarder ce qu'elle aurait signalé sur l'historique disponible (`gh-pages`,
+  `changes.json`), et dire dans la PR combien de fausses alertes on en attend.
+  Dès la deuxième fausse alerte d'une même vérification, proposer de revoir la
+  vérification elle-même, en plus de l'exception qui débloque le cron.
 - **Les crons GitHub ne sont pas tenus à l'heure.** Depuis fin août 2026, le
   cron « toutes les 2 h » de `update-data.yml` ne passe que **4 à 5 fois par
   jour** (écart moyen ~6 h, jusqu'à 8 h 30 ; cf. revue du 05/10/2026), et le
