@@ -1,6 +1,24 @@
 {
  "entries": [
   {
+   "at": "2026-11-24T16:00:50.889Z",
+   "added": [],
+   "removed": [
+    {
+     "uid": "osr133130",
+     "start": "2027-05-22T19:30",
+     "end": "2027-05-22T22:30",
+     "liste": "Liste 34",
+     "activity": "concert en construction",
+     "category": "concert",
+     "location": "Arena de Genève",
+     "project": "H.Abo4",
+     "cancelled": true
+    }
+   ],
+   "modified": []
+  },
+  {
    "at": "2026-11-24T12:00:51.173Z",
    "added": [],
    "removed": [],

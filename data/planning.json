@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-24T12:00:51.173Z",
- "count": 565,
+ "updatedAt": "2026-11-24T16:00:50.889Z",
+ "count": 564,
  "events": [
   {
    "uid": "osr132665",
@@ -5303,17 +5303,6 @@
    "location": "Arena de Genève",
    "project": "H.Abo5",
    "cancelled": false
-  },
-  {
-   "uid": "osr133130",
-   "start": "2027-05-22T19:30",
-   "end": "2027-05-22T22:30",
-   "liste": "Liste 34",
-   "activity": "concert en construction",
-   "category": "concert",
-   "location": "Arena de Genève",
-   "project": "H.Abo4",
-   "cancelled": true
   },
   {
    "uid": "osr133147",
