@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T20:00:50.467Z",
+ "updatedAt": "2026-11-24T10:00:49.018Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1283,9 +1283,21 @@
    "activity": "Réservation"
   },
   {
+   "start": "2026-11-25T14:00",
+   "end": "2026-11-25T15:00",
+   "salle": "Studio P",
+   "activity": "Réservation"
+  },
+  {
    "start": "2026-11-25T14:30",
    "end": "2026-11-25T19:00",
    "salle": "Grande salle",
+   "activity": "Réservation"
+  },
+  {
+   "start": "2026-11-25T15:00",
+   "end": "2026-11-25T17:30",
+   "salle": "Studio B",
    "activity": "Réservation"
   },
   {
