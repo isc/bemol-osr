@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T10:00:49.018Z",
+ "updatedAt": "2026-11-24T12:00:54.401Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -2229,13 +2229,6 @@
    "end": "2027-04-21T22:30",
    "salle": "Grande salle",
    "activity": "Réservation"
-  },
-  {
-   "start": "2027-04-23T09:30",
-   "end": "2027-04-23T12:30",
-   "salle": "Tous les espaces",
-   "activity": "audition DAS",
-   "liste": "Auditions DAS"
   },
   {
    "start": "2027-04-23T16:00",

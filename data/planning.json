@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T00:00:49.890Z",
+ "updatedAt": "2026-11-24T12:00:51.173Z",
  "count": 565,
  "events": [
   {
@@ -4825,9 +4825,9 @@
    "start": "2027-04-23T09:30",
    "end": "2027-04-23T12:30",
    "liste": "Auditions DAS",
-   "activity": "audition DAS (poste à préciser)",
+   "activity": "audition DAS (percussion)",
    "category": "concours",
-   "location": "ML - Tous les espaces",
+   "location": "HEM-Viguet",
    "project": "CONC.",
    "cancelled": false
   },
@@ -4935,7 +4935,7 @@
    "start": "2027-04-29T09:30",
    "end": "2027-04-29T12:30",
    "liste": "Auditions DAS",
-   "activity": "audition DAS (poste à préciser)",
+   "activity": "audition DAS (violon)",
    "category": "concours",
    "location": "ML - Tous les espaces",
    "project": "CONC.",
@@ -4946,7 +4946,7 @@
    "start": "2027-04-29T14:30",
    "end": "2027-04-29T17:30",
    "liste": "Auditions DAS",
-   "activity": "audition DAS (poste à préciser)",
+   "activity": "audition DAS (cor)",
    "category": "concours",
    "location": "ML - Tous les espaces",
    "project": "CONC.",
