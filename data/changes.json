@@ -1,6 +1,57 @@
 {
  "entries": [
   {
+   "at": "2026-11-24T04:46:13.897Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 20",
+     "status": "modified",
+     "fields": [],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": [
+      {
+       "oeuvre": "[DIVERS COMPOSITEURS] — Christmas Songs Matt Dusk",
+       "fields": [
+        "percussions"
+       ]
+      }
+     ]
+    },
+    {
+     "liste": "Liste 21",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "duree",
+       "before": "≈ 1 h 52",
+       "after": "≈ 1 h 48"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [
+      "Armenian Folk Song"
+     ],
+     "worksModified": []
+    },
+    {
+     "liste": "Liste C",
+     "status": "modified",
+     "fields": [
+      {
+       "field": "info",
+       "before": "-captation vidéo Les Noces sous les Etoiles (dates à définir)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
+       "after": "-captation vidéo Les Noces sous les Etoiles (à confirmer)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturels (vérif.27.08.26)"
+      }
+     ],
+     "worksAdded": [],
+     "worksRemoved": [],
+     "worksModified": []
+    }
+   ]
+  },
+  {
    "at": "2026-11-24T00:00:49.890Z",
    "added": [],
    "removed": [

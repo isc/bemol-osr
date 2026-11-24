@@ -30,12 +30,6 @@
    "Mark BIGGINS, chef·fe de choeur"
   ],
   "serviceWorks": {
-   "osr132663": [
-    1
-   ],
-   "osr132664": [
-    1
-   ],
    "osr132665": [
     1
    ],
@@ -47,8 +41,6 @@
    ]
   },
   "serviceNotes": {
-   "osr132663": "Mélisande - Pelléas act.III-sc.1 (14')",
-   "osr132664": "Pelléas / Mélisande act.II-sc.1 (10')",
    "osr132665": "Pelléas - Mélisande act.IV-sc.4 (15')",
    "osr132666": "Pelléas - Mélisande",
    "osr132667": "Pelléas - Mélisande"
@@ -1456,7 +1448,7 @@
     "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
     "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
     "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "perc.en construct., drumset",
+    "percussions": "GC (perc.2), cymb fr (perc.3), gong (perc.3 (ut3)), glock (perc.3), bsq (perc.1), woodblk\n(perc.2), mach.à vent (perc.1), xyl (perc.2), bongos, congas, szl cym (perc.2), TT (perc.1), tri (perc.1), vibra\n(perc.1), cymb sus (perc.2), bsq (perc.3), cl.tub. (perc.1), drumset (perc.4)",
     "claviers": "piano+synthétiseur",
     "extra": "saxophone alto, saxophone baryton, saxophone ténor",
     "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
@@ -1502,14 +1494,14 @@
    "osr162112": "-sans choristes ni soliste ni amplification -visite de classes",
    "osr162113": "-sans choristes ni soliste ni amplification -visite de classes",
    "osr128620": "-sans choristes ni soliste ni amplification -démontage express à l'issue",
-   "osr162114": "1ère demi-heure pour la balance micros",
+   "osr162114": "1ère demi-heure pour la balance micros orchestre puis choristes puis soliste",
    "osr162115": "fin 22h15 max. pour repos nocturne essai micro Foyer OSR-Bovy innaccessible pour la verrée offerte aux retraités à l'issue",
    "osr128623": "-invitations des membres retraité·es sur le concert de 10h30 + visite des coulisses + déjeuner à La Cave Valaisanne",
-   "osr128624": "différé Espace 2 le 23 décembre"
+   "osr128624": "différé Espace 2 - date à annoncer ultérieurement"
   }
  },
  "Liste C": {
-  "info": "-captation vidéo Les Noces sous les Etoiles (dates à définir)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturelles (vérif.27.08.26)",
+  "info": "-captation vidéo Les Noces sous les Etoiles (à confirmer)\n-durée de la soirée certifiée inférieure à 4h par le GT (3h45 prév.) : 1 service annuel par représentation\n-pas de demande de cors ni trompettes naturels (vérif.27.08.26)",
   "contraires": "contraire Liste 18 et Liste 19 et Liste 20",
   "tenue": "13.12-17h00 + 15.12-19h00 + 17.12-19h00 + 18.12-19h00 + 20.12-15h00 + 22.12-19h00 + 26.12-19h00 + 28.12-19h00 + 29.12-19h00 + 31.12-19h00 : tenue de fosse (chemise noire)",
   "chef": "Marta GARDOLIŃSKA",
@@ -1624,7 +1616,7 @@
   "tenue": "13.01-19h30 + 14.01-20h15 : Tenue de concert (Hommes : costume OSR & chaussures vernies / Femmes : tenue de soirée noire & chaussures vernies)",
   "chef": "Karen KAMENSEK",
   "effectif": "3.3.3.4 / 4.4.3.1 / 1.4.2.0 / 12.10.8.6.4 (72 musiciens)",
-  "duree": "≈ 1 h 52",
+  "duree": "≈ 1 h 48",
   "works": [
    {
     "oeuvre": "Giuseppe VERDI — La Forza del Destino, Ouverture",
@@ -1730,12 +1722,6 @@
     "duree": "≈ 6 min"
    },
    {
-    "oeuvre": "Armenian Folk Song",
-    "instrumentation": "0.0.0.0 / 0.0.0.0 / 0.0.0.0 / 12.10.8.6.4",
-    "note": "Bis finalement supprimé\neffectif en attente de la soliste (inférieur ou égal à l'effectif max.)",
-    "duree": "≈ 4 min"
-   },
-   {
     "oeuvre": "Giacomo PUCCINI — Gianni Schicchi, Air de Lauretta \"O mio babbino caro...\"",
     "instrumentation": "2.3*.3*.2 / 4.3.0.0 / 0.0.1.0 / 12.10.8.6.4",
     "remarques": "1ca, 1cl.bs",
@@ -1763,8 +1749,7 @@
     14,
     15,
     16,
-    17,
-    18
+    17
    ],
    "osr132968": [
     2,
@@ -1778,8 +1763,7 @@
     12,
     13,
     16,
-    17,
-    18
+    17
    ],
    "osr132969": [
     2,
@@ -1791,8 +1775,7 @@
     13,
     14,
     16,
-    17,
-    18
+    17
    ],
    "osr132970": [
     2,
@@ -1804,8 +1787,7 @@
     13,
     14,
     16,
-    17,
-    18
+    17
    ],
    "osr132971": [
     1,
@@ -1824,8 +1806,7 @@
     14,
     15,
     16,
-    17,
-    18
+    17
    ],
    "osr132972": [
     1,
@@ -1843,8 +1824,7 @@
     14,
     15,
     16,
-    17,
-    18
+    17
    ],
    "osr132975": [
     1,
@@ -1862,12 +1842,11 @@
     14,
     15,
     16,
-    17,
-    18
+    17
    ]
   },
   "serviceNotes": {
-   "osr132967": "-LE PLAN DE TRAVAIL PAR ŒUVRE PRÉSENTÉ RESTE À CONFIRMER. Il sera finalisé sur la Période définitive. -tutti pour possiblement tout le programme",
+   "osr132967": "-tutti pour possiblement tout le programme",
    "osr132968": "-sans Forza, Ballibili, Castillane, Prélude Carmen ni Meine Lippen (sans fgt4, trp4, hrp2 et possiblement perc4) -démontage express pour Caecilia 17h",
    "osr132969": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
    "osr132970": "-uniquement les airs avec soliste (sans fgt4, trp4, hrp2)",
