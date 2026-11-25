@@ -1,18 +1,7 @@
 {
- "updatedAt": "2026-11-24T16:00:50.889Z",
- "count": 564,
+ "updatedAt": "2026-11-25T00:00:51.805Z",
+ "count": 563,
  "events": [
-  {
-   "uid": "osr132665",
-   "start": "2026-08-26T19:30",
-   "end": "2026-08-26T22:00",
-   "liste": "Liste 04",
-   "activity": "session enregistrement",
-   "category": "enregistrement",
-   "location": "Victoria Hall de Genève",
-   "project": "ENR1",
-   "cancelled": false
-  },
   {
    "uid": "osr132666",
    "start": "2026-08-27T14:30",
