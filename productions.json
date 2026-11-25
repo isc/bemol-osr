@@ -30,9 +30,6 @@
    "Mark BIGGINS, chef·fe de choeur"
   ],
   "serviceWorks": {
-   "osr132665": [
-    1
-   ],
    "osr132666": [
     1
    ],
@@ -41,7 +38,6 @@
    ]
   },
   "serviceNotes": {
-   "osr132665": "Pelléas - Mélisande act.IV-sc.4 (15')",
    "osr132666": "Pelléas - Mélisande",
    "osr132667": "Pelléas - Mélisande"
   }
@@ -1448,7 +1444,7 @@
     "instrumentation": "2.2.2*.2 / 4.3*.3*.1 / 1.4.0.1 / 8.7.6.5.4*",
     "remarques": "1 cl.bs, 1 trp.+buggle (à confirmer), 1 trb.bs",
     "remarquesCordes": "4 contrebasses dont 1 acoustique+électrique",
-    "percussions": "GC (perc.2), cymb fr (perc.3), gong (perc.3 (ut3)), glock (perc.3), bsq (perc.1), woodblk\n(perc.2), mach.à vent (perc.1), xyl (perc.2), bongos, congas, szl cym (perc.2), TT (perc.1), tri (perc.1), vibra\n(perc.1), cymb sus (perc.2), bsq (perc.3), cl.tub. (perc.1), drumset (perc.4)",
+    "percussions": "cowbells (percu1), GC (perc.2), cymb fr (perc.3), gong (perc.3 (ut3)), glock (perc.3), bsq\n(perc.1), woodblk (perc.2), whistle (perc.1), mach.à vent (perc.1), xyl (perc.2), bongos (perc.2), congas (perc.3),\nmarac (perc.1), szl cym (perc.2), TT (perc.1), tri (perc.1), vibra (perc.1), fouet (perc.2), cymb sus (perc.2), bsq\n(perc.3), cl.tub. (perc.1), drumset (perc.4), grelots, 2 timb.cub., ocean drum",
     "claviers": "piano+synthétiseur",
     "extra": "saxophone alto, saxophone baryton, saxophone ténor",
     "detail": "Set list :\npour les concerts scolaires :\n-It's the most wonderful time of the year\n-Jingle bells\n-Let it snow\n-Mamacita donde esta santa claus\n-Sleigh ride\n-White Christmas\n-Winter wonderland\n-Bis : Santa claus is coming to town\n-Bis : medley trad. européen",
@@ -2861,9 +2857,6 @@
    ],
    "osr133129": [
     1
-   ],
-   "osr133130": [
-    1
    ]
   },
   "serviceNotes": {
@@ -2871,8 +2864,7 @@
    "osr133123": "visite de classes",
    "osr133124": "demande de répétition privé Amis : déplacer la veille ?",
    "osr133126": "full tech : balance amplification et projection",
-   "osr133129": "OPTION",
-   "osr133130": "OPTION"
+   "osr133129": "OPTION"
   }
  },
  "Doudou Concert 5": {
