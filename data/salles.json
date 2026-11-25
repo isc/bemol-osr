@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-24T16:00:52.957Z",
+ "updatedAt": "2026-11-25T10:00:52.625Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1483,6 +1483,12 @@
    "salle": "Grande salle",
    "activity": "répétitions candidats",
    "liste": "Concours Premier.ère soliste des clarinettes (coordonné)"
+  },
+  {
+   "start": "2026-12-05T17:30",
+   "end": "2026-12-05T19:00",
+   "salle": "Studio P",
+   "activity": "Réservation"
   },
   {
    "start": "2026-12-06T05:30",
