@@ -1,6 +1,16 @@
 {
  "entries": [
   {
+   "at": "2026-11-26T04:46:54.137Z",
+   "type": "memo",
+   "programs": [
+    {
+     "liste": "Liste 04",
+     "status": "removed"
+    }
+   ]
+  },
+  {
    "at": "2026-11-26T00:00:49.487Z",
    "added": [],
    "removed": [

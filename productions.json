@@ -1,47 +1,6 @@
 {
  "_parseur": "366a48a6adba",
  "_lisezmoi": "Ce fichier est GÉNÉRÉ par scripts/update-memo.mjs à partir du « Mémo de Production » du mini-site Dièse (ne pas éditer à la main). Il complète le planning avec les infos absentes de l'export ICS : chef, solistes, œuvres au programme et détail d'instrumentation (abréviations du mémo conservées telles quelles). Une entrée par programme ; la clé est le nom exact du champ « liste » du planning (ex. « Liste 01 », « Musique De Chambre 1 »). Champs, tous optionnels : « chef », « solistes » ([« Nom, rôle »]), « effectif », « duree », « contraires » (le champ « Services annuels & contraires » : ex. « contraire Liste 07 et Liste 09 »), « tenue » (le champ « Tenue » : une ligne « dates : tenue » par groupe de services, ex. « 16.09-19h30 + 18.09-19h30 : chemise noire »), « info » (le texte du champ « Information générale » du mémo, tel quel : séries identiques ou exclusives, etc.), « works » ([{ oeuvre : « Compositeur — Titre », instrumentation, remarques, remarquesCordes, percussions, claviers, extra, detail, note, duree }]), « serviceWorks » ({ uid : [n,...] }, n étant l'index 1-based d'une œuvre dans « works » — les œuvres travaillées à un service précis du planning, d'après le tableau des services du mémo ; absent si le mémo n'en dit rien pour ce service ou si le rapprochement avec le planning est ambigu) et « serviceNotes » ({ uid : texte }, la colonne NOTES du même tableau pour ce service — ex. « extraits », ou les rendez-vous des audiogrammes, un par ligne — quand le mémo en précise une, que le service cite des œuvres ou non). Les clés commençant par « _ » sont ignorées par l'app (« _parseur » : empreinte du script, cf. PARSER_HASH).",
- "Liste 04": {
-  "info": "ENREGISTREMENT DISCOGRAPHIQUE STUDIO en collaboration avec la RTS\n-conseiller artistique et distribution : Jean-Pierre Brossmann\n-label : RTS + PentaTone ou Chandos ou Sony\n-avec extension avant-scène\n-le studio d'enregistrement est installé au foyer des chœurs (foyer du bas). L'orchestre utilise le foyer du public",
-  "contraires": "les Listes 01, 02 et 04 sont contraires à la Liste 03",
-  "chef": "Kent NAGANO",
-  "effectif": "3.3.2.3 / 4.3.3.1 / 1.1.2.0 / 12.12.10.7.5 (72 musiciens)",
-  "duree": "≈ 2 h 50",
-  "works": [
-   {
-    "oeuvre": "Claude DEBUSSY — Pelléas et Mélisande, drame lyrique en 5 actes",
-    "instrumentation": "3*.3*.2.3 / 4.3.3.1 / 1.1.2.0 / 12.12.10.7.5",
-    "remarques": "fl3+picc, 1ca",
-    "percussions": "cymb fr, glock, cloche (sol) (tubul.), tri, cymb sus",
-    "detail": "Acte 5 chiffre 36 : cloche sur le théâtre (le 2ème percu peut être supprimé si la cloche est jouée depuis\nla fosse, éventuellement aussi si la cloche est jouée dans la coulisse)",
-    "note": "-1 seul percu nécéssaire pour un enregistrement studio (orchestre + cloche de coulisse)\n-choeur : 0.8.8.8",
-    "duree": "≈ 2 h 50"
-   }
-  ],
-  "solistes": [
-   "Bernard RICHTER, ténor (Pelléas)",
-   "Jenny DAVIET, soprano (Mélisande)",
-   "Jérôme BOUTILLIER, baryton (Golaud)",
-   "Nicolas TESTÉ, basse (Arkel)",
-   "Lucile RICHARDOT, mezzo-soprano (Geneviève)",
-   "Anne-Blanche TRILLAUD RUGGERI, soprano (Yniold)",
-   "Edwin CROSSLEY-MERCER, basse (Un berger / un médecin)",
-   "Chœur du Grand Théâtre de Genève, chœur",
-   "Mark BIGGINS, chef·fe de choeur"
-  ],
-  "serviceWorks": {
-   "osr132666": [
-    1
-   ],
-   "osr132667": [
-    1
-   ]
-  },
-  "serviceNotes": {
-   "osr132666": "Pelléas - Mélisande",
-   "osr132667": "Pelléas - Mélisande"
-  }
- },
  "Cérémonie d'Accueil des Nouveaux Habitants": {
   "effectif": "0.0.0.0 / 1.0.0.0 / 0.0.0.1 / 1.0.0.0.0 (3 musiciens)",
   "duree": "≈ 11 min",
@@ -1604,7 +1563,7 @@
   "serviceNotes": {
    "osr132946": "-prise de secours caméras+son pour la captation (pour montage éventuel pour les rediffusions après le direct) : générale en tenue -balance de chaque pièce avant de la filer -accueil de 15-20 étudiants + 3-4 professeurs du CMG de Raphaël Abeille en première galerie même si la générale devait être fermée -suivi du pot de retraite B.Moreau et M.Westphal",
    "osr132947": "-podium chœur finalement fermé au public -direct Espace 2 + Mezzo -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal -studio Ozango au P1",
-   "osr132948": "-ouverture au public du podium choeur si nécéssaire -réception après concert Fondation Arditi sur invit avec artistes. en construction. -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal"
+   "osr132948": "-podium choeur finalement ouvert au public -réception après concert Fondation Arditi sur invit avec artistes. en construction. -derniers concerts avant départ en retraite :Bénédicte Moreau et Michel Westphal"
   }
  },
  "Liste 21": {
