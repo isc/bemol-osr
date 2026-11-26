@@ -1,6 +1,42 @@
 {
  "entries": [
   {
+   "at": "2026-11-26T10:00:49.966Z",
+   "added": [],
+   "removed": [],
+   "modified": [
+    {
+     "uid": "osr133006",
+     "fields": [
+      "end",
+      "activity"
+     ],
+     "before": {
+      "uid": "osr133006",
+      "start": "2027-01-27T09:15",
+      "end": "2027-01-27T11:30",
+      "liste": "Liste 24",
+      "activity": "deux concerts scolaires",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "DIP3",
+      "cancelled": false
+     },
+     "after": {
+      "uid": "osr133006",
+      "start": "2027-01-27T09:15",
+      "end": "2027-01-27T10:15",
+      "liste": "Liste 24",
+      "activity": "un concert scolaire",
+      "category": "concert",
+      "location": "Bâtiment des Forces Motrices",
+      "project": "DIP3",
+      "cancelled": false
+     }
+    }
+   ]
+  },
+  {
    "at": "2026-11-26T04:46:54.137Z",
    "type": "memo",
    "programs": [

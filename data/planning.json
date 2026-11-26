@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-26T00:00:49.487Z",
+ "updatedAt": "2026-11-26T10:00:49.966Z",
  "count": 561,
  "events": [
   {
@@ -3096,9 +3096,9 @@
   {
    "uid": "osr133006",
    "start": "2027-01-27T09:15",
-   "end": "2027-01-27T11:30",
+   "end": "2027-01-27T10:15",
    "liste": "Liste 24",
-   "activity": "deux concerts scolaires",
+   "activity": "un concert scolaire",
    "category": "concert",
    "location": "Bâtiment des Forces Motrices",
    "project": "DIP3",
