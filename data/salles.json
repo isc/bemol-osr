@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-26T20:00:48.221Z",
+ "updatedAt": "2026-11-27T10:00:50.915Z",
  "from": "2026-08-10",
  "to": "2027-08-01",
  "salles": [
@@ -1703,6 +1703,13 @@
    "end": "2027-01-22T17:00",
    "salle": "Grande salle",
    "activity": "répétition",
+   "liste": "Liste 24"
+  },
+  {
+   "start": "2027-01-22T17:00",
+   "end": "2027-01-22T19:00",
+   "salle": "Grande salle",
+   "activity": "Accords PS",
    "liste": "Liste 24"
   },
   {
